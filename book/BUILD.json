@@ -1,12 +1,12 @@
 {
   "book": "RiverFlow RF\u00b2: Ideas into checked computation",
-  "edition": "First edition, revised package0.6",
-  "sourceWords": 9308,
-  "sections": 23,
+  "edition": "First edition, revised package 0.7",
+  "sourceWords": 10295,
+  "sections": 24,
   "pdf": "output/pdf/RiverFlow-First-Edition.pdf",
-  "pdfSHA256": "6e387d70370ce08d00f148991c9510fa593fe35181a790d9e6bcaecbf29d7938",
+  "pdfSHA256": "8d7c2bbd231f21c55b7f52a5e40d81e3fec45354f7d3e81020cae47aaf08b6c0",
   "epub": "output/epub/RiverFlow-First-Edition.epub",
-  "epubSHA256": "2c55b707a3395d2ff81be75b368f17fa76fced7dd93916cfbcc29eb9a85a0f05",
+  "epubSHA256": "002102436be091396409462a3a1c01dbb95e333ceb5a8c6139e718950b84489e",
   "epubXmlWellFormed": true,
   "limits": "XML/ZIP integrity checks are not a full EPUBCheck certification. PDF requires separate visual inspection."
 }

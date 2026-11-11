@@ -57,3 +57,7 @@ The local recovered FLOW_ARCHITECTURE.md describes FLOW plans, service libraries
 ## Implemented service checkpoint in 0.6
 
 General Core helpers run in the native runtime and can be lowered/compiled to ARM64. attendance.local@1 uses a generated Core kernel for counts, validates record/date/duplicate rules, and exports CSV. Its MCP interface accepts supplied records and returns data only; filesystem output is an explicit CLI action. No teacher authorization system, classroom UI, unrestricted intent planner, model inference or token-saving result is claimed. See capabilities/attendance.local.v1/ and the native verification reports.
+
+## Executed plan checkpoint, 0.7
+
+The separate RF2_APP_V1 grammar now implements one concrete plan: `rf2 app v1 invoice total currency MYR tax 600 bps`. It selects invoice.total@1 and requires explicit lines. This does not implement the broader proposed role, editing or arbitrary service syntax above. Actual latency and encoded interface counts are in CAPABILITY-MEASUREMENTS.md; repeated plans did not beat direct configuration on token count.

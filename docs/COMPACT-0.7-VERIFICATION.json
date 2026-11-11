@@ -1,0 +1,30 @@
+{
+  "schema": "rf2.standalone.verification.v1",
+  "target": "macos-arm64",
+  "speedClaim": null,
+  "differentialCases": 1016,
+  "independentCases": 1016,
+  "negativeCases": 42,
+  "parserMutations": 250,
+  "maxInputWords": 65536,
+  "tests": [
+    "Eight compact operations/modes expand to checked Core; native result, event counts and overflow agree with JS and independent integer arithmetic",
+    "Malformed JSON, duplicate/escaped keys, UTF-8, surrogate pairs, size/depth/data bounds, numeric forms, 250 seeded mutations and request recovery exercised",
+    "Native CLI runs with PATH=/nonexistent"
+  ],
+  "runtimeVersion": "0.7.0",
+  "systemsCompiler": "Native compiler self-reproduction is qualified in a separate report",
+  "sourceFiles": {
+    "native/rf2.rf2": "62fa0f6db1c80fd381727cdfca67cecd684d7e578215a5fe901d2dc54200da9f",
+    "native/core.rf2": "a9c9fb00d40bec2afb2e7af70073f04e071b3716e447394bf519cfbb80350b78",
+    "native/attendance.rf2": "721252c4710bd0264c9e8115be6d7c5e838c459473474ce99d45ca6de97b3453",
+    "native/attendance-kernel.rf2": "ad3ed7e00c0120411878e405fa5841634955d854353c24f4b2c9aebb31e55e55",
+    "native/fingerprint.rf2": "618f8f6cf7277132829c303319482aa762c53201fa88c9096d80f2d6feb6b9b3",
+    "native/invoice.rf2": "7fdc6b900f6038cb8da6329c2fefecb2f572e6d547663e4fd5d9428528b7f1a0",
+    "native/invoice-kernel.rf2": "0e0778112e99d2678159aa1ee856a4ffcb92d964cdc9e27ef921de460b90aa09"
+  },
+  "executableSHA256": "19f93246672672d537bd4a53c5e29f5528ae671ffa33ebaaaafb6a34ecab4d64",
+  "sourceSHA256": "62fa0f6db1c80fd381727cdfca67cecd684d7e578215a5fe901d2dc54200da9f",
+  "bootstrapSHA256": "781d28001f2bd32c0ccafb247df9a41d9a3abd57804982ba8a1ed61d71f474ea",
+  "passed": true
+}

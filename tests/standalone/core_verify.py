@@ -73,4 +73,4 @@ compare(simple('LOAD','array: data, index: 1'),[5,7],1)
 compare(S,[1,2,3]);compare(S,[4294967295,1]);compare(S,[7])
 for i in range(180):
  pos=rng.randrange(len(S));changed=S[:pos]+rng.choice([' ','X',':',',','\n','0'])+S[pos+1:];check(changed);report['seededMutations']+=1
-report['uniqueSourcePrograms']=len(set(sources));peer.close();oracle.close();report.update(passed=True,executableSHA256=hashlib.sha256(B.read_bytes()).hexdigest());(R/'docs/GENERAL-CORE-VERIFICATION.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
+report['uniqueSourcePrograms']=len(set(sources));peer.close();oracle.close();report.update(passed=True,executableSHA256=hashlib.sha256(B.read_bytes()).hexdigest());Path(os.environ.get('RF2_TEST_REPORT',str(R/'docs/GENERAL-CORE-VERIFICATION.json'))).write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

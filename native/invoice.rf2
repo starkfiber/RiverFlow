@@ -1,0 +1,237 @@
+# RF2_APP_V1: fixed versioned capability plans. No arbitrary effects or code evaluation.
+fn ivnext(p, n)
+ let i = load64(buffer("invoice_state", 80))
+ let start = 0
+ let c = 0
+ let done = 0
+ while (i < n) & (done == 0)
+  set c = load8(p + i)
+  if (c == 32) | (c == 9) | (c == 10) | (c == 13)
+   set i = i + 1
+  else
+   set done = 1
+  end
+ end
+ set start = i
+ set done = 0
+ while (i < n) & (done == 0)
+  set c = load8(p + i)
+  if (c == 32) | (c == 9) | (c == 10) | (c == 13)
+   set done = 1
+  else
+   set i = i + 1
+  end
+ end
+ do store64(buffer("invoice_state", 80), i)
+ do store64(buffer("invoice_state", 80) + 8, p + start)
+ do store64(buffer("invoice_state", 80) + 16, i - start)
+ return i - start
+end
+fn ivexpect(p, n, word)
+ let size = ivnext(p, n)
+ let start = load64(buffer("invoice_state", 80) + 8)
+ let i = 0
+ if size != slen(word)
+  return fail(30)
+ end
+ while i < size
+  if load8(start + i) != load8(word + i)
+   return fail(30)
+  end
+  set i = i + 1
+ end
+ return 1
+end
+fn ivplan(p, n)
+ let i = 0
+ let w = 0
+ let size = 0
+ let rate = 0
+ do store64(buffer("invoice_state", 80), 0)
+ do store64(buffer("invoice_state", 80) + 24, 0)
+ if (n == 0) | (n > 256)
+  return fail(30)
+ end
+ do ivexpect(p, n, "rf2")
+ do ivexpect(p, n, "app")
+ do ivexpect(p, n, "v1")
+ do ivexpect(p, n, "invoice")
+ do ivexpect(p, n, "total")
+ do ivexpect(p, n, "currency")
+ do ivnext(p, n)
+ set w = load64(buffer("invoice_state", 80) + 8)
+ if load64(buffer("invoice_state", 80) + 16) != 3
+  return fail(30)
+ end
+ while i < 3
+  if (load8(w + i) < 65) | (load8(w + i) > 90)
+   return fail(30)
+  end
+  do store8(buffer("invoice_currency", 4) + i, load8(w + i))
+  set i = i + 1
+ end
+ do store8(buffer("invoice_currency", 4) + 3, 0)
+ do ivexpect(p, n, "tax")
+ do ivnext(p, n)
+ set w = load64(buffer("invoice_state", 80) + 8)
+ set size = load64(buffer("invoice_state", 80) + 16)
+ if (size == 0) | (size > 5)
+  return fail(30)
+ end
+ if (size > 1) & (load8(w) == 48)
+  return fail(30)
+ end
+ set i = 0
+ while i < size
+  if digit(load8(w + i)) == 0
+   return fail(30)
+  end
+  set rate = rate * 10 + load8(w + i) - 48
+  set i = i + 1
+ end
+ if rate > 10000
+  return fail(30)
+ end
+ do store64(buffer("invoice_state", 80) + 24, rate)
+ do ivexpect(p, n, "bps")
+ if ivnext(p, n) != 0
+  return fail(30)
+ end
+ return load64(state()) == 0
+end
+fn ivbuild(lines)
+ let row = lines + 1
+ let until = load64(token(lines) + 24)
+ let key = 0
+ let fields = 0
+ let quantity = 0
+ let price = 0
+ let count = 0
+ let subtotal = 0
+ let tax = 0
+ let total = 0
+ let data = buffer("invoice_words", 8000)
+ if load64(token(lines)) != 3
+  return fail(31)
+ end
+ while row < until
+  if (count >= 1000) | (load64(token(row)) != 2)
+   return fail(31)
+  end
+  set key = row + 1
+  set fields = 0
+  while key < load64(token(row) + 24)
+   if matches(token(key), "quantity") == 0
+    if matches(token(key), "unit_cents") == 0
+     return fail(31)
+    end
+   end
+   set fields = fields + 1
+   set key = load64(token(key + 1) + 24)
+  end
+  if fields != 2
+   return fail(31)
+  end
+  set quantity = number_u32(token(field(row, "quantity")))
+  set price = number_u32(token(field(row, "unit_cents")))
+  if (load64(state()) != 0) | (quantity == 0)
+   return fail(31)
+  end
+  do store32(data + count * 8, quantity)
+  do store32(data + count * 8 + 4, price)
+  set count = count + 1
+  set row = load64(token(row) + 24)
+ end
+ set subtotal = ivg_entry(data, count * 2, count)
+ if load64(ivg_state()) != 0
+  return fail(32)
+ end
+ # Invoice-level half-up rounding. u32 subtotal * 10000 fits in u64.
+ set tax = (subtotal * load64(buffer("invoice_state", 80) + 24) + 5000) // 10000
+ set total = subtotal + tax
+ if total > 4294967295
+  return fail(32)
+ end
+ do store64(buffer("invoice_state", 80) + 32, count)
+ do store64(buffer("invoice_state", 80) + 40, subtotal)
+ do store64(buffer("invoice_state", 80) + 48, tax)
+ do store64(buffer("invoice_state", 80) + 56, total)
+ return 1
+end
+fn ivrender()
+ do say("{\"capability\":\"invoice.total@1\",\"currency\":\"")
+ do say(buffer("invoice_currency", 4))
+ do say("\",\"lineCount\":")
+ do decimal(load64(buffer("invoice_state", 80) + 32))
+ do say(",\"subtotalCents\":")
+ do decimal(load64(buffer("invoice_state", 80) + 40))
+ do say(",\"taxBps\":")
+ do decimal(load64(buffer("invoice_state", 80) + 24))
+ do say(",\"taxCents\":")
+ do decimal(load64(buffer("invoice_state", 80) + 48))
+ do say(",\"totalCents\":")
+ do decimal(load64(buffer("invoice_state", 80) + 56))
+ return say("}")
+end
+fn ivtool(id, args)
+ let key = args + 1
+ let plan = field(args, "plan")
+ let lines = field(args, "lines")
+ let fields = 0
+ if (args == 0) | (load64(token(args)) != 2) | (plan == 0) | (lines == 0)
+  return rpc_error(id, 32602, "Expected plan and lines")
+ end
+ while key < load64(token(args) + 24)
+  if matches(token(key), "plan") == 0
+   if matches(token(key), "lines") == 0
+    return rpc_error(id, 32602, "Only plan and lines accepted; no filesystem access")
+   end
+  end
+  set fields = fields + 1
+  set key = load64(token(key + 1) + 24)
+ end
+ if (fields != 2) | (load64(token(plan)) != 1)
+  return rpc_error(id, 32602, "Expected text plan and lines")
+ end
+ do ivplan(load64(token(plan) + 32), load64(token(plan) + 40))
+ if load64(state()) == 0
+  do ivbuild(lines)
+ end
+ if load64(state()) != 0
+  return tool_error(id)
+ end
+ do rpc_start(id)
+ do say(",\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Checked invoice total\"}],\"structuredContent\":")
+ do ivrender()
+ return say("}}\n")
+end
+fn ivfile(path)
+ let fd = open(path, 0, 0)
+ let b = buffer("invoice_file", 1048577)
+ let n = 0
+ let r = 0
+ if fd >= 9223372036854775808
+  return fail(33)
+ end
+ while n < 1048577
+  set r = read(fd, b + n, 1048577 - n)
+  if r >= 9223372036854775808
+   do close(fd)
+   return fail(33)
+  end
+  if r == 0
+   do close(fd)
+   if n > 1048576
+    return fail(31)
+   end
+   do json_parse(b, n)
+   if load64(state()) == 0
+    do ivbuild(0)
+   end
+   return load64(state()) == 0
+  end
+  set n = n + r
+ end
+ do close(fd)
+ return fail(31)
+end

@@ -1,72 +1,84 @@
-<p align="center"><img src="site/assets/riverflow-mark.png" width="130" alt="RiverFlow glass river mark"></p>
-<h1 align="center">RF² · RiverFlow</h1>
-<p align="center">Readable intent. Checked computation. Explicit effects.</p>
+# RF² RiverFlow
 
-![RiverFlow conceptual landscape](site/assets/riverflow-hero.png)
+**Readable plans. Checked computation. Native tools.**
 
-By **Ilangkhumanan Thirunavokkarasu**, independently published by **Stark Fiber Enterprise**.
+Created by **Ilangkhumanan Thirunavokkarasu**. Published by **SFE**.
 
-RiverFlow 0.6 runs general Core programs and scalar helpers natively, lowers checked programs into per-program ARM64 executables, and includes one working application capability: a validated attendance CSV exporter. **No Node, npm, Python or C++ runtime is required by users.** The compiler and runtime are written in RiverFlow systems source. A connected AI host can use the native MCP tools; no model is embedded in the executable.
+![RiverFlow](site/assets/riverflow-hero.png)
 
-[Download0.6](https://github.com/starkfiber/RiverFlow/releases/tag/v0.6.0) · [Read the book](https://starkfiber.github.io/RiverFlow/book/) · [Core and native execution](docs/NATIVE-CORE.md) · [Exact standalone boundary](docs/STANDALONE.md)
+RiverFlow 0.7 runs Core programs and reusable helpers, builds per-program ARM64 executables, and provides attendance export and invoice totals through native MCP. The compiler, runtime and application adapters are written in RiverFlow. **Users need no Node, npm, Python or C++ runtime.** The AI host supplies intelligence; the executable does not contain a model.
 
-## Quick start
+[Download 0.7](https://github.com/starkfiber/RiverFlow/releases/tag/v0.7.0) · [Read the book](https://starkfiber.github.io/RiverFlow/book/) · [Specification](docs/SPEC.md) · [Measured results](docs/CAPABILITY-MEASUREMENTS.md)
 
-The download targets Apple Silicon Mac and includes both executables, sources and build scripts. Actual qualification is on the recorded local Mac. The encoded minimum is macOS 14; binaries are ad-hoc signed, not notarized.
+## Start with a real operation
 
-```sh
-./rf2 check examples/sum.flow
-./rf2 run examples/sum.flow '[1,2,3,4,5]'
-# value 15, work events18
-./rf2 run book/examples/example-4.flow '[2,3,4]'
-# scalar helper example: value29
+This is a complete versioned application plan:
+
+```rf2
+rf2 app v1
+invoice total
+currency MYR
+tax 600 bps
 ```
 
-For a compact reduction:
+With the downloaded Apple Silicon Mac package:
 
-```text
+```sh
+./rf2 app capabilities/invoice.total.v1/quote.rf2 \
+  capabilities/invoice.total.v1/test-lines.json
+```
+
+The supplied programming fixture returns subtotal 2899 cents, tax 174 cents and total 3073 cents. The rate is an explicit input, not tax advice. Line multiplication and subtotal run through a compiled Core helper/loop. Invoice-level rounding and checked bounds are specified, not guessed. [Input rules, effects and limitations](capabilities/invoice.total.v1/README.md).
+
+For attendance CSV export:
+
+```sh
+./rf2 attendance capabilities/attendance.local.v1/test-records.json new-register.csv
+```
+
+Only an explicit new output file can be created. Existing files and symlinks are refused. Included TEST identifiers are programming fixtures, not participant data. [Attendance contract](capabilities/attendance.local.v1/README.md).
+
+## Compute and compile
+
+A complete compact computation:
+
+```rf2
 rf2 v1 checked
 sum input
 ```
 
 ```sh
 ./rf2 run examples/compact/sum.rf2 '[1,2,3]'
+./rf2 check book/examples/example-4.flow
+./rf2 run book/examples/example-4.flow '[2,3,4]'
+./tools/build-core.sh ./rf2 ./rf2c book/examples/example-4.flow squares-build
+./squares-build/program '[2,3,4]'
 ```
 
-Checked/wrap u32 arithmetic, named scalar helper calls, forward calls and bounded main loops follow the frozen Core contract. All functions are validated, including unused ones. Unknown effects, recursion, wrong types, scope leaks and exceeded limits reject.
+The helper example returns 29. `run` checks source and executes bounded IR in the native runtime. The explicit build route lowers checked Core to RiverFlow systems functions and compiles an ARM64 executable. These are distinct paths. Core permits only supplied input reads, checked/wrapping u32 operations, bounded loops and acyclic scalar helpers. Trusted systems source has a separate profile and authority. [Native Core boundary](docs/NATIVE-CORE.md).
 
-## Per-program native compilation
+## Connect MCP
 
 ```sh
-./tools/build-core.sh ./rf2 ./rf2c examples/sum.flow sum-build
-./sum-build/program '[1,2,3]'
+./rf2 mcp
 ```
 
-`rf2 run` executes checked IR in the native runtime. The build script instead lowers Core to RiverFlow systems functions, compiles them with native `rf2c`, and explicitly applies macOS signing. The resulting kernel executes per-program ARM64 code. Source generation and execution are separate steps; the MCP lowering tool returns source only.
+The native server exposes six tools: `rf2_status`, `rf2_check`, `rf2_run`, `rf2_lower`, `attendance_export`, `invoice_total`. Application tools return data without filesystem access. Lower returns source without compiling or writing it. The Codex plugin launches the installed native executable; it never falls back to Node or silently downloads/builds software. [Plugin skill](plugin/skills/rf2/SKILL.md).
 
-[How it works and what was tested](docs/NATIVE-CORE.md)
+## Evidence before claims
 
-## A real application capability
+- Invoice: 630 successful comparisons, 108 comparisons with 0.6 Core, 39 refusals, 200 seeded plan mutations and five CLI cases. [Receipt](docs/INVOICE-VERIFICATION.json).
+- Core: 1095 execution comparisons and 317 admission checks. [Receipt](docs/GENERAL-CORE-0.7-VERIFICATION.json).
+- Direct kernels: 18 builds and 163 executed cases. [Receipt](docs/DIRECT-KERNEL-0.7-VERIFICATION.json).
+- Compact: 1016 compatibility comparisons, input guards and transport mutations. [Receipt](docs/COMPACT-0.7-VERIFICATION.json).
+- Attendance: 34 successful exports/calendar cases, 45 refusals and three file-protection checks. [Receipt](docs/ATTENDANCE-0.7-VERIFICATION.json).
+- Compiler: native fixed point, independently expected results and full runtime byte comparison with the historical encoder. [Receipt](docs/NATIVE-COMPILER-0.7-VERIFICATION.json).
 
-```sh
-./rf2 attendance capabilities/attendance.local.v1/test-records.json register.csv
-```
+Measurements are mixed. The invoice operation beats a JavaScript comparator on one-line requests and loses on larger inputs. The 19-token plan costs more than direct configuration when repeated across the measured 20 tool calls. Raw timings and exact encoded fixtures are published. **No general speed, energy or AI-task token-saving claim is established.** [Method and results](docs/CAPABILITY-MEASUREMENTS.md).
 
-`attendance.local@1` validates student IDs, Gregorian dates and present/absent/late states, rejects duplicate student/date records, and exports CSV with counts and a byte fingerprint. The included TEST records are programming fixtures, not field observations. The counts come from a compiled Core helper/loop program.
+Current native qualification is Apple Silicon macOS. There is no independent security audit, universal platform support, field outcome or model council approval. The retained JavaScript/C reference, Python bootstrap/tests and publishing tools are developer dependencies, not user runtime requirements. Naming research projects does not establish hardware integration or scientific novelty.
 
-A CLI output path is an explicit file-write request; existing files and symlinks are refused. Over MCP, `attendance_export` returns CSV text and accepts no filesystem path. [Input rules, implementation and tests](capabilities/attendance.local.v1/README.md).
-
-## Native MCP and Codex
-
-```sh
-codex mcp add rf2 -- /absolute/path/to/rf2 mcp
-```
-
-Five tools: `rf2_status`, `rf2_check`, `rf2_run`, `rf2_lower`, `attendance_export`.
-
-The plugin launcher selects RF2_BIN or output/bin/rf2, without Node fallback or automatic builds. The client supplies AI intelligence. Read the advertised boundary before calling tools; no machine-source execution, arbitrary file access or network tool is exposed. Configure one registration route per client.
-
-## RiverFlow builds RiverFlow
+## Rebuild and improve
 
 ```sh
 ./rf2c native/compiler/compiler.rf2 next-rf2c
@@ -74,26 +86,16 @@ The plugin launcher selects RF2_BIN or output/bin/rf2, without Node fallback or 
 ./tools/build-runtime.sh ./next-rf2c next-runtime
 ```
 
-The native systems compiler reproduces its unsigned image across three native generations and matches the historical encoder. It builds the complete 0.6 runtime without Python, C/C++, an assembler or a linker. OS signing remains explicit. The Python seed is retained for initial bootstrap and development comparison. [Self-hosting scope and limitations](docs/NATIVE-COMPILER.md).
+The build composes seven RiverFlow runtime modules. It invokes no Python, Node, C/C++ compiler, assembler or linker. macOS signing and platform interfaces remain external dependencies. The current systems compiler admits at most 128 functions, and this runtime reaches that limit; widening it needs compiler boundary tests, not silent truncation. [Build scope](docs/NATIVE-COMPILER.md).
 
-## Evidence
+The revised book has 19 numbered chapters, worked examples, application contracts, failures and measurements. Original code and text use the MIT licence. Referenced projects and dependencies retain their own licences.
 
-- [General Core](docs/GENERAL-CORE-VERIFICATION.json):109 program entries,317 admission checks,1,095 executions, including 180 seeded source mutations.
-- [Direct kernels](docs/DIRECT-KERNEL-VERIFICATION.json):18 build cases and163 actual executable runs.
-- [Application](docs/ATTENDANCE-VERIFICATION.json):CSV round trips, count/calendar checks, refusals and file protection.
-- [Compact compatibility](docs/COMPACT-0.6-VERIFICATION.json):the retained 1,016 comparison corpus and transport/input guards.
-- [Compiler](docs/NATIVE-COMPILER-0.6-VERIFICATION.json):fixed point and complete runtime image comparison.
+## Why the GitHub language bar looks different
 
-These are executed local checks, not independent security certification, proof of every program, workplace/school findings or performance superiority. **No speed, energy or token-saving ratio is claimed.** The historical JavaScript server/playground and C backend remain explicit reference-development paths. Their tools and benchmark results do not automatically qualify native 0.6.
+GitHub uses Linguist's supported-language list, which does not yet include RiverFlow. Generated book HTML and generated kernels are marked accurately in `.gitattributes`. We do not relabel RiverFlow as another language or hide the reference tools. This project-owned inventory counts RiverFlow source explicitly, alongside development and website code. [Method and file list](docs/SOURCE-INVENTORY.json) · [GitHub language documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-repository-languages).
 
-## The book and research
+![Source inventory](docs/SOURCE-INVENTORY.svg)
 
-**RiverFlow RF²: Ideas into checked computation** documents the syntax, compiler, native Core path, application contract and retained failures. [Book downloads](https://github.com/starkfiber/RiverFlow/releases/tag/v0.6.0).
+## Research direction
 
-Kernel8/9, Developmental AI, Tamil Time Continuum, VOIKE and RU'OS motivate research questions. Naming them does not establish working hardware integration or scientific novelty. The compact application-intent syntax remains a separate design proposal; use the implemented schemas rather than inventing a working operation.
-
-| Checked language | Research tributaries | Human possibility |
-| --- | --- | --- |
-| ![Language](site/assets/riverflow-language.png) | ![Research](site/assets/riverflow-research.png) | ![Future](site/assets/riverflow-future.png) |
-
-MIT applies to original code and documentation. Concept artwork provenance is recorded in docs/ARTWORK.json. Dependencies retain their licences. AI assisted development and concept artwork are disclosed. Contribute reproducible programs, counterexamples and matched experiments.
+Kernel 8/9, Developmental AI, Tamil Time Continuum, VOIKE, RU'OS and the human-AI workplace study motivate testable questions. Their names are not implementation evidence. Next: profile large invoice inputs, independently review the compiler/parser, qualify more targets and measure complete AI tasks with real usage receipts. Keep each claim linked to its actual source, test and limitation.

@@ -1,0 +1,2160 @@
+{
+  "schema": "rf2.capability.measurement.v1",
+  "runtimeSHA256": "19f93246672672d537bd4a53c5e29f5528ae671ffa33ebaaaafb6a34ecab4d64",
+  "baseline06SHA256": "da6d2f58c9e7fd3093457217fc8b749650b5955926a90deb640a8298d4029f20",
+  "nodeVersion": "v22.23.3",
+  "host": {
+    "os": "macOS-26.5.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "model": "Mac17,3"
+  },
+  "measuredUTC": "2026-11-11T23:52:09.870690+00:00",
+  "clock": "time.perf_counter_ns",
+  "scope": "Persistent JSON-lines request roundtrip, includes controller JSON encoding/decoding, IPC, validation, calculation and response. Process launch, schema discovery and compilation excluded. One host, not CPU-kernel or energy measurements.",
+  "freshPairs": 3,
+  "trialsPerPair": 7,
+  "warmups": 5,
+  "raw": [
+    {
+      "pair": 0,
+      "trial": 0,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 19.5525
+    },
+    {
+      "pair": 0,
+      "trial": 0,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 40.19832
+    },
+    {
+      "pair": 0,
+      "trial": 0,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 75.3775
+    },
+    {
+      "pair": 0,
+      "trial": 0,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 73.89
+    },
+    {
+      "pair": 0,
+      "trial": 1,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 28.46584
+    },
+    {
+      "pair": 0,
+      "trial": 1,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 78.8875
+    },
+    {
+      "pair": 0,
+      "trial": 1,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 69.26084
+    },
+    {
+      "pair": 0,
+      "trial": 1,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 18.9625
+    },
+    {
+      "pair": 0,
+      "trial": 2,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 69.71584
+    },
+    {
+      "pair": 0,
+      "trial": 2,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 67.69332
+    },
+    {
+      "pair": 0,
+      "trial": 2,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 18.13168
+    },
+    {
+      "pair": 0,
+      "trial": 2,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 31.68584
+    },
+    {
+      "pair": 0,
+      "trial": 3,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 67.5875
+    },
+    {
+      "pair": 0,
+      "trial": 3,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 18.19416
+    },
+    {
+      "pair": 0,
+      "trial": 3,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 23.15582
+    },
+    {
+      "pair": 0,
+      "trial": 3,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 67.78334
+    },
+    {
+      "pair": 0,
+      "trial": 4,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 19.15584
+    },
+    {
+      "pair": 0,
+      "trial": 4,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 27.60332
+    },
+    {
+      "pair": 0,
+      "trial": 4,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 70.07916
+    },
+    {
+      "pair": 0,
+      "trial": 4,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 67.6725
+    },
+    {
+      "pair": 0,
+      "trial": 5,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 28.04332
+    },
+    {
+      "pair": 0,
+      "trial": 5,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 67.9325
+    },
+    {
+      "pair": 0,
+      "trial": 5,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 68.06832
+    },
+    {
+      "pair": 0,
+      "trial": 5,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 20.73918
+    },
+    {
+      "pair": 0,
+      "trial": 6,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 67.7
+    },
+    {
+      "pair": 0,
+      "trial": 6,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 68.165
+    },
+    {
+      "pair": 0,
+      "trial": 6,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 18.60166
+    },
+    {
+      "pair": 0,
+      "trial": 6,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 24.4575
+    },
+    {
+      "pair": 0,
+      "trial": 0,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 57.20334
+    },
+    {
+      "pair": 0,
+      "trial": 0,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 31.805
+    },
+    {
+      "pair": 0,
+      "trial": 0,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 86.54332000000001
+    },
+    {
+      "pair": 0,
+      "trial": 0,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 83.27666
+    },
+    {
+      "pair": 0,
+      "trial": 1,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 34.198339999999995
+    },
+    {
+      "pair": 0,
+      "trial": 1,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 83.60334
+    },
+    {
+      "pair": 0,
+      "trial": 1,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 85.4125
+    },
+    {
+      "pair": 0,
+      "trial": 1,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 56.261660000000006
+    },
+    {
+      "pair": 0,
+      "trial": 2,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 83.47582000000001
+    },
+    {
+      "pair": 0,
+      "trial": 2,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 83.77166
+    },
+    {
+      "pair": 0,
+      "trial": 2,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 57.220839999999995
+    },
+    {
+      "pair": 0,
+      "trial": 2,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 35.6975
+    },
+    {
+      "pair": 0,
+      "trial": 3,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 85.09834
+    },
+    {
+      "pair": 0,
+      "trial": 3,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 57.49332
+    },
+    {
+      "pair": 0,
+      "trial": 3,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 35.7275
+    },
+    {
+      "pair": 0,
+      "trial": 3,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 86.405
+    },
+    {
+      "pair": 0,
+      "trial": 4,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 58.11832
+    },
+    {
+      "pair": 0,
+      "trial": 4,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 33.7975
+    },
+    {
+      "pair": 0,
+      "trial": 4,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 84.39916000000001
+    },
+    {
+      "pair": 0,
+      "trial": 4,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 83.48666
+    },
+    {
+      "pair": 0,
+      "trial": 5,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 27.74918
+    },
+    {
+      "pair": 0,
+      "trial": 5,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 83.4625
+    },
+    {
+      "pair": 0,
+      "trial": 5,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 84.13166
+    },
+    {
+      "pair": 0,
+      "trial": 5,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 56.43332
+    },
+    {
+      "pair": 0,
+      "trial": 6,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 83.66333999999999
+    },
+    {
+      "pair": 0,
+      "trial": 6,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 83.27666
+    },
+    {
+      "pair": 0,
+      "trial": 6,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 59.201660000000004
+    },
+    {
+      "pair": 0,
+      "trial": 6,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 27.9725
+    },
+    {
+      "pair": 0,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1176.3542
+    },
+    {
+      "pair": 0,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 303.63340000000005
+    },
+    {
+      "pair": 0,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 575.3041
+    },
+    {
+      "pair": 0,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 571.0541999999999
+    },
+    {
+      "pair": 0,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 299.7625
+    },
+    {
+      "pair": 0,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 585.2583000000001
+    },
+    {
+      "pair": 0,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 578.8958
+    },
+    {
+      "pair": 0,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1221.1958
+    },
+    {
+      "pair": 0,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 579.0
+    },
+    {
+      "pair": 0,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 572.375
+    },
+    {
+      "pair": 0,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1190.6
+    },
+    {
+      "pair": 0,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 303.95
+    },
+    {
+      "pair": 0,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 580.3166
+    },
+    {
+      "pair": 0,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1186.6958
+    },
+    {
+      "pair": 0,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 286.6667
+    },
+    {
+      "pair": 0,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 607.1166999999999
+    },
+    {
+      "pair": 0,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1192.025
+    },
+    {
+      "pair": 0,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 282.3625
+    },
+    {
+      "pair": 0,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 581.3208000000001
+    },
+    {
+      "pair": 0,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 575.5375
+    },
+    {
+      "pair": 0,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 292.57090000000005
+    },
+    {
+      "pair": 0,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 601.7125
+    },
+    {
+      "pair": 0,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 594.15
+    },
+    {
+      "pair": 0,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1185.4333000000001
+    },
+    {
+      "pair": 0,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 578.1166999999999
+    },
+    {
+      "pair": 0,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 711.5166999999999
+    },
+    {
+      "pair": 0,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1248.9791
+    },
+    {
+      "pair": 0,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 307.1542
+    },
+    {
+      "pair": 1,
+      "trial": 0,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 18.64416
+    },
+    {
+      "pair": 1,
+      "trial": 0,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 35.944160000000004
+    },
+    {
+      "pair": 1,
+      "trial": 0,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 67.6375
+    },
+    {
+      "pair": 1,
+      "trial": 0,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 69.405
+    },
+    {
+      "pair": 1,
+      "trial": 1,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 26.73166
+    },
+    {
+      "pair": 1,
+      "trial": 1,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 67.98584
+    },
+    {
+      "pair": 1,
+      "trial": 1,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 68.10666
+    },
+    {
+      "pair": 1,
+      "trial": 1,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 19.09668
+    },
+    {
+      "pair": 1,
+      "trial": 2,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 69.17584
+    },
+    {
+      "pair": 1,
+      "trial": 2,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 67.54418
+    },
+    {
+      "pair": 1,
+      "trial": 2,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 17.85666
+    },
+    {
+      "pair": 1,
+      "trial": 2,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 29.2825
+    },
+    {
+      "pair": 1,
+      "trial": 3,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 67.785
+    },
+    {
+      "pair": 1,
+      "trial": 3,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 17.68916
+    },
+    {
+      "pair": 1,
+      "trial": 3,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 23.18
+    },
+    {
+      "pair": 1,
+      "trial": 3,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 67.89416
+    },
+    {
+      "pair": 1,
+      "trial": 4,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 18.53166
+    },
+    {
+      "pair": 1,
+      "trial": 4,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 25.53918
+    },
+    {
+      "pair": 1,
+      "trial": 4,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 68.38166
+    },
+    {
+      "pair": 1,
+      "trial": 4,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 68.675
+    },
+    {
+      "pair": 1,
+      "trial": 5,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 27.23834
+    },
+    {
+      "pair": 1,
+      "trial": 5,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 68.2725
+    },
+    {
+      "pair": 1,
+      "trial": 5,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 67.28916000000001
+    },
+    {
+      "pair": 1,
+      "trial": 5,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 19.47166
+    },
+    {
+      "pair": 1,
+      "trial": 6,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 68.61334
+    },
+    {
+      "pair": 1,
+      "trial": 6,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 74.25666
+    },
+    {
+      "pair": 1,
+      "trial": 6,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 19.60084
+    },
+    {
+      "pair": 1,
+      "trial": 6,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 25.22334
+    },
+    {
+      "pair": 1,
+      "trial": 0,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 56.315
+    },
+    {
+      "pair": 1,
+      "trial": 0,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 31.2825
+    },
+    {
+      "pair": 1,
+      "trial": 0,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 84.51917999999999
+    },
+    {
+      "pair": 1,
+      "trial": 0,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 83.96418
+    },
+    {
+      "pair": 1,
+      "trial": 1,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 33.61916
+    },
+    {
+      "pair": 1,
+      "trial": 1,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 84.25666
+    },
+    {
+      "pair": 1,
+      "trial": 1,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 83.09834
+    },
+    {
+      "pair": 1,
+      "trial": 1,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 56.661660000000005
+    },
+    {
+      "pair": 1,
+      "trial": 2,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 85.755
+    },
+    {
+      "pair": 1,
+      "trial": 2,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 82.8825
+    },
+    {
+      "pair": 1,
+      "trial": 2,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 57.51916000000001
+    },
+    {
+      "pair": 1,
+      "trial": 2,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 30.83584
+    },
+    {
+      "pair": 1,
+      "trial": 3,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 83.72667999999999
+    },
+    {
+      "pair": 1,
+      "trial": 3,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 57.631660000000004
+    },
+    {
+      "pair": 1,
+      "trial": 3,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 35.71834
+    },
+    {
+      "pair": 1,
+      "trial": 3,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 87.11834
+    },
+    {
+      "pair": 1,
+      "trial": 4,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 57.33082
+    },
+    {
+      "pair": 1,
+      "trial": 4,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 31.22082
+    },
+    {
+      "pair": 1,
+      "trial": 4,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 83.36666000000001
+    },
+    {
+      "pair": 1,
+      "trial": 4,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 88.61166
+    },
+    {
+      "pair": 1,
+      "trial": 5,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 28.88334
+    },
+    {
+      "pair": 1,
+      "trial": 5,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 83.82166000000001
+    },
+    {
+      "pair": 1,
+      "trial": 5,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 83.48
+    },
+    {
+      "pair": 1,
+      "trial": 5,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 60.695
+    },
+    {
+      "pair": 1,
+      "trial": 6,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 84.2875
+    },
+    {
+      "pair": 1,
+      "trial": 6,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 83.5125
+    },
+    {
+      "pair": 1,
+      "trial": 6,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 56.48666
+    },
+    {
+      "pair": 1,
+      "trial": 6,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 30.43416
+    },
+    {
+      "pair": 1,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1200.9833
+    },
+    {
+      "pair": 1,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 315.79159999999996
+    },
+    {
+      "pair": 1,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 580.575
+    },
+    {
+      "pair": 1,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 590.1292
+    },
+    {
+      "pair": 1,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 317.1
+    },
+    {
+      "pair": 1,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 579.7958000000001
+    },
+    {
+      "pair": 1,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 591.4583
+    },
+    {
+      "pair": 1,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1188.9667
+    },
+    {
+      "pair": 1,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 589.0375
+    },
+    {
+      "pair": 1,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 580.0375
+    },
+    {
+      "pair": 1,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1189.9791
+    },
+    {
+      "pair": 1,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 298.2459
+    },
+    {
+      "pair": 1,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 586.3208000000001
+    },
+    {
+      "pair": 1,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1199.4792
+    },
+    {
+      "pair": 1,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 297.4875
+    },
+    {
+      "pair": 1,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 593.6125
+    },
+    {
+      "pair": 1,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1187.4833999999998
+    },
+    {
+      "pair": 1,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 303.25
+    },
+    {
+      "pair": 1,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 582.3375
+    },
+    {
+      "pair": 1,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 578.8875
+    },
+    {
+      "pair": 1,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 287.4
+    },
+    {
+      "pair": 1,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 593.2375
+    },
+    {
+      "pair": 1,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 581.6791999999999
+    },
+    {
+      "pair": 1,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1192.0625
+    },
+    {
+      "pair": 1,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 583.6084000000001
+    },
+    {
+      "pair": 1,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 582.1791999999999
+    },
+    {
+      "pair": 1,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1193.8959
+    },
+    {
+      "pair": 1,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 292.3958
+    },
+    {
+      "pair": 2,
+      "trial": 0,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 18.44834
+    },
+    {
+      "pair": 2,
+      "trial": 0,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 34.90666
+    },
+    {
+      "pair": 2,
+      "trial": 0,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 67.55084
+    },
+    {
+      "pair": 2,
+      "trial": 0,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 68.06916
+    },
+    {
+      "pair": 2,
+      "trial": 1,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 24.08584
+    },
+    {
+      "pair": 2,
+      "trial": 1,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 68.31084
+    },
+    {
+      "pair": 2,
+      "trial": 1,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 67.54
+    },
+    {
+      "pair": 2,
+      "trial": 1,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 20.415
+    },
+    {
+      "pair": 2,
+      "trial": 2,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 67.905
+    },
+    {
+      "pair": 2,
+      "trial": 2,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 67.44916
+    },
+    {
+      "pair": 2,
+      "trial": 2,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 17.97334
+    },
+    {
+      "pair": 2,
+      "trial": 2,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 28.2275
+    },
+    {
+      "pair": 2,
+      "trial": 3,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 68.25582
+    },
+    {
+      "pair": 2,
+      "trial": 3,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 18.44084
+    },
+    {
+      "pair": 2,
+      "trial": 3,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 24.4875
+    },
+    {
+      "pair": 2,
+      "trial": 3,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 68.35416000000001
+    },
+    {
+      "pair": 2,
+      "trial": 4,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 18.46416
+    },
+    {
+      "pair": 2,
+      "trial": 4,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 23.53584
+    },
+    {
+      "pair": 2,
+      "trial": 4,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 68.14
+    },
+    {
+      "pair": 2,
+      "trial": 4,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 67.175
+    },
+    {
+      "pair": 2,
+      "trial": 5,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 26.26082
+    },
+    {
+      "pair": 2,
+      "trial": 5,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 68.05832000000001
+    },
+    {
+      "pair": 2,
+      "trial": 5,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 71.0925
+    },
+    {
+      "pair": 2,
+      "trial": 5,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 18.31334
+    },
+    {
+      "pair": 2,
+      "trial": 6,
+      "lines": 1,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 67.4875
+    },
+    {
+      "pair": 2,
+      "trial": 6,
+      "lines": 1,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 67.24166000000001
+    },
+    {
+      "pair": 2,
+      "trial": 6,
+      "lines": 1,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 17.93166
+    },
+    {
+      "pair": 2,
+      "trial": 6,
+      "lines": 1,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 25.5375
+    },
+    {
+      "pair": 2,
+      "trial": 0,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 58.150839999999995
+    },
+    {
+      "pair": 2,
+      "trial": 0,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 32.029180000000004
+    },
+    {
+      "pair": 2,
+      "trial": 0,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 83.45
+    },
+    {
+      "pair": 2,
+      "trial": 0,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 84.67833999999999
+    },
+    {
+      "pair": 2,
+      "trial": 1,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 32.37584
+    },
+    {
+      "pair": 2,
+      "trial": 1,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 84.09416
+    },
+    {
+      "pair": 2,
+      "trial": 1,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 91.65916
+    },
+    {
+      "pair": 2,
+      "trial": 1,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 56.760839999999995
+    },
+    {
+      "pair": 2,
+      "trial": 2,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 83.71582000000001
+    },
+    {
+      "pair": 2,
+      "trial": 2,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 84.32083999999999
+    },
+    {
+      "pair": 2,
+      "trial": 2,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 57.625
+    },
+    {
+      "pair": 2,
+      "trial": 2,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 33.77332
+    },
+    {
+      "pair": 2,
+      "trial": 3,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 83.11334
+    },
+    {
+      "pair": 2,
+      "trial": 3,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 55.853339999999996
+    },
+    {
+      "pair": 2,
+      "trial": 3,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 37.198339999999995
+    },
+    {
+      "pair": 2,
+      "trial": 3,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 88.29834
+    },
+    {
+      "pair": 2,
+      "trial": 4,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 58.86
+    },
+    {
+      "pair": 2,
+      "trial": 4,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 33.8825
+    },
+    {
+      "pair": 2,
+      "trial": 4,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 83.82916
+    },
+    {
+      "pair": 2,
+      "trial": 4,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 84.1575
+    },
+    {
+      "pair": 2,
+      "trial": 5,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 26.77
+    },
+    {
+      "pair": 2,
+      "trial": 5,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 84.82082000000001
+    },
+    {
+      "pair": 2,
+      "trial": 5,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 101.695
+    },
+    {
+      "pair": 2,
+      "trial": 5,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 56.75916
+    },
+    {
+      "pair": 2,
+      "trial": 6,
+      "lines": 32,
+      "variant": "core_06",
+      "batch": 50,
+      "microsecondsPerRequest": 84.31084
+    },
+    {
+      "pair": 2,
+      "trial": 6,
+      "lines": 32,
+      "variant": "core_07",
+      "batch": 50,
+      "microsecondsPerRequest": 86.2725
+    },
+    {
+      "pair": 2,
+      "trial": 6,
+      "lines": 32,
+      "variant": "invoice_native",
+      "batch": 50,
+      "microsecondsPerRequest": 57.15082
+    },
+    {
+      "pair": 2,
+      "trial": 6,
+      "lines": 32,
+      "variant": "invoice_js_explicit",
+      "batch": 50,
+      "microsecondsPerRequest": 31.46166
+    },
+    {
+      "pair": 2,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1242.6708
+    },
+    {
+      "pair": 2,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 351.1375
+    },
+    {
+      "pair": 2,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 618.5708000000001
+    },
+    {
+      "pair": 2,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 617.0791999999999
+    },
+    {
+      "pair": 2,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 323.77909999999997
+    },
+    {
+      "pair": 2,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 610.9958
+    },
+    {
+      "pair": 2,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 619.8666999999999
+    },
+    {
+      "pair": 2,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1232.5417
+    },
+    {
+      "pair": 2,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 618.5709
+    },
+    {
+      "pair": 2,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 615.5042
+    },
+    {
+      "pair": 2,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1223.0709
+    },
+    {
+      "pair": 2,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 315.4875
+    },
+    {
+      "pair": 2,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 600.6583
+    },
+    {
+      "pair": 2,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1206.95
+    },
+    {
+      "pair": 2,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 297.69590000000005
+    },
+    {
+      "pair": 2,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 598.0791999999999
+    },
+    {
+      "pair": 2,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1203.1708
+    },
+    {
+      "pair": 2,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 301.5792
+    },
+    {
+      "pair": 2,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 595.3167
+    },
+    {
+      "pair": 2,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 591.3833000000001
+    },
+    {
+      "pair": 2,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 326.05
+    },
+    {
+      "pair": 2,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 671.3333
+    },
+    {
+      "pair": 2,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 595.8041
+    },
+    {
+      "pair": 2,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1205.7167
+    },
+    {
+      "pair": 2,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "core_06",
+      "batch": 10,
+      "microsecondsPerRequest": 594.8458
+    },
+    {
+      "pair": 2,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "core_07",
+      "batch": 10,
+      "microsecondsPerRequest": 587.5
+    },
+    {
+      "pair": 2,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "invoice_native",
+      "batch": 10,
+      "microsecondsPerRequest": 1195.5875
+    },
+    {
+      "pair": 2,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "invoice_js_explicit",
+      "batch": 10,
+      "microsecondsPerRequest": 296.1292
+    }
+  ],
+  "summary": [
+    {
+      "lines": 1,
+      "invoice_native": {
+        "medianUs": 18.53166,
+        "minUs": 17.68916,
+        "maxUs": 20.73918,
+        "trials": 21
+      },
+      "invoice_js_explicit": {
+        "medianUs": 26.73166,
+        "minUs": 23.15582,
+        "maxUs": 40.19832,
+        "trials": 21
+      },
+      "core_06": {
+        "medianUs": 68.14,
+        "minUs": 67.4875,
+        "maxUs": 78.8875,
+        "trials": 21
+      },
+      "core_07": {
+        "medianUs": 68.06832,
+        "minUs": 67.175,
+        "maxUs": 74.25666,
+        "trials": 21
+      },
+      "invoiceRoundtripRatioJsOverNative": 1.4424859942390484,
+      "coreRoundtripRatio06Over07": 1.0010530596318523
+    },
+    {
+      "lines": 32,
+      "invoice_native": {
+        "medianUs": 57.220839999999995,
+        "minUs": 55.853339999999996,
+        "maxUs": 60.695,
+        "trials": 21
+      },
+      "invoice_js_explicit": {
+        "medianUs": 32.029180000000004,
+        "minUs": 26.77,
+        "maxUs": 37.198339999999995,
+        "trials": 21
+      },
+      "core_06": {
+        "medianUs": 84.25666,
+        "minUs": 83.36666000000001,
+        "maxUs": 88.29834,
+        "trials": 21
+      },
+      "core_07": {
+        "medianUs": 83.96418,
+        "minUs": 82.8825,
+        "maxUs": 101.695,
+        "trials": 21
+      },
+      "invoiceRoundtripRatioJsOverNative": 0.5597467635917265,
+      "coreRoundtripRatio06Over07": 1.0034833901790026
+    },
+    {
+      "lines": 1000,
+      "invoice_native": {
+        "medianUs": 1195.5875,
+        "minUs": 1176.3542,
+        "maxUs": 1248.9791,
+        "trials": 21
+      },
+      "invoice_js_explicit": {
+        "medianUs": 301.5792,
+        "minUs": 282.3625,
+        "maxUs": 351.1375,
+        "trials": 21
+      },
+      "core_06": {
+        "medianUs": 593.2375,
+        "minUs": 575.3041,
+        "maxUs": 671.3333,
+        "trials": 21
+      },
+      "core_07": {
+        "medianUs": 587.5,
+        "minUs": 571.0541999999999,
+        "maxUs": 711.5166999999999,
+        "trials": 21
+      },
+      "invoiceRoundtripRatioJsOverNative": 0.2522435204449695,
+      "coreRoundtripRatio06Over07": 1.0097659574468085
+    }
+  ],
+  "tokenization": {
+    "library": "tiktoken",
+    "version": "0.14.0",
+    "encodings": {
+      "o200k_base": {
+        "compactPlan": 19,
+        "nativeToolSchema": 153,
+        "explicitReferenceToolSchema": 170,
+        "allSixNativeToolSchemas": 537,
+        "native20Requests": 1520,
+        "explicit20Requests": 1320,
+        "native20Responses": 1520,
+        "explicit20Responses": 1520,
+        "nativeSchemaPlus20Roundtrips": 3193,
+        "explicitSchemaPlus20Roundtrips": 3010
+      },
+      "cl100k_base": {
+        "compactPlan": 19,
+        "nativeToolSchema": 150,
+        "explicitReferenceToolSchema": 167,
+        "allSixNativeToolSchemas": 523,
+        "native20Requests": 1499,
+        "explicit20Requests": 1299,
+        "native20Responses": 1479,
+        "explicit20Responses": 1479,
+        "nativeSchemaPlus20Roundtrips": 3128,
+        "explicitSchemaPlus20Roundtrips": 2945
+      }
+    },
+    "scope": "Exact fixture text counts, not billed model usage, reasoning tokens or full task savings. No inference API invoked. Same input data and result, alternative plan vs explicit-config interfaces. Cached prompts, framing, tool selection, construction and repairs not measured."
+  },
+  "sourceHashes": {
+    "tools/measure-capability.py": "974bb5f45fd964d91c950c5166b4bbfcac2b73bb65735a9a53dce3f7abadd45d",
+    "tests/standalone/invoice_reference.mjs": "6c7a9bd41e75a91833c5973cc8820f1d9bb0a3c0dae6560324f4eaedd625435b",
+    "docs/INTERFACE-TOKEN-FIXTURES.json": "6a444249f713445067bdbbea919de7a3a2cd90c6eb4d43b8371bcbf3de73bdd0"
+  }
+}

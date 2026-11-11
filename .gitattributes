@@ -1,0 +1,9 @@
+# Generated outputs retain readable source elsewhere. Do not relabel source languages.
+docs/book/index.html linguist-generated=true
+site/book/index.html linguist-generated=true
+book/RiverFlow-First-Edition-expanded.md linguist-generated=true
+native/attendance-kernel.rf2 linguist-generated=true
+native/invoice-kernel.rf2 linguist-generated=true
+docs/SOURCE-INVENTORY.svg linguist-generated=true
+*.rf2 text eol=lf
+*.flow text eol=lf

@@ -1,0 +1,14 @@
+{
+  "schema": "rf2.direct.kernel.verification.v1",
+  "programFamilies": 18,
+  "executions": 163,
+  "passed": true,
+  "speedClaim": null,
+  "tokenClaim": null,
+  "compilation": "native rf2 -> systems kernel -> native rf2c -> ARM64 image; explicit OS signing",
+  "attendanceKernelReproduced": true,
+  "uniqueSourcePrograms": 18,
+  "runtimeSHA256": "19f93246672672d537bd4a53c5e29f5528ae671ffa33ebaaaafb6a34ecab4d64",
+  "compilerSHA256": "19025a174b6f9daf3cc32199a5a58778c67d11d5d019768c9ea2936639c0781a",
+  "harnessSHA256": "16cffff183dc4cf3dcdc18d793b2c52dafc9c022c9fc8c70fbd3df79595eb11b"
+}

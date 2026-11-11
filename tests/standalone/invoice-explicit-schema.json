@@ -1,0 +1,48 @@
+{
+  "name": "invoice_total_explicit",
+  "description": "Calculate invoice totals with checked u32 cents, positive quantities, explicit basis point tax and invoice-level half-up rounding. No file writes or tax advice.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "currency": {
+        "type": "string",
+        "pattern": "^[A-Z]{3}$"
+      },
+      "tax_bps": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 10000
+      },
+      "lines": {
+        "type": "array",
+        "maxItems": 1000,
+        "items": {
+          "type": "object",
+          "properties": {
+            "quantity": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 4294967295
+            },
+            "unit_cents": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            }
+          },
+          "required": [
+            "quantity",
+            "unit_cents"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "currency",
+      "tax_bps",
+      "lines"
+    ],
+    "additionalProperties": false
+  }
+}

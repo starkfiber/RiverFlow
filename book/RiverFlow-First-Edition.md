@@ -37,7 +37,7 @@ Try a simple standard while reading: after each feature, ask for an example, an 
 
 # 2. Your first working river
 
-For native 0.6 on Apple Silicon Mac, users run a standalone executable. The encoded minimum is macOS 14; actual qualification is on the recorded local Mac. Node, npm, Python and C++ are not runtime requirements. The executable uses macOS system interfaces; it is not an operating system of its own.
+For native 0.7 on Apple Silicon Mac, users run a standalone executable. The encoded minimum is macOS 14; actual qualification is on the recorded local Mac. Node, npm, Python and C++ are not runtime requirements. The executable uses macOS system interfaces; it is not an operating system of its own.
 
 The first compact program is:
 
@@ -75,7 +75,7 @@ END
 
 FLOW gives the program a readable name. PROFILE chooses the contract. ARITHMETIC chooses what addition and multiplication do at the edge of the number range. The main function accepts an array and a count, even when this particular example does not use them. RETURN makes the result explicit.
 
-Save that Core source in first.flow and run it with an empty array using native 0.6. You can check it without executing it, or emit a JSON intermediate representation for inspection.
+Save that Core source in first.flow and run it with an empty array using native 0.6. You can check it without executing it, or lower it to systems source for inspection.
 
 ```sh
 ./rf2 check first.flow
@@ -392,7 +392,7 @@ rf2 v1 checked
 nonzero input
 ```
 
-These are four separate programs, not one combined source file. The header and operation are required; whitespace separates their five tokens. The input array and optional prefix count are supplied separately. Unknown words, extra instructions, hidden effects and general Core source reject. The implementation does not claim to understand unrestricted natural-language requests.
+These are four separate programs, not one combined source file. The header and operation are required; whitespace separates their five tokens. The input array and optional prefix count are supplied separately. In the original 0.4 compact front end, unknown words, extra instructions, hidden effects and general Core source reject. Native 0.6 and later admit Core through a separate checked front end. The implementation does not claim to understand unrestricted natural-language requests.
 
 The expand command prints the exact full Core source for the selected operation. That makes short notation inspectable: a compact sum expands to initialization, a bounded loop, input loads, additions and a return. The native implementation executes its admitted reduction using ARM64 instructions. It does not invoke a model or interpret each request through Python or Node.
 
@@ -546,6 +546,67 @@ The executed application corpus contains 34 successful exports or calendar accep
 The official MCP SDK separately exercises export and duplicate refusal. The CLI tests inspect the written file, its permissions and the unchanged contents of an existing file and symlink target. These are software observations from controlled programming inputs. They do not establish adoption, educational benefit, workplace savings, energy reduction or token savings.
 
 The next application should reuse this discipline: a versioned interface, explicit authority, an implemented calculation, observable output and a refusal corpus. The token-economy question must then be measured across matched complete tasks, including setup, schema context, tool responses and repairs. A short invocation becomes valuable when the work behind it is real and inspectable.
+
+# 19. A readable application plan, measured honestly
+
+A useful short language needs something concrete behind its words. Release 0.7 adds a versioned application plan for invoice totals. It selects a real local operation with explicit data and arithmetic. It does not ask a model to invent accounting rules while calculating a price.
+
+```rf2
+rf2 app v1
+invoice total
+currency MYR
+tax 600 bps
+```
+
+These ten words are the entire plan. ASCII whitespace separates them; their order is fixed. Currency is a three-letter uppercase label. The tax input is a canonical integer from zero through 10000 basis points. In this example, 600 basis points means a calculation rate of six percent. It is a chosen input, not advice that a particular transaction is taxable at that rate. The plan is limited to 256 bytes. Unknown versions, extra words and implied permissions reject.
+
+With the downloaded native executable, run:
+
+```sh
+./rf2 app capabilities/invoice.total.v1/quote.rf2 \
+  capabilities/invoice.total.v1/test-lines.json
+```
+
+The supplied programming fixture has two lines: two units at 1250 cents and one unit at 399 cents. The subtotal is 2899 cents. Invoice-level half-up rounding produces 174 cents of tax and a total of 3073 cents. These are executed arithmetic examples, not customer transactions or business outcome data.
+
+## Give the money a precise meaning
+
+Each line contains exactly quantity and unit_cents. Quantities are positive integers; prices can be zero. Both are bounded u32 values. The generated Core kernel multiplies quantity by price through a scalar helper, then adds the line amounts in a bounded loop. A line amount or subtotal that exceeds u32 cents rejects. The adapter calculates tax with an unsigned 64-bit intermediate and requires the final total to fit u32 as well.
+
+The rounding rule is floor((subtotal times tax_bps plus 5000) divided by 10000). It applies once at invoice level. Applying it to each line could produce a different answer. That difference belongs in a business contract, not in an undocumented implementation detail. Negative credit notes, fractional quantities, discounts and exchange rates are outside this version.
+
+The CLI reads the explicitly supplied files and returns JSON on standard output. It creates no invoice file and contacts no service. The native MCP tool invoice_total accepts the plan and lines and returns the same totals without filesystem access. It is a calculator capability, not an invoice PDF generator, accounting ledger, tax authority or payment service.
+
+## Compare before celebrating
+
+The conformance suite executes 630 successful comparisons, 108 subtotal comparisons with native 0.6, 39 refusals, 200 seeded plan mutations and five CLI cases. Independent integer calculations check the results. The cases include tax ties, zero and maximum amounts, total overflow, malformed inputs, duplicate JSON keys and successful requests after failures. The generated kernel is reproduced from its retained Core source. Existing Core, Compact V1, attendance, direct-kernel and compiler checks are rerun separately.
+
+The timing experiment uses three fresh process pairs and seven rotated trials per size in each pair. The table reports medians of 21 batch averages. Timed work includes controller serialization, local pipes, validation, calculation and result checking. It excludes startup, compilation and model inference. These are local round-trip measurements, not processor cycles or individual latency percentiles.
+
+| Lines | Native invoice, µs | JavaScript explicit config, µs | Core 0.6, µs | Core 0.7, µs |
+| --- | ---: | ---: | ---: | ---: |
+| 1 | 18.53 | 26.73 | 68.14 | 68.07 |
+| 32 | 57.22 | 32.03 | 84.26 | 83.96 |
+| 1000 | 1195.59 | 301.58 | 593.24 | 587.50 |
+
+The native invoice operation wins on the smallest input and loses on the larger ones. The JavaScript comparator uses the same lines and exact integer arithmetic, with explicit currency and tax fields. Its ordinary JSON parser does not provide the native duplicate-key refusal; the timed inputs are valid canonical JSON. This is a useful practical comparison, not a proof that every security property is identical. Core timings remain close to the previous release. No general acceleration follows from this table.
+
+## Count the complete interface
+
+A short source listing is not the same as a small AI task. The plan itself uses 19 tokens in each of the two encodings tested. The experiment also counts the actual selected tool schema, 20 serialized requests and their 20 responses. The alternative reference tool takes currency and tax_bps directly and returns the same result fields.
+
+| Encoding | Plan alone | Native schema + 20 round trips | Explicit schema + 20 round trips |
+| --- | ---: | ---: | ---: |
+| o200k_base | 19 | 3193 | 3010 |
+| cl100k_base | 19 | 3128 | 2945 |
+
+Repeating the plan costs more encoded interface tokens in this fixture. The native tool schema is slightly smaller, but that does not recover the repeated request overhead. The full six-tool native catalog is counted separately in the raw report rather than silently omitted from a whole-session claim.
+
+No model inference was run for this experiment. The counts come from tiktoken 0.14.0 over retained text. They are not billed usage, hidden reasoning tokens or measurements of an AI building and repairing an application. Prompt caching, capability construction and failed attempts remain open parts of that experiment. A future saving claim needs complete matched tasks and actual usage receipts.
+
+The next engineering decision should follow these results. Profile the larger native path before optimizing it. Consider plan reuse only with explicit lifetime and authority rules. Keep the readable plan where it helps people understand intent, and accept that ordinary structured arguments may be cheaper for repeated tool calls. A language improves by answering these questions with evidence rather than protecting its first slogan.
+
+Sources: capabilities/invoice.total.v1/, docs/INVOICE-VERIFICATION.json, docs/CAPABILITY-MEASUREMENTS-0.7.json and docs/INTERFACE-TOKEN-FIXTURES.json. Every timing trial and encoded fixture is retained for another reader to inspect.
 
 # Appendix A. Commands and interfaces
 

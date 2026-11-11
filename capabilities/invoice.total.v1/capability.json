@@ -1,0 +1,26 @@
+{
+  "capability": "invoice.total@1",
+  "planProfile": "RF2_APP_V1",
+  "version": "1",
+  "effects": {
+    "cli": [
+      "read_explicit_plan_file",
+      "read_explicit_lines_file",
+      "stdout_json"
+    ],
+    "mcp": [
+      "return_json_no_filesystem_access"
+    ]
+  },
+  "limits": {
+    "lines": 1000,
+    "planBytes": 256,
+    "centsMax": 4294967295,
+    "taxBpsMax": 10000
+  },
+  "sourceSHA256": {
+    "capabilities/invoice.total.v1/total.flow": "8f2335ccc1f17033ccfc9f21833d21411e2bb9f85298cd8c3a15cf5ef0a3476d",
+    "native/invoice-kernel.rf2": "0e0778112e99d2678159aa1ee856a4ffcb92d964cdc9e27ef921de460b90aa09",
+    "native/invoice.rf2": "7fdc6b900f6038cb8da6329c2fefecb2f572e6d547663e4fd5d9428528b7f1a0"
+  }
+}

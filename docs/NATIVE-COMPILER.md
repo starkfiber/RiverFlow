@@ -56,3 +56,5 @@ Release 0.5 added the separate compiler while retaining runtime 0.4. Runtime 0.6
 ## Next gates
 
 Review the instruction encoder and parser independently; add broader structured fuzzing and admission tests; migrate general Core source and helpers into the native toolchain; qualify another target; then add one real versioned service capability with explicit effects and acceptance tests. No speed, energy or token-saving result is established by self-reproduction.
+
+Release 0.7 composes the invoice adapter and prefixed generated kernel as two additional modules. The complete runtime reaches the existing 128-function bound. The unchanged compiler reproduces the complete new runtime byte for byte with the historical encoder; see NATIVE-COMPILER-0.7-VERIFICATION.json. No compiler bound was silently relaxed.

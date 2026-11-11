@@ -1,6 +1,6 @@
 {
-  "pages": 48,
-  "tocEntries": 23,
+  "pages": 52,
+  "tocEntries": 24,
   "outOfPageText": [],
   "completeExamples": 5,
   "referenceTestGroups": 16,
@@ -10,7 +10,7 @@
   "independentMcpSdk": "passed",
   "rebuildByteIdentity": "passed",
   "epubZipXml": "verified, not full EPUBCheck",
-  "visualReview": "Rendered final cover, contents, native pipeline, application chapter and appendix; checked all 48 page bounds and sparse spill pages.",
+  "visualReview": "Final cover, contents, application-plan chapter, timing/token tables and appendix rendered and inspected; all-page text bounds and sparse spill check passed",
   "nativeCompilerFixedPoint": true,
   "nativeCompilerExecutedCases": 24,
   "nativeCompilerNegativeCases": 15,
@@ -24,5 +24,11 @@
   "directKernelExecutions": 163,
   "attendanceSuccessfulExports": 34,
   "attendanceRefusals": 45,
-  "attendanceFileProtectionChecks": 3
+  "attendanceFileProtectionChecks": 3,
+  "invoiceValidComparisons": 630,
+  "invoice06CoreComparisons": 108,
+  "invoiceRefusals": 39,
+  "invoicePlanMutations": 200,
+  "invoiceCliCases": 5,
+  "performanceAndTokenScope": "Raw local round-trip timings and exact tiktoken interface fixture counts; no billed inference usage or general saving claim"
 }

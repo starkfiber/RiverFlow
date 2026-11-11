@@ -1,7 +1,7 @@
 {
   "name": "rf2",
-  "version": "0.6.0",
-  "description": "Native Core helpers, per-program ARM64 lowering, self-building systems compiler and attendance export MCP capability",
+  "version": "0.7.0",
+  "description": "Readable rf2 application plans, native Core and ARM64 compiler, attendance and invoice MCP capabilities with retained measurements",
   "author": {
     "name": "Ilangkhumanan Thirunavokkarasu",
     "url": "https://github.com/starkfiber"
