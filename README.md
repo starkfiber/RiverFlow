@@ -10,6 +10,10 @@ RF² starts with a small executable promise: write typed, bounded computations, 
 
 [Try the playground](https://starkfiber.github.io/RiverFlow/rf2/) · [Language specification](docs/SPEC.md) · [Research foundation](docs/RESEARCH.md)
 
+## Where RiverFlow is heading
+
+RF² is intended to become a compact human/AI intent interface: describe the outcome, bind versioned capabilities and checks, and let the runtime supply known implementations. The current Core is its execution foundation. The compact service layer and end-to-end token savings remain to be implemented and measured. [Intent-layer direction](docs/INTENT-LAYER.md).
+
 ## Quick start
 
 Requires Node 22 or newer. Native execution and the full native differential suite additionally require Clang with AddressSanitizer and UndefinedBehaviorSanitizer support.
