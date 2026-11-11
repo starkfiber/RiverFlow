@@ -1,0 +1,25 @@
+{
+  "schema": "rf2.capability.v1",
+  "id": "attendance.local@1",
+  "input": "records array; exactly student_id/date/status",
+  "recordLimit": 1000,
+  "mcpEffects": [
+    "read_supplied_records",
+    "return_csv"
+  ],
+  "cliEffects": [
+    "read_explicit_input_file",
+    "create_explicit_new_0600_csv"
+  ],
+  "coreSource": "capabilities/attendance.local.v1/tally.flow",
+  "coreSHA256": "9324cab6d17ab2fb120f549f0fe9ae3b3366346cb39d166c0b7613ad448bf14c",
+  "kernelSource": "native/attendance-kernel.rf2",
+  "kernelSHA256": "ad3ed7e00c0120411878e405fa5841634955d854353c24f4b2c9aebb31e55e55",
+  "counts": {
+    "encodingBitsPerField": 10,
+    "presentWeight": 1,
+    "absentWeight": 1024,
+    "lateWeight": 1048576
+  },
+  "noFieldOutcomeClaim": true
+}

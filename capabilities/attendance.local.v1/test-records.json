@@ -1,0 +1,17 @@
+[
+  {
+    "student_id": "TEST001",
+    "date": "2026-11-12",
+    "status": "present"
+  },
+  {
+    "student_id": "TEST002",
+    "date": "2026-11-12",
+    "status": "absent"
+  },
+  {
+    "student_id": "TEST003",
+    "date": "2026-11-12",
+    "status": "late"
+  }
+]
