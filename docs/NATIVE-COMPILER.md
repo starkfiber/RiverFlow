@@ -2,7 +2,7 @@
 
 The 0.5 compiler milestone adds `rf2c`, written in RiverFlow systems source. It compiles the documented, bounded `RF2_SYSTEM_A64_V1` subset directly to ARM64 Mach-O. It does not invoke Python, Node, C/C++, an assembler or a linker. macOS signing remains a separate OS build step.
 
-This is a **self-hosting milestone for the tested systems compiler subset**, not a claim that every RiverFlow dialect, application service, Core helper or hardware backend is complete. The original four-operation Compact V1 runtime remains behaviorally unchanged.
+This is a **self-hosting milestone for the tested systems compiler subset**, not a claim that every RiverFlow dialect, application service, Core helper or hardware backend is complete. Compact V1 arithmetic remains compatible. Runtime 0.6 additionally implements general Core and the versioned attendance export capability.
 
 ## Rebuild without Python
 
@@ -11,9 +11,8 @@ Start from the native compiler in the 0.5 download. Use a new output path; exist
 ```sh
 ./rf2c native/compiler/compiler.rf2 next-rf2c
 /usr/bin/codesign -s - --force next-rf2c
-./next-rf2c native/rf2.rf2 next-rf2
-/usr/bin/codesign -s - --force next-rf2
-./next-rf2 run examples/compact/sum.rf2 '[1,2,3]'
+./tools/build-runtime.sh ./next-rf2c next-runtime
+./next-runtime/rf2 run examples/compact/sum.rf2 '[1,2,3]'
 ```
 
 The compiler emits an unsigned image. Do not execute it until the normal macOS signing step succeeds. The shipped compiler is ad-hoc signed, not notarized. This workflow does not alter macOS security policy. It still depends on the operating system, its loader/signing interfaces, the ARM64 ISA and an existing trusted compiler executable.
@@ -52,7 +51,7 @@ python3 tests/standalone/compiler_verify.py
 
 Read `NATIVE-COMPILER-VERIFICATION.json` for actual executed counts, source hashes and image identities. The test suite covers independent arithmetic/control-flow/memory expectations, native-versus-reference bytes, full SHA-256 outputs at padding boundaries, malformed source, resource limits and output protection. Existing runtime tests are also executed against the native-built image rather than only the published binary.
 
-The existing MCP runtime still reports version 0.4 because its source and behavior were intentionally preserved. Release 0.5 adds the separate compiler; it does not relabel old runtime results as new features or speed measurements.
+Release 0.5 added the separate compiler while retaining runtime 0.4. Runtime 0.6 now reports0.6 and is composed from five modules through tools/build-runtime.sh. New evidence is in NATIVE-COMPILER-0.6-VERIFICATION.json; the older report remains a historical checkpoint.
 
 ## Next gates
 

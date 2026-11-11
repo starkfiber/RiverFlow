@@ -1,0 +1,123 @@
+# RF2_SYSTEM_A64_V1 kernel fragment; combine with the trusted lowered harness.
+fn cgn_state()
+ return buffer("generated_state", 32)
+end
+fn cgn_fail(code)
+ do store64(cgn_state(), code)
+ return 0
+end
+fn cgn_tick()
+ let n = load64(cgn_state() + 16) + 1
+ do store64(cgn_state() + 16, n)
+ if n > 1048576
+  do cgn_fail(18)
+ end
+ return 0
+end
+fn cgn_leave(depth, value)
+ do store64(cgn_state() + 24, depth)
+ return value
+end
+fn c_f0(p0, p1)
+ let depth = load64(cgn_state() + 24)
+ let frame = buffer("generated_frames", 131072) + depth * 8192
+ let term = 0
+ let word = 0
+ let answer = 0
+ if depth >= 16
+  do cgn_fail(18)
+  return 0
+ end
+ do store64(cgn_state() + 24, depth + 1)
+ do cgn_tick()
+ if load64(cgn_state()) != 0
+  return cgn_leave(depth, 0)
+ end
+ do store64(frame + 0, p0)
+ do store64(frame + 8, p1)
+ do cgn_tick()
+ if load64(cgn_state()) != 0
+  return cgn_leave(depth, 0)
+ end
+ set term = load64(frame + 0) + load64(frame + 8)
+ if term > 4294967295
+  do cgn_fail(4)
+  return cgn_leave(depth, 0)
+ end
+ do store64(frame + 16, term & 4294967295)
+ set answer = load64(frame + 16)
+ return cgn_leave(depth, answer)
+end
+fn c_f1(p0, p1)
+ let depth = load64(cgn_state() + 24)
+ let frame = buffer("generated_frames", 131072) + depth * 8192
+ let term = 0
+ let word = 0
+ let answer = 0
+ if depth >= 16
+  do cgn_fail(18)
+  return 0
+ end
+ do store64(cgn_state() + 24, depth + 1)
+ do cgn_tick()
+ if load64(cgn_state()) != 0
+  return cgn_leave(depth, 0)
+ end
+ do store64(frame + 0, p0)
+ do store64(frame + 8, p1)
+ do cgn_tick()
+ if load64(cgn_state()) != 0
+  return cgn_leave(depth, 0)
+ end
+ do store64(frame + 16, 0)
+ do cgn_tick()
+ if load64(cgn_state()) != 0
+  return cgn_leave(depth, 0)
+ end
+ do store64(buffer("generated_bounds", 4096) + 16, load64(frame + 8))
+ if load64(buffer("generated_bounds", 4096) + 16) > 1000
+  do cgn_fail(17)
+  return cgn_leave(depth, 0)
+ end
+ do store64(frame + 24, 0)
+ while load64(frame + 24) < load64(buffer("generated_bounds", 4096) + 16)
+ do cgn_tick()
+ if load64(cgn_state()) != 0
+  return cgn_leave(depth, 0)
+ end
+ do cgn_tick()
+ if load64(cgn_state()) != 0
+  return cgn_leave(depth, 0)
+ end
+ if load64(frame + 24) >= load64(cgn_state() + 8)
+  do cgn_fail(16)
+  return cgn_leave(depth, 0)
+ end
+ do store64(frame + 32, load32(load64(frame + 0) + load64(frame + 24) * 4))
+ do cgn_tick()
+ if load64(cgn_state()) != 0
+  return cgn_leave(depth, 0)
+ end
+ set term = c_f0(load64(frame + 16), load64(frame + 32))
+ if load64(cgn_state()) != 0
+  return cgn_leave(depth, 0)
+ end
+ do store64(frame + 16, term)
+ do store64(frame + 24, load64(frame + 24) + 1)
+ end
+ set answer = load64(frame + 16)
+ return cgn_leave(depth, answer)
+end
+fn cgn_entry(data, words, count)
+ let answer = 0
+ do store64(cgn_state(), 0)
+ do store64(cgn_state() + 8, words)
+ do store64(cgn_state() + 16, 0)
+ do store64(cgn_state() + 24, 0)
+ if (words > 65536) | (count > words)
+  do cgn_fail(2)
+  return 0
+ end
+ set answer = c_f1(data, count)
+ return answer
+end

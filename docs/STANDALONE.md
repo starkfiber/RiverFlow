@@ -1,82 +1,58 @@
-# Standalone RiverFlow 0.4
+# Standalone RiverFlow 0.6
 
-The experimental standalone executable is for **Apple Silicon macOS 14 or newer**. It runs without Node, npm, Python, C++ or a compiler installed by the user. It uses the normal macOS loader, libSystem load command, and OS read/write/open/close/exit interfaces. It is not independent of its operating system.
+Experimental native tools for Apple Silicon Mac. Users need no Node, npm, Python or C++ runtime. The minimum encoded OS target is macOS 14; actual execution is qualified on the recorded local Apple Silicon Mac, not every OS version or device. Binaries are ad-hoc signed, not notarized.
 
-## Compact, explicit computation
-
-Save this as `sum.rf2`:
-
-```text
-rf2 v1 checked
-sum input
-```
+## Use the runtime
 
 ```sh
-./rf2 run sum.rf2 '[1,2,3,4,5]'
-./rf2 check sum.rf2
-./rf2 expand sum.rf2
 ./rf2 status
+./rf2 check examples/sum.flow
+./rf2 run examples/sum.flow '[1,2,3]'
+./rf2 run book/examples/example-4.flow '[2,3,4]'
+./rf2 run examples/compact/sum.rf2 '[1,2,3]'
 ./rf2 mcp
 ```
 
-`run` accepts an optional final count to select a prefix. Input is JSON containing up to 65,536 unsigned 32-bit integers; integer decimal and exponent representations are accepted when their exact value is in range. `checked` rejects overflow. `wrap` uses modulo 2^32 arithmetic. Zero input returns zero.
+General Core, scalar helpers, forward calls, named arguments, checked/wrap arithmetic and bounded loops are supported by the native parser/runtime. Compact V1's four short reductions remain available. `NATIVE-CORE.md` distinguishes native IR execution from per-program machine-code emission and records the exact compatibility boundary.
 
-The exact Compact V1 vocabulary is `rf2 v1 checked|wrap` followed by `sum|squares|bits|nonzero input`. Whitespace separates tokens. Extra words, effects, comments, unknown profiles and embedded zero bytes reject. This is controlled syntax, not unrestricted English or a complete application-generation service.
-
-`expand` produces the full `RF2_U32_CORE_V0` source corresponding to the chosen computation. `check` produces a compact plan; it does not pretend to compile every Core program. The standalone refuses general Core source and machine-profile source at this boundary. The older JavaScript implementation retains helpers, arbitrary admitted statements, C emission, batch execution and the public repository catalog; those are not advertised as native features.
-
-## Actual implementation chain
-
-```text
-native/rf2.rf2 (RF2_SYSTEM_A64_V1 systems implementation)
-    -> bootstrap/seed.py (trusted build-time seed)
-    -> directly encoded AArch64 instructions + Mach-O image
-    -> macOS ad-hoc code signature
-    -> standalone rf2 executable
-    -> Compact V1 plan -> native reduction -> result or refusal
-```
-
-The runtime, compact front end, UTF-8/JSON handling, decimal conversion, bounds checks and MCP dispatch are written in RiverFlow's explicitly separate systems profile. The seed encodes the instructions and executable layout directly. It does not invoke a C/C++ compiler, assembler, linker, Node or npm. Python and the macOS code-signing utility are build-time requirements only.
-
-**Release 0.4 used a Python seed and did not self-host.** Release 0.5 separately adds native systems-compiler self-reproduction; read NATIVE-COMPILER.md for its tested scope. The historical seed remains Python. Machine-profile arithmetic is modular unsigned 64-bit; it exposes pointers and OS calls to trusted implementation source. It is not the u32 Core profile and is never available to MCP callers. Its source is trusted, not a sandbox for arbitrary uploaded code. Hardware instruction semantics and macOS remain external contracts.
-
-The direct native routines currently implement four known reductions. There is no per-request model inference, general native optimizer or arbitrary Core-to-machine backend. Matching observable results does not mean all old toolchain capabilities have migrated.
-
-## Rebuild and verify
-
-On an Apple Silicon Mac with Python 3 and the macOS code-signing utility:
+## Build directly from Core
 
 ```sh
-python3 bootstrap/seed.py native/rf2.rf2 output/bin/rf2
-./output/bin/rf2 run examples/compact/sum.rf2 '[1,2,3]'
+./tools/build-core.sh ./rf2 ./rf2c examples/sum.flow sum-build
+./sum-build/program '[1,2,3]'
 ```
 
-Development comparisons additionally use Node 22 to run the retained reference, never the executable itself:
+`rf2 lower` returns a checked systems-profile kernel fragment. The script combines it with the trusted input harness, invokes the native compiler and signs the resulting ARM64 program. It creates a new directory rather than overwriting an old build. The same effect/work/error contract is tested against the reference. No new speed claim follows from compilation.
+
+## Application export
 
 ```sh
-python3 tests/standalone/verify.py
+./rf2 attendance capabilities/attendance.local.v1/test-records.json register.csv
 ```
 
-`docs/STANDALONE-VERIFICATION.json` records the actual results and source/binary fingerprints. The seed source and native source should be reviewed together. No speed, energy, phone or self-hosting result follows from removing a runtime dependency.
+See the versioned capability's README. CLI export reads the explicit input file and writes only the explicit new CSV path. Through MCP, `attendance_export` returns CSV text/counts and accepts no filesystem path. Its counts use a compiled Core helper program. Tests use fictional programming inputs, not real student study data.
 
-## Native MCP
-
-Register the executable directly:
+## Native rebuild
 
 ```sh
-codex mcp add rf2-native -- /absolute/path/to/rf2 mcp
+./rf2c native/compiler/compiler.rf2 next-rf2c
+/usr/bin/codesign -s - --force next-rf2c
+./tools/build-runtime.sh ./next-rf2c next-runtime
+./next-runtime/rf2 status
 ```
 
-The plugin launcher now selects an explicit `RF2_BIN` or the project-owned `output/bin/rf2`. It refuses to fall back silently to Node or build code on startup. A downloaded source checkout must be built or supplied with a compatible executable first. Configure only one RF2 server per client.
+The runtime is composed from native/rf2.rf2, core.rf2, attendance.rf2, the generated attendance-kernel.rf2 and fingerprint.rf2. Compiling only the first module is no longer a complete runtime build. The systems compiler emits ARM64/Mach-O directly without invoking Python, Node, C/C++, an assembler or a linker. The shell scripts use OS file utilities and signing. Historical Python and JavaScript implementations remain development oracles/initial-bootstrap routes.
 
-Tools: `rf2_status`, `rf2_check`, `rf2_run`. stdio uses newline-delimited JSON-RPC. Protocol baseline is 2024-11-05. Output is structured JSON plus a readable text result. Request size is at most 1 MiB; parsing depth is at most 32, object fields at most 64 and tokens at most 70,000. Oversized requests are drained before accepting the next request. Duplicate object keys and malformed UTF-8 reject. The service has no network, arbitrary path, subprocess or deployment tools. Local CLI file reads are explicit and separate.
+## MCP
 
-Reference: https://modelcontextprotocol.io/specification/2024-11-05/basic/transports and https://modelcontextprotocol.io/specification/2024-11-05/server/tools.
+The native server exposes five tools: status, check, run, lower and attendance export. stdio uses JSON-RPC lines and protocol baseline 2024-11-05. Source/data are supplied directly. There is no arbitrary path, network, process-launch or machine-source execution tool. The client provides AI intelligence.
 
-## Compatibility and next gates
+The launcher uses RF2_BIN or output/bin/rf2. It never auto-builds, installs dependencies or falls back to Node. Fresh source/plugin checkouts need an explicit native binary. Use one registration route per client.
 
-This milestone replaces the runtime dependency for the **documented compact subset**, not the full historical stack. Next gates are independent machine-encoder review, broader platform backends, migration of general Core semantics, wider native compiler qualification and independent review of the systems-profile fixed point now exercised in 0.5. Application capabilities require their own versioned APIs, effects and tests.
+Request limits: 1 MiB, nesting depth 32, object fields 64, tokens 70,000. Oversized requests drain before the next line. Duplicate object keys and malformed UTF-8 reject. This is a bounded native implementation, not an independent security audit or process sandbox.
 
-A reduction named `bits` is not cryptographic authentication. Tests are evidence about the cases executed, not formal proof or a security audit. No phone, RU'OS recovery state, wireless interface or thesis hypothesis is changed by this release. No token-saving ratio has been measured. Count full task context and failures when testing the token-economy hypothesis.
+## Evidence and history
 
-The initial static Mach-O trial was refused by macOS policy; no policy was disabled. The working image uses the normal dyld load path, required UUID, and ad-hoc signature. No notarization or Developer ID signing is asserted.
+Read the native Core, direct-kernel, attendance, compact and compiler 0.6 verification reports in docs/. Release 0.4 established four native reductions; release 0.5 established bounded systems-compiler self-reproduction. Their frozen release artifacts remain separate. The JavaScript server retains research catalog, batch execution and C emission not all migrated to native tools.
+
+No speed, energy, token-saving, fieldwork or phone claim is established by this release.

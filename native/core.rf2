@@ -1,0 +1,1219 @@
+# Checked Core front end and bounded native IR runtime. Separate from systems syntax.
+fn cs()
+ return buffer("core_state", 192)
+end
+fn ce(code)
+ if load64(state()) == 0
+  do fail(code)
+ end
+ return 0
+end
+fn ct(i)
+ if i >= 65536
+  do ce(10)
+  set i = 65535
+ end
+ return buffer("core_tokens", 2097152) + i * 32
+end
+fn ctadd(kind, p, n)
+ let i = load64(cs() + 8)
+ if i >= 65535
+  return ce(14)
+ end
+ do store64(ct(i), kind)
+ do store64(ct(i) + 8, p)
+ do store64(ct(i) + 16, n)
+ do store64(cs() + 8, i + 1)
+ return 0
+end
+fn cw(c)
+ if (c >= 48) & (c <= 57)
+  return 1
+ end
+ if (c >= 65) & (c <= 90)
+  return 1
+ end
+ if (c >= 97) & (c <= 122)
+  return 1
+ end
+ return c == 95
+end
+fn cu16(p, n)
+ let i = 0
+ let units = 0
+ let c = 0
+ while i < n
+  set c = load8(p + i)
+  set units = units + 1
+  if c < 128
+   set i = i + 1
+  else
+   if c < 224
+    set i = i + 2
+   else
+    if c < 240
+     set i = i + 3
+    else
+     set i = i + 4
+     set units = units + 1
+    end
+   end
+  end
+ end
+ return units
+end
+fn clex(p, n)
+ let i = 0
+ let j = 0
+ let c = 0
+ let done = 0
+ do store64(cs() + 8, 0)
+ if utf8(p, n) == 0
+  return ce(10)
+ end
+ if cu16(p, n) > 32768
+  return ce(14)
+ end
+ while (i < n) & (load64(state()) == 0)
+  set c = load8(p + i)
+  if c == 35
+   while i < n
+    if load8(p + i) == 10
+     set j = i
+     set i = n
+    else
+     set i = i + 1
+     set j = i
+    end
+   end
+   set i = j
+   if i < n
+    do ctadd(5, p + i, 1)
+    set i = i + 1
+   end
+  else
+   if c == 10
+    do ctadd(5, p + i, 1)
+    set i = i + 1
+   else
+    if cspace(p, i, n) != 0
+     set i = i + cspace(p, i, n)
+    else
+     set j = i
+     if cw(c)
+      set i = cword_end(p, n, i)
+      do ctadd(1, p + j, i - j)
+     else
+      if c == 34
+       set i = i + 1
+       set j = i
+       set done = 0
+       while (i < n) & (done == 0)
+        set c = load8(p + i)
+        if c == 34
+         set done = 1
+        else
+         if (c == 10) | (c == 13) | (c == 35)
+          return ce(10)
+         end
+         set i = i + 1
+        end
+       end
+       if done == 0
+        return ce(10)
+       end
+       do ctadd(3, p + j, i - j)
+       set i = i + 1
+      else
+       do ctadd(4, p + i, 1)
+       set i = i + 1
+      end
+     end
+    end
+   end
+  end
+ end
+ if load64(cs() + 8) != 0
+  if load64(ct(load64(cs() + 8) - 1)) != 5
+   do ctadd(5, "\n", 1)
+  end
+ end
+ do ctadd(0, "", 0)
+ do store64(cs() + 16, 0)
+ return load64(state()) == 0
+end
+fn cword_end(p, n, i)
+ while i < n
+  if cw(load8(p + i)) == 0
+   return i
+  end
+  set i = i + 1
+ end
+ return i
+end
+fn cm(i, text)
+ let t = ct(i)
+ return span_eq(load64(t + 8), load64(t + 16), text)
+end
+fn ccur(text)
+ let i = load64(cs() + 16)
+ if (load64(ct(i)) != 1) & (load64(ct(i)) != 4)
+  return 0
+ end
+ return cm(i, text)
+end
+fn cn()
+ let i = load64(cs() + 16)
+ if i >= load64(cs() + 8)
+  do ce(10)
+  return load64(cs() + 8) - 1
+ end
+ do store64(cs() + 16, i + 1)
+ return i
+end
+fn cx(text)
+ if ccur(text) == 0
+  do ce(10)
+ end
+ return cn()
+end
+fn cblank()
+ while load64(ct(load64(cs() + 16))) == 5
+  do cn()
+ end
+ return 0
+end
+fn cline()
+ if load64(ct(load64(cs() + 16))) != 5
+  return ce(10)
+ end
+ do cn()
+ do cblank()
+ return 0
+end
+fn cg(a, b, gap)
+ let endp = load64(ct(a) + 8) + load64(ct(a) + 16)
+ let p = load64(ct(b) + 8)
+ if p != endp + gap
+  return ce(10)
+ end
+ if gap == 1
+  if load8(endp) != 32
+   return ce(10)
+  end
+ end
+ return 1
+end
+fn cname(t)
+ let p = load64(ct(t) + 8)
+ let n = load64(ct(t) + 16)
+ if load64(ct(t)) != 1
+  return ce(11)
+ end
+ if (n == 0) | (n > 32)
+  return ce(11)
+ end
+ if (load8(p) >= 48) & (load8(p) <= 57)
+  return ce(11)
+ end
+ return 1
+end
+fn ceq(a, b)
+ let p = load64(ct(a) + 8)
+ let n = load64(ct(a) + 16)
+ let q = load64(ct(b) + 8)
+ let m = load64(ct(b) + 16)
+ let i = 0
+ if n != m
+  return 0
+ end
+ while i < n
+  if load8(p + i) != load8(q + i)
+   return 0
+  end
+  set i = i + 1
+ end
+ return 1
+end
+fn cf(i)
+ if i >= 16
+  do ce(14)
+  set i = 15
+ end
+ return buffer("core_functions", 2560) + i * 160
+end
+fn cpname(f, j)
+ return load64(cf(f) + 16 + j * 16)
+end
+fn cparam(f, j, name, typ)
+ do store64(cf(f) + 16 + j * 16, name)
+ return store64(cf(f) + 24 + j * 16, typ)
+end
+fn cfindfn(t)
+ let i = 0
+ while i < load64(cs() + 24)
+  if ceq(load64(cf(i)), t)
+   return i
+  end
+  set i = i + 1
+ end
+ do ce(11)
+ return 0
+end
+fn cfirst()
+ let f = 0
+ let h = 0
+ let name = 0
+ let openp = 0
+ let t = 0
+ let col = 0
+ let typ = 0
+ let endp = 0
+ let count = 0
+ let j = 0
+ let array = 0
+ let done = 0
+ let i = 0
+ do cblank()
+ set h = cx("FLOW")
+ set t = cn()
+ if load64(ct(t)) != 3
+  return ce(10)
+ end
+ do cg(h, t, 2)
+ if load8(load64(ct(h) + 8) + 4) != 32
+  return ce(10)
+ end
+ set count = cu16(load64(ct(t) + 8), load64(ct(t) + 16))
+ if (count == 0) | (count > 64)
+  return ce(10)
+ end
+ do cline()
+ set h = cx("PROFILE")
+ set t = cx("RF2_U32_CORE_V0")
+ do cg(h, t, 1)
+ do cline()
+ set h = cx("ARITHMETIC")
+ set t = cn()
+ do cg(h, t, 1)
+ if cm(t, "CHECKED")
+  do store64(cs() + 32, 0)
+ else
+  if cm(t, "WRAP") == 0
+   return ce(10)
+  end
+  do store64(cs() + 32, 1)
+ end
+ do cline()
+ do store64(cs() + 72, 16)
+ while (load64(ct(load64(cs() + 16))) != 0) & (load64(state()) == 0)
+  if f >= 16
+   return ce(14)
+  end
+  set h = cx("FUNCTION")
+  set name = cn()
+  do cname(name)
+  do cg(h, name, 1)
+  set j = 0
+  while j < f
+   if ceq(load64(cf(j)), name)
+    return ce(11)
+   end
+   set j = j + 1
+  end
+  do store64(cf(f), name)
+  if cm(name, "main")
+   do store64(cs() + 72, f)
+  end
+  set openp = cx("(")
+  do cg(name, openp, 0)
+  set count = 0
+  while (ccur(")") == 0) & (load64(state()) == 0)
+   if ccur(",")
+    do cn()
+   else
+    if count >= 4
+     return ce(11)
+    end
+    set t = cn()
+    do cname(t)
+    set j = 0
+    while j < count
+     if ceq(cpname(f, j), t)
+      return ce(11)
+     end
+     set j = j + 1
+    end
+    set col = cx(":")
+    do cg(t, col, 0)
+    set typ = cx("u32")
+    set array = 1
+    if ccur("[")
+     set j = cx("[")
+     do cg(typ, j, 0)
+     set endp = cx("]")
+     do cg(j, endp, 0)
+     set array = 2
+    end
+    do cparam(f, count, t, array)
+    set count = count + 1
+    if (ccur(",") == 0) & (ccur(")") == 0)
+     return ce(10)
+    end
+   end
+  end
+  do store64(cf(f) + 8, count)
+  set endp = cx(")")
+  set t = cx("RETURNS")
+  do cg(endp, t, 1)
+  set j = cx("u32")
+  do cg(t, j, 1)
+  do cnodot(h, j)
+  do cline()
+  do store64(cf(f) + 80, load64(cs() + 16))
+  # Locate a function END, not END FOR. Full statements are checked in pass two.
+  set done = 0
+  while (done == 0) & (load64(state()) == 0)
+   set i = load64(cs() + 16)
+   if load64(ct(i)) == 0
+    return ce(10)
+   end
+   if ccur("END")
+    if load64(ct(i + 1)) == 5
+     do cn()
+     do cline()
+     set done = 1
+    end
+   end
+   if done == 0
+    while (load64(ct(load64(cs() + 16))) != 5) & (load64(state()) == 0)
+     if load64(ct(load64(cs() + 16))) == 0
+      return ce(10)
+     end
+     do cn()
+    end
+    do cline()
+   end
+  end
+  do store64(cf(f) + 88, load64(cs() + 16))
+  set f = f + 1
+  do store64(cs() + 24, f)
+ end
+ if load64(cs() + 72) == 16
+  return ce(11)
+ end
+ set f = load64(cs() + 72)
+ if load64(cf(f) + 8) != 2
+  return ce(11)
+ end
+ if (load64(cf(f) + 24) != 2) | (load64(cf(f) + 40) != 1)
+  return ce(11)
+ end
+ set f = 0
+ while f < load64(cs() + 24)
+  if f != load64(cs() + 72)
+   set j = 0
+   while j < load64(cf(f) + 8)
+    if load64(cf(f) + 24 + j * 16) != 1
+     return ce(11)
+    end
+    set j = j + 1
+   end
+  end
+  set f = f + 1
+ end
+ return load64(state()) == 0
+end
+fn cv(i)
+ if i >= 1024
+  do ce(14)
+  set i = 1023
+ end
+ return buffer("core_symbols", 32768) + i * 32
+end
+fn cfind(t)
+ let i = 0
+ while i < load64(cs() + 56)
+  if ceq(load64(cv(i)), t)
+   return i
+  end
+  set i = i + 1
+ end
+ return 1024
+end
+fn cadd(t, typ, immutable)
+ let i = load64(cs() + 56)
+ do cname(t)
+ if i >= 1024
+  return ce(14)
+ end
+ do store64(cv(i), t)
+ do store64(cv(i) + 8, typ)
+ do store64(cv(i) + 16, immutable)
+ do store64(cs() + 56, i + 1)
+ if i + 1 > load64(cs() + 64)
+  do store64(cs() + 64, i + 1)
+ end
+ return i
+end
+fn cliteral(t)
+ let p = load64(ct(t) + 8)
+ let n = load64(ct(t) + 16)
+ let i = 0
+ let radix = 10
+ let c = 0
+ let v = 0
+ if n >= 2
+  if load8(p) == 48
+   if (load8(p + 1) == 120) | (load8(p + 1) == 88)
+    set radix = 16
+    set i = 2
+   end
+  end
+ end
+ if i == n
+  return ce(11)
+ end
+ while i < n
+  set c = hex(load8(p + i))
+  if c >= radix
+   return ce(11)
+  end
+  set v = v * radix + c
+  if v > 4294967295
+   return ce(11)
+  end
+  set i = i + 1
+ end
+ return v
+end
+fn cvalue(t, typ)
+ let p = load64(ct(t) + 8)
+ let v = 0
+ if load64(ct(t)) != 1
+  return ce(11)
+ end
+ if digit(load8(p))
+  if typ != 1
+   return ce(11)
+  end
+  return 4294967296 | cliteral(t)
+ end
+ set v = cfind(t)
+ if v == 1024
+  return ce(11)
+ end
+ if load64(cv(v) + 8) != typ
+  return ce(11)
+ end
+ return v
+end
+fn cwrite(t)
+ let v = cfind(t)
+ do cname(t)
+ if v == 1024
+  return cadd(t, 1, 0)
+ end
+ if (load64(cv(v) + 16) != 0) | (load64(cv(v) + 8) != 1)
+  return ce(11)
+ end
+ return v
+end
+fn ci(i)
+ if i >= 512
+  do ce(14)
+  set i = 511
+ end
+ return buffer("core_ir", 32768) + i * 64
+end
+fn cnew(kind)
+ let i = load64(cs() + 40)
+ if i >= 512
+  do ce(14)
+  return 511
+ end
+ let j = 0
+ while j < 64
+  do store64(ci(i) + j, 0)
+  set j = j + 8
+ end
+ do store64(ci(i), kind)
+ do store64(cs() + 40, i + 1)
+ return i
+end
+fn cargs()
+ let args = buffer("core_arguments", 80)
+ let count = 0
+ let k = 0
+ let colon = 0
+ let v = 0
+ let j = 0
+ while (ccur("}") == 0) & (load64(state()) == 0)
+  if count >= 5
+   return ce(11)
+  end
+  set k = cn()
+  if load64(ct(k)) != 1
+   return ce(10)
+  end
+  set colon = cx(":")
+  do cg(k, colon, 0)
+  set v = cn()
+  if load64(ct(v)) != 1
+   return ce(10)
+  end
+  set j = 0
+  while j < count
+   if ceq(load64(args + j * 16), k)
+    return ce(11)
+   end
+   set j = j + 1
+  end
+  do store64(args + count * 16, k)
+  do store64(args + count * 16 + 8, v)
+  set count = count + 1
+  if ccur(",")
+   do cn()
+   if ccur("}")
+    return ce(10)
+   end
+  else
+   if ccur("}") == 0
+    return ce(10)
+   end
+  end
+ end
+ do store64(cs() + 96, count)
+ do cx("}")
+ return count
+end
+fn carg(text, t, bytoken)
+ let i = 0
+ let p = buffer("core_arguments", 80)
+ while i < load64(cs() + 96)
+  if bytoken
+   if ceq(load64(p + i * 16), t)
+    return load64(p + i * 16 + 8)
+   end
+  else
+   if cm(load64(p + i * 16), text)
+    return load64(p + i * 16 + 8)
+   end
+  end
+  set i = i + 1
+ end
+ do ce(11)
+ return 0
+end
+fn cstep()
+ let h = cx("STEP")
+ let label = cn()
+ let equal = cx("=")
+ let op = cn()
+ let last = op
+ let callee = 0
+ let kind = 0
+ let withp = 0
+ let brace = 0
+ let count = 0
+ let node = 0
+ let out = 0
+ let a = 0
+ let b = 0
+ let j = 0
+ do cg(h, label, 1)
+ do cg(label, equal, 1)
+ do cg(equal, op, 1)
+ if cm(op, "CALL")
+  set last = cn()
+  do cg(op, last, 1)
+  set callee = cfindfn(last)
+  if callee == load64(cs() + 72)
+   return ce(11)
+  end
+  set kind = 7
+ end
+ if cm(op, "ADD")
+  set kind = 2
+ end
+ if cm(op, "MUL")
+  set kind = 3
+ end
+ if cm(op, "LOAD")
+  set kind = 4
+ end
+ if cm(op, "POPCOUNT")
+  set kind = 5
+ end
+ if cm(op, "NONZERO")
+  set kind = 6
+ end
+ if kind == 0
+  return ce(10)
+ end
+ set withp = cx("WITH")
+ do cg(last, withp, 1)
+ set brace = cx("{")
+ do cg(withp, brace, 1)
+ set count = cargs()
+ do cnodot(h, load64(cs() + 16) - 1)
+ set node = cnew(kind)
+ if kind == 7
+  if count != load64(cf(callee) + 8) + 1
+   return ce(11)
+  end
+  set j = 0
+  while j < load64(cf(callee) + 8)
+   if cm(cpname(callee, j), "result")
+    return ce(11)
+   end
+   set a = carg("", cpname(callee, j), 1)
+   do store64(ci(node) + 16 + j * 8, cvalue(a, 1))
+   set j = j + 1
+  end
+  do store64(ci(node) + 48, callee)
+  do store8(buffer("core_edges", 256) + load64(cs() + 48) * 16 + callee, 1)
+ else
+  if (kind == 2) | (kind == 3)
+   if count != 3
+    return ce(11)
+   end
+   set a = cvalue(carg("a", 0, 0), 1)
+   set b = cvalue(carg("b", 0, 0), 1)
+  else
+   if kind == 4
+    if count != 3
+     return ce(11)
+    end
+    set a = cvalue(carg("array", 0, 0), 2)
+    set b = cvalue(carg("index", 0, 0), 1)
+   else
+    if count != 2
+     return ce(11)
+    end
+    set a = cvalue(carg("value", 0, 0), 1)
+   end
+  end
+  do store64(ci(node) + 16, a)
+  do store64(ci(node) + 24, b)
+ end
+ set out = cwrite(carg("result", 0, 0))
+ do store64(ci(node) + 8, out)
+ do cline()
+ return node
+end
+fn cblock(loop)
+ let h = 0
+ let t = 0
+ let equal = 0
+ let value = 0
+ let node = 0
+ let index = 0
+ let before = 0
+ let endp = 0
+ let limit = 0
+ let a = 0
+ let b = 0
+ while load64(state()) == 0
+  if ccur("RETURN")
+   if loop
+    return ce(10)
+   end
+   return 0
+  end
+  if ccur("END")
+   if loop == 0
+    return ce(10)
+   end
+   set h = cx("END")
+   set t = cx("FOR")
+   do cg(h, t, 1)
+   do cline()
+   return 0
+  end
+  if ccur("VAR")
+   set h = cx("VAR")
+   set t = cn()
+   set equal = cx("=")
+   set value = cn()
+   do cg(h, t, 1)
+   do cg(t, equal, 1)
+   do cg(equal, value, 1)
+   if cfind(t) != 1024
+    return ce(11)
+   end
+   set a = cvalue(value, 1)
+   set node = cnew(1)
+   do store64(ci(node) + 8, cwrite(t))
+   do store64(ci(node) + 16, a)
+   do cline()
+  else
+   if ccur("STEP")
+    do cstep()
+   else
+    if ccur("FOR")
+     if (loop != 0) | (load64(cs() + 48) != load64(cs() + 72))
+      return ce(11)
+     end
+     set node = cnew(8)
+     set h = cx("FOR")
+     set t = cn()
+     set a = cx("FROM")
+     do cg(h, t, 1)
+     do cg(t, a, 1)
+     set b = cx("0")
+     do cg(a, b, 1)
+     set a = cx("TO")
+     do cg(b, a, 1)
+     set endp = cn()
+     do cg(a, endp, 1)
+     set a = cx("LIMIT")
+     do cg(endp, a, 1)
+     set b = cn()
+     do cg(a, b, 1)
+     set limit = cliteral(b)
+     if (limit < 1) | (limit > 65536)
+      return ce(11)
+     end
+     # LIMIT is decimal digits only in the frozen Core grammar.
+     set a = 0
+     while a < load64(ct(b) + 16)
+      if digit(load8(load64(ct(b) + 8) + a)) == 0
+       return ce(10)
+      end
+      set a = a + 1
+     end
+     set value = cvalue(endp, 1)
+     if cfind(t) != 1024
+      return ce(11)
+     end
+     set before = load64(cs() + 56)
+     set index = cadd(t, 1, 1)
+     do store64(ci(node) + 8, index)
+     do store64(ci(node) + 16, value)
+     do store64(ci(node) + 56, limit)
+     do cline()
+     do cblock(1)
+     do store64(ci(node) + 48, load64(cs() + 40))
+     do store64(cs() + 56, before)
+    else
+     return ce(10)
+    end
+   end
+  end
+ end
+ return 0
+end
+fn cvisit(f)
+ let visited = load64(cf(f) + 128)
+ let j = 0
+ if visited == 1
+  return ce(13)
+ end
+ if visited == 2
+  return 0
+ end
+ do store64(cf(f) + 128, 1)
+ while (j < load64(cs() + 24)) & (load64(state()) == 0)
+  if load8(buffer("core_edges", 256) + f * 16 + j)
+   do cvisit(j)
+  end
+  set j = j + 1
+ end
+ do store64(cf(f) + 128, 2)
+ return 0
+end
+fn core_source(p, n)
+ let f = 0
+ let j = 0
+ let h = 0
+ let t = 0
+ let start = 0
+ let bytes = 0
+ do store64(cs() + 24, 0)
+ do store64(cs() + 40, 0)
+ do store64(cs() + 112, 0)
+ set j = 0
+ while j < 256
+  do store8(buffer("core_edges", 256) + j, 0)
+  set j = j + 1
+ end
+ do clex(p, n)
+ if load64(state()) != 0
+  return 0
+ end
+ do cfirst()
+ while (f < load64(cs() + 24)) & (load64(state()) == 0)
+  do store64(cs() + 48, f)
+  do store64(cs() + 56, 0)
+  do store64(cs() + 64, 0)
+  do store64(cf(f) + 128, 0)
+  do store64(cs() + 16, load64(cf(f) + 80))
+  do store64(cf(f) + 96, load64(cs() + 40))
+  set j = 0
+  while j < load64(cf(f) + 8)
+   do cadd(cpname(f, j), load64(cf(f) + 24 + j * 16), 1)
+   set j = j + 1
+  end
+  do cblock(0)
+  set h = cx("RETURN")
+  set t = cn()
+  do cg(h, t, 1)
+  do store64(cf(f) + 112, cvalue(t, 1))
+  do cline()
+  do cx("END")
+  do cline()
+  if load64(cs() + 16) != load64(cf(f) + 88)
+   return ce(10)
+  end
+  do store64(cf(f) + 104, load64(cs() + 40))
+  do store64(cf(f) + 120, load64(cs() + 64))
+  set f = f + 1
+ end
+ set f = 0
+ while (f < load64(cs() + 24)) & (load64(state()) == 0)
+  do cvisit(f)
+  set f = f + 1
+ end
+ do store64(state() + 56, 0)
+ do store64(state() + 64, load64(cs() + 32))
+ return load64(state()) == 0
+end
+fn ctick()
+ let n = load64(cs() + 112) + 1
+ do store64(cs() + 112, n)
+ if n > 1048576
+  return ce(18)
+ end
+ return 1
+end
+fn cget(env, value)
+ if value >= 4294967296
+  return value & 4294967295
+ end
+ return load64(env + value * 8)
+end
+fn crange(env, pc, until)
+ let node = 0
+ let op = 0
+ let a = 0
+ let b = 0
+ let value = 0
+ let i = 0
+ let endp = 0
+ let nextp = 0
+ let callee = 0
+ let c = 0
+ let d = 0
+ while (pc < until) & (load64(state()) == 0)
+  set node = ci(pc)
+  set op = load64(node)
+  do ctick()
+  if load64(state()) != 0
+   return 0
+  end
+  set a = cget(env, load64(node + 16))
+  if (op == 2) | (op == 3) | (op == 4) | (op == 7)
+   set b = cget(env, load64(node + 24))
+  end
+  if op == 1
+   set value = a
+  end
+  if (op == 2) | (op == 3)
+   if op == 2
+    set value = a + b
+   else
+    set value = a * b
+   end
+   if (load64(cs() + 32) == 0) & (value > 4294967295)
+    return ce(4)
+   end
+   set value = value & 4294967295
+  end
+  if op == 4
+   if b >= load64(cs() + 104)
+    return ce(16)
+   end
+   set value = load32(a + b * 4)
+  end
+  if op == 5
+   set value = 0
+   while a != 0
+    set a = a & (a - 1)
+    set value = value + 1
+   end
+  end
+  if op == 6
+   set value = a != 0
+  end
+  if op == 7
+   set callee = load64(node + 48)
+   set c = cget(env, load64(node + 32))
+   set d = cget(env, load64(node + 40))
+   set value = ccall(callee, a, b, c, d)
+  end
+  if op == 8
+   set endp = a
+   if endp > load64(node + 56)
+    return ce(17)
+   end
+   set i = 0
+   set nextp = load64(node + 48)
+   while (i < endp) & (load64(state()) == 0)
+    do ctick()
+    do store64(env + load64(node + 8) * 8, i)
+    do crange(env, pc + 1, nextp)
+    set i = i + 1
+   end
+   set pc = nextp
+  else
+   do store64(env + load64(node + 8) * 8, value)
+   set pc = pc + 1
+  end
+ end
+ return 0
+end
+fn ccall(f, a, b, c, d)
+ let depth = load64(cs() + 120)
+ let env = buffer("core_frames", 131072) + depth * 8192
+ let value = 0
+ if depth >= 16
+  return ce(18)
+ end
+ do store64(cs() + 120, depth + 1)
+ do ctick()
+ do store64(env, a)
+ do store64(env + 8, b)
+ do store64(env + 16, c)
+ do store64(env + 24, d)
+ do crange(env, load64(cf(f) + 96), load64(cf(f) + 104))
+ set value = cget(env, load64(cf(f) + 112))
+ do store64(cs() + 120, depth)
+ return value
+end
+fn core_compute(n, count)
+ let v = 0
+ if count > n
+  return ce(2)
+ end
+ do store64(cs() + 104, n)
+ do store64(cs() + 112, 0)
+ do store64(cs() + 120, 0)
+ set v = ccall(load64(cs() + 72), buffer("input", 262144), count, 0, 0)
+ do store64(state() + 72, v)
+ do store64(state() + 80, load64(cs() + 112))
+ return load64(state()) == 0
+end
+fn core_ir()
+ do say("{\"schema\":\"rf2.core.native.ir.v1\",\"profile\":\"RF2_U32_CORE_V0\",\"functions\":")
+ do decimal(load64(cs() + 24))
+ do say(",\"instructions\":")
+ do decimal(load64(cs() + 40))
+ return say(",\"effects\":[\"read_input\"],\"execution\":\"native bounded IR runtime\"}")
+end
+fn cspace(p, i, n)
+ let c = load8(p + i)
+ let v = 0
+ if (c == 32) | (c == 9) | (c == 11) | (c == 12) | (c == 13)
+  return 1
+ end
+ if i + 2 <= n
+  if (c == 194) & (load8(p + i + 1) == 160)
+   return 2
+  end
+ end
+ if i + 3 <= n
+  set v = (c << 16) | (load8(p + i + 1) << 8) | load8(p + i + 2)
+  if (v == 14785152) | (v == 14844032) | (v == 14844033) | (v == 14844034) | (v == 14844035) | (v == 14844036) | (v == 14844037) | (v == 14844038) | (v == 14844039) | (v == 14844040) | (v == 14844041) | (v == 14844042) | (v == 14844072) | (v == 14844073) | (v == 14844079) | (v == 14844319) | (v == 14909568) | (v == 15711167)
+   return 3
+  end
+ end
+ return 0
+end
+# Per-program lowering emits systems-profile kernel functions, never host commands.
+fn cgtext(value)
+ if value >= 4294967296
+  return decimal(value & 4294967295)
+ end
+ do say("load64(frame + ")
+ do decimal(value * 8)
+ return say(")")
+end
+fn cgstore(reg)
+ do say(" do store64(frame + ")
+ do decimal(reg * 8)
+ return say(", ")
+end
+fn cgguard()
+ return say(" if load64(cgn_state()) != 0\n  return cgn_leave(depth, 0)\n end\n")
+end
+fn cgrange(pc, until)
+ let p = 0
+ let op = 0
+ let dst = 0
+ let a = 0
+ let b = 0
+ let j = 0
+ let nextp = 0
+ while pc < until
+  set p = ci(pc)
+  set op = load64(p)
+  set dst = load64(p + 8)
+  set a = load64(p + 16)
+  set b = load64(p + 24)
+  do say(" do cgn_tick()\n")
+  do cgguard()
+  if op == 8
+   do say(" do store64(buffer(\"generated_bounds\", 4096) + ")
+   do decimal(pc * 8)
+   do say(", ")
+   do cgtext(a)
+   do say(")\n if load64(buffer(\"generated_bounds\", 4096) + ")
+   do decimal(pc * 8)
+   do say(") > ")
+   do decimal(load64(p + 56))
+   do say("\n  do cgn_fail(17)\n  return cgn_leave(depth, 0)\n end\n")
+   do cgstore(dst)
+   do say("0)\n while load64(frame + ")
+   do decimal(dst * 8)
+   do say(") < load64(buffer(\"generated_bounds\", 4096) + ")
+   do decimal(pc * 8)
+   do say(")\n do cgn_tick()\n")
+   do cgguard()
+   set nextp = load64(p + 48)
+   do cgrange(pc + 1, nextp)
+   do cgstore(dst)
+   do cgtext(dst)
+   do say(" + 1)\n end\n")
+   set pc = nextp
+  else
+   if op == 1
+    do cgstore(dst)
+    do cgtext(a)
+    do say(")\n")
+   end
+   if (op == 2) | (op == 3)
+    do say(" set term = ")
+    do cgtext(a)
+    if op == 2
+     do say(" + ")
+    else
+     do say(" * ")
+    end
+    do cgtext(b)
+    do say("\n")
+    if load64(cs() + 32) == 0
+     do say(" if term > 4294967295\n  do cgn_fail(4)\n  return cgn_leave(depth, 0)\n end\n")
+    end
+    do cgstore(dst)
+    do say("term & 4294967295)\n")
+   end
+   if op == 4
+    do say(" if ")
+    do cgtext(b)
+    do say(" >= load64(cgn_state() + 8)\n  do cgn_fail(16)\n  return cgn_leave(depth, 0)\n end\n")
+    do cgstore(dst)
+    do say("load32(")
+    do cgtext(a)
+    do say(" + ")
+    do cgtext(b)
+    do say(" * 4))\n")
+   end
+   if op == 5
+    do say(" set word = ")
+    do cgtext(a)
+    do say("\n set term = 0\n while word != 0\n  set word = word & (word - 1)\n  set term = term + 1\n end\n")
+    do cgstore(dst)
+    do say("term)\n")
+   end
+   if op == 6
+    do cgstore(dst)
+    do cgtext(a)
+    do say(" != 0)\n")
+   end
+   if op == 7
+    do say(" set term = c_f")
+    do decimal(load64(p + 48))
+    do say("(")
+    set j = 0
+    while j < load64(cf(load64(p + 48)) + 8)
+     if j != 0
+      do say(", ")
+     end
+     do cgtext(load64(p + 16 + j * 8))
+     set j = j + 1
+    end
+    do say(")\n")
+    do cgguard()
+    do cgstore(dst)
+    do say("term)\n")
+   end
+   set pc = pc + 1
+  end
+ end
+ return 0
+end
+fn core_lower()
+ let f = 0
+ let j = 0
+ do say("# RF2_SYSTEM_A64_V1 kernel fragment; combine with the trusted lowered harness.\n")
+ do say("fn cgn_state()\n return buffer(\"generated_state\", 32)\nend\nfn cgn_fail(code)\n do store64(cgn_state(), code)\n return 0\nend\nfn cgn_tick()\n let n = load64(cgn_state() + 16) + 1\n do store64(cgn_state() + 16, n)\n if n > 1048576\n  do cgn_fail(18)\n end\n return 0\nend\nfn cgn_leave(depth, value)\n do store64(cgn_state() + 24, depth)\n return value\nend\n")
+ while f < load64(cs() + 24)
+  do say("fn c_f")
+  do decimal(f)
+  do say("(")
+  set j = 0
+  while j < load64(cf(f) + 8)
+   if j != 0
+    do say(", ")
+   end
+   do say("p")
+   do decimal(j)
+   set j = j + 1
+  end
+  do say(")\n let depth = load64(cgn_state() + 24)\n let frame = buffer(\"generated_frames\", 131072) + depth * 8192\n let term = 0\n let word = 0\n let answer = 0\n if depth >= 16\n  do cgn_fail(18)\n  return 0\n end\n do store64(cgn_state() + 24, depth + 1)\n do cgn_tick()\n")
+  do cgguard()
+  set j = 0
+  while j < load64(cf(f) + 8)
+   do cgstore(j)
+   do say("p")
+   do decimal(j)
+   do say(")\n")
+   set j = j + 1
+  end
+  do cgrange(load64(cf(f) + 96), load64(cf(f) + 104))
+  do say(" set answer = ")
+  do cgtext(load64(cf(f) + 112))
+  do say("\n return cgn_leave(depth, answer)\nend\n")
+  set f = f + 1
+ end
+ do say("fn cgn_entry(data, words, count)\n let answer = 0\n do store64(cgn_state(), 0)\n do store64(cgn_state() + 8, words)\n do store64(cgn_state() + 16, 0)\n do store64(cgn_state() + 24, 0)\n if (words > 65536) | (count > words)\n  do cgn_fail(2)\n  return 0\n end\n set answer = c_f")
+ do decimal(load64(cs() + 72))
+ return say("(data, count)\n return answer\nend\n")
+end
+fn cnodot(first, last)
+ let p = load64(ct(first) + 8)
+ let endp = load64(ct(last) + 8) + load64(ct(last) + 16)
+ let c = 0
+ if load64(state()) != 0
+  return 0
+ end
+ if endp - p > 131072
+  return ce(10)
+ end
+ while p < endp
+  set c = load8(p)
+  if (c == 13) | (c == 10)
+   return ce(10)
+  end
+  if p + 3 <= endp
+   if (c == 226) & (load8(p + 1) == 128)
+    if (load8(p + 2) == 168) | (load8(p + 2) == 169)
+     return ce(10)
+    end
+   end
+  end
+  set p = p + 1
+ end
+ return 1
+end

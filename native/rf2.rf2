@@ -22,6 +22,21 @@ fn say(p)
  return output(p, slen(p))
 end
 fn output(p, n)
+ let capture = buffer("capture_state", 24)
+ let length = load64(capture + 8)
+ let i = 0
+ if load64(capture)
+  if length + n > 1048576
+   do fail(22)
+   return 0
+  end
+  while i < n
+   do store8(buffer("capture_bytes", 1048576) + length + i, load8(p + i))
+   set i = i + 1
+  end
+  do store64(capture + 8, length + n)
+  return n
+ end
  let sent = 0
  let r = 0
  while sent < n
@@ -762,7 +777,7 @@ fn span_eq(p, n, text)
  end
  return 1
 end
-fn source(p, n)
+fn compact_source(p, n)
  let endp = p + n
  let q = 0
  let i = 0
@@ -851,7 +866,7 @@ fn collect(idx)
  end
  return n
 end
-fn compute(n, count)
+fn compact_compute(n, count)
  let op = load64(state() + 56)
  let mode = load64(state() + 64)
  let a = buffer("input", 262144)
@@ -907,13 +922,19 @@ fn result()
  do decimal(load64(state() + 72))
  do say(",\"steps\":")
  do decimal(load64(state() + 80))
- do say(",\"profile\":\"RF2_U32_CORE_V0\",\"syntaxProfile\":\"RF2_COMPACT_V1\",\"effects\":[\"read_input\"]}")
+ do say(",\"profile\":\"RF2_U32_CORE_V0\",\"syntaxProfile\":")
+ if load64(state() + 56) == 0
+  do say("\"RF2_U32_CORE_V0\"")
+ else
+  do say("\"RF2_COMPACT_V1\"")
+ end
+ do say(",\"effects\":[\"read_input\"]}")
  return 0
 end
 fn status()
- return say("{\"version\":\"0.4.0\",\"runtime\":\"RF2_SYSTEM_A64_V1 direct ARM64\",\"target\":\"macos-arm64\",\"syntaxProfile\":\"RF2_COMPACT_V1\",\"coreProfile\":\"RF2_U32_CORE_V0\",\"operations\":[\"sum\",\"squares\",\"bits\",\"nonzero\"],\"effects\":[\"read_input\"],\"nodeRequired\":false,\"cppRequired\":false,\"selfHosted\":false,\"bootstrap\":\"Python build-time seed and macOS signing\",\"generalCoreParser\":false,\"embeddedAI\":false,\"speedClaim\":null}")
+ return say("{\"version\":\"0.6.0\",\"runtime\":\"RiverFlow systems source compiled to ARM64\",\"target\":\"macos-arm64\",\"syntaxProfiles\":[\"RF2_COMPACT_V1\",\"RF2_U32_CORE_V0\"],\"operations\":[\"ADD\",\"MUL\",\"LOAD\",\"POPCOUNT\",\"NONZERO\",\"CALL\"],\"coreExecution\":\"bounded native IR runtime\",\"kernelLowering\":\"per-program RiverFlow systems source, compiled with rf2c and trusted harness\",\"coreEffects\":[\"read_input\"],\"applicationCapabilities\":[\"attendance.local@1\"],\"mcpFilesystemAccess\":false,\"cliAttendanceWrites\":\"explicit new output path only\",\"nodeRequired\":false,\"cppRequired\":false,\"systemsCompilerSelfReproduces\":true,\"generalCoreParser\":true,\"embeddedAI\":false,\"speedClaim\":null,\"tokenClaim\":null}")
 end
-fn ir()
+fn compact_ir()
  do say("{\"schema\":\"rf2.compact.plan.v1\",\"coreProfile\":\"RF2_U32_CORE_V0\",\"operation\":")
  do decimal(load64(state() + 56))
  do say(",\"wrapping\":")
@@ -945,11 +966,56 @@ fn expand()
  return say("STEP add = ADD WITH { a: total, b: item, result: total }\nEND FOR\nRETURN total\nEND\n")
 end
 fn error_text(code)
+ if code == 23
+  return "Expected at most 1000 attendance records, each with exactly student_id, date and status"
+ end
+ if code == 24
+  return "Attendance date must be a valid Gregorian YYYY-MM-DD date"
+ end
+ if code == 25
+  return "Student ID must start with an ASCII letter or digit and contain at most 64 letters, digits, hyphens or underscores"
+ end
+ if code == 26
+  return "Attendance status must be present, absent or late"
+ end
+ if code == 27
+  return "Duplicate student and date: export refused"
+ end
+ if code == 28
+  return "Attendance file I/O failed or output already exists; no overwrite permitted"
+ end
+ if code == 29
+  return "Attendance CSV size limit exceeded"
+ end
+ if code == 22
+  return "Generated source size limit exceeded"
+ end
+ if code == 10
+  return "Invalid Core syntax or profile"
+ end
+ if code == 11
+  return "Core type, argument, name, assignment or scope error"
+ end
+ if code == 13
+  return "Recursive Core calls forbidden"
+ end
+ if code == 14
+  return "Core source, function or static instruction limit exceeded"
+ end
+ if code == 16
+  return "LOAD outside input capacity"
+ end
+ if code == 17
+  return "Loop limit exceeded"
+ end
+ if code == 18
+  return "Execution work limit exceeded"
+ end
  if code == 5
   return "Unable to read the explicitly supplied source file"
  end
  if code == 3
-  return "Expected rf2 v1 checked|wrap followed by sum|squares|bits|nonzero input. Compact V1 only; general Core and machine source are refused."
+  return "Expected rf2 v1 checked|wrap followed by sum|squares|bits|nonzero input. Unknown compact syntax is refused."
  end
  if code == 4
   return "Checked arithmetic overflow"
@@ -961,14 +1027,14 @@ fn error_text(code)
 end
 fn read_source(path)
  let fd = open(path, 0, 0)
- let b = buffer("source", 32769)
+ let b = buffer("source", 131073)
  let n = 0
  let r = 0
  if fd >= 9223372036854775808
   return fail(5)
  end
- while n < 32769
-  set r = read(fd, b + n, 32769 - n)
+ while n < 131073
+  set r = read(fd, b + n, 131073 - n)
   if r >= 9223372036854775808
    do close(fd)
    return fail(5)
@@ -1063,7 +1129,7 @@ fn tool_error(id)
  return say("\"}]}}\n")
 end
 fn tools()
- return say("{\"tools\":[{\"name\":\"rf2_status\",\"description\":\"Read exact native RF2 capabilities and limits\",\"inputSchema\":{\"type\":\"object\",\"properties\":{},\"additionalProperties\":false}},{\"name\":\"rf2_check\",\"description\":\"Validate Compact V1 and return an explicit plan, not arbitrary Core\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"source\":{\"type\":\"string\",\"maxLength\":32768}},\"required\":[\"source\"],\"additionalProperties\":false}},{\"name\":\"rf2_run\",\"description\":\"Run Compact V1 reductions in native ARM64, no file or network effects\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"source\":{\"type\":\"string\",\"maxLength\":32768},\"data\":{\"type\":\"array\",\"maxItems\":65536,\"items\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":4294967295}},\"count\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":65536}},\"required\":[\"source\",\"data\"],\"additionalProperties\":false}}]}")
+ return say("{\"tools\":[{\"name\":\"rf2_status\",\"description\":\"Read exact native capabilities and limits\",\"inputSchema\":{\"type\":\"object\",\"properties\":{},\"additionalProperties\":false}},{\"name\":\"rf2_check\",\"description\":\"Validate Core or Compact V1, including scalar helpers\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"source\":{\"type\":\"string\",\"maxLength\":32768}},\"required\":[\"source\"],\"additionalProperties\":false}},{\"name\":\"rf2_run\",\"description\":\"Execute bounded Core or Compact V1 in the native runtime\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"source\":{\"type\":\"string\",\"maxLength\":32768},\"data\":{\"type\":\"array\",\"maxItems\":65536,\"items\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":4294967295}},\"count\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":65536}},\"required\":[\"source\",\"data\"],\"additionalProperties\":false}},{\"name\":\"rf2_lower\",\"description\":\"Return checked per-program systems kernel source; no files are written or compiled\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"source\":{\"type\":\"string\",\"maxLength\":32768}},\"required\":[\"source\"],\"additionalProperties\":false}},{\"name\":\"attendance_export\",\"description\":\"attendance.local@1: validate up to 1000 records, reject duplicate student/day, return CSV and counts. No filesystem access.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"records\":{\"type\":\"array\",\"maxItems\":1000,\"items\":{\"type\":\"object\",\"properties\":{\"student_id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":64},\"date\":{\"type\":\"string\",\"minLength\":10,\"maxLength\":10},\"status\":{\"type\":\"string\",\"enum\":[\"present\",\"absent\",\"late\"]}},\"required\":[\"student_id\",\"date\",\"status\"],\"additionalProperties\":false}}},\"required\":[\"records\"],\"additionalProperties\":false}}]}")
 end
 fn tool_call(id, params)
  let name = field(params, "name")
@@ -1090,15 +1156,22 @@ fn tool_call(id, params)
   do rpc_start(id)
   do say(",\"result\":{\"content\":[{\"type\":\"text\",\"text\":")
   # Status as structuredContent plus short readable text, no nested JSON escaping needed.
-  do say("\"Native RiverFlow ARM64; Compact V1; no Node or C++ runtime\"}],\"structuredContent\":")
+  do say("\"Native RiverFlow: Core helpers, compact arithmetic and attendance export\"}],\"structuredContent\":")
   do status()
   return say("}}\n")
+ end
+ if matches(token(name), "attendance_export")
+  return attool(id, args)
  end
  if matches(token(name), "rf2_run")
   set running = 1
  else
-  if matches(token(name), "rf2_check") == 0
-   return rpc_error(id, 32602, "Unknown tool")
+  if matches(token(name), "rf2_lower")
+   set running = 2
+  else
+   if matches(token(name), "rf2_check") == 0
+    return rpc_error(id, 32602, "Unknown tool")
+   end
   end
  end
  if args == 0
@@ -1110,7 +1183,7 @@ fn tool_call(id, params)
  set i = args + 1
  while i < load64(token(args) + 24)
   if matches(token(i), "source") == 0
-   if running == 0
+   if running != 1
     return rpc_error(id, 32602, "Unexpected argument")
    end
    if matches(token(i), "data") == 0
@@ -1132,7 +1205,7 @@ fn tool_call(id, params)
  if load64(state()) != 0
   return tool_error(id)
  end
- if running
+ if running == 1
   set data = field(args, "data")
   if data == 0
    return rpc_error(id, 32602, "Missing data")
@@ -1153,8 +1226,25 @@ fn tool_call(id, params)
    return tool_error(id)
   end
  end
+ if running == 2
+  do lower_prepare()
+  if load64(state()) != 0
+   return tool_error(id)
+  end
+  do store64(buffer("capture_state", 24) + 8, 0)
+  do store64(buffer("capture_state", 24), 1)
+  do core_lower()
+  do store64(buffer("capture_state", 24), 0)
+  if load64(state()) != 0
+   return tool_error(id)
+  end
+  do rpc_start(id)
+  do say(",\"result\":{\"content\":[{\"type\":\"text\",\"text\":")
+  do json_quote(buffer("capture_bytes", 1048576), load64(buffer("capture_state", 24) + 8))
+  return say("}]}}\n")
+ end
  do rpc_start(id)
- do say(",\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Validated RF2 Compact V1")
+ do say(",\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Validated RF2 program")
  if running
   do say("; value ")
   do decimal(load64(state() + 72))
@@ -1229,7 +1319,7 @@ fn request(n)
   end
   do store64(session, 1)
   do rpc_start(id)
-  return say(",\"result\":{\"protocolVersion\":\"2024-11-05\",\"capabilities\":{\"tools\":{}},\"serverInfo\":{\"name\":\"rf2-native\",\"version\":\"0.4.0\"}}}\n")
+  return say(",\"result\":{\"protocolVersion\":\"2024-11-05\",\"capabilities\":{\"tools\":{}},\"serverInfo\":{\"name\":\"rf2-native\",\"version\":\"0.6.0\"}}}\n")
  end
  if matches(token(method), "ping")
   do rpc_start(id)
@@ -1261,7 +1351,7 @@ fn main(argc, argv)
  let count = 0
  let arg = 0
  if argc < 2
-  do say("RiverFlow 0.4 native ARM64\nrf2 status | check file | expand file | run file '[1,2,3]' [count] | mcp\nCompact V1 only. No general Core parser or self-hosting claim.\n")
+  do say("RiverFlow 0.6 native ARM64\nrf2 status | check file | expand file | run file '[1,2,3]' [count]\nrf2 lower file.flow | attendance records.json new.csv | mcp\nCompact V1 and checked Core with scalar helpers.\n")
   return 0
  end
  set cmd = load64(argv + 8)
@@ -1271,6 +1361,24 @@ fn main(argc, argv)
    do request(n)
    set n = line()
   end
+  return 0
+ end
+ if eq(cmd, "attendance")
+  if argc != 4
+   do say("Usage: rf2 attendance records.json new-export.csv\n")
+   return 1
+  end
+  do atfile(load64(argv + 16))
+  if load64(state()) == 0
+   do atwrite(load64(argv + 24))
+  end
+  if load64(state()) != 0
+   do say(error_text(load64(state())))
+   do say("\n")
+   return 1
+  end
+  do atrender(0)
+  do say("\n")
   return 0
  end
  if eq(cmd, "status")
@@ -1284,7 +1392,7 @@ fn main(argc, argv)
  end
  if eq(cmd, "check") == 0
   if eq(cmd, "expand") == 0
-   if eq(cmd, "run") == 0
+   if (eq(cmd, "run") == 0) & (eq(cmd, "lower") == 0)
     do say("Unknown command\n")
     return 1
    end
@@ -1305,7 +1413,21 @@ fn main(argc, argv)
   do say("\n")
   return 0
  end
+ if eq(cmd, "lower")
+  do lower_prepare()
+  if load64(state()) != 0
+   do say(error_text(load64(state())))
+   do say("\n")
+   return 1
+  end
+  do core_lower()
+  return 0
+ end
  if eq(cmd, "expand")
+  if load64(state() + 56) == 0
+   do say("expand accepts Compact V1; use lower for Core kernel source\n")
+   return 1
+  end
   do expand()
   return 0
  end
@@ -1333,4 +1455,79 @@ fn main(argc, argv)
  do result()
  do say("\n")
  return 0
+end
+
+fn source(p, n)
+ let start = skip(p, p + n)
+ if p + n - start >= 3
+  if span_eq(start, 3, "rf2")
+   return compact_source(p, n)
+  end
+ end
+ return core_source(p, n)
+end
+fn compute(n, count)
+ if load64(state() + 56) != 0
+  return compact_compute(n, count)
+ end
+ return core_compute(n, count)
+end
+fn ir()
+ if load64(state() + 56) != 0
+  return compact_ir()
+ end
+ return core_ir()
+end
+
+fn lower_prepare()
+ let p = buffer("capture_state", 24)
+ let n = 0
+ let i = 0
+ if load64(state() + 56) != 0
+  do store64(p + 8, 0)
+  do store64(p, 1)
+  do expand()
+  do store64(p, 0)
+  set n = load64(p + 8)
+  if n > 4096
+   return fail(22)
+  end
+  while i < n
+   do store8(buffer("expanded_lower", 4096) + i, load8(buffer("capture_bytes", 1048576) + i))
+   set i = i + 1
+  end
+  do core_source(buffer("expanded_lower", 4096), n)
+ end
+ return load64(state()) == 0
+end
+fn json_quote(p, n)
+ let i = 0
+ let c = 0
+ do say("\"")
+ while i < n
+  set c = load8(p + i)
+  if c == 34
+   do say("\\\"")
+  else
+   if c == 92
+    do say("\\\\")
+   else
+    if c == 10
+     do say("\\n")
+    else
+     if c == 13
+      do say("\\r")
+     else
+      if c == 9
+       do say("\\t")
+      else
+       do output(p + i, 1)
+      end
+     end
+    end
+   end
+  end
+  set i = i + 1
+ end
+ return say("\"")
 end

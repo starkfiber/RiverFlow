@@ -5,11 +5,11 @@ Ilangkhumanan Thirunavokkarasu
 
 Stark Fiber Enterprise
 
-First edition, revised · November 2026 · Package 0.5
+First edition, revised · November 2026 · Package 0.6
 
 # About this edition
 
-RiverFlow is a language in active development. This book describes a small language that runs, a compiler path that can be inspected, and a way to connect research questions to evidence. The complete original examples use RF2_U32_CORE_V0. The standalone 0.4 addition has a separate RF2_COMPACT_V1 front end and an explicitly distinct RF2_SYSTEM_A64_V1 implementation profile. Release 0.5 adds a native compiler that reproduces itself within the systems subset, described in Chapter 16. The profile matters more than the age of the book: another dialect may use familiar words while giving them different meanings.
+RiverFlow is a language in active development. This book describes a small language that runs, a compiler path that can be inspected, and a way to connect research questions to evidence. The complete original examples use RF2_U32_CORE_V0. The standalone 0.4 addition has a separate RF2_COMPACT_V1 front end and an explicitly distinct RF2_SYSTEM_A64_V1 implementation profile. Chapters 16 through 18 cover systems-compiler self-reproduction, native Core helpers, direct kernels and a working attendance export capability. The profile matters more than the age of the book: another dialect may use familiar words while giving them different meanings.
 
 RiverFlow aims to make programming understandable and useful. This edition does not claim universal compatibility, new semiconductor technology, independent academic approval or million-year durability. Claims need reproducible evidence.
 
@@ -37,7 +37,7 @@ Try a simple standard while reading: after each feature, ask for an example, an 
 
 # 2. Your first working river
 
-For the standalone 0.4 path on Apple Silicon macOS 14 or newer, users run a single executable. Node, npm, Python and C++ are not runtime requirements. The executable uses macOS system interfaces; it is not an operating system of its own.
+For native 0.6 on Apple Silicon Mac, users run a standalone executable. The encoded minimum is macOS 14; actual qualification is on the recorded local Mac. Node, npm, Python and C++ are not runtime requirements. The executable uses macOS system interfaces; it is not an operating system of its own.
 
 The first compact program is:
 
@@ -55,11 +55,11 @@ Save it as sum.rf2. With the downloaded executable:
 ./rf2 mcp
 ```
 
-The result is 15 with 18 abstract Core work events. These events are not processor cycles. Chapter 15 explains the native implementation, its tests and its four-operation boundary. General Core helpers and arbitrary admitted statements still use the reference tools described below.
+The result is 15 with 18 abstract Core work events. These events are not processor cycles. Chapter 15 explains the native implementation, its tests and its four-operation boundary. General Core programs and helpers now also run through this native tool. Chapter 17 distinguishes runtime execution from per-program native compilation.
 
-Release 0.4 used a small Python seed and the macOS signing utility. Release 0.5 adds a native compiler rebuild route, described in Chapter 16. The historical seed remains available for initial bootstrap and comparison. The seed writes AArch64 instructions and the executable container directly, without a C/C++ compiler, assembler or linker. This is a trusted bootstrap, not self-hosting.
+The historical release 0.4 build used a Python seed. The native compiler added in 0.5 can rebuild itself, and native 0.6 composes its runtime modules through the supplied build script. No Python, C/C++ compiler, assembler or linker is invoked by that native rebuild. The OS still signs the resulting image.
 
-The remaining detailed examples in Chapters 2 through 14 teach the original Core profile. For those reference-development exercises only, install Node 22 and the repository's pinned npm dependencies. The browser playground also retains that reference interpreter. These developer tools are distinct from the standalone runtime.
+The detailed examples below retain the original Core profile. They now run in both the native runtime and the JavaScript reference. The browser playground remains a reference interpreter; it is distinct from the native executable.
 
 Here is a complete program with no input-dependent calculation. It returns 520 in checked arithmetic.
 
@@ -75,15 +75,15 @@ END
 
 FLOW gives the program a readable name. PROFILE chooses the contract. ARITHMETIC chooses what addition and multiplication do at the edge of the number range. The main function accepts an array and a count, even when this particular example does not use them. RETURN makes the result explicit.
 
-For this general Core reference exercise, save that text in first.flow and run it with an empty array using Node 22. The compact standalone does not accept arbitrary Core source. You can check it without executing it, or emit a JSON intermediate representation for inspection.
+Save that Core source in first.flow and run it with an empty array using native 0.6. You can check it without executing it, or emit a JSON intermediate representation for inspection.
 
 ```sh
-node bin/rf2.mjs check first.flow
-node bin/rf2.mjs run first.flow '[]'
-node bin/rf2.mjs compile first.flow first.json
+./rf2 check first.flow
+./rf2 run first.flow '[]'
+./rf2 lower first.flow
 ```
 
-The compile command writes checked JSON IR. It does not produce a native executable. The emit-c command, introduced later, writes C source. A clear distinction between these outputs prevents a common mistake: treating a successful build step as proof that an application ran on its target device.
+The native check command reports a validated plan. Lower returns systems-profile kernel source; a separate compiler step creates an executable. The retained JavaScript compile command writes JSON IR, and emit-c writes C. A source listing or successful build does not prove execution on a target device.
 
 The website runs the reference interpreter in a browser worker without uploading source or arrays. Errors describe a contract to examine.
 
@@ -235,7 +235,7 @@ Exercise: make a loop body longer while keeping its result unchanged. Ask whethe
 
 # 8. Native C without changing the promise
 
-Package 0.3 adds C11 source emission. This is a real implementation path: checked RiverFlow source becomes C, which a separate compiler can turn into host machine code. It is not a claim that RiverFlow is self-hosted or that the generated code has run on a phone.
+Package 0.3 introduced C11 emission from the JavaScript reference. This chapter preserves that comparison path. Native 0.6 instead lowers Core through the RiverFlow systems compiler, described in Chapter 17. Neither route establishes phone execution.
 
 ```sh
 node bin/rf2.mjs emit-c examples/sum.flow sum.c
@@ -286,7 +286,7 @@ Exercise: change the initial total to one. Predict how the result changes and ch
 
 The Model Context Protocol connects a model host to tools and resources. In RiverFlow, the host supplies model intelligence. The local server provides bounded operations with explicit input schemas. Installing the plugin does not install an independent academic council or give a model new hardware authority.
 
-The language tools report the current profile, check source, evaluate an input, evaluate a batch using one preparation, and emit C text. The public SFE bridge lists a fixed repository catalog, inspects an entry, retrieves its pinned root README, exposes proposed research links and calculates ratios from supplied measurements.
+The current native tools report capabilities, check source, execute Core or compact programs, return lowered kernels and export validated attendance records. A separate JavaScript reference provides batch evaluation, C emission and the public SFE repository catalog. Those reference features are not silently native tools.
 
 A productive session starts by asking what is supported. The model then proposes source, calls the checker, runs known inputs and inspects errors. If the task needs a missing effect, the session should produce a versioned design proposal rather than a fictional successful tool response.
 
@@ -406,7 +406,7 @@ The evidence is in docs/STANDALONE-VERIFICATION.json and the executable-level te
 
 ## What is still open
 
-The standalone currently targets Apple Silicon macOS only. It exposes three native tools, not all ten reference tools. General Core helpers, arbitrary admitted statement sequences, the C emitter, batch execution and public-repository research tools remain in the reference implementation. There is no automatic phone installation, wireless qualification or arbitrary application-generation capability.
+The 0.4 standalone targeted Apple Silicon macOS and exposed three native tools. Release 0.6 adds general Core support, lowering and a versioned application operation, described in the following chapters. C emission, batch execution and public-repository research tools remain separate reference capabilities. General Core helpers and admitted statement sequences now have a native path. There is no automatic phone installation, wireless qualification or arbitrary application-generation capability.
 
 After the systems-compiler milestone in Chapter 16, the remaining foundation is to migrate more Core behavior, qualify another target and review the machine encoder independently. Compact service plans then need real versioned implementations, explicit permissions and acceptance tests. A short command should save repeated description without concealing unimplemented work.
 
@@ -435,9 +435,8 @@ The native download includes the compiler and both implementation sources. Choos
 ```sh
 ./rf2c native/compiler/compiler.rf2 next-rf2c
 /usr/bin/codesign -s - --force next-rf2c
-./next-rf2c native/rf2.rf2 next-rf2
-/usr/bin/codesign -s - --force next-rf2
-./next-rf2 run examples/compact/sum.rf2 '[1,2,3]'
+./tools/build-runtime.sh ./next-rf2c next-runtime
+./next-runtime/rf2 run examples/compact/sum.rf2 '[1,2,3]'
 ```
 
 The expected value is six. The compiler refuses an existing output file or a symlink instead of overwriting it. A source or resource-limit refusal occurs before output creation. An operating-system write failure may leave an incomplete newly created file; that is a failed build, not an executable result.
@@ -458,7 +457,95 @@ Several early failures improved the implementation. A library-path length error 
 
 Two agreeing compilers can share a mistake. A self-reproducing compiler can preserve unwanted behavior. These tests are not diverse double compilation, an independent audit or a proof of security. Trusted systems source still uses raw pointers and explicit OS calls. It must never be confused with the restricted input-only computation interface exposed over MCP.
 
-The next useful work is to migrate general Core programs, qualify another target and add one real application capability with explicit effects and acceptance tests. The token-saving question remains separate: count complete matched tasks, including setup, tool context, failures and repairs. A self-built compiler is a meaningful foundation, not evidence that the entire application-building vision is finished.
+The next chapters record the general Core and application checkpoint in 0.6. Broader target qualification and independent review remain open. The token-saving question remains separate: count complete matched tasks, including setup, tool context, failures and repairs. A self-built compiler is a meaningful foundation, not evidence that the entire application-building vision is finished.
+
+# 17. General Core on a native foundation
+
+A language becomes more useful when it can reuse a function without regenerating its implementation. Core already had named scalar helpers, forward calls and bounded loops in the reference implementation. Release 0.6 brings those behaviors into the native runtime, with a separate route for building per-program machine code.
+
+The two routes deserve different names. The run command checks source and executes internal instructions in a native runtime written in RiverFlow. It does not secretly launch Node or Python. It also does not compile a new executable for each request. The build route lowers the checked program into RiverFlow systems functions and passes those functions to the native compiler. The resulting kernel contains instructions generated for that particular program.
+
+{{NATIVE_PIPELINE}}
+
+## Reuse the complete examples
+
+The helper example in Chapter 5 is stored in book/examples/example-4.flow. It sums the squares of its input through a scalar helper. Both routes should produce 29 from the same data:
+
+```sh
+./rf2 check book/examples/example-4.flow
+./rf2 run book/examples/example-4.flow '[2,3,4]'
+./tools/build-core.sh ./rf2 ./rf2c \
+  book/examples/example-4.flow squares-build
+./squares-build/program '[2,3,4]'
+```
+
+The build script creates a new directory. It combines the lowered kernel fragment with a trusted input harness, invokes rf2c and explicitly applies macOS signing. The returned text from lower is not itself an executable, and a build log is not a measurement of the program's behavior. The tests execute the resulting artifact.
+
+## Keep the contract intact
+
+The native checker validates every function, including an unused helper. It checks argument names, arity, types and assignments, rejects call cycles, and keeps parameters and induction variables immutable. Main receives one read-only array and a count. Scalar helpers can accept up to four values. A loop captures its upper value on entry; names introduced inside it cannot escape.
+
+A LOAD still uses input capacity, not the chosen prefix count. Checked arithmetic still rejects an excessive result. Wrapping arithmetic still reduces modulo 2^32. The source, function, instruction, input and work limits remain explicit. Neither a model nor the application adapter may quietly relax those rules to get a successful response.
+
+Native input must be well-formed UTF-8. For valid Unicode, the source budget uses UTF-16 code units to match the reference string contract. Malformed file bytes and unpaired surrogate escapes reject at the native boundary. The conformance corpus also challenges Unicode trimming, exact statement formatting and unsupported line separators.
+
+One test caught a subtle named-argument collision. A helper parameter named result can be declared, but a call cannot use the same unique field both as that input and as the required output field. The reference rejects the impossible call shape. The native checker now rejects it too, while permitting an unused helper with that parameter. Refusal cases are part of the contract, not obstacles to be hidden.
+
+## What was actually executed
+
+The general Core corpus contains 109 program entries, 317 admission checks and 1,095 executions against the reference. It includes helper chains, four named arguments, Unicode, restored loop scope, unused invalid functions, recursion, overflow, bounds and the work budget. A further 180 seeded source mutations are included in the admission count.
+
+The direct-kernel corpus covers 18 native build cases and 163 actual executable runs. It includes all five complete original book examples, a program with 501 scalar registers, and an explicit work-limit refusal probe. The generated path agrees on successful values and work counts and on the expected dynamic error categories. The old compact corpus is rerun separately to preserve its earlier behavior.
+
+Memory-backed frames keep generated functions within the systems compiler's local-variable limit. They are an implementation choice, not a performance result. A trustworthy account retains that cost and tests the register-heavy case instead of presenting only the smallest program.
+
+These comparisons do not prove all possible programs correct. A shared assumption can survive differential testing, and the direct native code has not received an independent security audit. Sanitizer checks on the old C backend remain useful evidence about that backend; they are not sanitizer coverage of this machine-code path.
+
+# 18. One application operation, end to end
+
+The first application capability is attendance.local@1. It accepts attendance records, validates them, refuses duplicate student/date pairs, and produces CSV with present, absent and late counts. It is a batch exporter with a defined contract, not a claim that an entire school system or unrestricted application builder has been completed.
+
+The supplied test-records.json contains three explicit TEST identifiers with one record in each state. They are programming inputs, not student observations or evidence of a school outcome. The local command is:
+
+```sh
+./rf2 attendance \
+  capabilities/attendance.local.v1/test-records.json \
+  register.csv
+```
+
+The expected counts are one present, one absent and one late. The receipt records the number of rows, CSV byte length and a SHA-256 fingerprint. An independent CSV reader checks that the exported records recover the original input fields and order.
+
+## Make permission a concrete action
+
+The CLI writes only the explicitly supplied new output path. It refuses an existing file or symlink, validates the dataset before opening the output, and creates an owner-only file. A write or close failure is reported as failure and may leave an incomplete newly created file. The implementation does not claim crash-safe journaling.
+
+The MCP tool accepts records and returns CSV text. It accepts no path or permission argument and does not write a file. This distinction lets an assistant prepare a useful export while the host or person decides where to save it. Core itself still has only its read-input effect.
+
+There is no hidden teacher authorization, editing interface or remote student database. Those would need separate contracts and tests. The operation is useful because it does one complete job with observable outputs and refusals, rather than presenting a template as an application result.
+
+## Validate before counting
+
+Each record must contain exactly a student ID, a canonical Gregorian date and a state. IDs are constrained to short ASCII identifiers that begin with a letter or digit. Delimiters, controls and formula prefixes reject. Dates are checked for real days and leap years, not only the shape of ten characters. State is exactly present, absent or late.
+
+One student may appear on different dates. The same student/date pair cannot occur twice. This rule is checked before export, so the system does not silently discard or double-count a conflicting row. The current maximum is 1,000 records per request; an excessive dataset fails rather than being truncated.
+
+The constrained fields make a simple CSV format sufficient. The declared round trip is tested with an independent CSV reader. It is not a guarantee that every spreadsheet editor will preserve identifiers when someone edits and re-saves a file.
+
+## Use Core for the business calculation
+
+The application does not merely surround a language demonstration with a new title. Its counts come from the versioned tally.flow program. The validator converts the three states to weights of 1, 1024 and 1048576. A checked Core sum, implemented through a scalar helper and bounded loop, combines them into three ten-bit count fields.
+
+The admitted total cannot exceed 1,000, so no field reaches 1,024 and carries into the next field. The full packed value fits within u32. The exported counts are decoded from that generated result. This is ordinary bounded integer arithmetic, not a new mathematical theorem or a claim to solve a scientific conjecture.
+
+The Core source is lowered by the native tool and compiled into the application. Its generated kernel can be reproduced and compared with the committed artifact. A capability manifest binds the source and kernel fingerprints. Hash identity helps detect changed bytes; it does not establish an authentic author, remote attestation or independent approval.
+
+## Test the whole operation
+
+The executed application corpus contains 34 successful exports or calendar acceptance cases, 45 refusals and three file-protection checks. Round-trip datasets include the maximum record count. The tests compare counts with an independent calculation, check actual CSV bytes and fingerprints, validate leap-year behavior, refuse duplicate/schema/unsafe-ID inputs, and verify that a later Core request still works after an application error.
+
+The official MCP SDK separately exercises export and duplicate refusal. The CLI tests inspect the written file, its permissions and the unchanged contents of an existing file and symlink target. These are software observations from controlled programming inputs. They do not establish adoption, educational benefit, workplace savings, energy reduction or token savings.
+
+The next application should reuse this discipline: a versioned interface, explicit authority, an implemented calculation, observable output and a refusal corpus. The token-economy question must then be measured across matched complete tasks, including setup, schema context, tool responses and repairs. A short invocation becomes valuable when the work behind it is real and inspectable.
 
 # Appendix A. Commands and interfaces
 
@@ -469,6 +556,7 @@ Native standalone, no Node or npm required:
 ./rf2 check examples/compact/sum.rf2
 ./rf2 run examples/compact/sum.rf2 '[1,2,3]'
 ./rf2 expand examples/compact/sum.rf2
+./rf2 lower examples/sum.flow
 ./rf2 mcp
 ```
 
@@ -484,9 +572,9 @@ npm test
 node tools/benchmark-native.mjs
 ```
 
-The native Codex plugin now launches an existing RF2 binary, configured by RF2_BIN or output/bin/rf2. It does not install npm dependencies or fall back to Node. The older JavaScript MCP server remains a separate development reference. Other MCP clients can launch plugin/launch-mcp.sh over stdio. Use one registration route per client to avoid duplicated servers. The client controls whether the rf2 skill appears as a slash command; the package does not force a UI convention.
+The native plugin launches an existing binary from RF2_BIN or output/bin/rf2. It performs no automatic build or Node fallback. Register the plugin or direct MCP server once; the client controls slash-command appearance.
 
-The native tools are rf2_status, rf2_check and rf2_run for Compact V1. The older reference language tools additionally include rf2_run_batch and rf2_emit_c. Only the JavaScript reference supplies the SFE research tools: sfe_repositories, sfe_repository, sfe_repository_document, sfe_research_map and sfe_compare_measurements. Their schemas define inputs; none grants a device capability or executes emitted C.
+Native tools cover status, checking, execution, kernel lowering and attendance export. The separate JavaScript reference retains batching, C emission and the SFE catalog. Consult the repository schemas for their exact arguments and effects.
 
 # Appendix B. Native status codes
 
@@ -503,7 +591,7 @@ For a valid ABI and an evaluation failure, work may receive the consumed event c
 
 # Appendix C. Release evidence snapshot
 
-The following tables are generated from retained release receipts when this book is built. They are descriptive observations from one host. Raw trials remain in the repository. A later edition must regenerate its snapshot rather than quietly reusing a favorable old result.
+The table below retains the historical 0.3 C-backend experiment. It does not measure the native 0.6 IR runtime or newly lowered kernels. These descriptive observations come from one host; raw trials remain in the repository. A later performance claim needs its own matched experiment.
 
 {{EVIDENCE_TABLES}}
 
@@ -516,7 +604,7 @@ The RiverFlow Core specification, source, tests and benchmark records are the pr
 
 2. RiverFlow Core specification. https://github.com/starkfiber/RiverFlow/blob/main/docs/SPEC.md
 
-3. Model Context Protocol specification. https://modelcontextprotocol.io/specification/2026-07-28
+3. Model Context Protocol specification. https://modelcontextprotocol.io/specification/2024-11-05
 
 4. MCP TypeScript SDK server documentation. https://ts.sdk.modelcontextprotocol.io/server
 

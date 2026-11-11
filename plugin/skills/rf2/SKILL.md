@@ -1,39 +1,27 @@
 ---
 name: rf2
-description: Write, check and run RiverFlow compact native computations, inspect exact profile boundaries, and develop its compiler and evidence.
+description: Check and execute RiverFlow Core/compact programs, lower checked kernels, use the versioned attendance exporter, and develop native compiler evidence.
 ---
-# RiverFlow RF²
+# RiverFlow RF² 0.6
 
-Use rf2_status first. The default 0.4 server is a standalone Apple Silicon macOS executable. Read docs/STANDALONE.md for its exact contract.
+Use rf2_status first. Read docs/NATIVE-CORE.md and STANDALONE.md for current profiles/effects. Five native tools exist: rf2_status, rf2_check, rf2_run, rf2_lower and attendance_export. Users require no Node/npm/Python/C++ runtime. The host provides AI intelligence; the executable has no embedded model.
 
-## Native compact profile
+## Core and compact source
 
-Use an explicit five-token program, for example:
+RF2_U32_CORE_V0 supports ADD, MUL, LOAD, POPCOUNT, NONZERO, acyclic named scalar helpers, forward calls and bounded non-nested main loops. All functions are checked. Parameters/indices are immutable; loop-local values do not escape. Checked and wrapping u32 semantics are explicit. Core can only read the supplied array. Unknown effects, types, recursion and exceeded limits reject.
 
-```text
-rf2 v1 checked
-sum input
-```
+Compact V1 remains `rf2 v1 checked` or `wrap`, followed by `sum input`, `squares input`, `bits input` or `nonzero input`.
 
-Arithmetic is `checked` or `wrap`; operation is `sum`, `squares`, `bits` or `nonzero`, followed by `input`. General Core helpers, arbitrary statements, service plans and machine-profile source are not admitted by this server. Unknown syntax/effects reject. Do not invent working operations.
+Use rf2_check/rf2_run with supplied text/data. Native run executes bounded IR; do not label every run as a separately compiled kernel. rf2_lower returns systems-profile kernel source only. It neither compiles nor writes a file. The explicit tools/build-core.sh route combines a trusted harness, native compiler and OS signing to create an ARM64 executable. General systems source is never admitted as Core or executed over MCP.
 
-Use rf2_check for the compact plan and rf2_run for bounded u32 data, with an optional prefix count. The tools have no arbitrary file, network, process or phone access. The CLI can read an explicit source file and print its exact Core expansion. A connected host supplies intelligence; the binary has no embedded Astra or SLM model.
+## attendance.local@1
 
-The launcher selects RF2_BIN or output/bin/rf2. It never builds code, installs npm or silently falls back to Node. A source checkout needs an explicitly built native binary. If unavailable, explain the missing native target rather than claiming a working native tool call.
+attendance_export takes at most 1,000 records, each exactly student_id/date/status. IDs are constrained ASCII identifiers, dates canonical valid Gregorian YYYY-MM-DD, state present/absent/late. Duplicate student/date records reject. The tool returns CSV, counts and a byte fingerprint; no filesystem path or permission argument is accepted.
 
-## Compiler truth
+The CLI `rf2 attendance records.json new.csv` performs an explicitly requested file export, refuses existing paths/symlinks and validates before creation. Do not invent student records or field results. Included TEST fixtures are programming inputs only. Counts are computed through the versioned compiled Core kernel. Read the capability README before use; do not claim an authentication system or a full school app.
 
-The runtime/MCP implementation is native/rf2.rf2, profile RF2_SYSTEM_A64_V1. The historical bootstrap/seed.py emits ARM64 instructions and Mach-O using build-time Python. Native compiler 0.5 now reproduces the documented systems subset without Python; macOS signing remains explicit. Read the native-compiler section below for the tested scope. Systems source has trusted pointers/syscalls and is never a Core sandbox or MCP input. No C/C++ compiler, assembler or linker is invoked by this build.
+## Native builds and evidence
 
-## Reference compatibility
+The systems compiler reproduces its own bounded source without Python. tools/build-runtime.sh composes the five runtime modules; compiling native/rf2.rf2 alone is no longer a complete build. The historical Python seed and JS/C references remain development oracles, not user runtime dependencies. Source hashes establish byte identity, not independent approval or process isolation.
 
-The retained Node implementation accepts RF2_U32_CORE_V0 and has ten tools, including C emission, batching and the SFE public repository catalog. Those are reference-development capabilities, not features of the three-tool native server. Never silently route an unsupported native request into that server. Read docs/SPEC.md before using it explicitly for differential development.
-
-## Evidence
-
-Test outputs, work counts, checked overflow, exact wrapping and refusal/recovery. Use docs/STANDALONE-VERIFICATION.json for actual native cases. No speed, energy, phone integration, self-hosting or token-saving ratio is established by a dependency change. Old C-backend benchmark results are a separate experiment. Keep private engineering data and participant records outside releases. Source hashes bind local artifacts, not human peer review or academic approval.
-
-
-## Native compiler 0.5
-
-The separate rf2c CLI, written in native/compiler/compiler.rf2, now reproduces itself for its bounded RF2_SYSTEM_A64_V1 subset and builds the unchanged 0.4 runtime. Read docs/NATIVE-COMPILER.md and NATIVE-COMPILER-VERIFICATION.json. Native builds require no Python/C++/Node; the historical Python seed is retained for initial bootstrap and testing. macOS signing is explicit. Output paths must be new. This developer compiler has trusted raw pointers and OS calls; never expose arbitrary machine-source execution over MCP or treat it as the compact computation sandbox. General Core migration and service capabilities remain open. Runtime MCP version 0.4 is intentionally unchanged; plugin release 0.5 adds compiler guidance.
+The plugin uses RF2_BIN or output/bin/rf2 and never silently builds/downloads/falls back to Node. Fresh checkouts need an explicit native binary. Current qualification is on Apple Silicon Mac; normal OS signing remains required. No speed, energy, token-saving, phone or fieldwork claim is established. Preserve failed tests and private data locally; do not put participant records in public releases.

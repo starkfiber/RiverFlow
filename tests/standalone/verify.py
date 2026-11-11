@@ -29,9 +29,9 @@ def expand(op,mode):
 report={'schema':'rf2.standalone.verification.v1','target':'macos-arm64','speedClaim':None,'selfHosted':False,'differentialCases':0,'independentCases':0,'negativeCases':0,'parserMutations':0,'maxInputWords':65536,'tests':[]}
 peer=Peer([str(binary),'mcp']);oracle=Peer([node,str(R/'tests/standalone/oracle.mjs')])
 assert peer.rpc('tools/list')['error']['code']==-32002
-assert peer.rpc('initialize',{'protocolVersion':'2024-11-05','capabilities':{},'clientInfo':{'name':'independent test','version':'1'}})['result']['serverInfo']['version']=='0.4.0'
+assert peer.rpc('initialize',{'protocolVersion':'2024-11-05','capabilities':{},'clientInfo':{'name':'independent test','version':'1'}})['result']['serverInfo']['version']==os.environ.get('RF2_TEST_VERSION','0.4.0')
 peer.send({'jsonrpc':'2.0','method':'notifications/initialized'},False)
-assert len(peer.rpc('tools/list')['result']['tools'])==3
+assert len(peer.rpc('tools/list')['result']['tools'])==int(os.environ.get('RF2_TEST_TOOLS','3'))
 assert peer.rpc('initialize',{'protocolVersion':'2024-11-05'})['error']['code']==-32600
 randomizer=random.Random(20261111)
 for op in ['sum','squares','bits','nonzero']:
@@ -63,7 +63,10 @@ valid='rf2 v1 checked\nsum input'
 for data,count in [([1],2),([-1],None),([4294967296],None),([1.5],None),(['1'],None),([None],None),([True],None),([[]],None),([{}],None),([1]*65537,None),([1],-1),([1],1.5)]:
  got=peer.run(valid,data,count);assert 'error' in got or got['result'].get('isError');report['negativeCases']+=1
 for src in ['', 'sum input','rf2 v2 checked sum input','rf2 v1 sum input','rf2 v1 checked sum input extra','rf2 v1 checked network input','profile RF2_SYSTEM_A64_V1','rf2 v1 checked sum input\0','a'*32769,(R/'examples/sum.flow').read_text()]:
- got=peer.run(src,[1]);assert got['result'].get('isError');report['negativeCases']+=1
+ if src==(R/'examples/sum.flow').read_text() and os.environ.get('RF2_TEST_VERSION')=='0.6.0':
+  assert peer.run(src,[1])['result']['structuredContent']['value']==1
+ else:
+  got=peer.run(src,[1]);assert got['result'].get('isError');report['negativeCases']+=1
 # Whitespace is flexible; unsupported words are never silently ignored.
 assert peer.run(' \t rf2\r\nv1\tchecked \n sum\tinput \r\n',[1,2])['result']['structuredContent']['value']==3
 # Valid alternate JSON number spellings and escaped key names.
@@ -95,5 +98,7 @@ for args in [['check',str(R/'examples/compact/sum.rf2')],['status'],['expand',st
  assert subprocess.run([str(binary),*args],capture_output=True).returncode==0
 assert subprocess.run([str(binary),'run','/nonexistent','[]'],capture_output=True).returncode==1
 peer.close();oracle.close()
+if os.environ.get('RF2_TEST_VERSION')=='0.6.0':
+ report.pop('selfHosted',None);report['runtimeVersion']='0.6.0';report['systemsCompiler']='Native compiler self-reproduction is qualified in a separate report';report['sourceFiles']={str(p.relative_to(R)):hashlib.sha256(p.read_bytes()).hexdigest()for p in [R/'native/rf2.rf2',R/'native/core.rf2',R/'native/attendance.rf2',R/'native/attendance-kernel.rf2',R/'native/fingerprint.rf2']}
 report['executableSHA256']=hashlib.sha256(binary.read_bytes()).hexdigest();report['sourceSHA256']=hashlib.sha256((R/'native/rf2.rf2').read_bytes()).hexdigest();report['bootstrapSHA256']=hashlib.sha256((R/'bootstrap/seed.py').read_bytes()).hexdigest();report['passed']=True
 Path(os.environ.get('RF2_TEST_REPORT',str(R/'docs/STANDALONE-VERIFICATION.json'))).write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

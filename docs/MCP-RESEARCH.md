@@ -1,5 +1,7 @@
 # SFE public research bridge
 
+Historical JavaScript reference server only. Native0.6 has five different tools; see NATIVE-CORE.md. The catalog/batch/C-emission tools below are not automatically native capabilities.
+
 RiverFlow 0.3 exposes ten MCP tools through one local server. All 20 inventoried public repositories have shared discovery and pinned-document access through that server. This does not install a separate executable adapter into every application. Asset repositories receive documentation access; forks keep their upstream attribution and licences.
 
 The five approved history migrations change identity metadata only. No application code in those repositories is changed by this bridge.

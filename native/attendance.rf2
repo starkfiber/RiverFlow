@@ -1,0 +1,287 @@
+# attendance.local@1: strict records -> CSV. File writes exist only in the explicit CLI.
+fn ats()
+ return buffer("attendance_state", 48)
+end
+fn atid(t)
+ let p = load64(t + 32)
+ let n = load64(t + 40)
+ let i = 0
+ let c = 0
+ if (load64(t) != 1) | (n == 0) | (n > 64)
+  return 0
+ end
+ while i < n
+  set c = load8(p + i)
+  if ((c >= 48) & (c <= 57)) | ((c >= 65) & (c <= 90)) | ((c >= 97) & (c <= 122))
+   set i = i + 1
+  else
+   if (i != 0) & ((c == 45) | (c == 95))
+    set i = i + 1
+   else
+    return 0
+   end
+  end
+ end
+ return 1
+end
+fn atdate(t)
+ let p = load64(t + 32)
+ let i = 0
+ let year = 0
+ let month = 0
+ let day = 0
+ let days = 31
+ if (load64(t) != 1) | (load64(t + 40) != 10)
+  return 0
+ end
+ while i < 10
+  if (i == 4) | (i == 7)
+   if load8(p + i) != 45
+    return 0
+   end
+  else
+   if digit(load8(p + i)) == 0
+    return 0
+   end
+  end
+  set i = i + 1
+ end
+ set year = (load8(p) - 48) * 1000 + (load8(p + 1) - 48) * 100 + (load8(p + 2) - 48) * 10 + load8(p + 3) - 48
+ set month = (load8(p + 5) - 48) * 10 + load8(p + 6) - 48
+ set day = (load8(p + 8) - 48) * 10 + load8(p + 9) - 48
+ if (year == 0) | (month == 0) | (month > 12) | (day == 0)
+  return 0
+ end
+ if (month == 4) | (month == 6) | (month == 9) | (month == 11)
+  set days = 30
+ end
+ if month == 2
+  set days = 28
+  if ((year - (year // 400) * 400) == 0) | (((year - (year // 4) * 4) == 0) & ((year - (year // 100) * 100) != 0))
+   set days = 29
+  end
+ end
+ return day <= days
+end
+fn atappend(p, n)
+ let size = load64(ats() + 32)
+ let i = 0
+ if size + n > 100000
+  return fail(29)
+ end
+ while i < n
+  do store8(buffer("attendance_csv", 100000) + size + i, load8(p + i))
+  set i = i + 1
+ end
+ do store64(ats() + 32, size + n)
+ return 0
+end
+fn atbuild(records)
+ let t = token(records)
+ let until = load64(t + 24)
+ let row = records + 1
+ let count = 0
+ let fields = 0
+ let id = 0
+ let date = 0
+ let status = 0
+ let key = 0
+ let j = 0
+ let value = 0
+ let packed = 0
+ let rows = buffer("attendance_rows", 24000)
+ do store64(ats(), 0)
+ do store64(ats() + 8, 0)
+ do store64(ats() + 16, 0)
+ do store64(ats() + 24, 0)
+ do store64(ats() + 32, 0)
+ if load64(t) != 3
+  return fail(23)
+ end
+ while row < until
+  if count >= 1000
+   return fail(23)
+  end
+  if load64(token(row)) != 2
+   return fail(23)
+  end
+  set key = row + 1
+  set fields = 0
+  while key < load64(token(row) + 24)
+   if matches(token(key), "student_id") == 0
+    if matches(token(key), "date") == 0
+     if matches(token(key), "status") == 0
+      return fail(23)
+     end
+    end
+   end
+   set fields = fields + 1
+   set key = load64(token(key + 1) + 24)
+  end
+  if fields != 3
+   return fail(23)
+  end
+  set id = field(row, "student_id")
+  set date = field(row, "date")
+  set status = field(row, "status")
+  if atid(token(id)) == 0
+   return fail(25)
+  end
+  if atdate(token(date)) == 0
+   return fail(24)
+  end
+  set value = 0
+  if matches(token(status), "present")
+   set value = 1
+  end
+  if matches(token(status), "absent")
+   set value = 1024
+  end
+  if matches(token(status), "late")
+   set value = 1048576
+  end
+  if value == 0
+   return fail(26)
+  end
+  set j = 0
+  while j < count
+   if same_string(token(load64(rows + j * 24)), token(id))
+    if same_string(token(load64(rows + j * 24 + 8)), token(date))
+     return fail(27)
+    end
+   end
+   set j = j + 1
+  end
+  do store64(rows + count * 24, id)
+  do store64(rows + count * 24 + 8, date)
+  do store64(rows + count * 24 + 16, status)
+  do store32(buffer("attendance_weights", 4000) + count * 4, value)
+  set count = count + 1
+  set row = load64(token(row) + 24)
+ end
+ # These counts come from the compiled Core helper/loop, not a parallel tally.
+ set packed = cgn_entry(buffer("attendance_weights", 4000), count, count)
+ if load64(cgn_state()) != 0
+  return fail(23)
+ end
+ do store64(ats(), count)
+ do store64(ats() + 8, packed & 1023)
+ do store64(ats() + 16, (packed >> 10) & 1023)
+ do store64(ats() + 24, (packed >> 20) & 1023)
+ do atappend("student_id,date,status\n", 23)
+ set j = 0
+ while j < count
+  set id = load64(rows + j * 24)
+  set date = load64(rows + j * 24 + 8)
+  set status = load64(rows + j * 24 + 16)
+  do atappend(load64(token(id) + 32), load64(token(id) + 40))
+  do atappend(",", 1)
+  do atappend(load64(token(date) + 32), 10)
+  do atappend(",", 1)
+  do atappend(load64(token(status) + 32), load64(token(status) + 40))
+  do atappend("\n", 1)
+  set j = j + 1
+ end
+ return load64(state()) == 0
+end
+fn atrender(csv)
+ let digest = sha256(buffer("attendance_csv", 100000), load64(ats() + 32))
+ let alphabet = "0123456789abcdef"
+ let i = 0
+ let byte = 0
+ do say("{\"capability\":\"attendance.local@1\",\"records\":")
+ do decimal(load64(ats()))
+ do say(",\"present\":")
+ do decimal(load64(ats() + 8))
+ do say(",\"absent\":")
+ do decimal(load64(ats() + 16))
+ do say(",\"late\":")
+ do decimal(load64(ats() + 24))
+ do say(",\"csvBytes\":")
+ do decimal(load64(ats() + 32))
+ do say(",\"csvSHA256\":\"")
+ while i < 32
+  set byte = load8(digest + i)
+  do output(alphabet + (byte >> 4), 1)
+  do output(alphabet + (byte & 15), 1)
+  set i = i + 1
+ end
+ do say("\"")
+ if csv
+  do say(",\"csv\":")
+  do json_quote(buffer("attendance_csv", 100000), load64(ats() + 32))
+ end
+ return say("}")
+end
+fn attool(id, args)
+ let key = args + 1
+ let records = field(args, "records")
+ if (args == 0) | (load64(token(args)) != 2) | (records == 0)
+  return rpc_error(id, 32602, "Expected records array")
+ end
+ if matches(token(key), "records") == 0
+  return rpc_error(id, 32602, "Only records is accepted")
+ end
+ if load64(token(key + 1) + 24) != load64(token(args) + 24)
+  return rpc_error(id, 32602, "Only records is accepted; no path or permission arguments")
+ end
+ do atbuild(records)
+ if load64(state()) != 0
+  return tool_error(id)
+ end
+ do rpc_start(id)
+ do say(",\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Validated attendance export\"}],\"structuredContent\":")
+ do atrender(1)
+ return say("}}\n")
+end
+fn atfile(path)
+ let fd = open(path, 0, 0)
+ let b = buffer("attendance_file", 1048577)
+ let n = 0
+ let r = 0
+ if fd >= 9223372036854775808
+  return fail(28)
+ end
+ while n < 1048577
+  set r = read(fd, b + n, 1048577 - n)
+  if r >= 9223372036854775808
+   do close(fd)
+   return fail(28)
+  end
+  if r == 0
+   do close(fd)
+   if n > 1048576
+    return fail(23)
+   end
+   do json_parse(b, n)
+   if load64(state()) == 0
+    do atbuild(0)
+   end
+   return load64(state()) == 0
+  end
+  set n = n + r
+ end
+ do close(fd)
+ return fail(23)
+end
+fn atwrite(path)
+ let fd = open(path, 3585, 384)
+ let size = load64(ats() + 32)
+ let n = 0
+ let r = 0
+ if fd >= 9223372036854775808
+  return fail(28)
+ end
+ while n < size
+  set r = write(fd, buffer("attendance_csv", 100000) + n, size - n)
+  if (r == 0) | (r >= 9223372036854775808)
+   do close(fd)
+   return fail(28)
+  end
+  set n = n + r
+ end
+ if close(fd) != 0
+  return fail(28)
+ end
+ return 1
+end

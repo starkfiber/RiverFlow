@@ -2,7 +2,7 @@
 
 RF² is pronounced RiverFlow Squared. The square is the product identity; it is not a square-root operator or an infinity primitive.
 
-This release uses `PROFILE RF2_U32_CORE_V0`. It is a new JavaScript bootstrap informed by the earlier RF² v2 contract, not a compatible implementation of every historical FLOW/ASMX dialect. It has no Python dependency. The interpreter is not self-hosted and can emit C11 source for an external compiler in package 0.3.
+This release uses `PROFILE RF2_U32_CORE_V0`. It began as a JavaScript reference informed by the earlier RF² v2 contract, not a compatible implementation of every historical FLOW/ASMX dialect. It has no Python dependency. The reference emits C11 in package 0.3. Native 0.6 separately implements the Core parser/runtime and per-program systems lowering; see NATIVE-CORE.md. The systems compiler has its own bounded self-reproduction evidence.
 
 Programs begin with `FLOW "name"`, the profile and `ARITHMETIC CHECKED` or `ARITHMETIC WRAP`. Functions have named `u32` parameters and return `u32`. `main` requires one `u32[]` and one `u32` count, in that order. Helpers accept up to four scalar parameters. Calls are acyclic. Forward helper calls work.
 
@@ -43,3 +43,10 @@ Default emission recognizes only the exact zero-initialized input-sum pattern. I
 ## Standalone 0.4 profiles
 
 RF2_COMPACT_V1 is a deliberately narrow front end for the four reductions specified in STANDALONE.md. Its expansion preserves this Core profile's checked/wrap arithmetic, successful work counts and read_input effect. It is not a general Core parser. The native systems implementation is RF2_SYSTEM_A64_V1, with modular u64 operations and trusted raw pointers/syscalls; it is not a sandboxed Core extension and is never accepted from MCP callers. The seed emits machine instructions directly and still requires build-time Python and macOS signing. It is not self-hosted. Read STANDALONE-VERIFICATION.json for actual execution evidence.
+
+
+## Native Core in 0.6
+
+The Core contract above is implemented by the native parser and bounded IR runtime, including scalar/forward helpers, graph checks and all-function validation. An optional lowering path emits checked systems-profile functions and compiles them to ARM64 with native rf2c and the trusted input harness. Read NATIVE-CORE.md for source encoding, format boundaries, actual tests and distinctions between the execution routes. Runtime and machine-code generation are not inferred from a returned source listing.
+
+The application capability attendance.local@1 is separate from Core's read_input effect. Its MCP tool returns CSV; its CLI writes only the explicitly requested new output path. It does not add file/network operations to arbitrary Core source.

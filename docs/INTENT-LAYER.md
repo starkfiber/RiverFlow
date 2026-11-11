@@ -31,7 +31,7 @@ allow teacher
 check one_mark_per_student_day, export_roundtrip
 ```
 
-This is a proposed design shape. attendance.local@1 is not a shipped RF² capability. The original reference profile is RF2_U32_CORE_V0. Native 0.4 now implements RF2_COMPACT_V1 for four reductions; this application-service draft is still unimplemented. Do not feed this draft to the Core checker or claim it creates an application.
+This is a proposed design shape. The attendance.local@1 backend is now shipped through attendance_export and an explicit CLI export in 0.6. The proposed intent syntax shown here is not implemented. The original reference profile is RF2_U32_CORE_V0. Native 0.4 now implements RF2_COMPACT_V1 for four reductions; this application-service draft is still unimplemented. Do not feed this draft to the Core checker or claim it creates an application.
 
 A useful first adapter should reuse one real existing application module, define observable success/failure behavior, and prove that the compact plan selects the intended version and checks. It must not use generated UI screenshots or static templates as proof of a working application.
 
@@ -52,3 +52,8 @@ Next milestone: one versioned executable service capability, a compact intent pa
 ## Inspected historical anchors
 
 The local recovered FLOW_ARCHITECTURE.md describes FLOW plans, service libraries, route mappings and cached plans. Its completion and performance slogans were not independently revalidated in this review. The local CompilerX RUOS_BRIDGE.md separately describes typed intent/effects and bounded validation, with explicit limitations. These references motivate the design; they do not establish that historical integrations or token savings are operational in the public release. Private recovered contents are not redistributed.
+
+
+## Implemented service checkpoint in 0.6
+
+General Core helpers run in the native runtime and can be lowered/compiled to ARM64. attendance.local@1 uses a generated Core kernel for counts, validates record/date/duplicate rules, and exports CSV. Its MCP interface accepts supplied records and returns data only; filesystem output is an explicit CLI action. No teacher authorization system, classroom UI, unrestricted intent planner, model inference or token-saving result is claimed. See capabilities/attendance.local.v1/ and the native verification reports.
