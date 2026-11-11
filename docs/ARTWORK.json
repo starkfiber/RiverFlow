@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-11",
+  "kind": "AI-generated concept artwork",
+  "rights": "No exclusive trademark or copyright guarantee; original code licensed separately under MIT.",
+  "assets": [
+    {
+      "file": "site/assets/riverflow-hero.png",
+      "prompt": "Wide cinematic editorial artwork for RF² RiverFlow programming language. An elegant river of luminous ice cyan glass ribbons flowing through a precise graphite architectural landscape, one continuous current becoming ordered pathways. Premium independent engineering identity inspired by clarity, flowing ideas, and explicit computation. Deep midnight blue, ice cyan, tiny warm amber accents. Spacious landscape composition for website hero, no typography, no logos, no performance numbers. Concept artwork, not a scientific measurement. Beautiful tactile materials and considered negative space.",
+      "usage": "Website and GitHub identity; artistic metaphor, not scientific evidence"
+    },
+    {
+      "file": "site/assets/riverflow-mark.png",
+      "prompt": "Square premium brand concept artwork for RF² RiverFlow programming language. A single sculptural cyan glass river loop forming an abstract flowing R with a subtle squared branch, floating above dark slate. Clear simple silhouette, optical polish, restrained editorial design. No text, no lettering, no watermark. Same midnight blue and ice cyan identity as an engineering language brand, independent and timeless.",
+      "usage": "Website and GitHub identity; artistic metaphor, not scientific evidence"
+    },
+    {
+      "file": "site/assets/riverflow-language.png",
+      "prompt": "Landscape conceptual artwork for RF² RiverFlow language: human ideas become an orderly river of discrete glass tiles passing through three architectural gates, an expressive visual metaphor for source, checked intermediate form, and execution. Refined cyan glass and graphite, cream light reflections, warm amber spark. No code, labels or text. Artistic metaphor only, not a technical diagram. Premium calm engineering editorial composition.",
+      "usage": "Website and GitHub identity; artistic metaphor, not scientific evidence"
+    },
+    {
+      "file": "site/assets/riverflow-research.png",
+      "prompt": "Landscape concept artwork for RiverFlow RF² research: four distinct luminous tributaries join one river through a minimalist topographic landscape, symbolising deterministic kernels, adaptive planning, developmental learning and temporal scheduling. Elegant ice cyan and pale silver streams, midnight graphite ground, a small amber horizon. Architectural photography meets abstract data sculpture. No text, invented graphs, claims or logos.",
+      "usage": "Website and GitHub identity; artistic metaphor, not scientific evidence"
+    },
+    {
+      "file": "site/assets/riverflow-future.png",
+      "prompt": "Landscape concept artwork for RiverFlow RF² future: a tiny human-scale walkway follows a luminous glass river through a quiet expansive futuristic landscape of layered computational terraces and green gardens. Human imagination and careful engineering, hopeful and inviting, playful discovery with premium restrained cyan, graphite and subtle amber. No words, no chip schematics, no claims of actual new transistors. Artistic vision of possibility.",
+      "usage": "Website and GitHub identity; artistic metaphor, not scientific evidence"
+    }
+  ]
+}

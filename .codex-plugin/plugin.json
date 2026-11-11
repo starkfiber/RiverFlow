@@ -1,0 +1,22 @@
+{
+  "name": "rf2",
+  "version": "0.1.0",
+  "description": "RiverFlow RF² checked programming language, local execution and evidence-led language development.",
+  "author": {
+    "name": "Ilangkhumanan Thirunavokkarasu",
+    "url": "https://github.com/starkfiber"
+  },
+  "skills": "./plugin/skills/",
+  "mcpServers": "./.codex-plugin/mcp.json",
+  "interface": {
+    "displayName": "RF² · RiverFlow",
+    "shortDescription": "Ideas into checked computation.",
+    "developerName": "Ilangkhumanan Thirunavokkarasu",
+    "category": "Developer Tools",
+    "brandColor": "#82E6EF",
+    "defaultPrompt": [
+      "Write and run my first RiverFlow program.",
+      "Check this RF² program and explain its effects."
+    ]
+  }
+}

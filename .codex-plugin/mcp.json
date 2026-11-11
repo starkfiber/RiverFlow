@@ -1,0 +1,1 @@
+{"mcpServers":{"rf2":{"command":"/bin/sh","args":["${PLUGIN_ROOT}/plugin/launch-mcp.sh"]}}}

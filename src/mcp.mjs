@@ -1,0 +1,10 @@
+import {McpServer} from '@modelcontextprotocol/sdk/server/mcp.js';
+import {StdioServerTransport} from '@modelcontextprotocol/sdk/server/stdio.js';
+import {z} from 'zod';
+import {compile,execute,PROFILE} from './riverflow.mjs';
+const server=new McpServer({name:'rf2',version:'0.1.0'});
+const reply=fn=>async args=>{try{return {content:[{type:'text',text:JSON.stringify(fn(args),null,2)}]};}catch(e){return {isError:true,content:[{type:'text',text:e.message}]};}};
+server.registerTool('rf2_status',{description:'Read the exact RF² profile and capability boundary.',inputSchema:{}},reply(()=>({profile:PROFILE,version:'0.1.0',operations:['ADD','MUL','LOAD','POPCOUNT','NONZERO','CALL'],effects:['read_input'],runtime:'JavaScript bootstrap',nativeBackend:false,networkEffects:false,aiHost:'Provided by the connected client, no embedded model'})));
+server.registerTool('rf2_check',{description:'Parse and type-check RF² Core source without execution.',inputSchema:{source:z.string().max(32768)}},reply(({source})=>compile(source)));
+server.registerTool('rf2_run',{description:'Evaluate bounded RF² Core arithmetic over supplied u32 data. No file, network or device access.',inputSchema:{source:z.string().max(32768),data:z.array(z.number().int().min(0).max(4294967295)).max(65536),count:z.number().int().min(0).max(65536).optional()}},reply(({source,data,count})=>execute(source,data,count??data.length)));
+await server.connect(new StdioServerTransport());
