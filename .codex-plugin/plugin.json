@@ -1,7 +1,7 @@
 {
   "name": "rf2",
-  "version": "0.3.0",
-  "description": "RiverFlow checked computation and SFE public repository research bridge",
+  "version": "0.4.0",
+  "description": "Standalone RF2 compact native ARM64 computation and built-in MCP; explicit bounded subset",
   "author": {
     "name": "Ilangkhumanan Thirunavokkarasu",
     "url": "https://github.com/starkfiber"
@@ -9,14 +9,14 @@
   "skills": "./plugin/skills/",
   "mcpServers": "./.codex-plugin/mcp.json",
   "interface": {
-    "displayName": "RF² · RiverFlow",
+    "displayName": "RF\u00b2 \u00b7 RiverFlow",
     "shortDescription": "Ideas into checked computation.",
     "developerName": "Ilangkhumanan Thirunavokkarasu",
     "category": "Developer Tools",
     "brandColor": "#82E6EF",
     "defaultPrompt": [
       "Write and run my first RiverFlow program.",
-      "Check this RF² program and explain its effects."
+      "Check this RF\u00b2 program and explain its effects."
     ]
   }
 }

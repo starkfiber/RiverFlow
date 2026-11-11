@@ -5,11 +5,11 @@ Ilangkhumanan Thirunavokkarasu
 
 Stark Fiber Enterprise
 
-First edition · November 2026 · Package 0.3
+First edition, revised · November 2026 · Package 0.4
 
 # About this edition
 
-RiverFlow is a language in active development. This book describes a small language that runs, a compiler path that can be inspected, and a way to connect research questions to evidence. Its examples use the profile RF2_U32_CORE_V0. The profile matters more than the age of the book: another dialect may use familiar words while giving them different meanings.
+RiverFlow is a language in active development. This book describes a small language that runs, a compiler path that can be inspected, and a way to connect research questions to evidence. The complete original examples use RF2_U32_CORE_V0. The standalone 0.4 addition has a separate RF2_COMPACT_V1 front end and an explicitly distinct RF2_SYSTEM_A64_V1 implementation profile. The profile matters more than the age of the book: another dialect may use familiar words while giving them different meanings.
 
 The author’s ambition is to make programming understandable, useful and durable. Those aims guide the work; they are not measurements. This edition does not claim universal compatibility, new semiconductor technology, independent academic approval or a language that will survive a million years. A reader should be able to reproduce a claim without agreeing with the ambition behind it.
 
@@ -37,18 +37,29 @@ Try a simple standard while reading: after each feature, ask for an example, an 
 
 # 2. Your first working river
 
-You need Node 22 or newer for the bootstrap tools. Native C execution additionally needs a C11 compiler such as Clang. Python is not a RiverFlow runtime dependency. The book’s PDF production uses a separate document toolchain; that does not change how language programs execute.
+For the standalone 0.4 path on Apple Silicon macOS 14 or newer, users run a single executable. Node, npm, Python and C++ are not runtime requirements. The executable uses macOS system interfaces; it is not an operating system of its own.
 
-Clone the repository, install its pinned dependencies, and run the supplied example. The lockfile is important because a project that is easy to fetch should also be reasonably easy to reproduce.
+The first compact program is:
 
-```sh
-git clone https://github.com/starkfiber/RiverFlow.git
-cd RiverFlow
-npm ci
-node bin/rf2.mjs run examples/sum.flow '[1,2,3,4,5]'
+```text
+rf2 v1 checked
+sum input
 ```
 
-The returned value is 15. The current example reports 18 abstract work steps. These steps are language events, not processor cycles. They are useful for enforcing the interpreter’s declared work budget, but they are not a measurement of physical time.
+Save it as sum.rf2. With the downloaded executable:
+
+```sh
+./rf2 run sum.rf2 '[1,2,3,4,5]'
+./rf2 check sum.rf2
+./rf2 expand sum.rf2
+./rf2 mcp
+```
+
+The result is 15 with 18 abstract Core work events. These events are not processor cycles. Chapter 15 explains the native implementation, its tests and its four-operation boundary. General Core helpers and arbitrary admitted statements still use the reference tools described below.
+
+Developers building the standalone from source currently use a small Python seed and the macOS signing utility. The seed writes AArch64 instructions and the executable container directly, without a C/C++ compiler, assembler or linker. This is a trusted bootstrap, not self-hosting.
+
+The remaining detailed examples in Chapters 2 through 14 teach the original Core profile. For those reference-development exercises only, install Node 22 and the repository's pinned npm dependencies. The browser playground also retains that reference interpreter. These developer tools are distinct from the standalone runtime.
 
 Here is a complete program with no input-dependent calculation. It returns 520 in checked arithmetic.
 
@@ -64,7 +75,7 @@ END
 
 FLOW gives the program a readable name. PROFILE chooses the contract. ARITHMETIC chooses what addition and multiplication do at the edge of the number range. The main function accepts an array and a count, even when this particular example does not use them. RETURN makes the result explicit.
 
-Save that text in first.flow and run it with an empty array. You can check it without executing it, or emit a JSON intermediate representation for inspection.
+For this general Core reference exercise, save that text in first.flow and run it with an empty array using Node 22. The compact standalone does not accept arbitrary Core source. You can check it without executing it, or emit a JSON intermediate representation for inspection.
 
 ```sh
 node bin/rf2.mjs check first.flow
@@ -355,26 +366,79 @@ The next useful milestones are practical: widen the example corpus, test more co
 
 The point is not to make readers admire a system they cannot inspect. It is to give them a foundation they can understand, use, question and improve. A small river becomes valuable when it reaches somewhere real.
 
+# 15. A standalone river, with an honest bootstrap
+
+The first native standalone is not a packaged JavaScript process. Its front end, arithmetic routines, JSON parser, UTF-8 handling, bounds checks, decimal output and MCP dispatch are written in RiverFlow source. The source uses an explicitly separate systems profile, RF2_SYSTEM_A64_V1, because it needs pointers, loops, 64-bit arithmetic and operating-system interfaces. Those facilities do not silently become part of u32 Core or permissions available to tool callers.
+
+A small trusted seed compiler reads the systems source and emits ARM64 instructions and a Mach-O executable directly. macOS applies an ad-hoc signature. Neither a C/C++ compiler nor an assembler or linker is invoked by this build. The executable has no imported language-runtime symbols; it loads through the normal macOS dyld and libSystem interface and uses OS system calls for input, output and explicit command-line file reads.
+
+The seed itself is written in Python. This is why the result is a native bootstrap milestone, not a self-hosted language. Saying everything is RiverFlow would currently hide a real dependency at build time. A future native compiler for the systems profile must reproduce and qualify its own output before that claim can change. Hardware instruction semantics, the operating system and code signing also remain external contracts.
+
+## Small syntax, visible meaning
+
+Compact V1 supports four reductions: sum, sum of squares, total set bits and number of nonzero elements. Each chooses checked or wrapping u32 arithmetic explicitly. The full vocabulary is shown here:
+
+```text
+rf2 v1 checked
+sum input
+
+rf2 v1 wrap
+squares input
+
+rf2 v1 checked
+bits input
+
+rf2 v1 checked
+nonzero input
+```
+
+These are four separate programs, not one combined source file. The header and operation are required; whitespace separates their five tokens. The input array and optional prefix count are supplied separately. Unknown words, extra instructions, hidden effects and general Core source reject. The implementation does not claim to understand unrestricted natural-language requests.
+
+The expand command prints the exact full Core source for the selected operation. That makes short notation inspectable: a compact sum expands to initialization, a bounded loop, input loads, additions and a return. The native implementation executes its admitted reduction using ARM64 instructions. It does not invoke a model or interpret each request through Python or Node.
+
+## Evidence before adjectives
+
+The executable passed 1,016 differential cases against the retained JavaScript reference and independent integer arithmetic. Successful values, work counts and overflow outcomes agreed. The tested corpus includes zero-length input, prefixes, maximum u32 values, full-width seeded words, smaller values and the maximum 65,536-word array.
+
+Separate negative and parser checks challenge invalid data, count/capacity errors, unsupported profiles, malformed JSON, duplicate keys including escaped spellings, UTF-8 and surrogate handling, request-size and nesting limits, and recovery after a refused request. Seeded byte mutations test the actual native process. A separate official MCP SDK client exercises discovery, success, overflow refusal and the next successful call. The executable also runs with its command search path disabled, so launching another language runtime cannot explain the result.
+
+The evidence is in docs/STANDALONE-VERIFICATION.json and the executable-level tests. It is not an independent audit, formal verification or proof that a hand-built parser has no defects. No new speed or energy measurement is asserted. The earlier C-backend timing table belongs to that earlier experiment, not this standalone executable.
+
+## What is still open
+
+The standalone currently targets Apple Silicon macOS only. It exposes three native tools, not all ten reference tools. General Core helpers, arbitrary admitted statement sequences, the C emitter, batch execution and public-repository research tools remain in the reference implementation. There is no automatic phone installation, wireless qualification or arbitrary application-generation capability.
+
+The next foundation is to migrate more Core behavior, qualify another target, review the machine encoder independently, and implement the seed in the native systems profile. Compact service plans then need real versioned implementations, explicit permissions and acceptance tests. A short command should save repeated description without concealing unimplemented work.
+
+Hundreds of tokens rather than millions remains a hypothesis. Measure matched tasks from start to finish, including documentation, schemas, capability creation, tool responses and repairs. Count failures. Report first-use construction separately from reuse. A short source listing alone establishes neither task-level token savings nor better software.
+
 # Appendix A. Commands and interfaces
 
+Native standalone, no Node or npm required:
+
 ```sh
-# Validate a complete .flow program
+./rf2 status
+./rf2 check examples/compact/sum.rf2
+./rf2 run examples/compact/sum.rf2 '[1,2,3]'
+./rf2 expand examples/compact/sum.rf2
+./rf2 mcp
+```
+
+The following commands are for the retained reference-development tools only. They require Node 22 and npm dependencies:
+
+
+```sh
 node bin/rf2.mjs check examples/sum.flow
-# Evaluate supplied JSON input
 node bin/rf2.mjs run examples/sum.flow '[1,2,3]'
-# Write checked JSON intermediate representation
 node bin/rf2.mjs compile examples/sum.flow program.json
-# Write C11 source; compilation is a separate operation
 node bin/rf2.mjs emit-c examples/sum.flow program.c
-# Run implementation and native differential tests
 npm test
-# Reproduce the native warm-sum benchmark
 node tools/benchmark-native.mjs
 ```
 
-The Codex plugin is installed from the repository’s local marketplace after npm ci. Other MCP clients can launch plugin/launch-mcp.sh over stdio. Use one registration route per client to avoid duplicated servers. The client controls whether the rf2 skill appears as a slash command; the package does not force a UI convention.
+The native Codex plugin now launches an existing RF2 binary, configured by RF2_BIN or output/bin/rf2. It does not install npm dependencies or fall back to Node. The older JavaScript MCP server remains a separate development reference. Other MCP clients can launch plugin/launch-mcp.sh over stdio. Use one registration route per client to avoid duplicated servers. The client controls whether the rf2 skill appears as a slash command; the package does not force a UI convention.
 
-The language tools are rf2_status, rf2_check, rf2_run, rf2_run_batch and rf2_emit_c. The SFE research tools are sfe_repositories, sfe_repository, sfe_repository_document, sfe_research_map and sfe_compare_measurements. Their schemas define inputs; none grants a device capability or executes emitted C.
+The native tools are rf2_status, rf2_check and rf2_run for Compact V1. The older reference language tools additionally include rf2_run_batch and rf2_emit_c. Only the JavaScript reference supplies the SFE research tools: sfe_repositories, sfe_repository, sfe_repository_document, sfe_research_map and sfe_compare_measurements. Their schemas define inputs; none grants a device capability or executes emitted C.
 
 # Appendix B. Native status codes
 

@@ -1,0 +1,27 @@
+{
+  "schema": "rf2.standalone.verification.v1",
+  "target": "macos-arm64",
+  "speedClaim": null,
+  "selfHosted": false,
+  "differentialCases": 1016,
+  "independentCases": 1016,
+  "negativeCases": 43,
+  "parserMutations": 250,
+  "maxInputWords": 65536,
+  "tests": [
+    "Eight compact operations/modes expand to checked Core; native result, event counts and overflow agree with JS and independent integer arithmetic",
+    "Malformed JSON, duplicate/escaped keys, UTF-8, surrogate pairs, size/depth/data bounds, numeric forms, 250 seeded mutations and request recovery exercised",
+    "Native CLI runs with PATH=/nonexistent"
+  ],
+  "executableSHA256": "8793a49a06e1b029a52ef00688c6dd5d19892bc822b06bdab5036966953ad833",
+  "sourceSHA256": "48172f28b50af5ffddc31ee7042a99fc16a5ff6af15109910cae553573cf179f",
+  "bootstrapSHA256": "781d28001f2bd32c0ccafb247df9a41d9a3abd57804982ba8a1ed61d71f474ea",
+  "passed": true,
+  "independentMcpSdk": "discovery, success, overflow refusal and recovery passed",
+  "rebuildByteIdentity": true,
+  "referenceTestGroups": {
+    "passed": 16,
+    "skipped": 0
+  },
+  "signedExecutableVerified": true
+}

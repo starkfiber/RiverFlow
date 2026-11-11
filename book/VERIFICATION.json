@@ -1,12 +1,14 @@
 {
-  "pages": 36,
-  "tocEntries": 19,
+  "pages": 39,
+  "tocEntries": 20,
   "outOfPageText": [],
   "completeExamples": 5,
-  "nativeProgramFamilies": 17,
-  "emissionPoliciesTested": 2,
-  "testGroups": 16,
-  "epubZipXml": "verified; not full EPUBCheck",
-  "visualReview": "cover, contents, code, pipeline, ABI table and references inspected; all-page montage produced",
-  "nativeDriver": "compiled and executed result15/work18"
+  "referenceTestGroups": 16,
+  "nativeStandaloneDifferentialCases": 1016,
+  "nativeStandaloneNegativeCases": 43,
+  "nativeParserMutations": 250,
+  "independentMcpSdk": "passed",
+  "rebuildByteIdentity": "passed",
+  "epubZipXml": "verified, not full EPUBCheck",
+  "visualReview": "All-page montage, revised native chapter, command appendix and current layout inspected; no out-of-page text"
 }

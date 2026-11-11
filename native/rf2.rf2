@@ -1,0 +1,1336 @@
+profile RF2_SYSTEM_A64_V1
+# Trusted systems implementation. All arithmetic here is unsigned 64-bit modular.
+# Core users get only Compact V1 reductions, never these pointer/syscall primitives.
+fn slen(p)
+ let n = 0
+ while load8(p + n) != 0
+  set n = n + 1
+ end
+ return n
+end
+fn eq(a, b)
+ let i = 0
+ while load8(a + i) == load8(b + i)
+  if load8(a + i) == 0
+   return 1
+  end
+  set i = i + 1
+ end
+ return 0
+end
+fn say(p)
+ return output(p, slen(p))
+end
+fn output(p, n)
+ let sent = 0
+ let r = 0
+ while sent < n
+  set r = write(1, p + sent, n - sent)
+  if r == 0
+   do exit(1)
+  end
+  if r >= 9223372036854775808
+   do exit(1)
+  end
+  set sent = sent + r
+ end
+ return n
+end
+fn decimal(n)
+ let p = buffer("decimal", 32)
+ let i = 31
+ let q = 0
+ do store8(p + i, 0)
+ while n >= 10
+  set q = n // 10
+  set i = i - 1
+  do store8(p + i, 48 + n - q * 10)
+  set n = q
+ end
+ set i = i - 1
+ do store8(p + i, n + 48)
+ return say(p + i)
+end
+fn state()
+ return buffer("state", 128)
+end
+fn fail(code)
+ do store64(state() + 0, code)
+ return 0
+end
+fn whitespace(c)
+ if c == 32
+  return 1
+ end
+ if c == 9
+  return 1
+ end
+ if c == 10
+  return 1
+ end
+ if c == 13
+  return 1
+ end
+ return 0
+end
+fn skip(p, endp)
+ while p < endp
+  if whitespace(load8(p)) == 0
+   return p
+  end
+  set p = p + 1
+ end
+ return p
+end
+fn hex(c)
+ if c >= 48
+  if c <= 57
+   return c - 48
+  end
+ end
+ if c >= 65
+  if c <= 70
+   return c - 55
+  end
+ end
+ if c >= 97
+  if c <= 102
+   return c - 87
+  end
+ end
+ return 256
+end
+fn digit(c)
+ if c < 48
+  return 0
+ end
+ return c <= 57
+end
+fn token(i)
+ return buffer("tokens", 3360000) + i * 48
+end
+# JSON state: cursor+8,end+16,token count+24,arena used+32.
+# Token: type,raw pointer,raw length,next token,decoded pointer,decoded length.
+fn json_string(t)
+ let s = state()
+ let p = load64(s + 8) + 1
+ let endp = load64(s + 16)
+ let start = p
+ let arena = buffer("arena", 1048577)
+ let used = load64(s + 32)
+ let out = arena + used
+ let n = 0
+ let c = 0
+ let k = 0
+ let v = 0
+ let h = 0
+ let j = 0
+ while p < endp
+  set c = load8(p)
+  set p = p + 1
+  if c == 34
+   if used + n >= 1048576
+    return fail(1)
+   end
+   do store8(out + n, 0)
+   do store64(t, 1)
+   do store64(t + 8, start)
+   do store64(t + 16, p - start - 1)
+   do store64(t + 32, out)
+   do store64(t + 40, n)
+   do store64(s + 32, used + n + 1)
+   do store64(s + 8, p)
+   return 1
+  end
+  if c < 32
+   return fail(1)
+  end
+  if c == 92
+   if p >= endp
+    return fail(1)
+   end
+   set c = load8(p)
+   set p = p + 1
+   if c == 117
+    set v = 0
+    set j = 0
+    while j < 4
+     if p >= endp
+      return fail(1)
+     end
+     set h = hex(load8(p))
+     if h > 15
+      return fail(1)
+     end
+     set v = v * 16 + h
+     set p = p + 1
+     set j = j + 1
+    end
+    # Decode BMP and surrogate pairs into UTF-8, with a lexical NUL permitted.
+    if v >= 55296
+     if v <= 56319
+      if p + 6 > endp
+       return fail(1)
+      end
+      if load8(p) != 92
+       return fail(1)
+      end
+      if load8(p + 1) != 117
+       return fail(1)
+      end
+      set p = p + 2
+      set k = 0
+      set j = 0
+      while j < 4
+       set h = hex(load8(p))
+       if h > 15
+        return fail(1)
+       end
+       set k = k * 16 + h
+       set p = p + 1
+       set j = j + 1
+      end
+      if k < 56320
+       return fail(1)
+      end
+      if k > 57343
+       return fail(1)
+      end
+      set v = 65536 + (v - 55296) * 1024 + k - 56320
+     else
+      if v <= 57343
+       return fail(1)
+      end
+     end
+    end
+    if used + n + 4 >= 1048576
+     return fail(1)
+    end
+    if v < 128
+     set c = v
+    else
+     if v < 2048
+      do store8(out + n, 192 + (v >> 6))
+      set n = n + 1
+     else
+      if v < 65536
+       do store8(out + n, 224 + (v >> 12))
+       do store8(out + n + 1, 128 + ((v >> 6) & 63))
+       set n = n + 2
+      else
+       do store8(out + n, 240 + (v >> 18))
+       do store8(out + n + 1, 128 + ((v >> 12) & 63))
+       do store8(out + n + 2, 128 + ((v >> 6) & 63))
+       set n = n + 3
+      end
+     end
+     set c = 128 + (v & 63)
+    end
+   else
+    if c == 110
+     set c = 10
+    else
+     if c == 114
+      set c = 13
+     else
+      if c == 116
+       set c = 9
+      else
+       if c == 98
+        set c = 8
+       else
+        if c == 102
+         set c = 12
+        else
+         if c != 34
+          if c != 92
+           if c != 47
+            return fail(1)
+           end
+          end
+         end
+        end
+       end
+      end
+     end
+    end
+   end
+  end
+  if used + n >= 1048576
+   return fail(1)
+  end
+  do store8(out + n, c)
+  set n = n + 1
+ end
+ return fail(1)
+end
+fn json_value(depth)
+ let s = state()
+ let p = skip(load64(s + 8), load64(s + 16))
+ let endp = load64(s + 16)
+ let idx = load64(s + 24)
+ let t = token(idx)
+ let c = 0
+ let closer = 0
+ let fields = 0
+ let k = 0
+ let start = 0
+ let has = 0
+ if depth > 32
+  return fail(1)
+ end
+ if p >= endp
+  return fail(1)
+ end
+ if idx >= 70000
+  return fail(1)
+ end
+ do store64(s + 24, idx + 1)
+ do store64(s + 8, p)
+ do store64(t + 8, p)
+ do store64(t + 32, 0)
+ do store64(t + 40, 0)
+ set c = load8(p)
+ if c == 34
+  do json_string(t)
+ else
+  if c == 123
+   set closer = 125
+   do store64(t, 2)
+  else
+   if c == 91
+    set closer = 93
+    do store64(t, 3)
+   end
+  end
+  if closer != 0
+   set p = skip(p + 1, endp)
+   if p >= endp
+    return fail(1)
+   end
+   if load8(p) != closer
+    while 1
+     if closer == 125
+      if fields >= 64
+       return fail(1)
+      end
+      if load8(p) != 34
+       return fail(1)
+      end
+      set k = load64(s + 24)
+      do store64(s + 8, p)
+      do json_value(depth + 1)
+      if load64(s) != 0
+       return 0
+      end
+      # Duplicate keys, including escaped spellings and embedded NUL, reject.
+      set start = idx + 1
+      while start < k
+       if same_string(token(start), token(k)) != 0
+        return fail(1)
+       end
+       set start = load64(token(start + 1) + 24)
+      end
+      set p = skip(load64(s + 8), endp)
+      if p >= endp
+       return fail(1)
+      end
+      if load8(p) != 58
+       return fail(1)
+      end
+      set p = skip(p + 1, endp)
+     end
+     do store64(s + 8, p)
+     do json_value(depth + 1)
+     if load64(s) != 0
+      return 0
+     end
+     set fields = fields + 1
+     set p = skip(load64(s + 8), endp)
+     if p >= endp
+      return fail(1)
+     end
+     if load8(p) == closer
+      do store64(s + 8, p + 1)
+      do store64(t + 24, load64(s + 24))
+      do store64(t + 16, p + 1 - load64(t + 8))
+      return idx
+     end
+     if load8(p) != 44
+      return fail(1)
+     end
+     set p = skip(p + 1, endp)
+     if p >= endp
+      return fail(1)
+     end
+    end
+   end
+   do store64(s + 8, p + 1)
+  else
+   set start = p
+   if c == 116
+    set has = 4
+    set k = "true"
+    do store64(t, 4)
+   else
+    if c == 102
+     set has = 5
+     set k = "false"
+     do store64(t, 5)
+    else
+     if c == 110
+      set has = 4
+      set k = "null"
+      do store64(t, 6)
+     end
+    end
+   end
+   if has != 0
+    if p + has > endp
+     return fail(1)
+    end
+    set fields = 0
+    while fields < has
+     if load8(p + fields) != load8(k + fields)
+      return fail(1)
+     end
+     set fields = fields + 1
+    end
+    set p = p + has
+   else
+    do store64(t, 7)
+    if c == 45
+     set p = p + 1
+    end
+    if p >= endp
+     return fail(1)
+    end
+    if digit(load8(p)) == 0
+     return fail(1)
+    end
+    if load8(p) == 48
+     set p = p + 1
+    else
+     set p = digits_end(p, endp)
+    end
+    return json_number_tail(t, start, p, endp, idx)
+   end
+   do store64(t + 16, p - start)
+   do store64(s + 8, p)
+  end
+ end
+ do store64(t + 24, load64(s + 24))
+ return idx
+end
+fn digits_end(p, endp)
+ while p < endp
+  if digit(load8(p)) == 0
+   return p
+  end
+  set p = p + 1
+ end
+ return p
+end
+fn json_number_tail(t, start, p, endp, idx)
+ let before = 0
+ let c = 0
+ if p < endp
+  if load8(p) == 46
+   set p = p + 1
+   set before = p
+   set p = digits_end(p, endp)
+   if p == before
+    return fail(1)
+   end
+  end
+ end
+ if p < endp
+  set c = load8(p)
+  if c == 69
+   set c = 101
+  end
+  if c == 101
+   set p = p + 1
+   if p < endp
+    set c = load8(p)
+    if c == 43
+     set p = p + 1
+    else
+     if c == 45
+      set p = p + 1
+     end
+    end
+   end
+   set before = p
+   set p = digits_end(p, endp)
+   if p == before
+    return fail(1)
+   end
+  end
+ end
+ do store64(t + 16, p - start)
+ do store64(t + 24, load64(state() + 24))
+ do store64(state() + 8, p)
+ return idx
+end
+fn same_string(a, b)
+ let n = load64(a + 40)
+ let i = 0
+ if n != load64(b + 40)
+  return 0
+ end
+ while i < n
+  if load8(load64(a + 32) + i) != load8(load64(b + 32) + i)
+   return 0
+  end
+  set i = i + 1
+ end
+ return 1
+end
+fn matches(t, text)
+ let n = slen(text)
+ let i = 0
+ if load64(t) != 1
+  return 0
+ end
+ if load64(t + 40) != n
+  return 0
+ end
+ while i < n
+  if load8(load64(t + 32) + i) != load8(text + i)
+   return 0
+  end
+  set i = i + 1
+ end
+ return 1
+end
+fn field(t, name)
+ let i = t + 1
+ let until = load64(token(t) + 24)
+ if load64(token(t)) != 2
+  return 0
+ end
+ while i < until
+  if matches(token(i), name)
+   return i + 1
+  end
+  set i = load64(token(i + 1) + 24)
+ end
+ return 0
+end
+fn utf8(p, n)
+ let i = 0
+ let c = 0
+ let remaining = 0
+ let v = 0
+ let lower = 0
+ let j = 0
+ while i < n
+  set c = load8(p + i)
+  set i = i + 1
+  if c >= 128
+   if c < 194
+    return 0
+   end
+   if c < 224
+    set remaining = 1
+    set v = c & 31
+    set lower = 128
+   else
+    if c < 240
+     set remaining = 2
+     set v = c & 15
+     set lower = 2048
+    else
+     if c > 244
+      return 0
+     end
+     set remaining = 3
+     set v = c & 7
+     set lower = 65536
+    end
+   end
+   if i + remaining > n
+    return 0
+   end
+   set j = 0
+   while j < remaining
+    set c = load8(p + i)
+    if c < 128
+     return 0
+    end
+    if c > 191
+     return 0
+    end
+    set v = v * 64 + (c & 63)
+    set i = i + 1
+    set j = j + 1
+   end
+   if v < lower
+    return 0
+   end
+   if v > 1114111
+    return 0
+   end
+   if v >= 55296
+    if v <= 57343
+     return 0
+    end
+   end
+  end
+ end
+ return 1
+end
+fn number_u32(t)
+ let p = load64(t + 8)
+ let n = load64(t + 16)
+ let i = 0
+ let neg = 0
+ let c = 0
+ let frac = 0
+ let decimal_seen = 0
+ let significant = 0
+ let trailing = 0
+ let value = 0
+ let e = 0
+ let eneg = 0
+ let shift = 0
+ if load64(t) != 7
+  return fail(2)
+ end
+ if load8(p) == 45
+  set neg = 1
+  set i = 1
+ end
+ while i < n
+  set c = load8(p + i)
+  if c == 69
+   set c = 101
+  end
+  if c == 101
+   set i = i + 1
+   if load8(p + i) == 45
+    set eneg = 1
+    set i = i + 1
+   else
+    if load8(p + i) == 43
+     set i = i + 1
+    end
+   end
+   while i < n
+    if e < 1000000
+     set e = e * 10 + load8(p + i) - 48
+    end
+    set i = i + 1
+   end
+  else
+   if c == 46
+    set decimal_seen = 1
+   else
+    if decimal_seen
+     set frac = frac + 1
+    end
+    if significant != 0
+     set significant = significant + 1
+    else
+     if c != 48
+      set significant = 1
+     end
+    end
+    if significant != 0
+     if c == 48
+      set trailing = trailing + 1
+     else
+      set trailing = 0
+     end
+     if significant <= 10
+      set value = value * 10 + c - 48
+     end
+    end
+   end
+   set i = i + 1
+  end
+ end
+ if significant == 0
+  return 0
+ end
+ if neg
+  return fail(2)
+ end
+ # Strip trailing zeroes from the mantissa. Re-read its at most ten significant digits.
+ if significant - trailing > 10
+  return fail(2)
+ end
+ set value = 0
+ set i = 0
+ set decimal_seen = 0
+ while decimal_seen < significant - trailing
+  set c = load8(p + i)
+  if digit(c)
+   if decimal_seen != 0
+    set value = value * 10 + c - 48
+    set decimal_seen = decimal_seen + 1
+   else
+    if c != 48
+     set value = c - 48
+     set decimal_seen = 1
+    end
+   end
+  end
+  set i = i + 1
+ end
+ set shift = 20000000 + trailing - frac
+ if eneg
+  set shift = shift - e
+ else
+  set shift = shift + e
+ end
+ if shift < 20000000
+  return fail(2)
+ end
+ set shift = shift - 20000000
+ if significant - trailing + shift > 10
+  return fail(2)
+ end
+ while shift != 0
+  set value = value * 10
+  set shift = shift - 1
+ end
+ if value > 4294967295
+  return fail(2)
+ end
+ return value
+end
+
+fn json_parse(p, n)
+ do store64(state(), 0)
+ if utf8(p, n) == 0
+  return fail(1)
+ end
+ do store64(state() + 8, p)
+ do store64(state() + 16, p + n)
+ do store64(state() + 24, 0)
+ do store64(state() + 32, 0)
+ do json_value(0)
+ if load64(state()) != 0
+  return 0
+ end
+ if skip(load64(state() + 8), p + n) != p + n
+  return fail(1)
+ end
+ return 1
+end
+fn unsigned(p, n)
+ let i = 0
+ let value = 0
+ let c = 0
+ if n == 0
+  return fail(2)
+ end
+ while i < n
+  set c = load8(p + i)
+  if digit(c) == 0
+   return fail(2)
+  end
+  set value = value * 10 + c - 48
+  if value > 4294967295
+   return fail(2)
+  end
+  set i = i + 1
+ end
+ return value
+end
+fn word_end(p, endp)
+ while p < endp
+  if whitespace(load8(p))
+   return p
+  end
+  set p = p + 1
+ end
+ return p
+end
+fn span_eq(p, n, text)
+ let i = 0
+ if n != slen(text)
+  return 0
+ end
+ while i < n
+  if load8(p + i) != load8(text + i)
+   return 0
+  end
+  set i = i + 1
+ end
+ return 1
+end
+fn source(p, n)
+ let endp = p + n
+ let q = 0
+ let i = 0
+ let op = 0
+ let mode = 0
+ let good = 0
+ if n > 32768
+  return fail(3)
+ end
+ while i < 5
+  set p = skip(p, endp)
+  set q = word_end(p, endp)
+  set good = 0
+  if i == 0
+   set good = span_eq(p, q - p, "rf2")
+  end
+  if i == 1
+   set good = span_eq(p, q - p, "v1")
+  end
+  if i == 2
+   if span_eq(p, q - p, "checked")
+    set good = 1
+   else
+    if span_eq(p, q - p, "wrap")
+     set good = 1
+     set mode = 1
+    end
+   end
+  end
+  if i == 3
+   if span_eq(p, q - p, "sum")
+    set op = 1
+   end
+   if span_eq(p, q - p, "squares")
+    set op = 2
+   end
+   if span_eq(p, q - p, "bits")
+    set op = 3
+   end
+   if span_eq(p, q - p, "nonzero")
+    set op = 4
+   end
+   set good = op != 0
+  end
+  if i == 4
+   set good = span_eq(p, q - p, "input")
+  end
+  if good == 0
+   return fail(3)
+  end
+  set p = q
+  set i = i + 1
+ end
+ if skip(p, endp) != endp
+  return fail(3)
+ end
+ do store64(state() + 56, op)
+ do store64(state() + 64, mode)
+ return 1
+end
+fn collect(idx)
+ let t = token(idx)
+ let endidx = load64(t + 24)
+ let i = idx + 1
+ let n = 0
+ let a = buffer("input", 262144)
+ let v = 0
+ if load64(t) != 3
+  return fail(2)
+ end
+ while i < endidx
+  if n >= 65536
+   return fail(2)
+  end
+  set t = token(i)
+  if load64(t) != 7
+   return fail(2)
+  end
+  set v = number_u32(t)
+  if load64(state()) != 0
+   return 0
+  end
+  do store32(a + n * 4, v)
+  set i = i + 1
+  set n = n + 1
+ end
+ return n
+end
+fn compute(n, count)
+ let op = load64(state() + 56)
+ let mode = load64(state() + 64)
+ let a = buffer("input", 262144)
+ let i = 0
+ let total = 0
+ let x = 0
+ let y = 0
+ let bits = 0
+ if count > n
+  return fail(2)
+ end
+ while i < count
+  set x = load32(a + i * 4)
+  if op == 2
+   set x = x * x
+   if mode == 0
+    if x > 4294967295
+     return fail(4)
+    end
+   end
+   set x = x & 4294967295
+  end
+  if op == 3
+   set bits = 0
+   while x != 0
+    set x = x & (x - 1)
+    set bits = bits + 1
+   end
+   set x = bits
+  end
+  if op == 4
+   set x = x != 0
+  end
+  set total = total + x
+  if mode == 0
+   if total > 4294967295
+    return fail(4)
+   end
+  end
+  set total = total & 4294967295
+  set i = i + 1
+ end
+ do store64(state() + 72, total)
+ if op == 1
+  do store64(state() + 80, 3 + count * 3)
+ else
+  do store64(state() + 80, 3 + count * 4)
+ end
+ return 1
+end
+fn result()
+ do say("{\"value\":")
+ do decimal(load64(state() + 72))
+ do say(",\"steps\":")
+ do decimal(load64(state() + 80))
+ do say(",\"profile\":\"RF2_U32_CORE_V0\",\"syntaxProfile\":\"RF2_COMPACT_V1\",\"effects\":[\"read_input\"]}")
+ return 0
+end
+fn status()
+ return say("{\"version\":\"0.4.0\",\"runtime\":\"RF2_SYSTEM_A64_V1 direct ARM64\",\"target\":\"macos-arm64\",\"syntaxProfile\":\"RF2_COMPACT_V1\",\"coreProfile\":\"RF2_U32_CORE_V0\",\"operations\":[\"sum\",\"squares\",\"bits\",\"nonzero\"],\"effects\":[\"read_input\"],\"nodeRequired\":false,\"cppRequired\":false,\"selfHosted\":false,\"bootstrap\":\"Python build-time seed and macOS signing\",\"generalCoreParser\":false,\"embeddedAI\":false,\"speedClaim\":null}")
+end
+fn ir()
+ do say("{\"schema\":\"rf2.compact.plan.v1\",\"coreProfile\":\"RF2_U32_CORE_V0\",\"operation\":")
+ do decimal(load64(state() + 56))
+ do say(",\"wrapping\":")
+ if load64(state() + 64)
+  do say("true")
+ else
+  do say("false")
+ end
+ return say(",\"effects\":[\"read_input\"],\"maxInput\":65536,\"execution\":\"native ARM64 reduction\"}")
+end
+fn expand()
+ let op = load64(state() + 56)
+ do say("FLOW \"Compact reduction\"\nPROFILE RF2_U32_CORE_V0\nARITHMETIC ")
+ if load64(state() + 64)
+  do say("WRAP\n")
+ else
+  do say("CHECKED\n")
+ end
+ do say("FUNCTION main(data: u32[], count: u32) RETURNS u32\nVAR total = 0\nFOR i FROM 0 TO count LIMIT 65536\nSTEP read = LOAD WITH { array: data, index: i, result: item }\n")
+ if op == 2
+  do say("STEP square = MUL WITH { a: item, b: item, result: item }\n")
+ end
+ if op == 3
+  do say("STEP bits = POPCOUNT WITH { value: item, result: item }\n")
+ end
+ if op == 4
+  do say("STEP active = NONZERO WITH { value: item, result: item }\n")
+ end
+ return say("STEP add = ADD WITH { a: total, b: item, result: total }\nEND FOR\nRETURN total\nEND\n")
+end
+fn error_text(code)
+ if code == 5
+  return "Unable to read the explicitly supplied source file"
+ end
+ if code == 3
+  return "Expected rf2 v1 checked|wrap followed by sum|squares|bits|nonzero input. Compact V1 only; general Core and machine source are refused."
+ end
+ if code == 4
+  return "Checked arithmetic overflow"
+ end
+ if code == 2
+  return "Expected unsigned integer u32 data, at most 65536 words, and count within capacity"
+ end
+ return "Malformed JSON, duplicate key, invalid UTF-8, excessive depth, size or token limit"
+end
+fn read_source(path)
+ let fd = open(path, 0, 0)
+ let b = buffer("source", 32769)
+ let n = 0
+ let r = 0
+ if fd >= 9223372036854775808
+  return fail(5)
+ end
+ while n < 32769
+  set r = read(fd, b + n, 32769 - n)
+  if r >= 9223372036854775808
+   do close(fd)
+   return fail(5)
+  end
+  if r == 0
+   do close(fd)
+   do store64(state() + 88, n)
+   return b
+  end
+  set n = n + r
+ end
+ do close(fd)
+ return fail(3)
+end
+# Buffered JSON-lines input. Oversized lines are drained; a future request can recover.
+fn line()
+ let g = buffer("stream_state", 24)
+ let chunk = buffer("stream_chunk", 8192)
+ let b = buffer("line", 1048577)
+ let pos = load64(g)
+ let size = load64(g + 8)
+ let n = 0
+ let c = 0
+ let over = 0
+ while 1
+  if pos == size
+   set size = read(0, chunk, 8192)
+   set pos = 0
+   if size >= 9223372036854775808
+    do exit(1)
+   end
+   if size == 0
+    do store64(g, 0)
+    do store64(g + 8, 0)
+    if over
+     return 1048577
+    end
+    return n
+   end
+  end
+  set c = load8(chunk + pos)
+  set pos = pos + 1
+  if c == 10
+   do store64(g, pos)
+   do store64(g + 8, size)
+   if over
+    return 1048577
+   end
+   # Zero length blank lines are ignored instead of treated as EOF.
+   if n != 0
+    return n
+   end
+  else
+   if n < 1048576
+    do store8(b + n, c)
+    set n = n + 1
+   else
+    set over = 1
+   end
+  end
+ end
+ return 0
+end
+fn rpc_start(id)
+ let t = token(id)
+ do say("{\"jsonrpc\":\"2.0\",\"id\":")
+ if id == 0
+  do say("null")
+ else
+  if load64(t) == 1
+   do say("\"")
+   do output(load64(t + 8), load64(t + 16))
+   do say("\"")
+  else
+   do output(load64(t + 8), load64(t + 16))
+  end
+ end
+ return 0
+end
+fn rpc_error(id, code, message)
+ do rpc_start(id)
+ do say(",\"error\":{\"code\":-")
+ do decimal(code)
+ do say(",\"message\":\"")
+ do say(message)
+ return say("\"}}\n")
+end
+fn tool_error(id)
+ do rpc_start(id)
+ do say(",\"result\":{\"isError\":true,\"content\":[{\"type\":\"text\",\"text\":\"")
+ do say(error_text(load64(state())))
+ return say("\"}]}}\n")
+end
+fn tools()
+ return say("{\"tools\":[{\"name\":\"rf2_status\",\"description\":\"Read exact native RF2 capabilities and limits\",\"inputSchema\":{\"type\":\"object\",\"properties\":{},\"additionalProperties\":false}},{\"name\":\"rf2_check\",\"description\":\"Validate Compact V1 and return an explicit plan, not arbitrary Core\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"source\":{\"type\":\"string\",\"maxLength\":32768}},\"required\":[\"source\"],\"additionalProperties\":false}},{\"name\":\"rf2_run\",\"description\":\"Run Compact V1 reductions in native ARM64, no file or network effects\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"source\":{\"type\":\"string\",\"maxLength\":32768},\"data\":{\"type\":\"array\",\"maxItems\":65536,\"items\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":4294967295}},\"count\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":65536}},\"required\":[\"source\",\"data\"],\"additionalProperties\":false}}]}")
+end
+fn tool_call(id, params)
+ let name = field(params, "name")
+ let args = field(params, "arguments")
+ let src = 0
+ let data = 0
+ let ct = 0
+ let n = 0
+ let count = 0
+ let running = 0
+ let i = 0
+ if name == 0
+  return rpc_error(id, 32602, "Missing tool name")
+ end
+ if matches(token(name), "rf2_status")
+  if args != 0
+   if load64(token(args)) != 2
+    return rpc_error(id, 32602, "arguments must be an object")
+   end
+   if load64(token(args) + 24) != args + 1
+    return rpc_error(id, 32602, "Unexpected arguments")
+   end
+  end
+  do rpc_start(id)
+  do say(",\"result\":{\"content\":[{\"type\":\"text\",\"text\":")
+  # Status as structuredContent plus short readable text, no nested JSON escaping needed.
+  do say("\"Native RiverFlow ARM64; Compact V1; no Node or C++ runtime\"}],\"structuredContent\":")
+  do status()
+  return say("}}\n")
+ end
+ if matches(token(name), "rf2_run")
+  set running = 1
+ else
+  if matches(token(name), "rf2_check") == 0
+   return rpc_error(id, 32602, "Unknown tool")
+  end
+ end
+ if args == 0
+  return rpc_error(id, 32602, "Missing arguments")
+ end
+ if load64(token(args)) != 2
+  return rpc_error(id, 32602, "arguments must be an object")
+ end
+ set i = args + 1
+ while i < load64(token(args) + 24)
+  if matches(token(i), "source") == 0
+   if running == 0
+    return rpc_error(id, 32602, "Unexpected argument")
+   end
+   if matches(token(i), "data") == 0
+    if matches(token(i), "count") == 0
+     return rpc_error(id, 32602, "Unexpected argument")
+    end
+   end
+  end
+  set i = load64(token(i + 1) + 24)
+ end
+ set src = field(args, "source")
+ if src == 0
+  return rpc_error(id, 32602, "Missing source")
+ end
+ if load64(token(src)) != 1
+  return rpc_error(id, 32602, "source must be text")
+ end
+ do source(load64(token(src) + 32), load64(token(src) + 40))
+ if load64(state()) != 0
+  return tool_error(id)
+ end
+ if running
+  set data = field(args, "data")
+  if data == 0
+   return rpc_error(id, 32602, "Missing data")
+  end
+  set n = collect(data)
+  set count = n
+  set ct = field(args, "count")
+  if ct != 0
+   if load64(token(ct)) != 7
+    return rpc_error(id, 32602, "count must be an integer")
+   end
+   set count = number_u32(token(ct))
+  end
+  if load64(state()) == 0
+   do compute(n, count)
+  end
+  if load64(state()) != 0
+   return tool_error(id)
+  end
+ end
+ do rpc_start(id)
+ do say(",\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Validated RF2 Compact V1")
+ if running
+  do say("; value ")
+  do decimal(load64(state() + 72))
+ end
+ do say("\"}],\"structuredContent\":")
+ if running
+  do result()
+ else
+  do ir()
+ end
+ return say("}}\n")
+end
+fn request(n)
+ let b = buffer("line", 1048577)
+ let id = 0
+ let method = 0
+ let params = 0
+ let version = 0
+ let session = buffer("session", 16)
+ if n > 1048576
+  return rpc_error(0, 32700, "Request size limit")
+ end
+ if json_parse(b, n) == 0
+  return rpc_error(0, 32700, "Invalid JSON or parser limit")
+ end
+ if load64(token(0)) != 2
+  return rpc_error(0, 32600, "Expected a JSON RPC object")
+ end
+ set id = field(0, "id")
+ if id != 0
+  if load64(token(id)) != 1
+   if load64(token(id)) != 7
+    if load64(token(id)) != 6
+     return rpc_error(0, 32600, "Invalid request id")
+    end
+   end
+  end
+ end
+ set version = field(0, "jsonrpc")
+ set method = field(0, "method")
+ if matches(token(version), "2.0") == 0
+  return rpc_error(id, 32600, "Expected jsonrpc 2.0")
+ end
+ if load64(token(method)) != 1
+  return rpc_error(id, 32600, "Expected method")
+ end
+ if id == 0
+  if matches(token(method), "notifications/initialized")
+   if load64(session) == 1
+    do store64(session + 8, 1)
+   end
+  end
+  return 0
+ end
+ set params = field(0, "params")
+ if matches(token(method), "initialize")
+  if load64(session) != 0
+   return rpc_error(id, 32600, "Already initialized")
+  end
+  if params == 0
+   return rpc_error(id, 32602, "Missing initialize params")
+  end
+  if load64(token(params)) != 2
+   return rpc_error(id, 32602, "Invalid initialize params")
+  end
+  set version = field(params, "protocolVersion")
+  if version == 0
+   return rpc_error(id, 32602, "Missing protocolVersion")
+  end
+  if load64(token(version)) != 1
+   return rpc_error(id, 32602, "Invalid protocolVersion")
+  end
+  do store64(session, 1)
+  do rpc_start(id)
+  return say(",\"result\":{\"protocolVersion\":\"2024-11-05\",\"capabilities\":{\"tools\":{}},\"serverInfo\":{\"name\":\"rf2-native\",\"version\":\"0.4.0\"}}}\n")
+ end
+ if matches(token(method), "ping")
+  do rpc_start(id)
+  return say(",\"result\":{}}\n")
+ end
+ if load64(session + 8) == 0
+  return rpc_error(id, 32002, "Initialize session first")
+ end
+ if matches(token(method), "tools/list")
+  do rpc_start(id)
+  do say(",\"result\":")
+  do tools()
+  return say("}\n")
+ end
+ if matches(token(method), "tools/call")
+  if params == 0
+   return rpc_error(id, 32602, "Missing params")
+  end
+  return tool_call(id, params)
+ end
+ return rpc_error(id, 32601, "Method not found")
+end
+fn main(argc, argv)
+ let cmd = 0
+ let path = 0
+ let src = 0
+ let n = 0
+ let data = 0
+ let count = 0
+ let arg = 0
+ if argc < 2
+  do say("RiverFlow 0.4 native ARM64\nrf2 status | check file | expand file | run file '[1,2,3]' [count] | mcp\nCompact V1 only. No general Core parser or self-hosting claim.\n")
+  return 0
+ end
+ set cmd = load64(argv + 8)
+ if eq(cmd, "mcp")
+  set n = line()
+  while n != 0
+   do request(n)
+   set n = line()
+  end
+  return 0
+ end
+ if eq(cmd, "status")
+  do status()
+  do say("\n")
+  return 0
+ end
+ if argc < 3
+  do say("Missing source path\n")
+  return 1
+ end
+ if eq(cmd, "check") == 0
+  if eq(cmd, "expand") == 0
+   if eq(cmd, "run") == 0
+    do say("Unknown command\n")
+    return 1
+   end
+  end
+ end
+ set path = load64(argv + 16)
+ set src = read_source(path)
+ if load64(state()) == 0
+  do source(src, load64(state() + 88))
+ end
+ if load64(state()) != 0
+  do say(error_text(load64(state())))
+  do say("\n")
+  return 1
+ end
+ if eq(cmd, "check")
+  do ir()
+  do say("\n")
+  return 0
+ end
+ if eq(cmd, "expand")
+  do expand()
+  return 0
+ end
+ if argc < 4
+  do say("Missing JSON data array\n")
+  return 1
+ end
+ set arg = load64(argv + 24)
+ if json_parse(arg, slen(arg))
+  set n = collect(0)
+  set count = n
+  if argc > 4
+   set arg = load64(argv + 32)
+   set count = unsigned(arg, slen(arg))
+  end
+  if load64(state()) == 0
+   do compute(n, count)
+  end
+ end
+ if load64(state()) != 0
+  do say(error_text(load64(state())))
+  do say("\n")
+  return 1
+ end
+ do result()
+ do say("\n")
+ return 0
+end

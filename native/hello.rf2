@@ -1,0 +1,5 @@
+profile RF2_SYSTEM_A64_V1
+fn main(argc, argv)
+ do write(1, "RiverFlow native\n", 17)
+ return 0
+end

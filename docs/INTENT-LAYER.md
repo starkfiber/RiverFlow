@@ -31,7 +31,7 @@ allow teacher
 check one_mark_per_student_day, export_roundtrip
 ```
 
-This is a proposed design shape. attendance.local@1 is not a shipped RF² capability. The current executable profile remains RF2_U32_CORE_V0. Do not feed this draft to the Core checker or claim it creates an application.
+This is a proposed design shape. attendance.local@1 is not a shipped RF² capability. The original reference profile is RF2_U32_CORE_V0. Native 0.4 now implements RF2_COMPACT_V1 for four reductions; this application-service draft is still unimplemented. Do not feed this draft to the Core checker or claim it creates an application.
 
 A useful first adapter should reuse one real existing application module, define observable success/failure behavior, and prove that the compact plan selects the intended version and checks. It must not use generated UI screenshots or static templates as proof of a working application.
 
@@ -45,7 +45,7 @@ A short intent only earns a saving if its expanded implementation passes equival
 
 ## Current implementation versus next milestone
 
-Implemented: checked Core, prepared evaluation, C11 emission, bounded sum optimization, ten MCP tools, public documentation catalog and first technical book.
+Implemented in the reference: checked Core, prepared evaluation, C11 emission, bounded sum optimization, ten MCP tools and public documentation catalog. Native 0.4 separately implements four compact reductions, deterministic Core expansion, direct ARM64 execution and three built-in MCP tools. It uses a RiverFlow systems source and an explicit Python build-time seed; it is not self-hosted. The revised book and executable-level evidence cover that exact subset.
 
 Next milestone: one versioned executable service capability, a compact intent parser/planner, deterministic expansion, concise receipts, negative/permission tests and a matched end-to-end token experiment. Keep existing Core semantics stable. The next book edition should foreground this intent workflow once it works, retaining the first edition as an implementation foundation.
 
