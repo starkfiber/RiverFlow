@@ -10,7 +10,7 @@ The prior private research library contains 13 projects. No thesis text, recover
 | Kernel 9 | Can adaptive proposals be admitted through deterministic checks? | No adaptive planner in this release. |
 | Developmental AI | Can learning propose code while keeping verification separate? | AI comes from the client; no learning subsystem. |
 | Tamil Time Continuum | Can deadline policies survive measurement and stronger baselines? | No real-time scheduler or time semantics. |
-| VOIKE | Can one semantic contract have independently checked execution backends? | JavaScript interpreter only; no optical execution. |
+| VOIKE | Can one semantic contract have independently checked execution backends? | Interpreter and C11 backend; no optical execution. |
 | RU’OS X Lava | Can a small service interface work across hosted and native backends? | No phone driver or hardware control. |
 | SLM | Can intent translation abstain when unsupported? | No imported model, weights or device collector. |
 | Human–AI workplace | Can users inspect decisions and errors? | No workplace benefit measurements. |

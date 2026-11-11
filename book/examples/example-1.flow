@@ -1,0 +1,7 @@
+FLOW "First light"
+PROFILE RF2_U32_CORE_V0
+ARITHMETIC CHECKED
+FUNCTION main(data: u32[], count: u32) RETURNS u32
+  STEP first = ADD WITH { a: 500, b: 20, result: answer }
+  RETURN answer
+END

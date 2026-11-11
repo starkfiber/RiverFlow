@@ -1,0 +1,16 @@
+FLOW "Squares in a stream"
+PROFILE RF2_U32_CORE_V0
+ARITHMETIC CHECKED
+FUNCTION square(value: u32) RETURNS u32
+  STEP product = MUL WITH { a: value, b: value, result: squared }
+  RETURN squared
+END
+FUNCTION main(data: u32[], count: u32) RETURNS u32
+  VAR total = 0
+  FOR i FROM 0 TO count LIMIT 65536
+    STEP read = LOAD WITH { array: data, index: i, result: item }
+    STEP transform = CALL square WITH { value: item, result: term }
+    STEP add = ADD WITH { a: total, b: term, result: total }
+  END FOR
+  RETURN total
+END

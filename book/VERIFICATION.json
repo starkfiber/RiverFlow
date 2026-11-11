@@ -1,0 +1,12 @@
+{
+  "pages": 36,
+  "tocEntries": 19,
+  "outOfPageText": [],
+  "completeExamples": 5,
+  "nativeProgramFamilies": 17,
+  "emissionPoliciesTested": 2,
+  "testGroups": 16,
+  "epubZipXml": "verified; not full EPUBCheck",
+  "visualReview": "cover, contents, code, pipeline, ABI table and references inspected; all-page montage produced",
+  "nativeDriver": "compiled and executed result15/work18"
+}

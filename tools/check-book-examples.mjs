@@ -1,0 +1,4 @@
+import fs from'node:fs';import assert from'node:assert/strict';import{compile,execute}from'../src/riverflow.mjs';import{emitC}from'../src/native-c.mjs';
+const text=fs.readFileSync(new URL('../book/RiverFlow-First-Edition.md',import.meta.url),'utf8'),blocks=[...text.matchAll(/```flow\n([\s\S]*?)```/g)].map(m=>m[1]);
+const inputs=[[],[],[1,2,3,4,5],[2,3,4],[0,1,3,255]],expected=[520,0,15,29,11];assert.equal(blocks.length,expected.length);fs.mkdirSync(new URL('../book/examples/',import.meta.url),{recursive:true});
+for(let i=0;i<blocks.length;i++){compile(blocks[i]);assert.equal(execute(blocks[i],inputs[i]).value,expected[i]);emitC(blocks[i]);fs.writeFileSync(new URL(`../book/examples/example-${i+1}.flow`,import.meta.url),blocks[i]);}console.log(`${blocks.length} complete book examples parse, evaluate to independent expected results and emit C11.`);

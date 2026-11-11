@@ -1,0 +1,2 @@
+# Optional book production only; not required by RF².
+reportlab>=4,<5

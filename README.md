@@ -12,7 +12,7 @@ RF² starts with a small executable promise: write typed, bounded computations, 
 
 ## Quick start
 
-Requires Node 22 or newer.
+Requires Node 22 or newer. Native execution and the full native differential suite additionally require Clang with AddressSanitizer and UndefinedBehaviorSanitizer support.
 
 ```sh
 git clone https://github.com/starkfiber/RiverFlow.git
@@ -76,6 +76,16 @@ MIT applies to original code and documentation. Concept artwork provenance is re
 
 ## SFE research bridge · 0.2
 
-Nine local MCP tools now connect checked RiverFlow execution to a pinned catalog of 20 public SFE repositories. Browse each repository and read its public README through `sfe_repositories`, `sfe_repository` and `sfe_repository_document`. Research links and measurement arithmetic are explicit about what is proposed, supplied or observed. Existing applications retain their own execution interfaces.
+Ten local MCP tools now connect checked RiverFlow execution to a pinned catalog of 20 public SFE repositories. Browse each repository and read its public README through `sfe_repositories`, `sfe_repository` and `sfe_repository_document`. Research links and measurement arithmetic are explicit about what is proposed, supplied or observed. Existing applications retain their own execution interfaces.
 
 `rf2_run_batch` checks one program once before evaluating several inputs. In the retained one-host sum experiment this reduces repeated small-job overhead, while a direct JavaScript loop remains substantially faster. [Scope, tools and limitations](docs/MCP-RESEARCH.md) · [Raw benchmark](docs/BENCHMARK.json).
+
+## RiverFlow 0.3 and the first book
+
+[Read the book online](https://starkfiber.github.io/RiverFlow/book/) · [Download the first edition](https://github.com/starkfiber/RiverFlow/releases/tag/v0.3.0)
+
+**RiverFlow RF²: Ideas into checked computation**, by Ilangkhumanan Thirunavokkarasu, is an independently published SFE guide with14chapters, runnable examples, exercises, native ABI reference and retained measurement tables. PDF, EPUB and source are openly available. It is not an independently peer-reviewed academic monograph.
+
+Version0.3 adds validated C11 emission through CLI emit-c and the text-only rf2_emit_c MCP tool. A conservative backend and a narrowly recognized sum reduction preserve Core semantics. Native host tests compare values, work counts and errors under sanitizers, including all complete book examples. The selected sum approaches a strong handwritten baseline in retained host runs; no universal advantage or phone qualification is asserted.
+
+Build the book with the optional document dependencies in book/requirements.txt and python3 tools/build-book.py. These are publication tools, not a RiverFlow runtime dependency.

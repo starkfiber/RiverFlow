@@ -1,0 +1,7 @@
+FLOW "Visible wrap"
+PROFILE RF2_U32_CORE_V0
+ARITHMETIC WRAP
+FUNCTION main(data: u32[], count: u32) RETURNS u32
+  STEP edge = ADD WITH { a: 4294967295, b: 1, result: value }
+  RETURN value
+END

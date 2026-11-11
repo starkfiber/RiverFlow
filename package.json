@@ -1,6 +1,6 @@
 {
   "name": "@riverflow/rf2",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "private": true,
   "description": "RiverFlow RF² checked computation language and local MCP tools",

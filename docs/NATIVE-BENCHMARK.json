@@ -1,0 +1,172 @@
+{
+  "observedUTC": "2026-11-11T14:14:34.488Z",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+  "flags": [
+    "-std=c11",
+    "-O2",
+    "-fno-lto"
+  ],
+  "sourceSHA256": "846d11b78a3d756e186900a3fcff8d2b529390921b042eee32a84c6158602e5f",
+  "scope": "One process on one host, warm checked sum. Separate translation units, no LTO, rotating order, all outputs and work counts verified. Manual baseline has the same ABI admission and a handwritten sum loop. Compilation, loading, allocation and cold startup excluded. No energy or phone result.",
+  "rows": [
+    {
+      "words": 8,
+      "iterations": 10000,
+      "trials": [
+        {
+          "generated_us": 0.008899998,
+          "baseline_us": 0.009099999
+        },
+        {
+          "generated_us": 0.008899998,
+          "baseline_us": 0.009099999
+        },
+        {
+          "generated_us": 0.008999999,
+          "baseline_us": 0.0092
+        },
+        {
+          "generated_us": 0.008899998,
+          "baseline_us": 0.009300001
+        },
+        {
+          "generated_us": 0.009099999,
+          "baseline_us": 0.009500002
+        },
+        {
+          "generated_us": 0.009100005,
+          "baseline_us": 0.0092
+        },
+        {
+          "generated_us": 0.008999999,
+          "baseline_us": 0.0092
+        },
+        {
+          "generated_us": 0.008999999,
+          "baseline_us": 0.009100005
+        },
+        {
+          "generated_us": 0.008999999,
+          "baseline_us": 0.009300001
+        },
+        {
+          "generated_us": 0.008900004,
+          "baseline_us": 0.009499997
+        },
+        {
+          "generated_us": 0.0099,
+          "baseline_us": 0.009099999
+        }
+      ],
+      "generatedMedianUs": 0.008999999,
+      "baselineMedianUs": 0.0092,
+      "speedupVsManual": 1.0222223358024818
+    },
+    {
+      "words": 256,
+      "iterations": 1000,
+      "trials": [
+        {
+          "generated_us": 0.170000014,
+          "baseline_us": 0.171000022
+        },
+        {
+          "generated_us": 0.308000017,
+          "baseline_us": 0.171000022
+        },
+        {
+          "generated_us": 0.189999992,
+          "baseline_us": 0.172000029
+        },
+        {
+          "generated_us": 0.211999984,
+          "baseline_us": 0.174999994
+        },
+        {
+          "generated_us": 0.163999968,
+          "baseline_us": 0.154000008
+        },
+        {
+          "generated_us": 0.159999996,
+          "baseline_us": 0.15399995
+        },
+        {
+          "generated_us": 0.161000004,
+          "baseline_us": 0.154999958
+        },
+        {
+          "generated_us": 0.162000011,
+          "baseline_us": 0.153000001
+        },
+        {
+          "generated_us": 0.159999996,
+          "baseline_us": 0.149999978
+        },
+        {
+          "generated_us": 0.164000026,
+          "baseline_us": 0.150000036
+        },
+        {
+          "generated_us": 0.22799999,
+          "baseline_us": 0.204999989
+        }
+      ],
+      "generatedMedianUs": 0.164000026,
+      "baselineMedianUs": 0.154999958,
+      "speedupVsManual": 0.9451215452856087
+    },
+    {
+      "words": 4096,
+      "iterations": 100,
+      "trials": [
+        {
+          "generated_us": 3.089999664,
+          "baseline_us": 3.090000246
+        },
+        {
+          "generated_us": 3.090000246,
+          "baseline_us": 3.08000017
+        },
+        {
+          "generated_us": 2.600000007,
+          "baseline_us": 2.570000361
+        },
+        {
+          "generated_us": 2.579999855,
+          "baseline_us": 2.559999702
+        },
+        {
+          "generated_us": 2.589999931,
+          "baseline_us": 2.570000361
+        },
+        {
+          "generated_us": 2.559999702,
+          "baseline_us": 2.560000285
+        },
+        {
+          "generated_us": 2.569999779,
+          "baseline_us": 2.570000361
+        },
+        {
+          "generated_us": 2.569999779,
+          "baseline_us": 2.569999779
+        },
+        {
+          "generated_us": 2.579999855,
+          "baseline_us": 2.570000361
+        },
+        {
+          "generated_us": 2.570000361,
+          "baseline_us": 2.559999702
+        },
+        {
+          "generated_us": 2.570000361,
+          "baseline_us": 2.569999779
+        }
+      ],
+      "generatedMedianUs": 2.579999855,
+      "baselineMedianUs": 2.570000361,
+      "speedupVsManual": 0.9961242269139584
+    }
+  ]
+}
