@@ -6,7 +6,7 @@
 
 A programming language by **Ilangkhumanan Thirunavokkarasu**. AI assisted development, deterministic language rules, open source foundations.
 
-RF² now has an experimental **standalone Apple Silicon macOS executable**, with a compact human-readable front end, native ARM64 computation and built-in MCP. **No Node, npm, C++ or Python runtime is required by users.** The runtime is written in a separate RiverFlow systems profile and emitted directly to machine code by a small Python build-time seed. It is not self-hosted yet.
+RF² now has an experimental **standalone Apple Silicon macOS executable**, with a compact human-readable front end, native ARM64 computation and built-in MCP. **No Node, npm, C++ or Python runtime is required by users.** The runtime is written in a separate RiverFlow systems profile. Release 0.5 adds a native RiverFlow compiler that reproduces its own unsigned image across three generations and builds that runtime without Python. The historical Python seed remains for initial bootstrap and comparison. This self-hosting result covers the documented systems subset, not every RiverFlow dialect.
 
 The original JavaScript Core implementation remains a reference and browser playground. Native 0.4 implements four compact reductions, not every historical dialect or all ten reference MCP tools. [Exact native scope and verification](docs/STANDALONE.md).
 
@@ -18,17 +18,22 @@ RF² is intended to become a compact human/AI intent interface: describe the out
 
 ## Quick start
 
-On Apple Silicon macOS 14+, use the [standalone executable from release 0.4](https://github.com/starkfiber/RiverFlow/releases/tag/v0.4.0), or build it from source. End users do not need npm or Node. Building currently needs Python 3 and the macOS code-signing tool; no C/C++ compiler, assembler or linker is invoked.
+On Apple Silicon Mac, download the [native runtime and compiler](https://github.com/starkfiber/RiverFlow/releases/tag/v0.5.0). Users need no Node, npm, Python or C++ runtime. The minimum encoded target is macOS 14; actual execution is qualified on the recorded local Mac.
 
 ```sh
-git clone https://github.com/starkfiber/RiverFlow.git
-cd RiverFlow
-python3 bootstrap/seed.py native/rf2.rf2 output/bin/rf2
-./output/bin/rf2 run examples/compact/sum.rf2 '[1,2,3,4,5]'
-# value 15; checked native arithmetic
-./output/bin/rf2 check examples/compact/sum.rf2
-./output/bin/rf2 expand examples/compact/sum.rf2
+./rf2 run examples/compact/sum.rf2 '[1,2,3,4,5]'
+./rf2 check examples/compact/sum.rf2
+./rf2 expand examples/compact/sum.rf2
+# Rebuild from RiverFlow source into a new output path:
+./rf2c native/compiler/compiler.rf2 next-rf2c
+/usr/bin/codesign -s - --force next-rf2c
+./next-rf2c native/rf2.rf2 next-rf2
+/usr/bin/codesign -s - --force next-rf2
 ```
+
+The downloaded archive includes the sources needed for those commands. `rf2c` emits an unsigned image and refuses existing output paths. macOS signing is an explicit separate OS step. No C/C++ compiler, assembler, linker or Python process is invoked by native compilation. [Bootstrap, limits and evidence](docs/NATIVE-COMPILER.md).
+
+For an initial source-only bootstrap, the historical command remains `python3 bootstrap/seed.py native/compiler/compiler.rf2 output/compiler-stage0/rf2c`. Python is optional for that initial route and for development tests, not required to rebuild with the native compiler.
 
 ```text
 rf2 v1 checked
@@ -85,4 +90,10 @@ Build the book with the optional document dependencies in book/requirements.txt 
 
 The machine encoder, RF2 systems source, compact examples and executable-level verification are public. The revised book explains both the native subset and the older reference toolchain. Native test evidence is retained in [STANDALONE-VERIFICATION.json](docs/STANDALONE-VERIFICATION.json). No new speed claim is made.
 
-The systems profile is a new implementation dialect, distinct from Core and historical ASMX. Its trusted seed is still written in Python. Completing a native seed, general Core migration and a self-hosted fixed-point build are open work, explicitly tracked rather than claimed complete.
+The systems profile is a new implementation dialect, distinct from Core and historical ASMX. Its historical seed is retained in Python; a separate native compiler now reproduces the systems subset. The historical 0.4 boundary is retained in its release. Native compiler self-reproduction is now tested in 0.5; general Core migration and broader target qualification remain open.
+
+## Native compiler 0.5
+
+RiverFlow systems source now compiles the systems compiler itself. Three successive native-generated unsigned images match byte for byte, and the native-built runtime is identical to the tested 0.4 runtime. Tests also execute independent arithmetic/control-flow/memory cases, validate full source digests, refuse malformed source and preserve existing output paths. [Compiler evidence](docs/NATIVE-COMPILER-VERIFICATION.json).
+
+The native runtime's MCP status still reports 0.4 because its source and behavior were preserved. Release 0.5 adds the separate `rf2c` compiler. This is bounded systems-profile self-hosting on one Mac, not general Core completion, independent audit or proof of performance superiority.

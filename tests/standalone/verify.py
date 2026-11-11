@@ -1,7 +1,7 @@
 """Actual standalone executable tests. Python/Node are development oracles only."""
 from pathlib import Path
 import json, subprocess, random, hashlib, os, time, sys, select, tempfile, atexit
-R=Path(__file__).resolve().parents[2];binary=R/'output/bin/rf2'
+R=Path(__file__).resolve().parents[2];binary=Path(os.environ.get('RF2_TEST_BINARY',str(R/'output/bin/rf2')))
 node=os.environ.get('RF2_TEST_NODE','/opt/homebrew/opt/node@22/bin/node')
 class Peer:
  def __init__(self,args):self.p=subprocess.Popen(args,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE);self.i=0;atexit.register(lambda: self.p.kill() if self.p.poll() is None else None)
@@ -96,4 +96,4 @@ for args in [['check',str(R/'examples/compact/sum.rf2')],['status'],['expand',st
 assert subprocess.run([str(binary),'run','/nonexistent','[]'],capture_output=True).returncode==1
 peer.close();oracle.close()
 report['executableSHA256']=hashlib.sha256(binary.read_bytes()).hexdigest();report['sourceSHA256']=hashlib.sha256((R/'native/rf2.rf2').read_bytes()).hexdigest();report['bootstrapSHA256']=hashlib.sha256((R/'bootstrap/seed.py').read_bytes()).hexdigest();report['passed']=True
-(R/'docs/STANDALONE-VERIFICATION.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
+Path(os.environ.get('RF2_TEST_REPORT',str(R/'docs/STANDALONE-VERIFICATION.json'))).write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

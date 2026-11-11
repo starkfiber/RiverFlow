@@ -5,13 +5,13 @@ Ilangkhumanan Thirunavokkarasu
 
 Stark Fiber Enterprise
 
-First edition, revised · November 2026 · Package 0.4
+First edition, revised · November 2026 · Package 0.5
 
 # About this edition
 
-RiverFlow is a language in active development. This book describes a small language that runs, a compiler path that can be inspected, and a way to connect research questions to evidence. The complete original examples use RF2_U32_CORE_V0. The standalone 0.4 addition has a separate RF2_COMPACT_V1 front end and an explicitly distinct RF2_SYSTEM_A64_V1 implementation profile. The profile matters more than the age of the book: another dialect may use familiar words while giving them different meanings.
+RiverFlow is a language in active development. This book describes a small language that runs, a compiler path that can be inspected, and a way to connect research questions to evidence. The complete original examples use RF2_U32_CORE_V0. The standalone 0.4 addition has a separate RF2_COMPACT_V1 front end and an explicitly distinct RF2_SYSTEM_A64_V1 implementation profile. Release 0.5 adds a native compiler that reproduces itself within the systems subset, described in Chapter 16. The profile matters more than the age of the book: another dialect may use familiar words while giving them different meanings.
 
-The author’s ambition is to make programming understandable, useful and durable. Those aims guide the work; they are not measurements. This edition does not claim universal compatibility, new semiconductor technology, independent academic approval or a language that will survive a million years. A reader should be able to reproduce a claim without agreeing with the ambition behind it.
+RiverFlow aims to make programming understandable and useful. This edition does not claim universal compatibility, new semiconductor technology, independent academic approval or million-year durability. Claims need reproducible evidence.
 
 The implementation was developed with AI assistance. Its parser, interpreter, C emitter and tests are available in the public repository. AI proposes and explains. A deterministic language contract defines which programs are accepted. The tests and measurements described here were executed locally, with their boundaries recorded. They do not establish every possible program or machine.
 
@@ -57,7 +57,7 @@ Save it as sum.rf2. With the downloaded executable:
 
 The result is 15 with 18 abstract Core work events. These events are not processor cycles. Chapter 15 explains the native implementation, its tests and its four-operation boundary. General Core helpers and arbitrary admitted statements still use the reference tools described below.
 
-Developers building the standalone from source currently use a small Python seed and the macOS signing utility. The seed writes AArch64 instructions and the executable container directly, without a C/C++ compiler, assembler or linker. This is a trusted bootstrap, not self-hosting.
+Release 0.4 used a small Python seed and the macOS signing utility. Release 0.5 adds a native compiler rebuild route, described in Chapter 16. The historical seed remains available for initial bootstrap and comparison. The seed writes AArch64 instructions and the executable container directly, without a C/C++ compiler, assembler or linker. This is a trusted bootstrap, not self-hosting.
 
 The remaining detailed examples in Chapters 2 through 14 teach the original Core profile. For those reference-development exercises only, install Node 22 and the repository's pinned npm dependencies. The browser playground also retains that reference interpreter. These developer tools are distinct from the standalone runtime.
 
@@ -85,9 +85,9 @@ node bin/rf2.mjs compile first.flow first.json
 
 The compile command writes checked JSON IR. It does not produce a native executable. The emit-c command, introduced later, writes C source. A clear distinction between these outputs prevents a common mistake: treating a successful build step as proof that an application ran on its target device.
 
-The website runs the same interpreter in a browser worker. It does not send source or arrays to an inference service. Edit the array, then edit the program. When an error appears, read it as information about the contract rather than a judgment about the person writing the code.
+The website runs the reference interpreter in a browser worker without uploading source or arrays. Errors describe a contract to examine.
 
-Exercise: replace 500 with 7 and 20 with 11. Predict the result before running. Then change ADD to an unsupported operation. A useful system should refuse the second change rather than quietly choose some other meaning.
+Exercise: change the constants and predict the result. Then test an unsupported operation; the checker must refuse it.
 
 # 3. Numbers with a visible edge
 
@@ -372,7 +372,7 @@ The first native standalone is not a packaged JavaScript process. Its front end,
 
 A small trusted seed compiler reads the systems source and emits ARM64 instructions and a Mach-O executable directly. macOS applies an ad-hoc signature. Neither a C/C++ compiler nor an assembler or linker is invoked by this build. The executable has no imported language-runtime symbols; it loads through the normal macOS dyld and libSystem interface and uses OS system calls for input, output and explicit command-line file reads.
 
-The seed itself is written in Python. This is why the result is a native bootstrap milestone, not a self-hosted language. Saying everything is RiverFlow would currently hide a real dependency at build time. A future native compiler for the systems profile must reproduce and qualify its own output before that claim can change. Hardware instruction semantics, the operating system and code signing also remain external contracts.
+In release 0.4 the seed itself was written in Python. That release established native execution rather than self-hosting. Chapter 16 records the subsequent bounded self-reproduction result in release 0.5. Saying everything is RiverFlow would currently hide a real dependency at build time. The native compiler must reproduce and qualify its own output before that claim can change; the executed scope of that check matters. Hardware instruction semantics, the operating system and code signing also remain external contracts.
 
 ## Small syntax, visible meaning
 
@@ -408,9 +408,57 @@ The evidence is in docs/STANDALONE-VERIFICATION.json and the executable-level te
 
 The standalone currently targets Apple Silicon macOS only. It exposes three native tools, not all ten reference tools. General Core helpers, arbitrary admitted statement sequences, the C emitter, batch execution and public-repository research tools remain in the reference implementation. There is no automatic phone installation, wireless qualification or arbitrary application-generation capability.
 
-The next foundation is to migrate more Core behavior, qualify another target, review the machine encoder independently, and implement the seed in the native systems profile. Compact service plans then need real versioned implementations, explicit permissions and acceptance tests. A short command should save repeated description without concealing unimplemented work.
+After the systems-compiler milestone in Chapter 16, the remaining foundation is to migrate more Core behavior, qualify another target and review the machine encoder independently. Compact service plans then need real versioned implementations, explicit permissions and acceptance tests. A short command should save repeated description without concealing unimplemented work.
 
 Hundreds of tokens rather than millions remains a hypothesis. Measure matched tasks from start to finish, including documentation, schemas, capability creation, tool responses and repairs. Count failures. Report first-use construction separately from reuse. A short source listing alone establishes neither task-level token savings nor better software.
+
+# 16. RiverFlow builds its compiler
+
+A compiler can be written in the language it compiles. The useful milestone is an executed build, with the resulting bytes and behavior checked. Release 0.5 adds a native compiler, rf2c, written in RiverFlow systems source. It reads the documented systems subset and directly emits an ARM64 Mach-O image. It does not call Python, Node, a C/C++ compiler, an assembler or a linker.
+
+The operating system still signs the emitted image before execution. The build also depends on existing ARM64 hardware, macOS interfaces and a trusted starting compiler. Self-hosting does not mean a system has no external foundations. It means this compiler can compile its own supported source.
+
+## Three generations, one image
+
+The experiment begins with a native compiler produced by the historical seed. That compiler reads its own RiverFlow source and emits the next compiler. The generated compiler repeats the build, and a further native generation repeats it again. All three unsigned executable images match byte for byte, including the source-derived identifier.
+
+The same native-generated compiler emits the existing computation runtime. That image also matches the historical encoder exactly. After signing, the generated runtime passes the 1,016 comparison cases against the JavaScript reference and independent integer arithmetic, as well as MCP discovery, overflow refusal and recovery checks.
+
+These are actual generated-image and execution checks. The native compilation stages run with the command search path disabled, so an unnoticed Python or Node subprocess cannot account for their compilation. The controller invokes macOS signing explicitly between builds.
+
+The result is narrower than universal language completion. It applies to the documented systems compiler source, its accepted lexical subset, the tested runtime source and the recorded Mac. It does not migrate arbitrary Core helpers, every historical ASMX dialect or application services. It does not establish a new speed result.
+
+## Rebuild it yourself
+
+The native download includes the compiler and both implementation sources. Choose a new output path each time:
+
+```sh
+./rf2c native/compiler/compiler.rf2 next-rf2c
+/usr/bin/codesign -s - --force next-rf2c
+./next-rf2c native/rf2.rf2 next-rf2
+/usr/bin/codesign -s - --force next-rf2
+./next-rf2 run examples/compact/sum.rf2 '[1,2,3]'
+```
+
+The expected value is six. The compiler refuses an existing output file or a symlink instead of overwriting it. A source or resource-limit refusal occurs before output creation. An operating-system write failure may leave an incomplete newly created file; that is a failed build, not an executable result.
+
+The Python seed is preserved for initial bootstrap and development comparison. Preserving it is useful provenance. A native rebuild no longer needs it, but deleting the historical route would not prove that route had never influenced the compiler.
+
+## Challenge the compiler
+
+The verification executes 24 small programs with independently specified results. They cover arithmetic, unsigned comparisons, precedence, loops, conditional branches, memory access, quoted operators, forward calls and all eight argument registers. Their unsigned images also match the historical encoder.
+
+Fourteen full source-fingerprint cases exercise empty input, padding boundaries, arbitrary bytes and the maximum source size. The native SHA-256 calculation follows the published algorithm in NIST FIPS 180-4 and is compared with the host reference. This is an implementation test, not NIST certification or a signature scheme.
+
+Fifteen refusal checks include malformed source, unsupported calls, duplicate locals, comparison chains, buffer bounds, source depth/size limits and existing output protection. The source, generated artifacts and fingerprints are recorded in docs/NATIVE-COMPILER-VERIFICATION.json. A later edition should rerun the tests rather than inherit the numbers as a permanent score.
+
+Several early failures improved the implementation. A library-path length error affected the image metadata. A comparison instruction used the wrong register field. Blank lines caused one function scan to miss a control statement. A quoted minus sign was incorrectly treated as an operator. The comparisons caught these before release; passing after correction does not erase the failures.
+
+## What a fixed point cannot prove
+
+Two agreeing compilers can share a mistake. A self-reproducing compiler can preserve unwanted behavior. These tests are not diverse double compilation, an independent audit or a proof of security. Trusted systems source still uses raw pointers and explicit OS calls. It must never be confused with the restricted input-only computation interface exposed over MCP.
+
+The next useful work is to migrate general Core programs, qualify another target and add one real application capability with explicit effects and acceptance tests. The token-saving question remains separate: count complete matched tasks, including setup, tool context, failures and repairs. A self-built compiler is a meaningful foundation, not evidence that the entire application-building vision is finished.
 
 # Appendix A. Commands and interfaces
 
@@ -494,3 +542,5 @@ The RiverFlow Core specification, source, tests and benchmark records are the pr
 9. Git repository and attribution documentation. https://docs.github.com/en/repositories
 
 This book does not reproduce private thesis manuscripts, participant data, device calibration, credentials or recovered third-party papers. Research connections are stated as proposed directions unless this edition identifies an actual executed result.
+
+Native compiler hash algorithm reference: NIST FIPS 180-4, https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf.

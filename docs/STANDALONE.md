@@ -38,7 +38,7 @@ native/rf2.rf2 (RF2_SYSTEM_A64_V1 systems implementation)
 
 The runtime, compact front end, UTF-8/JSON handling, decimal conversion, bounds checks and MCP dispatch are written in RiverFlow's explicitly separate systems profile. The seed encodes the instructions and executable layout directly. It does not invoke a C/C++ compiler, assembler, linker, Node or npm. Python and the macOS code-signing utility are build-time requirements only.
 
-**This is not self-hosting.** The seed compiler is Python, not RiverFlow. Machine-profile arithmetic is modular unsigned 64-bit; it exposes pointers and OS calls to trusted implementation source. It is not the u32 Core profile and is never available to MCP callers. Its source is trusted, not a sandbox for arbitrary uploaded code. Hardware instruction semantics and macOS remain external contracts.
+**Release 0.4 used a Python seed and did not self-host.** Release 0.5 separately adds native systems-compiler self-reproduction; read NATIVE-COMPILER.md for its tested scope. The historical seed remains Python. Machine-profile arithmetic is modular unsigned 64-bit; it exposes pointers and OS calls to trusted implementation source. It is not the u32 Core profile and is never available to MCP callers. Its source is trusted, not a sandbox for arbitrary uploaded code. Hardware instruction semantics and macOS remain external contracts.
 
 The direct native routines currently implement four known reductions. There is no per-request model inference, general native optimizer or arbitrary Core-to-machine backend. Matching observable results does not mean all old toolchain capabilities have migrated.
 
@@ -75,7 +75,7 @@ Reference: https://modelcontextprotocol.io/specification/2024-11-05/basic/transp
 
 ## Compatibility and next gates
 
-This milestone replaces the runtime dependency for the **documented compact subset**, not the full historical stack. Next gates are independent machine-encoder review, broader platform backends, migration of general Core semantics, a native compiler for the systems profile, and a bootstrapped fixed-point reproduction. Application capabilities require their own versioned APIs, effects and tests.
+This milestone replaces the runtime dependency for the **documented compact subset**, not the full historical stack. Next gates are independent machine-encoder review, broader platform backends, migration of general Core semantics, wider native compiler qualification and independent review of the systems-profile fixed point now exercised in 0.5. Application capabilities require their own versioned APIs, effects and tests.
 
 A reduction named `bits` is not cryptographic authentication. Tests are evidence about the cases executed, not formal proof or a security audit. No phone, RU'OS recovery state, wireless interface or thesis hypothesis is changed by this release. No token-saving ratio has been measured. Count full task context and failures when testing the token-economy hypothesis.
 

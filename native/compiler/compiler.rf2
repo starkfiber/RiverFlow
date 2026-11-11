@@ -1,0 +1,1296 @@
+profile RF2_SYSTEM_A64_V1
+# Native trusted seed compiler. No uploaded source is accepted over MCP.
+# Buffers are bounded; emitted zero-filled objects are streamed, not materialized.
+fn state()
+ return buffer("compiler_state", 256)
+end
+fn die(text)
+ do write(2, text, length(text))
+ do write(2, "\n", 1)
+ do exit(1)
+ return 0
+end
+fn require(ok, text)
+ if ok == 0
+  do die(text)
+ end
+ return 0
+end
+fn length(p)
+ let n = 0
+ while load8(p + n) != 0
+  set n = n + 1
+ end
+ return n
+end
+fn same(a, an, b, bn)
+ let i = 0
+ if an != bn
+  return 0
+ end
+ while i < an
+  if load8(a + i) != load8(b + i)
+   return 0
+  end
+  set i = i + 1
+ end
+ return 1
+end
+fn cp(dst, src, n)
+ let i = 0
+ while i < n
+  do store8(dst + i, load8(src + i))
+  set i = i + 1
+ end
+ return dst
+end
+fn digit(c)
+ if c < 48
+  return 0
+ end
+ return c <= 57
+end
+fn letter(c)
+ if c == 95
+  return 1
+ end
+ if c >= 65
+  if c <= 90
+   return 1
+  end
+ end
+ if c >= 97
+  return c <= 122
+ end
+ return 0
+end
+fn token(i)
+ do require(i < 65536, "token bound")
+ return buffer("tokens", 2097152) + i * 32
+end
+fn add_token(kind, p, n, value)
+ let s = state()
+ let i = load64(s + 16)
+ let t = token(i)
+ do store64(t, kind)
+ do store64(t + 8, p)
+ do store64(t + 16, n)
+ do store64(t + 24, value)
+ do store64(s + 16, i + 1)
+ return i
+end
+fn tmatch(i, text)
+ let t = token(i)
+ return same(load64(t + 8), load64(t + 16), text, length(text))
+end
+fn match(text)
+ let i = load64(state() + 24)
+ let k = load64(token(i))
+ if (k != 1) & (k != 4)
+  return 0
+ end
+ return tmatch(i, text)
+end
+fn advance()
+ let p = load64(state() + 24)
+ do require(p < load64(state() + 16), "unexpected EOF")
+ do store64(state() + 24, p + 1)
+ return p
+end
+fn expect(text)
+ if match(text) == 0
+  do write(2, "expected: ", 10)
+  do write(2, text, length(text))
+  do write(2, " got: ", 6)
+  do write(2, load64(token(load64(state() + 24)) + 8), load64(token(load64(state() + 24)) + 16))
+  do die(" unexpected token")
+ end
+ return advance()
+end
+fn newline()
+ let i = load64(state() + 24)
+ do require(load64(token(i)) == 5, "expected newline")
+ do advance()
+ return 0
+end
+fn tokenize_tail(src, n, i, used)
+ let c = 0
+ let start = 0
+ let value = 0
+ let out = buffer("strings", 524288)
+ let j = 0
+ let stop = 0
+ let quote = 0
+ let h = 0
+ let radix = 10
+ while i < n
+  set c = load8(src + i)
+  if c == 35
+   set i = comment_end(src, n, i)
+  else
+   if c == 10
+    do add_token(5, src + i, 1, 0)
+    set i = i + 1
+   else
+    if c == 32
+     set i = i + 1
+    else
+     if c == 9
+      set i = i + 1
+     else
+      if c == 13
+       set i = i + 1
+      else
+       set start = i
+       if letter(c)
+        set i = identifier_end(src, n, i)
+        do add_token(1, src + start, i - start, 0)
+       else
+        if digit(c)
+         set value = 0
+         set radix = 10
+         if i + 2 <= n
+          if c == 48
+           set h = load8(src + i + 1)
+           if h == 120
+            set radix = 16
+            set i = i + 2
+           end
+          end
+         end
+         set stop = i
+         set i = number_end(src, n, i, radix)
+         do require(i > stop, "empty number")
+         set j = stop
+         while j < i
+          set h = hex(load8(src + j))
+          set value = value * radix + h
+          set j = j + 1
+         end
+         do add_token(2, src + start, i - start, value)
+        else
+         if c == 34
+          set i = i + 1
+          set j = used
+          set stop = 0
+          while stop == 0
+           do require(i < n, "unterminated string")
+           set c = load8(src + i)
+           set i = i + 1
+           if c == 34
+            set stop = 1
+           else
+            do require(c >= 32, "raw control in string")
+            if c == 92
+             do require(i < n, "unterminated escape")
+             set c = load8(src + i)
+             set i = i + 1
+             if c == 110
+              set c = 10
+             else
+              if c == 114
+               set c = 13
+              else
+               if c == 116
+                set c = 9
+               else
+                if c == 98
+                 set c = 8
+                else
+                 if c == 102
+                  set c = 12
+                 else
+                  do require((c == 92) | (c == 34), "unsupported string escape")
+                 end
+                end
+               end
+              end
+             end
+            end
+            do require(used < 524287, "string arena bound")
+            do store8(out + used, c)
+            set used = used + 1
+           end
+          end
+          do add_token(3, out + j, used - j, 0)
+          do store8(out + used, 0)
+          set used = used + 1
+         else
+          set i = i + 1
+          if i < n
+           set h = load8(src + i)
+           if c == h
+            if (c == 47) | (c == 60) | (c == 62) | (c == 61)
+             set i = i + 1
+            end
+           else
+            if h == 61
+             if (c == 33) | (c == 60) | (c == 62)
+              set i = i + 1
+             end
+            end
+           end
+          end
+          do add_token(4, src + start, i - start, 0)
+         end
+        end
+       end
+      end
+     end
+    end
+   end
+  end
+ end
+ if load64(state() + 16) != 0
+  if load64(token(load64(state() + 16) - 1)) != 5
+   do add_token(5, "\n", 1, 0)
+  end
+ end
+ do add_token(0, "", 0, 0)
+ return 0
+end
+fn comment_end(src, n, i)
+ while i < n
+  if load8(src + i) == 10
+   return i
+  end
+  set i = i + 1
+ end
+ return i
+end
+fn identifier_end(src, n, i)
+ while i < n
+  if letter(load8(src + i)) == 0
+   if digit(load8(src + i)) == 0
+    return i
+   end
+  end
+  set i = i + 1
+ end
+ return i
+end
+fn hex(c)
+ if digit(c)
+  return c - 48
+ end
+ if c >= 65
+  if c <= 70
+   return c - 55
+  end
+ end
+ if c >= 97
+  if c <= 102
+   return c - 87
+  end
+ end
+ return 256
+end
+fn number_end(src, n, i, radix)
+ while i < n
+  if hex(load8(src + i)) >= radix
+   return i
+  end
+  set i = i + 1
+ end
+ return i
+end
+fn ftable(i)
+ do require(i < 128, "function bound")
+ return buffer("functions", 6144) + i * 48
+end
+fn local(i, j)
+ do require(j < 256, "local bound")
+ return buffer("locals", 262144) + (i * 256 + j) * 8
+end
+fn name_equal(a, b)
+ return same(load64(token(a) + 8), load64(token(a) + 16), load64(token(b) + 8), load64(token(b) + 16))
+end
+fn add_local(f, tok)
+ let n = load64(ftable(f) + 32)
+ let j = 0
+ do require(load64(token(tok)) == 1, "local name required")
+ while j < n
+  do require(name_equal(load64(local(f, j)), tok) == 0, "duplicate local")
+  set j = j + 1
+ end
+ do store64(local(f, n), tok)
+ do store64(ftable(f) + 32, n + 1)
+ return n
+end
+fn local_index(tok)
+ let f = load64(state() + 32)
+ let j = 0
+ while j < load64(ftable(f) + 32)
+  if name_equal(load64(local(f, j)), tok)
+   return j
+  end
+  set j = j + 1
+ end
+ do die("unknown local")
+ return 0
+end
+fn function_index(tok)
+ let i = 0
+ while i < load64(state() + 40)
+  if name_equal(load64(ftable(i)), tok)
+   return i
+  end
+  set i = i + 1
+ end
+ do die("unknown function")
+ return 0
+end
+fn next_label()
+ let n = load64(state() + 48)
+ do require(n < 65536, "label bound")
+ do store64(state() + 48, n + 1)
+ do store64(buffer("labels", 524288) + n * 8, 18446744073709551615)
+ return n
+end
+fn label(n)
+ let p = buffer("labels", 524288) + n * 8
+ do require(load64(p) == 18446744073709551615, "duplicate label")
+ do store64(p, load64(state() + 56))
+ return 0
+end
+fn emit(w)
+ let s = state()
+ let n = load64(s + 56)
+ do require(n < 1048576, "code bound")
+ do store32(buffer("code", 1048576) + n, w)
+ do store64(s + 56, n + 4)
+ return 0
+end
+fn fix(kind, target)
+ let n = load64(state() + 64)
+ let p = buffer("fixups", 1048576) + n * 24
+ do require(n < 43690, "fixup bound")
+ do store64(p, load64(state() + 56))
+ do store64(p + 8, kind)
+ do store64(p + 16, target)
+ do store64(state() + 64, n + 1)
+ return 0
+end
+fn jump(target, cond)
+ if cond == 16
+  do fix(1, target)
+  do emit(335544320)
+ else
+  do fix(2, target)
+  do emit(1409286144 | cond)
+ end
+ return 0
+end
+fn imm(r, n)
+ let i = 1
+ let v = 0
+ do emit(3531603968 | ((n & 65535) << 5) | r)
+ while i < 4
+  set v = (n >> (i * 16)) & 65535
+  if v != 0
+   do emit(4068474880 | (i << 21) | (v << 5) | r)
+  end
+  set i = i + 1
+ end
+ return 0
+end
+fn push()
+ do emit(3506455551)
+ return emit(4177527776)
+end
+fn pop1()
+ do emit(4181722081)
+ return emit(2432713727)
+end
+fn access_local(r, i, writing)
+ if writing
+  return emit(4177526784 | (i << 10) | (29 << 5) | r)
+ end
+ return emit(4181721088 | (i << 10) | (29 << 5) | r)
+end
+fn object(i)
+ do require(i < 8192, "object bound")
+ return buffer("objects", 327680) + i * 40
+end
+fn intern(kind, t, size)
+ let i = 0
+ let n = load64(state() + 72)
+ let p = 0
+ let offset = 0
+ while i < n
+  set p = object(i)
+  if load64(p) == kind
+   if name_equal(load64(p + 8), t)
+    do require(load64(p + 16) == size, "inconsistent buffer size")
+    return i
+   end
+  end
+  set i = i + 1
+ end
+ set offset = (load64(state() + 80) + 7) & 18446744073709551608
+ do require(size < 134217728, "object size bound")
+ do require(offset + size < 134217728, "data size bound")
+ set p = object(n)
+ do store64(p, kind)
+ do store64(p + 8, t)
+ do store64(p + 16, size)
+ do store64(p + 24, offset)
+ do store64(state() + 80, offset + size)
+ do store64(state() + 72, n + 1)
+ return n
+end
+fn address(r, obj)
+ do fix(3, obj)
+ do emit(2415919104 | r)
+ return emit(2432696320 | (r << 5) | r)
+end
+fn scan_functions()
+ do expect("profile")
+ do expect("RF2_SYSTEM_A64_V1")
+ do newline()
+ return scan_functions_more(0)
+end
+fn scan_functions_more(f)
+ let t = 0
+ let params = 0
+ let other = 0
+ let done = 0
+ while load64(token(load64(state() + 24))) != 0
+  if load64(token(load64(state() + 24))) == 5
+   do advance()
+  else
+   do expect("fn")
+   set t = advance()
+   do require(load64(token(t)) == 1, "function name required")
+   set other = 0
+   while other < f
+    do require(name_equal(load64(ftable(other)), t) == 0, "duplicate function")
+    set other = other + 1
+   end
+   do store64(ftable(f), t)
+   do store64(ftable(f) + 40, next_label())
+   do expect("(")
+   set params = 0
+   set done = match(")")
+   while done == 0
+    do add_local(f, advance())
+    set params = params + 1
+    do require(params <= 8, "parameter bound")
+    if match(",")
+     do advance()
+    else
+     set done = 1
+    end
+   end
+   do expect(")")
+   do scan_body(f, params)
+   set f = f + 1
+   do store64(state() + 40, f)
+  end
+ end
+ return 0
+end
+fn scan_body(f, params)
+ let depth = 1
+ let i = 0
+ do newline()
+ do store64(ftable(f) + 8, params)
+ do store64(ftable(f) + 16, load64(state() + 24))
+ while depth != 0
+  set i = load64(state() + 24)
+  do require(load64(token(i)) != 0, "missing end")
+  if load64(token(i)) == 5
+   do advance()
+  else
+  if match("if") | match("while")
+   set depth = depth + 1
+   do require(depth <= 64, "block depth bound")
+  end
+  if match("end")
+   set depth = depth - 1
+  end
+  if match("let")
+   do add_local(f, i + 1)
+  end
+  do advance()
+  while load64(token(load64(state() + 24))) != 5
+   do require(load64(token(load64(state() + 24))) != 0, "missing newline")
+   do advance()
+  end
+  do newline()
+  end
+ end
+ do store64(ftable(f) + 24, load64(state() + 24))
+ return 0
+end
+fn precedence(i)
+ if load64(token(i)) != 4
+  return 0
+ end
+ if tmatch(i, "==") | tmatch(i, "!=") | tmatch(i, "<") | tmatch(i, ">") | tmatch(i, "<=") | tmatch(i, ">=")
+  return 1
+ end
+ if tmatch(i, "|")
+  return 2
+ end
+ if tmatch(i, "^")
+  return 3
+ end
+ if tmatch(i, "&")
+  return 4
+ end
+ if tmatch(i, "<<") | tmatch(i, ">>")
+  return 5
+ end
+ if tmatch(i, "+") | tmatch(i, "-")
+  return 6
+ end
+ if tmatch(i, "*") | tmatch(i, "//")
+  return 7
+ end
+ return 0
+end
+fn operation(i)
+ let condition = 0
+ if tmatch(i, "+")
+  return emit(2332033056)
+ end
+ if tmatch(i, "-")
+  return emit(3405774880)
+ end
+ if tmatch(i, "*")
+  return emit(2600500256)
+ end
+ if tmatch(i, "&")
+  return emit(2315255840)
+ end
+ if tmatch(i, "|")
+  return emit(2852126752)
+ end
+ if tmatch(i, "^")
+  return emit(3388997664)
+ end
+ if tmatch(i, "<<")
+  return emit(2596282400)
+ end
+ if tmatch(i, ">>")
+  return emit(2596283424)
+ end
+ if tmatch(i, "//")
+  return emit(2596276256)
+ end
+ if tmatch(i, "!=")
+  set condition = 1
+ end
+ if tmatch(i, "<")
+  set condition = 3
+ end
+ if tmatch(i, ">=")
+  set condition = 2
+ end
+ if tmatch(i, ">")
+  set condition = 8
+ end
+ if tmatch(i, "<=")
+  set condition = 9
+ end
+ do emit(3942645823)
+ return emit(2594113504 | ((condition ^ 1) << 12))
+end
+fn expression(minimum, depth)
+ let i = load64(state() + 24)
+ let kind = load64(token(i))
+ let op = 0
+ let p = 0
+ let comparison = 0
+ do require(depth < 64, "expression depth bound")
+ if match("-") | match("~")
+  do advance()
+  do expression(8, depth + 1)
+  if tmatch(i, "-")
+   do emit(3405775840)
+  else
+   do emit(2854224864)
+  end
+ else
+  if match("(")
+   do advance()
+   do expression(1, depth + 1)
+   do expect(")")
+  else
+   if kind == 2
+    do advance()
+    do imm(0, load64(token(i) + 24))
+   else
+    if kind == 3
+     do advance()
+     do address(0, intern(1, i, load64(token(i) + 16) + 1))
+    else
+     do require(kind == 1, "expected expression")
+     do advance()
+     if match("(")
+      do advance()
+      do invoke(i, depth + 1)
+     else
+      do access_local(0, local_index(i), 0)
+     end
+    end
+   end
+  end
+ end
+ set i = load64(state() + 24)
+ set p = precedence(i)
+ while p >= minimum
+  do require(p != 0, "operator required")
+  if p == 1
+   do require(comparison == 0, "comparison chains unsupported")
+   set comparison = 1
+  end
+  set op = advance()
+  do push()
+  do expression(p + 1, depth + 1)
+  do pop1()
+  do operation(op)
+  set i = load64(state() + 24)
+  set p = precedence(i)
+ end
+ return 0
+end
+fn invoke(name, depth)
+ let count = 0
+ let i = 0
+ let size = 0
+ let builtin = 0
+ let arity = 0
+ let f = 0
+ let skip = 0
+ if tmatch(name, "buffer")
+  set i = advance()
+  do require(load64(token(i)) == 3, "buffer name literal required")
+  do expect(",")
+  set size = advance()
+  do require(load64(token(size)) == 2, "buffer size literal required")
+  do expect(")")
+  do address(0, intern(2, i, load64(token(size) + 24)))
+  return 0
+ end
+ if match(")") == 0
+  set count = arguments(depth)
+ end
+ do expect(")")
+ set i = count
+ while i != 0
+  set i = i - 1
+  do emit(4181722080 | i)
+  do emit(2432713727)
+ end
+ if tmatch(name, "load8")
+  set builtin = 960495616
+  set arity = 1
+ end
+ if tmatch(name, "load32")
+  set builtin = 3107979264
+  set arity = 1
+ end
+ if tmatch(name, "load64")
+  set builtin = 4181721088
+  set arity = 1
+ end
+ if tmatch(name, "store8")
+  set builtin = 956301313
+  set arity = 2
+ end
+ if tmatch(name, "store32")
+  set builtin = 3103784961
+  set arity = 2
+ end
+ if tmatch(name, "store64")
+  set builtin = 4177526785
+  set arity = 2
+ end
+ if builtin != 0
+  do require(count == arity, "builtin arity")
+  return emit(builtin)
+ end
+ if tmatch(name, "read")
+  set builtin = 3
+  set arity = 3
+ end
+ if tmatch(name, "write")
+  set builtin = 4
+  set arity = 3
+ end
+ if tmatch(name, "open")
+  set builtin = 5
+  set arity = 3
+ end
+ if tmatch(name, "close")
+  set builtin = 6
+  set arity = 1
+ end
+ if tmatch(name, "exit")
+  set builtin = 1
+  set arity = 1
+ end
+ if builtin != 0
+  do require(count == arity, "syscall arity")
+  do imm(16, builtin)
+  do emit(3556773889)
+  set skip = next_label()
+  do jump(skip, 3)
+  do emit(3405775840)
+  do label(skip)
+  return 0
+ end
+ set f = function_index(name)
+ do require(count == load64(ftable(f) + 8), "function arity")
+ do fix(1, load64(ftable(f) + 40))
+ return emit(2483027968)
+end
+fn arguments(depth)
+ let count = 0
+ let done = 0
+ while done == 0
+  do expression(1, depth + 1)
+  do push()
+  set count = count + 1
+  do require(count <= 8, "argument bound")
+  if match(",")
+   do advance()
+  else
+   set done = 1
+  end
+ end
+ return count
+end
+fn block(depth)
+ let i = 0
+ let target = 0
+ let other = 0
+ let done = 0
+ let start = 0
+ do require(depth < 64, "block depth bound")
+ while 1
+  set i = load64(state() + 24)
+  if load64(token(i)) == 5
+   do advance()
+  else
+   if match("end")
+    do advance()
+    do newline()
+    return 0
+   end
+   if match("else")
+    do advance()
+    do newline()
+    return 1
+   end
+   if match("let") | match("set")
+    do advance()
+    set target = local_index(advance())
+    do expect("=")
+    do expression(1, 0)
+    do access_local(0, target, 1)
+    do newline()
+   else
+    if match("do")
+     do advance()
+     do expression(1, 0)
+     do newline()
+    else
+     if match("return")
+      do advance()
+      do expression(1, 0)
+      do jump(load64(state() + 88), 16)
+      do newline()
+     else
+      if match("if")
+       do advance()
+       set other = next_label()
+       set done = next_label()
+       do expression(1, 0)
+       do emit(4043309087)
+       do jump(other, 0)
+       do newline()
+       if block(depth + 1)
+        do jump(done, 16)
+        do label(other)
+        do require(block(depth + 1) == 0, "unexpected else")
+        do label(done)
+       else
+        do label(other)
+       end
+      else
+       if match("while")
+        do advance()
+        set start = next_label()
+        set done = next_label()
+        do label(start)
+        do expression(1, 0)
+        do emit(4043309087)
+        do jump(done, 0)
+        do newline()
+        do require(block(depth + 1) == 0, "unexpected else")
+        do jump(start, 16)
+        do label(done)
+       else
+        do die("unsupported statement")
+       end
+      end
+     end
+    end
+   end
+  end
+ end
+ return 0
+end
+fn generate()
+ let f = 0
+ let p = 0
+ let frame = 0
+ let i = 0
+ let main = 18446744073709551615
+ while f < load64(state() + 40)
+  if tmatch(load64(ftable(f)), "main")
+   set main = f
+  end
+  set f = f + 1
+ end
+ do require(main != 18446744073709551615, "main required")
+ do require(load64(ftable(main) + 8) == 2, "main needs argc and argv")
+ do fix(1, load64(ftable(main) + 40))
+ do emit(2483027968)
+ do imm(16, 1)
+ do emit(3556773889)
+ set f = 0
+ while f < load64(state() + 40)
+  set p = ftable(f)
+  do store64(state() + 32, f)
+  do store64(state() + 24, load64(p + 16))
+  do label(load64(p + 40))
+  set frame = (load64(p + 32) * 8 + 15) & 18446744073709551600
+  do require(frame <= 4095, "frame bound")
+  do emit(2847898621)
+  do emit(3506439167 | (frame << 10))
+  do emit(2432697341)
+  set i = 0
+  while i < load64(p + 8)
+   do access_local(i, i, 1)
+   set i = i + 1
+  end
+  do store64(state() + 88, next_label())
+  do require(block(0) == 0, "unexpected function else")
+  do require(load64(state() + 24) == load64(p + 24), "function boundary")
+  do imm(0, 0)
+  do label(load64(state() + 88))
+  do emit(2432697279)
+  do emit(2432697343 | (frame << 10))
+  do emit(2831252477)
+  do emit(3596551104)
+  set f = f + 1
+ end
+ return 0
+end
+fn resolve(dataoff)
+ let i = 0
+ let p = 0
+ let off = 0
+ let kind = 0
+ let target = 0
+ let delta = 0
+ let w = 0
+ let code = buffer("code", 1048576)
+ while i < load64(state() + 64)
+  set p = buffer("fixups", 1048576) + i * 24
+  set off = load64(p)
+  set kind = load64(p + 8)
+  set target = load64(p + 16)
+  if kind == 3
+   set target = dataoff + load64(object(target) + 24)
+   set delta = (target >> 12) - ((16384 + off) >> 12)
+   # Masked signed displacement, all current images well inside the 4GiB ADRP range.
+   do require(target < 134217728, "data address range")
+   set w = load32(code + off) | ((delta & 3) << 29) | (((delta >> 2) & 524287) << 5)
+   do store32(code + off, w)
+   do store32(code + off + 4, load32(code + off + 4) | ((target & 4095) << 10))
+  else
+   set target = load64(buffer("labels", 524288) + target * 8)
+   do require(target != 18446744073709551615, "unresolved label")
+   set delta = target - off
+   if kind == 2
+    do require((target + 1048576) - off < 2097152, "conditional branch range")
+    set w = load32(code + off) | (((delta >> 2) & 524287) << 5)
+   else
+    do require((target + 134217728) - off < 268435456, "branch range")
+    set w = load32(code + off) | ((delta >> 2) & 67108863)
+   end
+   do store32(code + off, w)
+  end
+  set i = i + 1
+ end
+ return 0
+end
+fn rotate(v, n)
+ return ((v >> n) | (v << (32 - n))) & 4294967295
+end
+fn sha256(src, n)
+ let k = buffer("sha_k", 256)
+ let hstate = buffer("sha_h", 32)
+ let w = buffer("sha_w", 256)
+ let block = buffer("sha_block", 64)
+ let digest = buffer("sha_digest", 32)
+ let i = 0
+ let j = 0
+ let blocks = (n + 72) // 64
+ let position = 0
+ let value = 0
+ let a = 0
+ let b = 0
+ let c = 0
+ let d = 0
+ let e = 0
+ let f = 0
+ let g = 0
+ let h = 0
+ let t1 = 0
+ let t2 = 0
+ let s0 = 0
+ let s1 = 0
+ do store32(k + 0, 1116352408)
+ do store32(k + 4, 1899447441)
+ do store32(k + 8, 3049323471)
+ do store32(k + 12, 3921009573)
+ do store32(k + 16, 961987163)
+ do store32(k + 20, 1508970993)
+ do store32(k + 24, 2453635748)
+ do store32(k + 28, 2870763221)
+ do store32(k + 32, 3624381080)
+ do store32(k + 36, 310598401)
+ do store32(k + 40, 607225278)
+ do store32(k + 44, 1426881987)
+ do store32(k + 48, 1925078388)
+ do store32(k + 52, 2162078206)
+ do store32(k + 56, 2614888103)
+ do store32(k + 60, 3248222580)
+ do store32(k + 64, 3835390401)
+ do store32(k + 68, 4022224774)
+ do store32(k + 72, 264347078)
+ do store32(k + 76, 604807628)
+ do store32(k + 80, 770255983)
+ do store32(k + 84, 1249150122)
+ do store32(k + 88, 1555081692)
+ do store32(k + 92, 1996064986)
+ do store32(k + 96, 2554220882)
+ do store32(k + 100, 2821834349)
+ do store32(k + 104, 2952996808)
+ do store32(k + 108, 3210313671)
+ do store32(k + 112, 3336571891)
+ do store32(k + 116, 3584528711)
+ do store32(k + 120, 113926993)
+ do store32(k + 124, 338241895)
+ do store32(k + 128, 666307205)
+ do store32(k + 132, 773529912)
+ do store32(k + 136, 1294757372)
+ do store32(k + 140, 1396182291)
+ do store32(k + 144, 1695183700)
+ do store32(k + 148, 1986661051)
+ do store32(k + 152, 2177026350)
+ do store32(k + 156, 2456956037)
+ do store32(k + 160, 2730485921)
+ do store32(k + 164, 2820302411)
+ do store32(k + 168, 3259730800)
+ do store32(k + 172, 3345764771)
+ do store32(k + 176, 3516065817)
+ do store32(k + 180, 3600352804)
+ do store32(k + 184, 4094571909)
+ do store32(k + 188, 275423344)
+ do store32(k + 192, 430227734)
+ do store32(k + 196, 506948616)
+ do store32(k + 200, 659060556)
+ do store32(k + 204, 883997877)
+ do store32(k + 208, 958139571)
+ do store32(k + 212, 1322822218)
+ do store32(k + 216, 1537002063)
+ do store32(k + 220, 1747873779)
+ do store32(k + 224, 1955562222)
+ do store32(k + 228, 2024104815)
+ do store32(k + 232, 2227730452)
+ do store32(k + 236, 2361852424)
+ do store32(k + 240, 2428436474)
+ do store32(k + 244, 2756734187)
+ do store32(k + 248, 3204031479)
+ do store32(k + 252, 3329325298)
+ do store32(hstate + 0, 1779033703)
+ do store32(hstate + 4, 3144134277)
+ do store32(hstate + 8, 1013904242)
+ do store32(hstate + 12, 2773480762)
+ do store32(hstate + 16, 1359893119)
+ do store32(hstate + 20, 2600822924)
+ do store32(hstate + 24, 528734635)
+ do store32(hstate + 28, 1541459225)
+ set i = 0
+ while i < blocks
+  set j = 0
+  while j < 64
+   set position = i * 64 + j
+   set value = 0
+   if position < n
+    set value = load8(src + position)
+   else
+    if position == n
+     set value = 128
+    else
+     if position >= blocks * 64 - 8
+      set value = ((n * 8) >> ((blocks * 64 - position - 1) * 8)) & 255
+     end
+    end
+   end
+   do store8(block + j, value)
+   set j = j + 1
+  end
+  set j = 0
+  while j < 16
+   set position = block + j * 4
+   set value = (load8(position) << 24) | (load8(position + 1) << 16) | (load8(position + 2) << 8) | load8(position + 3)
+   do store32(w + j * 4, value)
+   set j = j + 1
+  end
+  while j < 64
+   set value = load32(w + (j - 15) * 4)
+   set s0 = rotate(value, 7) ^ rotate(value, 18) ^ (value >> 3)
+   set value = load32(w + (j - 2) * 4)
+   set s1 = rotate(value, 17) ^ rotate(value, 19) ^ (value >> 10)
+   do store32(w + j * 4, load32(w + (j - 16) * 4) + s0 + load32(w + (j - 7) * 4) + s1)
+   set j = j + 1
+  end
+  set a = load32(hstate)
+  set b = load32(hstate + 4)
+  set c = load32(hstate + 8)
+  set d = load32(hstate + 12)
+  set e = load32(hstate + 16)
+  set f = load32(hstate + 20)
+  set g = load32(hstate + 24)
+  set h = load32(hstate + 28)
+  set j = 0
+  while j < 64
+   set s1 = rotate(e, 6) ^ rotate(e, 11) ^ rotate(e, 25)
+   set value = (e & f) ^ ((~e) & g)
+   set t1 = (h + s1 + value + load32(k + j * 4) + load32(w + j * 4)) & 4294967295
+   set s0 = rotate(a, 2) ^ rotate(a, 13) ^ rotate(a, 22)
+   set value = (a & b) ^ (a & c) ^ (b & c)
+   set t2 = (s0 + value) & 4294967295
+   set h = g
+   set g = f
+   set f = e
+   set e = (d + t1) & 4294967295
+   set d = c
+   set c = b
+   set b = a
+   set a = (t1 + t2) & 4294967295
+   set j = j + 1
+  end
+  do store32(hstate, load32(hstate) + a)
+  do store32(hstate + 4, load32(hstate + 4) + b)
+  do store32(hstate + 8, load32(hstate + 8) + c)
+  do store32(hstate + 12, load32(hstate + 12) + d)
+  do store32(hstate + 16, load32(hstate + 16) + e)
+  do store32(hstate + 20, load32(hstate + 20) + f)
+  do store32(hstate + 24, load32(hstate + 24) + g)
+  do store32(hstate + 28, load32(hstate + 28) + h)
+  set i = i + 1
+ end
+ set i = 0
+ while i < 32
+  set value = load32(hstate + (i // 4) * 4)
+  do store8(digest + i, (value >> ((3 - (i & 3)) * 8)) & 255)
+  set i = i + 1
+ end
+ return digest
+end
+fn header()
+ return buffer("header", 16384)
+end
+fn append32(v)
+ let n = load64(state() + 96)
+ do require(n <= 16380, "header bound")
+ do store32(header() + n, v)
+ do store64(state() + 96, n + 4)
+ return 0
+end
+fn append64(v)
+ do append32(v & 4294967295)
+ return append32(v >> 32)
+end
+fn append_bytes(p, n)
+ let off = load64(state() + 96)
+ do require(off + n <= 16384, "header bound")
+ do cp(header() + off, p, n)
+ do store64(state() + 96, off + n)
+ return 0
+end
+fn header_zero(n)
+ let off = load64(state() + 96)
+ do require(off + n <= 16384, "header bound")
+ do store64(state() + 96, off + n)
+ return 0
+end
+fn segment(name, vm, size, off, file_size, prot)
+ let n = length(name)
+ do require(n <= 16, "segment name bound")
+ do append32(25)
+ do append32(72)
+ do append_bytes(name, n)
+ do header_zero(16 - n)
+ do append64(vm)
+ do append64(size)
+ do append64(off)
+ do append64(file_size)
+ do append32(prot)
+ do append32(prot)
+ do append32(0)
+ do append32(0)
+ return 0
+end
+fn image_header(dataoff, datasize, digest)
+ let base = 4294967296
+ let text = 0
+ let string_size = 0
+ let commands_end = 0
+ do append32(4277009103)
+ do append32(16777228)
+ do append32(0)
+ do append32(2)
+ do append32(9)
+ do append32(0)
+ do append32(2097285)
+ do append32(0)
+ do segment("__PAGEZERO", 0, base, 0, 0, 0)
+ do segment("__TEXT", base, dataoff, 0, dataoff, 5)
+ do segment("__DATA", base + dataoff, datasize, dataoff, datasize, 3)
+ do append32(2147483688)
+ do append32(24)
+ do append64(16384)
+ do append64(0)
+ do append32(14)
+ do append32(32)
+ do append32(12)
+ do append_bytes("/usr/lib/dyld", 14)
+ do header_zero(6)
+ do append32(12)
+ do append32(56)
+ do append32(24)
+ do append32(0)
+ do append32(65536)
+ do append32(65536)
+ do append_bytes("/usr/lib/libSystem.B.dylib", 27)
+ do header_zero(5)
+ do append32(27)
+ do append32(24)
+ do append_bytes(digest, 16)
+ do append32(50)
+ do append32(24)
+ do append32(1)
+ do append32(917504)
+ do append32(1703936)
+ do append32(0)
+ do segment("__LINKEDIT", base + dataoff + datasize, 0, dataoff + datasize, 0, 1)
+ set commands_end = load64(state() + 96)
+ do store32(header() + 20, commands_end - 32)
+ return 0
+end
+fn output(fd, p, n)
+ let sent = 0
+ let r = 0
+ while sent < n
+  set r = write(fd, p + sent, n - sent)
+  do require(r != 0, "zero write")
+  do require(r < 9223372036854775808, "write failed")
+  set sent = sent + r
+ end
+ return 0
+end
+fn zeros(fd, n)
+ let p = buffer("zeros", 16384)
+ let amount = 0
+ while n != 0
+  set amount = n
+  if amount > 16384
+   set amount = 16384
+  end
+  do output(fd, p, amount)
+  set n = n - amount
+ end
+ return 0
+end
+fn image(path, dataoff, datasize)
+ let fd = open(path, 3585, 448)
+ let i = 0
+ let cursor = 0
+ let obj = 0
+ let t = 0
+ let n = 0
+ do require(fd < 9223372036854775808, "output open failed; existing paths are never overwritten")
+ do output(fd, header(), 16384)
+ do output(fd, buffer("code", 1048576), load64(state() + 56))
+ do zeros(fd, dataoff - 16384 - load64(state() + 56))
+ while i < load64(state() + 72)
+  set obj = object(i)
+  do zeros(fd, load64(obj + 24) - cursor)
+  set n = load64(obj + 16)
+  if load64(obj) == 1
+   set t = token(load64(obj + 8))
+   do output(fd, load64(t + 8), n - 1)
+   do zeros(fd, 1)
+  else
+   do zeros(fd, n)
+  end
+  set cursor = load64(obj + 24) + n
+  set i = i + 1
+ end
+ do zeros(fd, datasize - cursor)
+ do require(close(fd) == 0, "output close failed")
+ return 0
+end
+fn read_source(path)
+ let fd = open(path, 0, 0)
+ let p = buffer("source", 524289)
+ let n = 0
+ let r = 0
+ do require(fd < 9223372036854775808, "source open failed")
+ while n < 524289
+  set r = read(fd, p + n, 524289 - n)
+  do require(r < 9223372036854775808, "source read failed")
+  if r == 0
+   do require(n <= 524288, "source size bound")
+   do close(fd)
+   do store64(state(), p)
+   do store64(state() + 8, n)
+   return p
+  end
+  set n = n + r
+ end
+ do die("source size bound")
+ return 0
+end
+fn main(argc, argv)
+ let src = 0
+ let digest = 0
+ let dataoff = 0
+ let datasize = 0
+ if argc != 3
+  do write(2, "rf2c source.rf2 new-output\n", 26)
+  return 1
+ end
+ set src = read_source(load64(argv + 8))
+ do tokenize_tail(src, load64(state() + 8), 0, 0)
+ do scan_functions()
+ do generate()
+ set dataoff = (16384 + load64(state() + 56) + 16383) & 18446744073709535232
+ set datasize = (load64(state() + 80) + 16383) & 18446744073709535232
+ do resolve(dataoff)
+ set digest = sha256(src, load64(state() + 8))
+ do image_header(dataoff, datasize, digest)
+ do image(load64(argv + 16), dataoff, datasize)
+ do write(1, "RF2 native image emitted; apply macOS code signing before execution.\n", 68)
+ return 0
+end

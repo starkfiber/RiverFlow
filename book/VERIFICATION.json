@@ -1,6 +1,6 @@
 {
-  "pages": 39,
-  "tocEntries": 20,
+  "pages": 43,
+  "tocEntries": 21,
   "outOfPageText": [],
   "completeExamples": 5,
   "referenceTestGroups": 16,
@@ -10,5 +10,10 @@
   "independentMcpSdk": "passed",
   "rebuildByteIdentity": "passed",
   "epubZipXml": "verified, not full EPUBCheck",
-  "visualReview": "All-page montage, revised native chapter, command appendix and current layout inspected; no out-of-page text"
+  "visualReview": "Final front matter and native compiler chapter rendered and inspected; all-page montage reviewed; final pages have no text outside bounds or sparse spill pages",
+  "nativeCompilerFixedPoint": true,
+  "nativeCompilerExecutedCases": 24,
+  "nativeCompilerNegativeCases": 15,
+  "nativeFullDigestCases": 14,
+  "nativeCompilerNativeStagesWithoutPATH": true
 }

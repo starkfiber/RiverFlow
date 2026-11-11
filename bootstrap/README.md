@@ -19,3 +19,8 @@ The seed currently uses Python's expression AST as a build-time syntax parser fo
 Build: `python3 bootstrap/seed.py native/rf2.rf2 output/bin/rf2`.
 
 The first static-executable experiment was refused by platform policy. The working format uses normal dyld loading, UUID and signing; no platform policy was changed. The small hello source is retained as an encoder/loader smoke test.
+
+
+## Native successor in 0.5
+
+native/compiler/compiler.rf2 now implements the documented systems subset natively. The executed verification reproduces three unsigned compiler images and the unchanged 0.4 runtime exactly. This file remains the historical seed and test oracle. Use docs/NATIVE-COMPILER.md for Python-free rebuilds and exact lexical/resource bounds; do not infer general Core completion from the systems compiler result.

@@ -1,7 +1,7 @@
 {
   "name": "rf2",
-  "version": "0.4.0",
-  "description": "Standalone RF2 compact native ARM64 computation and built-in MCP; explicit bounded subset",
+  "version": "0.5.0",
+  "description": "Native RiverFlow systems compiler with verified self-reproduction, compact runtime and built-in MCP",
   "author": {
     "name": "Ilangkhumanan Thirunavokkarasu",
     "url": "https://github.com/starkfiber"
