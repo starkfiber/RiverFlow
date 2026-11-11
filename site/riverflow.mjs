@@ -63,8 +63,9 @@ export function compile(source) {
   const visiting=new Set(),visited=new Set(); function visit(name){if(visiting.has(name))fail('Recursive calls forbidden');if(visited.has(name))return;visiting.add(name);for(const c of edges.get(name))visit(c);visiting.delete(name);visited.add(name);}for(const name of table.keys())visit(name);
   return {schema:'riverflow.core.v0',name:lines[0].slice(6,-1),arithmetic:lines[2].split(' ')[1].toLowerCase(),effects:['read_input'],functions};
 }
-export function execute(source,data=[],count=data.length) {
+export function prepare(source) {
   const program=compile(source);
+  return function(data=[],count=data.length) {
   if(!Array.isArray(data)||data.length>65536||data.some(x=>!Number.isInteger(x)||x<0||x>Number(MAX)))fail('Expected at most 65536 u32 inputs');
   if(!Number.isInteger(count)||count<0||count>data.length)fail('Count outside input capacity');
   let steps=0;const table=new Map(program.functions.map(x=>[x.name,x]));
@@ -84,4 +85,6 @@ export function execute(source,data=[],count=data.length) {
     run(f.body);return get(f.result);
   }
   return {value:Number(call('main',[data.map(BigInt),BigInt(count)])),steps,profile:PROFILE,effects:program.effects};
+  };
 }
+export function execute(source,data=[],count=data.length) { return prepare(source)(data,count); }

@@ -1,0 +1,325 @@
+{
+  "observedUTC": "2026-11-11T13:58:39.236Z",
+  "scope": "Public repository inventory; file discovery does not prove working integration",
+  "repositories": [
+    {
+      "name": "whatif",
+      "repository": "starkfiber/whatif",
+      "description": "Evidence-led application testing with independent AI repair teams, browser and API journeys, and reproducible database-backed trials.",
+      "fork": false,
+      "commit": "3a859c4e86fa77f324033f6c7a5252b2355ef74c",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [
+        ".claude-plugin/plugin.json",
+        ".codex-plugin/plugin.json",
+        ".mcp.json",
+        "skills/whatif/SKILL.md",
+        "src/mcp.mjs",
+        "test/mcp.test.mjs"
+      ],
+      "status": "MCP-related files observed; execution not qualified"
+    },
+    {
+      "name": "RiverFlow",
+      "repository": "starkfiber/RiverFlow",
+      "description": "RF² RiverFlow: explicit programming, checked computation, local AI tools. By Ilangkhumanan Thirunavokkarasu.",
+      "fork": false,
+      "commit": "7cb767de4bc711263f4ad65897f7a0e45ff5cc6d",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [
+        ".codex-plugin/mcp.json",
+        ".codex-plugin/plugin.json",
+        "plugin/launch-mcp.sh",
+        "plugin/skills/rf2/SKILL.md",
+        "src/mcp.mjs",
+        "tests/mcp.test.mjs"
+      ],
+      "status": "MCP-related files observed; execution not qualified"
+    },
+    {
+      "name": "Headcount",
+      "repository": "starkfiber/Headcount",
+      "description": "A local-first classroom workspace: attendance, quick quizzes and portable backups. MIT open source by Stark Fiber Enterprise. Formerly eHadir.",
+      "fork": false,
+      "commit": "b455f1709e087815501367ac7293938743d5b271",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [],
+      "status": "Shared read-only repository bridge; no native MCP implementation verified"
+    },
+    {
+      "name": "SFEBoot",
+      "repository": "starkfiber/SFEBoot",
+      "description": "Local-first image tools, verified boot recipes and agent access. MIT CLI, MCP, local API and browser workbench by Stark Fiber Enterprise.",
+      "fork": false,
+      "commit": "5fcd82e438b226ca6d537d9231afdbdbac21182a",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [
+        ".codex-plugin/mcp.json",
+        ".codex-plugin/plugin.json",
+        "lib/mcp.mjs",
+        "skills/sfeboot/SKILL.md"
+      ],
+      "status": "MCP-related files observed; execution not qualified"
+    },
+    {
+      "name": "ONScan",
+      "repository": "starkfiber/ONScan",
+      "description": "Legacy Laravel employee-temperature dashboard prototype. Source and upgrade roadmap; deployment not yet requalified.",
+      "fork": false,
+      "commit": "6974c5b0c8555fa2b567c7899151dfec72b6acac",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [],
+      "status": "Shared read-only repository bridge; no native MCP implementation verified"
+    },
+    {
+      "name": "kuro",
+      "repository": "starkfiber/kuro",
+      "description": "OpenCV image augmentation experiments with a runnable image CLI and regression tests. Maintained by SFE.",
+      "fork": false,
+      "commit": "654bef276e7a46a510977f86e5d21c0b7ee700b7",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [],
+      "status": "Shared read-only repository bridge; no native MCP implementation verified"
+    },
+    {
+      "name": "incott",
+      "repository": "starkfiber/incott",
+      "description": "Legacy Flutter news application and companion admin source. Maintenance and upgrade roadmap included.",
+      "fork": false,
+      "commit": "73bc3f52c57ea2f1e16e992dcf01dfd820664f33",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [],
+      "status": "Shared read-only repository bridge; no native MCP implementation verified"
+    },
+    {
+      "name": "nltk",
+      "repository": "starkfiber/nltk",
+      "description": "Logo asset holding repository; not the Natural Language Toolkit Python project.",
+      "fork": false,
+      "commit": "63df21da59cb5fa3b9f438401dd11df45c65a1a7",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [],
+      "status": "Shared read-only repository bridge; no native MCP implementation verified"
+    },
+    {
+      "name": "kij",
+      "repository": "starkfiber/kij",
+      "description": "Logo asset holding repository. No application source or installable release.",
+      "fork": false,
+      "commit": "7aed53c2c7037c1059b87d6a8e9bc9ff8d950aee",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [],
+      "status": "Shared read-only repository bridge; no native MCP implementation verified"
+    },
+    {
+      "name": "token-list",
+      "repository": "starkfiber/token-list",
+      "description": "The community maintained Solana token registry",
+      "fork": true,
+      "commit": "3f1df3952917e06b181d65a7f53369679c18c7b3",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [
+        "assets/mainnet/2e7yNwrmTgXp9ABUmcPXvFJTSrEVLj4YMyrb4GUM4Pdd/logo.png",
+        "assets/mainnet/5pXLmRJyfrTDYMCp1xyiqRDcbb7vYjYiMYzhBza2ht62/crayon.png",
+        "assets/mainnet/73mCphqBmBRpWHXS7YVNGnBVDriHEAriFAZzYtGgLk58/logo.png",
+        "assets/mainnet/8PYkbcenAWxniMCPKAAuQyxpvnw681nL9nJjwTHA6c7j/logo.png",
+        "assets/mainnet/8UVQCYwBHGhHWeNZvYwCE8WcGmCpzA8AgxP2FaCUn3H4/logo.jpg",
+        "assets/mainnet/A6NLLo5BJXSfQJdemPqtCukqr1b4rP9XmcPqYwv2651i/logo.png",
+        "assets/mainnet/ATZERmcPfopS9vGqw9kxqRj9Bmdi3Z268nHXkGsMa3Pf/fonelogo.png",
+        "assets/mainnet/BgzSLhARcWjWQMF8L2gjv65PCoq3JyMcPokhhzLSrqJ2/logo.png",
+        "assets/mainnet/CjpaJLNdGt4wmcPAT9GKBRVmGb6Q1TtdeJYmahmmrXSL/logo.png",
+        "assets/mainnet/Eo8sDvxHMzKXvAJRoqHNFqL7LDmcP3ZGJRrrMo2Ku27P/logoforCoin.png",
+        "assets/mainnet/FCEhKMcpytVdmNXv5pMLX6mAxUkEN9yUGrJw6zsV4PHB/logo.png",
+        "assets/mainnet/SoLEsRCGqG8zDKYyMt84xJdsNLJKx7vG5ZmCpKqt3rg/logo.png",
+        "assets/mainnet/T7vteNxbPBQnnPyz2qqnbSWsfQMk9yQcmCPLRshwhgR/CPS.png"
+      ],
+      "status": "MCP-related files observed; execution not qualified"
+    },
+    {
+      "name": "solana-pay",
+      "repository": "starkfiber/solana-pay",
+      "description": "A new standard for decentralized payments.",
+      "fork": true,
+      "commit": "ff3e81c9290e2ccd6a683ba0645a8621792c8535",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [],
+      "status": "Shared read-only repository bridge; no native MCP implementation verified"
+    },
+    {
+      "name": "holdthedoor",
+      "repository": "starkfiber/holdthedoor",
+      "description": "Raspberry Pi touch-input and relay prototype. Hardware qualification and GPIO repair roadmap included.",
+      "fork": false,
+      "commit": "35b547a5e3c61e60841d206ff64c93eda8b2743b",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [],
+      "status": "Shared read-only repository bridge; no native MCP implementation verified"
+    },
+    {
+      "name": "av3x-antartica",
+      "repository": "starkfiber/av3x-antartica",
+      "description": "Foundation-first Android development for Codex: evidence atlas, skills, 13 local read-only MCP tools, and verified workflows.",
+      "fork": false,
+      "commit": "ed26d282157fbde185c89eb19b1235db8384d386",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [
+        "plugins/android/.codex-plugin/mcp.json",
+        "plugins/android/.codex-plugin/plugin.json",
+        "plugins/android/docs/MCP.md",
+        "plugins/android/scripts/launch-mcp.sh",
+        "plugins/android/scripts/mcp-server.mjs",
+        "plugins/android/skills/android/SKILL.md"
+      ],
+      "status": "MCP-related files observed; execution not qualified"
+    },
+    {
+      "name": "codex-engineering-plugins",
+      "repository": "starkfiber/codex-engineering-plugins",
+      "description": "Community Codex plugins: Reverse Lab evidence workflows and Apple Blueprint native development. Versioned, tested, MIT originals with attributed upstream references.",
+      "fork": false,
+      "commit": "26170cc26f7337191444f3a3bfde75f09d34ca93",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [
+        "plugins/apple/.codex-plugin/mcp.json",
+        "plugins/apple/.codex-plugin/plugin.json",
+        "plugins/apple/scripts/launch-mcp.sh",
+        "plugins/apple/scripts/mcp-config.mjs",
+        "plugins/apple/scripts/mcp-server.mjs",
+        "plugins/apple/skills/apple/SKILL.md",
+        "plugins/apple/skills/apple/references/vendor/apple-tvos/SKILL.md",
+        "plugins/apple/skills/apple/references/vendor/ios-interface-design/SKILL.md",
+        "plugins/apple/skills/apple/references/vendor/swiftui-design-tokens/SKILL.md",
+        "plugins/apple/tests/mcp.test.mjs",
+        "plugins/blender/.codex-plugin/plugin.json",
+        "plugins/blender/skills/blender-3d-asset-generation/SKILL.md",
+        "plugins/reverse-lab/.codex-plugin/plugin.json",
+        "plugins/reverse-lab/skills/multiboot-lab/SKILL.md",
+        "plugins/reverse-lab/skills/reverse-lab/SKILL.md",
+        "plugins/thesis-pro/.codex-plugin/mcp.json",
+        "plugins/thesis-pro/.codex-plugin/plugin.json",
+        "plugins/thesis-pro/scripts/launch-mcp.sh"
+      ],
+      "status": "MCP-related files observed; execution not qualified"
+    },
+    {
+      "name": "maze-malaysia-way",
+      "repository": "starkfiber/maze-malaysia-way",
+      "description": "Open-source, offline-first maps for Malaysia. Kotlin, MapLibre and local routing. Peta kita. Bina bersama.",
+      "fork": false,
+      "commit": "e0668fa14ccf3fa17d414340a65fab80879464d0",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [
+        "docs/MCP.md",
+        "mcp/server.py",
+        "skills/maze-contributor/SKILL.md",
+        "tests/test_mcp.py"
+      ],
+      "status": "MCP-related files observed; execution not qualified"
+    },
+    {
+      "name": "ThesisPro",
+      "repository": "starkfiber/ThesisPro",
+      "description": "Local-first academic workbench with a native macOS app, MCP notebook, and traceable evidence maps. MIT licensed.",
+      "fork": false,
+      "commit": "f04222d3a2a9622117841014815fdd3cb3174fe6",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [
+        "plugin/.codex-plugin/mcp.json",
+        "plugin/.codex-plugin/plugin.json",
+        "plugin/scripts/launch-mcp.sh",
+        "plugin/scripts/thesis_pro_mcp.py",
+        "plugin/skills/thesis-pro/SKILL.md"
+      ],
+      "status": "MCP-related files observed; execution not qualified"
+    },
+    {
+      "name": "agenticjobs",
+      "repository": "starkfiber/agenticjobs",
+      "description": "An agent-friendly job board you self-host. Its own listings, never scraped. Web, API, MCP, CLI, TUI, desktop and PWA on one engine, and instances find each other through an open directory.",
+      "fork": true,
+      "commit": "b49e0bde76d4a086b308910b13def96b15128567",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [
+        "bin/agenticjobs-mcp.mjs",
+        "src/mcp/protocol.ts",
+        "src/mcp/server.ts",
+        "src/mcp/stdio.ts",
+        "src/mcp/tools.ts",
+        "src/server/routes/mcp.ts",
+        "test/mcp-notifications-mark-read.test.ts",
+        "test/mcp-search-tags.test.ts",
+        "test/openmcp-descriptor.test.ts"
+      ],
+      "status": "MCP-related files observed; execution not qualified"
+    },
+    {
+      "name": "MemWal",
+      "repository": "starkfiber/MemWal",
+      "description": "",
+      "fork": true,
+      "commit": "3e0534e6a7099893515e447033e37f1ea34aa9ca",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [
+        ".github/workflows/check-mcp-pin.yml",
+        ".github/workflows/release-mcp.yml",
+        "SKILL.md",
+        "apps/app/public/skills/mcp-setup",
+        "apps/app/src/pages/ConnectMcp.test.tsx",
+        "apps/app/src/pages/ConnectMcp.tsx",
+        "docs/mcp/antigravity.md",
+        "docs/mcp/changelog.mdx",
+        "docs/mcp/claude-code.md",
+        "docs/mcp/claude-connector.md",
+        "docs/mcp/claude-desktop.md",
+        "docs/mcp/codex.md",
+        "docs/mcp/cursor.md",
+        "docs/mcp/opencode.md",
+        "docs/mcp/overview.md",
+        "docs/mcp/quickstart.md",
+        "docs/mcp/reference.md",
+        "packages/mcp/AUTO-MEMORY.md"
+      ],
+      "status": "MCP-related files observed; execution not qualified"
+    },
+    {
+      "name": "bountySDK",
+      "repository": "starkfiber/bountySDK",
+      "description": "standalone SDK for interacting with the Bounty platform programmatically",
+      "fork": true,
+      "commit": "394653d51964ca5efafcf1669878887e4d5e2f60",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [],
+      "status": "Shared read-only repository bridge; no native MCP implementation verified"
+    },
+    {
+      "name": "bountic",
+      "repository": "starkfiber/bountic",
+      "description": "Zero-friction, autonomous USDC bounties for the agentic open-source economy.",
+      "fork": true,
+      "commit": "2a552a4a002e9df80601073732880acd367e4e52",
+      "treeTruncated": false,
+      "readme": "README.md",
+      "discoveredMcpPaths": [],
+      "status": "Shared read-only repository bridge; no native MCP implementation verified"
+    }
+  ]
+}

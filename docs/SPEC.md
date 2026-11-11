@@ -28,3 +28,7 @@ The only effect is `read_input`. The language has no allocation syntax, network,
 `compile` emits inspectable JSON IR, not a native executable. `run` parses and validates source before evaluating it. The CLI writes IR only to an explicit path; MCP tools accept text/data and provide no arbitrary file access. No embedded model or inference API is configured. Codex or another client supplies AI assistance.
 
 Compatibility policy: freeze profile semantics; incompatible changes require a new profile. Retain golden programs, independent expected results, failure cases and migration notes. Longevity is a maintenance objective, not a million-year guarantee.
+
+## Prepared execution in package 0.2
+
+`prepare(source)` validates once and returns a callable for separate input arrays. Each invocation has fresh locals and its own work budget. A failed invocation does not reuse partial values in the next call. `execute(source, data)` continues to prepare and evaluate in one operation. `rf2_run_batch` accepts at most 20 arrays, each at most 4096 values, and returns results in order; a failure rejects the tool call rather than returning a success for the full batch. The language profile and arithmetic semantics remain unchanged.

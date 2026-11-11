@@ -73,3 +73,9 @@ Five original AI-generated concept artworks appear in the website and repository
 Start with a failing programme or a reproducible experiment. Propose syntax and semantics before implementation. Keep profile compatibility explicit, include counterexamples and compare against the simplest credible alternative. Separate feature proposals, modeled results and hardware observations.
 
 MIT applies to original code and documentation. Concept artwork provenance is recorded in `docs/ARTWORK.json`; no trademark registration or exclusive legal rights are claimed. Dependencies retain their own licences.
+
+## SFE research bridge · 0.2
+
+Nine local MCP tools now connect checked RiverFlow execution to a pinned catalog of 20 public SFE repositories. Browse each repository and read its public README through `sfe_repositories`, `sfe_repository` and `sfe_repository_document`. Research links and measurement arithmetic are explicit about what is proposed, supplied or observed. Existing applications retain their own execution interfaces.
+
+`rf2_run_batch` checks one program once before evaluating several inputs. In the retained one-host sum experiment this reduces repeated small-job overhead, while a direct JavaScript loop remains substantially faster. [Scope, tools and limitations](docs/MCP-RESEARCH.md) · [Raw benchmark](docs/BENCHMARK.json).

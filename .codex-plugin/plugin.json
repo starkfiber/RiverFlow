@@ -1,7 +1,7 @@
 {
   "name": "rf2",
-  "version": "0.1.0",
-  "description": "RiverFlow RF² checked programming language, local execution and evidence-led language development.",
+  "version": "0.2.0",
+  "description": "RiverFlow checked computation and SFE public repository research bridge",
   "author": {
     "name": "Ilangkhumanan Thirunavokkarasu",
     "url": "https://github.com/starkfiber"
