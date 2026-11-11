@@ -152,5 +152,6 @@ with zipfile.ZipFile(epub)as z:
  assert z.testzip()is None
  for n in z.namelist():
   if n.endswith(('.xhtml','.xml','.opf')):ET.fromstring(z.read(n))
+shutil.copytree(sitebook,ROOT/'docs/book',dirs_exist_ok=True)
 report={'book':'RiverFlow RF²: Ideas into checked computation','edition':'First edition, package0.3','sourceWords':len(re.findall(r'\S+',source)),'sections':len(sections),'pdf':str(pdf.relative_to(ROOT)),'pdfSHA256':hashlib.sha256(pdf.read_bytes()).hexdigest(),'epub':str(epub.relative_to(ROOT)),'epubSHA256':hashlib.sha256(epub.read_bytes()).hexdigest(),'epubXmlWellFormed':True,'limits':'XML/ZIP integrity checks are not a full EPUBCheck certification. PDF requires separate visual inspection.'}
 (ROOT/'book/BUILD.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
