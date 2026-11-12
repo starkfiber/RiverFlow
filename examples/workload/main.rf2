@@ -1,0 +1,17 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/io.rf2"
+use "lib/csv.rf2"
+use "lib/workload.rf2"
+fn main(argc, argv)
+ if argc != 2
+  return io_fail("Usage: workload jobs.csv")
+ end
+ let job = Job(0, 0, 0)
+ let summary = Summary(0, 0, 0, 0)
+ do csv_load(load64(argv + 8))
+ while csv_next(job)
+  do workload_accept(job, summary)
+ end
+ do workload_json(summary)
+ return 0
+end

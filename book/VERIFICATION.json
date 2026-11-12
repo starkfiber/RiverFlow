@@ -1,6 +1,6 @@
 {
-  "pages": 60,
-  "tocEntries": 26,
+  "pages": 64,
+  "tocEntries": 27,
   "outOfPageText": [],
   "completeExamples": 5,
   "referenceTestGroups": 16,
@@ -10,7 +10,7 @@
   "independentMcpSdk": "passed",
   "rebuildByteIdentity": "passed",
   "epubZipXml": "verified, not full EPUBCheck",
-  "visualReview": "Revised contents, chapter 21 and measurements rendered; all-page bounds and sparse-spill checks passed",
+  "visualReview": "Revised one-page contents, Chapter 22 and benchmark table rendered and inspected; all-page bounds and sparse-spill checks passed",
   "nativeCompilerFixedPoint": true,
   "nativeCompilerExecutedCases": 24,
   "nativeCompilerNegativeCases": 15,
@@ -36,5 +36,8 @@
   "compilerBoundChecks": "128/129/255/256 accepted, 257 refused, last function 256 locals",
   "editorChecks": "7 edits, 150 refusals, 5 roundtrips, PDF byte comparison, two uploads and idle concurrency",
   "platformChecks": "5 executions and 4 arity refusals",
-  "runtimeSHA256": "35a5a4ab5bfcd8462598474562ee41c77a427da0de497a7d61fe0e1256f182d4"
+  "runtimeSHA256": "39922161132a4b4edb4414a4fdc933930338f9f28400bc62838bdddc18326e49",
+  "modulesAndRecords": "60 record executions, 44 type refusals, 13 import refusals, 60 workload cases, 13 workload refusals, 150 old-version comparisons",
+  "moduleBounds": "7 successful field/type/file/depth/recursive lifetime boundaries; 4 refused over-bound cases",
+  "compactMCP": "Independent SDK in both installed-plugin modes; exact retained transcript encodings"
 }

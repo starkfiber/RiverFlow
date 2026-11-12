@@ -1,7 +1,7 @@
 {
   "name": "rf2",
-  "version": "0.9.0",
-  "description": "RiverFlow-native graphical workspace, ARM64 systems compiler, checked computation and nine bounded MCP tools",
+  "version": "0.10.0",
+  "description": "RF2 local modules, nominal records, measured native optimisation and bounded compact MCP",
   "author": {
     "name": "Ilangkhumanan Thirunavokkarasu",
     "url": "https://github.com/starkfiber"

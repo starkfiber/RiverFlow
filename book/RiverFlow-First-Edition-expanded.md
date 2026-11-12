@@ -719,6 +719,63 @@ The editor is an integration checkpoint. Reusable modules, structured values, ow
 
 Sources: native/editor.rf2, native/studio/launcher.rf2, docs/PLATFORM-ABI.md, docs/EDITOR-0.9-VERIFICATION.json, docs/PLATFORM-0.9-VERIFICATION.json, docs/STUDIO-MEASUREMENTS-0.9.json and docs/STUDIO-TOKEN-FIXTURES-0.9.json. The tests preserve both successful behavior and refusal paths. The findings are useful because another developer can inspect, rerun and challenge them.
 
+# 22. Names, records and measured reuse
+
+Source and executable receipts for this chapter are linked from docs/LANGUAGE-MEASUREMENTS.md and docs/MODULES-TYPES.md.
+
+A general language needs more than another application adapter. Code needs names that can be reused, data needs a shape, and a mistake at one boundary should be rejected before it becomes an arbitrary address. Release 0.10 adds local source modules and nominal records to the native systems compiler. The first complete application built with them analyses a CSV workload trace.
+
+## A small entry with visible structure
+
+The workload entry imports I/O, CSV and accounting modules. It constructs a Job and a Summary, reads each trace row into the job, then asks the accounting module to update the summary. Named fields replace unexplained offsets. A typed function parameter requires the declared record; another record with the same fields does not silently substitute.
+
+```rf2
+record Job(id: u64, duration: u64, deadline: u64)
+record Summary(count: u64, late: u64, elapsed: u64, peak: u64)
+```
+
+The supplied three-row fixture produces three jobs, one late completion, nine elapsed ticks and a peak job duration of four ticks. The analyser also handles empty traces and up to 1,000 rows. Sixty cases compare its JSON output with independently calculated expectations. Thirteen refusal cases cover malformed rows, zero or oversized values, extra fields and exceeded input bounds. These are executed programming tests, not workplace or device measurements.
+
+The policy is input order, with all jobs available at tick zero. A completion is late only when cumulative duration exceeds that row's deadline. This establishes deterministic accounting. It does not establish an optimal scheduler, a faster operating system or new experimental findings for another research paper.
+
+## Reuse is a dependency contract
+
+A library starts with module and a name. Imports use explicit local paths from the entry directory. They precede declarations, traverse in dependency order and deduplicate the same restricted path. Files share one function namespace; a collision refuses. There is no package registry, remote fetch or automatic imported execution. Thirty-two source files and sixteen active traversal levels bound the graph. Cycles, missing files and invalid relative paths refuse before output creation.
+
+The compiler is trusted local software. Refusing absolute imports, parent traversal and final-component symlinks does not isolate the filesystem: an ancestor directory can still be an OS symlink. The image digest covers expanded source, so separate source-file hashes remain necessary for path-level provenance. Those distinctions make the evidence reviewable rather than hiding effects behind the word module.
+
+## Record storage and lifetime
+
+Each owned record occupies slots in the current function's stack frame. A borrowed record parameter carries its nominal type. Field updates are visible to the caller. A recursive lifetime test confirms that each invocation retains its own local fields while a deeper invocation runs.
+
+Record returns, copying, rebinding, raw-intrinsic arguments and scalar substitution refuse. Constructors must be at function level, rather than inside conditional blocks. The first field type is a u64 machine word, and legacy systems words can also represent addresses. This is a narrow nominal boundary, not a proof of full memory safety. Nested records, strings, arrays, enums, generic types and ownership inference remain further work.
+
+## An optimisation with a small enough claim
+
+The optional --opt emitter recognises a numeric right operand when precedence permits a direct register path. It avoids temporary stack stores and loads while preserving operand order. Function calls and other operands use the normal path. Default compilation retains the earlier instruction path, and the compiler still reproduces its default native image through successive generations.
+
+The following table records nine rotated fresh launches of each kernel. Each performs two million specified iterations and prints a checked checksum. Times include process start. The C and Python references compute the same checksums; they do not implement RF2's full compiler or effect contracts.
+
+| Kernel, 2 million iterations | 0.9 ms | 0.10 default ms | 0.10 opt ms | Clang O2 ms | Python ms |
+| --- | --- | --- | --- | --- | --- |
+| accumulate | 14.334 | 15.185 | 11.970 | 5.349 | 181.976 |
+| mix | 29.849 | 29.326 | 15.790 | 7.506 | 313.676 |
+| branches | 16.071 | 15.715 | 10.243 | 5.349 | 208.129 |
+
+The optional optimiser is faster than frozen 0.9 for these three kernels. Clang remains faster. Default 0.10 varies around the old path, including a slower accumulation result. Background host load and power state were not controlled. Three kernels on one host do not establish general superiority over C++, Java, Python, another architecture or a full application.
+
+## Compact interaction without weaker guards
+
+The nine MCP discovery schemas remain unchanged. Default results retain their readable summaries. An explicit compact mode omits only the redundant successful check/run summary and returns the full structured result. Errors, bounds, lowered source and other tools retain their contracts. A text-only client should use the default mode.
+
+The complete measured session includes initialisation, discovery, one hundred successful POPCOUNT exchanges and an overflow error. It encodes to 23,877 o200k tokens in 0.9 and default 0.10, or 22,277 in compact mode: 6.70% less encoded text. This is not a provider bill, faster model inference or proof that AI generates better programs. The workload entry is 122 encoded tokens, but its full four-file source is 1,369; library and documentation context still counts.
+
+## Learn from other languages without inheriting their claims
+
+A pinned source review examined BAML record fixtures and MCP cleanup tests, Edict's typed pipeline and compact schema helper, DSPy's module-oriented model programming, and Zig's language reference. These offer useful design patterns. Their README claims and test files were not executed as target benchmarks. RF2's readable source, nominal checks, native emitter and bounded MCP interface are an implemented combination; no world-first novelty or universal parity is asserted.
+
+The next useful language work is reusable strings and collections, explicit error/resource lifetimes, better diagnostics and another target. Each capability needs observable tests, failure paths and complete interaction accounting. An AI host can write RF2 and call its checked tools. That is different from claiming the executable itself contains every ability of an AI model.
+
 # Appendix A. Commands and interfaces
 
 Native standalone, no Node or npm required:

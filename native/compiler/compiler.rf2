@@ -310,7 +310,9 @@ fn add_local(f, tok)
  let j = 0
  do require(load64(token(tok)) == 1, "local name required")
  while j < n
-  do require(name_equal(load64(local(f, j)), tok) == 0, "duplicate local")
+  if load64(local(f, j)) != 0
+   do require(name_equal(load64(local(f, j)), tok) == 0, "duplicate local")
+  end
   set j = j + 1
  end
  do store64(local(f, n), tok)
@@ -321,8 +323,10 @@ fn local_index(tok)
  let f = load64(state() + 32)
  let j = 0
  while j < load64(ftable(f) + 32)
-  if name_equal(load64(local(f, j)), tok)
-   return j
+  if load64(local(f, j)) != 0
+   if name_equal(load64(local(f, j)), tok)
+    return j
+   end
   end
   set j = j + 1
  end
@@ -338,6 +342,109 @@ fn function_index(tok)
   set i = i + 1
  end
  do die("unknown function")
+ return 0
+end
+fn record_info(id)
+ do require((id > 0) & (id <= 32), "record bound")
+ return buffer("record_info", 4608) + (id - 1) * 144
+end
+fn record_index(tok)
+ let id = 1
+ while id <= load64(state() + 128)
+  if name_equal(load64(record_info(id)), tok)
+   return id
+  end
+  set id = id + 1
+ end
+ return 0
+end
+fn local_type(f, slot)
+ return buffer("local_types", 524288) + (f * 256 + slot) * 8
+end
+fn local_ready(f, slot)
+ return buffer("local_ready", 524288) + (f * 256 + slot) * 8
+end
+fn field_index(id, tok)
+ let r = record_info(id)
+ let i = 0
+ while i < load64(r + 8)
+  if name_equal(load64(r + 16 + i * 8), tok)
+   return i
+  end
+  set i = i + 1
+ end
+ do die("unknown record field")
+ return 0
+end
+fn scan_record()
+ do expect("record")
+ let t = advance()
+ do require(load64(token(t)) == 1, "record name required")
+ do require(record_index(t) == 0, "duplicate record")
+ do require((tmatch(t, "buffer") | tmatch(t, "load8") | tmatch(t, "load32") | tmatch(t, "load64") | tmatch(t, "store8") | tmatch(t, "store32") | tmatch(t, "store64") | tmatch(t, "read") | tmatch(t, "write") | tmatch(t, "open") | tmatch(t, "close") | tmatch(t, "exit") | tmatch(t, "syscall6") | tmatch(t, "fork_process")) == 0, "reserved record name")
+ let id = load64(state() + 128) + 1
+ let r = record_info(id)
+ let f = 0
+ while f < load64(state() + 40)
+  do require(name_equal(load64(ftable(f)), t) == 0, "record collides with function")
+  set f = f + 1
+ end
+ do store64(r, t)
+ do expect("(")
+ let n = 0
+ let field = 0
+ let j = 0
+ while match(")") == 0
+  do require(n < 16, "record field bound")
+  set field = advance()
+  do require(load64(token(field)) == 1, "field name required")
+  set j = 0
+  while j < n
+   do require(name_equal(load64(r + 16 + j * 8), field) == 0, "duplicate field")
+   set j = j + 1
+  end
+  do expect(":")
+  do expect("u64")
+  do store64(r + 16 + n * 8, field)
+  set n = n + 1
+  if match(",")
+   do advance()
+   do require(match(")") == 0, "trailing field comma")
+  else
+   do require(match(")"), "expected field comma")
+  end
+ end
+ do require(n > 0, "empty record")
+ do store64(r + 8, n)
+ do store64(state() + 128, id)
+ do expect(")")
+ return newline()
+end
+fn scalar_expression(minimum, depth)
+ do expression(minimum, depth)
+ return require(load64(state() + 136) == 0, "scalar expression required")
+end
+fn construct_record(target, depth)
+ do require(depth == 0, "record declarations must be function-level")
+ let f = load64(state() + 32)
+ let id = load64(local_type(f, target))
+ do require(target >= load64(ftable(f) + 8), "record parameter rebinding refused")
+ do require(record_index(advance()) == id, "record constructor type mismatch")
+ do expect("(")
+ let i = 0
+ let n = load64(record_info(id) + 8)
+ while i < n
+  if i != 0
+   do expect(",")
+  end
+  do scalar_expression(1, 0)
+  do access_local(0, target + 1 + i, 1)
+  set i = i + 1
+ end
+ do expect(")")
+ do emit(2432697248 | (((target + 1) * 8) << 10))
+ do access_local(0, target, 1)
+ do store64(local_ready(f, target), 1)
  return 0
 end
 fn next_label()
@@ -459,9 +566,13 @@ fn scan_functions_more(f)
   if load64(token(load64(state() + 24))) == 5
    do advance()
   else
+   if match("record")
+    do scan_record()
+   else
    do expect("fn")
    set t = advance()
    do require(load64(token(t)) == 1, "function name required")
+   do require(record_index(t) == 0, "function collides with record")
    set other = 0
    while other < f
     do require(name_equal(load64(ftable(other)), t) == 0, "duplicate function")
@@ -473,7 +584,17 @@ fn scan_functions_more(f)
    set params = 0
    set done = match(")")
    while done == 0
-    do add_local(f, advance())
+    set t = add_local(f, advance())
+    if match(":")
+     do advance()
+     set other = advance()
+     if tmatch(other, "u64") == 0
+      set other = record_index(other)
+      do require(other != 0, "unknown parameter type")
+      do store64(local_type(f, t), other)
+      do store64(local_ready(f, t), 1)
+     end
+    end
     set params = params + 1
     do require(params <= 8, "parameter bound")
     if match(",")
@@ -486,6 +607,7 @@ fn scan_functions_more(f)
    do scan_body(f, params)
    set f = f + 1
    do store64(state() + 40, f)
+   end
   end
  end
  return 0
@@ -493,6 +615,9 @@ end
 fn scan_body(f, params)
  let depth = 1
  let i = 0
+ let slot = 0
+ let id = 0
+ let count = 0
  do newline()
  do store64(ftable(f) + 8, params)
  do store64(ftable(f) + 16, load64(state() + 24))
@@ -510,7 +635,15 @@ fn scan_body(f, params)
    set depth = depth - 1
   end
   if match("let")
-   do add_local(f, i + 1)
+   set slot = add_local(f, i + 1)
+   set id = record_index(i + 3)
+   if (id != 0) & tmatch(i + 4, "(")
+    do require(depth == 1, "record declarations must be function-level")
+    do store64(local_type(f, slot), id)
+    set count = load64(record_info(id) + 8)
+    do require(slot + count < 256, "record local bound")
+    do store64(ftable(f) + 32, slot + 1 + count)
+   end
   end
   do advance()
   while load64(token(load64(state() + 24))) != 5
@@ -603,10 +736,15 @@ fn expression(minimum, depth)
  let op = 0
  let p = 0
  let comparison = 0
+ let lhs_type = 0
+ let rhs = 0
+ let slot = 0
+ let id = 0
+ do store64(state() + 136, 0)
  do require(depth < 64, "expression depth bound")
  if match("-") | match("~")
   do advance()
-  do expression(8, depth + 1)
+  do scalar_expression(8, depth + 1)
   if tmatch(i, "-")
    do emit(3405775840)
   else
@@ -632,11 +770,25 @@ fn expression(minimum, depth)
       do advance()
       do invoke(i, depth + 1)
      else
-      do access_local(0, local_index(i), 0)
+      set slot = local_index(i)
+      set id = load64(local_type(load64(state() + 32), slot))
+      if id != 0
+       do require(load64(local_ready(load64(state() + 32), slot)) != 0, "record used before initialization")
+      end
+      do access_local(0, slot, 0)
+      do store64(state() + 136, id)
      end
     end
    end
   end
+ end
+ while match(".")
+  do advance()
+  set id = load64(state() + 136)
+  do require(id != 0, "field access requires record")
+  set slot = field_index(id, advance())
+  do emit(4181721088 | (slot << 10))
+  do store64(state() + 136, 0)
  end
  set i = load64(state() + 24)
  set p = precedence(i)
@@ -647,9 +799,18 @@ fn expression(minimum, depth)
    set comparison = 1
   end
   set op = advance()
-  do push()
-  do expression(p + 1, depth + 1)
-  do pop1()
+  set lhs_type = load64(state() + 136)
+  do require(lhs_type == 0, "record arithmetic refused")
+  set rhs = load64(state() + 24)
+  if (load64(state() + 152) != 0) & (load64(token(rhs)) == 2) & (precedence(rhs + 1) <= p) & (tmatch(rhs + 1, ".") == 0)
+   do emit(2852127713)
+   do imm(0, load64(token(advance()) + 24))
+   do store64(state() + 136, 0)
+  else
+   do push()
+   do scalar_expression(p + 1, depth + 1)
+   do pop1()
+  end
   do operation(op)
   set i = load64(state() + 24)
   set p = precedence(i)
@@ -674,9 +835,13 @@ fn invoke(name, depth)
   do address(0, intern(2, i, load64(token(size) + 24)))
   return 0
  end
- if match(")") == 0
-  set count = arguments(depth)
+ if (tmatch(name, "buffer") | tmatch(name, "fork_process") | tmatch(name, "syscall6") | tmatch(name, "load8") | tmatch(name, "load32") | tmatch(name, "load64") | tmatch(name, "store8") | tmatch(name, "store32") | tmatch(name, "store64") | tmatch(name, "read") | tmatch(name, "write") | tmatch(name, "open") | tmatch(name, "close") | tmatch(name, "exit")) == 0
+  set f = function_index(name) + 1
  end
+ if match(")") == 0
+  set count = arguments(depth, f)
+ end
+ do store64(state() + 136, 0)
  do expect(")")
  set i = count
  while i != 0
@@ -777,11 +942,17 @@ fn invoke(name, depth)
  do fix(1, load64(ftable(f) + 40))
  return emit(2483027968)
 end
-fn arguments(depth)
+fn arguments(depth, callee)
  let count = 0
  let done = 0
  while done == 0
   do expression(1, depth + 1)
+  if callee == 0
+   do require(load64(state() + 136) == 0, "record passed to raw intrinsic")
+  else
+   do require(count < load64(ftable(callee - 1) + 8), "function arity")
+   do require(load64(state() + 136) == load64(local_type(callee - 1, count)), "argument type mismatch")
+  end
   do push()
   set count = count + 1
   do require(count <= 8, "argument bound")
@@ -799,6 +970,9 @@ fn block(depth)
  let other = 0
  let done = 0
  let start = 0
+ let id = 0
+ let field = 0
+ let declaring = 0
  do require(depth < 64, "block depth bound")
  while 1
   set i = load64(state() + 24)
@@ -816,11 +990,30 @@ fn block(depth)
     return 1
    end
    if match("let") | match("set")
+    set declaring = match("let")
     do advance()
     set target = local_index(advance())
-    do expect("=")
-    do expression(1, 0)
-    do access_local(0, target, 1)
+    set id = load64(local_type(load64(state() + 32), target))
+    if match(".")
+     do require(declaring == 0, "field assignment uses set")
+     do require(id != 0, "field assignment requires record")
+     do require(load64(local_ready(load64(state() + 32), target)) != 0, "record used before initialization")
+     do advance()
+     set field = field_index(id, advance())
+     do expect("=")
+     do scalar_expression(1, 0)
+     do access_local(1, target, 0)
+     do emit(4177526816 | (field << 10))
+    else
+     do expect("=")
+     if id != 0
+      do require(declaring, "record rebinding refused")
+      do construct_record(target, depth)
+     else
+      do scalar_expression(1, 0)
+      do access_local(0, target, 1)
+     end
+    end
     do newline()
    else
     if match("do")
@@ -830,7 +1023,7 @@ fn block(depth)
     else
      if match("return")
       do advance()
-      do expression(1, 0)
+      do scalar_expression(1, 0)
       do jump(load64(state() + 88), 16)
       do newline()
      else
@@ -838,7 +1031,7 @@ fn block(depth)
        do advance()
        set other = next_label()
        set done = next_label()
-       do expression(1, 0)
+       do scalar_expression(1, 0)
        do emit(4043309087)
        do jump(other, 0)
        do newline()
@@ -856,7 +1049,7 @@ fn block(depth)
         set start = next_label()
         set done = next_label()
         do label(start)
-        do expression(1, 0)
+        do scalar_expression(1, 0)
         do emit(4043309087)
         do jump(done, 0)
         do newline()
@@ -888,6 +1081,7 @@ fn generate()
  end
  do require(main != 18446744073709551615, "main required")
  do require(load64(ftable(main) + 8) == 2, "main needs argc and argv")
+ do require((load64(local_type(main, 0)) | load64(local_type(main, 1))) == 0, "main parameters must be scalar")
  do fix(1, load64(ftable(main) + 40))
  do emit(2483027968)
  do imm(16, 1)
@@ -1302,16 +1496,251 @@ fn read_source(path)
  do die("source size bound")
  return 0
 end
+fn module_state()
+ return buffer("module_state", 32)
+end
+fn module_info(i)
+ do require(i < 32, "module count bound")
+ return buffer("module_info", 1536) + i * 48
+end
+fn module_path(i)
+ return buffer("module_paths", 32768) + i * 1024
+end
+fn line_end(p, n, i)
+ while i < n
+  if load8(p + i) == 10
+   return i
+  end
+  set i = i + 1
+ end
+ return i
+end
+fn line_trim(p, end, i)
+ while i < end
+  if (load8(p + i) != 32) & (load8(p + i) != 9) & (load8(p + i) != 13)
+   return i
+  end
+  set i = i + 1
+ end
+ return i
+end
+fn line_starts(p, end, start, text)
+ let n = length(text)
+ if start + n > end
+  return 0
+ end
+ return same(p + start, n, text, n)
+end
+fn module_path_check(p, n)
+ do require((n >= 5) & (n <= 240), "module path length")
+ do require(same(p + n - 4, 4, ".rf2", 4), "module extension")
+ let i = 0
+ let c = 0
+ let segment = 0
+ while i < n - 4
+  set c = load8(p + i)
+  if c == 47
+   do require(segment != 0, "empty module path segment")
+   set segment = 0
+  else
+   do require(letter(c) | digit(c) | (c == 45), "module path must use local identifier segments")
+   set segment = segment + 1
+  end
+  set i = i + 1
+ end
+ do require(segment != 0, "empty module basename")
+ return 0
+end
+fn module_load(name, n)
+ do module_path_check(name, n)
+ let ms = module_state()
+ let count = load64(ms)
+ let root = load64(ms + 16)
+ let i = 0
+ let path = 0
+ while i < count
+  set path = module_path(i)
+  if same(path, length(path), name, n)
+   return i
+  end
+  set i = i + 1
+ end
+ set path = module_path(count)
+ do cp(path, name, n)
+ do store8(path + n, 0)
+ let full = buffer("module_full_path", 1024)
+ do require(root + n < 1024, "module full path bound")
+ do cp(full, buffer("module_root", 1024), root)
+ do cp(full + root, name, n)
+ do store8(full + root + n, 0)
+ let fd = open(full, 256, 0)
+ do require(fd < 9223372036854775808, "module open failed")
+ let used = load64(ms + 8)
+ let start = used
+ let arena = buffer("module_sources", 524289)
+ let amount = 0
+ while 1
+  do require(used < 524289, "combined module source bound")
+  set amount = read(fd, arena + used, 524289 - used)
+  do require(amount < 9223372036854775808, "module read failed")
+  if amount == 0
+   do require(used <= 524288, "combined module source bound")
+   do close(fd)
+   do store64(module_info(count), arena + start)
+   do store64(module_info(count) + 8, used - start)
+   do store64(ms, count + 1)
+   do store64(ms + 8, used)
+   return count
+  end
+  set used = used + amount
+ end
+ return 0
+end
+fn module_append(p, n)
+ let ms = module_state()
+ let used = load64(ms + 24)
+ do require(used + n <= 524288, "expanded module source bound")
+ do cp(buffer("module_expanded", 524289) + used, p, n)
+ do store64(ms + 24, used + n)
+ return 0
+end
+fn module_walk(index, depth)
+ do require(depth < 16, "module depth bound")
+ let info = module_info(index)
+ let visiting = load64(info + 16)
+ do require(visiting != 1, "module import cycle")
+ if visiting == 2
+  return 0
+ end
+ do store64(info + 16, 1)
+ let p = load64(info)
+ let n = load64(info + 8)
+ let i = 0
+ let end = 0
+ let start = 0
+ let hstart = 0
+ let hend = 0
+ let first = 1
+ let code = 0
+ let name = 0
+ let stop = 0
+ let child = 0
+ while i < n
+  set end = line_end(p, n, i)
+  set start = line_trim(p, end, i)
+  if start < end
+   if load8(p + start) != 35
+    if first
+     if index == 0
+      set stop = end
+      if load8(p + end - 1) == 13
+       set stop = stop - 1
+      end
+      do require(same(p + start, stop - start, "profile RF2_SYSTEM_A64_V1", 25), "entry profile line required")
+     else
+      do require(line_starts(p, end, start, "module "), "module header required")
+      set name = line_trim(p, end, start + 7)
+      do require(name < end, "module name required")
+      do require(letter(load8(p + name)), "module name required")
+      set stop = identifier_end(p, end, name)
+      do require(line_trim(p, end, stop) == end, "module header trailing text")
+     end
+     set hstart = i
+     set hend = end
+     set first = 0
+    else
+     if line_starts(p, end, start, "use ")
+      do require(code == 0, "imports must precede declarations")
+      set name = line_trim(p, end, start + 4)
+      do require((name < end) & (load8(p + name) == 34), "module path literal required")
+      set name = name + 1
+      set stop = name
+      while (stop < end) & (load8(p + stop) != 34)
+       set stop = stop + 1
+      end
+      do require(stop < end, "unterminated module path")
+      do require(line_trim(p, end, stop + 1) == end, "module import trailing text")
+      set child = module_load(p + name, stop - name)
+      do module_walk(child, depth + 1)
+     else
+      set code = 1
+     end
+    end
+   end
+  end
+  set i = end + 1
+ end
+ do require(first == 0, "empty module")
+ set i = 0
+ while i < n
+  set end = line_end(p, n, i)
+  set start = line_trim(p, end, i)
+  if i != hstart
+   if line_starts(p, end, start, "use ") == 0
+    do module_append(p + i, end - i)
+    do module_append("\n", 1)
+   end
+  end
+  set i = end + 1
+ end
+ do store64(info + 16, 2)
+ return 0
+end
+fn expand_modules(path, src)
+ let n = load64(state() + 8)
+ let i = 0
+ let end = 0
+ let has_import = 0
+ while i < n
+  set end = line_end(src, n, i)
+  if line_starts(src, end, line_trim(src, end, i), "use ")
+   set has_import = 1
+  end
+  set i = end + 1
+ end
+ if has_import == 0
+  return src
+ end
+ let plen = length(path)
+ let root = 0
+ set i = 0
+ while i < plen
+  if load8(path + i) == 47
+   set root = i + 1
+  end
+  set i = i + 1
+ end
+ do require(root < 768, "entry directory bound")
+ do require(plen - root < 1024, "entry basename bound")
+ do cp(buffer("module_root", 1024), path, root)
+ do store64(module_state(), 1)
+ do store64(module_state() + 8, n)
+ do store64(module_state() + 16, root)
+ do cp(module_path(0), path + root, plen - root)
+ do cp(buffer("module_sources", 524289), src, n)
+ do store64(module_info(0), buffer("module_sources", 524289))
+ do store64(module_info(0) + 8, n)
+ do module_append("profile RF2_SYSTEM_A64_V1\n", 26)
+ do module_walk(0, 0)
+ do store64(state(), buffer("module_expanded", 524289))
+ do store64(state() + 8, load64(module_state() + 24))
+ return load64(state())
+end
 fn main(argc, argv)
  let src = 0
  let digest = 0
  let dataoff = 0
  let datasize = 0
- if argc != 3
-  do write(2, "rf2c source.rf2 new-output\n", 26)
+ if (argc != 3) & (argc != 4)
+  do write(2, "rf2c source.rf2 new-output [--opt]\n", 35)
   return 1
  end
+ if argc == 4
+  do require(same(load64(argv + 24), length(load64(argv + 24)), "--opt", 5), "unknown compiler option")
+  do store64(state() + 152, 1)
+ end
  set src = read_source(load64(argv + 8))
+ set src = expand_modules(load64(argv + 8), src)
  do tokenize_tail(src, load64(state() + 8), 0, 0)
  do scan_functions()
  do generate()

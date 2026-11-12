@@ -8,12 +8,12 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 175370,
-    "Python": 118827,
-    "JavaScript": 65273,
-    "HTML": 16190,
+    "RiverFlow": 192707,
+    "Python": 135942,
+    "JavaScript": 65364,
+    "HTML": 16384,
     "CSS": 10426,
-    "Shell": 1620
+    "Shell": 2207
   },
   "files": [
     {
@@ -84,7 +84,7 @@
     {
       "path": "docs/rf2/index.html",
       "language": "HTML",
-      "bytes": 7893
+      "bytes": 7990
     },
     {
       "path": "docs/riverflow.mjs",
@@ -157,6 +157,26 @@
       "bytes": 362
     },
     {
+      "path": "examples/workload/lib/csv.rf2",
+      "language": "RiverFlow",
+      "bytes": 2211
+    },
+    {
+      "path": "examples/workload/lib/io.rf2",
+      "language": "RiverFlow",
+      "bytes": 557
+    },
+    {
+      "path": "examples/workload/lib/workload.rf2",
+      "language": "RiverFlow",
+      "bytes": 977
+    },
+    {
+      "path": "examples/workload/main.rf2",
+      "language": "RiverFlow",
+      "bytes": 360
+    },
+    {
       "path": "native/attendance.rf2",
       "language": "RiverFlow",
       "bytes": 6832
@@ -164,7 +184,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 30201
+      "bytes": 42927
     },
     {
       "path": "native/core.rf2",
@@ -204,7 +224,7 @@
     {
       "path": "native/rf2.rf2",
       "language": "RiverFlow",
-      "bytes": 38020
+      "bytes": 38526
     },
     {
       "path": "native/studio/launcher.rf2",
@@ -219,7 +239,7 @@
     {
       "path": "plugin/launch-mcp.sh",
       "language": "Shell",
-      "bytes": 300
+      "bytes": 375
     },
     {
       "path": "site/app.mjs",
@@ -239,7 +259,7 @@
     {
       "path": "site/rf2/index.html",
       "language": "HTML",
-      "bytes": 7893
+      "bytes": 7990
     },
     {
       "path": "site/riverflow.mjs",
@@ -309,7 +329,7 @@
     {
       "path": "tests/standalone/compiler_verify.py",
       "language": "Python",
-      "bytes": 8466
+      "bytes": 8469
     },
     {
       "path": "tests/standalone/core_verify.py",
@@ -319,7 +339,7 @@
     {
       "path": "tests/standalone/editor_verify.py",
       "language": "Python",
-      "bytes": 8518
+      "bytes": 8563
     },
     {
       "path": "tests/standalone/invoice_reference.mjs",
@@ -337,6 +357,16 @@
       "bytes": 5228
     },
     {
+      "path": "tests/standalone/module_bounds_verify.py",
+      "language": "Python",
+      "bytes": 2336
+    },
+    {
+      "path": "tests/standalone/modules_verify.py",
+      "language": "Python",
+      "bytes": 7529
+    },
+    {
       "path": "tests/standalone/oracle.mjs",
       "language": "JavaScript",
       "bytes": 495
@@ -344,7 +374,7 @@
     {
       "path": "tests/standalone/platform_verify.py",
       "language": "Python",
-      "bytes": 2192
+      "bytes": 2235
     },
     {
       "path": "tests/standalone/prepared_verify.py",
@@ -354,12 +384,12 @@
     {
       "path": "tests/standalone/sdk.mjs",
       "language": "JavaScript",
-      "bytes": 3479
+      "bytes": 3570
     },
     {
       "path": "tests/standalone/verify.py",
       "language": "Python",
-      "bytes": 9428
+      "bytes": 9476
     },
     {
       "path": "tests/standalone/workspace_verify.py",
@@ -379,7 +409,7 @@
     {
       "path": "tools/build-book.py",
       "language": "Python",
-      "bytes": 18417
+      "bytes": 18421
     },
     {
       "path": "tools/build-core.sh",
@@ -387,14 +417,19 @@
       "bytes": 586
     },
     {
+      "path": "tools/build-program.sh",
+      "language": "Shell",
+      "bytes": 475
+    },
+    {
       "path": "tools/build-runtime.sh",
       "language": "Shell",
-      "bytes": 734
+      "bytes": 771
     },
     {
       "path": "tools/build-studio.py",
       "language": "Python",
-      "bytes": 1664
+      "bytes": 1666
     },
     {
       "path": "tools/check-book-examples.mjs",
@@ -405,6 +440,11 @@
       "path": "tools/measure-capability.py",
       "language": "Python",
       "bytes": 6280
+    },
+    {
+      "path": "tools/measure-language.py",
+      "language": "Python",
+      "bytes": 7105
     },
     {
       "path": "tools/measure-reuse.py",

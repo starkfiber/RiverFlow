@@ -2,7 +2,7 @@
 name: rf2
 description: Check and execute RiverFlow Core/compact programs, lower checked kernels, use the versioned attendance exporter, and develop native compiler evidence.
 ---
-# RiverFlow RF² 0.9
+# RiverFlow RF² 0.10
 
 Use rf2_status first. Read docs/NATIVE-CORE.md and docs/STANDALONE.md for current profiles/effects. Nine native tools exist: rf2_status, rf2_check, rf2_run, rf2_lower, attendance_export, invoice_total, invoice_prepare, invoice_apply and invoice_release. Users require no Node/npm/Python/C++ runtime. The host provides AI intelligence; the executable has no embedded model.
 
@@ -24,7 +24,7 @@ The CLI `rf2 attendance records.json new.csv` performs an explicitly requested f
 
 The systems compiler reproduces its own bounded source without Python. tools/build-runtime.sh composes the ten runtime modules; compiling native/rf2.rf2 alone is no longer a complete build. The historical Python seed and JS/C references remain development oracles, not user runtime dependencies. Source hashes establish byte identity, not independent approval or process isolation.
 
-The plugin uses RF2_BIN or output/bin/rf2 and never silently builds/downloads/falls back to Node. Fresh checkouts need an explicit native binary. Current qualification is on Apple Silicon Mac; normal OS signing remains required. No speed, energy, token-saving, phone or fieldwork claim is established. Preserve failed tests and private data locally; do not put participant records in public releases.
+The plugin uses RF2_BIN or output/bin/rf2 and never silently builds/downloads/falls back to Node. Fresh checkouts need an explicit native binary. Current qualification is on Apple Silicon Mac; normal OS signing remains required. No universal speed, energy, token-saving, phone or fieldwork claim is established. Preserve failed tests and private data locally; do not put participant records in public releases.
 
 ## Compact application plan
 
@@ -47,3 +47,11 @@ Read docs/GRAPHICAL-EDITOR.md and docs/PLATFORM-ABI.md. Launch `rf2 editor` or R
 The trusted systems profile provides syscall6 and fork_process. These compile to ARM64 machine instructions with Darwin-specific ABI handling, not portable Core effects. Never admit raw systems code through the bounded MCP checker. Nine MCP tool names and schemas remain unchanged from 0.8.
 
 The 0.9 receipt reports similar MCP invoice performance to 0.8 and no encoded token reduction for matched prepared exchanges. GUI HTTP timings exclude browser layout. Read docs/STUDIO-MEASUREMENTS.md before citing numbers. No billed model usage experiment, universal speed claim, x86 backend or arbitrary Python/C++ compatibility is established.
+
+## Modules, records and compact machine clients
+
+Read docs/MODULES-TYPES.md, docs/COMPACT-MCP.md and docs/LANGUAGE-MEASUREMENTS.md. The systems compiler supports explicit local use imports, nominal records of u64 fields and typed borrowed record parameters. Build through tools/build-program.sh; no imported code is automatically run. At most 32 files, 16 active traversal levels, 32 record types, 16 fields per record and 256 local slots per function. Imports share a namespace and resolve from the entry directory. Trusted source compilation is CLI-only; do not pass systems/modules source to bounded Core tools or infer filesystem containment.
+
+Use examples/workload/main.rf2 for a real CSV workload analyser, independently checked for input-order deadline accounting. It is not a measured OS scheduler or claim of optimal policy. Use --opt explicitly for the tested numeric-right-operand machine-code lowering. The release runtime uses that option; default compiler output retains the previous path.
+
+rf2 mcp --compact omits redundant successful check/run summary text only. All structured results, schemas and errors remain. Text-only clients should retain default mode. Set RF2_MCP_COMPACT=1 for an explicitly opted-in plugin launcher. Measured smaller transcripts do not prove smaller provider bills or faster AI generation. The related-project review is static and never substitutes for executed target comparisons.

@@ -1,0 +1,86 @@
+{
+  "capturedUTC": "2026-11-12T03:08:05.644226+00:00",
+  "scope": "Selected public source and documentation, not executed target benchmarks or complete implementation audit",
+  "sources": [
+    {
+      "repository": "BoundaryML/baml",
+      "commit": "3edc5e158e68be4d63849e917c47341ca7a76969",
+      "path": "README.md",
+      "url": "https://github.com/BoundaryML/baml/blob/3edc5e158e68be4d63849e917c47341ca7a76969/README.md",
+      "sha256": "19d7aa8a64d516a299e2cc9fed9316e9c7a238a3eb4fe44daad5da655d08ed68",
+      "coverage": "Static source/document inspection only. Target compiler or model not executed; no target speed claim."
+    },
+    {
+      "repository": "stanfordnlp/dspy",
+      "commit": "398396012371a95471c8e7be24a70e6660e87aa4",
+      "path": "README.md",
+      "url": "https://github.com/stanfordnlp/dspy/blob/398396012371a95471c8e7be24a70e6660e87aa4/README.md",
+      "sha256": "4bee0c96a98daa5521ef4dc9ead9640fdaafd75fe8d5c8896db383838d5fd76f",
+      "coverage": "Static source/document inspection only. Target compiler or model not executed; no target speed claim."
+    },
+    {
+      "repository": "Sowiedu/Edict",
+      "commit": "2dbed48beda84d43e746ebec8bc3d98bcdcc63b0",
+      "path": "README.md",
+      "url": "https://github.com/Sowiedu/Edict/blob/2dbed48beda84d43e746ebec8bc3d98bcdcc63b0/README.md",
+      "sha256": "4438093cb02e3a0fe2e6519944d7f90782bfcbbc437b9b1df0a155957a504ac2",
+      "coverage": "Static source/document inspection only. Target compiler or model not executed; no target speed claim."
+    },
+    {
+      "repository": "ziglang/zig",
+      "commit": "738d2be9d6b6ef3ff3559130c05159ef53336224",
+      "path": "doc/langref.html.in",
+      "url": "https://github.com/ziglang/zig/blob/738d2be9d6b6ef3ff3559130c05159ef53336224/doc/langref.html.in",
+      "sha256": "6a5520e69529dee8fb16f2e03ee987e7d502f4c929a02bf00639f0fc738bb543",
+      "coverage": "Static source/document inspection only. Target compiler or model not executed; no target speed claim."
+    },
+    {
+      "repository": "BoundaryML/baml",
+      "commit": "3edc5e158e68be4d63849e917c47341ca7a76969",
+      "path": "baml_language/crates/baml_tests/rust_diff/baml_src/records.baml",
+      "url": "https://github.com/BoundaryML/baml/blob/3edc5e158e68be4d63849e917c47341ca7a76969/baml_language/crates/baml_tests/rust_diff/baml_src/records.baml",
+      "sha256": "642ae432a20620d771924c83711b099894dff216846525952c154e0c765b9006",
+      "coverage": "Static source/document inspection only. Target compiler or model not executed; no target speed claim."
+    },
+    {
+      "repository": "BoundaryML/baml",
+      "commit": "3edc5e158e68be4d63849e917c47341ca7a76969",
+      "path": "baml_language/crates/baml_tests/tests/mcp.rs",
+      "url": "https://github.com/BoundaryML/baml/blob/3edc5e158e68be4d63849e917c47341ca7a76969/baml_language/crates/baml_tests/tests/mcp.rs",
+      "sha256": "d18ebf2e0e706f6558eebbb9fe0591f9e491b04898b76de5accccdb9681838ad",
+      "coverage": "Static source/document inspection only. Target compiler or model not executed; no target speed claim."
+    },
+    {
+      "repository": "Sowiedu/Edict",
+      "commit": "2dbed48beda84d43e746ebec8bc3d98bcdcc63b0",
+      "path": "src/mcp/handlers/pipeline.ts",
+      "url": "https://github.com/Sowiedu/Edict/blob/2dbed48beda84d43e746ebec8bc3d98bcdcc63b0/src/mcp/handlers/pipeline.ts",
+      "sha256": "cd66fd896ef63d0c7e1884083c61e086f5d992ea8cb14f85ebeeeef3a0097b7b",
+      "coverage": "Static source/document inspection only. Target compiler or model not executed; no target speed claim."
+    },
+    {
+      "repository": "Sowiedu/Edict",
+      "commit": "2dbed48beda84d43e746ebec8bc3d98bcdcc63b0",
+      "path": "src/mcp/minimal-schema.ts",
+      "url": "https://github.com/Sowiedu/Edict/blob/2dbed48beda84d43e746ebec8bc3d98bcdcc63b0/src/mcp/minimal-schema.ts",
+      "sha256": "d3c60d12fa277caeb1d4913d179bbf2ec7adfca8c32940d95c54d70144bbc296",
+      "coverage": "Static source/document inspection only. Target compiler or model not executed; no target speed claim."
+    },
+    {
+      "repository": "Sowiedu/Edict",
+      "commit": "2dbed48beda84d43e746ebec8bc3d98bcdcc63b0",
+      "path": "examples/records.edict.json",
+      "url": "https://github.com/Sowiedu/Edict/blob/2dbed48beda84d43e746ebec8bc3d98bcdcc63b0/examples/records.edict.json",
+      "sha256": "963bd9571b6a5bbdbcae0b42c1cb5c900ae6f6bd25d6e8016d86d30cd5cd7c2c",
+      "coverage": "Static source/document inspection only. Target compiler or model not executed; no target speed claim."
+    },
+    {
+      "repository": "Sowiedu/Edict",
+      "commit": "2dbed48beda84d43e746ebec8bc3d98bcdcc63b0",
+      "path": "examples/multi-module.edict.json",
+      "url": "https://github.com/Sowiedu/Edict/blob/2dbed48beda84d43e746ebec8bc3d98bcdcc63b0/examples/multi-module.edict.json",
+      "sha256": "f97b16f609c0ff7fd3e0c35dafc243cc8df59a82b45d05437ec478ede135e97e",
+      "coverage": "Static source/document inspection only. Target compiler or model not executed; no target speed claim."
+    }
+  ]
+}

@@ -1,0 +1,1399 @@
+{
+  "schema": "rf2.language.measurement.v1",
+  "compilerSHA256": "21e945d50d5cda6aa39c124ebd88b056f53326b0684b8839329fb81d50d674f9",
+  "runtimeSHA256": "39922161132a4b4edb4414a4fdc933930338f9f28400bc62838bdddc18326e49",
+  "baseline09SHA256": "35a5a4ab5bfcd8462598474562ee41c77a427da0de497a7d61fe0e1256f182d4",
+  "scope": "One host. Fresh-process wall time includes launch. Repeated kernels retain actual checksums. Optional optimiser compared with frozen 0.9 for identical scalar source. Token counts encode retained exchanges, not provider bills or AI task success.",
+  "raw": [
+    {
+      "kernel": "accumulate",
+      "variant": "09",
+      "compileMs": 7.203959,
+      "executableBytes": 67520
+    },
+    {
+      "kernel": "accumulate",
+      "variant": "10-default",
+      "compileMs": 4.44675,
+      "executableBytes": 67520
+    },
+    {
+      "kernel": "accumulate",
+      "variant": "10-opt",
+      "compileMs": 4.61275,
+      "executableBytes": 67520
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 0,
+      "variant": "10-default",
+      "elapsedMs": 12.663417,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 0,
+      "variant": "clang-O2",
+      "elapsedMs": 4.984084,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 0,
+      "variant": "10-opt",
+      "elapsedMs": 7.972958,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 0,
+      "variant": "python-reference",
+      "elapsedMs": 169.503125,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 0,
+      "variant": "09",
+      "elapsedMs": 14.001208,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 1,
+      "variant": "python-reference",
+      "elapsedMs": 150.9845,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 1,
+      "variant": "09",
+      "elapsedMs": 12.167792,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 1,
+      "variant": "clang-O2",
+      "elapsedMs": 4.093,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 1,
+      "variant": "10-opt",
+      "elapsedMs": 11.715375,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 1,
+      "variant": "10-default",
+      "elapsedMs": 11.9015,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 2,
+      "variant": "09",
+      "elapsedMs": 12.54425,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 2,
+      "variant": "python-reference",
+      "elapsedMs": 197.036708,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 2,
+      "variant": "10-opt",
+      "elapsedMs": 13.740291,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 2,
+      "variant": "clang-O2",
+      "elapsedMs": 5.6475,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 2,
+      "variant": "10-default",
+      "elapsedMs": 15.692375,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 3,
+      "variant": "10-opt",
+      "elapsedMs": 14.229708,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 3,
+      "variant": "clang-O2",
+      "elapsedMs": 5.270584,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 3,
+      "variant": "09",
+      "elapsedMs": 15.102125,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 3,
+      "variant": "python-reference",
+      "elapsedMs": 181.976083,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 3,
+      "variant": "10-default",
+      "elapsedMs": 14.1975,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 4,
+      "variant": "python-reference",
+      "elapsedMs": 162.347084,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 4,
+      "variant": "10-default",
+      "elapsedMs": 15.184834,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 4,
+      "variant": "clang-O2",
+      "elapsedMs": 6.191875,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 4,
+      "variant": "09",
+      "elapsedMs": 14.333625,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 4,
+      "variant": "10-opt",
+      "elapsedMs": 10.177083,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 5,
+      "variant": "python-reference",
+      "elapsedMs": 168.725708,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 5,
+      "variant": "10-opt",
+      "elapsedMs": 15.002209,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 5,
+      "variant": "09",
+      "elapsedMs": 17.663083,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 5,
+      "variant": "10-default",
+      "elapsedMs": 16.918,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 5,
+      "variant": "clang-O2",
+      "elapsedMs": 7.720792,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 6,
+      "variant": "10-opt",
+      "elapsedMs": 11.969916,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 6,
+      "variant": "10-default",
+      "elapsedMs": 15.464,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 6,
+      "variant": "python-reference",
+      "elapsedMs": 200.694417,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 6,
+      "variant": "09",
+      "elapsedMs": 20.709083,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 6,
+      "variant": "clang-O2",
+      "elapsedMs": 9.089833,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 7,
+      "variant": "10-opt",
+      "elapsedMs": 25.176334,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 7,
+      "variant": "09",
+      "elapsedMs": 20.523375,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 7,
+      "variant": "clang-O2",
+      "elapsedMs": 5.349,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 7,
+      "variant": "python-reference",
+      "elapsedMs": 225.877041,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 7,
+      "variant": "10-default",
+      "elapsedMs": 16.035459,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 8,
+      "variant": "python-reference",
+      "elapsedMs": 227.218167,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 8,
+      "variant": "09",
+      "elapsedMs": 13.566875,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 8,
+      "variant": "10-default",
+      "elapsedMs": 13.676375,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 8,
+      "variant": "10-opt",
+      "elapsedMs": 10.401417,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "accumulate",
+      "trial": 8,
+      "variant": "clang-O2",
+      "elapsedMs": 4.55575,
+      "checksum": 254991808
+    },
+    {
+      "kernel": "mix",
+      "variant": "09",
+      "compileMs": 4.492667,
+      "executableBytes": 67504
+    },
+    {
+      "kernel": "mix",
+      "variant": "10-default",
+      "compileMs": 7.333417,
+      "executableBytes": 67520
+    },
+    {
+      "kernel": "mix",
+      "variant": "10-opt",
+      "compileMs": 6.436625,
+      "executableBytes": 67520
+    },
+    {
+      "kernel": "mix",
+      "trial": 0,
+      "variant": "10-default",
+      "elapsedMs": 30.014459,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 0,
+      "variant": "clang-O2",
+      "elapsedMs": 9.170167,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 0,
+      "variant": "10-opt",
+      "elapsedMs": 16.6075,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 0,
+      "variant": "python-reference",
+      "elapsedMs": 313.675917,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 0,
+      "variant": "09",
+      "elapsedMs": 30.101583,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 1,
+      "variant": "python-reference",
+      "elapsedMs": 334.780583,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 1,
+      "variant": "09",
+      "elapsedMs": 31.578458,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 1,
+      "variant": "clang-O2",
+      "elapsedMs": 8.44225,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 1,
+      "variant": "10-opt",
+      "elapsedMs": 19.573041,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 1,
+      "variant": "10-default",
+      "elapsedMs": 34.623041,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 2,
+      "variant": "09",
+      "elapsedMs": 32.662916,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 2,
+      "variant": "python-reference",
+      "elapsedMs": 318.848417,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 2,
+      "variant": "10-opt",
+      "elapsedMs": 17.959625,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 2,
+      "variant": "clang-O2",
+      "elapsedMs": 7.776,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 2,
+      "variant": "10-default",
+      "elapsedMs": 29.526167,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 3,
+      "variant": "10-opt",
+      "elapsedMs": 15.789708,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 3,
+      "variant": "clang-O2",
+      "elapsedMs": 7.362417,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 3,
+      "variant": "09",
+      "elapsedMs": 28.971042,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 3,
+      "variant": "python-reference",
+      "elapsedMs": 334.751292,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 3,
+      "variant": "10-default",
+      "elapsedMs": 28.445166,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 4,
+      "variant": "python-reference",
+      "elapsedMs": 320.010417,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 4,
+      "variant": "10-default",
+      "elapsedMs": 29.556917,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 4,
+      "variant": "clang-O2",
+      "elapsedMs": 8.106292,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 4,
+      "variant": "09",
+      "elapsedMs": 29.848542,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 4,
+      "variant": "10-opt",
+      "elapsedMs": 15.894667,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 5,
+      "variant": "python-reference",
+      "elapsedMs": 286.748917,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 5,
+      "variant": "10-opt",
+      "elapsedMs": 15.483792,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 5,
+      "variant": "09",
+      "elapsedMs": 26.411459,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 5,
+      "variant": "10-default",
+      "elapsedMs": 26.497417,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 5,
+      "variant": "clang-O2",
+      "elapsedMs": 7.342917,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 6,
+      "variant": "10-opt",
+      "elapsedMs": 13.977125,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 6,
+      "variant": "10-default",
+      "elapsedMs": 26.445875,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 6,
+      "variant": "python-reference",
+      "elapsedMs": 273.959708,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 6,
+      "variant": "09",
+      "elapsedMs": 26.450375,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 6,
+      "variant": "clang-O2",
+      "elapsedMs": 6.796334,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 7,
+      "variant": "10-opt",
+      "elapsedMs": 13.878625,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 7,
+      "variant": "09",
+      "elapsedMs": 26.691333,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 7,
+      "variant": "clang-O2",
+      "elapsedMs": 7.343167,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 7,
+      "variant": "python-reference",
+      "elapsedMs": 294.174959,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 7,
+      "variant": "10-default",
+      "elapsedMs": 27.080792,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 8,
+      "variant": "python-reference",
+      "elapsedMs": 284.506958,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 8,
+      "variant": "09",
+      "elapsedMs": 29.921708,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 8,
+      "variant": "10-default",
+      "elapsedMs": 29.32625,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 8,
+      "variant": "10-opt",
+      "elapsedMs": 14.705416,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "mix",
+      "trial": 8,
+      "variant": "clang-O2",
+      "elapsedMs": 7.505625,
+      "checksum": 2495175936
+    },
+    {
+      "kernel": "branches",
+      "variant": "09",
+      "compileMs": 5.445125,
+      "executableBytes": 67520
+    },
+    {
+      "kernel": "branches",
+      "variant": "10-default",
+      "compileMs": 5.018625,
+      "executableBytes": 67520
+    },
+    {
+      "kernel": "branches",
+      "variant": "10-opt",
+      "compileMs": 4.430917,
+      "executableBytes": 67520
+    },
+    {
+      "kernel": "branches",
+      "trial": 0,
+      "variant": "10-default",
+      "elapsedMs": 14.003333,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 0,
+      "variant": "clang-O2",
+      "elapsedMs": 7.237959,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 0,
+      "variant": "10-opt",
+      "elapsedMs": 10.722875,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 0,
+      "variant": "python-reference",
+      "elapsedMs": 182.762833,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 0,
+      "variant": "09",
+      "elapsedMs": 14.939542,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 1,
+      "variant": "python-reference",
+      "elapsedMs": 202.101542,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 1,
+      "variant": "09",
+      "elapsedMs": 20.7455,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 1,
+      "variant": "clang-O2",
+      "elapsedMs": 5.34925,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 1,
+      "variant": "10-opt",
+      "elapsedMs": 11.400125,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 1,
+      "variant": "10-default",
+      "elapsedMs": 16.281084,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 2,
+      "variant": "09",
+      "elapsedMs": 20.882084,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 2,
+      "variant": "python-reference",
+      "elapsedMs": 229.264833,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 2,
+      "variant": "10-opt",
+      "elapsedMs": 9.20075,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 2,
+      "variant": "clang-O2",
+      "elapsedMs": 5.120292,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 2,
+      "variant": "10-default",
+      "elapsedMs": 16.07475,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 3,
+      "variant": "10-opt",
+      "elapsedMs": 13.015292,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 3,
+      "variant": "clang-O2",
+      "elapsedMs": 5.954666,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 3,
+      "variant": "09",
+      "elapsedMs": 15.920458,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 3,
+      "variant": "python-reference",
+      "elapsedMs": 208.129084,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 3,
+      "variant": "10-default",
+      "elapsedMs": 16.104208,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 4,
+      "variant": "python-reference",
+      "elapsedMs": 206.57,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 4,
+      "variant": "10-default",
+      "elapsedMs": 14.261208,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 4,
+      "variant": "clang-O2",
+      "elapsedMs": 4.871875,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 4,
+      "variant": "09",
+      "elapsedMs": 15.809708,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 4,
+      "variant": "10-opt",
+      "elapsedMs": 9.761875,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 5,
+      "variant": "python-reference",
+      "elapsedMs": 193.683792,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 5,
+      "variant": "10-opt",
+      "elapsedMs": 10.804583,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 5,
+      "variant": "09",
+      "elapsedMs": 14.179333,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 5,
+      "variant": "10-default",
+      "elapsedMs": 14.53625,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 5,
+      "variant": "clang-O2",
+      "elapsedMs": 5.038042,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 6,
+      "variant": "10-opt",
+      "elapsedMs": 10.242709,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 6,
+      "variant": "10-default",
+      "elapsedMs": 14.615667,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 6,
+      "variant": "python-reference",
+      "elapsedMs": 211.546458,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 6,
+      "variant": "09",
+      "elapsedMs": 16.408667,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 6,
+      "variant": "clang-O2",
+      "elapsedMs": 6.869,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 7,
+      "variant": "10-opt",
+      "elapsedMs": 9.023292,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 7,
+      "variant": "09",
+      "elapsedMs": 16.0845,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 7,
+      "variant": "clang-O2",
+      "elapsedMs": 5.031542,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 7,
+      "variant": "python-reference",
+      "elapsedMs": 233.945541,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 7,
+      "variant": "10-default",
+      "elapsedMs": 15.715,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 8,
+      "variant": "python-reference",
+      "elapsedMs": 209.508916,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 8,
+      "variant": "09",
+      "elapsedMs": 16.071209,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 8,
+      "variant": "10-default",
+      "elapsedMs": 16.008292,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 8,
+      "variant": "10-opt",
+      "elapsedMs": 8.406416,
+      "checksum": 27500000
+    },
+    {
+      "kernel": "branches",
+      "trial": 8,
+      "variant": "clang-O2",
+      "elapsedMs": 9.135375,
+      "checksum": 27500000
+    }
+  ],
+  "kernels": [
+    {
+      "name": "accumulate",
+      "iterations": 2000000,
+      "checksum": 254991808,
+      "medianMs": {
+        "09": 14.333625,
+        "10-default": 15.184834,
+        "10-opt": 11.969916,
+        "clang-O2": 5.349,
+        "python-reference": 181.976083
+      }
+    },
+    {
+      "name": "mix",
+      "iterations": 2000000,
+      "checksum": 2495175936,
+      "medianMs": {
+        "09": 29.848542,
+        "10-default": 29.32625,
+        "10-opt": 15.789708,
+        "clang-O2": 7.505625,
+        "python-reference": 313.675917
+      }
+    },
+    {
+      "name": "branches",
+      "iterations": 2000000,
+      "checksum": 27500000,
+      "medianMs": {
+        "09": 16.071209,
+        "10-default": 15.715,
+        "10-opt": 10.242709,
+        "clang-O2": 5.34925,
+        "python-reference": 208.129084
+      }
+    }
+  ],
+  "mcp": {
+    "source": "rf2 v1 checked\nbits input",
+    "inputWords": 64,
+    "calls": 100,
+    "expected": 192,
+    "medianUs": {
+      "09": 62.3125,
+      "10": 52.4585,
+      "10-compact": 50.5835
+    },
+    "rawUs": {
+      "09": [
+        641.167,
+        73.083,
+        57.042,
+        62.875,
+        53.125,
+        56.333,
+        58.542,
+        51.667,
+        71.458,
+        64.25,
+        59.792,
+        53.875,
+        54.0,
+        57.458,
+        56.959,
+        70.417,
+        54.042,
+        52.916,
+        51.833,
+        107.584,
+        62.167,
+        62.958,
+        56.291,
+        57.666,
+        60.791,
+        85.75,
+        68.458,
+        63.958,
+        62.166,
+        64.291,
+        68.791,
+        62.416,
+        70.042,
+        61.917,
+        60.625,
+        52.375,
+        72.875,
+        66.333,
+        67.208,
+        63.209,
+        56.459,
+        52.75,
+        50.625,
+        107.0,
+        58.333,
+        66.042,
+        78.75,
+        58.917,
+        58.583,
+        63.667,
+        62.833,
+        62.833,
+        62.458,
+        62.209,
+        63.416,
+        61.0,
+        114.083,
+        57.042,
+        65.292,
+        74.417,
+        109.542,
+        70.583,
+        65.459,
+        75.917,
+        58.875,
+        65.25,
+        72.958,
+        63.958,
+        54.416,
+        82.958,
+        53.667,
+        56.5,
+        58.958,
+        49.583,
+        56.083,
+        49.292,
+        49.625,
+        51.75,
+        55.375,
+        49.541,
+        65.666,
+        74.541,
+        67.125,
+        69.083,
+        62.958,
+        65.334,
+        62.084,
+        60.959,
+        61.458,
+        61.875,
+        65.167,
+        60.792,
+        61.709,
+        68.667,
+        63.667,
+        63.792,
+        71.042,
+        65.084,
+        62.084,
+        57.167
+      ],
+      "10": [
+        624.208,
+        53.0,
+        43.834,
+        44.625,
+        44.25,
+        41.75,
+        44.0,
+        43.458,
+        95.083,
+        53.208,
+        47.833,
+        45.083,
+        55.292,
+        44.5,
+        45.709,
+        58.166,
+        56.375,
+        44.25,
+        47.292,
+        44.0,
+        50.209,
+        53.125,
+        47.0,
+        46.875,
+        86.083,
+        62.959,
+        54.834,
+        53.916,
+        52.417,
+        54.375,
+        53.916,
+        52.667,
+        52.042,
+        52.333,
+        53.25,
+        91.666,
+        59.666,
+        52.708,
+        53.083,
+        57.916,
+        51.667,
+        46.541,
+        52.5,
+        55.458,
+        48.875,
+        45.625,
+        86.709,
+        49.375,
+        49.667,
+        46.625,
+        47.834,
+        46.792,
+        48.958,
+        47.667,
+        52.333,
+        62.417,
+        57.292,
+        75.667,
+        69.083,
+        47.334,
+        73.125,
+        67.708,
+        62.0,
+        57.083,
+        47.958,
+        85.292,
+        55.792,
+        52.708,
+        60.541,
+        48.334,
+        51.333,
+        41.833,
+        41.625,
+        84.709,
+        44.958,
+        56.083,
+        41.333,
+        41.292,
+        45.209,
+        49.209,
+        45.084,
+        71.042,
+        59.084,
+        52.875,
+        54.25,
+        51.5,
+        53.208,
+        51.625,
+        52.292,
+        53.333,
+        52.25,
+        52.584,
+        52.0,
+        52.0,
+        52.667,
+        54.959,
+        73.125,
+        59.375,
+        52.916,
+        42.125
+      ],
+      "10-compact": [
+        77.542,
+        64.542,
+        43.708,
+        43.458,
+        44.458,
+        41.125,
+        42.083,
+        95.875,
+        72.167,
+        47.916,
+        45.5,
+        52.0,
+        48.0,
+        126.667,
+        56.667,
+        61.75,
+        51.0,
+        42.208,
+        47.083,
+        76.5,
+        48.333,
+        50.334,
+        46.292,
+        52.708,
+        100.042,
+        71.5,
+        56.209,
+        50.667,
+        50.208,
+        48.916,
+        83.417,
+        54.917,
+        81.25,
+        51.75,
+        65.916,
+        89.916,
+        63.583,
+        59.208,
+        51.083,
+        56.875,
+        47.917,
+        48.792,
+        50.209,
+        47.041,
+        48.459,
+        45.75,
+        57.666,
+        49.083,
+        46.0,
+        45.792,
+        50.042,
+        46.042,
+        45.917,
+        46.25,
+        45.958,
+        51.459,
+        98.042,
+        63.542,
+        51.167,
+        43.875,
+        42.25,
+        60.208,
+        57.292,
+        70.958,
+        60.208,
+        78.625,
+        55.458,
+        51.25,
+        51.917,
+        41.875,
+        43.792,
+        41.125,
+        41.166,
+        41.916,
+        48.583,
+        42.416,
+        40.833,
+        47.291,
+        53.0,
+        41.042,
+        42.875,
+        86.833,
+        52.791,
+        51.167,
+        50.542,
+        61.5,
+        50.625,
+        48.875,
+        49.417,
+        49.042,
+        51.667,
+        49.25,
+        49.0,
+        52.833,
+        50.292,
+        53.292,
+        67.208,
+        68.375,
+        71.125,
+        44.0
+      ]
+    },
+    "catalogByteIdentical": true,
+    "tokens": {
+      "o200k_base": {
+        "09": 23877,
+        "10": 23877,
+        "10-compact": 22277
+      },
+      "cl100k_base": {
+        "09": 23854,
+        "10": 23854,
+        "10-compact": 22254
+      }
+    },
+    "compactScope": "Only successful check/run readable summaries omitted by explicit --compact. Complete structured results, schemas and errors retained. Lowered source and other tools unchanged."
+  },
+  "sourceTokens": {
+    "o200k_base": {
+      "main": 122,
+      "bundle": 1369
+    },
+    "cl100k_base": {
+      "main": 121,
+      "bundle": 1367
+    }
+  },
+  "releaseCompilerSHA256": "8a9b5d4a5ff833514d631c40a46bd7db19c6bbdf416d60da9f40deaa208664c3",
+  "releaseCompilerDelta": "Final compiler corrects usage newline and accepts CRLF entry profile in imported graphs; four unsigned default/opt legacy/record comparisons match the measured compiler. Release runtime reproduced byte-identically using final compiler.",
+  "releaseCompilerUnsignedComparisonCases": 4,
+  "crlfModuleExecution": true,
+  "host": {
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "clang": "Apple clang version 21.0.0 (clang-2100.1.1.101)"
+  },
+  "metadataCapturedUTC": "2026-11-12T03:12:56.551594+00:00"
+}

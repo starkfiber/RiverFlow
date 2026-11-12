@@ -1,0 +1,33 @@
+module workload
+use "lib/io.rf2"
+record Job(id: u64, duration: u64, deadline: u64)
+record Summary(count: u64, late: u64, elapsed: u64, peak: u64)
+fn workload_accept(job: Job, summary: Summary)
+ if (job.id == 0) | (job.duration == 0) | (job.deadline == 0)
+  return io_fail("Job values must be positive")
+ end
+ let next = summary.elapsed + job.duration
+ if next < summary.elapsed
+  return io_fail("Elapsed tick overflow")
+ end
+ set summary.elapsed = next
+ set summary.count = summary.count + 1
+ if next > job.deadline
+  set summary.late = summary.late + 1
+ end
+ if job.duration > summary.peak
+  set summary.peak = job.duration
+ end
+ return 0
+end
+fn workload_json(summary: Summary)
+ do io_print("{\"policy\":\"input-order\",\"jobs\":")
+ do io_number(summary.count)
+ do io_print(",\"late\":")
+ do io_number(summary.late)
+ do io_print(",\"elapsed_ticks\":")
+ do io_number(summary.elapsed)
+ do io_print(",\"peak_job_ticks\":")
+ do io_number(summary.peak)
+ return io_print("}\n")
+end

@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "recordExecutions": 60,
+  "recordRefusals": 44,
+  "moduleRefusals": 13,
+  "workloadCases": 60,
+  "workloadRefusals": 13,
+  "old09Comparisons": 150,
+  "optimizedComparisons": 75,
+  "compilerSHA256": "8a9b5d4a5ff833514d631c40a46bd7db19c6bbdf416d60da9f40deaa208664c3",
+  "scope": "Bounded local source imports, nominal u64 records and trusted CSV analyser. No independent memory-safety audit or universal language compatibility claim."
+}

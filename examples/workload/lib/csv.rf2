@@ -1,0 +1,93 @@
+module csv
+use "lib/io.rf2"
+use "lib/workload.rf2"
+fn csv_state()
+ return buffer("csv_state", 24)
+end
+fn csv_load(path)
+ let fd = open(path, 256, 0)
+ if fd >= 9223372036854775808
+  return io_fail("Cannot open workload")
+ end
+ let p = buffer("csv_input", 65537)
+ let n = 0
+ let amount = 0
+ while n < 65537
+  set amount = read(fd, p + n, 65537 - n)
+  if amount >= 9223372036854775808
+   do close(fd)
+   return io_fail("Cannot read workload")
+  end
+  if amount == 0
+   do close(fd)
+   if n > 65536
+    return io_fail("Workload file exceeds 65536 bytes")
+   end
+   do store64(csv_state(), n)
+   do store64(csv_state() + 8, 0)
+   do store64(csv_state() + 16, 0)
+   return 0
+  end
+  set n = n + amount
+ end
+ do close(fd)
+ return io_fail("Workload file exceeds 65536 bytes")
+end
+fn csv_number(separator)
+ let state = csv_state()
+ let n = load64(state)
+ let i = load64(state + 8)
+ let start = i
+ let value = 0
+ let p = buffer("csv_input", 65537)
+ let c = 0
+ while i < n
+  set c = load8(p + i)
+  if (c < 48) | (c > 57)
+   if (c == separator) | ((separator == 10) & (c == 13))
+    if i == start
+     return io_fail("Missing CSV number")
+    end
+    if (i - start > 1) & (load8(p + start) == 48)
+     return io_fail("Noncanonical CSV number")
+    end
+    if c == 13
+     if (i + 1 >= n) | (load8(p + i + 1) != 10)
+      return io_fail("Expected CRLF")
+     end
+     set i = i + 1
+    end
+    do store64(state + 8, i + 1)
+    return value
+   end
+   return io_fail("Invalid CSV number or separator")
+  end
+  set value = value * 10 + c - 48
+  if (value > 4294967295) | (i - start >= 10)
+   return io_fail("CSV number exceeds u32")
+  end
+  set i = i + 1
+ end
+ if (separator != 10) | (i == start)
+  return io_fail("Incomplete CSV row")
+ end
+ if (i - start > 1) & (load8(p + start) == 48)
+  return io_fail("Noncanonical CSV number")
+ end
+ do store64(state + 8, i)
+ return value
+end
+fn csv_next(job: Job)
+ let state = csv_state()
+ if load64(state + 8) == load64(state)
+  return 0
+ end
+ if load64(state + 16) >= 1000
+  return io_fail("Workload exceeds 1000 jobs")
+ end
+ set job.id = csv_number(44)
+ set job.duration = csv_number(44)
+ set job.deadline = csv_number(10)
+ do store64(state + 16, load64(state + 16) + 1)
+ return 1
+end

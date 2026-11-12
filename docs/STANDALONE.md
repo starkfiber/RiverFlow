@@ -1,4 +1,4 @@
-# Standalone RiverFlow 0.9
+# Standalone RiverFlow 0.10
 
 Experimental native tools for Apple Silicon Mac. Users need no Node, npm, Python or C++ runtime. The minimum encoded OS target is macOS 14; actual execution is qualified on the recorded local Apple Silicon Mac, not every OS version or device. Binaries are ad-hoc signed, not notarized.
 
@@ -64,3 +64,7 @@ Release 0.8: nine runtime modules; 256-function systems compiler; explicit CLI i
 ## Graphical workspace and platform layer
 
 Run `./rf2 editor --open` or open RiverFlow Studio.app. The RF2 controller renders standard browser forms, validates exact cents and exports the same document/PDF format. See GRAPHICAL-EDITOR.md, PLATFORM-ABI.md and STUDIO-MEASUREMENTS.md. The trusted systems syscall and fork primitives do not expand bounded MCP permissions. Ten RF2 modules form the runtime.
+
+## Local modules and records
+
+Read MODULES-TYPES.md. Build examples/workload/main.rf2 with tools/build-program.sh and the supplied compiler. The new records/module grammar belongs to the trusted systems compiler, not bounded Core/MCP. Optional --opt changes code generation; the distributed runtime uses it. Optional mcp --compact retains structured data and errors while omitting redundant successful Core summaries. See COMPACT-MCP.md and LANGUAGE-MEASUREMENTS.md.
