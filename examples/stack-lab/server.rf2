@@ -282,7 +282,7 @@ fn main(argc,argv)
   do close(server)
   return 3
  end
- do write(1,"RF2 loopback server: http://127.0.0.1:18780/\n",43)
+ do write(1,"RF2 loopback server: http://127.0.0.1:18780/\n",45)
  while 1
   let fd=syscall6(30,server,0,0,0,0,0)
   if fd<9223372036854775808

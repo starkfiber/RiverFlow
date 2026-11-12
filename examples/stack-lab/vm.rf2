@@ -37,7 +37,7 @@ fn drive(dst,p,suffix)
 end
 fn main(argc,argv)
  if argc!=5
-  do write(2,"Usage: rf2-vm qemu firmware guest-overlay seed-iso\n",48)
+  do write(2,"Usage: rf2-vm qemu firmware guest-overlay seed-iso\n",51)
   return 1
  end
  let disk=buffer("disk",1200)

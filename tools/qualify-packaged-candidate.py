@@ -1,6 +1,6 @@
 """Qualify the exact checked-in development archive on the executing ARM Mac."""
 from pathlib import Path,PurePosixPath
-import tarfile,json,hashlib,subprocess,tempfile,os,platform,time,struct
+import tarfile,json,hashlib,subprocess,tempfile,os,platform,time,struct,select,urllib.request
 R=Path(__file__).resolve().parents[1];D=R/'artifacts/second-host';D.mkdir(exist_ok=True,parents=True);directory=R/'dist/0.18-candidate';archive=directory/'rf2-trust-0.18.0-candidate-macos-arm64.tar.gz';expected=(directory/'SHA256SUMS.txt').read_text().split()[0];assert hashlib.sha256(archive.read_bytes()).hexdigest()==expected
 report={'archiveSHA256':expected,'system':platform.platform(),'architecture':platform.machine(),'commands':[],'passed':False};assert platform.system()=='Darwin'and platform.machine()=='arm64'
 with tempfile.TemporaryDirectory(prefix='rf2-package-')as tmp:
@@ -24,5 +24,16 @@ with tempfile.TemporaryDirectory(prefix='rf2-package-')as tmp:
  env=dict(os.environ,RF2_TRUST_DIR=str(root))
  for script in ['trust_verify.py','trust_protocol_keys.py']:
   start=time.monotonic();p=subprocess.run(['python3',str(R/'tests/standalone'/script)],env=env,cwd=R,capture_output=True,timeout=60);report['commands'].append({'script':script,'exit':p.returncode,'seconds':time.monotonic()-start,'stdout':p.stdout.decode(),'stderr':p.stderr.decode()});assert p.returncode==0,report['commands'][-1]
+ # Validate exact native website on this host; no Node or Python child runtime.
+ site=subprocess.Popen([root/'rf2-site'],stdout=subprocess.PIPE,stderr=subprocess.PIPE,env={'PATH':'/nonexistent'})
+ try:
+  assert select.select([site.stdout],[],[],5)[0],'native startup timeout'
+  assert site.stdout.readline()==b'RF2 loopback server: http://127.0.0.1:18780/\n'
+  for path,expected in [('/health',b'{"ok":true}\n'),('/api/compute?iterations=10000',b'{"iterations":10000,"checksum":21361410878536,"state":4089345937}\n'),('/',(root/'examples/stack-lab/index.html').read_bytes())]:
+   with urllib.request.urlopen('http://127.0.0.1:18780'+path,timeout=3)as response:assert response.status==200 and response.read()==expected
+  report['nativeWebsitePassed']=True
+ finally:
+  site.terminate();site.wait(timeout=3)
+ usage=subprocess.run([root/'rf2-vm'],capture_output=True,timeout=3,env={'PATH':'/nonexistent'});assert usage.returncode==1 and usage.stderr==b'Usage: rf2-vm qemu firmware guest-overlay seed-iso\n';report['controllerUsagePassed']=True;report['VMHardwareTestedHere']=False
  report['passed']=True
 (D/'exact-package.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
