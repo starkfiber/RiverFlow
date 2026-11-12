@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "executedCases": 5,
+  "arityRefusals": 4,
+  "nativeReferenceImagesMatch": true,
+  "compilerSHA256": "8c62af26581c48f617cad29a71b7a7f6f8f37823624def248a1cde8d66ac3585",
+  "scope": "Trusted macOS ARM64 systems-only syscall primitive; not a Core/MCP permission expansion, portable ABI or direct transistor-control proof"
+}

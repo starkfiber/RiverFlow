@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "oracleCases": 340,
+  "old10Comparisons": 340,
+  "guards": "Final u32 mask and polynomial/bitwise-only expression; divisions, right shifts and comparisons retain u64 evaluation.",
+  "compilerSHA256": "8c62af26581c48f617cad29a71b7a7f6f8f37823624def248a1cde8d66ac3585"
+}

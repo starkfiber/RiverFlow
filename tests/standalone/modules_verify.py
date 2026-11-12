@@ -1,7 +1,7 @@
 """Execute records/modules and compare observed behavior with independent expectations."""
 from pathlib import Path
 import subprocess,tempfile,json,random,hashlib,os,sys
-R=Path(__file__).resolve().parents[2];C=Path(os.environ.get('RF2_TEST_COMPILER',R/'output/native-compiler/rf2c'));OLD=Path(os.environ.get('RF2_BASELINE_COMPILER',R/'output/package/rf2-0.9.0/rf2c'));report={'passed':False,'recordExecutions':0,'recordRefusals':0,'moduleRefusals':0,'workloadCases':0,'workloadRefusals':0,'old09Comparisons':0,'optimizedComparisons':0}
+R=Path(__file__).resolve().parents[2];C=Path(os.environ.get('RF2_TEST_COMPILER',R/'output/native-compiler/rf2c'));OLD=Path(os.environ.get('RF2_BASELINE_COMPILER',R/'output/package/rf2-0.10.0/rf2c'));report={'passed':False,'recordExecutions':0,'recordRefusals':0,'moduleRefusals':0,'workloadCases':0,'workloadRefusals':0,'baselineComparisons':0,'optimizedComparisons':0}
 def compile(src,out,opt=False,good=True):
  p=subprocess.run([C,src,out]+(['--opt']if opt else[]),capture_output=True,timeout=30,env={'PATH':'/nonexistent'})
  if good:
@@ -48,7 +48,7 @@ with tempfile.TemporaryDirectory(prefix='rf2-modules10-')as tmp:
   a=rng.randrange(100000);b=rng.randrange(0,65);op=ops[i%len(ops)];expr=f'({a} {op} {b})';expr+=' + helper(3)'if i%2 else''
   src=d/f'legacy{i}.rf2';src.write_text('profile RF2_SYSTEM_A64_V1\nfn helper(a)\n return a*7\nend\nfn main(argc,argv)\n return '+expr+'\nend\n');old=d/f'old{i}';subprocess.run([OLD,src,old],check=True,capture_output=True);subprocess.run(['/usr/bin/codesign','-s','-',old],check=True,capture_output=True);expected=subprocess.run([old]).returncode
   for opt in [False,True]:
-   out=d/f'new{i}-{opt}';compile(src,out,opt);assert subprocess.run([out]).returncode==expected,(i,opt);report['old09Comparisons']+=1
+   out=d/f'new{i}-{opt}';compile(src,out,opt);assert subprocess.run([out]).returncode==expected,(i,opt);report['baselineComparisons']+=1
    if opt:report['optimizedComparisons']+=1
  # Import DAG, duplicate dependency, cycle, paths, header/declaration and count guards.
  root=d/'project';root.mkdir();(root/'lib').mkdir();entry=root/'main.rf2';lib=root/'lib/a.rf2';other=root/'lib/b.rf2'
@@ -68,4 +68,4 @@ with tempfile.TemporaryDirectory(prefix='rf2-modules10-')as tmp:
  bad=[b'1,0,2\n',b'1,2,0\n',b'0,1,2\n',b'1,2\n',b'1,2,3,4\n',b'01,2,3\n',b'1,-2,3\n',b'1,4294967296,3\n',b'1,2,3\r',b'1,2,3\n\n',b'1,2,3\x00',b'1,1,2\n'*1001,b'X'*65537]
  for i,data in enumerate(bad):
   src=d/f'invalid{i}.csv';src.write_bytes(data);got=subprocess.run([app,src],capture_output=True);assert got.returncode==1 and not got.stdout,(i,got.stdout);report['workloadRefusals']+=1
-report.update(passed=True,compilerSHA256=hashlib.sha256(C.read_bytes()).hexdigest(),scope='Bounded local source imports, nominal u64 records and trusted CSV analyser. No independent memory-safety audit or universal language compatibility claim.');(R/'docs/MODULES-TYPES-0.10-VERIFICATION.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
+report.update(passed=True,compilerSHA256=hashlib.sha256(C.read_bytes()).hexdigest(),scope='Bounded local source imports, nominal u64 records and trusted CSV analyser. No independent memory-safety audit or universal language compatibility claim.');Path(os.environ.get('RF2_TEST_REPORT',str(R/'docs/MODULES-TYPES-0.11-VERIFICATION.json'))).write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

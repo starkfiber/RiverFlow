@@ -1,0 +1,2738 @@
+{
+  "schema": "rf2.optimizer.measurements.v1",
+  "compilerSHA256": "8c62af26581c48f617cad29a71b7a7f6f8f37823624def248a1cde8d66ac3585",
+  "baselineCompilerSHA256": "8a9b5d4a5ff833514d631c40a46bd7db19c6bbdf416d60da9f40deaa208664c3",
+  "host": "macOS-26.5.1-arm64-arm-64bit",
+  "clang": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+  "scope": "Runtime inputs for every variant; fresh-process wall time includes launch. Rotated matched trials. C -O3 -mcpu=native, plus equally specialised C formula. One host, uncontrolled system load; no universal performance or AI inference claim.",
+  "raw": [
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "variant": "rf2-0.10",
+      "coldOrWarmupMs": 538.628375,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "variant": "rf2-0.11",
+      "coldOrWarmupMs": 361.357208,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "variant": "clang-O3",
+      "coldOrWarmupMs": 401.089333,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "variant": "clang-formula-O3",
+      "coldOrWarmupMs": 374.412375,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "rf2-0.10",
+      "ms": 2.32075,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "clang-formula-O3",
+      "ms": 2.065917,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "clang-O3",
+      "ms": 2.303917,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "rf2-0.11",
+      "ms": 1.885042,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "rf2-0.10",
+      "ms": 2.07425,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "clang-formula-O3",
+      "ms": 2.609584,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "clang-O3",
+      "ms": 2.208334,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "rf2-0.11",
+      "ms": 1.74825,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "rf2-0.11",
+      "ms": 1.791458,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "rf2-0.10",
+      "ms": 2.090834,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "clang-O3",
+      "ms": 2.486208,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "clang-formula-O3",
+      "ms": 2.258333,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "rf2-0.11",
+      "ms": 1.899167,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "clang-O3",
+      "ms": 1.788667,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "clang-formula-O3",
+      "ms": 1.768541,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "rf2-0.10",
+      "ms": 1.577375,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "rf2-0.11",
+      "ms": 1.670208,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "rf2-0.10",
+      "ms": 1.564291,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "clang-formula-O3",
+      "ms": 1.747292,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "clang-O3",
+      "ms": 1.980709,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "clang-O3",
+      "ms": 1.877042,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "rf2-0.11",
+      "ms": 1.967041,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "rf2-0.10",
+      "ms": 1.707458,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "clang-formula-O3",
+      "ms": 1.688,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "rf2-0.10",
+      "ms": 2.014792,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "clang-formula-O3",
+      "ms": 1.704042,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "clang-O3",
+      "ms": 1.582417,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "rf2-0.11",
+      "ms": 1.644833,
+      "expected": 987782981
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "variant": "rf2-0.10",
+      "coldOrWarmupMs": 4.346,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "variant": "rf2-0.11",
+      "coldOrWarmupMs": 2.7235,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "variant": "clang-O3",
+      "coldOrWarmupMs": 2.504916,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "variant": "clang-formula-O3",
+      "coldOrWarmupMs": 1.794333,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "rf2-0.10",
+      "ms": 4.137458,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "clang-formula-O3",
+      "ms": 2.543208,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "clang-O3",
+      "ms": 2.432959,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "rf2-0.11",
+      "ms": 1.918625,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "rf2-0.10",
+      "ms": 3.963792,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "clang-formula-O3",
+      "ms": 1.593292,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "clang-O3",
+      "ms": 1.794416,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "rf2-0.11",
+      "ms": 1.533375,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "rf2-0.11",
+      "ms": 1.525542,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "rf2-0.10",
+      "ms": 4.61125,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "clang-O3",
+      "ms": 2.475417,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "clang-formula-O3",
+      "ms": 1.713041,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "rf2-0.11",
+      "ms": 1.826708,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "clang-O3",
+      "ms": 1.871041,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "clang-formula-O3",
+      "ms": 1.652333,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "rf2-0.10",
+      "ms": 4.142458,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "rf2-0.11",
+      "ms": 2.159041,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "rf2-0.10",
+      "ms": 7.406708,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "clang-formula-O3",
+      "ms": 1.991,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "clang-O3",
+      "ms": 1.938792,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "clang-O3",
+      "ms": 2.205083,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "rf2-0.11",
+      "ms": 2.307083,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "rf2-0.10",
+      "ms": 3.959417,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "clang-formula-O3",
+      "ms": 1.664875,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "rf2-0.10",
+      "ms": 4.010834,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "clang-formula-O3",
+      "ms": 2.033916,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "clang-O3",
+      "ms": 2.161959,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "rf2-0.11",
+      "ms": 2.445708,
+      "expected": 1242648305
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "variant": "rf2-0.10",
+      "coldOrWarmupMs": 27.842667,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "variant": "rf2-0.11",
+      "coldOrWarmupMs": 2.351417,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "variant": "clang-O3",
+      "coldOrWarmupMs": 4.292167,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "variant": "clang-formula-O3",
+      "coldOrWarmupMs": 2.325333,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "rf2-0.10",
+      "ms": 28.425541,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "clang-formula-O3",
+      "ms": 2.367333,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "clang-O3",
+      "ms": 3.962584,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "rf2-0.11",
+      "ms": 1.842084,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "rf2-0.10",
+      "ms": 24.877584,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "clang-formula-O3",
+      "ms": 2.907833,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "clang-O3",
+      "ms": 3.841208,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "rf2-0.11",
+      "ms": 1.734959,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "rf2-0.11",
+      "ms": 1.737709,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "rf2-0.10",
+      "ms": 24.666125,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "clang-O3",
+      "ms": 4.367916,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "clang-formula-O3",
+      "ms": 2.61125,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "rf2-0.11",
+      "ms": 2.073625,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "clang-O3",
+      "ms": 3.493333,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "clang-formula-O3",
+      "ms": 1.770959,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "rf2-0.10",
+      "ms": 24.616541,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "rf2-0.11",
+      "ms": 2.5995,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "rf2-0.10",
+      "ms": 26.126583,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "clang-formula-O3",
+      "ms": 2.263375,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "clang-O3",
+      "ms": 3.507875,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "clang-O3",
+      "ms": 3.912792,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "rf2-0.11",
+      "ms": 1.858583,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "rf2-0.10",
+      "ms": 24.545833,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "clang-formula-O3",
+      "ms": 2.166667,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "rf2-0.10",
+      "ms": 25.996917,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "clang-formula-O3",
+      "ms": 2.390208,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "clang-O3",
+      "ms": 3.646584,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "rf2-0.11",
+      "ms": 1.824541,
+      "expected": 3537654321
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "variant": "rf2-0.10",
+      "coldOrWarmupMs": 363.970917,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "variant": "rf2-0.11",
+      "coldOrWarmupMs": 377.597459,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "variant": "clang-O3",
+      "coldOrWarmupMs": 366.220583,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "rf2-0.11",
+      "ms": 2.323333,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "rf2-0.10",
+      "ms": 2.108959,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "clang-O3",
+      "ms": 2.242167,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "clang-O3",
+      "ms": 2.486084,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "rf2-0.11",
+      "ms": 1.95375,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "rf2-0.10",
+      "ms": 1.855584,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "rf2-0.10",
+      "ms": 1.884333,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "rf2-0.11",
+      "ms": 2.457917,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "clang-O3",
+      "ms": 2.222333,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "rf2-0.11",
+      "ms": 1.79825,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "clang-O3",
+      "ms": 1.778041,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "rf2-0.10",
+      "ms": 1.8085,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "rf2-0.10",
+      "ms": 1.809334,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "rf2-0.11",
+      "ms": 1.677917,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "clang-O3",
+      "ms": 1.681916,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "rf2-0.10",
+      "ms": 1.484291,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "rf2-0.11",
+      "ms": 1.851583,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "clang-O3",
+      "ms": 1.757,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "clang-O3",
+      "ms": 1.680334,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "rf2-0.11",
+      "ms": 1.933125,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "rf2-0.10",
+      "ms": 2.247084,
+      "expected": 1399366817
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "variant": "rf2-0.10",
+      "coldOrWarmupMs": 8.128459,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "variant": "rf2-0.11",
+      "coldOrWarmupMs": 4.635292,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "variant": "clang-O3",
+      "coldOrWarmupMs": 4.182667,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "rf2-0.11",
+      "ms": 3.608583,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "rf2-0.10",
+      "ms": 7.654375,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "clang-O3",
+      "ms": 3.954166,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "clang-O3",
+      "ms": 3.669167,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "rf2-0.11",
+      "ms": 4.014167,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "rf2-0.10",
+      "ms": 7.562708,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "rf2-0.10",
+      "ms": 7.870875,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "rf2-0.11",
+      "ms": 4.284791,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "clang-O3",
+      "ms": 4.353042,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "rf2-0.11",
+      "ms": 3.915375,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "clang-O3",
+      "ms": 3.984084,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "rf2-0.10",
+      "ms": 7.618042,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "rf2-0.10",
+      "ms": 7.114458,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "rf2-0.11",
+      "ms": 4.47125,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "clang-O3",
+      "ms": 4.280667,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "rf2-0.10",
+      "ms": 7.730375,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "rf2-0.11",
+      "ms": 7.70775,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "clang-O3",
+      "ms": 4.466625,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "clang-O3",
+      "ms": 4.094709,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "rf2-0.11",
+      "ms": 4.46425,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "rf2-0.10",
+      "ms": 7.719584,
+      "expected": 4238526769
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "variant": "rf2-0.10",
+      "coldOrWarmupMs": 60.254666,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "variant": "rf2-0.11",
+      "coldOrWarmupMs": 22.726959,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "variant": "clang-O3",
+      "coldOrWarmupMs": 22.541666,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "rf2-0.11",
+      "ms": 21.734208,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "rf2-0.10",
+      "ms": 56.186458,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "clang-O3",
+      "ms": 21.604584,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "clang-O3",
+      "ms": 21.471125,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "rf2-0.11",
+      "ms": 20.945792,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "rf2-0.10",
+      "ms": 55.882,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "rf2-0.10",
+      "ms": 59.735667,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "rf2-0.11",
+      "ms": 25.979792,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "clang-O3",
+      "ms": 23.587208,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "rf2-0.11",
+      "ms": 26.223292,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "clang-O3",
+      "ms": 22.364875,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "rf2-0.10",
+      "ms": 65.731417,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "rf2-0.10",
+      "ms": 61.249375,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "rf2-0.11",
+      "ms": 23.279542,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "clang-O3",
+      "ms": 22.306166,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "rf2-0.10",
+      "ms": 56.866667,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "rf2-0.11",
+      "ms": 21.263042,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "clang-O3",
+      "ms": 22.232041,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "clang-O3",
+      "ms": 21.775,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "rf2-0.11",
+      "ms": 22.495834,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "rf2-0.10",
+      "ms": 57.312042,
+      "expected": 3582260657
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "variant": "rf2-0.10",
+      "coldOrWarmupMs": 386.8965,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "variant": "rf2-0.11",
+      "coldOrWarmupMs": 384.367542,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "variant": "clang-O3",
+      "coldOrWarmupMs": 387.388791,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "rf2-0.11",
+      "ms": 5.824541,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "rf2-0.10",
+      "ms": 5.537584,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "clang-O3",
+      "ms": 4.465542,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "clang-O3",
+      "ms": 3.19375,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "rf2-0.11",
+      "ms": 3.458875,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "rf2-0.10",
+      "ms": 3.396541,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "rf2-0.10",
+      "ms": 2.714,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "rf2-0.11",
+      "ms": 2.427209,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "clang-O3",
+      "ms": 2.190375,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "rf2-0.11",
+      "ms": 2.5505,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "clang-O3",
+      "ms": 2.208708,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "rf2-0.10",
+      "ms": 3.063625,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "rf2-0.10",
+      "ms": 2.271708,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "rf2-0.11",
+      "ms": 2.401791,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "clang-O3",
+      "ms": 2.427709,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "rf2-0.10",
+      "ms": 2.756875,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "rf2-0.11",
+      "ms": 2.317459,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "clang-O3",
+      "ms": 2.560291,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "clang-O3",
+      "ms": 2.338208,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "rf2-0.11",
+      "ms": 2.107875,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "rf2-0.10",
+      "ms": 1.9275,
+      "expected": 987668095
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "variant": "rf2-0.10",
+      "coldOrWarmupMs": 4.277958,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "variant": "rf2-0.11",
+      "coldOrWarmupMs": 4.326292,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "variant": "clang-O3",
+      "coldOrWarmupMs": 2.337208,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "rf2-0.11",
+      "ms": 3.533125,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "rf2-0.10",
+      "ms": 4.147209,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "clang-O3",
+      "ms": 2.300958,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "clang-O3",
+      "ms": 2.553209,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "rf2-0.11",
+      "ms": 4.154583,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "rf2-0.10",
+      "ms": 4.017125,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "rf2-0.10",
+      "ms": 3.770292,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "rf2-0.11",
+      "ms": 3.864083,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "clang-O3",
+      "ms": 2.491417,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "rf2-0.11",
+      "ms": 4.007583,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "clang-O3",
+      "ms": 2.30075,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "rf2-0.10",
+      "ms": 3.666083,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "rf2-0.10",
+      "ms": 3.716125,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "rf2-0.11",
+      "ms": 3.717833,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "clang-O3",
+      "ms": 2.012834,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "rf2-0.10",
+      "ms": 3.433084,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "rf2-0.11",
+      "ms": 3.925583,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "clang-O3",
+      "ms": 2.84575,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "clang-O3",
+      "ms": 2.249791,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "rf2-0.11",
+      "ms": 4.046833,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "rf2-0.10",
+      "ms": 3.568125,
+      "expected": 1015154321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "variant": "rf2-0.10",
+      "coldOrWarmupMs": 23.440667,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "variant": "rf2-0.11",
+      "coldOrWarmupMs": 21.210541,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "variant": "clang-O3",
+      "coldOrWarmupMs": 6.919875,
+      "excludedFromMedian": true
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "rf2-0.11",
+      "ms": 22.0425,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "rf2-0.10",
+      "ms": 22.485667,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 0,
+      "variant": "clang-O3",
+      "ms": 6.456917,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "clang-O3",
+      "ms": 6.26425,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "rf2-0.11",
+      "ms": 19.268,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 1,
+      "variant": "rf2-0.10",
+      "ms": 22.530458,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "rf2-0.10",
+      "ms": 22.138291,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "rf2-0.11",
+      "ms": 19.957333,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 2,
+      "variant": "clang-O3",
+      "ms": 6.50375,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "rf2-0.11",
+      "ms": 20.4355,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "clang-O3",
+      "ms": 6.528042,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 3,
+      "variant": "rf2-0.10",
+      "ms": 22.109333,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "rf2-0.10",
+      "ms": 22.566458,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "rf2-0.11",
+      "ms": 20.216292,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 4,
+      "variant": "clang-O3",
+      "ms": 6.708416,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "rf2-0.10",
+      "ms": 22.300334,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "rf2-0.11",
+      "ms": 19.926541,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 5,
+      "variant": "clang-O3",
+      "ms": 6.501416,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "clang-O3",
+      "ms": 6.224125,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "rf2-0.11",
+      "ms": 20.445917,
+      "expected": 1262654321
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "trial": 6,
+      "variant": "rf2-0.10",
+      "ms": 22.762042,
+      "expected": 1262654321
+    }
+  ],
+  "summary": [
+    {
+      "kernel": "periodic",
+      "iterations": 1000,
+      "medianMs": {
+        "rf2-0.10": 2.014792,
+        "rf2-0.11": 1.791458,
+        "clang-O3": 1.980709,
+        "clang-formula-O3": 1.768541
+      },
+      "minMs": {
+        "rf2-0.10": 1.564291,
+        "rf2-0.11": 1.644833,
+        "clang-O3": 1.582417,
+        "clang-formula-O3": 1.688
+      },
+      "maxMs": {
+        "rf2-0.10": 2.32075,
+        "rf2-0.11": 1.967041,
+        "clang-O3": 2.486208,
+        "clang-formula-O3": 2.609584
+      }
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 2000000,
+      "medianMs": {
+        "rf2-0.10": 4.137458,
+        "rf2-0.11": 1.918625,
+        "clang-O3": 2.161959,
+        "clang-formula-O3": 1.713041
+      },
+      "minMs": {
+        "rf2-0.10": 3.959417,
+        "rf2-0.11": 1.525542,
+        "clang-O3": 1.794416,
+        "clang-formula-O3": 1.593292
+      },
+      "maxMs": {
+        "rf2-0.10": 7.406708,
+        "rf2-0.11": 2.445708,
+        "clang-O3": 2.475417,
+        "clang-formula-O3": 2.543208
+      }
+    },
+    {
+      "kernel": "periodic",
+      "iterations": 20000000,
+      "medianMs": {
+        "rf2-0.10": 24.877584,
+        "rf2-0.11": 1.842084,
+        "clang-O3": 3.841208,
+        "clang-formula-O3": 2.367333
+      },
+      "minMs": {
+        "rf2-0.10": 24.545833,
+        "rf2-0.11": 1.734959,
+        "clang-O3": 3.493333,
+        "clang-formula-O3": 1.770959
+      },
+      "maxMs": {
+        "rf2-0.10": 28.425541,
+        "rf2-0.11": 2.5995,
+        "clang-O3": 4.367916,
+        "clang-formula-O3": 2.907833
+      }
+    },
+    {
+      "kernel": "mix",
+      "iterations": 1000,
+      "medianMs": {
+        "rf2-0.10": 1.855584,
+        "rf2-0.11": 1.933125,
+        "clang-O3": 1.778041
+      },
+      "minMs": {
+        "rf2-0.10": 1.484291,
+        "rf2-0.11": 1.677917,
+        "clang-O3": 1.680334
+      },
+      "maxMs": {
+        "rf2-0.10": 2.247084,
+        "rf2-0.11": 2.457917,
+        "clang-O3": 2.486084
+      }
+    },
+    {
+      "kernel": "mix",
+      "iterations": 2000000,
+      "medianMs": {
+        "rf2-0.10": 7.654375,
+        "rf2-0.11": 4.284791,
+        "clang-O3": 4.094709
+      },
+      "minMs": {
+        "rf2-0.10": 7.114458,
+        "rf2-0.11": 3.608583,
+        "clang-O3": 3.669167
+      },
+      "maxMs": {
+        "rf2-0.10": 7.870875,
+        "rf2-0.11": 7.70775,
+        "clang-O3": 4.466625
+      }
+    },
+    {
+      "kernel": "mix",
+      "iterations": 20000000,
+      "medianMs": {
+        "rf2-0.10": 57.312042,
+        "rf2-0.11": 22.495834,
+        "clang-O3": 22.232041
+      },
+      "minMs": {
+        "rf2-0.10": 55.882,
+        "rf2-0.11": 20.945792,
+        "clang-O3": 21.471125
+      },
+      "maxMs": {
+        "rf2-0.10": 65.731417,
+        "rf2-0.11": 26.223292,
+        "clang-O3": 23.587208
+      }
+    },
+    {
+      "kernel": "branches",
+      "iterations": 1000,
+      "medianMs": {
+        "rf2-0.10": 2.756875,
+        "rf2-0.11": 2.427209,
+        "clang-O3": 2.427709
+      },
+      "minMs": {
+        "rf2-0.10": 1.9275,
+        "rf2-0.11": 2.107875,
+        "clang-O3": 2.190375
+      },
+      "maxMs": {
+        "rf2-0.10": 5.537584,
+        "rf2-0.11": 5.824541,
+        "clang-O3": 4.465542
+      }
+    },
+    {
+      "kernel": "branches",
+      "iterations": 2000000,
+      "medianMs": {
+        "rf2-0.10": 3.716125,
+        "rf2-0.11": 3.925583,
+        "clang-O3": 2.300958
+      },
+      "minMs": {
+        "rf2-0.10": 3.433084,
+        "rf2-0.11": 3.533125,
+        "clang-O3": 2.012834
+      },
+      "maxMs": {
+        "rf2-0.10": 4.147209,
+        "rf2-0.11": 4.154583,
+        "clang-O3": 2.84575
+      }
+    },
+    {
+      "kernel": "branches",
+      "iterations": 20000000,
+      "medianMs": {
+        "rf2-0.10": 22.485667,
+        "rf2-0.11": 20.216292,
+        "clang-O3": 6.501416
+      },
+      "minMs": {
+        "rf2-0.10": 22.109333,
+        "rf2-0.11": 19.268,
+        "clang-O3": 6.224125
+      },
+      "maxMs": {
+        "rf2-0.10": 22.762042,
+        "rf2-0.11": 22.0425,
+        "clang-O3": 6.708416
+      }
+    }
+  ],
+  "source": [
+    {
+      "path": "artifacts/performance-0.11-release/periodic.rf2",
+      "sha256": "f21c1d138b985ca10688635187398d2c08a960929be723a83d4f4b22d87e10ab"
+    },
+    {
+      "path": "artifacts/performance-0.11-release/periodic.c",
+      "sha256": "793e28fb8554d87bf45ead5dfe9773065e09e4fec2d6d61f0783b8aea84410c6"
+    },
+    {
+      "path": "artifacts/performance-0.11-release/mix.rf2",
+      "sha256": "b18cacf45f8fa0ef492364e9a1611a247a7fcddd5f6ffb2c7482e2283732ee42"
+    },
+    {
+      "path": "artifacts/performance-0.11-release/mix.c",
+      "sha256": "1049711304a9251c4fd70618a8bc7fcf155226379082389b7dc8ec6ff866bcee"
+    },
+    {
+      "path": "artifacts/performance-0.11-release/branches.rf2",
+      "sha256": "0751629ed805957fef44583b5e421b0c317504983e151ad5ef62ac0a675ae029"
+    },
+    {
+      "path": "artifacts/performance-0.11-release/branches.c",
+      "sha256": "6b17560dac305163dd19e05ad6179e7559941dd6b8253b19941d1a6ce03e1773"
+    }
+  ]
+}

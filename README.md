@@ -8,9 +8,17 @@ Created by **Ilangkhumanan Thirunavokkarasu**. Published by **SFE**.
 
 RiverFlow is a language for readable application plans and explicit systems programming. Its own compiler emits ARM64 machine code. The compiler, runtime, document handlers and new graphical workspace are written in RiverFlow. The AI host supplies intelligence through a bounded MCP interface.
 
-**0.10: modules, records and a workload analyser.** Compose local source files, define named records, pass them to typed functions and compile a complete non-invoice program. The optional optimiser and compact MCP output have measured, bounded benefits.
+**0.11: a substantially improved native optimiser.** Register-resident locals, direct arithmetic, loop rotation, guarded expression coalescing and a proven-form periodic reduction now run through RF2's own ARM64 compiler. Modules, nominal records and the bounded MCP interface remain compatible.
 
-[Download 0.10](https://github.com/starkfiber/RiverFlow/releases/tag/v0.10.0) · [Read the book](https://starkfiber.github.io/RiverFlow/book/) · [Language contracts](docs/MODULES-TYPES.md) · [Benchmarks](docs/LANGUAGE-MEASUREMENTS.md) · [Related projects](docs/RELATED-LANGUAGES.md)
+[Download 0.11](https://github.com/starkfiber/RiverFlow/releases/tag/v0.11.0) · [Read the book](https://starkfiber.github.io/RiverFlow/book/) · [Optimiser contracts](docs/NATIVE-OPTIMIZATION.md) · [Raw comparison](docs/OPTIMIZER-MEASUREMENTS-0.11.json)
+
+| Runtime-input workload, 20 million steps | RF2 0.10 ms | RF2 0.11 ms | Clang O3 ms |
+| --- | --- | --- | --- |
+| periodic | 24.878 | 1.842 | 3.841 |
+| mix | 57.312 | 22.496 | 22.232 |
+| branches | 22.486 | 20.216 | 6.501 |
+
+These are one-host, runtime-input, launch-inclusive medians. The eligible reduction beats the loop-based Clang baseline in this run. An equally specialised C formula and smaller cases remain in the report; startup variation prevents a broad formula-speed conclusion. The branch-heavy gap remains a concrete target. [Methods, guards and limits](docs/NATIVE-OPTIMIZATION.md).
 
 ## Build beyond the first application
 
@@ -109,14 +117,14 @@ The native server exposes nine tools: `rf2_status`, `rf2_check`, `rf2_run`, `rf2
 
 ## Evidence before claims
 
-- Invoice: 630 successful comparisons, 108 comparisons with 0.6 Core, 39 refusals, 200 seeded plan mutations and five CLI cases. [Receipt](docs/INVOICE-0.10-VERIFICATION.json).
-- Core: 1095 execution comparisons and 317 admission checks. [Receipt](docs/GENERAL-CORE-0.10-VERIFICATION.json).
-- Direct kernels: 18 builds and 163 executed cases. [Receipt](docs/DIRECT-KERNEL-0.10-VERIFICATION.json).
-- Compact: 1016 compatibility comparisons, input guards and transport mutations. [Receipt](docs/COMPACT-0.10-VERIFICATION.json).
-- Attendance: 34 successful exports/calendar cases, 45 refusals and three file-protection checks. [Receipt](docs/ATTENDANCE-0.10-VERIFICATION.json).
-- Compiler: native fixed point, independently expected results and full runtime byte comparison with the historical encoder. [Receipt](docs/NATIVE-COMPILER-0.10-VERIFICATION.json).
+- Invoice: 630 successful comparisons, 108 comparisons with 0.6 Core, 39 refusals, 200 seeded plan mutations and five CLI cases. [Receipt](docs/INVOICE-0.11-VERIFICATION.json).
+- Core: 1095 execution comparisons and 317 admission checks. [Receipt](docs/GENERAL-CORE-0.11-VERIFICATION.json).
+- Direct kernels: 18 builds and 163 executed cases. [Receipt](docs/DIRECT-KERNEL-0.11-VERIFICATION.json).
+- Compact: 1016 compatibility comparisons, input guards and transport mutations. [Receipt](docs/COMPACT-0.11-VERIFICATION.json).
+- Attendance: 34 successful exports/calendar cases, 45 refusals and three file-protection checks. [Receipt](docs/ATTENDANCE-0.11-VERIFICATION.json).
+- Compiler: native fixed point, independently expected results and full runtime byte comparison with the historical encoder. [Receipt](docs/NATIVE-COMPILER-0.11-VERIFICATION.json).
 
-The optional 0.10 optimiser improves all three tested native kernels against frozen 0.9; Clang -O2 remains faster. Opt-in `rf2 mcp --compact` reduces the tested complete session's encoded o200k text by 6.70%, retaining structured results and errors. Default MCP output remains compatible. These are local kernel timings and exact interface encodings, not universal speed, model billing or AI code-generation claims. [Raw evidence and method](docs/LANGUAGE-MEASUREMENTS.md).
+The optional 0.11 optimiser has a new matched runtime-input comparison against0.10 and Clang -O3. The results and remaining branch gap are reported above. Opt-in `rf2 mcp --compact` reduces the tested complete session's encoded o200k text by 6.70%, retaining structured results and errors. Default MCP output remains compatible. These are local kernel timings and exact interface encodings, not universal speed, model billing or AI code-generation claims. [Raw evidence and method](docs/LANGUAGE-MEASUREMENTS.md).
 
 Current native qualification is Apple Silicon macOS. There is no independent security audit, universal platform support, field outcome or model council approval. The retained JavaScript/C reference, Python bootstrap/tests and publishing tools are developer dependencies, not user runtime requirements. Naming research projects does not establish hardware integration or scientific novelty.
 
@@ -130,7 +138,7 @@ Current native qualification is Apple Silicon macOS. There is no independent sec
 
 The build composes nine RiverFlow runtime modules. It invokes no Python, Node, C/C++ compiler, assembler or linker. macOS signing and platform interfaces remain external dependencies. The systems compiler now admits at most 256 functions, with accepted upper-bound executions and refusal at 257. [Build scope](docs/NATIVE-COMPILER.md).
 
-The revised book has 22 numbered chapters, worked examples, application contracts, failures and measurements. Original code and text use the MIT licence. Referenced projects and dependencies retain their own licences.
+The revised book has 23 numbered chapters, worked examples, application contracts, failures and measurements. Original code and text use the MIT licence. Referenced projects and dependencies retain their own licences.
 
 ## Why the GitHub language bar looks different
 
@@ -142,8 +150,8 @@ GitHub uses Linguist's supported-language list, which does not yet include River
 
 Kernel 8/9, Developmental AI, Tamil Time Continuum, VOIKE, RU'OS and the human-AI workplace study motivate testable questions. Their names are not implementation evidence. Next: profile large invoice inputs, independently review the compiler/parser, qualify more targets and measure complete AI tasks with real usage receipts. Keep each claim linked to its actual source, test and limitation.
 
-### Release 0.10 qualification
+### Release 0.11 qualification
 
-Module/record tests execute 60 record cases, 150 comparisons with 0.9, 60 independently expected workload cases, 44 type refusals, 13 import refusals and 13 workload refusals. Boundary checks cover 16 fields, 32 record types, 32 source files, import depth and recursive record lifetime. Existing Core, compiler, direct kernel, SDK and application suites were rerun. [Module/type receipt](docs/MODULES-TYPES-0.10-VERIFICATION.json) · [Boundary receipt](docs/MODULE-BOUNDS-0.10.json).
+Module/record tests execute 60 record cases, 150 comparisons with 0.9, 60 independently expected workload cases, 44 type refusals, 13 import refusals and 13 workload refusals. Boundary checks cover 16 fields, 32 record types, 32 source files, import depth and recursive record lifetime. Existing Core, compiler, direct kernel, SDK and application suites were rerun. [Module/type receipt](docs/MODULES-TYPES-0.11-VERIFICATION.json) · [Boundary receipt](docs/MODULE-BOUNDS-0.10.json).
 
 The default MCP mode retains all readable results; `--compact` is for clients that consume structuredContent. It does not expand source/file/network permissions. RF2 does not embed a language model or yet replace the Java, C++, Python or assembly ecosystems.

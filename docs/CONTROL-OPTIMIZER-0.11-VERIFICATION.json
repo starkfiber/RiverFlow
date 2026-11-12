@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "oracleCases": 180,
+  "old10Comparisons": 180,
+  "conditionSideEffectCases": 5,
+  "compilerSHA256": "8c62af26581c48f617cad29a71b7a7f6f8f37823624def248a1cde8d66ac3585",
+  "scope": "Specific alias/call/spill/control-flow/recursive lifetime cases with integer expectations. Not a whole-program correctness proof."
+}

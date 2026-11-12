@@ -1,7 +1,7 @@
 {
   "name": "rf2",
-  "version": "0.10.0",
-  "description": "RF2 local modules, nominal records, measured native optimisation and bounded compact MCP",
+  "version": "0.11.0",
+  "description": "RF2 native register optimisation, guarded reductions, modules, nominal records and bounded MCP",
   "author": {
     "name": "Ilangkhumanan Thirunavokkarasu",
     "url": "https://github.com/starkfiber"

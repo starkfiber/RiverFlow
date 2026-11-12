@@ -978,7 +978,7 @@ fn result()
  return 0
 end
 fn status()
- return say("{\"version\":\"0.10.0\",\"runtime\":\"RiverFlow systems source compiled to ARM64\",\"target\":\"macos-arm64\",\"syntaxProfiles\":[\"RF2_COMPACT_V1\",\"RF2_U32_CORE_V0\",\"RF2_APP_V1\"],\"operations\":[\"ADD\",\"MUL\",\"LOAD\",\"POPCOUNT\",\"NONZERO\",\"CALL\"],\"coreExecution\":\"bounded native IR runtime\",\"kernelLowering\":\"per-program RiverFlow systems source, compiled with rf2c and trusted harness\",\"coreEffects\":[\"read_input\"],\"applicationCapabilities\":[\"attendance.local@1\",\"invoice.total@1\"],\"mcpFilesystemAccess\":false,\"internalOSEntropyRead\":true,\"preparedPlans\":\"32 immutable process-local plans, explicit release, no rule override\",\"cliAttendanceWrites\":\"explicit new output path only\",\"nodeRequired\":false,\"cppRequired\":false,\"systemsCompilerSelfReproduces\":true,\"generalCoreParser\":true,\"compilerModules\":\"explicit local use imports, CLI only\",\"compilerRecords\":\"nominal u64 fields and typed borrowed parameters\",\"compilerOptimization\":\"optional numeric-right operand lowering\",\"platformIntrinsics\":[\"syscall6\",\"fork_process\"],\"graphicalEditor\":\"explicit CLI or Mac app; private loopback forms\",\"mcpRawPlatformAccess\":false,\"embeddedAI\":false,\"speedClaim\":null,\"tokenClaim\":null}")
+ return say("{\"version\":\"0.11.0\",\"runtime\":\"RiverFlow systems source compiled to ARM64\",\"target\":\"macos-arm64\",\"syntaxProfiles\":[\"RF2_COMPACT_V1\",\"RF2_U32_CORE_V0\",\"RF2_APP_V1\"],\"operations\":[\"ADD\",\"MUL\",\"LOAD\",\"POPCOUNT\",\"NONZERO\",\"CALL\"],\"coreExecution\":\"bounded native IR runtime\",\"kernelLowering\":\"per-program RiverFlow systems source, compiled with rf2c and trusted harness\",\"coreEffects\":[\"read_input\"],\"applicationCapabilities\":[\"attendance.local@1\",\"invoice.total@1\"],\"mcpFilesystemAccess\":false,\"internalOSEntropyRead\":true,\"preparedPlans\":\"32 immutable process-local plans, explicit release, no rule override\",\"cliAttendanceWrites\":\"explicit new output path only\",\"nodeRequired\":false,\"cppRequired\":false,\"systemsCompilerSelfReproduces\":true,\"generalCoreParser\":true,\"compilerModules\":\"explicit local use imports, CLI only\",\"compilerRecords\":\"nominal u64 fields and typed borrowed parameters\",\"compilerOptimization\":\"optional register, instruction and guarded reduction passes\",\"platformIntrinsics\":[\"syscall6\",\"fork_process\"],\"graphicalEditor\":\"explicit CLI or Mac app; private loopback forms\",\"mcpRawPlatformAccess\":false,\"embeddedAI\":false,\"speedClaim\":null,\"tokenClaim\":null}")
 end
 fn compact_ir()
  do say("{\"schema\":\"rf2.compact.plan.v1\",\"coreProfile\":\"RF2_U32_CORE_V0\",\"operation\":")
@@ -1414,7 +1414,7 @@ fn request(n)
   end
   do store64(session, 1)
   do rpc_start(id)
-  return say(",\"result\":{\"protocolVersion\":\"2024-11-05\",\"capabilities\":{\"tools\":{}},\"serverInfo\":{\"name\":\"rf2-native\",\"version\":\"0.10.0\"}}}\n")
+  return say(",\"result\":{\"protocolVersion\":\"2024-11-05\",\"capabilities\":{\"tools\":{}},\"serverInfo\":{\"name\":\"rf2-native\",\"version\":\"0.11.0\"}}}\n")
  end
  if matches(token(method), "ping")
   do rpc_start(id)
@@ -1446,7 +1446,7 @@ fn main(argc, argv)
  let count = 0
  let arg = 0
  if argc < 2
-  do say("RiverFlow 0.10 native ARM64\nrf2 status | check file | expand file | run file '[1,2,3]' [count]\nrf2 lower file.flow | attendance records.json new.csv | app plan.rf2 lines.json | editor [--open] | mcp\nCompact V1 and checked Core with scalar helpers.\n")
+  do say("RiverFlow 0.11 native ARM64\nrf2 status | check file | expand file | run file '[1,2,3]' [count]\nrf2 lower file.flow | attendance records.json new.csv | app plan.rf2 lines.json | editor [--open] | mcp\nCompact V1 and checked Core with scalar helpers.\n")
   return 0
  end
  set cmd = load64(argv + 8)

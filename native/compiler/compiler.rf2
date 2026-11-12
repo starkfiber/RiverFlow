@@ -463,6 +463,77 @@ end
 fn emit(w)
  let s = state()
  let n = load64(s + 56)
+ let target = load64(s + 168)
+ let top = w >> 24
+ let use_source = 0
+ let use_right = 0
+ let narrow = load64(s + 176)
+ let immr = 0
+ let imms = 0
+ if target != 0
+  if (top == 210) | (top == 242)
+   set use_source = 0
+  else
+   if (top == 145) | (top == 209) | (top == 211) | (top == 249) | (top == 241)
+    set use_source = 1
+   else
+    do require((top == 139) | (top == 203) | (top == 138) | (top == 170) | (top == 202) | (top == 235) | (top == 155) | (top == 154), "unsupported coalesced instruction")
+    set use_source = 1
+    set use_right = 1
+   end
+  end
+  if (w & 31) == 0
+   set w = w | target
+  end
+  if use_source & (((w >> 5) & 31) == 0)
+   set w = w | (target << 5)
+  end
+  if use_right & (((w >> 16) & 31) == 0)
+   set w = w | (target << 16)
+  end
+  if w == (2852127712 | (target << 16) | target)
+   return 0
+  end
+  if narrow
+   if top == 249
+    if ((w >> 22) & 1) & ((w & 31) == target)
+     do store64(s + 184, 0)
+    end
+   else
+    if ((top == 145) | (top == 209)) & (((w & 31) == 31) | (((w >> 5) & 31) == 31))
+     set narrow = 0
+    end
+    if narrow
+     if (top == 242) & (((w >> 21) & 3) >= 2)
+      return 0
+     end
+     if top == 211
+      set immr = (w >> 16) & 63
+      set imms = (w >> 10) & 63
+      if (immr == 0) & (imms >= 31)
+       if load64(s + 184)
+        return 0
+       end
+       set w = 704644064 | (target << 16) | target
+      else
+       if imms + 1 == immr
+        do require(immr > 32, "invalid narrowed left shift")
+        set w = (w & 4290774015) | ((immr - 32) << 16) | ((imms - 32) << 10)
+       else
+        do require((immr < 32) & (imms < 32), "unsupported narrowed bitfield")
+       end
+       set w = w & 2143289343
+      end
+     else
+      set w = w & 2147483647
+     end
+     if (w & 31) == target
+      do store64(s + 184, 1)
+     end
+    end
+   end
+  end
+ end
  do require(n < 1048576, "code bound")
  do store32(buffer("code", 1048576) + n, w)
  do store64(s + 56, n + 4)
@@ -509,7 +580,37 @@ fn pop1()
  do emit(4181722081)
  return emit(2432713727)
 end
+fn function_leaf(f)
+ return buffer("function_leaf", 2048) + f * 8
+end
+fn mark_call(f, i)
+ if (load64(token(i)) == 1) & tmatch(i + 1, "(")
+  do store64(function_leaf(f), 0)
+ end
+ return 0
+end
+fn mapped_local(i)
+ if (load64(state() + 152) != 0) & (i < 8)
+  if load64(local(load64(state() + 32), i)) != 0
+   if load64(function_leaf(load64(state() + 32)))
+    if i < 7
+     return 9 + i
+    end
+    return 0
+   end
+   return 19 + i
+  end
+ end
+ return 0
+end
 fn access_local(r, i, writing)
+ let reg = mapped_local(i)
+ if reg != 0
+  if writing
+   return emit(2852127712 | (r << 16) | reg)
+  end
+  return emit(2852127712 | (reg << 16) | r)
+ end
  if writing
   return emit(4177526784 | (i << 10) | (29 << 5) | r)
  end
@@ -621,8 +722,10 @@ fn scan_body(f, params)
  do newline()
  do store64(ftable(f) + 8, params)
  do store64(ftable(f) + 16, load64(state() + 24))
+ do store64(function_leaf(f), 1)
  while depth != 0
   set i = load64(state() + 24)
+  do mark_call(f, i)
   do require(load64(token(i)) != 0, "missing end")
   if load64(token(i)) == 5
    do advance()
@@ -647,6 +750,7 @@ fn scan_body(f, params)
   end
   do advance()
   while load64(token(load64(state() + 24))) != 5
+   do mark_call(f, load64(state() + 24))
    do require(load64(token(load64(state() + 24))) != 0, "missing newline")
    do advance()
   end
@@ -730,6 +834,178 @@ fn operation(i)
  do emit(3942645823)
  return emit(2594113504 | ((condition ^ 1) << 12))
 end
+fn condition_for(i)
+ if tmatch(i, "!=")
+  return 1
+ end
+ if tmatch(i, "<")
+  return 3
+ end
+ if tmatch(i, ">=")
+  return 2
+ end
+ if tmatch(i, ">")
+  return 8
+ end
+ if tmatch(i, "<=")
+  return 9
+ end
+ return 0
+end
+fn operation_registers(i, left, right)
+ let code = 0
+ if tmatch(i, "+")
+  set code = 2332033024
+ end
+ if tmatch(i, "-")
+  set code = 3405774848
+ end
+ if tmatch(i, "*")
+  set code = 2600500224
+ end
+ if tmatch(i, "&")
+  set code = 2315255808
+ end
+ if tmatch(i, "|")
+  set code = 2852126720
+ end
+ if tmatch(i, "^")
+  set code = 3388997632
+ end
+ if tmatch(i, "<<")
+  set code = 2596282368
+ end
+ if tmatch(i, ">>")
+  set code = 2596283392
+ end
+ if tmatch(i, "//")
+  set code = 2596276224
+ end
+ if code != 0
+  return emit(code | (right << 16) | (left << 5))
+ end
+ do emit(3942645791 | (right << 16) | (left << 5))
+ return emit(2594113504 | ((condition_for(i) ^ 1) << 12))
+end
+fn numeric_operation(i, n)
+ if load64(state() + 176)
+  set n = n & 4294967295
+ end
+ let shift = 0
+ let v = n
+ if (tmatch(i, "+") | tmatch(i, "-")) & (n <= 4095)
+  if tmatch(i, "+")
+   do emit(2432696320 | (n << 10))
+  else
+   do emit(3506438144 | (n << 10))
+  end
+  return 1
+ end
+ if tmatch(i, "<<") | tmatch(i, ">>")
+  set shift = n & 63
+  if tmatch(i, "<<")
+   do emit(3544186880 | (((64 - shift) & 63) << 16) | ((63 - shift) << 10))
+  else
+   do emit(3544251392 | (shift << 16))
+  end
+  return 1
+ end
+ if tmatch(i, "&")
+  if n == 18446744073709551615
+   return 1
+  end
+  if n == 0
+   do imm(0, 0)
+   return 1
+  end
+  if (n & (n + 1)) == 0
+   set v = n + 1
+   while v > 1
+    set shift = shift + 1
+    set v = v >> 1
+   end
+   do emit(3544186880 | ((shift - 1) << 10))
+   return 1
+  end
+ end
+ if tmatch(i, "*")
+  if n == 0
+   do imm(0, 0)
+   return 1
+  end
+  if n == 1
+   return 1
+  end
+  if (n & (n - 1)) == 0
+   while v > 1
+    set shift = shift + 1
+    set v = v >> 1
+   end
+   do emit(3544186880 | (((64 - shift) & 63) << 16) | ((63 - shift) << 10))
+   return 1
+  end
+  set v = n - 1
+  if (v & (v - 1)) == 0
+   while v > 1
+    set shift = shift + 1
+    set v = v >> 1
+   end
+   do emit(2332033024 | (shift << 10))
+   return 1
+  end
+ end
+ if (precedence(i) == 1) & (n <= 4095)
+  do emit(4043309087 | (n << 10))
+  do emit(2594113504 | ((condition_for(i) ^ 1) << 12))
+  return 1
+ end
+ return 0
+end
+fn direct_while(done, invert)
+ let h = load64(state() + 24)
+ let left = 0
+ let right = 0
+ let slot = 0
+ let value = 0
+ let f = load64(state() + 32)
+ if (load64(state() + 152) == 0) | (load64(token(h)) != 1) | (precedence(h + 1) != 1) | (load64(token(h + 3)) != 5)
+  return 0
+ end
+ set slot = local_index(h)
+ if load64(local_type(f, slot)) != 0
+  return 0
+ end
+ set left = mapped_local(slot)
+ if left == 0
+  do access_local(0, slot, 0)
+ end
+ if load64(token(h + 2)) == 2
+  set value = load64(token(h + 2) + 24)
+  if value <= 4095
+   do emit(4043309087 | (value << 10) | (left << 5))
+  else
+   do imm(1, value)
+   do emit(3942645791 | (1 << 16) | (left << 5))
+  end
+ else
+  if load64(token(h + 2)) != 1
+   return 0
+  end
+  set slot = local_index(h + 2)
+  if load64(local_type(f, slot)) != 0
+   return 0
+  end
+  set right = mapped_local(slot)
+  if right == 0
+   do access_local(1, slot, 0)
+   set right = 1
+  end
+  do emit(3942645791 | (right << 16) | (left << 5))
+ end
+ do jump(done, condition_for(h + 1) ^ invert)
+ do store64(state() + 24, h + 3)
+ return 1
+end
 fn expression(minimum, depth)
  let i = load64(state() + 24)
  let kind = load64(token(i))
@@ -738,6 +1014,7 @@ fn expression(minimum, depth)
  let comparison = 0
  let lhs_type = 0
  let rhs = 0
+ let selected = 0
  let slot = 0
  let id = 0
  do store64(state() + 136, 0)
@@ -802,16 +1079,36 @@ fn expression(minimum, depth)
   set lhs_type = load64(state() + 136)
   do require(lhs_type == 0, "record arithmetic refused")
   set rhs = load64(state() + 24)
+  set selected = 0
   if (load64(state() + 152) != 0) & (load64(token(rhs)) == 2) & (precedence(rhs + 1) <= p) & (tmatch(rhs + 1, ".") == 0)
-   do emit(2852127713)
-   do imm(0, load64(token(advance()) + 24))
+   set selected = numeric_operation(op, load64(token(rhs) + 24))
+   if selected == 0
+    do emit(2852127713)
+    do imm(0, load64(token(rhs) + 24))
+   end
+   do advance()
    do store64(state() + 136, 0)
   else
-   do push()
-   do scalar_expression(p + 1, depth + 1)
-   do pop1()
+   if (load64(state() + 152) != 0) & (load64(token(rhs)) == 1) & (precedence(rhs + 1) <= p) & (tmatch(rhs + 1, ".") == 0) & (tmatch(rhs + 1, "(") == 0)
+    set slot = local_index(advance())
+    do require(load64(local_type(load64(state() + 32), slot)) == 0, "scalar expression required")
+    if mapped_local(slot) != 0
+     do operation_registers(op, 0, mapped_local(slot))
+     set selected = 1
+    else
+     do emit(2852127713)
+     do access_local(0, slot, 0)
+    end
+    do store64(state() + 136, 0)
+   else
+    do push()
+    do scalar_expression(p + 1, depth + 1)
+    do pop1()
+   end
   end
-  do operation(op)
+  if selected == 0
+   do operation(op)
+  end
   set i = load64(state() + 24)
   set p = precedence(i)
  end
@@ -964,6 +1261,217 @@ fn arguments(depth, callee)
  end
  return count
 end
+fn prefix_periodic(input, output_reg, shift, mask)
+ if shift == 0
+  return imm(output_reg, 0)
+ end
+ do emit(3544186880 | ((shift - 1) << 10) | (input << 5) | 5)
+ do emit(3506438144 | (1 << 10) | (5 << 5) | 6)
+ do emit(2600500224 | (6 << 16) | (5 << 5) | 5)
+ do emit(3544316928 | (5 << 5) | 5)
+ do emit(3544251392 | (shift << 16) | (input << 5) | 4)
+ do imm(6, ((mask + 1) * mask) // 2)
+ do emit(2600500224 | (6 << 16) | (4 << 5) | 4)
+ return emit(2332033024 | (5 << 16) | (4 << 5) | output_reg)
+end
+fn try_periodic_loop()
+ let h = load64(state() + 24)
+ let f = load64(state() + 32)
+ let i = 0
+ let acc = 0
+ let bound = 0
+ let bound_literal = 0
+ let mask = 0
+ let shift = 0
+ let period = 0
+ let done = 0
+ if load64(state() + 152) == 0
+  return 0
+ end
+ if load64(state() + 16) < h + 25
+  return 0
+ end
+ if (tmatch(h + 2, "<") & (load64(token(h + 4)) == 5) & tmatch(h + 5, "set") & tmatch(h + 7, "=") & tmatch(h + 9, "+") & tmatch(h + 10, "(") & tmatch(h + 12, "&") & tmatch(h + 14, ")") & (load64(token(h + 15)) == 5) & tmatch(h + 16, "set") & tmatch(h + 18, "=") & tmatch(h + 20, "+") & (load64(token(h + 21)) == 2) & (load64(token(h + 21) + 24) == 1) & (load64(token(h + 22)) == 5) & tmatch(h + 23, "end") & (load64(token(h + 24)) == 5)) == 0
+  return 0
+ end
+ if (load64(token(h + 1)) != 1) | (load64(token(h + 6)) != 1) | (load64(token(h + 8)) != 1) | (load64(token(h + 11)) != 1) | (load64(token(h + 17)) != 1) | (load64(token(h + 19)) != 1) | (load64(token(h + 13)) != 2)
+  return 0
+ end
+ if (name_equal(h + 6, h + 8) & name_equal(h + 1, h + 11) & name_equal(h + 1, h + 17) & name_equal(h + 1, h + 19)) == 0
+  return 0
+ end
+ if name_equal(h + 1, h + 6)
+  return 0
+ end
+ set mask = load64(token(h + 13) + 24)
+ if mask > 4294967295
+  return 0
+ end
+ set period = mask + 1
+ if (period & mask) != 0
+  return 0
+ end
+ while period > 1
+  set shift = shift + 1
+  set period = period >> 1
+ end
+ if load64(token(h + 3)) == 2
+  set bound_literal = 1
+  set bound = load64(token(h + 3) + 24)
+ else
+  if load64(token(h + 3)) != 1
+   return 0
+  end
+  if name_equal(h + 3, h + 1) | name_equal(h + 3, h + 6)
+   return 0
+  end
+  set bound = local_index(h + 3)
+  if load64(local_type(f, bound)) != 0
+   return 0
+  end
+ end
+ set i = local_index(h + 1)
+ set acc = local_index(h + 6)
+ if (load64(local_type(f, i)) | load64(local_type(f, acc))) != 0
+  return 0
+ end
+ do access_local(0, i, 0)
+ if bound_literal
+  do imm(1, bound)
+ else
+  do access_local(1, bound, 0)
+ end
+ do access_local(2, acc, 0)
+ set done = next_label()
+ do emit(3942711327)
+ do jump(done, 2)
+ do prefix_periodic(1, 8, shift, mask)
+ do prefix_periodic(0, 7, shift, mask)
+ do emit(3405774848 | (7 << 16) | (8 << 5) | 8)
+ do emit(2332033024 | (8 << 16) | (2 << 5) | 2)
+ do access_local(2, acc, 1)
+ do access_local(1, i, 1)
+ do label(done)
+ do store64(state() + 24, h + 25)
+ do store64(state() + 160, load64(state() + 160) + 1)
+ return 1
+end
+fn try_inplace(target)
+ let h = load64(state() + 24)
+ let reg = mapped_local(target)
+ let amount = 0
+ let opcode = 0
+ if reg == 0
+  return 0
+ end
+ if (load64(token(h)) != 1) | (load64(token(h + 2)) != 2) | (load64(token(h + 3)) != 5)
+  return 0
+ end
+ if name_equal(h, load64(local(load64(state() + 32), target))) == 0
+  return 0
+ end
+ set amount = load64(token(h + 2) + 24)
+ if amount > 4095
+  return 0
+ end
+ if tmatch(h + 1, "+")
+  set opcode = 2432696320
+ else
+  if tmatch(h + 1, "-")
+   set opcode = 3506438144
+  else
+   return 0
+  end
+ end
+ do emit(opcode | (amount << 10) | (reg << 5) | reg)
+ do store64(state() + 24, h + 3)
+ return 1
+end
+fn coalesce_target(target)
+ let reg = mapped_local(target)
+ let f = load64(state() + 32)
+ let h = load64(state() + 24)
+ let i = h
+ let first = 1
+ let seen = 0
+ let kind = 0
+ let slot = 0
+ let narrow = 1
+ if reg == 0
+  return 0
+ end
+ while load64(token(i)) != 5
+  set kind = load64(token(i))
+  if (kind == 0) | (kind == 3) | tmatch(i, ".")
+   return 0
+  end
+  if first
+   if tmatch(i, "(") == 0
+    if kind != 1
+     return 0
+    end
+    if name_equal(i, load64(local(f, target))) == 0
+     return 0
+    end
+    set first = 0
+   end
+  end
+  if kind == 4
+   if (tmatch(i, "+") | tmatch(i, "-") | tmatch(i, "*") | tmatch(i, "&") | tmatch(i, "|") | tmatch(i, "^") | tmatch(i, "~") | tmatch(i, "(") | tmatch(i, ")")) == 0
+    set narrow = 0
+   end
+  end
+  if kind == 1
+   if tmatch(i + 1, "(")
+    return 0
+   end
+   set slot = local_index(i)
+   if load64(local_type(f, slot)) != 0
+    return 0
+   end
+   if slot == target
+    set seen = seen + 1
+   end
+  end
+  set i = i + 1
+ end
+ if (first != 0) | (seen != 1)
+  return 0
+ end
+ if narrow & (i >= h + 3)
+  if tmatch(i - 2, "&") & (load64(token(i - 1)) == 2) & (load64(token(i - 1) + 24) == 4294967295)
+   do store64(state() + 176, 1)
+   do store64(state() + 184, 0)
+  end
+ end
+ return reg
+end
+fn rotated_while(depth)
+ do expect("while")
+ let head = load64(state() + 24)
+ let start = next_label()
+ let done = next_label()
+ let after = 0
+ if direct_while(done, 1) == 0
+  do scalar_expression(1, 0)
+  do emit(4043309087)
+  do jump(done, 0)
+ end
+ do newline()
+ do label(start)
+ do require(block(depth + 1) == 0, "unexpected else")
+ set after = load64(state() + 24)
+ do store64(state() + 24, head)
+ if direct_while(start, 0) == 0
+  do scalar_expression(1, 0)
+  do emit(4043309087)
+  do jump(start, 1)
+ end
+ do newline()
+ do store64(state() + 24, after)
+ do label(done)
+ return 0
+end
 fn block(depth)
  let i = 0
  let target = 0
@@ -973,6 +1481,7 @@ fn block(depth)
  let id = 0
  let field = 0
  let declaring = 0
+ let coalesced = 0
  do require(depth < 64, "block depth bound")
  while 1
   set i = load64(state() + 24)
@@ -1010,8 +1519,16 @@ fn block(depth)
       do require(declaring, "record rebinding refused")
       do construct_record(target, depth)
      else
-      do scalar_expression(1, 0)
-      do access_local(0, target, 1)
+      if try_inplace(target) == 0
+       set coalesced = coalesce_target(target)
+       do store64(state() + 168, coalesced)
+       do scalar_expression(1, 0)
+       do store64(state() + 168, 0)
+       do store64(state() + 176, 0)
+       if coalesced == 0
+        do access_local(0, target, 1)
+       end
+      end
      end
     end
     do newline()
@@ -1045,17 +1562,25 @@ fn block(depth)
        end
       else
        if match("while")
+        if try_periodic_loop() == 0
+        if load64(state() + 152)
+         do rotated_while(depth)
+        else
         do advance()
         set start = next_label()
         set done = next_label()
         do label(start)
-        do scalar_expression(1, 0)
-        do emit(4043309087)
-        do jump(done, 0)
+        if direct_while(done, 1) == 0
+         do scalar_expression(1, 0)
+         do emit(4043309087)
+         do jump(done, 0)
+        end
         do newline()
         do require(block(depth + 1) == 0, "unexpected else")
         do jump(start, 16)
         do label(done)
+        end
+        end
        else
         do die("unsupported statement")
        end
@@ -1073,6 +1598,8 @@ fn generate()
  let frame = 0
  let i = 0
  let main = 18446744073709551615
+ let save_offset = 0
+ let reg = 0
  while f < load64(state() + 40)
   if tmatch(load64(ftable(f)), "main")
    set main = f
@@ -1093,10 +1620,21 @@ fn generate()
   do store64(state() + 24, load64(p + 16))
   do label(load64(p + 40))
   set frame = (load64(p + 32) * 8 + 15) & 18446744073709551600
+  set save_offset = frame
+  if (load64(state() + 152) != 0) & (load64(function_leaf(f)) == 0)
+   set frame = frame + 64
+  end
   do require(frame <= 4095, "frame bound")
   do emit(2847898621)
   do emit(3506439167 | (frame << 10))
   do emit(2432697341)
+  set i = 0
+  while i < 8
+   if mapped_local(i) >= 19
+    do emit(4177526784 | (((save_offset // 8) + i) << 10) | (29 << 5) | (19 + i))
+   end
+   set i = i + 1
+  end
   set i = 0
   while i < load64(p + 8)
    do access_local(i, i, 1)
@@ -1107,6 +1645,13 @@ fn generate()
   do require(load64(state() + 24) == load64(p + 24), "function boundary")
   do imm(0, 0)
   do label(load64(state() + 88))
+  set i = 0
+  while i < 8
+   if mapped_local(i) >= 19
+    do emit(4181721088 | (((save_offset // 8) + i) << 10) | (29 << 5) | (19 + i))
+   end
+   set i = i + 1
+  end
   do emit(2432697279)
   do emit(2432697343 | (frame << 10))
   do emit(2831252477)
@@ -1750,6 +2295,9 @@ fn main(argc, argv)
  set digest = sha256(src, load64(state() + 8))
  do image_header(dataoff, datasize, digest)
  do image(load64(argv + 16), dataoff, datasize)
+ if load64(state() + 160) != 0
+  do write(2, "RF2 opt: guarded periodic sum reduction applied\n", 48)
+ end
  do write(1, "RF2 native image emitted; apply macOS code signing before execution.\n", 68)
  return 0
 end

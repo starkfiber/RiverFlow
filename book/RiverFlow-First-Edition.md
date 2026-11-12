@@ -776,6 +776,57 @@ A pinned source review examined BAML record fixtures and MCP cleanup tests, Edic
 
 The next useful language work is reusable strings and collections, explicit error/resource lifetimes, better diagnostics and another target. Each capability needs observable tests, failure paths and complete interaction accounting. An AI host can write RF2 and call its checked tools. That is different from claiming the executable itself contains every ability of an AI model.
 
+# 23. Make the machine do less work
+
+A slower result is a description of the current implementation. It does not decide whether humans or AI can build the better language. The useful question is narrower: what instructions and algorithms can be removed while preserving the promised behavior? Release 0.11 answers part of that question with an executed native optimiser.
+
+## Diagnose before promising
+
+The earlier emitter repeatedly moved local values through the stack and materialised Boolean loop conditions. Clang could choose registers, direct arithmetic and better loop code. Source-level compactness did not remove those machine costs. The new optional path keeps admitted locals in registers, shortens arithmetic and rotates ordinary loops. It retains a guard before the first iteration and reevaluates the condition after each completed iteration.
+
+The calling convention matters. A leaf can use caller-saved registers because it makes no calls. Other functions preserve the selected callee-saved registers in their own stack frame. Records still own memory-backed fields, and extra locals still use stack slots. Executed tests cover eight-argument calls, recursive values, large frames, fork/wait, negative OS errors and six-argument memory mapping. Those checks qualify these paths on the tested Mac, not every platform.
+
+## Remove moves only when the value is safe
+
+A destructive register update is safe only when it does not erase a value the expression will read again. For that reason, the coalescer requires one leftmost read of the assignment target. Calls, fields, strings and repeated-target expressions retain their usual path. The emitted instruction classes are checked as well. An adversarial test found a missing immediate-comparison class; the compiler refused to emit that program until the handler was corrected.
+
+A final u32 mask permits word-sized arithmetic for a restricted polynomial and bitwise expression. The lower 32 bits do not depend on the discarded high bits for those operations. Division, right shifts and comparisons do not have that property, so they are excluded. Edge tests retain large constants, overflow, zero extension and alias-sensitive cases. This is an exact local rule, not a claim of general memory safety or an unrestricted proof system.
+
+## A whole loop can sometimes become arithmetic
+
+Consider a serial unsigned loop that adds index AND mask to a total and increments index by one. When mask=P-1 and P is a power of two, the masked values repeat in complete periods. That structure allows an exact prefix sum.
+
+```text
+r = n mod P
+F(n) = floor(n/P) * P*(P-1)/2 + r*(r-1)/2
+```
+
+For start<bound, the accumulator changes by F(bound)-F(start), modulo 2^64, and the final index is bound. If the initial condition is false, nothing changes. The implementation limits the period exponent to 32 so the residual product fits in a machine word. The full-cycle product may wrap exactly as the original accumulator does.
+
+The compiler checks the pure two-statement body, comparison, mask and distinct variables before selecting the rule. A runtime-local bound is allowed; the rule does not look for a benchmark name or one fixed iteration count. Different masks, inclusive comparisons or extra effects retain their ordinary loop. This is fixed-size work for one eligible linear recurrence, not exponential acceleration of arbitrary programs.
+
+## Challenge the implementation and the benchmark
+
+The guarded reducer passed 240 cases checked by direct iteration, 80 large integer cases checked with arbitrary-precision arithmetic, and 60 fallback cases. The instruction selector passed 2,205 edge cases against an independent integer expectation and 0.10. Another 180 cases challenge aliasing, calls, spilled locals, recursion and control flow. Side-effecting conditions are checked separately. Narrowing has 340 adversarial cases. Existing computation, application, compiler-generation and protocol suites remain separate checks.
+
+The next table uses the same runtime start, bound and seed for each variant. C is compiled with O3 and the native CPU setting. Seven rotated fresh-process trials follow a retained cold/warmup launch. Times include process startup, and every output is checked.
+
+| Runtime-input workload, 20 million steps | RF2 0.10 ms | RF2 0.11 ms | Clang O3 ms |
+| --- | --- | --- | --- |
+| periodic | 24.878 | 1.842 | 3.841 |
+| mix | 57.312 | 22.496 | 22.232 |
+| branches | 22.486 | 20.216 | 6.501 |
+
+The eligible reduction has a clear improvement over the old RF2 loop and the loop-based C baseline in this run. The mixed-arithmetic point medians are close. The branch-heavy case remains substantially slower than Clang. An equally specialised C formula measured 2.367 ms for the largest periodic case; smaller cases reverse that ordering. At this scale, process startup obscures the cost of the formula itself. It would be wrong to turn those short timings into a universal language victory.
+
+## Connect research through evidence
+
+A research idea becomes useful when its proposed mechanism reaches working code and survives a stronger comparison. Here, the transferable method is explicit candidate guards, retained fallbacks, independent output checks and honest reporting of remaining gaps. Register allocation and algebraic strength reduction are known classes of optimisation. The contribution is their tested implementation and boundaries in RF2, not a claim of new mathematics or automatic academic approval.
+
+The next branch-heavy work needs inspection of generated instructions and vectorisation opportunities. Broader languages still need collections, resource and error semantics, diagnostics and more targets. AI can help write, test and challenge that work. Its assistance is not a substitute for a measured result.
+
+Sources and executable receipts: docs/NATIVE-OPTIMIZATION.md and docs/OPTIMIZER-MEASUREMENTS-0.11.json. The ABI reference is Arm AAPCS64, section 6.1.1; LLVM's vectorisation documentation describes its diagnostic remarks. These references are engineering specifications, not evidence that RF2 already inherits another compiler's capabilities.
+
 # Appendix A. Commands and interfaces
 
 Native standalone, no Node or npm required:

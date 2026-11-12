@@ -1,0 +1,9 @@
+from pathlib import Path
+import subprocess,tempfile,os,json,hashlib
+R=Path(__file__).resolve().parents[2];C=Path(os.environ.get('RF2_TEST_COMPILER',R/'output/native-compiler/rf2c'))
+programs={'callee':'fn mutate(a,b,c,d,e,f,g,h)\nset a=a+1\nset b=b+2\nset c=c+3\nset d=d+4\nset e=e+5\nset f=f+6\nset g=g+7\nset h=h+8\nreturn a+b+c+d+e+f+g+h\nend\nfn main(argc,argv)\nlet a=3\nlet b=5\nlet c=7\nlet d=11\nlet e=13\nlet f=17\nlet answer=mutate(1,2,3,4,5,6,7,8)\nreturn (a==3)&(b==5)&(c==7)&(d==11)&(e==13)&(f==17)&(argc==1)&(answer==72)\nend\n','fork':'fn main(a,b)\nlet canary=11223344\nlet child=fork_process()\nif child==0\nreturn 7\nend\nlet s=buffer("s",8)\nlet p=syscall6(7,child,s,0,0,0,0)\nreturn (p==child)&(load32(s)==1792)&(canary==11223344)\nend\n','errno':'fn main(a,b)\nreturn syscall6(6,-1,0,0,0,0,0)==-9\nend\n','six':'fn main(a,b)\nlet p=syscall6(197,0,4096,3,4098,-1,0)\ndo store64(p,17)\nlet got=load64(p)\nlet done=syscall6(73,p,4096,0,0,0,0)\nreturn (got==17)&(done==0)\nend\n'}
+with tempfile.TemporaryDirectory(prefix='rf2-abi11-')as tmp:
+ d=Path(tmp)
+ for name,body in programs.items():
+  s=d/(name+'.rf2');s.write_text('profile RF2_SYSTEM_A64_V1\n'+body);out=d/name;p=subprocess.run([C,s,out,'--opt'],capture_output=True);assert p.returncode==0,p.stderr;subprocess.run(['/usr/bin/codesign','-s','-',out],check=True,capture_output=True);assert subprocess.run([out],capture_output=True).returncode==1,name
+report={'passed':True,'optimizedCases':list(programs),'compilerSHA256':hashlib.sha256(C.read_bytes()).hexdigest(),'scope':'Executed eight-argument callee preservation, fork/wait, negative errno and six-argument memory mapping on macOS ARM64; not other-platform ABI qualification.'};(R/'docs/REGISTER-ABI-0.11-VERIFICATION.json').write_text(json.dumps(report,indent=2)+'\n');print(report)

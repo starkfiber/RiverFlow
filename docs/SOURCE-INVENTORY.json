@@ -8,10 +8,10 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 192707,
-    "Python": 135942,
-    "JavaScript": 65364,
-    "HTML": 16384,
+    "RiverFlow": 205697,
+    "Python": 157244,
+    "JavaScript": 65400,
+    "HTML": 16410,
     "CSS": 10426,
     "Shell": 2207
   },
@@ -84,7 +84,7 @@
     {
       "path": "docs/rf2/index.html",
       "language": "HTML",
-      "bytes": 7990
+      "bytes": 8003
     },
     {
       "path": "docs/riverflow.mjs",
@@ -184,7 +184,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 42927
+      "bytes": 55897
     },
     {
       "path": "native/core.rf2",
@@ -224,7 +224,7 @@
     {
       "path": "native/rf2.rf2",
       "language": "RiverFlow",
-      "bytes": 38526
+      "bytes": 38546
     },
     {
       "path": "native/studio/launcher.rf2",
@@ -259,7 +259,7 @@
     {
       "path": "site/rf2/index.html",
       "language": "HTML",
-      "bytes": 7990
+      "bytes": 8003
     },
     {
       "path": "site/riverflow.mjs",
@@ -324,12 +324,17 @@
     {
       "path": "tests/standalone/compiler_bounds_verify.py",
       "language": "Python",
-      "bytes": 1245
+      "bytes": 1391
     },
     {
       "path": "tests/standalone/compiler_verify.py",
       "language": "Python",
-      "bytes": 8469
+      "bytes": 8285
+    },
+    {
+      "path": "tests/standalone/control_optimizer_verify.py",
+      "language": "Python",
+      "bytes": 3891
     },
     {
       "path": "tests/standalone/core_verify.py",
@@ -340,6 +345,11 @@
       "path": "tests/standalone/editor_verify.py",
       "language": "Python",
       "bytes": 8563
+    },
+    {
+      "path": "tests/standalone/instruction_verify.py",
+      "language": "Python",
+      "bytes": 2671
     },
     {
       "path": "tests/standalone/invoice_reference.mjs",
@@ -364,7 +374,17 @@
     {
       "path": "tests/standalone/modules_verify.py",
       "language": "Python",
-      "bytes": 7529
+      "bytes": 7579
+    },
+    {
+      "path": "tests/standalone/narrowing_verify.py",
+      "language": "Python",
+      "bytes": 2876
+    },
+    {
+      "path": "tests/standalone/optimizer_verify.py",
+      "language": "Python",
+      "bytes": 4484
     },
     {
       "path": "tests/standalone/oracle.mjs",
@@ -382,14 +402,19 @@
       "bytes": 2948
     },
     {
+      "path": "tests/standalone/register_abi_verify.py",
+      "language": "Python",
+      "bytes": 1814
+    },
+    {
       "path": "tests/standalone/sdk.mjs",
       "language": "JavaScript",
-      "bytes": 3570
+      "bytes": 3606
     },
     {
       "path": "tests/standalone/verify.py",
       "language": "Python",
-      "bytes": 9476
+      "bytes": 9521
     },
     {
       "path": "tests/standalone/workspace_verify.py",
@@ -445,6 +470,11 @@
       "path": "tools/measure-language.py",
       "language": "Python",
       "bytes": 7105
+    },
+    {
+      "path": "tools/measure-optimizer.py",
+      "language": "Python",
+      "bytes": 5509
     },
     {
       "path": "tools/measure-reuse.py",

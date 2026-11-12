@@ -2,7 +2,7 @@
 name: rf2
 description: Check and execute RiverFlow Core/compact programs, lower checked kernels, use the versioned attendance exporter, and develop native compiler evidence.
 ---
-# RiverFlow RF² 0.10
+# RiverFlow RF² 0.11
 
 Use rf2_status first. Read docs/NATIVE-CORE.md and docs/STANDALONE.md for current profiles/effects. Nine native tools exist: rf2_status, rf2_check, rf2_run, rf2_lower, attendance_export, invoice_total, invoice_prepare, invoice_apply and invoice_release. Users require no Node/npm/Python/C++ runtime. The host provides AI intelligence; the executable has no embedded model.
 
@@ -55,3 +55,9 @@ Read docs/MODULES-TYPES.md, docs/COMPACT-MCP.md and docs/LANGUAGE-MEASUREMENTS.m
 Use examples/workload/main.rf2 for a real CSV workload analyser, independently checked for input-order deadline accounting. It is not a measured OS scheduler or claim of optimal policy. Use --opt explicitly for the tested numeric-right-operand machine-code lowering. The release runtime uses that option; default compiler output retains the previous path.
 
 rf2 mcp --compact omits redundant successful check/run summary text only. All structured results, schemas and errors remain. Text-only clients should retain default mode. Set RF2_MCP_COMPACT=1 for an explicitly opted-in plugin launcher. Measured smaller transcripts do not prove smaller provider bills or faster AI generation. The related-project review is static and never substitutes for executed target comparisons.
+
+## Optional native optimiser, 0.11
+
+Read docs/NATIVE-OPTIMIZATION.md and versioned receipts. --opt includes leaf-aware register locals, direct arithmetic, loop rotation, restricted expression coalescing and guarded u32 word selection. An exact side-effect-free periodic masked-sum recurrence can use fixed-size arithmetic. Similar-looking loops with unsupported masks, comparisons or effects must retain the ordinary path. Raw systems compilation remains CLI-only; bounded Core/MCP authority is unchanged.
+
+The 20 million-step eligible reduction improved from 24.878 ms in 0.10 to 1.842 ms, versus 3.841 ms for Clang's loop in one matched runtime-input run. Mixed arithmetic medians were 22.496 ms RF2 versus 22.232 ms Clang; branch-heavy code remained 20.216 ms versus 6.501 ms. The equally specialised C formula and startup-sensitive smaller cases remain visible. Cite exact scope; no global speed, novel mathematics, AI inference or universal exponential performance claim is established. No new token-saving measurement is claimed for 0.11; preserve the separate 0.10 compact-MCP result as historical evidence.

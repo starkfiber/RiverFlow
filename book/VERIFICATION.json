@@ -1,6 +1,6 @@
 {
-  "pages": 64,
-  "tocEntries": 27,
+  "pages": 68,
+  "tocEntries": 28,
   "outOfPageText": [],
   "completeExamples": 5,
   "referenceTestGroups": 16,
@@ -10,7 +10,7 @@
   "independentMcpSdk": "passed",
   "rebuildByteIdentity": "passed",
   "epubZipXml": "verified, not full EPUBCheck",
-  "visualReview": "Revised one-page contents, Chapter 22 and benchmark table rendered and inspected; all-page bounds and sparse-spill checks passed",
+  "visualReview": "Contents and Chapter 23 including table rendered and inspected; all-page bounds and sparse-spill checks passed",
   "nativeCompilerFixedPoint": true,
   "nativeCompilerExecutedCases": 24,
   "nativeCompilerNegativeCases": 15,
@@ -36,8 +36,12 @@
   "compilerBoundChecks": "128/129/255/256 accepted, 257 refused, last function 256 locals",
   "editorChecks": "7 edits, 150 refusals, 5 roundtrips, PDF byte comparison, two uploads and idle concurrency",
   "platformChecks": "5 executions and 4 arity refusals",
-  "runtimeSHA256": "39922161132a4b4edb4414a4fdc933930338f9f28400bc62838bdddc18326e49",
+  "runtimeSHA256": "5a94e4423fabcd1dd7c54694d73e4fd22986e4bcf98529f5766a5e31b32660fe",
   "modulesAndRecords": "60 record executions, 44 type refusals, 13 import refusals, 60 workload cases, 13 workload refusals, 150 old-version comparisons",
   "moduleBounds": "7 successful field/type/file/depth/recursive lifetime boundaries; 4 refused over-bound cases",
-  "compactMCP": "Independent SDK in both installed-plugin modes; exact retained transcript encodings"
+  "compactMCP": "Independent SDK passed installed 0.11 default and explicitly opted-in compact modes",
+  "pdfSHA256": "24bbfefcf5bc87703f73caaa714d5a15d64adb994a43a23b4b6289b157792a52",
+  "optimizerCases": "240 direct iteration, 80 arbitrary precision, 60 fallback, 2205 instruction edge cases, 180 control cases, 5 side-effecting conditions, 340 narrowing cases",
+  "nativeRegisterABI": "4 optimized executions, plus default ABI and optimized maximum-frame checks",
+  "optimizerMeasurements": "Seven rotated launch-inclusive trials per variant and size; old RF2, Clang loop and specialised C formula; all checksums checked"
 }

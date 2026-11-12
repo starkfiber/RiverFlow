@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "smallBruteForceCases": 240,
+  "largeIntegerCases": 80,
+  "fallbackCases": 60,
+  "old10Comparisons": 300,
+  "guards": [
+    "eligible family selected",
+    "non-power-of-two mask retained loop",
+    "inclusive comparison retained loop",
+    "extra body effect retained loop"
+  ],
+  "compilerSHA256": "8c62af26581c48f617cad29a71b7a7f6f8f37823624def248a1cde8d66ac3585",
+  "scope": "Exact serial unsigned-u64 recurrence; small cases brute-force, large cases arbitrary-precision formula. No full compiler proof, arbitrary loop optimisation or hardware result."
+}
