@@ -1,0 +1,301 @@
+profile RF2_SYSTEM_A64_V1
+# Bounded single-worker loopback HTTP demonstration. Not a general HTTP framework.
+fn length(p)
+ let n=0
+ while load8(p+n)!=0
+  set n=n+1
+ end
+ return n
+end
+fn copy(d,p,n)
+ let i=0
+ while i<n
+  do store8(d+i,load8(p+i))
+  set i=i+1
+ end
+ return n
+end
+fn eq(p,n,t)
+ if n!=length(t)
+  return 0
+ end
+ let i=0
+ while i<n
+  if load8(p+i)!=load8(t+i)
+   return 0
+  end
+  set i=i+1
+ end
+ return 1
+end
+fn key(p,n,t)
+ if n!=length(t)
+  return 0
+ end
+ let i=0
+ while i<n
+  let c=load8(p+i)
+  if all(c>=65,c<=90)
+   set c=c+32
+  end
+  if c!=load8(t+i)
+   return 0
+  end
+  set i=i+1
+ end
+ return 1
+end
+fn append(p,t)
+ return p+copy(p,t,length(t))
+end
+fn decimal(p,n)
+ let b=buffer("digits",32)
+ let i=0
+ do store8(b,48+(n-n//10*10))
+ set i=1
+ set n=n//10
+ while n>0
+  do store8(b+i,48+(n-n//10*10))
+  set n=n//10
+  set i=i+1
+ end
+ while i>0
+  set i=i-1
+  do store8(p,load8(b+i))
+  set p=p+1
+ end
+ return p
+end
+fn sendall(fd,p,n)
+ let i=0
+ while i<n
+  let got=write(fd,p+i,n-i)
+  if any(got==0,got>=9223372036854775808)
+   return 0
+  end
+  set i=i+got
+ end
+ return 1
+end
+fn response(fd,status,body,n,kind)
+ let b=buffer("response",1024)
+ let p=append(b,"HTTP/1.1 ")
+ set p=append(p,status)
+ set p=append(p,"\r\nContent-Type: ")
+ set p=append(p,kind)
+ set p=append(p,"\r\nContent-Length: ")
+ set p=decimal(p,n)
+ set p=append(p,"\r\nConnection: close\r\nCache-Control: no-store\r\n\r\n")
+ if not(sendall(fd,b,p-b))
+  return 0
+ end
+ return sendall(fd,body,n)
+end
+fn reply(fd,status,body)
+ return response(fd,status,body,length(body),"application/json")
+end
+fn handle(fd)
+ let b=buffer("request",8193)
+ let n=0
+ let complete=0
+ while all(n<8192,complete==0)
+  let got=read(fd,b+n,8192-n)
+  if any(got==0,got>=9223372036854775808)
+   return 0
+  end
+  set n=n+got
+  if n>=4
+   let scan=3
+   while scan<n
+    if all(load8(b+scan-3)==13,all(load8(b+scan-2)==10,all(load8(b+scan-1)==13,load8(b+scan)==10)))
+     set complete=scan+1
+     set scan=n
+    else
+     set scan=scan+1
+    end
+   end
+  end
+ end
+ if complete==0
+  return reply(fd,"431 Request Header Fields Too Large","{\"error\":\"headers\"}\n")
+ end
+ let e=0
+ while all(e+1<complete,load8(b+e)!=13)
+  if load8(b+e)==10
+   return reply(fd,"400 Bad Request","{\"error\":\"request\"}\n")
+  end
+  set e=e+1
+ end
+ if load8(b+e+1)!=10
+  return reply(fd,"400 Bad Request","{\"error\":\"request\"}\n")
+ end
+ let a=0
+ while all(a<e,load8(b+a)!=32)
+  set a=a+1
+ end
+ if not(eq(b,a,"GET"))
+  return reply(fd,"405 Method Not Allowed","{\"error\":\"method\"}\n")
+ end
+ let start=a+1
+ let end=start
+ while all(end<e,load8(b+end)!=32)
+  if any(load8(b+end)<33,load8(b+end)>126)
+   return reply(fd,"400 Bad Request","{\"error\":\"request\"}\n")
+  end
+  set end=end+1
+ end
+ if any(end==start,end>=e)
+  return reply(fd,"400 Bad Request","{\"error\":\"request\"}\n")
+ end
+ let v11=eq(b+end+1,e-end-1,"HTTP/1.1")
+ if not(any(v11,eq(b+end+1,e-end-1,"HTTP/1.0")))
+  return reply(fd,"400 Bad Request","{\"error\":\"request\"}\n")
+ end
+ let hosts=0
+ let lengths=0
+ let line=e+2
+ while line+2<complete
+  let stop=line
+  while all(stop+1<complete,load8(b+stop)!=13)
+   if load8(b+stop)==10
+    return reply(fd,"400 Bad Request","{\"error\":\"framing\"}\n")
+   end
+   set stop=stop+1
+  end
+  if load8(b+stop+1)!=10
+   return reply(fd,"400 Bad Request","{\"error\":\"framing\"}\n")
+  end
+  let colon=line
+  while all(colon<stop,load8(b+colon)!=58)
+   let c=load8(b+colon)
+   if not(any(all(c>=65,c<=90),any(all(c>=97,c<=122),any(all(c>=48,c<=57),c==45))))
+    return reply(fd,"400 Bad Request","{\"error\":\"framing\"}\n")
+   end
+   set colon=colon+1
+  end
+  if any(colon==line,colon==stop)
+   return reply(fd,"400 Bad Request","{\"error\":\"framing\"}\n")
+  end
+  let value=colon+1
+  while all(value<stop,any(load8(b+value)==32,load8(b+value)==9))
+   set value=value+1
+  end
+  let vend=stop
+  while all(vend>value,any(load8(b+vend-1)==32,load8(b+vend-1)==9))
+   set vend=vend-1
+  end
+  if key(b+line,colon-line,"host")
+   set hosts=hosts+1
+   if value==vend
+    return reply(fd,"400 Bad Request","{\"error\":\"framing\"}\n")
+   end
+  end
+  if key(b+line,colon-line,"content-length")
+   set lengths=lengths+1
+   if not(eq(b+value,vend-value,"0"))
+    return reply(fd,"400 Bad Request","{\"error\":\"framing\"}\n")
+   end
+  end
+  if key(b+line,colon-line,"transfer-encoding")
+   return reply(fd,"400 Bad Request","{\"error\":\"framing\"}\n")
+  end
+  set line=stop+2
+ end
+ if any(lengths>1,any(hosts>1,all(v11,hosts!=1)))
+  return reply(fd,"400 Bad Request","{\"error\":\"framing\"}\n")
+ end
+ let path=b+start
+ let size=end-start
+ if size>256
+  return reply(fd,"414 URI Too Long","{\"error\":\"path-limit\"}\n")
+ end
+ if eq(path,size,"/")
+  let site="<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>RiverFlow | Native and guest lab</title><style>:root{color-scheme:dark;background:#0c1823;color:#e7f6f7;font:16px system-ui}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 80% 0,#153b48,transparent 60%)}main{max-width:1050px;margin:auto;padding:64px 28px}small,.label{color:#81d8dc;letter-spacing:.13em;text-transform:uppercase;font-size:12px}h1{font-size:clamp(40px,7vw,70px);line-height:1.03;max-width:800px;margin:20px 0}p{color:#b8cbd1;line-height:1.7;max-width:780px}.grid{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;margin:34px 0}.card{padding:28px;border:1px solid #2b4a58;border-radius:20px;background:#102734cc}.badge{display:inline-block;padding:8px 14px;border:1px solid #477781;border-radius:30px;color:#9ae6e0;font-size:13px}input,button,a.button{font:inherit;border-radius:10px;padding:12px 16px;border:1px solid #537782}input{background:#081923;color:white;width:150px}button,a.button{background:#8de4df;color:#08232c;cursor:pointer;text-decoration:none;display:inline-block}button:disabled{opacity:.5}pre{white-space:pre-wrap;word-break:break-word;color:#b8f1e4;font:14px ui-monospace;min-height:90px}.links{display:flex;gap:10px;flex-wrap:wrap}.links a{background:transparent;color:#b8e4eb;font-size:13px}.note{border-left:3px solid #81d8dc;padding-left:16px;font-size:14px}footer{margin-top:50px;color:#8aa4ae;font-size:12px}@media(max-width:700px){.grid{grid-template-columns:1fr}main{padding-top:36px}}</style><main><small>RF2 / executable systems laboratory</small><h1>One page.<br>Three real execution paths.</h1><p>The same website and integer workload, served by native RF2 on macOS, Python on macOS, and Python in a Linux guest. This is a controlled comparison with explicit boundaries.</p><span class=\"badge\" id=\"backend\">Checking this backend...</span><div class=\"grid\"><section class=\"card\"><div class=\"label\">A bounded computation</div><h2>Reproduce the answer.</h2><p>A checked request runs an ordered 32-bit recurrence. Every backend must return the same checksum and final state.</p><label for=\"iterations\">Iterations (0 to 100000)</label><p><input id=\"iterations\" type=\"number\" value=\"10000\" min=\"0\" max=\"100000\"> <button id=\"run\">Run here</button></p><pre id=\"result\" aria-live=\"polite\">No request executed yet.</pre></section><section class=\"card\"><div class=\"label\">Execution identity</div><h2>Inspect before comparing.</h2><pre id=\"identity\">Reading /api/info...</pre><p class=\"note\">Different runtimes, operating systems and VM networking can affect latency. A result here does not prove transistor redesign or universal speed.</p></section></div><div class=\"links\"><a class=\"button\" href=\"http://127.0.0.1:18780/\">RF2 native</a><a class=\"button\" href=\"http://127.0.0.1:18781/\">Python host control</a><a class=\"button\" href=\"http://127.0.0.1:18782/\">Linux guest / Python</a></div><footer>Ilangkhumanan Thirunavokkarasu / SFE. Local research demonstration. No user records, no remote account access, no invented benchmark.</footer></main><script>fetch('/api/info').then(r=>r.json()).then(x=>{document.querySelector('#backend').textContent=x.backend;document.querySelector('#identity').textContent=JSON.stringify(x,null,2)}).catch(()=>document.querySelector('#backend').textContent='Backend unavailable');document.querySelector('#run').onclick=async()=>{let b=document.querySelector('#run'),v=document.querySelector('#iterations').value;b.disabled=true;try{let r=await fetch('/api/compute?iterations='+encodeURIComponent(v)),x=await r.json();document.querySelector('#result').textContent=JSON.stringify(x,null,2)}catch(e){document.querySelector('#result').textContent='Request failed; no result claimed.'}finally{b.disabled=false}};</script></html>\n"
+  return response(fd,"200 OK",site,length(site),"text/html; charset=utf-8")
+ end
+ if eq(path,size,"/health")
+  return reply(fd,"200 OK","{\"ok\":true}\n")
+ end
+ if eq(path,size,"/api/info")
+  return reply(fd,"200 OK","{\"backend\":\"RF2 native / macOS\",\"language\":\"RiverFlow\",\"version\":\"0.18-dev\",\"system\":\"Darwin\",\"architecture\":\"arm64\",\"workers\":1,\"maxIterations\":100000}\n")
+ end
+ let prefix="/api/compute?iterations="
+ let plen=length(prefix)
+ if all(size>=plen,eq(path,plen,prefix))
+  let count=size-plen
+  if any(count==0,any(count>6,all(count>1,load8(path+plen)==48)))
+   return reply(fd,"400 Bad Request","{\"error\":\"iterations\"}\n")
+  end
+  let iterations=0
+  let i=0
+  while i<count
+   let digit=load8(path+plen+i)
+   if any(digit<48,digit>57)
+    return reply(fd,"400 Bad Request","{\"error\":\"iterations\"}\n")
+   end
+   set iterations=iterations*10+digit-48
+   set i=i+1
+  end
+  if iterations>100000
+   return reply(fd,"400 Bad Request","{\"error\":\"iterations\"}\n")
+  end
+  let state=1
+  let total=0
+  set i=0
+  while i<iterations
+   set state=(state*1664525+1013904223)&4294967295
+   set total=total+state
+   set i=i+1
+  end
+  let out=buffer("json",256)
+  let p=append(out,"{\"iterations\":")
+  set p=decimal(p,iterations)
+  set p=append(p,",\"checksum\":")
+  set p=decimal(p,total)
+  set p=append(p,",\"state\":")
+  set p=decimal(p,state)
+  set p=append(p,"}\n")
+  return response(fd,"200 OK",out,p-out,"application/json")
+ end
+ return reply(fd,"404 Not Found","{\"error\":\"route\"}\n")
+end
+fn main(argc,argv)
+ let server=syscall6(97,2,1,0,0,0,0)
+ if server>=9223372036854775808
+  return 1
+ end
+ let option=buffer("option",16)
+ do store32(option,1)
+ do syscall6(105,server,65535,4,option,4,0)
+ let address=buffer("address",16)
+ do store8(address,16)
+ do store8(address+1,2)
+ do store8(address+2,73)
+ do store8(address+3,92)
+ do store8(address+4,127)
+ do store8(address+7,1)
+ if syscall6(104,server,address,16,0,0,0)!=0
+  do close(server)
+  return 2
+ end
+ if syscall6(106,server,128,0,0,0,0)!=0
+  do close(server)
+  return 3
+ end
+ do write(1,"RF2 loopback server: http://127.0.0.1:18780/\n",43)
+ while 1
+  let fd=syscall6(30,server,0,0,0,0,0)
+  if fd<9223372036854775808
+   do store32(option,1)
+   do syscall6(105,fd,6,1,option,4,0)
+   do syscall6(105,fd,65535,4130,option,4,0)
+   do store64(option,2)
+   do store64(option+8,0)
+   do syscall6(105,fd,65535,4102,option,16,0)
+   do syscall6(105,fd,65535,4101,option,16,0)
+   do handle(fd)
+   do close(fd)
+  end
+ end
+ return 0
+end

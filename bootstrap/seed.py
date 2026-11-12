@@ -167,7 +167,8 @@ class Compiler:
   # Apple code-signing requires __LINKEDIT; codesign appends its signature there.
   linkoff=dataoff+datasize
   commands+=seg('__LINKEDIT',BASE+linkoff,0,linkoff,0,1)
-  hdr=struct.pack('<8I',0xfeedfacf,0x0100000c,0,2,9,len(commands),0x200085,0)
+  commands+=struct.pack('<12I',0x80000022,48,*([0]*10))
+  hdr=struct.pack('<8I',0xfeedfacf,0x0100000c,0,2,10,len(commands),0x200085,0)
   result=hdr+commands;result+=bytes(codeoff-len(result))+code;result+=bytes(dataoff-len(result))+self.data;result+=bytes(linkoff-len(result))
   return result,{'schema':'rf2.native.seed.v1','profile':'RF2_SYSTEM_A64_V1','target':'macos-arm64','codeBytes':len(code),'dataBytes':len(self.data),'functions':len(groups),'importedSymbols':[],'osLoader':'dyld/libSystem, macOS system calls','compiler':'direct RF2 seed, Python build time only','selfHosted':False,'speedClaim':None}
 if __name__=='__main__':

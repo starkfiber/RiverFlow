@@ -7,7 +7,7 @@ R=Path(__file__).resolve().parents[2];sys.path.insert(0,str(R/'bootstrap'))
 from seed import Compiler
 ROOT=R/'output/compiler-verification';ROOT.mkdir(parents=True,exist_ok=True)
 work=Path(tempfile.mkdtemp(prefix='run-',dir=ROOT))
-source=R/'native/compiler/compiler.rf2';seed=R/'output/compiler-stage0/rf2c'
+source=R/'native/compiler/compiler.rf2';seed=Path(os.environ.get('RF2_BOOTSTRAP_COMPILER',R/'output/compiler-stage0/rf2c'))
 report={'schema':'rf2.compiler.verification.v1','passed':False,'target':'macos-arm64','selfHostingScope':'RF2_SYSTEM_A64_V1 compiler source, bounded documented lexical subset','speedClaim':None,'pythonFreeNativeStages':True,'cases':[],'negativeCases':0,'hashCases':0}
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def run(cmd,ok=True,timeout=30):
@@ -94,6 +94,6 @@ link=work/'link';link.symlink_to(p);r=run([c,R/'native/hello.rf2',link],ok=False
 env=dict(os.environ,RF2_TEST_BINARY=str(rt),RF2_TEST_REPORT=str(work/'runtime-verification.json'),RF2_TEST_VERSION='0.17.0',RF2_TEST_TOOLS='9');r=subprocess.run(['python3',str(R/'tests/standalone/verify.py')],cwd=R,env=env,capture_output=True,timeout=40);assert r.returncode==0,r.stderr;report['runtimeCorpusPassed']=True
 r=subprocess.run(['/opt/homebrew/opt/node@22/bin/node',str(R/'tests/standalone/sdk.mjs')],cwd=R,env=env,capture_output=True,timeout=20);assert r.returncode==0,r.stderr;report['officialSdkPassed']=True
 report.update(passed=True,sourceSHA256=digest(source),nativeCompilerSHA256=digest(c),historicalSeedSHA256=digest(R/'bootstrap/seed.py'),generatedRuntimeSHA256=digest(rt),seedEncoderRuntimeByteMatch=True)
-(R/'docs/NATIVE-COMPILER-0.17-VERIFICATION.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
+Path(os.environ.get('RF2_COMPILER_REPORT',R/'docs/NATIVE-COMPILER-0.17-VERIFICATION.json')).write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
 # Fixed-point outputs remain in the test work directory; do not overwrite release binaries.
 print("Candidate compiler and runtime retained in",work)

@@ -1,0 +1,80 @@
+profile RF2_SYSTEM_A64_V1
+# Native RF2 VM controller. QEMU/HVF supplies the actual hypervisor/device backend.
+fn length(p)
+ let n=0
+ while load8(p+n)!=0
+  set n=n+1
+ end
+ return n
+end
+fn drive(dst,p,suffix)
+ let i=0
+ let n=0
+ let prefix="file="
+ while i<5
+  do store8(dst+i,load8(prefix+i))
+  set i=i+1
+ end
+ set n=length(p)
+ if any(n==0,n>1024)
+  return 0
+ end
+ set i=0
+ while i<n
+  if any(load8(p+i)==44,load8(p+i)<32)
+   return 0
+  end
+  do store8(dst+5+i,load8(p+i))
+  set i=i+1
+ end
+ set i=0
+ while load8(suffix+i)!=0
+  do store8(dst+5+n+i,load8(suffix+i))
+  set i=i+1
+ end
+ do store8(dst+5+n+i,0)
+ return 1
+end
+fn main(argc,argv)
+ if argc!=5
+  do write(2,"Usage: rf2-vm qemu firmware guest-overlay seed-iso\n",48)
+  return 1
+ end
+ let disk=buffer("disk",1200)
+ let seed=buffer("seed",1200)
+ if not(drive(disk,load64(argv+24),",if=virtio,format=qcow2"))
+  return 1
+ end
+ if not(drive(seed,load64(argv+32),",if=virtio,format=raw,media=cdrom,readonly=on"))
+  return 1
+ end
+ let args=buffer("args",256)
+ do store64(args,load64(argv+8))
+ do store64(args+8,"-machine")
+ do store64(args+16,"virt,highmem=on")
+ do store64(args+24,"-accel")
+ do store64(args+32,"hvf")
+ do store64(args+40,"-cpu")
+ do store64(args+48,"host")
+ do store64(args+56,"-m")
+ do store64(args+64,"1024")
+ do store64(args+72,"-smp")
+ do store64(args+80,"2")
+ do store64(args+88,"-bios")
+ do store64(args+96,load64(argv+16))
+ do store64(args+104,"-drive")
+ do store64(args+112,disk)
+ do store64(args+120,"-drive")
+ do store64(args+128,seed)
+ do store64(args+136,"-netdev")
+ do store64(args+144,"user,id=n0,hostfwd=tcp:127.0.0.1:18782-:8080")
+ do store64(args+152,"-device")
+ do store64(args+160,"virtio-net-pci,netdev=n0")
+ do store64(args+168,"-nographic")
+ do store64(args+176,"-no-reboot")
+ let env=buffer("env",24)
+ do store64(env,"LC_ALL=C")
+ do store64(env+8,"PATH=/usr/bin:/bin")
+ do syscall6(59,load64(argv+8),args,env,0,0,0)
+ return 1
+end
