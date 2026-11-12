@@ -1,0 +1,33 @@
+{
+  "observedAfterMeasurement": "2026-11-12T21:39:51.981198+00:00",
+  "backends": {
+    "18780": {
+      "backend": "RF2 native / macOS",
+      "language": "RiverFlow",
+      "version": "0.18-dev",
+      "system": "Darwin",
+      "architecture": "arm64",
+      "workers": 1,
+      "maxIterations": 100000
+    },
+    "18781": {
+      "backend": "Python / host",
+      "language": "CPython",
+      "version": "3.9.6",
+      "system": "Darwin",
+      "architecture": "arm64",
+      "workers": 1,
+      "maxIterations": 100000
+    },
+    "18782": {
+      "backend": "Python / linux-guest",
+      "language": "CPython",
+      "version": "3.12.3",
+      "system": "Linux",
+      "architecture": "aarch64",
+      "workers": 1,
+      "maxIterations": 100000
+    }
+  },
+  "scope": "Same source/server processes as the local showcase; records runtime differences without modifying retained original timing report."
+}

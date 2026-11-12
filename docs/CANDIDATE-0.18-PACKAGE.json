@@ -1,13 +1,13 @@
 {
   "passed": true,
-  "archiveSHA256": "4c45f35fa573f9ef3be360bda98908bdb83f46e081451163af1447bef73bdcb7",
+  "archiveSHA256": "0289110a3e7999674c5824533138b863a65c41929dbe7634057e784ab26d43f9",
   "manifestEntries": 13,
   "binarySHA256": {
-    "rf2c": "98de89f3c5a8b4d5dc6ba09f84f614528394a57e7be6d48bd23df4c87279038e",
+    "rf2c": "8f1fef753703e242b4d5afa74241a8e3aa56423c7e175622c22b66e9db70cc21",
     "rf2-trust": "3f0a8e86d4ddd2db6ddbd509309ac88a1eec98d1ad8635acbd36ea3a0e92179a",
     "rf2-verify": "8a4e9eef0ade57714a8c3f3c2684fd0e3a1a75dd14abd4f5789ea54526351781",
-    "rf2-site": "756afdc8cb5f8bf5e6250437724fb8e5d8419c9d23d4987ba7e425af1275fb1d",
-    "rf2-vm": "6365f235a87547db8e971cff0466d714d50de0ef704fabd464c791e4b2090fa5"
+    "rf2-site": "7dcec45ae1805416898989bc83d580b6c68ef9d495677fb76944b113df400170",
+    "rf2-vm": "0844b823167ecd8a965b35446b39970c591c26b734ab0fae9bdf810ae4700025"
   },
   "localExecutionEvidence": [
     "artifacts/virtual-lab/package-smoke.json",
@@ -16,5 +16,9 @@
     "artifacts/trust-0.18/protocol-keys-1794519029584929000/report.json"
   ],
   "documentationOnlyRepack": "artifacts/virtual-lab/package-document-polish.json",
-  "limits": "Native binary bytes executed locally are unchanged after documentation polish. Hosted source rebuild is not exact archive qualification. Ad-hoc signed, not notarized."
+  "limits": "Candidate only. Exact compiler/trust/HTTP bytes tested on macOS15 ARM64 and locally26ARM64; VM hardware experiment ran only on local Mac through QEMU/HVF. Ad-hoc signed, not notarized. No public signature, anti-replay or broad security/performance guarantee.",
+  "previousArchiveSHA256": "4c45f35fa573f9ef3be360bda98908bdb83f46e081451163af1447bef73bdcb7",
+  "secondHostReceipt": "EXACT-PACKAGE-0.18-SECOND-HOST.json",
+  "exactArchiveTestedOnSecondHost": true,
+  "nativeWebsiteOnSecondHost": true
 }

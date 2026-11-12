@@ -65,6 +65,25 @@ Stable downloads remain 0.17. Prepare a separately labelled 0.18 candidate packa
 
 ## Candidate package and live showcase
 
-The separate local archive output/rf2-trust-0.18.0-candidate-macos-arm64.tar.gz includes five native programs, a file manifest and public laboratory sources. No keys or VM disks are bundled. Its trust programs passed 520 trust checks, 245 additional key/protocol checks and the independent MCP SDK locally. The packaged website/controller passed the 63 preflight checks after a fresh guest boot. Exact archive bytes have not been qualified remotely; the final hosted run rebuilt the public source. The package is ad-hoc signed, not Developer-ID signed or notarized.
+The separate local archive output/rf2-trust-0.18.0-candidate-macos-arm64.tar.gz includes five native programs, a file manifest and public laboratory sources. No keys or VM disks are bundled. Its trust programs passed 520 trust checks, 245 additional key/protocol checks and the independent MCP SDK locally. The packaged website/controller passed the 63 preflight checks after a fresh guest boot. The final exact-archive run qualified the pinned download on the hosted Mac as well as locally, including native compiler output, trust/key checks and HTTP responses. The package is ad-hoc signed, not Developer-ID signed or notarized.
 
 The three loopback services remain running for inspection, with a 1 GiB guest. Use python3 tools/stop-stack-showcase.py to stop only the recorded process identities. It refuses reused PIDs. This is an explicit local demonstration, not a background production deployment.
+
+Runtime identity supplement: STACK-LAB-0.18-ENVIRONMENT.json records the live backends after measurement. Host control uses CPython 3.9.6; the guest uses CPython 3.12.3. This interpreter-version difference is another confounder, not an RF2 compiler effect. The original timing report is preserved unchanged.
+
+## Stronger Python control confirmation
+
+A second 3,600-response run changed the host control from CPython 3.9.6 to the available CPython 3.12.14. The guest retained CPython 3.12.3. The same server source, byte oracle, bounded workloads, shuffled fifteen-round plan and concurrency levels were retained. The original run is preserved rather than replaced.
+
+| Request | RF2 native, ms | Python 3.12.14 host, ms | Python 3.12.3 guest, ms |
+| --- | --- | --- | --- |
+| Shared page | 0.1497 | 0.1630 | 0.2557 |
+| 10,000 recurrence steps | 0.1836 | 0.6668 | 0.8329 |
+
+At concurrency one, the RF2 recurrence median was about 3.63 times lower than the newer host Python implementation. This is smaller than the original 4.29 ratio, which shows why the stronger control matters. It is not a universal language-speed result. Both the interpreter patch-version difference and the deployment differences remain disclosed. The updated host also passed a new sixty-request WhatIF smoke suite and evidence verification. Exact samples and runtime identities are retained in STACK-LAB-0.18-PYTHON312.json.
+
+## Final exact archive qualification
+
+The final candidate SHA-256 is 0289110a3e7999674c5824533138b863a65c41929dbe7634057e784ab26d43f9. Run https://github.com/starkfiber/RiverFlow/actions/runs/43313390725 passed with that exact archive on macOS 15 ARM64. It verified the file manifest, ran the packaged compiler and its generated program, checked emitted loader metadata, passed 520 trust and 245 extra key/protocol checks, served matching native HTTP page/health/calculation responses and verified the VM controller usage diagnostic. The local exact-package checks passed too. VM hardware execution was not tested in the hosted VM; the real Linux guest ran only on the local Mac.
+
+The package is immutable for this qualification. Its bundled EXPERIMENT.md is the earlier pre-qualification snapshot. This final receipt supersedes that snapshot's pending-qualification note without rewriting the tested archive. Public stable downloads remain 0.17. The separate development candidate is available under dist/0.18-candidate. Developer-ID signing/notarization and external review remain separate release work.

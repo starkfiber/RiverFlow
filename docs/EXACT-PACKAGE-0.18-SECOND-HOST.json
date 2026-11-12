@@ -1,0 +1,137 @@
+{
+  "run": "https://github.com/starkfiber/RiverFlow/actions/runs/43313390725",
+  "qualification": {
+    "commit": "6f1deb2d843ffd685b5d4328e02e8fce9d548168",
+    "system": "macOS-15.8.2-arm64-arm-64bit-Mach-O",
+    "architecture": "arm64",
+    "runnerEnvironment": "github-hosted",
+    "runnerOS": "macOS",
+    "compilerSHA256": "8cac670c59421bfb83b92e5d12efda7e7951bd01b7c177c116d7f7c430deeb5e",
+    "commands": [
+      {
+        "command": [
+          "python3",
+          "tools/sync-contract-json.py",
+          "--check"
+        ],
+        "exit": 0,
+        "seconds": 0.049617124999997486
+      },
+      {
+        "command": [
+          "python3",
+          "tools/build-trust.py",
+          "output/trust-0.18"
+        ],
+        "exit": 0,
+        "seconds": 0.12800533300000438
+      },
+      {
+        "command": [
+          "python3",
+          "tests/standalone/trust_hmac_verify.py"
+        ],
+        "exit": 0,
+        "seconds": 0.8031005000000135
+      },
+      {
+        "command": [
+          "python3",
+          "tests/standalone/verifier_exhaustive.py"
+        ],
+        "exit": 0,
+        "seconds": 0.537004416000002
+      },
+      {
+        "command": [
+          "python3",
+          "tests/standalone/contract_engine_verify.py"
+        ],
+        "exit": 0,
+        "seconds": 1.6568480840000035
+      },
+      {
+        "command": [
+          "python3",
+          "tests/standalone/contract_exhaustive_verify.py"
+        ],
+        "exit": 0,
+        "seconds": 0.33685441699999785
+      },
+      {
+        "command": [
+          "python3",
+          "tests/standalone/trust_shared_fault.py"
+        ],
+        "exit": 0,
+        "seconds": 0.4252339169999999
+      },
+      {
+        "command": [
+          "python3",
+          "tests/standalone/trust_verify.py"
+        ],
+        "exit": 0,
+        "seconds": 1.4465653329999952
+      },
+      {
+        "command": [
+          "python3",
+          "tests/standalone/trust_protocol_keys.py"
+        ],
+        "exit": 0,
+        "seconds": 0.16895879100000855
+      },
+      {
+        "command": [
+          "python3",
+          "tools/qualify-packaged-candidate.py"
+        ],
+        "exit": 0,
+        "seconds": 1.7903911249999993
+      }
+    ],
+    "bootstrapRepair": {
+      "inputSHA256": "8cac670c59421bfb83b92e5d12efda7e7951bd01b7c177c116d7f7c430deeb5e",
+      "outputSHA256": "70d610767d68395a1f8b5b4e8f5ff37c2fea40cc671b5f00e963fb8bbcaefab5",
+      "repair": "empty LC_DYLD_INFO_ONLY; original code/data bytes unchanged before resigning"
+    },
+    "candidateCompilerSHA256": "f3609ad632b160465267220ae29245378fa71e3d5b5e251343c8a19543c04fdd",
+    "passed": true
+  },
+  "exactPackage": {
+    "archiveSHA256": "0289110a3e7999674c5824533138b863a65c41929dbe7634057e784ab26d43f9",
+    "system": "macOS-15.8.2-arm64-arm-64bit-Mach-O",
+    "architecture": "arm64",
+    "commands": [
+      {
+        "script": "trust_verify.py",
+        "exit": 0,
+        "seconds": 1.311559250000002,
+        "stdout": "{\n  \"passed\": true,\n  \"checks\": 520,\n  \"report\": \"/Users/runner/work/RiverFlow/RiverFlow/artifacts/trust-0.18/verify-1794519952058894000/report.json\"\n}\n",
+        "stderr": ""
+      },
+      {
+        "script": "trust_protocol_keys.py",
+        "exit": 0,
+        "seconds": 0.103421333,
+        "stdout": "{\"passed\": true, \"checks\": 245, \"report\": \"/Users/runner/work/RiverFlow/RiverFlow/artifacts/trust-0.18/protocol-keys-1794519953363498000/report.json\"}\n",
+        "stderr": ""
+      }
+    ],
+    "passed": true,
+    "manifestVerified": true,
+    "binarySHA256": {
+      "rf2c": "8f1fef753703e242b4d5afa74241a8e3aa56423c7e175622c22b66e9db70cc21",
+      "rf2-trust": "3f0a8e86d4ddd2db6ddbd509309ac88a1eec98d1ad8635acbd36ea3a0e92179a",
+      "rf2-verify": "8a4e9eef0ade57714a8c3f3c2684fd0e3a1a75dd14abd4f5789ea54526351781",
+      "rf2-site": "7dcec45ae1805416898989bc83d580b6c68ef9d495677fb76944b113df400170",
+      "rf2-vm": "0844b823167ecd8a965b35446b39970c591c26b734ab0fae9bdf810ae4700025"
+    },
+    "packagedCompilerEmitsRunningProgram": true,
+    "emittedDyldMetadata": true,
+    "nativeWebsitePassed": true,
+    "controllerUsagePassed": true,
+    "VMHardwareTestedHere": false
+  }
+}

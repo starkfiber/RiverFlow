@@ -1,6 +1,6 @@
 """Bounded loopback comparison. Measures this implementation/deployment, not languages in general."""
 from pathlib import Path
-import socket,time,json,hashlib,random,statistics,platform,concurrent.futures,subprocess
+import socket,time,json,hashlib,random,statistics,platform,concurrent.futures,subprocess,os
 R=Path(__file__).resolve().parents[1];D=R/'artifacts/virtual-lab';rows=[];checks=[];ports=[18780,18781,18782];rng=random.Random(180013)
 def request(port,path='/',raw=None):
  start=time.perf_counter_ns()
@@ -16,6 +16,7 @@ def oracle(n):
  state=1;total=0
  for _ in range(n):state=(state*1664525+1013904223)&0xffffffff;total+=state
  return (json.dumps({'iterations':n,'checksum':total,'state':state},separators=(',',':'))+'\n').encode()
+identities={str(port):json.loads(request(port,'/api/info')[1])for port in ports}
 site=(R/'examples/stack-lab/index.html').read_bytes();expected={'/':site,'/health':b'{"ok":true}\n'}
 for n in [0,1,10,10000,100000]:expected[f'/api/compute?iterations={n}']=oracle(n)
 for port in ports:
@@ -43,4 +44,4 @@ for trial in range(15):
 summary=[]
 for port,path,c in cells:
  group=[x for x in rows if(x['port'],x['path'],x['concurrency'])==(port,path,c)];lat=[v for x in group for v in x['milliseconds']];summary.append({'port':port,'path':path,'concurrency':c,'requests':len(lat),'medianMs':statistics.median(lat),'p95Ms':sorted(lat)[int(.95*(len(lat)-1))],'medianBatchRequestsPerSecond':statistics.median(x['requestsPerSecond']for x in group)})
-report={'date':'2026-11-13','passed':True,'machine':platform.platform(),'seed':180013,'checks':checks,'requestsMeasured':sum(len(x['milliseconds'])for x in rows),'summary':summary,'samples':rows,'controllerSHA256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'sources':{str(p.relative_to(R)):hashlib.sha256(p.read_bytes()).hexdigest()for p in (R/'examples/stack-lab').glob('*')if p.is_file()},'limits':['Single physical host, single-worker bounded HTTP subset, loopback; not internet capacity','Host-Python control isolates some VM cost, not all implementation/runtime/OS differences','Guest is QEMU/HVF Linux with user-mode network forwarding; RF2 launches backend, not a new hypervisor','HTTP latency includes socket/client overhead; no compiler-wide/energy/token/transistor claims','Malformed probes are a bounded subset, not complete HTTP conformance or security proof']};(D/'comparison.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({'passed':True,'checks':len(checks),'requestsMeasured':report['requestsMeasured'],'summary':summary},indent=2))
+report={'date':'2026-11-13','passed':True,'machine':platform.platform(),'backends':identities,'seed':180013,'checks':checks,'requestsMeasured':sum(len(x['milliseconds'])for x in rows),'summary':summary,'samples':rows,'controllerSHA256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'sources':{str(p.relative_to(R)):hashlib.sha256(p.read_bytes()).hexdigest()for p in (R/'examples/stack-lab').glob('*')if p.is_file()},'limits':['Single physical host, single-worker bounded HTTP subset, loopback; not internet capacity','Host-Python control isolates some VM cost, not all implementation/runtime/OS differences','Guest is QEMU/HVF Linux with user-mode network forwarding; RF2 launches backend, not a new hypervisor','HTTP latency includes socket/client overhead; no compiler-wide/energy/token/transistor claims','Malformed probes are a bounded subset, not complete HTTP conformance or security proof']};Path(os.environ.get('RF2_STACK_REPORT',str(D/'comparison.json'))).write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({'passed':True,'checks':len(checks),'requestsMeasured':report['requestsMeasured'],'summary':summary},indent=2))

@@ -22,11 +22,11 @@ The [ten-language source audit](docs/TOP-TEN-LANGUAGE-AUDIT.md) compares RF2 wit
 
 A separate native verifier, HMAC-authenticated receipts and three bounded contract MCP tools are working. The eligible XOR/reversal path has matched before/after measurements; complete authenticated MCP timings are recorded separately. [Trust model, setup and measured evidence](docs/TRUST-0.18.md).
 
-Shared-key authentication is not a public signature or proof of uncompromised hardware. The separate algorithm catches the tested two-path defect; a shared three-path defect still escapes. Stable downloads remain 0.17 while the new edition undergoes release qualification.
+Shared-key authentication is not a public signature or proof of uncompromised hardware. The separate algorithm catches the tested two-path defect; a shared three-path defect still escapes. Stable downloads remain 0.17. The separate [0.18 native candidate bundle](dist/0.18-candidate/) contains the trust service, verifier, compiler, website and VM controller, with a pinned checksum. It is ad-hoc signed, not notarized.
 
 ## Now running: one website, three execution paths
 
-A native RF2 server, host Python control and Python inside a real HVF Linux guest serve the same page and checked computation. RF2's VM controller launches QEMU; QEMU supplies virtualization. The local 3,600-request experiment and its confounders are [fully recorded](docs/STACK-LAB-0.18.md). A second hosted ARM Mac also exposed and verified a fix for the compiler's macOS 15 loader metadata. Stable downloads remain 0.17 while exact-package release checks finish.
+A native RF2 server, host Python control and Python inside a real HVF Linux guest serve the same page and checked computation. RF2's VM controller launches QEMU; QEMU supplies virtualization. The two local 3,600-response comparisons and their confounders are [fully recorded](docs/STACK-LAB-0.18.md). A second hosted ARM Mac also exposed and verified a fix for the compiler's macOS 15 loader metadata. The exact candidate archive passed local and hosted checks; stable downloads remain 0.17.
 
 ## Start with something real
 

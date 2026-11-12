@@ -25,7 +25,7 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "Python": 373569,
+    "Python": 377686,
     "RiverFlow": 333022,
     "JavaScript": 67293,
     "HTML": 20585,
@@ -1012,7 +1012,7 @@
     {
       "path": "tools/measure-stack-lab.py",
       "language": "Python",
-      "bytes": 4851
+      "bytes": 5001
     },
     {
       "path": "tools/measure-studio.py",
@@ -1022,7 +1022,7 @@
     {
       "path": "tools/package-trust-candidate.py",
       "language": "Python",
-      "bytes": 2368
+      "bytes": 2370
     },
     {
       "path": "tools/prepare-vm-lab.py",
@@ -1035,9 +1035,14 @@
       "bytes": 3183
     },
     {
+      "path": "tools/qualify-packaged-candidate.py",
+      "language": "Python",
+      "bytes": 3915
+    },
+    {
       "path": "tools/qualify-second-host.py",
       "language": "Python",
-      "bytes": 3595
+      "bytes": 3645
     },
     {
       "path": "tools/source-inventory.py",
