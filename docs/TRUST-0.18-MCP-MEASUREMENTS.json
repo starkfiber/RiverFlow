@@ -1,0 +1,240 @@
+{
+  "date": "2026-11-13",
+  "rows": [
+    {
+      "bytes": 8,
+      "steps": 1,
+      "trials": {
+        "contract_run": {
+          "perCallMs": [
+            0.0657583,
+            0.06477915,
+            0.06599165,
+            0.063875,
+            0.06525,
+            0.0647625,
+            0.064275,
+            0.0649917,
+            0.06383330000000001,
+            0.06466875,
+            0.06483335
+          ],
+          "medianPerCallMs": 0.06477915,
+          "requestByteRange": [
+            167,
+            169
+          ],
+          "responseByteRange": [
+            619,
+            621
+          ]
+        },
+        "contract_verify": {
+          "perCallMs": [
+            0.06516875,
+            0.06354165,
+            0.05988335,
+            0.059854149999999995,
+            0.06544795,
+            0.06411875,
+            0.0600979,
+            0.05913125,
+            0.060352050000000004,
+            0.060745850000000004,
+            0.060833349999999994
+          ],
+          "medianPerCallMs": 0.060745850000000004,
+          "requestByteRange": [
+            500,
+            500
+          ],
+          "responseByteRange": [
+            187,
+            187
+          ]
+        }
+      }
+    },
+    {
+      "bytes": 128,
+      "steps": 8,
+      "trials": {
+        "contract_run": {
+          "perCallMs": [
+            0.24506044999999999,
+            0.25201875,
+            0.2477875,
+            0.24776455,
+            0.2366354,
+            0.24581875000000003,
+            0.24172705,
+            0.24159795,
+            0.242925,
+            0.2365125,
+            0.22909585
+          ],
+          "medianPerCallMs": 0.242925,
+          "requestByteRange": [
+            609,
+            609
+          ],
+          "responseByteRange": [
+            1889,
+            1889
+          ]
+        },
+        "contract_verify": {
+          "perCallMs": [
+            0.2205375,
+            0.23514374999999998,
+            0.2346625,
+            0.244575,
+            0.2554354,
+            0.23865625000000001,
+            0.25174585,
+            0.25099375,
+            0.2592604,
+            0.2469125,
+            0.2668354
+          ],
+          "medianPerCallMs": 0.2469125,
+          "requestByteRange": [
+            1380,
+            1380
+          ],
+          "responseByteRange": [
+            575,
+            575
+          ]
+        }
+      }
+    },
+    {
+      "bytes": 128,
+      "steps": 32,
+      "trials": {
+        "contract_run": {
+          "perCallMs": [
+            0.28342915,
+            0.2817417,
+            0.2801,
+            0.27651875000000004,
+            0.27069584999999996,
+            0.27708125,
+            0.25397705,
+            0.2520604,
+            0.26487295,
+            0.2658354,
+            0.2635875
+          ],
+          "medianPerCallMs": 0.27069584999999996,
+          "requestByteRange": [
+            789,
+            790
+          ],
+          "responseByteRange": [
+            2249,
+            2250
+          ]
+        },
+        "contract_verify": {
+          "perCallMs": [
+            0.26666249999999997,
+            0.2497042,
+            0.26156250000000003,
+            0.2617354,
+            0.26313125,
+            0.25973125,
+            0.26170625,
+            0.26077914999999996,
+            0.26316039999999996,
+            0.26217290000000004,
+            0.25661459999999997
+          ],
+          "medianPerCallMs": 0.26170625,
+          "requestByteRange": [
+            1741,
+            1741
+          ],
+          "responseByteRange": [
+            576,
+            576
+          ]
+        }
+      }
+    }
+  ],
+  "trials": 11,
+  "callsPerTrial": 20,
+  "warmups": 3,
+  "build": {
+    "edition": "0.18-dev",
+    "sourceIdentity": "a04b90e5ae61c15696b632e237c7db8e36793e10d4f016720e6908432cdffbc9",
+    "compilerSHA256": "8cac670c59421bfb83b92e5d12efda7e7951bd01b7c177c116d7f7c430deeb5e",
+    "sources": [
+      {
+        "path": "lib/auth.rf2",
+        "sha256": "653d4c47abe18c62d0265383e5157557fafaeed8080fb6f99e22bdc25a62cf27"
+      },
+      {
+        "path": "lib/contract_mcp.rf2",
+        "sha256": "a9e9f03473da9bbd45760ee40d730f0d193c5e660b47199a85504a9fa11791a9"
+      },
+      {
+        "path": "lib/engine.rf2",
+        "sha256": "5e9424df979ac510e14e3573e0651033cf48c96fb563c7210ea3e12fe6271024"
+      },
+      {
+        "path": "lib/issuer.rf2",
+        "sha256": "b0851d9f90b392d3bb00ad510607f48e2a24b3af08d7bc5812c06756251927ea"
+      },
+      {
+        "path": "lib/json_transport.rf2",
+        "sha256": "2edbf0a8be16c343b189c7e999b5eb4b2d14c87610ca58b8a5669abaab5e72af"
+      },
+      {
+        "path": "lib/output.rf2",
+        "sha256": "b15fba158a6816c71de0bbb35db8c7eb93e728d927414a3ef0aeab06cdde6b23"
+      },
+      {
+        "path": "lib/parser.rf2",
+        "sha256": "defcabacd99e2fb6cdf0a569dca68a7978e8a84faf0d22d2fbdd0714d35e900c"
+      },
+      {
+        "path": "lib/sha256.rf2",
+        "sha256": "182e92384692f39749df35fc9be4a30ae3fe07c0698885dfd1359d2c814c78f2"
+      },
+      {
+        "path": "lib/verifier.rf2",
+        "sha256": "383c20fe1a1abe1827508ddf1d9a10794f28088c3a4905a1c4b7d1ba8431e89e"
+      },
+      {
+        "path": "lib/wire.rf2",
+        "sha256": "a92bd08b733a44ec0970bd5df592989399f49a12f7096a3f18582bb41e6dbf18"
+      },
+      {
+        "path": "main.rf2",
+        "sha256": "0634a634138f1f2ff1aa997e9a5337aaf5b963a02b4943bd02f946175d40e026"
+      },
+      {
+        "path": "trust.rf2",
+        "sha256": "8261c2de37f2a3d5a5cca0e05fb11f649fb771790425cffb1b386267136cd585"
+      },
+      {
+        "path": "verify.rf2",
+        "sha256": "d0fddbf65ab4d982c3927e2beeeaeb25f5a874f19d27cf3bde4eb2710a50e369"
+      }
+    ],
+    "binaries": [
+      {
+        "file": "rf2-trust",
+        "sha256": "368d94c2849713d537de488e578884378e43c8aa96dd4455530e427aa1d0e208"
+      },
+      {
+        "file": "rf2-verify",
+        "sha256": "8f2826e9f54ba761fd3436a58586851da7a9012c0437e287fd983913385b1aa1"
+      }
+    ]
+  },
+  "scope": "One local stdio process. Includes native parsing, execution or verification, authentication, pipes and Python host JSON serialization/deserialization. Not a network, GPU, pure engine, AI bill/token or crosslanguage result. No previous authenticated MCP baseline existed."
+}

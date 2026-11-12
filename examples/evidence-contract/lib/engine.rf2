@@ -20,6 +20,8 @@ fn execute(data:Data,plan:Plan,codes:Ops,args:Ops,r:Run)
  let reverse_parity=0
  let source_index=0
  let required=0
+ let fast_maps=1
+ let fast_mask=0
  set r.code=0
  set r.step=0
  set r.index=0
@@ -55,6 +57,12 @@ fn execute(data:Data,plan:Plan,codes:Ops,args:Ops,r:Run)
   end
   if opcode==4
    set reverse_parity=reverse_parity^1
+  end
+  if all(opcode==1,operand!=0)
+   set fast_maps=0
+  end
+  if opcode==2
+   set fast_mask=fast_mask^operand
   end
   set j=j+1
  end
@@ -117,18 +125,24 @@ fn execute(data:Data,plan:Plan,codes:Ops,args:Ops,r:Run)
    set source_index=n-1-i
   end
   set value=data[source_index]
-  set j=0
-  while j<steps
-   set opcode=codes[j]
-   set r.work=r.work+1
-   if opcode==1
-    set value=value+args[j]
-   else
-    if opcode==2
-     set value=value^args[j]
+  if fast_maps
+   # Only uniform XOR, reversal and identity ADD0 are composed.
+   set value=value^fast_mask
+   set r.work=r.work+steps
+  else
+   set j=0
+   while j<steps
+    set opcode=codes[j]
+    set r.work=r.work+1
+    if opcode==1
+     set value=value+args[j]
+    else
+     if opcode==2
+      set value=value^args[j]
+     end
     end
+    set j=j+1
    end
-   set j=j+1
   end
   # A candidate fault must become a reported disagreement, not a byte trap.
   if value>255

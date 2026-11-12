@@ -2,7 +2,7 @@
 name: rf2
 description: Check and execute RiverFlow Core/compact programs, lower checked kernels, use the versioned attendance exporter, and develop native compiler evidence.
 ---
-# RiverFlow RF² 0.17
+# RiverFlow RF²: stable 0.17 and development 0.18
 
 Use rf2_status first. Read docs/NATIVE-CORE.md and docs/STANDALONE.md for current profiles/effects. Nine native tools exist: rf2_status, rf2_check, rf2_run, rf2_lower, attendance_export, invoice_total, invoice_prepare, invoice_apply and invoice_release. Users require no Node/npm/Python/C++ runtime. The host provides AI intelligence; the executable has no embedded model.
 
@@ -105,3 +105,9 @@ result Report(Stats,u64) supports 1..4 scalar fields in a nominal record success
 Read docs/EVIDENCE-CONTRACT.md, docs/FIVE-HYPOTHESES-REVIEW.md and docs/TOP-TEN-LANGUAGE-AUDIT.md. The RF2E1 native byte-plan runner is a separately built research example, not a 0.17 release asset or new MCP tool. It supports bounded checked ADD/XOR/reversal with permissions, abstract work limits, private reference/candidate execution, full-byte agreement before commit, source-bound SHA-256 receipts and plan-plus-JSON replay. Use tools/build-contract.py with a new output path to refresh source identity and capture compiler/executable hashes. The standalone result needs no Python/Node runtime; the builder and independent test controllers are development tools. Do not admit systems source via Core MCP or claim source receipts authenticate the running binary, novel physics, universal security or performance. Retain prior-art and finite-test limits.
 
 RF2C1 research replay: `rf2-contract capsule planfile` emits exact plan bytes, source ID and receipt; `rf2-contract replay capsulefile` validates them in a fresh process. The normal0.17 MCP schemas remain unchanged. Read docs/CONTRACT-REPLAY-RESEARCH.md and the verification/overhead records. Shared defects escaped agreement in executed negative controls; a recomputed unsigned receipt was accepted. Never call receipts authenticated, confidential or tamperproof. Idle-FIFO waiting was fixed with Darwin O_NONBLOCK, not a universal I/O timeout. Singlebyte exhaustive coverage is not all-plan verification; measured dual checking cost exceeded the reference-only harness.
+
+## 0.18 development trust service
+
+Read docs/TRUST-0.18.md and its verification/measurement records. The original nine native tools remain in the stable server. A separate native service exposes contract_status, contract_run and contract_verify for bounded RF2E1/RF2A1 only. It uses an administrator-selected32-byte mode0600key loaded at startup; no caller key/path override or automatic key generation is permitted. The launcher uses RF2_TRUST_BIN and RF2_TRUST_KEY_FILE, with documented local defaults. Existing0.17plugin installations need reload/reinstallation to activate the new source configuration. Do not claim these tools are already connected merely because the binaries exist.
+
+The separate verifier has its own parser and original-element trajectory algorithm, but shares RF2 compiler/cryptographic helpers. HMAC-SHA256 is shared-key authentication, not a public signature, nonrepudiation, replay protection or hardware attestation. Key holders can forge tags. A shared three-path defect escaped the executed control. The optimized eligible XOR/reversal path retains nonzero-ADD fallback and abstract work semantics. Engine timings exclude independent checking, hashing and transport; complete MCP timings are separate. Retain raw failures, finite-test boundaries and stable0.17release identity.

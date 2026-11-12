@@ -1,5 +1,5 @@
 module identity
-# Generated source-bundle identity, not a signature or self-attestation.
+# Generated source identity, not authenticated execution.
 fn build_identity()
- return "74bdfb1c15fbaa7520203fd412f9893670024e01eb863897eef491c5e60e15eb"
+ return "a04b90e5ae61c15696b632e237c7db8e36793e10d4f016720e6908432cdffbc9"
 end

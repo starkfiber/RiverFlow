@@ -1,0 +1,193 @@
+module contract_mcp
+fn mc_tools()
+ return j_say("{\"tools\":[{\"name\":\"contract_status\",\"description\":\"Read native contract limits and shared-key trust boundaries\",\"inputSchema\":{\"type\":\"object\",\"properties\":{},\"additionalProperties\":false}},{\"name\":\"contract_run\",\"description\":\"Execute only a bounded RF2E1 byte plan, independently check it and return an HMAC authenticated capsule. No caller paths or keys.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"plan\":{\"type\":\"string\",\"maxLength\":8192}},\"required\":[\"plan\"],\"additionalProperties\":false}},{\"name\":\"contract_verify\",\"description\":\"Authenticate an RF2A1 capsule and independently reconstruct its byte semantics. No file access or key override.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"capsule\":{\"type\":\"string\",\"maxLength\":18000}},\"required\":[\"capsule\"],\"additionalProperties\":false}}]}")
+end
+fn mc_error(id,text)
+ do j_rpc_start(id)
+ do j_say(",\"result\":{\"isError\":true,\"content\":[{\"type\":\"text\",\"text\":\"")
+ do j_say(text)
+ return j_say("\"}]}}\n")
+end
+fn mc_start_result(id)
+ do j_rpc_start(id)
+ return j_say(",\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Bounded RF2 contract result\"}],\"structuredContent\":")
+end
+fn mc_output(out,report)
+ let i=0
+ do j_say("{\"code\":")
+ do j_decimal(load64(report))
+ do j_say(",\"work\":")
+ do j_decimal(load64(report+40))
+ do j_say(",\"output\":[")
+ while i<load64(report+48)
+  if i!=0
+   do j_say(",")
+  end
+  do j_decimal(load8(out+i))
+  set i=i+1
+ end
+ return j_say("]")
+end
+fn mc_call(id,params,key)
+ let name=j_field(params,"name")
+ let args=j_field(params,"arguments")
+ let f=0
+ let index=0
+ let count=0
+ let source=0
+ let n=0
+ let e=Envelope(0,0,0,0,0)
+ let cap=buffer("mcp_capsule",18000)
+ let out=buffer("mcp_verified_out",128)
+ let report=buffer("mcp_verified_report",56)
+ if any(j_matches(j_token(name),"contract_status"),any(j_matches(j_token(name),"contract_run"),j_matches(j_token(name),"contract_verify")))
+  if args==0
+   return j_rpc_error(id,32602,"Missing arguments")
+  end
+  if load64(j_token(args))!=2
+   return j_rpc_error(id,32602,"Expected argument object")
+  end
+ else
+  return j_rpc_error(id,32602,"Unknown tool")
+ end
+ if j_matches(j_token(name),"contract_status")
+  if load64(j_token(args)+24)!=args+1
+   return j_rpc_error(id,32602,"Unexpected argument")
+  end
+  do mc_start_result(id)
+  do j_say("{\"edition\":\"0.18-dev\",\"maxBytes\":128,\"maxSteps\":32,\"maxPlanBytes\":8192,\"authentication\":\"HMAC-SHA256 shared key\",\"independentAlgorithm\":true,\"independentToolchain\":false,\"callerFilesystem\":false,\"replayProtection\":false,\"embeddedAI\":false}")
+  return j_say("}}\n")
+ end
+ set index=args+1
+ while index<load64(j_token(args)+24)
+  if j_matches(j_token(name),"contract_run")
+   if not(j_matches(j_token(index),"plan"))
+    return j_rpc_error(id,32602,"Unexpected argument")
+   end
+  else
+   if not(j_matches(j_token(index),"capsule"))
+    return j_rpc_error(id,32602,"Unexpected argument")
+   end
+  end
+  set count=count+1
+  set f=index+1
+  set index=load64(j_token(f)+24)
+ end
+ if any(count!=1,load64(j_token(f))!=1)
+  return j_rpc_error(id,32602,"Expected exactly one string argument")
+ end
+ set source=load64(j_token(f)+32)
+ set n=load64(j_token(f)+40)
+ if j_matches(j_token(name),"contract_run")
+  if n>8192
+   return mc_error(id,"Plan size limit")
+  end
+  if not(issue_plan(key,source,n,e))
+   return mc_error(id,"Invalid plan or independent disagreement")
+  end
+  set n=encode_auth(e,cap)
+  do mc_start_result(id)
+  do mc_output(buffer("issue_actual",128),buffer("issue_report",56))
+  do j_say(",\"authenticated\":true,\"independentlyChecked\":true,\"capsule\":\"")
+  # Generated capsule has only fixed ASCII, lowercase hex and one final newline.
+  do j_output(cap,n-1)
+  do j_say("\\n\"}")
+  return j_say("}}\n")
+ end
+ if n>18000
+  return mc_error(id,"Capsule size limit")
+ end
+ if not(decode_auth(source,n,e))
+  return mc_error(id,"Invalid capsule or source identity")
+ end
+ if not(authenticate(key,e))
+  return mc_error(id,"Authentication failed")
+ end
+ if not(verify_receipt(e,out,report))
+  return mc_error(id,"Independent semantic verification failed")
+ end
+ do mc_start_result(id)
+ do mc_output(out,report)
+ do j_say(",\"verified\":true}")
+ return j_say("}}\n")
+end
+fn mc_request(n,key)
+ let id=0
+ let method=0
+ let params=0
+ let version=0
+ let session=buffer("contract_session",16)
+ if n>65536
+  return j_rpc_error(0,32700,"Request limit")
+ end
+ if not(j_json_parse(buffer("line",1048577),n))
+  return j_rpc_error(0,32700,"Invalid JSON")
+ end
+ if load64(j_token(0))!=2
+  return j_rpc_error(0,32600,"Expected request object")
+ end
+ set id=j_field(0,"id")
+ if id!=0
+  if not(any(load64(j_token(id))==1,any(load64(j_token(id))==7,load64(j_token(id))==6)))
+   return j_rpc_error(0,32600,"Invalid id")
+  end
+ end
+ set method=j_field(0,"method")
+ set version=j_field(0,"jsonrpc")
+ if not(j_matches(j_token(version),"2.0"))
+  return j_rpc_error(id,32600,"Invalid JSON RPC version")
+ end
+ if load64(j_token(method))!=1
+  return j_rpc_error(id,32600,"Missing method")
+ end
+ if id==0
+  if all(j_matches(j_token(method),"notifications/initialized"),load64(session)==1)
+   do store64(session+8,1)
+  end
+  return 0
+ end
+ set params=j_field(0,"params")
+ if j_matches(j_token(method),"initialize")
+  if load64(session)!=0
+   return j_rpc_error(id,32600,"Already initialized")
+  end
+  if load64(j_token(params))!=2
+   return j_rpc_error(id,32602,"Missing initialize params")
+  end
+  set version=j_field(params,"protocolVersion")
+  if load64(j_token(version))!=1
+   return j_rpc_error(id,32602,"Missing protocol version")
+  end
+  do store64(session,1)
+  do j_rpc_start(id)
+  return j_say(",\"result\":{\"protocolVersion\":\"2024-11-05\",\"capabilities\":{\"tools\":{}},\"serverInfo\":{\"name\":\"rf2-contract-native\",\"version\":\"0.18.0-dev\"}}}\n")
+ end
+ if j_matches(j_token(method),"ping")
+  do j_rpc_start(id)
+  return j_say(",\"result\":{}}\n")
+ end
+ if load64(session+8)==0
+  return j_rpc_error(id,32002,"Initialize first")
+ end
+ if j_matches(j_token(method),"tools/list")
+  do j_rpc_start(id)
+  do j_say(",\"result\":")
+  do mc_tools()
+  return j_say("}\n")
+ end
+ if j_matches(j_token(method),"tools/call")
+  if load64(j_token(params))!=2
+   return j_rpc_error(id,32602,"Missing params")
+  end
+  return mc_call(id,params,key)
+ end
+ return j_rpc_error(id,32601,"Method not found")
+end
+fn contract_mcp(key)
+ let n=j_line()
+ while n!=0
+  do mc_request(n,key)
+  set n=j_line()
+ end
+ return 0
+end

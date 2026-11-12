@@ -18,6 +18,12 @@ The [Evidence Contract candidate](docs/EVIDENCE-CONTRACT.md) combines five teste
 
 The [ten-language source audit](docs/TOP-TEN-LANGUAGE-AUDIT.md) compares RF2 with selected implementations from Python through C, SQL and Go, with assembly as a separate low-level reference. It includes an A–Z acceptance ledger and marks missing capabilities explicitly. Popularity and shorter spelling do not prove correctness, speed or adoption.
 
+## Next edition: 0.18 development candidate
+
+A separate native verifier, HMAC-authenticated receipts and three bounded contract MCP tools are working. The eligible XOR/reversal path has matched before/after measurements; complete authenticated MCP timings are recorded separately. [Trust model, setup and measured evidence](docs/TRUST-0.18.md).
+
+Shared-key authentication is not a public signature or proof of uncompromised hardware. The separate algorithm catches the tested two-path defect; a shared three-path defect still escapes. Stable downloads remain 0.17 while the new edition undergoes release qualification.
+
 ## Start with something real
 
 The Apple Silicon Mac package contains ready-to-run tools. Users need no Node, npm, Python or C++ runtime.
@@ -94,4 +100,10 @@ The native rebuild uses RF2 plus OS file/signing utilities. Python, JavaScript, 
 
 Bring a small complete program, a precise expected result and a reproducible failure. Contributions should preserve the original oracle and report both improvements and remaining gaps.
 
-[Full-stack direction](docs/RF2-FULL-STACK-DIRECTION.md) · [Source inventory](docs/SOURCE-INVENTORY.json) · [MIT licence](LICENSE)
+## Repository source inventory
+
+This counts native RF2 source, developer oracles, tests and website tools. It does not describe what users must install to run a native RF2 program. Generated copies are excluded with their derivation retained.
+
+![Current repository source inventory](docs/SOURCE-INVENTORY.svg)
+
+[Inventory method and exact file list](docs/SOURCE-INVENTORY.json) · [Full-stack direction](docs/RF2-FULL-STACK-DIRECTION.md) · [Source inventory](docs/SOURCE-INVENTORY.json) · [MIT licence](LICENSE)

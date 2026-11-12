@@ -1,0 +1,124 @@
+{
+  "date": "2026-11-13",
+  "edition": "0.18.0-dev",
+  "stableRelease": "0.17.0 unchanged",
+  "build": {
+    "edition": "0.18-dev",
+    "sourceIdentity": "a04b90e5ae61c15696b632e237c7db8e36793e10d4f016720e6908432cdffbc9",
+    "compilerSHA256": "8cac670c59421bfb83b92e5d12efda7e7951bd01b7c177c116d7f7c430deeb5e",
+    "sources": [
+      {
+        "path": "lib/auth.rf2",
+        "sha256": "653d4c47abe18c62d0265383e5157557fafaeed8080fb6f99e22bdc25a62cf27"
+      },
+      {
+        "path": "lib/contract_mcp.rf2",
+        "sha256": "a9e9f03473da9bbd45760ee40d730f0d193c5e660b47199a85504a9fa11791a9"
+      },
+      {
+        "path": "lib/engine.rf2",
+        "sha256": "5e9424df979ac510e14e3573e0651033cf48c96fb563c7210ea3e12fe6271024"
+      },
+      {
+        "path": "lib/issuer.rf2",
+        "sha256": "b0851d9f90b392d3bb00ad510607f48e2a24b3af08d7bc5812c06756251927ea"
+      },
+      {
+        "path": "lib/json_transport.rf2",
+        "sha256": "2edbf0a8be16c343b189c7e999b5eb4b2d14c87610ca58b8a5669abaab5e72af"
+      },
+      {
+        "path": "lib/output.rf2",
+        "sha256": "b15fba158a6816c71de0bbb35db8c7eb93e728d927414a3ef0aeab06cdde6b23"
+      },
+      {
+        "path": "lib/parser.rf2",
+        "sha256": "defcabacd99e2fb6cdf0a569dca68a7978e8a84faf0d22d2fbdd0714d35e900c"
+      },
+      {
+        "path": "lib/sha256.rf2",
+        "sha256": "182e92384692f39749df35fc9be4a30ae3fe07c0698885dfd1359d2c814c78f2"
+      },
+      {
+        "path": "lib/verifier.rf2",
+        "sha256": "383c20fe1a1abe1827508ddf1d9a10794f28088c3a4905a1c4b7d1ba8431e89e"
+      },
+      {
+        "path": "lib/wire.rf2",
+        "sha256": "a92bd08b733a44ec0970bd5df592989399f49a12f7096a3f18582bb41e6dbf18"
+      },
+      {
+        "path": "main.rf2",
+        "sha256": "0634a634138f1f2ff1aa997e9a5337aaf5b963a02b4943bd02f946175d40e026"
+      },
+      {
+        "path": "trust.rf2",
+        "sha256": "8261c2de37f2a3d5a5cca0e05fb11f649fb771790425cffb1b386267136cd585"
+      },
+      {
+        "path": "verify.rf2",
+        "sha256": "d0fddbf65ab4d982c3927e2beeeaeb25f5a874f19d27cf3bde4eb2710a50e369"
+      }
+    ],
+    "binaries": [
+      {
+        "file": "rf2-trust",
+        "sha256": "368d94c2849713d537de488e578884378e43c8aa96dd4455530e427aa1d0e208"
+      },
+      {
+        "file": "rf2-verify",
+        "sha256": "8f2826e9f54ba761fd3436a58586851da7a9012c0437e287fd983913385b1aa1"
+      }
+    ]
+  },
+  "reports": {
+    "trust": {
+      "reportSHA256": "e955107a029773ee6184914a4f66d139a87a919d6ef56029d24e2b25ac203e9d",
+      "checks": 520,
+      "scope": [
+        "Shared-key authentication: key holders can forge; no public signature or nonrepudiation",
+        "Independent parser/trajectory algorithm shares compiler/crypto; not toolchain independence",
+        "MCP is separate native stdio service;9original tools unchanged",
+        "No key bytes in published report; all keys are local test artifacts"
+      ],
+      "passed": true,
+      "experimentCompleted": null
+    },
+    "hmac": {
+      "reportSHA256": "6d468ab3752ce103e0f29fd7525461719ac6f1adaad8c30bb21fcc68c6543432",
+      "checks": 194,
+      "scope": "Native default/optimized sevenRFCvectors plus90seeded cases. Full256bit tags; RFCcase5compares supplied128bit prefix plus fullPython result. Conformance evidence, not cryptographic certification or sidechannel proof.",
+      "passed": true,
+      "experimentCompleted": null
+    },
+    "verifier": {
+      "reportSHA256": "7d7d83e0cf970f71df128a2df4e5bf723feb2596db47d3420908e5f787389ec4",
+      "checks": 262144,
+      "scope": "Independent parser and per-original-element trajectory algorithm; complete Run fields and sentinel for all one-byte ADD/XOR pairs, default/opt. Finite domain only, same RF2 compiler; no arbitrary-plan or independent-toolchain proof.",
+      "passed": true,
+      "experimentCompleted": null
+    },
+    "shared_fault_controls": {
+      "reportSHA256": "054135916f38b351e7b781b7885c1cc140534cb3d4d236077cdb8e58ff8f1e99",
+      "checks": 2,
+      "scope": "Private compiled source mutants and public test key only. Third verifier detects this two-path shared fault; a deliberately common three-path defect still escapes. Algorithms share compiler/crypto. No universal fault immunity or independent toolchain claim.",
+      "passed": null,
+      "experimentCompleted": true
+    }
+  },
+  "nativeSDK": "Three-tool discovery/run/verify/refusal/recovery passed; server PATH=/nonexistent",
+  "legacySDK": "Original9tool native SDK passed",
+  "sharedFault": "Two engine paths wrong => separate verifier refused issuance; allthree wrong => escaped in deliberate control",
+  "authentication": "HMAC-SHA256 shared-key custody, not public signature/nonrepudiation/hardware attestation. ValidMACwrongsemantics rejected.",
+  "measurements": [
+    "TRUST-0.18-ENGINE-MEASUREMENTS.json",
+    "TRUST-0.18-MCP-MEASUREMENTS.json"
+  ],
+  "limits": [
+    "One native compiler and Mac; no independent toolchain replication",
+    "Secret holders can forge MACs; replay intentionally allowed; no expiry/counter",
+    "No sidechannel certification, secure-erasure guarantee or independent cryptographic audit",
+    "MCPstdiohost supplies caller authorization; no publicnetwork service opened",
+    "Private operational keys excluded from releases and testsuse disposable keys"
+  ]
+}

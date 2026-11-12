@@ -4,7 +4,7 @@ import subprocess,struct,time,json,hashlib
 R=Path(__file__).resolve().parents[2];D=R/'artifacts/contract-next'/('common-mode-'+str(time.time_ns()));D.mkdir(parents=True)
 source=(R/'examples/evidence-contract/lib/engine.rf2').read_text().replace('module engine','profile RF2_SYSTEM_A64_V1',1)
 assert source.count('set value=value^operand')==1 and source.count('set value=value^args[j]')==1
-mutant=source.replace('set value=value^operand','set value=value|operand').replace('set value=value^args[j]','set value=value|args[j]')
+mutant=source.replace('set value=value^operand','set value=value|operand').replace('set value=value^args[j]','set value=value|args[j]').replace('set fast_mask=fast_mask^operand','set fast_mask=fast_mask|operand').replace('set value=value^fast_mask','set value=value|fast_mask')
 probe='''
 fn main(argc,argv)
  let data=Data()

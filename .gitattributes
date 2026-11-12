@@ -7,3 +7,4 @@ native/invoice-kernel.rf2 linguist-generated=true
 docs/SOURCE-INVENTORY.svg linguist-generated=true
 *.rf2 text eol=lf
 *.flow text eol=lf
+examples/evidence-contract/lib/json_transport.rf2 linguist-generated=true

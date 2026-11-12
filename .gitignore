@@ -8,3 +8,6 @@ output/
 
 __pycache__/
 *.pyc
+
+# Receipt keys belong outside source control; this does not cover arbitrary filenames.
+*.key

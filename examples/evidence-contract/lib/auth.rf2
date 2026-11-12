@@ -1,0 +1,168 @@
+module authentication
+fn wipe(p,n)
+ let i=0
+ while i<n
+  do store8(p+i,0)
+  set i=i+1
+ end
+ return 0
+end
+# General HMAC-SHA256, message bounded to16384 bytes; RFC2104 construction.
+fn hmac256(key,keylen,msg,n)
+ let pads=buffer("hmac_inner",16448)
+ let outer=buffer("hmac_outer",96)
+ let shortkey=buffer("hmac_short",32)
+ let i=0
+ let v=0
+ if n>16384
+  return 0
+ end
+ if keylen>64
+  do copy_bytes(shortkey,sha256(key,keylen),32)
+  set key=shortkey
+  set keylen=32
+ end
+ while i<64
+  set v=0
+  if i<keylen
+   set v=load8(key+i)
+  end
+  do store8(pads+i,v^54)
+  do store8(outer+i,v^92)
+  set i=i+1
+ end
+ do copy_bytes(pads+64,msg,n)
+ do copy_bytes(outer+64,sha256(pads,n+64),32)
+ do copy_bytes(shortkey,sha256(outer,96),32)
+ do wipe(pads,n+64)
+ do wipe(outer,96)
+ # Return scratch digest; caller copies before next use. Best effort clearing only.
+ return shortkey
+end
+fn same_bytes(a,b,n)
+ let i=0
+ let diff=0
+ while i<n
+  set diff=diff|(load8(a+i)^load8(b+i))
+  set i=i+1
+ end
+ return diff==0
+end
+fn read_file(path,dst,limit)
+ let fd=open(path,4,0)
+ let got=0
+ let used=0
+ if fd>>63
+  return 18446744073709551615
+ end
+ let active=1
+ while all(used<limit+1,active)
+  set got=read(fd,dst+used,limit+1-used)
+  if got>>63
+   do close(fd)
+   return 18446744073709551615
+  end
+  if got==0
+   set active=0
+  end
+  set used=used+got
+ end
+ if close(fd)>>63
+  return 18446744073709551615
+ end
+ if used>limit
+  return 18446744073709551615
+ end
+ return used
+end
+# Darwin stat64 layout checked against the installed SDK; no path-based stat race.
+fn load_key(path,dst)
+ let fd=open(path,260,0)
+ let stat=buffer("key_stat",144)
+ let bytes=buffer("key_read",33)
+ let got=0
+ let used=0
+ let mode=0
+ let ok=1
+ if fd>>63
+  return 0
+ end
+ if syscall6(339,fd,stat,0,0,0,0)!=0
+  set ok=0
+ else
+  set mode=load8(stat+4)|(load8(stat+5)<<8)
+  if any((mode&61440)!=32768,any((mode&511)!=384,load32(stat+16)!=syscall6(24,0,0,0,0,0,0)))
+   set ok=0
+  end
+ end
+ while all(ok,used<33)
+  set got=read(fd,bytes+used,33-used)
+  if got>>63
+   set ok=0
+  else
+   if got==0
+    if used!=32
+     set ok=0
+    end
+    if used==32
+     do copy_bytes(dst,bytes,32)
+    end
+    do wipe(bytes,33)
+    if close(fd)>>63
+     return 0
+    end
+    return ok
+   end
+   set used=used+got
+  end
+ end
+ do wipe(bytes,33)
+ do close(fd)
+ return 0
+end
+fn generate_key(path)
+ let key=buffer("keygen",32)
+ let fd=open("/dev/urandom",0,0)
+ let used=0
+ let got=0
+ let target=0
+ if fd>>63
+  return 0
+ end
+ while used<32
+  set got=read(fd,key+used,32-used)
+  if any(got>>63,got==0)
+   do close(fd)
+   do wipe(key,32)
+   return 0
+  end
+  set used=used+got
+ end
+ if close(fd)>>63
+  do wipe(key,32)
+  return 0
+ end
+ set target=open(path,2817,384)
+ if target>>63
+  do wipe(key,32)
+  return 0
+ end
+ if syscall6(124,target,384,0,0,0,0)!=0
+  do close(target)
+  do wipe(key,32)
+  return 0
+ end
+ set used=0
+ while used<32
+  set got=write(target,key+used,32-used)
+  if any(got>>63,got==0)
+   do close(target)
+   do wipe(key,32)
+   # Leave the newly created partial file for explicit administrator inspection.
+   return 0
+  end
+  set used=used+got
+ end
+ do wipe(key,32)
+ return close(target)==0
+end

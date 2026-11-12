@@ -1,0 +1,195 @@
+module authenticated_wire
+record Envelope(plan:u64,length:u64,receipt:u64,tag:u64,kid:u64)
+fn copy_bytes(dst,src,n)
+ let i=0
+ while i<n
+  do store8(dst+i,load8(src+i))
+  set i=i+1
+ end
+ return 0
+end
+fn vhex(s:Scan,dst,limit)
+ do vskip(s)
+ let begin=s.at
+ let size=0
+ let i=0
+ let hi=0
+ let lo=0
+ while all(s.at<s.end,not(vw(load8(s.ptr+s.at))))
+  set s.at=s.at+1
+ end
+ set size=s.at-begin
+ if any((size&1)!=0,size//2>limit)
+  set s.bad=1
+  return 0
+ end
+ while i<size
+  set hi=load8(s.ptr+begin+i)
+  set lo=load8(s.ptr+begin+i+1)
+  if all(hi>=48,hi<=57)
+   set hi=hi-48
+  else
+   if all(hi>=97,hi<=102)
+    set hi=hi-87
+   else
+    set s.bad=1
+    return 0
+   end
+  end
+  if all(lo>=48,lo<=57)
+   set lo=lo-48
+  else
+   if all(lo>=97,lo<=102)
+    set lo=lo-87
+   else
+    set s.bad=1
+    return 0
+   end
+  end
+  do store8(dst+i//2,hi*16+lo)
+  set i=i+2
+ end
+ return size//2
+end
+fn decode_auth(src,n,e:Envelope)
+ let s=Scan(src,n,0,0)
+ let size=0
+ set e.plan=buffer("auth_decoded_plan",8192)
+ set e.receipt=buffer("auth_receipt",32)
+ set e.tag=buffer("auth_tag",32)
+ set e.kid=buffer("auth_kid",16)
+ do vlit(s,"RF2A1")
+ do vlit(s,"source")
+ do vlit(s,build_identity())
+ do vlit(s,"key")
+ if vhex(s,e.kid,16)!=16
+  return 0
+ end
+ do vlit(s,"receipt")
+ if vhex(s,e.receipt,32)!=32
+  return 0
+ end
+ do vlit(s,"tag")
+ if vhex(s,e.tag,32)!=32
+  return 0
+ end
+ do vlit(s,"plan")
+ set e.length=vhex(s,e.plan,8192)
+ do vskip(s)
+ return not(any(s.bad,any(e.length==0,s.at!=s.end)))
+end
+fn receipt_for(plan,n,out,report)
+ let bytes=buffer("trust_receipt_input",256)
+ let domain="RF2-EVIDENCE-CONTRACT-1"
+ let size=text_length(domain)
+ do copy_bytes(bytes,domain,size)
+ do copy_bytes(bytes+size,build_identity(),64)
+ do copy_bytes(bytes+size+64,sha256(plan,n),32)
+ do copy_bytes(bytes+size+96,sha256(out,load64(report+48)),32)
+ do copy_bytes(bytes+size+128,report,48)
+ return sha256(bytes,size+176)
+end
+fn key_id(key,out)
+ let msg=buffer("key_id_message",64)
+ let prefix="RF2-KEY-ID-1"
+ let n=text_length(prefix)
+ do copy_bytes(msg,prefix,n)
+ do copy_bytes(msg+n,key,32)
+ do copy_bytes(out,sha256(msg,n+32),16)
+ do wipe(msg,64)
+ return 0
+end
+fn auth_tag(key,e:Envelope,out)
+ let msg=buffer("auth_message",256)
+ let prefix="RF2-AUTH-CAPSULE-1"
+ let size=text_length(prefix)
+ do copy_bytes(msg,prefix,size)
+ do copy_bytes(msg+size,build_identity(),64)
+ do copy_bytes(msg+size+64,e.receipt,32)
+ do copy_bytes(msg+size+96,sha256(e.plan,e.length),32)
+ do copy_bytes(msg+size+128,e.kid,16)
+ do copy_bytes(out,hmac256(key,32,msg,size+144),32)
+ return 0
+end
+fn authenticate(key,e:Envelope)
+ let kid=buffer("expected_kid",16)
+ let tag=buffer("expected_tag",32)
+ do key_id(key,kid)
+ do auth_tag(key,e,tag)
+ return all(same_bytes(kid,e.kid,16),same_bytes(tag,e.tag,32))
+end
+fn hex_into(dst,src,n)
+ let digits="0123456789abcdef"
+ let i=0
+ let value=0
+ while i<n
+  set value=load8(src+i)
+  do store8(dst+2*i,load8(digits+(value>>4)))
+  do store8(dst+2*i+1,load8(digits+(value&15)))
+  set i=i+1
+ end
+ return 2*n
+end
+fn encode_auth(e:Envelope,dst)
+ let n=0
+ do copy_bytes(dst,"RF2A1 source ",13)
+ set n=13
+ do copy_bytes(dst+n,build_identity(),64)
+ set n=n+64
+ do copy_bytes(dst+n," key ",5)
+ set n=n+5
+ set n=n+hex_into(dst+n,e.kid,16)
+ do copy_bytes(dst+n," receipt ",9)
+ set n=n+9
+ set n=n+hex_into(dst+n,e.receipt,32)
+ do copy_bytes(dst+n," tag ",5)
+ set n=n+5
+ set n=n+hex_into(dst+n,e.tag,32)
+ do copy_bytes(dst+n," plan ",6)
+ set n=n+6
+ set n=n+hex_into(dst+n,e.plan,e.length)
+ do store8(dst+n,10)
+ return n+1
+end
+fn verify_receipt(e:Envelope,out,report)
+ let expected=buffer("verify_receipt_expected",32)
+ if independent_plan(e.plan,e.length,out,report)==0
+  return 0
+ end
+ do copy_bytes(expected,receipt_for(e.plan,e.length,out,report),32)
+ return same_bytes(expected,e.receipt,32)
+end
+fn verifier_cli(argc,argv)
+ let key=buffer("verify_key",32)
+ let input=buffer("verify_file",18001)
+ let out=buffer("verify_data",128)
+ let report=buffer("verify_report",56)
+ let envelope=Envelope(0,0,0,0,0)
+ let n=0
+ let ok=0
+ if argc!=3
+  do emit("Usage: rf2-verify keyfile authenticated-capsule\n")
+  return 1
+ end
+ if not(load_key(load64(argv+8),key))
+  do emit("{\"verified\":false,\"error\":\"key-policy\"}\n")
+  return 1
+ end
+ set n=read_file(load64(argv+16),input,18000)
+ if n<=18000
+  if decode_auth(input,n,envelope)
+   if authenticate(key,envelope)
+    set ok=verify_receipt(envelope,out,report)
+   end
+  end
+ end
+ do wipe(key,32)
+ if ok
+  do emit("{\"verified\":true,\"authentication\":\"HMAC-SHA256 shared key\",\"semantics\":\"independent trajectory verifier\",\"code\":")
+  do emit_number(load64(report))
+  do emit("}\n")
+  return 0
+ end
+ do emit("{\"verified\":false,\"error\":\"authentication-or-semantics\"}\n")
+ return 1
+end

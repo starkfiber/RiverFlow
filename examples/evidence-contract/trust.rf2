@@ -1,0 +1,71 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/engine.rf2"
+use "lib/parser.rf2"
+use "lib/verifier.rf2"
+use "lib/sha256.rf2"
+use "lib/output.rf2"
+use "lib/auth.rf2"
+use "lib/wire.rf2"
+use "lib/issuer.rf2"
+use "lib/json_transport.rf2"
+use "lib/contract_mcp.rf2"
+use "lib/build_identity.rf2"
+fn same_text(a,b)
+ let i=0
+ while load8(a+i)!=0
+  if load8(a+i)!=load8(b+i)
+   return 0
+  end
+  set i=i+1
+ end
+ return load8(b+i)==0
+end
+fn main(argc,argv)
+ let cmd=0
+ let key=buffer("issuer_key",32)
+ let plan=buffer("issuer_file",8193)
+ let cap=buffer("issuer_capsule",18000)
+ let e=Envelope(0,0,0,0,0)
+ let n=0
+ let ok=0
+ if argc<3
+  do emit("RF2 trust0.18-dev: keygen newkey | issue key plan | verify key capsule | mcp key\n")
+  return 1
+ end
+ set cmd=load64(argv+8)
+ if all(same_text(cmd,"keygen"),argc==3)
+  if generate_key(load64(argv+16))
+   do emit("{\"created\":true}\n")
+   return 0
+  end
+  do emit("{\"created\":false}\n")
+  return 1
+ end
+ if all(same_text(cmd,"verify"),argc==4)
+  return verifier_cli(argc-1,argv+8)
+ end
+ if not(any(all(same_text(cmd,"issue"),argc==4),all(same_text(cmd,"mcp"),argc==3)))
+  return 1
+ end
+ if not(load_key(load64(argv+16),key))
+  do emit("{\"error\":\"key-policy\"}\n")
+  return 1
+ end
+ if same_text(cmd,"mcp")
+  set ok=contract_mcp(key)
+  do wipe(key,32)
+  return ok
+ end
+ set n=read_file(load64(argv+24),plan,8192)
+ if n<=8192
+  set ok=issue_plan(key,plan,n,e)
+ end
+ do wipe(key,32)
+ if not(ok)
+  do emit("{\"error\":\"input-or-independent-disagreement\"}\n")
+  return 1
+ end
+ set n=encode_auth(e,cap)
+ set ok=emit_bytes(cap,n)
+ return any(ok,load64(buffer("issue_report",56))!=0)
+end

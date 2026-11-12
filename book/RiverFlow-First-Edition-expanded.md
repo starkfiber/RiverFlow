@@ -1234,6 +1234,56 @@ These ideas have substantial prior art: effect systems, transactions, translatio
 
 See `docs/EVIDENCE-CONTRACT.md` for exact receipt encoding and limits, `docs/FIVE-HYPOTHESES-REVIEW.md` for primary references, and `docs/TOP-TEN-LANGUAGE-AUDIT.md` for the broader A–Z capability and acceptance ledger. Passing finite tests does not make a language bulletproof.
 
+# 32. Verify meaning, authenticate evidence
+
+The 0.18 development edition adds a native verifier and shared-key authenticated receipts. It uses the existing RF2 compiler. The stable 0.17 download remains separate until release qualification and packaging are complete.
+
+## A different way to check the answer
+
+The earlier runner compares a reference that visits each operation across the array with a candidate that computes output elements. A new verifier follows each original byte through the complete plan while updating its position at every reversal. It has its own plan parser and reconstructs expected output and error details. It does not import or call the production engine.
+
+This is algorithmic independence, not independent authorship or toolchain certification. The programs share RF2's compiler, cryptographic helpers and stated semantics. In a deliberate test, changing XOR to OR in both engine paths caused the separate verifier to refuse issuance. Changing all three implementations to the same wrong operation still escaped. The negative control stays in the research record.
+
+## Authentication needs a secret and a trust model
+
+An unsigned checksum can be replaced along with its payload. RF2A1 instead uses HMAC-SHA256 with a 32-byte shared key. The message binds a versioned domain, source identity, result receipt, exact plan hash and key identifier. The issuer checks output and error fields with the separate verifier before authenticating them. Offline verification checks both the tag and the reconstructed semantics.
+
+A trusted key holder can authenticate a message. That does not prove which person sent it, that only the original author can issue it, or that an uncompromised machine executed it. Anyone holding the key can generate tags. This is neither a public-key digital signature nor nonrepudiation. Replay is allowed deliberately. No expiry, timestamp or replay counter is implemented.
+
+The construction follows RFC 2104. Seven RFC 4231 HMAC-SHA256 examples and 90 seeded cases matched native results in default and optimized builds. These are conformance tests, not an independent cryptographic audit or a sidechannel guarantee.
+
+## Set up a private local key
+
+The development builder uses Python's standard library; the resulting native programs require none of Python, Node, npm or C++. Choose a new build directory and preserve existing keys.
+
+```sh
+python3 tools/build-trust.py output/trust-0.18
+mkdir -p "$HOME/.config/riverflow"
+rf2_key="$HOME/.config/riverflow/receipts.key"
+rf2_trust=output/trust-0.18/rf2-trust
+"$rf2_trust" keygen "$rf2_key"
+"$rf2_trust" issue "$rf2_key" examples/evidence-contract/demo.plan > demo.auth
+output/trust-0.18/rf2-verify "$rf2_key" demo.auth
+```
+
+Key generation uses OS entropy and exclusive creation. It refuses existing files and symlinks. Loading requires a regular, owner-held 32-byte file with mode 0600, checked on the opened descriptor. Keys are local plaintext secrets. Do not commit them or reuse test keys. Host compromise, secret backups and filesystem ACL policy need their own controls. Best-effort clearing is not proven secure erasure.
+
+## Three bounded tools for an AI host
+
+The separate native stdio service exposes contract_status, contract_run and contract_verify. The original server retains its nine tools. The administrator supplies the key at startup; a tool caller cannot supply a key, file path or systems program. Only the bounded RF2E1 byte vocabulary and RF2A1 evidence format are admitted.
+
+The updated development plugin configuration includes both servers. An installed 0.17 plugin needs reloading or reinstallation to see that configuration. The launcher does not create keys automatically or fall back to a scripting runtime. A valid authenticated refusal is still a refusal: callers must inspect the returned program code rather than treat a valid tag as successful execution.
+
+## Reduce repeated work without removing the checks
+
+For eligible plans, XOR maps can be composed into one mask. Reversal is represented by index parity, and ADD0 is an identity. The candidate therefore avoids its inner operation loop when the complete plan contains only these operations. Any nonzero checked ADD retains the ordered fallback. Reference execution and the defined abstract work count remain unchanged.
+
+Two matched runs compared a frozen previous dual engine, the candidate and a simpler reference-only variant using the same compiler. In the confirmation, the six eligible workload medians were approximately 6.6 to 39.4 percent lower for the candidate than for the previous dual engine. These are engine harness timings, including setup and observation. They exclude independent checking, hashing, authentication and transport. The reference-only variant still supplies fewer guarantees.
+
+The complete local MCP workflow was measured separately. Its run and verify calls took about 0.06 to 0.27 milliseconds per call in the tested shapes on one Mac, including host JSON work and pipes. This does not establish network latency, provider billing, energy use or broad language superiority.
+
+Read docs/TRUST-0.18.md and its raw measurements before reusing these numbers. Independent toolchain replication, external protocol review and real developer tasks remain open. A useful edition makes these boundaries easier to inspect rather than calling a collection of passing tests universal proof.
+
 # Appendix A. Commands and interfaces
 
 Native standalone, no Node or npm required:

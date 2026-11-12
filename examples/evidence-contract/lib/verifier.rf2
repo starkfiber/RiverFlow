@@ -1,0 +1,221 @@
+module verifier
+record Scan(ptr:u64,end:u64,at:u64,bad:u64)
+array VBytes(u8,128)
+array VSteps(u64,32)
+fn vw(c)
+ return any(c==32,any(c==9,any(c==13,c==10)))
+end
+fn vskip(s:Scan)
+ while all(s.at<s.end,vw(load8(s.ptr+s.at)))
+  set s.at=s.at+1
+ end
+ return 0
+end
+fn vlit(s:Scan,text)
+ do vskip(s)
+ let n=0
+ while load8(text+n)!=0
+  if s.at>=s.end
+   set s.bad=1
+   return 0
+  end
+  if load8(s.ptr+s.at)!=load8(text+n)
+   set s.bad=1
+   return 0
+  end
+  set s.at=s.at+1
+  set n=n+1
+ end
+ if all(s.at<s.end,not(vw(load8(s.ptr+s.at))))
+  set s.bad=1
+ end
+ return 0
+end
+fn vuint(s:Scan)
+ do vskip(s)
+ let start=s.at
+ let result=0
+ let c=0
+ while all(s.at<s.end,not(vw(load8(s.ptr+s.at))))
+  set c=load8(s.ptr+s.at)
+  if any(c<48,c>57)
+   set s.bad=1
+   return 0
+  end
+  if all(s.at>start,load8(s.ptr+start)==48)
+   set s.bad=1
+   return 0
+  end
+  if result>(18446744073709551615-(c-48))//10
+   set s.bad=1
+   return 0
+  end
+  set result=result*10+c-48
+  set s.at=s.at+1
+ end
+ if start==s.at
+  set s.bad=1
+ end
+ return result
+end
+# Report: six LE64 Run fields followed by LE64 active count. Returns1 only if parsed.
+fn independent_plan(src,n,out,report)
+ let s=Scan(src,n,0,0)
+ let data=VBytes()
+ let ops=VSteps()
+ let args=VSteps()
+ let count=0
+ let steps=0
+ let allow=0
+ let budget=0
+ let i=0
+ let j=0
+ let value=0
+ let position=0
+ let op=0
+ let arg=0
+ let code=0
+ let best_step=33
+ let best_index=129
+ let best_actual=0
+ while i<56
+  do store8(report+i,0)
+  set i=i+1
+ end
+ do vlit(s,"RF2E1")
+ do vlit(s,"allow")
+ set allow=vuint(s)
+ do vlit(s,"budget")
+ set budget=vuint(s)
+ do vlit(s,"input")
+ set count=vuint(s)
+ if any(s.bad,count>128)
+  return 0
+ end
+ set i=0
+ while i<count
+  set value=vuint(s)
+  if any(s.bad,value>255)
+   return 0
+  end
+  set data[i]=value
+  do store8(out+i,value)
+  set i=i+1
+ end
+ do store64(report+48,count)
+ do vlit(s,"steps")
+ set steps=vuint(s)
+ if any(s.bad,steps>32)
+  return 0
+ end
+ set j=0
+ while j<steps
+  do vskip(s)
+  if s.at>=s.end
+   return 0
+  end
+  set op=load8(s.ptr+s.at)
+  if op==97
+   do vlit(s,"add")
+   set ops[j]=1
+   set args[j]=vuint(s)
+  else
+   if op==120
+    do vlit(s,"xor")
+    set ops[j]=2
+    set args[j]=vuint(s)
+   else
+    do vlit(s,"reverse")
+    set ops[j]=4
+    set args[j]=0
+   end
+  end
+  if s.bad
+   return 0
+  end
+  set j=j+1
+ end
+ do vskip(s)
+ if any(s.bad,s.at!=s.end)
+  return 0
+ end
+ if allow>7
+  do store64(report,1)
+  return 1
+ end
+ set j=0
+ while j<steps
+  if args[j]>255
+   do store64(report,1)
+   do store64(report+8,j)
+   do store64(report+32,args[j])
+   return 1
+  end
+  if (allow&ops[j])!=ops[j]
+   do store64(report,2)
+   do store64(report+8,j)
+   do store64(report+24,ops[j])
+   do store64(report+32,allow)
+   return 1
+  end
+  set j=j+1
+ end
+ if budget<2*count*steps
+  do store64(report,3)
+  do store64(report+24,2*count*steps)
+  do store64(report+32,budget)
+  return 1
+ end
+ # Follow each ORIGINAL element and its position through every operation.
+ # Select the earliest (operation,current-index) overflow across trajectories.
+ set i=0
+ while i<count
+  set position=i
+  set value=data[i]
+  set j=0
+  set code=0
+  while all(j<steps,code==0)
+   set op=ops[j]
+   set arg=args[j]
+   if op==4
+    set position=count-1-position
+   else
+    if op==1
+     if value+arg>255
+      if any(j<best_step,all(j==best_step,position<best_index))
+       set best_step=j
+       set best_index=position
+       set best_actual=value+arg
+      end
+      set code=4
+     else
+      set value=value+arg
+     end
+    else
+     set value=value^arg
+    end
+   end
+   set j=j+1
+  end
+  if code==0
+   do store8(out+position,value)
+  end
+  set i=i+1
+ end
+ if best_step<33
+  set i=0
+  while i<count
+   do store8(out+i,data[i])
+   set i=i+1
+  end
+  do store64(report,4)
+  do store64(report+8,best_step)
+  do store64(report+16,best_index)
+  do store64(report+24,255)
+  do store64(report+32,best_actual)
+  do store64(report+40,best_step*count+best_index+1)
+ else
+  do store64(report+40,2*count*steps)
+ end
+ return 1
+end

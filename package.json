@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "type": "module",
   "private": true,
-  "description": "RiverFlow RF² checked computation language and local MCP tools",
+  "description": "Historical JavaScript reference and developer test SDK for the native RF2 language; not the user runtime",
   "author": "Ilangkhumanan Thirunavokkarasu <ilangkhumanan@gmail.com>",
   "license": "MIT",
   "engines": {

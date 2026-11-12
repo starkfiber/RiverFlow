@@ -1,0 +1,10 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/verifier.rf2"
+use "lib/sha256.rf2"
+use "lib/output.rf2"
+use "lib/auth.rf2"
+use "lib/wire.rf2"
+use "lib/build_identity.rf2"
+fn main(argc,argv)
+ return verifier_cli(argc,argv)
+end

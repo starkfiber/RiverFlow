@@ -1,1 +1,16 @@
-{"mcpServers":{"rf2":{"command":"/bin/sh","args":["${PLUGIN_ROOT}/plugin/launch-mcp.sh"]}}}
+{
+  "mcpServers": {
+    "rf2": {
+      "command": "/bin/sh",
+      "args": [
+        "${PLUGIN_ROOT}/plugin/launch-mcp.sh"
+      ]
+    },
+    "rf2-contract": {
+      "command": "/bin/sh",
+      "args": [
+        "${PLUGIN_ROOT}/plugin/launch-contract-mcp.sh"
+      ]
+    }
+  }
+}
