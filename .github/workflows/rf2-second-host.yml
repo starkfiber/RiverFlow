@@ -1,0 +1,32 @@
+name: RF2 second-host trust qualification
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qualify:
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Obtain pinned public native bootstrap
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(uname -m)" = arm64
+          mkdir -p output/bootstrap output/native-compiler
+          curl --fail --location --retry 2 --max-time 180 https://github.com/starkfiber/RiverFlow/releases/download/v0.17.0/rf2-0.17.0-macos-arm64.tar.gz -o output/bootstrap/release.tar.gz
+          echo '92c2b732f20705a700c6b81f5ba22d609d4c39e957f2abddd612f81eb3bd580e  output/bootstrap/release.tar.gz' | shasum -a 256 -c -
+          tar -xzf output/bootstrap/release.tar.gz -C output/bootstrap
+          cp output/bootstrap/rf2-0.17.0/rf2c output/native-compiler/rf2c
+          chmod +x output/native-compiler/rf2c
+      - name: Compile and exercise native 0.18 trust failures
+        run: python3 tools/qualify-second-host.py
+      - name: Preserve reports without keys or executables
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: rf2-second-host-reports
+          path: artifacts/second-host/
+          retention-days: 3
+          if-no-files-found: error
