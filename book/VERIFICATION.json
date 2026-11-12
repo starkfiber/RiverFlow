@@ -1,6 +1,6 @@
 {
-  "pages": 75,
-  "tocEntries": 30,
+  "pages": 79,
+  "tocEntries": 31,
   "outOfPageText": [],
   "completeExamples": 5,
   "referenceTestGroups": 16,
@@ -10,7 +10,7 @@
   "independentMcpSdk": "passed",
   "rebuildByteIdentity": "passed",
   "epubZipXml": "verified, not full EPUBCheck",
-  "visualReview": "Single-page 30-entry contents and Chapters24/25 rendered and inspected; all-page bounds and sparse-spill checks passed",
+  "visualReview": "Contents and Chapter26 pages72 through75 inspected; all-page text bounds checked",
   "nativeCompilerFixedPoint": true,
   "nativeCompilerExecutedCases": 24,
   "nativeCompilerNegativeCases": 15,
@@ -36,13 +36,14 @@
   "compilerBoundChecks": "128/129/255/256 accepted, 257 refused, last function 256 locals",
   "editorChecks": "7 edits, 150 refusals, 5 roundtrips, PDF byte comparison, two uploads and idle concurrency",
   "platformChecks": "5 executions and 4 arity refusals",
-  "runtimeSHA256": "e50a6e4aab80844d0265b1f2fa23c3326800c1da2598dc062cd26a2c89d7aea1",
+  "runtimeSHA256": "554e96181729fdbb1619c329174e64e32e238643d55188476be8b57974f7fdac",
   "modulesAndRecords": "60 record executions, 44 type refusals, 13 import refusals, 60 workload cases, 13 workload refusals, 150 old-version comparisons",
   "moduleBounds": "7 successful field/type/file/depth/recursive lifetime boundaries; 4 refused over-bound cases",
-  "compactMCP": "Installed0.12 plugin passed independent official SDK default and compact modes",
-  "pdfSHA256": "76458fa159ecc1bfaa30f31c7805a7696c9ff9968b9d9d72fb6543eea70bb11b",
+  "compactMCP": "Installed0.13 plugin passed independent official SDK default and compact modes",
+  "pdfSHA256": "8108530f5fa0349e82de18bc8162e83325b2e56a00aceecadee1e0155a09fa86",
   "optimizerCases": "240 direct iteration, 80 arbitrary precision, 60 fallback, 2205 instruction edge cases, 180 control cases, 5 side-effecting conditions, 340 narrowing cases",
   "nativeRegisterABI": "4 optimized executions, plus default ABI and optimized maximum-frame checks",
   "optimizerMeasurements": "Seven rotated launch-inclusive trials per variant and size; old RF2, Clang loop and specialised C formula; all checksums checked",
-  "textByteChecks": "10 byte roundtrips,6 byte traps,14 compile refusals,4 recoveries,120 numeric,226 valid UTF8,468 invalid UTF8,10 file cases,6 in-process cleanup cases"
+  "textByteChecks": "10 byte roundtrips,6 byte traps,14 compile refusals,4 recoveries,120 numeric,226 valid UTF8,468 invalid UTF8,10 file cases,6 in-process cleanup cases",
+  "resultsViews": "158 agent-authored mode cases,44 independent critic fixtures,266 app/edge checks,18 multiple-view checks"
 }

@@ -1,0 +1,24 @@
+profile RF2_SYSTEM_A64_V1
+result Number(u64,u64)
+array Bytes(u8,8)
+view Span(Bytes)
+fn parse(flag): Number
+if flag
+return ok(42)
+end
+return err(9)
+end
+fn mutate_registers(a,b,c,d,e,f,g,h)
+return a+b+c+d+e+f+g+h
+end
+fn main(argc,argv)
+let sum=0
+handle parse(1)
+ok value
+set sum=sum+value
+err error
+set sum=sum+error
+end
+set sum=sum+value
+return sum
+end

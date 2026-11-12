@@ -319,7 +319,7 @@ fn add_local(f, tok)
  do store64(ftable(f) + 32, n + 1)
  return n
 end
-fn local_index(tok)
+fn find_local(tok)
  let f = load64(state() + 32)
  let j = 0
  while j < load64(ftable(f) + 32)
@@ -332,6 +332,34 @@ fn local_index(tok)
  end
  do die("unknown local")
  return 0
+end
+fn local_scope(f, slot)
+ return buffer("local_scope", 524288) + (f * 256 + slot) * 8
+end
+fn local_binding(f, slot)
+ return buffer("local_binding", 524288) + (f * 256 + slot) * 8
+end
+fn local_index(tok)
+ let slot = find_local(tok)
+ do require(load64(local_ready(load64(state() + 32), slot)), "local used before initialization or outside scope")
+ return slot
+end
+fn leave_scope(depth)
+ let f = load64(state() + 32)
+ let i = load64(ftable(f) + 8)
+ if depth == 0
+  return 0
+ end
+ while i < load64(ftable(f) + 32)
+  if load64(local_scope(f, i)) == depth
+   do store64(local_ready(f, i), 0)
+  end
+  set i = i + 1
+ end
+ return 0
+end
+fn function_result(f)
+ return buffer("function_result", 2048) + f * 8
 end
 fn function_index(tok)
  let i = 0
@@ -378,6 +406,8 @@ fn field_index(id, tok)
 end
 fn scan_record()
  let is_array = match("array")
+ let is_result = match("result")
+ let is_view = match("view")
  do advance()
  let t = advance()
  do require(load64(token(t)) == 1, "record name required")
@@ -395,6 +425,28 @@ fn scan_record()
  let n = 0
  let field = 0
  let j = 0
+ if is_result
+  do require((tmatch(t, "u64") | tmatch(t, "u8")) == 0, "reserved result name")
+  do expect("u64")
+  do expect(",")
+  do expect("u64")
+  do expect(")")
+  do store64(r + 8, 2)
+  do store64(r + 144, 3)
+  do store64(state() + 128, id)
+  return newline()
+ end
+ if is_view
+  set field = record_index(advance())
+  do require(field != 0, "view source type required")
+  do require(load64(record_info(field) + 144) == 2, "view requires byte array type")
+  do expect(")")
+  do store64(r + 8, 2)
+  do store64(r + 144, 4)
+  do store64(r + 152, field)
+  do store64(state() + 128, id)
+  return newline()
+ end
  if is_array
   do require(tmatch(t, "u64") == 0, "reserved array name")
   do require(match("u64") | match("u8"), "array element type required")
@@ -445,6 +497,10 @@ fn construct_record(target, depth)
  do require(depth == 0, "record declarations must be function-level")
  let f = load64(state() + 32)
  let id = load64(local_type(f, target))
+ do require(load64(record_info(id) + 144) != 3, "result values require handle")
+ if load64(record_info(id) + 144) == 4
+  return construct_view(target, depth)
+ end
  do require(target >= load64(ftable(f) + 8), "record parameter rebinding refused")
  do require(record_index(advance()) == id, "record constructor type mismatch")
  do expect("(")
@@ -696,7 +752,7 @@ fn scan_functions_more(f)
   if load64(token(load64(state() + 24))) == 5
    do advance()
   else
-   if match("record") | match("array")
+   if match("record") | match("array") | match("result") | match("view")
     do scan_record()
    else
    do expect("fn")
@@ -716,12 +772,14 @@ fn scan_functions_more(f)
    set done = match(")")
    while done == 0
     set t = add_local(f, advance())
+    do store64(local_ready(f, t), 1)
     if match(":")
      do advance()
      set other = advance()
      if tmatch(other, "u64") == 0
       set other = record_index(other)
       do require(other != 0, "unknown parameter type")
+      do require(load64(record_info(other) + 144) < 3, "result/view parameters unsupported")
       do store64(local_type(f, t), other)
       do store64(local_ready(f, t), 1)
      end
@@ -735,6 +793,13 @@ fn scan_functions_more(f)
     end
    end
    do expect(")")
+   if match(":")
+    do advance()
+    set other = record_index(advance())
+    do require(other != 0, "result return type required")
+    do require(load64(record_info(other) + 144) == 3, "return annotation requires result type")
+    do store64(function_result(f), other)
+   end
    do scan_body(f, params)
    set f = f + 1
    do store64(state() + 40, f)
@@ -760,12 +825,16 @@ fn scan_body(f, params)
   if load64(token(i)) == 5
    do advance()
   else
-  if match("if") | match("while")
+  if match("if") | match("while") | match("handle")
    set depth = depth + 1
    do require(depth <= 64, "block depth bound")
   end
   if match("end")
    set depth = depth - 1
+  end
+  if match("ok") | match("err")
+   set slot = add_local(f, i + 1)
+   do store64(local_binding(f, slot), 1)
   end
   if match("let")
    set slot = add_local(f, i + 1)
@@ -1039,18 +1108,68 @@ fn direct_while(done, invert)
  do store64(state() + 24, h + 3)
  return 1
 end
-fn array_address(id)
- do require(id != 0, "index requires array")
- do require(load64(record_info(id) + 144) != 0, "index requires array")
+fn bounds_failure_label()
  let failure = load64(state() + 192)
  if failure == 0
   set failure = next_label() + 1
   do store64(state() + 192, failure)
  end
- do imm(2, load64(record_info(id) + 8))
+ return failure - 1
+end
+fn construct_view(target, depth)
+ do require(depth == 0, "views must be function-level")
+ let f = load64(state() + 32)
+ let id = load64(local_type(f, target))
+ let failure = bounds_failure_label()
+ do require(record_index(advance()) == id, "view constructor type mismatch")
+ do expect("(")
+ do expression(1, 0)
+ do require(load64(state() + 136) == load64(record_info(id) + 152), "view owner type mismatch")
+ do push()
+ do expect(",")
+ do scalar_expression(1, 0)
+ do push()
+ do expect(",")
+ do scalar_expression(1, 0)
+ do push()
+ do expect(")")
+ do emit(4181722082)
+ do emit(2432713727)
+ do emit(4181722081)
+ do emit(2432713727)
+ do emit(4181722080)
+ do emit(2432713727)
+ do imm(3, load64(record_info(load64(record_info(id) + 152)) + 8))
+ do emit(3942645791 | (3 << 16) | (1 << 5))
+ do jump(failure, 8)
+ do emit(3405774848 | (1 << 16) | (3 << 5) | 3)
+ do emit(3942645791 | (3 << 16) | (2 << 5))
+ do jump(failure, 8)
+ do emit(2332033024 | (1 << 16))
+ do access_local(0, target + 1, 1)
+ do access_local(2, target + 2, 1)
+ do emit(2432697248 | (((target + 1) * 8) << 10))
+ do access_local(0, target, 1)
+ do store64(local_ready(f, target), 1)
+ do store64(state() + 200, 1)
+ return 0
+end
+fn array_address(id)
+ do require(id != 0, "index requires array/view")
+ let kind = load64(record_info(id) + 144)
+ do require((kind == 1) | (kind == 2) | (kind == 4), "index requires array/view")
+ let failure = bounds_failure_label()
+ if kind == 4
+  do emit(4181721088 | (1 << 10) | (1 << 5) | 2)
+ else
+  do imm(2, load64(record_info(id) + 8))
+ end
  do emit(3942645791 | (2 << 16))
- do jump(failure - 1, 2)
- if load64(record_info(id) + 144) == 2
+ do jump(failure, 2)
+ if kind == 4
+  do emit(4181721088 | (1 << 5) | 1)
+ end
+ if kind != 1
   return emit(2332033056)
  end
  return emit(2332036128)
@@ -1133,15 +1252,16 @@ fn expression(minimum, depth)
  while match(".") | match("[")
   set id = load64(state() + 136)
   do require(id != 0, "structured value required")
+  do require(load64(record_info(id) + 144) != 3, "result requires exhaustive handle")
   if match("[")
-   do require(load64(record_info(id) + 144) != 0, "index requires array")
+   do require((load64(record_info(id) + 144) == 1) | (load64(record_info(id) + 144) == 2) | (load64(record_info(id) + 144) == 4), "index requires array/view")
    do advance()
    do push()
    do scalar_expression(1, depth + 1)
    do expect("]")
    do pop1()
    do array_address(id)
-   if load64(record_info(id) + 144) == 2
+   if load64(record_info(id) + 144) != 1
     do emit(960495616)
    else
     do emit(4181721088)
@@ -1150,7 +1270,11 @@ fn expression(minimum, depth)
    do advance()
    if load64(record_info(id) + 144)
     do expect("length")
-    do imm(0, load64(record_info(id) + 8))
+    if load64(record_info(id) + 144) == 4
+     do emit(4181721088 | (1 << 10))
+    else
+     do imm(0, load64(record_info(id) + 8))
+    end
    else
     set slot = field_index(id, advance())
     do emit(4181721088 | (slot << 10))
@@ -1246,6 +1370,7 @@ fn invoke_byte_io(name, depth)
  return 0
 end
 fn invoke(name, depth)
+ do require(load64(state() + 200) == 0, "calls forbidden while view is live")
  if tmatch(name, "read_bytes") | tmatch(name, "write_bytes")
   return invoke_byte_io(name, depth)
  end
@@ -1371,7 +1496,9 @@ fn invoke(name, depth)
  set f = function_index(name)
  do require(count == load64(ftable(f) + 8), "function arity")
  do fix(1, load64(ftable(f) + 40))
- return emit(2483027968)
+ do emit(2483027968)
+ do store64(state() + 136, load64(function_result(f)))
+ return 0
 end
 fn arguments(depth, callee)
  let count = 0
@@ -1733,6 +1860,9 @@ fn try_reduction_loop()
  return try_periodic_loop()
 end
 fn try_inplace(target)
+ if load64(local_ready(load64(state() + 32), target)) == 0
+  return 0
+ end
  let h = load64(state() + 24)
  let reg = mapped_local(target)
  let amount = 0
@@ -1848,6 +1978,54 @@ fn rotated_while(depth)
  do label(done)
  return 0
 end
+fn handle_result(depth)
+ do expect("handle")
+ do expression(1, 0)
+ let id = load64(state() + 136)
+ do require(id != 0, "handle requires typed result")
+ do require(load64(record_info(id) + 144) == 3, "handle requires typed result")
+ do newline()
+ let other = next_label()
+ let done = next_label()
+ let f = load64(state() + 32)
+ do emit(4043309087)
+ do jump(other, 1)
+ do expect("ok")
+ let slot = find_local(advance())
+ do require(load64(local_binding(f, slot)), "payload binding required")
+ do access_local(1, slot, 1)
+ do store64(local_ready(f, slot), 1)
+ do store64(local_scope(f, slot), depth + 1)
+ do newline()
+ do require(block(depth + 1) == 2, "missing err arm")
+ do jump(done, 16)
+ do label(other)
+ do expect("err")
+ set slot = find_local(advance())
+ do require(load64(local_binding(f, slot)), "payload binding required")
+ do access_local(1, slot, 1)
+ do store64(local_ready(f, slot), 1)
+ do store64(local_scope(f, slot), depth + 1)
+ do newline()
+ do require(block(depth + 1) == 0, "duplicate or missing result arm")
+ do label(done)
+ return 0
+end
+fn return_value()
+ let id = load64(function_result(load64(state() + 32)))
+ let tag = 0
+ if id == 0
+  return scalar_expression(1, 0)
+ end
+ do require(match("ok") | match("err"), "typed result return needs ok or err")
+ set tag = match("err")
+ do advance()
+ do expect("(")
+ do scalar_expression(1, 0)
+ do expect(")")
+ do emit(2852127713)
+ return imm(0, tag)
+end
 fn block(depth)
  let i = 0
  let target = 0
@@ -1858,31 +2036,53 @@ fn block(depth)
  let field = 0
  let declaring = 0
  let coalesced = 0
+ let last_return = 0
  do require(depth < 64, "block depth bound")
  while 1
   set i = load64(state() + 24)
+  if match("ok") | match("err")
+   do leave_scope(depth)
+   return 2
+  end
+  if match("handle")
+   do handle_result(depth)
+   return block(depth)
+  end
+  if (load64(token(i)) != 5) & (match("end") == 0)
+   set last_return = 0
+  end
   if load64(token(i)) == 5
    do advance()
   else
    if match("end")
+    if depth == 0
+     do require((load64(function_result(load64(state() + 32))) == 0) | last_return, "result function requires final explicit return")
+    end
     do advance()
     do newline()
+    do leave_scope(depth)
     return 0
    end
    if match("else")
     do advance()
     do newline()
+    do leave_scope(depth)
     return 1
    end
    if match("let") | match("set")
     set declaring = match("let")
     do advance()
-    set target = local_index(advance())
+    set target = find_local(advance())
+    if declaring == 0
+     do require(load64(local_ready(load64(state() + 32), target)), "assignment before initialization or outside scope")
+    end
+    do require(load64(local_binding(load64(state() + 32), target)) == 0, "payload binding is immutable")
     set id = load64(local_type(load64(state() + 32), target))
     if match("[")
      do require(declaring == 0, "array assignment uses set")
      do require(id != 0, "index requires array")
-     do require(load64(record_info(id) + 144) != 0, "index requires array")
+     do require(load64(state() + 200) == 0, "array writes forbidden while view is live")
+     do require((load64(record_info(id) + 144) == 1) | (load64(record_info(id) + 144) == 2), "view/result is immutable")
      do require(load64(local_ready(load64(state() + 32), target)), "array used before initialization")
      do access_local(0, target, 0)
      do advance()
@@ -1934,16 +2134,24 @@ fn block(depth)
      end
     end
     end
+    if declaring
+     do store64(local_ready(load64(state() + 32), target), 1)
+     do store64(local_scope(load64(state() + 32), target), depth)
+    end
     do newline()
    else
     if match("do")
      do advance()
      do expression(1, 0)
+     if load64(state() + 136) != 0
+      do require(load64(record_info(load64(state() + 136)) + 144) != 3, "result cannot be ignored")
+     end
      do newline()
     else
      if match("return")
       do advance()
-      do scalar_expression(1, 0)
+      do return_value()
+      set last_return = 1
       do jump(load64(state() + 88), 16)
       do newline()
      else
@@ -2010,6 +2218,7 @@ fn generate()
   set f = f + 1
  end
  do require(main != 18446744073709551615, "main required")
+ do require(load64(function_result(main)) == 0, "main cannot return result")
  do require(load64(ftable(main) + 8) == 2, "main needs argc and argv")
  do require((load64(local_type(main, 0)) | load64(local_type(main, 1))) == 0, "main parameters must be scalar")
  do fix(1, load64(ftable(main) + 40))
@@ -2020,6 +2229,7 @@ fn generate()
  while f < load64(state() + 40)
   set p = ftable(f)
   do store64(state() + 32, f)
+  do store64(state() + 200, 0)
   do store64(state() + 24, load64(p + 16))
   do label(load64(p + 40))
   set frame = (load64(p + 32) * 8 + 15) & 18446744073709551600

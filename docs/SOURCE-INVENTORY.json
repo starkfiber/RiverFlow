@@ -8,10 +8,10 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 225085,
-    "Python": 188440,
-    "JavaScript": 65436,
-    "HTML": 16556,
+    "RiverFlow": 243898,
+    "Python": 210316,
+    "JavaScript": 65472,
+    "HTML": 16554,
     "CSS": 10426,
     "Shell": 2207
   },
@@ -84,7 +84,7 @@
     {
       "path": "docs/rf2/index.html",
       "language": "HTML",
-      "bytes": 8076
+      "bytes": 8075
     },
     {
       "path": "docs/riverflow.mjs",
@@ -162,6 +162,31 @@
       "bytes": 1345
     },
     {
+      "path": "examples/number-audit/lib/audit.rf2",
+      "language": "RiverFlow",
+      "bytes": 2186
+    },
+    {
+      "path": "examples/number-audit/lib/bytes.rf2",
+      "language": "RiverFlow",
+      "bytes": 1708
+    },
+    {
+      "path": "examples/number-audit/lib/io.rf2",
+      "language": "RiverFlow",
+      "bytes": 557
+    },
+    {
+      "path": "examples/number-audit/lib/parse.rf2",
+      "language": "RiverFlow",
+      "bytes": 883
+    },
+    {
+      "path": "examples/number-audit/main.rf2",
+      "language": "RiverFlow",
+      "bytes": 860
+    },
+    {
       "path": "examples/sum.flow",
       "language": "RiverFlow",
       "bytes": 335
@@ -229,7 +254,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 65648
+      "bytes": 72351
     },
     {
       "path": "native/core.rf2",
@@ -304,7 +329,7 @@
     {
       "path": "site/rf2/index.html",
       "language": "HTML",
-      "bytes": 8076
+      "bytes": 8075
     },
     {
       "path": "site/riverflow.mjs",
@@ -402,6 +427,116 @@
       "bytes": 8563
     },
     {
+      "path": "tests/standalone/fixtures/results-views-critic/abi-payload.rf2",
+      "language": "RiverFlow",
+      "bytes": 477
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/after.rf2",
+      "language": "RiverFlow",
+      "bytes": 252
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/coalesce-outside.rf2",
+      "language": "RiverFlow",
+      "bytes": 352
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/err.rf2",
+      "language": "RiverFlow",
+      "bytes": 257
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/fallthrough.rf2",
+      "language": "RiverFlow",
+      "bytes": 298
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/loop-handle.rf2",
+      "language": "RiverFlow",
+      "bytes": 374
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/missing-arm.rf2",
+      "language": "RiverFlow",
+      "bytes": 225
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/ok.rf2",
+      "language": "RiverFlow",
+      "bytes": 258
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/opposite.rf2",
+      "language": "RiverFlow",
+      "bytes": 248
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/result-ignore.rf2",
+      "language": "RiverFlow",
+      "bytes": 195
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/result-index.rf2",
+      "language": "RiverFlow",
+      "bytes": 193
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/result-length.rf2",
+      "language": "RiverFlow",
+      "bytes": 197
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/self-init.rf2",
+      "language": "RiverFlow",
+      "bytes": 68
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/view-alias.rf2",
+      "language": "RiverFlow",
+      "bytes": 286
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/view-call.rf2",
+      "language": "RiverFlow",
+      "bytes": 279
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/view-empty.rf2",
+      "language": "RiverFlow",
+      "bytes": 292
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/view-escape.rf2",
+      "language": "RiverFlow",
+      "bytes": 221
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/view-length-not-owner.rf2",
+      "language": "RiverFlow",
+      "bytes": 288
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/view-overflow.rf2",
+      "language": "RiverFlow",
+      "bytes": 304
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/view.rf2",
+      "language": "RiverFlow",
+      "bytes": 243
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/while-inplace-outside.rf2",
+      "language": "RiverFlow",
+      "bytes": 334
+    },
+    {
+      "path": "tests/standalone/fixtures/results-views-critic/while.rf2",
+      "language": "RiverFlow",
+      "bytes": 275
+    },
+    {
       "path": "tests/standalone/instruction_verify.py",
       "language": "Python",
       "bytes": 2671
@@ -430,6 +565,11 @@
       "path": "tests/standalone/modules_verify.py",
       "language": "Python",
       "bytes": 7579
+    },
+    {
+      "path": "tests/standalone/multiple_views_verify.py",
+      "language": "Python",
+      "bytes": 2808
     },
     {
       "path": "tests/standalone/narrowing_verify.py",
@@ -462,9 +602,24 @@
       "bytes": 1814
     },
     {
+      "path": "tests/standalone/results_views_app_verify.py",
+      "language": "Python",
+      "bytes": 5252
+    },
+    {
+      "path": "tests/standalone/results_views_critic.py",
+      "language": "Python",
+      "bytes": 1546
+    },
+    {
+      "path": "tests/standalone/results_views_redteam.py",
+      "language": "Python",
+      "bytes": 12225
+    },
+    {
       "path": "tests/standalone/sdk.mjs",
       "language": "JavaScript",
-      "bytes": 3642
+      "bytes": 3678
     },
     {
       "path": "tests/standalone/text_verify.py",
@@ -474,7 +629,7 @@
     {
       "path": "tests/standalone/verify.py",
       "language": "Python",
-      "bytes": 9566
+      "bytes": 9611
     },
     {
       "path": "tests/standalone/workspace_verify.py",

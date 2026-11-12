@@ -8,19 +8,17 @@ Created by **Ilangkhumanan Thirunavokkarasu**. Published by **SFE**.
 
 RiverFlow is a language for readable application plans and explicit systems programming. Its own compiler emits ARM64 machine code. The compiler, runtime, document handlers and new graphical workspace are written in RiverFlow. The AI host supplies intelligence through a bounded MCP interface.
 
-**0.12: checked collections, bytes and recoverable text processing.** The native RF2 compiler now supports fixed nominal u64/u8 arrays, typed byte I/O, guarded loop reductions and reusable modules. The new text-audit application validates streaming UTF-8 and reports failures through explicit status records. It closes its owned input file on tested normal/error paths. General exceptions, heap ownership and concurrency remain further language work.
+**0.13: typed results that require both arms, and immutable byte views.** Native functions can return nominal ok/err scalar results. Missing arms, discarded results and out-of-scope payload reads refuse. Byte views are nonescaping and read-only under a conservative function-wide freeze. Uninitialized scalar admissions, including an optimizer path, are corrected.
 
-[Download 0.12](https://github.com/starkfiber/RiverFlow/releases/tag/v0.12.0) · [Read the book](https://starkfiber.github.io/RiverFlow/book/) · [Text/byte contract](docs/TEXT-BYTES.md) · [Executed tests](docs/TEXT-BYTES-VERIFICATION.json)
-
-Six delivered pieces: packed bytes, bounded byte I/O, recoverable status helpers, UTF-8 validation, checked decimal parsing and a complete file-audit app. No new speed or token-saving claim accompanies this release. [The previous optimizer comparison](docs/CONDITIONAL-REDUCTION.md) retains its exact inputs, raw trials, C formula baseline and limits.
+[Download 0.13](https://github.com/starkfiber/RiverFlow/releases/tag/v0.13.0) · [Read the book](https://starkfiber.github.io/RiverFlow/book/) · [Results/views contract](docs/RESULTS-VIEWS.md) · [App verification](docs/RESULTS-VIEWS-APP-VERIFICATION.json)
 
 ```sh
-printf 'Hello RF2\n' | ./rf2-text-audit
-./rf2-text-audit document.txt
-./rf2-latency 12 7 19 8 11 43 17
+printf '12\nbad\n30\n' | ./rf2-number-audit
 ```
 
-[Checked arrays](docs/CHECKED-ARRAYS.md) · [Latency analyzer](examples/latency/) · [Full-stack direction](docs/RF2-FULL-STACK-DIRECTION.md) · [Next six gates](docs/TEXT-BYTES.md#the-next-six-gates)
+The ready-to-run app rejects the bad row and continues: two accepted rows, one rejection, sum 42. It uses typed results, immutable byte views and checked arithmetic, with tested owned-file close paths. Existing text-audit and latency tools remain in the native package. No new speed or token-saving claim accompanies this release.
+
+[Adversarial programs](docs/RESULTS-VIEWS-ADVERSARIAL.json) · [Reviewed fixtures](tests/standalone/fixtures/results-views-critic/) · [Full-stack direction](docs/RF2-FULL-STACK-DIRECTION.md)
 
 ## Build beyond the first application
 

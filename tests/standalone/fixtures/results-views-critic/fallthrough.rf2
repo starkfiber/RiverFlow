@@ -1,0 +1,21 @@
+profile RF2_SYSTEM_A64_V1
+result Number(u64,u64)
+array Bytes(u8,8)
+view Span(Bytes)
+fn parse(flag): Number
+if flag
+return ok(42)
+end
+return err(9)
+end
+fn mutate_registers(a,b,c,d,e,f,g,h)
+return a+b+c+d+e+f+g+h
+end
+fn fail(flag): Number
+if flag
+return ok(1)
+end
+end
+fn main(argc,argv)
+return 0
+end

@@ -1,0 +1,48 @@
+module parse
+use "lib/bytes.rf2"
+view TextBytes(Bytes)
+result ParsedNumber(u64,u64)
+fn parse_line(data:Bytes,count):ParsedNumber
+ if count>data.length
+  return err(4)
+ end
+ let text=TextBytes(data,0,count)
+ let first=0
+ let last=text.length
+ let moving=1
+ let digit=0
+ let n=0
+ while (first<last)&moving
+  set digit=text[first]
+  if (digit==32)|(digit==9)|(digit==13)
+   set first=first+1
+  else
+   set moving=0
+  end
+ end
+ set moving=1
+ while (last>first)&moving
+  set digit=text[last-1]
+  if (digit==32)|(digit==9)|(digit==13)
+   set last=last-1
+  else
+   set moving=0
+  end
+ end
+ if first==last
+  return err(1)
+ end
+ while first<last
+  set digit=text[first]
+  if (digit<48)|(digit>57)
+   return err(2)
+  end
+  set digit=digit-48
+  if (n>1844674407370955161)|((n==1844674407370955161)&(digit>5))
+   return err(3)
+  end
+  set n=n*10+digit
+  set first=first+1
+ end
+ return ok(n)
+end

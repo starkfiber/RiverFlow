@@ -1,0 +1,19 @@
+profile RF2_SYSTEM_A64_V1
+result Number(u64,u64)
+array Bytes(u8,8)
+view Span(Bytes)
+fn parse(flag): Number
+if flag
+return ok(42)
+end
+return err(9)
+end
+fn alias(a:Bytes,b:Bytes)
+let v=Span(a,0,1)
+set b[0]=3
+return v[0]
+end
+fn main(argc,argv)
+let data=Bytes()
+return alias(data,data)
+end

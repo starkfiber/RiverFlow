@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "appCases": 222,
+  "fileCases": 8,
+  "cleanupCases": 6,
+  "parseCases": 20,
+  "additionalInitRefusals": 10,
+  "modes": [
+    "default",
+    "opt"
+  ],
+  "compilerSHA256": "57d010cf68ed786551170484ffe5cdeb30f5dfc18c98ed0fbcfff3d5411b844b",
+  "compilerSourceSHA256": "fa7fbd459b190eae75858cceabb9941672cb9921c8644f26dfed1bf7a2ce2cef",
+  "sourceHashes": {
+    "examples/number-audit/main.rf2": "fade8127ab2923dbc49a1da7fae8803f7dd7093c40a04aafead9315ef18602c1",
+    "examples/number-audit/lib/parse.rf2": "b084821dc778986f85c78cf6fe32d6f96222ab25e01f4104d94cce9410f8d1ef",
+    "examples/number-audit/lib/bytes.rf2": "a2c61e59ad1f24b38256e4aaa07e777b7ba7df8f26a1bf6469acf08760ec85b0",
+    "examples/number-audit/lib/audit.rf2": "d5d7c2d0074af08ee051be23bf520d115a52142969e5aeedff826427db1b73eb",
+    "examples/number-audit/lib/io.rf2": "3a0567b5e2ccbf4bd85203556465438d24292c571553d876a32b38df8e835b6f"
+  },
+  "scope": "Finite host app/oracle comparisons and compile refusals in both modes. Typed results have scalar payloads; views are byte-indexed and read-only, not implicit Unicode validation. No performance or whole-program safety claim."
+}

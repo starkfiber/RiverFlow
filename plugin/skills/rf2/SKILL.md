@@ -2,7 +2,7 @@
 name: rf2
 description: Check and execute RiverFlow Core/compact programs, lower checked kernels, use the versioned attendance exporter, and develop native compiler evidence.
 ---
-# RiverFlow RF² 0.12
+# RiverFlow RF² 0.13
 
 Use rf2_status first. Read docs/NATIVE-CORE.md and docs/STANDALONE.md for current profiles/effects. Nine native tools exist: rf2_status, rf2_check, rf2_run, rf2_lower, attendance_export, invoice_total, invoice_prepare, invoice_apply and invoice_release. Users require no Node/npm/Python/C++ runtime. The host provides AI intelligence; the executable has no embedded model.
 
@@ -71,3 +71,9 @@ Use examples/latency/main.rf2 for a complete supplied-sample summary with explic
 ## Text, bytes and recoverable libraries, 0.12
 
 Read docs/TEXT-BYTES.md. Packed nominal u8 arrays and typed read_bytes/write_bytes are trusted systems-compiler capabilities, never raw Core/MCP effects. Ordinary indexing/value errors trap; the byte library provides explicit recoverable Outcome records. Callers must inspect status and handle short I/O. Streaming UTF-8 audit has a documented invalid-grouping policy, ASCII whitespace counts and a 1 MiB app cap; it is not normalization or grapheme handling. Named input descriptors close on tested normal/error paths; no general RAII, exception, heap-ownership or concurrency model is claimed. Use examples/text-audit/main.rf2 and exact verification receipts. No new speed or token result is established.
+
+## Typed results and immutable byte views, 0.13
+
+Read docs/RESULTS-VIEWS.md. Result declarations have scalar ok/err payloads; result-returning functions require explicit final root return and calls require exact exhaustive handle syntax. Payload bindings are immutable and arm-scoped. This is not generic payloads, result locals/parameters, exceptions or exhaustive numeric error-code checking. Uninitialized/block-escaped scalar reads now refuse, including optimizer paths.
+
+Function-local byte views are zero-copy, nonescaping and read-only. Multiple windows may coexist; after the first, all calls and array element updates reject until return, including aliased owners. Bounds use subtraction and view length. These are byte views, not automatic UTF-8 validation or logical content counts. Creation/access traps remain distinct from explicit recoverable guards. Use examples/number-audit/main.rf2, preserve adversarial receipts and do not claim a full borrow checker/security proof. Existing nine bounded MCP effects remain unchanged; raw systems source stays CLI-only. No new speed/token claim.

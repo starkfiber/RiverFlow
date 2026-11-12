@@ -1,0 +1,228 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "abi-payload",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "abi-payload",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "after",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "after",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "coalesce-outside",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "coalesce-outside",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "err",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "err",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "fallthrough",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "fallthrough",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "loop-handle",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "loop-handle",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "missing-arm",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "missing-arm",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "ok",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "ok",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "opposite",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "opposite",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "result-ignore",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "result-ignore",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "result-index",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "result-index",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "result-length",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "result-length",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "self-init",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "self-init",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "view",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "view",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "view-alias",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "view-alias",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "view-call",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "view-call",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "view-empty",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "view-empty",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "view-escape",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "view-escape",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "view-length-not-owner",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "view-length-not-owner",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "view-overflow",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "view-overflow",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "while",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "while",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "case": "while-inplace-outside",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "case": "while-inplace-outside",
+      "optimized": true,
+      "passed": true
+    }
+  ],
+  "compilerSHA256": "57d010cf68ed786551170484ffe5cdeb30f5dfc18c98ed0fbcfff3d5411b844b",
+  "compilerSourceSHA256": "fa7fbd459b190eae75858cceabb9941672cb9921c8644f26dfed1bf7a2ce2cef",
+  "scope": "44 finite default/optimized probes from independently authored reviewed fixtures; no security certification or formal ownership proof."
+}

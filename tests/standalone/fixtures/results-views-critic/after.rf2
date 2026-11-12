@@ -1,0 +1,19 @@
+profile RF2_SYSTEM_A64_V1
+result Number(u64,u64)
+array Bytes(u8,8)
+view Span(Bytes)
+fn parse(flag): Number
+if flag
+return ok(42)
+end
+return err(9)
+end
+fn main(argc,argv)
+handle parse(0)
+ok value
+return value
+err error
+return error
+end
+return error
+end

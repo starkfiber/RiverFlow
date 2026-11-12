@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "installedLauncher": true,
+  "runtimeSHA256": "554e96181729fdbb1619c329174e64e32e238643d55188476be8b57974f7fdac",
+  "cases": [
+    {
+      "compact": false,
+      "sdkExit": 0
+    },
+    {
+      "compact": true,
+      "sdkExit": 0
+    }
+  ],
+  "scope": "Official MCP SDK discovery, compute, overflow refusal, recovery, lower, attendance and prepared lifecycle in default and opted-in compact installed-plugin modes"
+}

@@ -1,0 +1,159 @@
+{
+  "origin": "Independent agent design review; intentional result/scope/alias cases. Expectations reflect the specified contract, not timing observations.",
+  "cases": [
+    {
+      "name": "abi-payload",
+      "source": "abi-payload.rf2",
+      "compile": true,
+      "runExit": 0,
+      "sha256": "6594014e46b0c340c71602457febdf2a3a3a48eeb840e2ec217d9a8e72c453f3"
+    },
+    {
+      "name": "after",
+      "source": "after.rf2",
+      "compile": false,
+      "runExit": null,
+      "sha256": "30b288a01688efdbf537a34805dd6a9241928ad77767cdc652c1d0c0fcca4498"
+    },
+    {
+      "name": "coalesce-outside",
+      "source": "coalesce-outside.rf2",
+      "compile": false,
+      "runExit": null,
+      "sha256": "af5f6dc7fce9780394a6226e08ced1c2bac427c065589e5bf2552ef295686ca1"
+    },
+    {
+      "name": "err",
+      "source": "err.rf2",
+      "compile": true,
+      "runExit": 0,
+      "sha256": "5c0fdf260ce2dcdbd5a9b608765f2317ef105df68aca3b98e221060d861d1524"
+    },
+    {
+      "name": "fallthrough",
+      "source": "fallthrough.rf2",
+      "compile": false,
+      "runExit": null,
+      "sha256": "9548ab4a0f8529c8d06994c7059062d2b8dbdff3aa5f63da3c87733008ca08c8"
+    },
+    {
+      "name": "loop-handle",
+      "source": "loop-handle.rf2",
+      "compile": true,
+      "runExit": 0,
+      "sha256": "63ab891aa9150bc19910845ce17babb9e65353b4e4d5caf30a026e2633391862"
+    },
+    {
+      "name": "missing-arm",
+      "source": "missing-arm.rf2",
+      "compile": false,
+      "runExit": null,
+      "sha256": "d7269bffa5284e1c7ca45e4ae501c4a63c8d6569d3815051f25d2de88ec0a8e4"
+    },
+    {
+      "name": "ok",
+      "source": "ok.rf2",
+      "compile": true,
+      "runExit": 0,
+      "sha256": "cd6ec75df334719a5aab3f55388f2417ff128e3e12e4b599c43633e5ca129e8f"
+    },
+    {
+      "name": "opposite",
+      "source": "opposite.rf2",
+      "compile": false,
+      "runExit": null,
+      "sha256": "4b34b01c6ba69fe450f93b5c2dfccc151567871cb7dbb87cb6524fdb04ab30fa"
+    },
+    {
+      "name": "result-ignore",
+      "source": "result-ignore.rf2",
+      "compile": false,
+      "runExit": null,
+      "sha256": "6289597a9ec9caa987c59e57734fe8065fb053ad16a23ce897b4531e8e502ef3"
+    },
+    {
+      "name": "result-index",
+      "source": "result-index.rf2",
+      "compile": false,
+      "runExit": null,
+      "sha256": "4f2d2867092cdc988d6f92231c59c9e7e189f507ecdcc74cd80599273f7e05c0"
+    },
+    {
+      "name": "result-length",
+      "source": "result-length.rf2",
+      "compile": false,
+      "runExit": null,
+      "sha256": "2862632b17b95572e79f513e991c1a5e83a9c8a8475aa95606fe119e8b6b17b6"
+    },
+    {
+      "name": "self-init",
+      "source": "self-init.rf2",
+      "compile": false,
+      "runExit": null,
+      "sha256": "4861cbedbf737154c04c35ced546ddddd7ea409a085722952c0f3fa4791590b7"
+    },
+    {
+      "name": "view",
+      "source": "view.rf2",
+      "compile": true,
+      "runExit": 0,
+      "sha256": "f15c138cf32f6b94e0e88e906e0f6d651a84ce21cf18b3fffcc271eaa4aae08a"
+    },
+    {
+      "name": "view-alias",
+      "source": "view-alias.rf2",
+      "compile": false,
+      "runExit": null,
+      "sha256": "36b8fb79ad708ecedea378e47ecbaa7f4a8af93be934c564ee67d8f9f16923e8"
+    },
+    {
+      "name": "view-call",
+      "source": "view-call.rf2",
+      "compile": false,
+      "runExit": null,
+      "sha256": "d7d0aed59b9e0be961869a8a6d7d769b172971d3ecea57a8f63c9494f64ce210"
+    },
+    {
+      "name": "view-empty",
+      "source": "view-empty.rf2",
+      "compile": true,
+      "runExit": 0,
+      "sha256": "cd07e7ba5560b20066c92022449d165f2e89b41d7d0ca3cb4048f97f30b4ddf5"
+    },
+    {
+      "name": "view-escape",
+      "source": "view-escape.rf2",
+      "compile": false,
+      "runExit": null,
+      "sha256": "509d5ae505dc9e476669655d87b60bb01a9aa80bd27496c171e49aa9c084748d"
+    },
+    {
+      "name": "view-length-not-owner",
+      "source": "view-length-not-owner.rf2",
+      "compile": true,
+      "runExit": 2,
+      "sha256": "fe234b3a52328c2490948b16beeb437c97a254aadc8506eb580945f1e9665af4"
+    },
+    {
+      "name": "view-overflow",
+      "source": "view-overflow.rf2",
+      "compile": true,
+      "runExit": 2,
+      "sha256": "4c5a5735a8d7c1073e62ba75d2db2a2d925433a86f668a16010df83f0e4a4dd1"
+    },
+    {
+      "name": "while",
+      "source": "while.rf2",
+      "compile": false,
+      "runExit": null,
+      "sha256": "26f17952a01e18d83093e7c21a6d39def1592df540e3787a663a31dcb74c2386"
+    },
+    {
+      "name": "while-inplace-outside",
+      "source": "while-inplace-outside.rf2",
+      "compile": false,
+      "runExit": null,
+      "sha256": "a494c0f2c0bc0a2a41adf70ef52fbad244a97b0067068711bfdd7a06549519c3"
+    }
+  ]
+}

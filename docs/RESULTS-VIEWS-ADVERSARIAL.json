@@ -1,0 +1,1591 @@
+{
+  "passed": true,
+  "compilerSHA256": "57d010cf68ed786551170484ffe5cdeb30f5dfc18c98ed0fbcfff3d5411b844b",
+  "compilerSourceSHA256": "fa7fbd459b190eae75858cceabb9941672cb9921c8644f26dfed1bf7a2ce2cef",
+  "independentlyAuthoredPrograms": 79,
+  "modeCases": 158,
+  "compileRefusals": 120,
+  "nativeExecutions": 38,
+  "results": [
+    {
+      "name": "result-ok",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "3d3df5b397c4e885c42cf817be8f2c46b4cb1d04ad60775c617254df1f298fd9",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "a5ab87e5d02e7973a28cf452c0d3e18b94706987fbd1246f31e5879acfc4dd4e"
+    },
+    {
+      "name": "result-ok",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "3d3df5b397c4e885c42cf817be8f2c46b4cb1d04ad60775c617254df1f298fd9",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "793dad136d357dda10376626daa2a9d94861ace308d4f19e2c2e78d91fc48e18"
+    },
+    {
+      "name": "result-err",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "83d770968fa048e89219fcab436e2871189b28ea0d93813fa63df89fabb5f2d9",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "ef6424c42c20f6fb7c78988c144db8da635ac2de578641d1e8878764a121d3f1"
+    },
+    {
+      "name": "result-err",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "83d770968fa048e89219fcab436e2871189b28ea0d93813fa63df89fabb5f2d9",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "5fa69ba342fa72dbf929569edf085cfdd4b7555275f955d4ebed60326897e52c"
+    },
+    {
+      "name": "result-arm-if",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "502016a5918ca9dcaa7c4bbab81825779087942626983fd055664cc8434415de",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "83ba9e3b616fb53a2dd9148fdc05947a899d20afc287dc69db41cf9f8801a79f"
+    },
+    {
+      "name": "result-arm-if",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "502016a5918ca9dcaa7c4bbab81825779087942626983fd055664cc8434415de",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "45fdcded0283133730f7230403f6e7ca7494187cf2d665dc3680c2846347afdd"
+    },
+    {
+      "name": "result-typed-root-return",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "73b8921227e6f84c3af679f63f2441c384c2ef5f6d282c8d600a13afbebbba12",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "a93f300d9eea91fa72120335224d3a6d298fd36b3b0463fbba4ebaefdec4151d"
+    },
+    {
+      "name": "result-typed-root-return",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "73b8921227e6f84c3af679f63f2441c384c2ef5f6d282c8d600a13afbebbba12",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "680af34155d860756f79d781d9d930804739a55aa7a34a701d224e010e6c05e2"
+    },
+    {
+      "name": "result-missing-err",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "missing err arm\n",
+      "sourceSHA256": "e044a437e67355c478460bb948c7d9f315810d59b607dd21042d6d0bf75a7d7a",
+      "passed": true
+    },
+    {
+      "name": "result-missing-err",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "missing err arm\n",
+      "sourceSHA256": "e044a437e67355c478460bb948c7d9f315810d59b607dd21042d6d0bf75a7d7a",
+      "passed": true
+    },
+    {
+      "name": "result-missing-ok",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "expected: ok got: err unexpected token\n",
+      "sourceSHA256": "1fdb791bf90ee70f8f3ca83a0025a1af67e45d3e7517eea15d59eb76670168ff",
+      "passed": true
+    },
+    {
+      "name": "result-missing-ok",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "expected: ok got: err unexpected token\n",
+      "sourceSHA256": "1fdb791bf90ee70f8f3ca83a0025a1af67e45d3e7517eea15d59eb76670168ff",
+      "passed": true
+    },
+    {
+      "name": "result-duplicate-ok",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "expected: err got: ok unexpected token\n",
+      "sourceSHA256": "d8c75bc635d31ebe1aa2663c99c794220dcad88ac03c6160f2709602c30a683d",
+      "passed": true
+    },
+    {
+      "name": "result-duplicate-ok",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "expected: err got: ok unexpected token\n",
+      "sourceSHA256": "d8c75bc635d31ebe1aa2663c99c794220dcad88ac03c6160f2709602c30a683d",
+      "passed": true
+    },
+    {
+      "name": "result-duplicate-err",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "duplicate or missing result arm\n",
+      "sourceSHA256": "8505aa72993a3dbcf05fdac721511f5b5c8b4b07fc271f2950594137380da8b2",
+      "passed": true
+    },
+    {
+      "name": "result-duplicate-err",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "duplicate or missing result arm\n",
+      "sourceSHA256": "8505aa72993a3dbcf05fdac721511f5b5c8b4b07fc271f2950594137380da8b2",
+      "passed": true
+    },
+    {
+      "name": "result-wildcard",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "missing err arm\n",
+      "sourceSHA256": "268910cfa712b9a614a6796059d8f68ef74b69d29c75306b8e0967a4d948d897",
+      "passed": true
+    },
+    {
+      "name": "result-wildcard",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "missing err arm\n",
+      "sourceSHA256": "268910cfa712b9a614a6796059d8f68ef74b69d29c75306b8e0967a4d948d897",
+      "passed": true
+    },
+    {
+      "name": "result-wrong-order",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "expected: ok got: err unexpected token\n",
+      "sourceSHA256": "5f806c6bb6980bea9a552f085e6d7cc7e05289e82e5e0ba66ddde6f9e2c2134a",
+      "passed": true
+    },
+    {
+      "name": "result-wrong-order",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "expected: ok got: err unexpected token\n",
+      "sourceSHA256": "5f806c6bb6980bea9a552f085e6d7cc7e05289e82e5e0ba66ddde6f9e2c2134a",
+      "passed": true
+    },
+    {
+      "name": "result-handle-scalar",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "handle requires typed result\n",
+      "sourceSHA256": "bb7453ba1489b38fe902dbafdd8838fbf9a912accb7732c1b120c5e023aa9e21",
+      "passed": true
+    },
+    {
+      "name": "result-handle-scalar",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "handle requires typed result\n",
+      "sourceSHA256": "bb7453ba1489b38fe902dbafdd8838fbf9a912accb7732c1b120c5e023aa9e21",
+      "passed": true
+    },
+    {
+      "name": "result-handle-arithmetic",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "record arithmetic refused\n",
+      "sourceSHA256": "261cbc862f95eafc9701bd14aac66506baa3bfefde57e0f78a67f8f88c02d06a",
+      "passed": true
+    },
+    {
+      "name": "result-handle-arithmetic",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "record arithmetic refused\n",
+      "sourceSHA256": "261cbc862f95eafc9701bd14aac66506baa3bfefde57e0f78a67f8f88c02d06a",
+      "passed": true
+    },
+    {
+      "name": "result-discard",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result cannot be ignored\n",
+      "sourceSHA256": "c49ecdf6eea6925713526924feb69497137a3e9291b67eee96ad1808a90725a3",
+      "passed": true
+    },
+    {
+      "name": "result-discard",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result cannot be ignored\n",
+      "sourceSHA256": "c49ecdf6eea6925713526924feb69497137a3e9291b67eee96ad1808a90725a3",
+      "passed": true
+    },
+    {
+      "name": "result-as-local",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "5afc5d3e9c54f98dd87dbc88e5d7fd7156146b15548a26747e7ca3547c5874e8",
+      "passed": true
+    },
+    {
+      "name": "result-as-local",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "5afc5d3e9c54f98dd87dbc88e5d7fd7156146b15548a26747e7ca3547c5874e8",
+      "passed": true
+    },
+    {
+      "name": "result-length-escape",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result requires exhaustive handle\n",
+      "sourceSHA256": "ceeda252bab4535f833080a158214264865be4257c1b2dbb92d9634e3f4b6d4f",
+      "passed": true
+    },
+    {
+      "name": "result-length-escape",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result requires exhaustive handle\n",
+      "sourceSHA256": "ceeda252bab4535f833080a158214264865be4257c1b2dbb92d9634e3f4b6d4f",
+      "passed": true
+    },
+    {
+      "name": "result-index-escape",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result requires exhaustive handle\n",
+      "sourceSHA256": "1606320f236c6cd5a93c8cffec7884248c2f1ef01f57c836249922d24fa11d3f",
+      "passed": true
+    },
+    {
+      "name": "result-index-escape",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result requires exhaustive handle\n",
+      "sourceSHA256": "1606320f236c6cd5a93c8cffec7884248c2f1ef01f57c836249922d24fa11d3f",
+      "passed": true
+    },
+    {
+      "name": "result-parenthesized-scalar",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "ce522ddb793386a4d17960aa96ee8dd68975ff7758b2083c227e88bf4fccdd6e",
+      "passed": true
+    },
+    {
+      "name": "result-parenthesized-scalar",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "ce522ddb793386a4d17960aa96ee8dd68975ff7758b2083c227e88bf4fccdd6e",
+      "passed": true
+    },
+    {
+      "name": "result-scalar-call",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "argument type mismatch\n",
+      "sourceSHA256": "23d41cab8d8ea9506cb6542509d32697d163ef8028e49b9d6f6de4fb655a16ca",
+      "passed": true
+    },
+    {
+      "name": "result-scalar-call",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "argument type mismatch\n",
+      "sourceSHA256": "23d41cab8d8ea9506cb6542509d32697d163ef8028e49b9d6f6de4fb655a16ca",
+      "passed": true
+    },
+    {
+      "name": "result-tag-field",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "f18206628c6889adfd9b7ed16f2de7bc408c974b1fd50a02a794dca2292085b9",
+      "passed": true
+    },
+    {
+      "name": "result-tag-field",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "f18206628c6889adfd9b7ed16f2de7bc408c974b1fd50a02a794dca2292085b9",
+      "passed": true
+    },
+    {
+      "name": "result-payload-outside",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "10fa2be9703a916d1deda604c11e6e6cce37cfa307d0edd36bd74fd28232d4de",
+      "passed": true
+    },
+    {
+      "name": "result-payload-outside",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "10fa2be9703a916d1deda604c11e6e6cce37cfa307d0edd36bd74fd28232d4de",
+      "passed": true
+    },
+    {
+      "name": "result-error-outside",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "96650b0aeee49d6d82167174291e7d9ecd5db744974d2f4a618fc6f6a6d5dac2",
+      "passed": true
+    },
+    {
+      "name": "result-error-outside",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "96650b0aeee49d6d82167174291e7d9ecd5db744974d2f4a618fc6f6a6d5dac2",
+      "passed": true
+    },
+    {
+      "name": "result-payload-assignment",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "payload binding is immutable\n",
+      "sourceSHA256": "75e3a6bfc485e5133e5850b1dcecc2d59fdba655f5bb94a6ed1125b9713b464d",
+      "passed": true
+    },
+    {
+      "name": "result-payload-assignment",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "payload binding is immutable\n",
+      "sourceSHA256": "75e3a6bfc485e5133e5850b1dcecc2d59fdba655f5bb94a6ed1125b9713b464d",
+      "passed": true
+    },
+    {
+      "name": "result-payload-in-err",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "d43c91de2f85ab6dadb2a60bb6cbfff2091ef662ea5cd0675b33a168403a7355",
+      "passed": true
+    },
+    {
+      "name": "result-payload-in-err",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "d43c91de2f85ab6dadb2a60bb6cbfff2091ef662ea5cd0675b33a168403a7355",
+      "passed": true
+    },
+    {
+      "name": "result-error-in-ok",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "252709dc7e3ac0735abbdfc5e8c1dddd7d2d59153e9deafc1ad3de6b79b4d2e8",
+      "passed": true
+    },
+    {
+      "name": "result-error-in-ok",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "252709dc7e3ac0735abbdfc5e8c1dddd7d2d59153e9deafc1ad3de6b79b4d2e8",
+      "passed": true
+    },
+    {
+      "name": "result-payload-fast-rhs",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "54b1ffab1a07617d28112bfd0b0760f698b33bd24c117e5b0cc6086cc16e4309",
+      "passed": true
+    },
+    {
+      "name": "result-payload-fast-rhs",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "54b1ffab1a07617d28112bfd0b0760f698b33bd24c117e5b0cc6086cc16e4309",
+      "passed": true
+    },
+    {
+      "name": "result-payload-fast-condition",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "6e05535be4b7950b9f8b538fc183f8283a24a5887e7c52918c6d285584eed2d7",
+      "passed": true
+    },
+    {
+      "name": "result-payload-fast-condition",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "6e05535be4b7950b9f8b538fc183f8283a24a5887e7c52918c6d285584eed2d7",
+      "passed": true
+    },
+    {
+      "name": "result-payload-fast-while",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "83e363ab9375f5e84c336df7a0ccd2c14f7eda0200ddf375d5d463813c42e370",
+      "passed": true
+    },
+    {
+      "name": "result-payload-fast-while",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "83e363ab9375f5e84c336df7a0ccd2c14f7eda0200ddf375d5d463813c42e370",
+      "passed": true
+    },
+    {
+      "name": "result-payload-periodic-reducer",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "69a76bceffbfca8c18e0a31bfd4f24c771b24e2445b72f8d73c2448ad5b86baf",
+      "passed": true
+    },
+    {
+      "name": "result-payload-periodic-reducer",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "69a76bceffbfca8c18e0a31bfd4f24c771b24e2445b72f8d73c2448ad5b86baf",
+      "passed": true
+    },
+    {
+      "name": "result-payload-conditional-reducer",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "cd0453309742c2d5efda4d10ec05f89422c2f1b252b655ae6b389e32d24ec6ff",
+      "passed": true
+    },
+    {
+      "name": "result-payload-conditional-reducer",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "cd0453309742c2d5efda4d10ec05f89422c2f1b252b655ae6b389e32d24ec6ff",
+      "passed": true
+    },
+    {
+      "name": "result-return-scalar",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "typed result return needs ok or err\n",
+      "sourceSHA256": "b56e27f11b371312742d246840a8adfbe34e13f23abeb914bd8b89fd60f3fd39",
+      "passed": true
+    },
+    {
+      "name": "result-return-scalar",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "typed result return needs ok or err\n",
+      "sourceSHA256": "b56e27f11b371312742d246840a8adfbe34e13f23abeb914bd8b89fd60f3fd39",
+      "passed": true
+    },
+    {
+      "name": "result-missing-root-return",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result function requires final explicit return\n",
+      "sourceSHA256": "cc5641d8048fa5cd64d9c438034682948f2c85a926f504201c20051d55ec4c20",
+      "passed": true
+    },
+    {
+      "name": "result-missing-root-return",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result function requires final explicit return\n",
+      "sourceSHA256": "cc5641d8048fa5cd64d9c438034682948f2c85a926f504201c20051d55ec4c20",
+      "passed": true
+    },
+    {
+      "name": "result-main-typed",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "main cannot return result\n",
+      "sourceSHA256": "7ee4af91d373deefa86713e2ec8d1a15f0a8f704ca7ad9144ddb83326c49a5e7",
+      "passed": true
+    },
+    {
+      "name": "result-main-typed",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "main cannot return result\n",
+      "sourceSHA256": "7ee4af91d373deefa86713e2ec8d1a15f0a8f704ca7ad9144ddb83326c49a5e7",
+      "passed": true
+    },
+    {
+      "name": "result-constructor-untyped",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "unknown function\n",
+      "sourceSHA256": "b5a5671adedab7f6f51f27d4e336167ab2b3b28d8c48f84eac83e45e6d0d8ba0",
+      "passed": true
+    },
+    {
+      "name": "result-constructor-untyped",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "unknown function\n",
+      "sourceSHA256": "b5a5671adedab7f6f51f27d4e336167ab2b3b28d8c48f84eac83e45e6d0d8ba0",
+      "passed": true
+    },
+    {
+      "name": "result-nonscalar-payload",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "29d9fce57fccce0b6ae24aeb970f9e7538965c1caa3cdce20ac00039ef9857cd",
+      "passed": true
+    },
+    {
+      "name": "result-nonscalar-payload",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "29d9fce57fccce0b6ae24aeb970f9e7538965c1caa3cdce20ac00039ef9857cd",
+      "passed": true
+    },
+    {
+      "name": "baseline-scalar-forward-read",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "5867a26ea034b0aa52106dd3a3d0a93990fcd099e40d4f52eb1e234ce658ef02",
+      "passed": true
+    },
+    {
+      "name": "baseline-scalar-forward-read",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "5867a26ea034b0aa52106dd3a3d0a93990fcd099e40d4f52eb1e234ce658ef02",
+      "passed": true
+    },
+    {
+      "name": "baseline-scalar-false-arm-read",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "a9959068039058896092229ffde88183ea38ab171cdd4d48c2ef1d0e075ff1d6",
+      "passed": true
+    },
+    {
+      "name": "baseline-scalar-false-arm-read",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "a9959068039058896092229ffde88183ea38ab171cdd4d48c2ef1d0e075ff1d6",
+      "passed": true
+    },
+    {
+      "name": "view-first",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "b15b56ade83a7a59aea7d8ece2a8b21d51f296796294eff4d29cdb482ada3f89",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "0ec8394b8cfd0910c6e92002a36cdc0bea084efc6f574eb12e99dde90be641bd"
+    },
+    {
+      "name": "view-first",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "b15b56ade83a7a59aea7d8ece2a8b21d51f296796294eff4d29cdb482ada3f89",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "38eab26ed1fb8efd881badbabcbf7379a373c377f7c7193681357ea772858e07"
+    },
+    {
+      "name": "view-last",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "e8f0b79e1e160710d5257a437c8b2d8024a76d82f62a380982a2fef13b320a08",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "9741c5a88e62949d30682bb330e8e291d91b5c630421fcc563f716c5a10d8adb"
+    },
+    {
+      "name": "view-last",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "e8f0b79e1e160710d5257a437c8b2d8024a76d82f62a380982a2fef13b320a08",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "7431ba7905e676d621a699e2a0562e2ad62b2a6c63caf57734b6191781e7bb04"
+    },
+    {
+      "name": "view-middle",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "f4ee46a39b4d64bf74d701d4d0acd4ef19969b359e97459faed211f406653784",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "68cd08f78be1766f261222aa9704884bd090aeac74e10f7fe6893897dc33cb37"
+    },
+    {
+      "name": "view-middle",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "f4ee46a39b4d64bf74d701d4d0acd4ef19969b359e97459faed211f406653784",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "bd788f8746b7dddc95fedbde60280fd11909635ccd44dce19ad4a54c3397a804"
+    },
+    {
+      "name": "view-whole",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "da9cf7735d3761bb869745a1536098d915883294a146ff25cf77a17f1b5dd9cf",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "24fbfb30ff9c8a40c276deb1afa5394a070af58e1427c834635dc31f43184796"
+    },
+    {
+      "name": "view-whole",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "da9cf7735d3761bb869745a1536098d915883294a146ff25cf77a17f1b5dd9cf",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "e750b9901c7df86d02849da10766e6f59da0cac34a30b4fdc16b54fb67a124a3"
+    },
+    {
+      "name": "view-empty-start",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "601f6fdae2185e165a29be196173669b7b69cf423edaecaa504c181ad8706e8a",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "2508adf9d928c4629c175477e54df4a7bf87d8ccc6ad4f791c0387a94d13b768"
+    },
+    {
+      "name": "view-empty-start",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "601f6fdae2185e165a29be196173669b7b69cf423edaecaa504c181ad8706e8a",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "20a7b8ae794cb8ea328f84b407d7969ef6ef44ea3497e2c047b0d3dab0b6dcae"
+    },
+    {
+      "name": "view-empty-end",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "615d13dcb0833750daf4573ae17842bd5c41890189cadd15a524959ee085eeeb",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "b84d2452e2ae0cc5f6157db5f1478cdf52a32fb071ded914da417b9561795935"
+    },
+    {
+      "name": "view-empty-end",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "615d13dcb0833750daf4573ae17842bd5c41890189cadd15a524959ee085eeeb",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "7654a6b4299421ae07e11d1ffddebdcd26c6f6eb49c71b5b23b68741bcfd26db"
+    },
+    {
+      "name": "view-read-expression",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "cdbc697451eba917c181f978130ed7b65b6493546c35859eb026f45198e97262",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "fbaed5de4afbb026ae44ab8924ae8048a50789b248daa1d8b8c9c57f22011f23"
+    },
+    {
+      "name": "view-read-expression",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "cdbc697451eba917c181f978130ed7b65b6493546c35859eb026f45198e97262",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "71a46a78df1d910284022bd71b37d4cb60e0beace16b7e74238ee6f0a762ddcd"
+    },
+    {
+      "name": "view-start-over",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "6fa6df9c2086078125b5eb739cb17c9004cbdbd112e61a6ba088d19189dc3673",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "798c8b35ad414fbb1b00299c1daf32ab0d2925a50a0f7c1899c038d2a6965a37"
+    },
+    {
+      "name": "view-start-over",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "6fa6df9c2086078125b5eb739cb17c9004cbdbd112e61a6ba088d19189dc3673",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "546e58cbb52aaca0e8f941c05d361aac408cf2c77db60fd00bc51621d132b54f"
+    },
+    {
+      "name": "view-range-over",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "4b1407d0dac65d7cc2d0f81365ddff77b9b166cc3c3de33ba7d895edf50207e5",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "d25c161ea5edd32b26144cd28d5597093cb47d4c95f878498b4aa9a72fe68d51"
+    },
+    {
+      "name": "view-range-over",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "4b1407d0dac65d7cc2d0f81365ddff77b9b166cc3c3de33ba7d895edf50207e5",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "6d1b43491d44f6e9ac51835340b45b95020dfea2e36457834ae82210e8626d1d"
+    },
+    {
+      "name": "view-overflow-wrap",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "7e0b27b3f8af530f991e037975bacf48cc108b0f5a1c81a6afbff3f9b7a7b02b",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "31497ae0298338efaeb1b8b9cff52966cc94ed13227187e21d3f672e785cb562"
+    },
+    {
+      "name": "view-overflow-wrap",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "7e0b27b3f8af530f991e037975bacf48cc108b0f5a1c81a6afbff3f9b7a7b02b",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "0a7ec3b4a2d0db9aad6930714f16dd7d5cec93d16460cb1c86456dda5158aac5"
+    },
+    {
+      "name": "view-length-wrap",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "81d33ad7b1583cf8d6b11ac4c383f0b33493349edfb9194d83a3bf0c5c35eba6",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "471af1b47d24ff539a9f6f9fb21e613f83fe9493dfe2aceb3220d5214fa5c066"
+    },
+    {
+      "name": "view-length-wrap",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "81d33ad7b1583cf8d6b11ac4c383f0b33493349edfb9194d83a3bf0c5c35eba6",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "9a34a66b784398ca6d79b9aafc25f0f4e708833de97b8d1c66f5dbd312bc644b"
+    },
+    {
+      "name": "view-outside-subrange",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "0e892a8fc3df490c33d848a0fc2bda0002831b6887e68ce3f13619ddfcfabc17",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "0b3856d74823c8358883140416ffe0eed57429f577af7f411d06ec830a64d068"
+    },
+    {
+      "name": "view-outside-subrange",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "0e892a8fc3df490c33d848a0fc2bda0002831b6887e68ce3f13619ddfcfabc17",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "0ecb84410f751353f4983f11a133eced4788cadb429dc47d99273e946fed5673"
+    },
+    {
+      "name": "view-empty-read",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "5e323fdcff4c81314908b65154ab92b28d0f4f0e5930a50ba00c79b12467ea7d",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "4af3c0e710ebcd590f8687fca0f7577354386cc64d0c7ef9fcab9d4161707d8c"
+    },
+    {
+      "name": "view-empty-read",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "5e323fdcff4c81314908b65154ab92b28d0f4f0e5930a50ba00c79b12467ea7d",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "578e53f2c0ceacd958286e6106a36bca756518176a4408eb0c6fe1d31a559e1b"
+    },
+    {
+      "name": "view-owner-write",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "array writes forbidden while view is live\n",
+      "sourceSHA256": "4ffbb5cf1c2e8120f8a40eb2671a598441b6bc4879d0f85fe0ad63a7847dc276",
+      "passed": true
+    },
+    {
+      "name": "view-owner-write",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "array writes forbidden while view is live\n",
+      "sourceSHA256": "4ffbb5cf1c2e8120f8a40eb2671a598441b6bc4879d0f85fe0ad63a7847dc276",
+      "passed": true
+    },
+    {
+      "name": "view-owner-read-bytes",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "cd74a8e3ce2e41dae2fc93004314ebd964db8a6a1584ee0e2c7f09c05a4ba499",
+      "passed": true
+    },
+    {
+      "name": "view-owner-read-bytes",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "cd74a8e3ce2e41dae2fc93004314ebd964db8a6a1584ee0e2c7f09c05a4ba499",
+      "passed": true
+    },
+    {
+      "name": "view-helper-call",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "979ec898fc0169402909df2c3af67a04f4bcc3ccab8a87295960ea2595ba32f3",
+      "passed": true
+    },
+    {
+      "name": "view-helper-call",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "979ec898fc0169402909df2c3af67a04f4bcc3ccab8a87295960ea2595ba32f3",
+      "passed": true
+    },
+    {
+      "name": "view-pure-call",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "9b655b620e3dc50de9dddd71915069c047e89a288966f7094a3d7b0fe6d39b58",
+      "passed": true
+    },
+    {
+      "name": "view-pure-call",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "9b655b620e3dc50de9dddd71915069c047e89a288966f7094a3d7b0fe6d39b58",
+      "passed": true
+    },
+    {
+      "name": "view-raw-load",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "56abff3992d73c66ede168a09d824a2c3384beaa27facecc51700cef7c4cfe87",
+      "passed": true
+    },
+    {
+      "name": "view-raw-load",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "56abff3992d73c66ede168a09d824a2c3384beaa27facecc51700cef7c4cfe87",
+      "passed": true
+    },
+    {
+      "name": "view-raw-write",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "de9eaa938feb687e130b7705e9abf4e0fc2bd2f4d7bd46c0fe86d53747eb91ec",
+      "passed": true
+    },
+    {
+      "name": "view-raw-write",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "de9eaa938feb687e130b7705e9abf4e0fc2bd2f4d7bd46c0fe86d53747eb91ec",
+      "passed": true
+    },
+    {
+      "name": "view-copy",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "8636ac427e7d3aa286b2de8211e5e680075a8ddc26f3da665a0836df0b80227f",
+      "passed": true
+    },
+    {
+      "name": "view-copy",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "8636ac427e7d3aa286b2de8211e5e680075a8ddc26f3da665a0836df0b80227f",
+      "passed": true
+    },
+    {
+      "name": "view-return",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "9c52d6c85be3c312411a527a4ca5da5a4d8f4a0d7e3c25d9fb520ce98637c28b",
+      "passed": true
+    },
+    {
+      "name": "view-return",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "9c52d6c85be3c312411a527a4ca5da5a4d8f4a0d7e3c25d9fb520ce98637c28b",
+      "passed": true
+    },
+    {
+      "name": "view-rebind",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "record rebinding refused\n",
+      "sourceSHA256": "a4559dc2c15256308542615482b6c4fda382ebd3e6c7cf436d04e1a08747fab5",
+      "passed": true
+    },
+    {
+      "name": "view-rebind",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "record rebinding refused\n",
+      "sourceSHA256": "a4559dc2c15256308542615482b6c4fda382ebd3e6c7cf436d04e1a08747fab5",
+      "passed": true
+    },
+    {
+      "name": "view-write",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "array writes forbidden while view is live\n",
+      "sourceSHA256": "f933d04d8987e720cee26c0aac58c0bf98ce5932accf1a0858f8d3e6a21ed458",
+      "passed": true
+    },
+    {
+      "name": "view-write",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "array writes forbidden while view is live\n",
+      "sourceSHA256": "f933d04d8987e720cee26c0aac58c0bf98ce5932accf1a0858f8d3e6a21ed458",
+      "passed": true
+    },
+    {
+      "name": "view-length-write",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "field assignment requires record\n",
+      "sourceSHA256": "dcdfabf30719da1f18c5bd0b5e7dc14d0792f4bbd924fb98a88744651779d69c",
+      "passed": true
+    },
+    {
+      "name": "view-length-write",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "field assignment requires record\n",
+      "sourceSHA256": "dcdfabf30719da1f18c5bd0b5e7dc14d0792f4bbd924fb98a88744651779d69c",
+      "passed": true
+    },
+    {
+      "name": "view-address-field",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "expected: length got: pointer unexpected token\n",
+      "sourceSHA256": "243ecebb5bbf503137c22021387547e672f6dc63325852bc5e50377f84b815d8",
+      "passed": true
+    },
+    {
+      "name": "view-address-field",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "expected: length got: pointer unexpected token\n",
+      "sourceSHA256": "243ecebb5bbf503137c22021387547e672f6dc63325852bc5e50377f84b815d8",
+      "passed": true
+    },
+    {
+      "name": "view-box-escape",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "4ae7f8840b763401b4a6d88cd75e2210b4c89150d146386292fd940d51a7d2a2",
+      "passed": true
+    },
+    {
+      "name": "view-box-escape",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "4ae7f8840b763401b4a6d88cd75e2210b4c89150d146386292fd940d51a7d2a2",
+      "passed": true
+    },
+    {
+      "name": "view-arithmetic-escape",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "1a8842cc6b966d928a2092e4acb040e0f27eb8f2d8140c12415e5a7b6b90cf80",
+      "passed": true
+    },
+    {
+      "name": "view-arithmetic-escape",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "1a8842cc6b966d928a2092e4acb040e0f27eb8f2d8140c12415e5a7b6b90cf80",
+      "passed": true
+    },
+    {
+      "name": "view-owner-uninitialized",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "82919a22385fa15239ebd26cd85a9af4e07ed64b4d6cc4803701f1a4e77926ba",
+      "passed": true
+    },
+    {
+      "name": "view-owner-uninitialized",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "82919a22385fa15239ebd26cd85a9af4e07ed64b4d6cc4803701f1a4e77926ba",
+      "passed": true
+    },
+    {
+      "name": "view-alias-write",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "array writes forbidden while view is live\n",
+      "sourceSHA256": "1e184b82f3668f7acd8281ef082222c7c1b8101b5c941332b2b03bc2b289483d",
+      "passed": true
+    },
+    {
+      "name": "view-alias-write",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "array writes forbidden while view is live\n",
+      "sourceSHA256": "1e184b82f3668f7acd8281ef082222c7c1b8101b5c941332b2b03bc2b289483d",
+      "passed": true
+    },
+    {
+      "name": "view-alias-read-bytes",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "f99fb9858e862196164bd5b7483414b28ab3f7d873f1707645361fa58f15bbd5",
+      "passed": true
+    },
+    {
+      "name": "view-alias-read-bytes",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "f99fb9858e862196164bd5b7483414b28ab3f7d873f1707645361fa58f15bbd5",
+      "passed": true
+    },
+    {
+      "name": "view-alias-helper",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "6db34ebd52a1975ca2bd672edb0bdd3eedf044390a5672d72a5988786bf047db",
+      "passed": true
+    },
+    {
+      "name": "view-alias-helper",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "6db34ebd52a1975ca2bd672edb0bdd3eedf044390a5672d72a5988786bf047db",
+      "passed": true
+    },
+    {
+      "name": "view-parameter",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result/view parameters unsupported\n",
+      "sourceSHA256": "6b6e570d5aff25d86af38bb10df540210d381ab7ae018bb342ede62a69286c8a",
+      "passed": true
+    },
+    {
+      "name": "view-parameter",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result/view parameters unsupported\n",
+      "sourceSHA256": "6b6e570d5aff25d86af38bb10df540210d381ab7ae018bb342ede62a69286c8a",
+      "passed": true
+    },
+    {
+      "name": "view-word-owner",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "view requires byte array type\n",
+      "sourceSHA256": "b3e5724cae23c3683c47e494bcd021c44f53979a8324993abdeb7065043b5677",
+      "passed": true
+    },
+    {
+      "name": "view-word-owner",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "view requires byte array type\n",
+      "sourceSHA256": "b3e5724cae23c3683c47e494bcd021c44f53979a8324993abdeb7065043b5677",
+      "passed": true
+    },
+    {
+      "name": "view-result-escape",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "096ccf4ab8936ba4495ea3564daf37bbcc4289b6e30a0d6a5a183f3c19602c5c",
+      "passed": true
+    },
+    {
+      "name": "view-result-escape",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "096ccf4ab8936ba4495ea3564daf37bbcc4289b6e30a0d6a5a183f3c19602c5c",
+      "passed": true
+    },
+    {
+      "name": "result-payload-inplace",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "payload binding is immutable\n",
+      "sourceSHA256": "c0cfe227f9e07897ddacbfd7de03df5fffde3e9dd28c73999a2040dfe9d6cb6a",
+      "passed": true
+    },
+    {
+      "name": "result-payload-inplace",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "payload binding is immutable\n",
+      "sourceSHA256": "c0cfe227f9e07897ddacbfd7de03df5fffde3e9dd28c73999a2040dfe9d6cb6a",
+      "passed": true
+    },
+    {
+      "name": "result-ignored-condition",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "c3e7340a2bba05e85d9256f9b9e2968b586f4e749e3927b861c997d453b1ce1f",
+      "passed": true
+    },
+    {
+      "name": "result-ignored-condition",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "c3e7340a2bba05e85d9256f9b9e2968b586f4e749e3927b861c997d453b1ce1f",
+      "passed": true
+    },
+    {
+      "name": "result-ignored-while",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "8c0a530ea342d37ee8760f16d533aa2cd7745384c30cc0fd706a5f85d8975b65",
+      "passed": true
+    },
+    {
+      "name": "result-ignored-while",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\n",
+      "sourceSHA256": "8c0a530ea342d37ee8760f16d533aa2cd7745384c30cc0fd706a5f85d8975b65",
+      "passed": true
+    },
+    {
+      "name": "result-nested-handles",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "a338fdec9511f9a52fbfa7aeb3441cb3a809022c768a4dbb210544bfa2d8d320",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "5b5c9cd6e1c786e53b7dbecfea39e97c842c543cffe387f31e8b262fae830e8e"
+    },
+    {
+      "name": "result-nested-handles",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "a338fdec9511f9a52fbfa7aeb3441cb3a809022c768a4dbb210544bfa2d8d320",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "3a6cc3b6ce8064b0cb4449284a917e06bfdac79eec2e67ee61e8a2f752f9adfd"
+    },
+    {
+      "name": "result-inner-payload-after-handle",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "54d536aed3ac441ef54b3d6c03940c92c06a3ba68e7f76ed9c6008453f588daf",
+      "passed": true
+    },
+    {
+      "name": "result-inner-payload-after-handle",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\n",
+      "sourceSHA256": "54d536aed3ac441ef54b3d6c03940c92c06a3ba68e7f76ed9c6008453f588daf",
+      "passed": true
+    },
+    {
+      "name": "view-handle-call-ban",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "f1054f841dbc9614bfeb27c24f2f203faf4a2c9b94745249183ee943fe38667c",
+      "passed": true
+    },
+    {
+      "name": "view-handle-call-ban",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "f1054f841dbc9614bfeb27c24f2f203faf4a2c9b94745249183ee943fe38667c",
+      "passed": true
+    },
+    {
+      "name": "view-unreachable-call-ban",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "de619559c57b0a60d9daf689aa0aed275a5c052fbba16e6498622d93872c4b6c",
+      "passed": true
+    },
+    {
+      "name": "view-unreachable-call-ban",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "de619559c57b0a60d9daf689aa0aed275a5c052fbba16e6498622d93872c4b6c",
+      "passed": true
+    },
+    {
+      "name": "view-byteio-in-index",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "5ab0018ededaaeeab07684197f511a1c0d5ecc25700691772f44e55c24180c72",
+      "passed": true
+    },
+    {
+      "name": "view-byteio-in-index",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\n",
+      "sourceSHA256": "5ab0018ededaaeeab07684197f511a1c0d5ecc25700691772f44e55c24180c72",
+      "passed": true
+    },
+    {
+      "name": "view-result-observation",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "eddea5c42e10c955179cd03c5a11bd88af21ae7f912e2cf20c0532bf57e98e6b",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "bf44b645b88bad3f04ccafbc6b95fe30fd7f54f430d19f73a45f25f4ec9c4464"
+    },
+    {
+      "name": "view-result-observation",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "eddea5c42e10c955179cd03c5a11bd88af21ae7f912e2cf20c0532bf57e98e6b",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "d32807ef4099f53edf9ed213bbc624492d78e84336240a9635fb2bcdf2bb5576"
+    }
+  ],
+  "whatifSourceReview": {
+    "filesInspected": 0,
+    "status": "unsupported-extension-not-a-pass",
+    "reason": "Available WhatIF source heuristics do not parse .rf2. Native semantic checks ran separately, without HTTP traffic."
+  },
+  "scope": "Independent agent-authored programs replayed by the parent on final compiler. Separate 44-case critic fixture replay and app oracle suite. Finite host evidence, not human review, whole-compiler proof or security certification."
+}
