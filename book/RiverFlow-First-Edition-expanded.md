@@ -1206,7 +1206,7 @@ Third, does a differently organized computation agree? The reference applies one
 
 Fourth, which source and input produced this evidence? A versioned SHA-256 receipt binds source identity, exact plan bytes, output and full result fields. A separate build manifest records compiler and executable hashes. An unsigned digest does not authenticate execution. Source identity is not self-attestation by the binary.
 
-Fifth, can someone reproduce the failure? Keep the exact plan file and returned JSON witness together. A fresh process can compare its receipt with the trusted previous one. Changed inputs or sources cannot silently reuse that receipt. The JSON alone is not a complete executable capsule.
+Fifth, can someone reproduce the failure? The RF2C1 research extension exports a bounded file containing exact plan bytes, source identity and the expected receipt. A fresh process decodes and checks it before publishing an outcome. The older plan-plus-JSON route remains available. The JSON alone still lacks the complete plan.
 
 ## Build, inspect and disagree
 
@@ -1218,6 +1218,17 @@ python3 tests/standalone/contract_cli_verify.py
 ```
 
 Python is a development builder and independent test oracle. The resulting native RF2 executable does not use it. The example is a bounded binary transformation preview with no input-file overwrite. It does not expand the nine MCP tools or admit unrestricted systems programs to the AI interface.
+
+The self-contained route is explicit:
+
+```sh
+output/bin/rf2-contract capsule examples/evidence-contract/demo.plan > demo.rf2c
+output/bin/rf2-contract replay demo.rf2c
+```
+
+Further tests exposed important limits. When an isolated experiment changed XOR to OR in both paths, they agreed on the wrong result. Another changed a plan and recomputed its unsigned receipt; replay accepted it. Agreement is not a universal correctness proof, and a checksum does not authenticate a sender. An idle named-pipe wait was also reproduced and corrected using nonblocking input, with refusal regressions for all three routes.
+
+Every one-byte ADD/XOR input and operand combination was checked: 131072 distinct cases in each native mode. That does not exhaust all plans. In six single-host confirmation workloads, dual validation took 1.30 to 1.85 times the reference-only harness median. That baseline lacks disagreement detection. The cost includes process startup, initialization and observation overhead; it is not isolated instruction cost or a general speed comparison. See docs/CONTRACT-REPLAY-RESEARCH.md for raw evidence and scope.
 
 These ideas have substantial prior art: effect systems, transactions, translation validation, provenance and deterministic replay. RF2 has not discovered a missing Boolean gate or a universal optimization. The useful hypothesis is that combining understandable contracts, enforced limits and reproducible counterexamples can make human and AI development easier to challenge and repair. That needs real developer experiments.
 

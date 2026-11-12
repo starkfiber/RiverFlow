@@ -1,0 +1,110 @@
+{
+  "date": "2026-11-12",
+  "baselineCommit": "6676080901abe00e7e161ab8361f92aab2ebc118",
+  "target": "macOS-26.5.1-arm64-arm-64bit",
+  "candidate": "Native RF2 contract research application; compiler/released0.17unchanged",
+  "build": {
+    "source_identity": "74bdfb1c15fbaa7520203fd412f9893670024e01eb863897eef491c5e60e15eb",
+    "source_files": [
+      {
+        "path": "lib/engine.rf2",
+        "sha256": "5ae7360d040f22ff7c7107b23a0bc7e6f45589374a5a242e7862d3b534977e93",
+        "bytes": 3579
+      },
+      {
+        "path": "lib/output.rf2",
+        "sha256": "b15fba158a6816c71de0bbb35db8c7eb93e728d927414a3ef0aeab06cdde6b23",
+        "bytes": 881
+      },
+      {
+        "path": "lib/parser.rf2",
+        "sha256": "defcabacd99e2fb6cdf0a569dca68a7978e8a84faf0d22d2fbdd0714d35e900c",
+        "bytes": 3367
+      },
+      {
+        "path": "lib/sha256.rf2",
+        "sha256": "182e92384692f39749df35fc9be4a30ae3fe07c0698885dfd1359d2c814c78f2",
+        "bytes": 5213
+      },
+      {
+        "path": "main.rf2",
+        "sha256": "0634a634138f1f2ff1aa997e9a5337aaf5b963a02b4943bd02f946175d40e026",
+        "bytes": 5021
+      }
+    ],
+    "compiler_sha256": "8cac670c59421bfb83b92e5d12efda7e7951bd01b7c177c116d7f7c430deeb5e",
+    "binary_sha256": "d481655c64668ff11cd37f0b4560bcd4a02e2a36df25953179e53eb49328be06",
+    "options": [
+      "--opt"
+    ]
+  },
+  "suites": {
+    "engine": {
+      "reportSHA256": "6ebea69ec481bc9780ef4a17429eb47d95fdac788beec04878bc0984ce266db6",
+      "checks": 554,
+      "scope": "Independent finite full128-byte state and return/report checks across default/opt. Mutants are isolated source experiments, not a production option. Work is abstract semantic events, not CPU/energy. No formal proof, novelty or broad compiler qualification.",
+      "passed": true
+    },
+    "cli": {
+      "reportSHA256": "3b8b8992dc4ebaa51e84584cd9c06b293110325a21edcfef5ab7d9b5a97bb4ea",
+      "checks": 290,
+      "scope": "Finite macOS ARM64 native default/opt tests using an independent Python oracle and hashlib SHA256. Receipt binds raw plan bytes, output, Run and source-bundle ID; it does not authenticate the running binary or caller. No formal proof, novelty or performance claim.",
+      "passed": true
+    },
+    "capsule": {
+      "reportSHA256": "615ac86ee34102cac3e2aa4b6949d1db20bf755cd4de5fafcdea829697291f9a",
+      "checks": 1262,
+      "scope": "Finite native default/opt single-host checks, not a security proof; outer framing whitespace is intentionally not bound. Source identity is not execution authentication.",
+      "testSHA256": "c0f90b117a087f56a9114fee341f56e23568c915eb937a93f622721a71d98bfc",
+      "passed": true
+    },
+    "exhaustive": {
+      "reportSHA256": "051b589b60adf6861ec10dfb049d3ba0cbf663cc11635e37a36062eb7d41d38d",
+      "checks": 262144,
+      "scope": "Every one-byte ADD and XOR operand/input pair, plus sentinel tail byte and complete Run witness, default/optimized. Does not enumerate arbitrary multistep plans, all128byte states, arbitrary code or independent compiler implementations.",
+      "testSHA256": "091e338448230541a85f122342f273cd732fbaf9a595eab14235a5c16691ec46",
+      "passed": true
+    },
+    "common_defect": {
+      "reportSHA256": "b4c50f75b0270fa6ee8124a5726dd84f8e58864f1515775994e1a3e35d0022c1",
+      "checks": 4,
+      "scope": "Known shared defect deliberately introduced into both isolated paths. Agreement accepts a wrong result in default and optimized modes. Original source untouched. This demonstrates a real boundary, not a production test pass or immunity to shared compiler/specification faults.",
+      "observedWrongSuccesses": 2,
+      "experimentCompleted": true
+    }
+  },
+  "exhaustiveDistinctCases": 131072,
+  "exhaustiveExecutedObservations": 262144,
+  "capsuleChecks": 1262,
+  "commonDefectConclusion": "Deliberately shared defect escaped agreement in both build modes; a real guarantee boundary, not a production test pass.",
+  "authenticationConclusion": "Recomputed unsigned capsule was accepted in both modes; source-bound digest is not sender authentication.",
+  "fifoBefore": {
+    "target": "idle FIFO, no writer",
+    "binary": "output/bin/rf2-contract-capsule",
+    "timedOut": true,
+    "timeoutSeconds": 1,
+    "elapsedSeconds": 1.003204167,
+    "binarySHA256": "2d93163e8e9f3b30cc64e8e7015af88037b33b997a6c256edc54d1524eaf973d"
+  },
+  "fifoAfter": "All three command routes refuse idleFIFO in both modes under2second test timeout. Not a general syscall deadline.",
+  "benchmark": "CONTRACT-OVERHEAD-MEASUREMENTS.json",
+  "limits": [
+    "Singlehost finite evidence, shared native compiler",
+    "No new speed, energy or AI token savings established",
+    "Source-bound receipts not authenticated execution",
+    "Onebyte oneoperation enumeration is not complete arbitrary-plan verification",
+    "MCPcontract effect not added; existing9bounded effects unchanged"
+  ],
+  "benchmarkControllerSHA256": "a676c8f39c78241c38ae7346761a681e5f745c1002265d030a3584ef786550dc",
+  "mcp": {
+    "sdkDiscoveryResultRefusalRecovery": "passed",
+    "prepared": {
+      "passed": true,
+      "prepared": 33,
+      "applied": 65,
+      "refusals": 75,
+      "released": 32,
+      "runtimeSHA256": "681c48fc9d8ca12162102e8841c113603ee044be883cc191668d24c96652692b"
+    }
+  }
+}

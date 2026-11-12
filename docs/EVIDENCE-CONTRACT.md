@@ -10,7 +10,7 @@ Research candidate built with the unchanged RF2 0.17 native compiler. This is a 
 | H2: rejected transformations preserve state | Private reference and candidate buffers; commit only after full agreement | Any rejected plan changes any original byte |
 | H3: independent computation catches candidate errors | Reference pass per operation versus candidate fused per output byte; compare every active byte | A deliberately different candidate publishes success |
 | H4: evidence identifies the computation | Domain-separated SHA-256 over source identity, exact plan bytes, output and result fields; separate build manifest identifies compiler and executable | Changing a bound field retains the same independently reconstructed receipt |
-| H5: stale evidence fails and failures can be replayed | Exact plan plus JSON witness, source identity and optional expected receipt; each invocation is a fresh process | Changed inputs reuse old successful evidence, or the same pinned implementation reproduces a different witness |
+| H5: stale evidence fails and failures can be replayed | Self-contained RF2C1 capsule or exact plan plus JSON witness, source identity and optional expected receipt; each invocation is a fresh process | Changed inputs reuse old successful evidence, or the same pinned implementation reproduces a different witness |
 
 All five mechanisms have prior art. See [independent hypothesis review](FIVE-HYPOTHESES-REVIEW.md), including effect systems, transactions, translation validation, build provenance and deterministic replay. The research question is whether their compact integration improves practical repair and review. No world-first, new transistor instruction, universal safety, speed or token advantage is established.
 
@@ -83,6 +83,17 @@ output/bin/rf2-contract examples/evidence-contract/demo.plan EXPECTED_64_CHARACT
 
 Replace that final argument with the receipt returned by the first run. Any change to the exact plan or bound source identity rejects that old digest. A deliberately altered expected receipt also rejects. SHA-256 is integrity relative to a trusted expectation, not a signature, proof of correct execution, authorship or hardware attestation.
 
+## Self-contained native replay
+
+The RF2C1 export/replay route now packages the exact plan, source identity and expected receipt in one bounded file. See [replay, negative controls and measurements](CONTRACT-REPLAY-RESEARCH.md) for the format and executed evidence.
+
+```sh
+output/bin/rf2-contract capsule examples/evidence-contract/demo.plan > demo.rf2c
+output/bin/rf2-contract replay demo.rf2c
+```
+
+Receipts remain unsigned. An isolated test demonstrated that a shared defect in both engines can pass agreement, and a recomputed unsigned receipt can accompany a different accepted plan. These are documented boundaries, not authentication or formal correctness. Named input is opened with Darwin O_NONBLOCK after an idle-FIFO hang was reproduced. This is not a universal I/O timeout.
+
 ## Verification and limits
 
 Independent Python controllers are development oracles only. Run:
@@ -92,7 +103,7 @@ python3 tests/standalone/contract_engine_verify.py
 python3 tests/standalone/contract_cli_verify.py
 ```
 
-The engine suite checks all 128 state bytes and complete witnesses against an independently written oracle, in default and optimized native builds. Source corruption is compiled and executed in isolated fixtures: disagreement must preserve original state. The CLI suite checks parsing, boundary conditions, independently reconstructed SHA-256 receipts and fresh-process replay. Recorded result: 554 engine checks plus 290 CLI checks passed (844 total). The existing MCP SDK discovery/result/refusal/recovery check passed, as did 33 prepared creations, 65 applications, 75 refusals and 32 releases. These counts describe executed cases, not universal correctness.
+The engine suite checks all 128 state bytes and complete witnesses against an independently written oracle, in default and optimized native builds. Source corruption is compiled and executed in isolated fixtures: disagreement must preserve original state. The CLI suite checks parsing, boundary conditions, independently reconstructed SHA-256 receipts and fresh-process replay. Initial candidate result: 554 engine checks plus 290 CLI checks passed (844 total). The existing MCP SDK discovery/result/refusal/recovery check passed, as did 33 prepared creations, 65 applications, 75 refusals and 32 releases. These counts describe executed cases, not universal correctness.
 
 Full local case records are under `artifacts/top-ten-five-hypotheses/`; public results are summarized in `EVIDENCE-CONTRACT-VERIFICATION.json`.
 

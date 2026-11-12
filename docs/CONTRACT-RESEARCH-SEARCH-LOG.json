@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-12",
+  "question": "What can be established by concrete two-path execution and source-bound replay, and what remains unverified?",
+  "selection": "Primary documentation and one primary conference paper with directly inspected relevant passages; not systematic literature review",
+  "sources": [
+    {
+      "url": "https://web.ist.utl.pt/nuno.lopes/pubs/alive2-pldi21.pdf",
+      "locator": "p1abstract,citation,introduction; beginningp2",
+      "finding": "Bounded symbolic refinement validation; does not transfer guarantees to concrete RF2checking"
+    },
+    {
+      "url": "https://rr-project.org/",
+      "locator": "what rr does/features/debugging experience",
+      "finding": "Actual application recording/replay, broader than RF2 deterministic plan capsule"
+    },
+    {
+      "url": "https://reproducible-builds.org/docs/definition/",
+      "locator": "definition and explanations",
+      "finding": "Specified artifact reproduction; source and executable identity remain distinct"
+    }
+  ],
+  "queries": [
+    "Alive2 official repository and linkedPLDI2021paper",
+    "rr official record/replay description",
+    "Reproducible Builds official definition"
+  ],
+  "unsearched": [
+    "Comprehensive N-version testing literature",
+    "Full provenance/signing threat-model survey",
+    "Developer repair-productivity studies"
+  ],
+  "interpretation": "Common-defect/authentication findings arise from executed local controls, not a claim that prior literature missed them."
+}

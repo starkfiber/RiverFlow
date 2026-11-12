@@ -12,9 +12,19 @@ fn copy_bytes(dst,src,n)
  end
  return 0
 end
+fn same_text(a,b)
+ let i=0
+ while load8(a+i)!=0
+  if load8(a+i)!=load8(b+i)
+   return 0
+  end
+  set i=i+1
+ end
+ return load8(b+i)==0
+end
 fn main(argc,argv)
  if any(argc<2,argc>3)
-  do emit("Usage: rf2-contract planfile [expected-receipt-sha256]\n")
+  do emit("Usage: rf2-contract planfile [expected-sha256] | capsule planfile | replay capsulefile\n")
   return 1
  end
  let data=Data()
@@ -23,8 +33,27 @@ fn main(argc,argv)
  let args=Ops()
  let p=Plan(0,0,0,0)
  let r=Run(0,0,0,0,0,0)
- let input=buffer("planfile",8193)
- let fd=open(load64(argv+8),0,0)
+ let input=buffer("planfile",18001)
+ let mode=0
+ let path=load64(argv+8)
+ let expected=0
+ let limit=8192
+ if argc==3
+  if same_text(path,"capsule")
+   set mode=1
+   set path=load64(argv+16)
+  else
+   if same_text(path,"replay")
+    set mode=2
+    set path=load64(argv+16)
+    set limit=18000
+   else
+    set expected=load64(argv+16)
+   end
+  end
+ end
+ # Darwin O_NONBLOCK prevents an idle FIFO from waiting for a writer.
+ let fd=open(path,4,0)
  let n=0
  let got=0
  let reading=1
@@ -34,8 +63,8 @@ fn main(argc,argv)
   do emit("{\"error\":\"open\"}\n")
   return 1
  end
- while all(n<8193,reading)
-  set got=read(fd,input+n,8193-n)
+ while all(n<limit+1,reading)
+  set got=read(fd,input+n,limit+1-n)
   if got>>63
    do close(fd)
    do emit("{\"error\":\"read\"}\n")
@@ -47,13 +76,34 @@ fn main(argc,argv)
   set n=n+got
  end
  set status=close(fd)
- if any(status>>63,n>8192)
-  do emit("{\"error\":\"size-or-close\"}\n")
+ if any(status>>63,n>limit)
+  if mode==2
+   do emit("{\"error\":\"size-or-close\",\"published\":false}\n")
+  else
+   do emit("{\"error\":\"size-or-close\"}\n")
+  end
   return 1
  end
  let cursor=Cursor(input,n,0,0)
+ if mode==2
+  let decoded=buffer("decodedplan",8192)
+  set expected=buffer("expectedreceipt",65)
+  set n=decode_capsule(cursor,decoded,expected)
+  if cursor.error
+   do emit("{\"error\":\"capsule-format-or-source\",\"published\":false}\n")
+   return 1
+  end
+  set input=decoded
+  set cursor.p=input
+  set cursor.n=n
+  set cursor.i=0
+ end
  if parse(cursor,data,p,codes,args)
-  do emit("{\"error\":\"parse\",\"offset\":")
+  if mode==2
+   do emit("{\"error\":\"parse\",\"published\":false,\"offset\":")
+  else
+   do emit("{\"error\":\"parse\",\"offset\":")
+  end
   do emit_number(cursor.i)
   do emit("}\n")
   return 1
@@ -87,8 +137,7 @@ fn main(argc,argv)
  do store64(fields+40,r.work)
  let digest=sha256(receipt,domainlen+176)
  # External receipt verification precedes publication of successful output.
- if argc==3
-  let expected=load64(argv+16)
+ if expected!=0
   let hex="0123456789abcdef"
   if text_length(expected)!=64
    do emit("{\"error\":\"receipt-format\"}\n")
@@ -102,6 +151,16 @@ fn main(argc,argv)
    end
    set i=i+1
   end
+ end
+ if mode==1
+  set status=emit("RF2C1 source ")
+  set status=status|emit(build_identity())
+  set status=status|emit(" receipt ")
+  set status=status|emit_hex(digest,32)
+  set status=status|emit(" plan ")
+  set status=status|emit_hex(input,n)
+  set status=status|emit("\n")
+  return any(status,r.code)
  end
  set status=emit("{\"profile\":\"RF2E1\",\"source_identity\":\"")
  set status=status|emit(build_identity())

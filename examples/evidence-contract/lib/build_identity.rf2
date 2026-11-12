@@ -1,5 +1,5 @@
 module identity
 # Generated source-bundle identity, not a signature or self-attestation.
 fn build_identity()
- return "690ee371a7a412a2ef46428c4ee5dbddd4fc4ac9a9c72ac26118cb481c7a673b"
+ return "74bdfb1c15fbaa7520203fd412f9893670024e01eb863897eef491c5e60e15eb"
 end
