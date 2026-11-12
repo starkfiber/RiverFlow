@@ -9,7 +9,12 @@ commands=[['python3','tools/sync-contract-json.py','--check'],['python3','tools/
 env=dict(os.environ,RF2_TRUST_DIR=str(R/'output/trust-0.18'))
 try:
  for i,cmd in enumerate(commands):
-  start=time.monotonic();p=subprocess.run(cmd,cwd=R,env=env,capture_output=True,timeout=240);(D/f'{i}.stdout.txt').write_bytes(p.stdout);(D/f'{i}.stderr.txt').write_bytes(p.stderr);report['commands'].append({'command':cmd,'exit':p.returncode,'seconds':time.monotonic()-start});(D/'qualification.json').write_text(json.dumps(report,indent=2)+'\n');assert p.returncode==0,(cmd,p.stderr[-2000:]);print('PASS',cmd[-1],flush=True)
+  start=time.monotonic();p=subprocess.run(cmd,cwd=R,env=env,capture_output=True,timeout=240);(D/f'{i}.stdout.txt').write_bytes(p.stdout);(D/f'{i}.stderr.txt').write_bytes(p.stderr);report['commands'].append({'command':cmd,'exit':p.returncode,'seconds':time.monotonic()-start});(D/'qualification.json').write_text(json.dumps(report,indent=2)+'\n');
+  if p.returncode:
+   debug=subprocess.run(['/usr/bin/lldb','--batch','-o','run','-o','bt','-o','register read','--',str(R/'output/native-compiler/rf2c'),str(R/'examples/evidence-contract/trust.rf2'),str(R/'output/debug-trust'),'--opt'],capture_output=True,timeout=45)
+   (D/'compiler-debug.txt').write_bytes(debug.stdout+debug.stderr)
+   raise AssertionError((cmd,p.stderr[-2000:]))
+  print('PASS',cmd[-1],flush=True)
  report['passed']=True
 finally:
  (D/'qualification.json').write_text(json.dumps(report,indent=2)+'\n');collected=D/'reports';collected.mkdir(exist_ok=True)
