@@ -1,0 +1,35 @@
+module samples
+use "lib/io.rf2"
+array Samples(u64, 128)
+fn samples_sort(values: Samples, count)
+ if count > values.length
+  do io_fail("Sample count exceeds capacity")
+ end
+ let i = 1
+ let j = 0
+ let key = 0
+ let moving = 0
+ while i < count
+  set key = values[i]
+  set j = i
+  set moving = 1
+  while (j > 0) & moving
+   if values[j - 1] <= key
+    set moving = 0
+   else
+    set values[j] = values[j - 1]
+    set j = j - 1
+   end
+  end
+  set values[j] = key
+  set i = i + 1
+ end
+ return 0
+end
+fn samples_percentile(values: Samples, count, percent)
+ if (count == 0) | (count > values.length) | (percent == 0) | (percent > 100)
+  do io_fail("Invalid percentile request")
+ end
+ let rank = (count * percent + 99) // 100
+ return values[rank - 1]
+end

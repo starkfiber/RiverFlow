@@ -1,0 +1,53 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/io.rf2"
+use "lib/samples.rf2"
+# Units are supplied by the caller. This program does not measure a clock.
+fn parse_sample(text)
+ let i = 0
+ let value = 0
+ let digit = 0
+ while load8(text + i) != 0
+  set digit = load8(text + i)
+  if (digit < 48) | (digit > 57) | (i >= 10)
+   do io_fail("Each sample must be a decimal u32 integer")
+  end
+  set value = value * 10 + digit - 48
+  if value > 4294967295
+   do io_fail("Each sample must fit in u32")
+  end
+  set i = i + 1
+ end
+ if i == 0
+  do io_fail("Empty sample")
+ end
+ return value
+end
+fn main(argc, argv)
+ if (argc < 2) | (argc > 129)
+  do io_fail("Usage: rf2-latency sample ... (1 to 128 unsigned samples)")
+ end
+ let samples = Samples()
+ let count = argc - 1
+ let i = 0
+ let total = 0
+ while i < count
+  set samples[i] = parse_sample(load64(argv + (i + 1) * 8))
+  set total = total + samples[i]
+  set i = i + 1
+ end
+ do samples_sort(samples, count)
+ do io_print("{\"count\":")
+ do io_number(count)
+ do io_print(",\"min\":")
+ do io_number(samples[0])
+ do io_print(",\"max\":")
+ do io_number(samples[count - 1])
+ do io_print(",\"sum\":")
+ do io_number(total)
+ do io_print(",\"median_lower\":")
+ do io_number(samples[(count - 1) // 2])
+ do io_print(",\"p95_nearest_rank\":")
+ do io_number(samples_percentile(samples, count, 95))
+ do io_print("}\n")
+ return 0
+end

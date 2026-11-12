@@ -24,6 +24,8 @@ These are one-host, runtime-input, launch-inclusive medians. The eligible reduct
 
 A guarded conditional-periodic reduction is now implemented on main. It replaces one exact pure conditional sum with fixed-size arithmetic. The published 0.11 binaries remain unchanged. [Contract, evidence and reproduction](docs/CONDITIONAL-REDUCTION.md) · [One-language full-stack direction](docs/RF2-FULL-STACK-DIRECTION.md).
 
+Checked fixed `u64` arrays and a complete latency-summary program are also implemented on main. [Collection contract and runnable example](docs/CHECKED-ARRAYS.md) · [Development book chapter](book/development/24-checked-collections.md). These features require building the development compiler; they are not in the published 0.11 binary.
+
 ## Build beyond the first application
 
 ```rf2

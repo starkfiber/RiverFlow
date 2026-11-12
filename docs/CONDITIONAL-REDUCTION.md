@@ -1,6 +1,6 @@
 # Guarded conditional periodic reduction
 
-This post-0.11 compiler candidate extends the optional native optimizer. It is committed development work, not an installed 0.12 release. The published 0.11 downloads remain unchanged.
+This post-0.11 compiler candidate extends the optional native optimizer. It is committed development work, not an installed 0.12 release. The published 0.11 downloads remain unchanged. Later checked-array development preserves this original experiment receipt; fresh compatibility checks for that later compiler are recorded in [the array regression receipt](ARRAYS-REGRESSION.json).
 
 ## Exact admitted source
 

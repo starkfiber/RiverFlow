@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "inputSource": "docs/CONDITIONAL-REDUCTION-MEASUREMENTS.json",
+  "inputSourceSHA256": "f44e54d50d9cbb34e1b792d409fddb791d3e97380865c9305c3b21e1ce9995d1",
+  "selection": "rf2-candidate, 20m steps, seven warm trials, ms rounded to integer microseconds",
+  "samplesMicroseconds": [
+    2337,
+    1965,
+    1925,
+    1734,
+    1834,
+    2102,
+    1686
+  ],
+  "observed": {
+    "count": 7,
+    "min": 1686,
+    "max": 2337,
+    "sum": 13583,
+    "median_lower": 1925,
+    "p95_nearest_rank": 2337
+  },
+  "programSHA256": "2a88c70c072ca94a8a45e32f14f656c4aa9a40df490325dd2bcc6b58f5e74f65",
+  "scope": "Reanalysis of retained process timings, not a new clock measurement or new compiler speed result."
+}

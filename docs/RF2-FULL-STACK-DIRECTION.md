@@ -26,7 +26,7 @@ A new RF2 candidate handles one exact conditional periodic recurrence through ar
 ## A coherent implementation route
 
 1. Stabilize the language contract: integer/overflow rules, modules, diagnostics, structured values, errors, lifetimes and version compatibility. Build a typed, effect-aware representation rather than recognizing every future application as a string template.
-2. Build collection and resource semantics with positive and failure tests. Strings, nested structured values, ownership and concurrent sharing are not provided merely by the current u64 records.
+2. Fixed, nominal, zero-initialized u64 arrays now have a checked native implementation on main, with a complete supplied-sample analyzer and default/optimized tests. See CHECKED-ARRAYS.md. Growable collections, strings, nested structured values, ownership and concurrent sharing remain further work.
 3. Extend native lowering with verified scalar/SIMD alternatives. Qualify aliasing, overflow, tail handling and side effects, then measure end-to-end workload costs. Keep a correct scalar fallback.
 4. Define concurrency before claiming it: task lifetime, shared-memory rules, atomics, cancellation, deterministic test hooks and bounded resource ownership. Fork/process support is not an RF2 threading or memory model. Compare single-thread and multi-worker paths including synchronization.
 5. Implement a platform adapter per target while keeping application source in RF2. Begin with a small shared computation and UI event test on macOS, Android and iOS; require actual built and exercised packages on each. SDK compatibility and signing requirements remain real even when the source language is unified.

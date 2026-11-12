@@ -8,8 +8,8 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 212062,
-    "Python": 167254,
+    "RiverFlow": 217381,
+    "Python": 179788,
     "JavaScript": 65400,
     "HTML": 16410,
     "CSS": 10426,
@@ -147,6 +147,21 @@
       "bytes": 25
     },
     {
+      "path": "examples/latency/lib/io.rf2",
+      "language": "RiverFlow",
+      "bytes": 557
+    },
+    {
+      "path": "examples/latency/lib/samples.rf2",
+      "language": "RiverFlow",
+      "bytes": 745
+    },
+    {
+      "path": "examples/latency/main.rf2",
+      "language": "RiverFlow",
+      "bytes": 1345
+    },
+    {
       "path": "examples/sum.flow",
       "language": "RiverFlow",
       "bytes": 335
@@ -189,7 +204,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 61223
+      "bytes": 63895
     },
     {
       "path": "native/core.rf2",
@@ -320,6 +335,11 @@
       "path": "tests/research-bridge.test.mjs",
       "language": "JavaScript",
       "bytes": 1057
+    },
+    {
+      "path": "tests/standalone/arrays_verify.py",
+      "language": "Python",
+      "bytes": 7095
     },
     {
       "path": "tests/standalone/attendance_verify.py",
@@ -475,6 +495,11 @@
       "path": "tools/measure-capability.py",
       "language": "Python",
       "bytes": 6280
+    },
+    {
+      "path": "tools/measure-collections.py",
+      "language": "Python",
+      "bytes": 5439
     },
     {
       "path": "tools/measure-conditional-reduction.py",
