@@ -8,10 +8,10 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 243898,
-    "Python": 210316,
-    "JavaScript": 65472,
-    "HTML": 16554,
+    "RiverFlow": 256738,
+    "Python": 232749,
+    "JavaScript": 65508,
+    "HTML": 16558,
     "CSS": 10426,
     "Shell": 2207
   },
@@ -84,7 +84,7 @@
     {
       "path": "docs/rf2/index.html",
       "language": "HTML",
-      "bytes": 8075
+      "bytes": 8077
     },
     {
       "path": "docs/riverflow.mjs",
@@ -227,6 +227,31 @@
       "bytes": 1085
     },
     {
+      "path": "examples/unicode-lines/lib/audit.rf2",
+      "language": "RiverFlow",
+      "bytes": 2510
+    },
+    {
+      "path": "examples/unicode-lines/lib/bytes.rf2",
+      "language": "RiverFlow",
+      "bytes": 1708
+    },
+    {
+      "path": "examples/unicode-lines/lib/io.rf2",
+      "language": "RiverFlow",
+      "bytes": 557
+    },
+    {
+      "path": "examples/unicode-lines/lib/text.rf2",
+      "language": "RiverFlow",
+      "bytes": 986
+    },
+    {
+      "path": "examples/unicode-lines/main.rf2",
+      "language": "RiverFlow",
+      "bytes": 1065
+    },
+    {
       "path": "examples/workload/lib/csv.rf2",
       "language": "RiverFlow",
       "bytes": 2211
@@ -254,7 +279,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 72351
+      "bytes": 78365
     },
     {
       "path": "native/core.rf2",
@@ -329,7 +354,7 @@
     {
       "path": "site/rf2/index.html",
       "language": "HTML",
-      "bytes": 8075
+      "bytes": 8077
     },
     {
       "path": "site/riverflow.mjs",
@@ -395,6 +420,11 @@
       "path": "tests/standalone/attendance_verify.py",
       "language": "Python",
       "bytes": 5806
+    },
+    {
+      "path": "tests/standalone/cleanup_adversarial.py",
+      "language": "Python",
+      "bytes": 7905
     },
     {
       "path": "tests/standalone/compiler_bounds_verify.py",
@@ -619,7 +649,7 @@
     {
       "path": "tests/standalone/sdk.mjs",
       "language": "JavaScript",
-      "bytes": 3678
+      "bytes": 3714
     },
     {
       "path": "tests/standalone/text_verify.py",
@@ -627,9 +657,19 @@
       "bytes": 8413
     },
     {
+      "path": "tests/standalone/unicode_lines_verify.py",
+      "language": "Python",
+      "bytes": 5336
+    },
+    {
+      "path": "tests/standalone/unicode_view_adversarial.py",
+      "language": "Python",
+      "bytes": 9147
+    },
+    {
       "path": "tests/standalone/verify.py",
       "language": "Python",
-      "bytes": 9611
+      "bytes": 9656
     },
     {
       "path": "tests/standalone/workspace_verify.py",

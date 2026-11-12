@@ -1,0 +1,127 @@
+module audit
+use "lib/text.rf2"
+record Totals(valid_lines:u64,rejected_lines:u64,unicode_scalars:u64,non_ascii_scalars:u64,tamil_scalars:u64,first_error_line:u64,first_error_code:u64,bytes:u64,io_error:u64)
+result InputOpened(u64,u64)
+result InputRead(u64,u64)
+fn reject_line(s:Totals,line,code)
+ if s.rejected_lines==0
+  set s.first_error_line=line
+  set s.first_error_code=code
+ end
+ set s.rejected_lines=s.rejected_lines+1
+ return 0
+end
+fn add_text(data:Bytes,count,s:Totals)
+ let text=Text(data,0,count)
+ let i=0
+ let cp=0
+ set s.valid_lines=s.valid_lines+1
+ set s.unicode_scalars=s.unicode_scalars+text.length
+ while i<text.length
+  set cp=text[i]
+  if cp>=128
+   set s.non_ascii_scalars=s.non_ascii_scalars+1
+  end
+  if (cp>=2944)&(cp<=3071)
+   set s.tamil_scalars=s.tamil_scalars+1
+  end
+  set i=i+1
+ end
+ return 0
+end
+fn accept_line(data:Bytes,count,line,s:Totals)
+ handle validate_line(data,count)
+ ok scalars
+  do add_text(data,count,s)
+ err reason
+  do reject_line(s,line,reason)
+ end
+ return 0
+end
+fn open_input(path):InputOpened
+ let fd=open(path,0,0)
+ if fd>=9223372036854775808
+  return err(0-fd)
+ end
+ return ok(fd)
+end
+fn audit_fd(fd,s:Totals):InputRead
+ let chunk=Bytes()
+ let line=Bytes()
+ let read_result=Outcome(0,0,0)
+ let length=0
+ let dropping=0
+ let number=1
+ let seen=0
+ let i=0
+ let byte=0
+ while 1
+  do bytes_read(fd,chunk,chunk.length,read_result)
+  if read_result.code!=0
+   return err(read_result.offset)
+  end
+  if read_result.value==0
+   if dropping
+    do reject_line(s,number,2)
+   else
+    if length!=0
+     do accept_line(line,length,number,s)
+    end
+   end
+   return ok(seen)
+  end
+  set i=0
+  while i<read_result.value
+   if seen>=1048576
+    return err(1000)
+   end
+   set byte=chunk[i]
+   set seen=seen+1
+   set s.bytes=seen
+   if byte==10
+    if dropping
+     do reject_line(s,number,2)
+    else
+     do accept_line(line,length,number,s)
+    end
+    set length=0
+    set dropping=0
+    set number=number+1
+   else
+    if dropping==0
+     if length==line.length
+      set dropping=1
+     else
+      set line[length]=byte
+      set length=length+1
+     end
+    end
+   end
+   set i=i+1
+  end
+ end
+ return ok(seen)
+end
+fn run_fd(fd,s:Totals)
+ handle audit_fd(fd,s)
+ ok count
+  set s.bytes=count
+ err cause
+  set s.io_error=cause
+ end
+ return 0
+end
+fn run_owned(fd,s:Totals)
+ defer close(fd)
+ do run_fd(fd,s)
+ return 0
+end
+fn run_file(path,s:Totals)
+ handle open_input(path)
+ ok descriptor
+  do run_owned(descriptor,s)
+ err cause
+  set s.io_error=cause
+ end
+ return 0
+end

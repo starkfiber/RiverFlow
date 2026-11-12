@@ -8,17 +8,17 @@ Created by **Ilangkhumanan Thirunavokkarasu**. Published by **SFE**.
 
 RiverFlow is a language for readable application plans and explicit systems programming. Its own compiler emits ARM64 machine code. The compiler, runtime, document handlers and new graphical workspace are written in RiverFlow. The AI host supplies intelligence through a bounded MCP interface.
 
-**0.13: typed results that require both arms, and immutable byte views.** Native functions can return nominal ok/err scalar results. Missing arms, discarded results and out-of-scope payload reads refuse. Byte views are nonescaping and read-only under a conservative function-wide freeze. Uninitialized scalar admissions, including an optimizer path, are corrected.
+**0.14: Unicode scalar text views and automatic deferred close attempts.** Validated UTF-8 spans expose byte and scalar lengths and scalar indexing. Function-level `defer close(fd)` captures once and runs on ordinary returns. The multilingual line auditor recovers from malformed rows and uses both features. Raw descriptor ownership, fatal traps and grapheme handling retain explicit limits.
 
-[Download 0.13](https://github.com/starkfiber/RiverFlow/releases/tag/v0.13.0) · [Read the book](https://starkfiber.github.io/RiverFlow/book/) · [Results/views contract](docs/RESULTS-VIEWS.md) · [App verification](docs/RESULTS-VIEWS-APP-VERIFICATION.json)
+[Download 0.14](https://github.com/starkfiber/RiverFlow/releases/tag/v0.14.0) · [Read the book](https://starkfiber.github.io/RiverFlow/book/) · [Unicode/cleanup contract](docs/UNICODE-CLEANUP.md)
 
 ```sh
-printf '12\nbad\n30\n' | ./rf2-number-audit
+printf 'Hello world\n' | ./rf2-unicode-lines
 ```
 
-The ready-to-run app rejects the bad row and continues: two accepted rows, one rejection, sum 42. It uses typed results, immutable byte views and checked arithmetic, with tested owned-file close paths. Existing text-audit and latency tools remain in the native package. No new speed or token-saving claim accompanies this release.
+The ready-to-run app reports line and Unicode scalar counts, including Tamil-block statistics. Malformed rows are rejected while later valid rows continue. Named input files use deferred cleanup; stdin stays borrowed. Number-audit, text-audit and latency tools remain available. No new speed or token-saving claim accompanies this release.
 
-[Adversarial programs](docs/RESULTS-VIEWS-ADVERSARIAL.json) · [Reviewed fixtures](tests/standalone/fixtures/results-views-critic/) · [Full-stack direction](docs/RF2-FULL-STACK-DIRECTION.md)
+[Unicode checks](docs/UNICODE-VIEWS-0.14-VERIFICATION.json) · [Cleanup checks](docs/CLEANUP-0.14-VERIFICATION.json) · [App checks](docs/UNICODE-LINES-0.14-VERIFICATION.json) · [Full-stack direction](docs/RF2-FULL-STACK-DIRECTION.md)
 
 ## Build beyond the first application
 

@@ -1,0 +1,63 @@
+module text
+use "lib/bytes.rf2"
+textview Text(Bytes)
+result ValidText(u64,u64)
+fn validate_line(data:Bytes,count):ValidText
+ if count>data.length
+  return err(2)
+ end
+ let i=0
+ let n=0
+ let lead=0
+ let cp=0
+ let need=0
+ let minimum=0
+ let byte=0
+ while i<count
+  set lead=data[i]
+  set i=i+1
+  set cp=lead
+  set need=0
+  set minimum=0
+  if lead>=128
+   if lead<194
+    return err(1)
+   end
+   if lead<224
+    set cp=lead&31
+    set need=1
+    set minimum=128
+   else
+    if lead<240
+     set cp=lead&15
+     set need=2
+     set minimum=2048
+    else
+     if lead>244
+      return err(1)
+     end
+     set cp=lead&7
+     set need=3
+     set minimum=65536
+    end
+   end
+  end
+  while need!=0
+   if i>=count
+    return err(1)
+   end
+   set byte=data[i]
+   if (byte<128)|(byte>=192)
+    return err(1)
+   end
+   set cp=(cp<<6)|(byte&63)
+   set i=i+1
+   set need=need-1
+  end
+  if (cp<minimum)|(cp>1114111)|((cp>=55296)&(cp<=57343))
+   return err(1)
+  end
+  set n=n+1
+ end
+ return ok(n)
+end

@@ -1,0 +1,41 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/io.rf2"
+use "lib/audit.rf2"
+fn main(argc,argv)
+ if argc>2
+  do io_print("Usage: rf2-unicode-lines [file]; otherwise reads stdin\n")
+  return 1
+ end
+ let totals=Totals(0,0,0,0,0,0,0,0,0)
+ if argc==2
+  do run_file(load64(argv+8),totals)
+ else
+  do run_fd(0,totals)
+ end
+ do io_print("{\"valid_lines\":")
+ do io_number(totals.valid_lines)
+ do io_print(",\"rejected_lines\":")
+ do io_number(totals.rejected_lines)
+ do io_print(",\"unicode_scalars\":")
+ do io_number(totals.unicode_scalars)
+ do io_print(",\"non_ascii_scalars\":")
+ do io_number(totals.non_ascii_scalars)
+ do io_print(",\"tamil_scalars\":")
+ do io_number(totals.tamil_scalars)
+ do io_print(",\"first_error_line\":")
+ do io_number(totals.first_error_line)
+ do io_print(",\"first_error_code\":")
+ do io_number(totals.first_error_code)
+ do io_print(",\"bytes\":")
+ do io_number(totals.bytes)
+ do io_print(",\"io_error\":")
+ do io_number(totals.io_error)
+ do io_print("}\n")
+ if totals.io_error!=0
+  return 1
+ end
+ if totals.rejected_lines!=0
+  return 2
+ end
+ return 0
+end

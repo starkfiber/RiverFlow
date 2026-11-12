@@ -1,0 +1,4773 @@
+{
+  "passed": true,
+  "compilerSHA256": "c42ebd26110ebcd1129ed57a763f38495cda7379d9044d25d178f4d0ae489a74",
+  "compilerSourceSHA256": "a94bdc2fb4668f1e802f09e4d6c911b78c15a777c6923bdf3581831b4d1e2976",
+  "checks": [
+    {
+      "name": "empty",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+      "passed": true
+    },
+    {
+      "name": "ascii",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "12222d2375beebbacd5d5aff24a3c2e9d401ea5142992ed905952bc29d06b7c6",
+      "passed": true
+    },
+    {
+      "name": "nul",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "faee935763044f124d7526755a5058a33f9402a595994d59eddd4be8546ff201",
+      "passed": true
+    },
+    {
+      "name": "bom",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "93b302dbbb496e23c1c7829ef7169b54081d9dda95afd2db69e9431d0b19a7b4",
+      "passed": true
+    },
+    {
+      "name": "noncharacters",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "0c531ba616a598db78c8c2807449acd0f117d7478fcc6a874811bf53791f443d",
+      "passed": true
+    },
+    {
+      "name": "tamil",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "faa103eb21a354cad9f75b25124a4dc525299dfe583b4491408df599742ecc60",
+      "passed": true
+    },
+    {
+      "name": "combining",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "2c39f39a5db2c11e0998c57cf30be61882133148d6bc30da560e1fadb2e9fd89",
+      "passed": true
+    },
+    {
+      "name": "emoji-zwj",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "311251bc62540dcdaa36bc08c3494b7f981753ba1f68634e3439fc9a8ea0be30",
+      "passed": true
+    },
+    {
+      "name": "flag",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "8c972d8036ec97b63b031801a8f3c23791e10d7cfad06659f678d4624be9d3d7",
+      "passed": true
+    },
+    {
+      "name": "mixed",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "6e78d705736130ff535f071e79b8841acdf14d5900ae5a74cfc4202a7d9475fe",
+      "passed": true
+    },
+    {
+      "name": "boundary-0",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "faee935763044f124d7526755a5058a33f9402a595994d59eddd4be8546ff201",
+      "passed": true
+    },
+    {
+      "name": "boundary-1",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "fbb59ed10e9cd4ff45a12c5bb92cbd80df984ba1fe60f26a30febf218e2f0f5e",
+      "passed": true
+    },
+    {
+      "name": "boundary-7f",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "017be35bb3c0f5a3fd14554e68c4c096c9c2593a7af8a28c5795ac363dac7117",
+      "passed": true
+    },
+    {
+      "name": "boundary-80",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "4df81d90c10517d16e9421330f86986070e3af4753fd628700542ba83b9ce88a",
+      "passed": true
+    },
+    {
+      "name": "boundary-7ff",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "78645e207092e070a95fe7f2c191c6c7c2e573961e7d098cf56101309f348986",
+      "passed": true
+    },
+    {
+      "name": "boundary-800",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "dca2da6945ff57dab8a1b6bc4cd452425251dd687167f91e05882266ce2543f0",
+      "passed": true
+    },
+    {
+      "name": "boundary-d7ff",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "557e2b84922274f4416ce347fd489684b12bdf1342813bd0d1b39f077dccf6a8",
+      "passed": true
+    },
+    {
+      "name": "boundary-e000",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "6fceb145fe5fd00ec14f924449516320642286675361277aaa37db7ac59dcb73",
+      "passed": true
+    },
+    {
+      "name": "boundary-ffff",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "2a095a7e16e86ebae7d26bb6bd53ae5783e99ae5a84f15e7d25df03cee198445",
+      "passed": true
+    },
+    {
+      "name": "boundary-10000",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "6dabcc9a96ace67a42e2377d015134b11d630ec8ca9e617fd9c9a4831df3adb7",
+      "passed": true
+    },
+    {
+      "name": "boundary-10ffff",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "aeeec81f074166d39e3e6101fbbdeda22efc264d19630327d21c20331ac3c3d9",
+      "passed": true
+    },
+    {
+      "name": "single-byte-80",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c7c029df95ba6baa19602c9581b5b3c18112358e8f3104eaa886944b8aef6a26",
+      "passed": true
+    },
+    {
+      "name": "single-byte-81",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "fb1e37de8477a12ab554e76257049e55950fc049eadce12d2e71f3313b77dff0",
+      "passed": true
+    },
+    {
+      "name": "single-byte-82",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "0e8dd7e146b697e32f0d2d1cf545e48e8645fbd7e591688ed929ae8f340700e1",
+      "passed": true
+    },
+    {
+      "name": "single-byte-83",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "6aabd2c39ee98158f74557d5c382e823391c0105f01aa0c6dfc68574c6dd790a",
+      "passed": true
+    },
+    {
+      "name": "single-byte-84",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "bb3f75c41c76860c9ede51ff423403b2de698ac5f31909e65b1ab6f506cb22a5",
+      "passed": true
+    },
+    {
+      "name": "single-byte-85",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a962701639b7a9fec8ff0e4e09aaf6d1e97bc34b77df7526c114698604101b54",
+      "passed": true
+    },
+    {
+      "name": "single-byte-86",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "53742cdb72991ffd7d02826b0c63b687a5e1781143c4b64b3e536640116b9c35",
+      "passed": true
+    },
+    {
+      "name": "single-byte-87",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "81fe639fefa48be7a6f0eaa262872bf8d9a94fe4b93f896a3419b797e949d48c",
+      "passed": true
+    },
+    {
+      "name": "single-byte-88",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "2314b4ba91c7f66ab2dbf1df0943f4b47044330062e97eac54f074006c5c21a8",
+      "passed": true
+    },
+    {
+      "name": "single-byte-89",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "ff23449093313eceeff12099abad1a51f31cd97b72c9635f058768c2591368d9",
+      "passed": true
+    },
+    {
+      "name": "single-byte-8a",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "80b26bab85f37e2bde3795993cdf7402cd42e68eff6187e8388083ce6cfe7c92",
+      "passed": true
+    },
+    {
+      "name": "single-byte-8b",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e1d7ceb2b7dd7189b84cfc569c2f24bb52f97057266001e83bb4b1c1fa65936d",
+      "passed": true
+    },
+    {
+      "name": "single-byte-8c",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "10afa5c1b29faa283bf891eb027ba50b2d6e629fb7d9a46d68d9dec81dac078f",
+      "passed": true
+    },
+    {
+      "name": "single-byte-8d",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "08e3ba4f5921faa7b070a996fee947866f0c940c82aa9d67277ba4a30015d5e6",
+      "passed": true
+    },
+    {
+      "name": "single-byte-8e",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5c9094858cfb58a53782d66a2f93fff33d8c0d2489647b985f44de707c3a117d",
+      "passed": true
+    },
+    {
+      "name": "single-byte-8f",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "13d73cdf7699a4f5a190c46b845a886ac85ba557d1e6ccd09b77312873e3fa2c",
+      "passed": true
+    },
+    {
+      "name": "single-byte-90",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5d223e91200610a3d8c4cec23ace429a41d6db55a03032b724cd243cf9f7f964",
+      "passed": true
+    },
+    {
+      "name": "single-byte-91",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "f3a0ed628a72009850aba4c8787a54162915a0659c3d50994fbd31c78bca92c7",
+      "passed": true
+    },
+    {
+      "name": "single-byte-92",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a41f61e6d16608f174ab862930c2f90abef724137f1452dcb5100242a2b148cf",
+      "passed": true
+    },
+    {
+      "name": "single-byte-93",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "9cbcd6a9e626a5cd7feefbc1a5a672177b5b74bd905de454f2ae2cd76905f37d",
+      "passed": true
+    },
+    {
+      "name": "single-byte-94",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5cc61b11e7a3b8644fce26d8a210448bcd55c153f361f4e445f4d4392ab2b0fb",
+      "passed": true
+    },
+    {
+      "name": "single-byte-95",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "3fb5b80d0cc5b50d8d28d8e5aebaf86d69ee1668de6377ae73c85d1c4f2a6eef",
+      "passed": true
+    },
+    {
+      "name": "single-byte-96",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7b134905feb2e38953f23b251d8f9d3f33bd5fc3609e78b8cc9e2633de8aa81b",
+      "passed": true
+    },
+    {
+      "name": "single-byte-97",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "17dffac85f39d9fa685f234ff05fdcabb654e9464e354c28304fb670df998b26",
+      "passed": true
+    },
+    {
+      "name": "single-byte-98",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "eca7aadd1d8706a654ffbf512b96ff80f680ed508186774e01edf7e6f85cde90",
+      "passed": true
+    },
+    {
+      "name": "single-byte-99",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "bf2387cc5a4f76c227256f09049982734b693a7be0d2784c80c49dcd801ff1f5",
+      "passed": true
+    },
+    {
+      "name": "single-byte-9a",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e50c0b51e6d6b05bb3859a82c35d9b5aebb2d0af03c4194b9d74a53ba2b2ae29",
+      "passed": true
+    },
+    {
+      "name": "single-byte-9b",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c692bebcbb812dea579412ae717a2b3bf039a32823d56a8739e2c44887377842",
+      "passed": true
+    },
+    {
+      "name": "single-byte-9c",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "454b055f207a3d03e024cd56b3de9a7a15449d77defec5c9a05851493cc3e129",
+      "passed": true
+    },
+    {
+      "name": "single-byte-9d",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d7006cda487b9bf3e0f243052df362ee41a59640b1b331613fa61441ab5828b7",
+      "passed": true
+    },
+    {
+      "name": "single-byte-9e",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "2fc6e945f609bed02c9a90e3dcb8d478aac6e8d80e789cb3c4497358087859d9",
+      "passed": true
+    },
+    {
+      "name": "single-byte-9f",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a6a410d122ba8ac202b2f923237cfef76ff2861e8de4228010c2b55990329c96",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a0",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a3fbb2b6df19ceaa089d2794a26845822a2284d59b277469d167ffc19d00e44b",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a1",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "4b8b69690ca10c2fe7608b15d2682c4a202cdf514d0ca2fdf2040679d2f6c4c6",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a2",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a1d10a4eea6c6be50ba190de375eda312c4847fe21134486c154b29f4d978f81",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a3",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "21a47e10fb9ddaf56703e5fcf55e2237504f930a1477edc8628dfc6fbb1eb2f3",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a4",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "6ba1c93a3d393bcf553a0ed538373089f64b720153a3c8bb5ff32e834ac1737c",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a5",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "3bdbd6b62621c64b6d929e0f57eaa62b20d03ab335221644ba65a25de8f5478d",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a6",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "8e82bb8648e61ad1cfeca601b19fbef9f08eacf0c5e0c1b3a9d74fd0c3da6233",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a7",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "44f7c0d9c7aba3e02da63415afdafc7e5ec59dddec7390edbfdac4602de40458",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a8",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "9eba78194991774d6df927866c21975bbee3685deed07e31c8d1a719b2c788e6",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a9",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d94d788e0c4337f8da538c8d2b4c546887ad220af6a875c54ee73acf4a77d700",
+      "passed": true
+    },
+    {
+      "name": "single-byte-aa",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "778a06dc208e572055e4179a03f27d345660b95250c64f20c58e965711f7a791",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ab",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "0f256f7b1b4050029094540c7b94ecf7a50ec0fe281f5c4513c21896b4aab68f",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ac",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5be783283a570dd10f8700fa76e9f8ac85fb20f5615637ad5284949706313f59",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ad",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "40560cf4f63e97b0056fdc6492a354cf2a3322c288479393d35c3e9ae3fa8ac6",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ae",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "b00df12d14e303db982c8ecaf24a30c102fb8544ebcca27f5eb4266f36f887d9",
+      "passed": true
+    },
+    {
+      "name": "single-byte-af",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "620bae983fd1e992b16fae78c017e86886f37b2897163e80ed086bf6d9abee3e",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b0",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c8235418b5cd55bc46073ea5cf9f3aac5a594ed782bee88dcd0acfd8ede4c756",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b1",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "10626d473de4253022e6d6562d9afa5fa8ee1c6a4c8901638cfb54dbe23882d2",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b2",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "be19a00a37edc12aafd470f1f2b2c03a2152338ce921378ad089d5417df8a97e",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b3",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a80190cd9cf47b85656fa56ea16eb7df2e20308a1b057d9aff561443215c0d78",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b4",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "11fc722a4f697e2ea78be6cc5dc66908fd65d9f22ff0030803bcabdfc1e94eac",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b5",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "fb19f42e24e204e44382b4b047cda6ea1331f28922aeff9af810fe2206c5d311",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b6",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "8acd297888e617826f5577880dc24c455aeecd5f9d9525c419acbcce00806fd5",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b7",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "2571bb4c47822cb9f6dd5053e4d68d36d3ccf6d8fdd66b9dbd947a7356cc0a93",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b8",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "72aa2f825294ca27c3febecaa3d8900331bcd86f359683cf4eb7908a1d5e6c75",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b9",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "fecbb7a193a99120645077d2873c4a8ee3aab7e49b5e19eb584dd857a3ae75c9",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ba",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "1f7afd70fbf5ba70e8bccc02991f2b53687a0b6e853225e50e488d83da967308",
+      "passed": true
+    },
+    {
+      "name": "single-byte-bb",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "0b028a873261b3ed156df7978379516949f5622bcc9c0101b4a0410f68035439",
+      "passed": true
+    },
+    {
+      "name": "single-byte-bc",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "69f4c37ca9bae02a0fdb96e38a35789b9f4c45b97580c4db0d3f85bd91035a0a",
+      "passed": true
+    },
+    {
+      "name": "single-byte-bd",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a74c7f1d4ac173baa4ae341ebf5bd75f892a4b030ba0e92caf058e31fa0a85e0",
+      "passed": true
+    },
+    {
+      "name": "single-byte-be",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "6d63ab63e4beda8ecd98330ed458d14670538bb1f62445b277d8faf59df38af5",
+      "passed": true
+    },
+    {
+      "name": "single-byte-bf",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d4ebe48ec29816845289655ae6d41a0fb159eab255a0befc6427785e43c497a6",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c0",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7c6c1a965fd501d2938c2c0e06626bdaa3531357016e169070c9ef79c4c46bc0",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c1",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e20fe4fbeaa24b62ff470b14e01dc0023a3d0f22013fcbce6e298196d5e32402",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c2",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7061649d87ecd83600ef2d192234999b4170df38adc3d82213bf4ab49575eec8",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c3",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e7e75b8faf45dacccb3974730074032c7dac451409802822acc3080d257b10c9",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c4",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "9b470afea79486e26308a64f482b8cc23ded918a56da88bc0b38e4fa249e1e0f",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c5",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "26e3033b7e4495143a62e9c1758d1236ae6824d626b26366eed50af9401022ee",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c6",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "000fe4dda37dbe5af39808f0131307d696998153559f7e28685134c24eb3e571",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c7",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e26aa672432ba5b34c52f9594902a532fb54a2bb430585e1317498dc0700794d",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c8",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c04857836560bece9ba61161a00778a7c0596d7f62c002ca169fea4d0fd2bad5",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c9",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c0d69b45e3412be8564d6a872e372ed1a88e4935be2746241cd07fefa048728c",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ca",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "037e1e95ddf9525c865c372952f77edf7a29b6a4c22498c23f21edb9dd490371",
+      "passed": true
+    },
+    {
+      "name": "single-byte-cb",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "277000c871bf14ddb10422a0fa39cacc79c3285bfa225e6742bd60b7f7d2d511",
+      "passed": true
+    },
+    {
+      "name": "single-byte-cc",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "24e2b25841a6d7719ab93627da03998d451cbab5d9b68177dc56495ce050cae2",
+      "passed": true
+    },
+    {
+      "name": "single-byte-cd",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a43d3ad99903be7099b4b9790fc3a52943a4e5d9938d47bc6813e91b840d568c",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ce",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d05beec16b90db29b4647c423491785e7a3564cd5a8e835a87b66a126ca38968",
+      "passed": true
+    },
+    {
+      "name": "single-byte-cf",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7e19c957ad5891b598ab1598653e70a67fad625480cb62a87e2a036f2d921887",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d0",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7309bf377cdd0df6412f3888aef831e48fe2f7f062ec55611507f926966bb9c2",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d1",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "4a1bc39c4ed4099d0ce0eb69c44cb20eae85f38cae959be10c033d51af0bf151",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d2",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "3f608c64042f8d0145f2291b41249901f795ad8218235d017a8bd3aa12de806c",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d3",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "0c7dffc2f2e1422a0c65b17090970931a2102a411b7f2185f2c689aece131eea",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d4",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "9109c4ab94d7e0be01ffa35d3a17780289f4f06f6a57e7c55dbceaa02f026595",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d5",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "6bf60738013225dd112e2ad65ebbec04a1f8674e03644acdb0aac064ca00dbbf",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d6",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "24fbf937aac840aabc22136c6ae4db21abcb12d5526dbbbe65265ad3e0c0d0d4",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d7",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "b2708a03c8dceab1756c5239aef062a4912ee7e1083c381abfbf716ca0ed912f",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d8",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c4c56721bdafd3fb282262515e4c80806f6dc0af275e075ca5683075d5fee1bb",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d9",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a9ef4dd4ccfee9437937fdcac58a3379715f0222e007ca54fbda1a736b2cdc32",
+      "passed": true
+    },
+    {
+      "name": "single-byte-da",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d8db24314ef3ccc147e644e189b2b5d153d6a8ba33ee8b3128e46ad7c40cc317",
+      "passed": true
+    },
+    {
+      "name": "single-byte-db",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7ab37283df3227c89840eb96245bc65ec7ebba91e559020ccfe37989c0480c31",
+      "passed": true
+    },
+    {
+      "name": "single-byte-dc",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "4d7f64f8040f640c8f9ef25c86dfcd4ff62eb11090c89d6cdbfd37b47cd75c88",
+      "passed": true
+    },
+    {
+      "name": "single-byte-dd",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a1179bb442d3f493f6681d03c05deb3a1a15a2ede86e14126cf281f27ddd032a",
+      "passed": true
+    },
+    {
+      "name": "single-byte-de",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "0d97b6bea1f8a5c36e94a3678b0c82ecac80ebeddfc11ce13bd909ff8bf3f4b3",
+      "passed": true
+    },
+    {
+      "name": "single-byte-df",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "69a6ad5281ada15fc5327b8b4333f13b9ac115a524689f61258765a977328bfb",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e0",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d5e31e97eb7a9fd671cc22f44dec7185a0c1aa3338fc1c0a297051c292b3fa33",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e1",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a10d21485ffea9b52d2a3d3131db5ec50533727e69d3c2d6f9e869ef6b150cb8",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e2",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "06917a8bdc56842891a531c15de5298d219a3a571e47c377db061fc9df40fa8b",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e3",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "632882d7f08b1dee7ff54d22e7fb8ab7d4c6bedc8485636f00437b452330ddbb",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e4",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "20bce2b73251cc7cc39f1e0909aea93b948dde6986ff009cd621bfee36dcf81e",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e5",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "cddc8c48c33d8fb984c1f0c3480da836f9af3a5b7d96cbdf353ec6ad93da1703",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e6",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "2a9f4072b22f2322d2c4c5b84d634a4d1552894bd04551e9b189bb9e2fad35ea",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e7",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "1e73abc791c441f72f3898e0dd222e755f1a64404babd8cc6ceba931d7bb766c",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e8",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e6dbc1794415ea74bc38974f769ed86d4140581759470c16a9c60f0eed6bc862",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e9",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "72f0efd69674e52c72f32d516fd1ffdd1c4c770ecccafbcc1164a16199a37329",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ea",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "3b097538d707e0ea022f614648be0a53b65572762c62a7d631a3227dde1718a7",
+      "passed": true
+    },
+    {
+      "name": "single-byte-eb",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5b2d6491f115142ba7341e1d5722be58d1bcb481caf815d392b9f49c75a60b72",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ec",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d9a8e7478b0fc6d1d88ec80a2beb07587c9325e9e2eeb2de45ba1e1c30f33832",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ed",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "bf174bb90d56e100ca61384a16e1a36fc2f18d07af9853de0dbf928006f1c154",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ee",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c4f61938dc54794def884dc4d4d11d39b4a104f6031acd414e600df9deb56b48",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ef",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "756377e9ecba0cd3b4de4d150ef64c2a9640451ea2010e180b5be6cfd7dc4fb6",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f0",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "bcfd23e195a1954a21b87ec59d82479f06954efe9bd2ea47a54300acf3fb7fc5",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f1",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c37dc4811d9f1e7e429d5172903aa7062f180b0b6dd9aad18a967dcb7ca25b03",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f2",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "498307d2a760670e445721c12971d2535ba4be221e38c1b1f2e1c51e7d2e4730",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f3",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "4ffb4a0716a24125b21a7f4f6d62c5e300db69865237bf371d9f528b345e3cff",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f4",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "ccf7325cc74d2214db92509dc3736d3f86202dd84ca12a79f5d0bb4c83389eb8",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f5",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "bf53f8c7f9c9458120fe0d82910533c8c7a64e2c8906618cc3903e16549e6f3f",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f6",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "082dd4ed6c1b7296ffd16e105a72e3d9e9959ce9293e7e4c171e275039062177",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f7",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "87a5d9dc8815e747af95d21903ef7fa031f0249a3d852e9fa78a80fcedc6e919",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f8",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5dcf118847f69faec2c995cb99acf92d70cfe3223342f66c96b504350c5d5b19",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f9",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "527a69f44e43467d34f67cc10e586deb4aa2332773b27f0817ee71e5faa3ef60",
+      "passed": true
+    },
+    {
+      "name": "single-byte-fa",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d4197768a7ad7917cac5cbdcfd6c7d3bd1d80539e7d64094ada4964e8dd4845c",
+      "passed": true
+    },
+    {
+      "name": "single-byte-fb",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "3c9dd6a5b4133685e950b1f950b84f27aadc7bfa847873e7e9ce4abe228e82e9",
+      "passed": true
+    },
+    {
+      "name": "single-byte-fc",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "ba53e5a375c1f84e36d5daf5dbfe2fb9329db0e553c9b0e3a6fac82bd6fe0871",
+      "passed": true
+    },
+    {
+      "name": "single-byte-fd",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "f21315664f21449876063ad8fd8db3451e7e5cd0403c71819ceaa569897a3461",
+      "passed": true
+    },
+    {
+      "name": "single-byte-fe",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5a4619fe8105da7516b3f3e4e8f79e47c542b20e615aa49aab8be3dfb5990215",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ff",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "26a66b061e8f48f39927c312f25293959729eee95978e2892d49d3512a5cc092",
+      "passed": true
+    },
+    {
+      "name": "overlong-two",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "3c113bcecba9f03f04926fbcfd4765025c9e86fe2aa8141bf22dae411cb96d0d",
+      "passed": true
+    },
+    {
+      "name": "overlong-two-max",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "13141a2bdd81ce7cb23ed04169af379d2d58d1f4f5490faded6cda648b57b34e",
+      "passed": true
+    },
+    {
+      "name": "overlong-three",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d7186e76af79093c6b02a40f9d48b525ffbeda9314a78527573b425f4744774c",
+      "passed": true
+    },
+    {
+      "name": "overlong-three-max",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5ad11a9732051a5e5ecb35c3489f42f9fb4060033a7778167a5e81bf91f17934",
+      "passed": true
+    },
+    {
+      "name": "overlong-four",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "db6c458dfccb1d4b1fe55636595c7761efc47846c346e667f530f706295d7408",
+      "passed": true
+    },
+    {
+      "name": "overlong-four-max",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "6d55c2080851a8c582aa495cebd6d606303a0b67a9e822168cb030cf135e2cac",
+      "passed": true
+    },
+    {
+      "name": "surrogate-start",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7250d9bc1373210eb3308313285d27da5b61c04853556c817a6577aa955e20a8",
+      "passed": true
+    },
+    {
+      "name": "surrogate-end",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "48e771205f76c47c43a608486efb5991a390676298e40b4c6866a748c1eccdba",
+      "passed": true
+    },
+    {
+      "name": "above-max",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5d5b7127570e2e70abd3a4899f522e4f555e9993ed352295969d24b801b8bb37",
+      "passed": true
+    },
+    {
+      "name": "above-max-end",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "f4bace43f78275b818ee4fb2ea6bd03562829a1a625d2682f5b8ec00ea87b327",
+      "passed": true
+    },
+    {
+      "name": "five-byte",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "ad7d0688b206d4d7867618a544b1ab9cc5822e9f77c83a7346140e0a608ca931",
+      "passed": true
+    },
+    {
+      "name": "bad-two-middle",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "289bffec548b2d7bee2f0a3c07ab61086ec9b86fc5295d43fc5128cdf105eb57",
+      "passed": true
+    },
+    {
+      "name": "bad-three-middle",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "b87f50efd0f5bbde291b96c1803ba72044f6d5880839c42878d533fb563a61ae",
+      "passed": true
+    },
+    {
+      "name": "bad-four-last",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "da273dd6b2fb1c3471f151c73d098d092ac25a08c3f5fb323db31cf88d1c3aed",
+      "passed": true
+    },
+    {
+      "name": "invalid-after-valid",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "36743a575a8124584c64eddaf0cf5018373186edf4b1b69fb07946122a711bef",
+      "passed": true
+    },
+    {
+      "name": "stray-after-valid",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "1c10b90b438257470acdaa2e75de7635167ff170fe603fe150d78e3491898dce",
+      "passed": true
+    },
+    {
+      "name": "continuation-after-nul",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "6e698dc9a28730cd8cae197a7e4b2f3256671634646663f6c108a459c50aba2e",
+      "passed": true
+    },
+    {
+      "name": "truncated-c280-1",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7061649d87ecd83600ef2d192234999b4170df38adc3d82213bf4ab49575eec8",
+      "passed": true
+    },
+    {
+      "name": "truncated-e0a080-1",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d5e31e97eb7a9fd671cc22f44dec7185a0c1aa3338fc1c0a297051c292b3fa33",
+      "passed": true
+    },
+    {
+      "name": "truncated-e0a080-2",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "9ba6b391b1e50b5e31c2076f3f13a242fae57917d4ec496324ea726e9556589f",
+      "passed": true
+    },
+    {
+      "name": "truncated-efbfbf-1",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "756377e9ecba0cd3b4de4d150ef64c2a9640451ea2010e180b5be6cfd7dc4fb6",
+      "passed": true
+    },
+    {
+      "name": "truncated-efbfbf-2",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "ae4f0f4c244af5eadeed03f672cac7a0481a9bd876e73b6c19c30272f9820154",
+      "passed": true
+    },
+    {
+      "name": "truncated-f0908080-1",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "bcfd23e195a1954a21b87ec59d82479f06954efe9bd2ea47a54300acf3fb7fc5",
+      "passed": true
+    },
+    {
+      "name": "truncated-f0908080-2",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "55b7bda4d79128e748093450373371e1a2cde3495d378310374237e530dcf653",
+      "passed": true
+    },
+    {
+      "name": "truncated-f0908080-3",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "bce420852d3643c10827cd604f174425e8463c985e4376eddc5e7c9dbd5839ed",
+      "passed": true
+    },
+    {
+      "name": "truncated-f48fbfbf-1",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "ccf7325cc74d2214db92509dc3736d3f86202dd84ca12a79f5d0bb4c83389eb8",
+      "passed": true
+    },
+    {
+      "name": "truncated-f48fbfbf-2",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "ea400f0c18b7842d7f49779a011f75020643255ccc7f93a306281f6086c0962b",
+      "passed": true
+    },
+    {
+      "name": "truncated-f48fbfbf-3",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "0d78e7bfd539e07f91ce3d1bb0066fb2c7626a201ea7d23570e57b7019da9efd",
+      "passed": true
+    },
+    {
+      "name": "invalid-owner-outside-window",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "a3b6ee10088121844a504573753ae357338a6ad6cb2292bec4b265b35595e9e8",
+      "passed": true
+    },
+    {
+      "name": "empty-after-invalid",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "b7ae7729555ec6829c579c2602edc6cb94b4ed3d820ddda0a45ac54030f8a53d",
+      "passed": true
+    },
+    {
+      "name": "selected-continuation",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5402d7e3ca5dc6d4b7c3510856477cc6dfd1e34066db1c7c6b4b865ccefcd9b7",
+      "passed": true
+    },
+    {
+      "name": "selected-truncated",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "734865b275521aa4f70303e0435392ae401ecf21358f56a05a9ee96006c5e398",
+      "passed": true
+    },
+    {
+      "name": "selected-full-emoji",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "4b9d9c365e3545929134d32111e587edf8d10f3b39a7aa5bcdafb5eba5026528",
+      "passed": true
+    },
+    {
+      "name": "empty-at-capacity",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "3b8c518a3b7915bef89ea0ffb912fefaccdbd5d2f31069d8fb09ac4eddf72125",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-0",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "86b77e331777eec0ad95e119e39160ad66b0b05fa7a38c765103cf9385f536d0",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-1",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "00b1287d7a5cbc0452c1199d6e26a8d4482925bf9dbcf549f807d35681033d82",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-2",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "1578cfd81c2d21ee0fea8ab448fd7017215d31db71ad6ba30d5ec88cbf8448d3",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-3",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "288f27b7dc9997e51d12ac6b4561da987dd69097cbfa7949afaa542282d4ffb5",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-4",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "900a81441b879aa5f8973eee1fd2052050f72d7905d4dec601680e2811a6492d",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-5",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "3519040e27bb9474c9556447cade6720b5505fb5f8391d53d98a62cd9d03b68f",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-6",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "b6e7e7550a88fc97a06138af4f0845c0943b7c0cb9aa013c82ee288a9989be3c",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-7",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "57da338805b23ce3aa441453c1b9de44571539cb8b4dde837bd1a61aec2dbdc0",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-8",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "c85d5fce49e7c87dad2fafed9e55efdb2a9b6830848ef89e7324ce5553b07e9b",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-9",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "942e60368024d320077525c80f0874687c9e99e0a2a1be76f1ad3eb52ae29169",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-10",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "1a46a63bbc0356ead545b1506157ff504f0ee8a6c864d79521bf85a239068ef6",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-11",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "7b6f00c4cfa03c057b07bb0abefdc0daebb9c64305300b4d644670c5eaea1aa4",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-12",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "63bad14abb60339d7338c71201997cc3f0fc746e333647dfe54450f5a7db5953",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-13",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "76b4ff6302e0953a83d671d38110c63140dd2c25640867f17ea0f7a4de2edce3",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-14",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "eed4fe6daf6c9c5dcd37bf588c330e59193e758976209700a721af068eb3d61b",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-15",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "6bfcb3ebe458650dfd17cded77fb520b8ac3a37f98b227045ff953ecc00ea023",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-16",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "27fac06538a28135d9d54a971f6abdb7fc1c54bad80858739ae58b47c5132015",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-17",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "034ca2a8b7545a806ce4b34409c453fd0f7847b88f234ae1b672030e184c1d92",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-18",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "a2923ba8fb88d1de2e460bce825ca64bd20785d53a33b4206c43cc76614041eb",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-19",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "03c52b40b58a8c1557f38e9228539812e8029cca4e4802ab42931f6b63de84f2",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-20",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "cccd0d48fa0c4940ffc3eae70e8e8b69815dd33aa98ce1822f95177da12050d2",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-21",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "60deb9aa523b9e18390add61bdb1c434dd5e95c1c263a6c082fbe223bac6a856",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-22",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "9c1f2e37d195d12689c18ba0c31a5cd60d597f66715af12b97582d1e07d0250e",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-23",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "15f15535e1be36eb31d05d65cf9268d88dd4490c5fc93fc328b7c9bd03e26435",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-24",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "3e953ca593f331d04a9b5d4975b68030e3b953e16987666d0d9921faab82c432",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-25",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "ae1bac71a43be561d31df3d1af84e8466d3b672d87bbb24f63575d56de38ae64",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-26",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "d8b0efb87a67f8ec19917d0a59f783875663c80e190b5d18d8c7be36f0c325d4",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-27",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "caf9de9f6c91eec8959585a0e5a20abea15d138f643b6ef7edfd713a1b53bad1",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-28",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "d845e05ebd71d627bf081d18b01919e1e4e14c27f0d6316bdbf61e7d15da1b40",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-29",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "bf0621b037e9fa5d413fd97782f6dd1fa1edf84c1933ade36f053c5303376018",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-30",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "f1401d814d7f4558a9aad3e8461bc361e48733ecd5fe407cc4ce5d75277f47fd",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-31",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "fbad6c252fc70e65b4f7d9ada36055dc3b6b1f4e525a0f99fa12572af15cc8d4",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-32",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "efd7c6f6183d710d07a458adefc3f573d641792f8acd0d0e462da34d3d830df8",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-33",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "db0a04616af1d35cad61c2833d54858ec9e35679065b906eb5354da39ae5324e",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-34",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "a6c057b52e411b342ee7b782c98558723bbbc042fb397925d73597173d66be0e",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-35",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "8cbd7aec9b3cf8a8c38bbc187185f337da81a005e24513489f980870c248ab72",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-36",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "5a9e9e60067067298fc92ee7475c5939655019c6b4eb10707f69f5197c3e3b74",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-37",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "3dee54a9d94ba61bf631653652b359e1edb22ba6fac647727718c6331a795897",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-38",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "aa7bffccae41f52b034fd9a839537c1be7577f71e4e566331661d59b9a48b5c0",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-39",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "198429bb9031bae394db109d02847cca5cafbbabfa16c8f77bbd7031d4a0ad35",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-40",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "c06331bb6c4b1be9a60aef13f4168bbc220ae7675f04e4ff8557bb3c80782d42",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-41",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "94f63068d4067440885f1422c3cf4baade92887e7a85a590c461be07eb984750",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-42",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "70fb653c3dd31f39b77df9ad6536d0d6519abebf7a5796912e8c5a733238b608",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-43",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "e92c6314835ac08df131972088ab86c4ffbb40da8a134296dd49672ae42ca79f",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-44",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "fd6a4eef4125ee73a228df43a78ad860bdb021dee5f2418b99f1f56dbb037a14",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-45",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "3b13420e4a3532308d78c7833bb78abd21958ecfabd3f6177ec4aa385c1c3425",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-46",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "8349fedb2fde5a284f5f13c8b3146b4fa2eebca441dd08a72ac67d80b0611dae",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-47",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "ca05e13cdc2984c7e5b9797a7a75258c18b48d82fa0adc2b03ff5621e540b448",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-48",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "b97caac94f5f47ad11e164335d1073857785b193da49ab07a4f18819a6d6a19b",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-49",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "b4608f618cc51a5e498a91ffbd00325809b1d532551682a0d7aae7c619fe4fa0",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-50",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "9d845f3d305747d01a4ffefd5259130209edd51752a380f499958dde3f2e7ad5",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-51",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "6390d500616cad22d3fd2aff2f0fb37fa240afc28879b5b256ec3ae7a4c57502",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-52",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "e55fc6fdb0647f38ef09785cd6edfed5e781925fb5b30569065bb38924d04c22",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-53",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "b5b3e242b23fee5236d65b1c3492d27d0c159b39c4e50d7625d9d0aa51d2bf39",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-54",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "4eaa6cb0e64f2707b322a71b17b218aa5e34060c92a26d77cf378a70ccc03714",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-55",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "550351fb48cfa1fb0916653f61a8ac2368d9c49e58dd9b7c779f70cbb91ba165",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-56",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "1f3f8e876a9ed3dbe33e3f8348d6979f5215d8ac9a06f2517b9e84efefa07ea1",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-57",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "d96ef211be23b960e8ae8b8c1db9b789a8134a2d4c4b4aac68977c65e743c3a4",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-58",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "d3c0ca985799402c63f36b9f4e984ee933704473142b77e0bc39ad0736a1c95e",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-59",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "4cafee41b90c4a216cecb11f6af162833f0f57a3221477ca85fbecf08f0216dc",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-60",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "89650cfeb25d271e875890836ddfe63ed544040146ea95463c3f4bf12a5eeca5",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-61",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "9a1544931fbef076fa4f178101d8716530d7501d1470b595acb5ee17b52474b3",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-62",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "29890579452bbae9907deb971a8da269ce89b96d566ff50978a3250e590fa119",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-63",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "2a2492aea44cc684de2c4e6194d2138f51b2bb431ab3fc264d831f9d96508f81",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-64",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "891e09513275ba09b1b5efec4114e160f01bd90cfd442d6649659e8181976ced",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-65",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "00e031e7bf6031ef002f36b2de280e6c09830a4b308292053ea924e37c0e1cf0",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-66",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "a086a8ce6f9d1dccf79e091acda2d61785a643459abdc29e25a940f41f827fe7",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-67",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "34c452d6eb52689b0482ee7bd239d7e0f678a59ac56baa150f4be448754323d4",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-68",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "15b64462a5c1ac14e3c606b79b1efac09ec5d87b6e12b388b33243dbc9fc75bf",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-69",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "b0a261f83ccc3a06e69924fb81b1eae44264081dba5652f9cc256d9871bbca9e",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-0",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "1768b3665e9b9616b47a9917f384b7f6b0c09761db47b2aac0aa8a376d6adbcb",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-1",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "056aa9be9c9de006b8f2c5b74e8c3dcf4b292ade726dcf71444597cdc3c1a981",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-2",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d865380682f0e81e24f0e1bf728b8af5e8306875b5818e997a95aaaf30d56f71",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-3",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "257ff32fea1b0fb7fc4061c92f7692671412176dbc0ef4949923c4993ea24522",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-4",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "66f008c361c6f4a94eabadc792b66bb79d9e58c996ed433cc432dff677d0d014",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-5",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "0e2e6f3a5a1272bc85420af0f495b99d5e3606952d8704b9c54b7105f8d6a93c",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-6",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "3b52916229bd4931b7a96c717629fb68ec86a32b05ee7ea6727cd44c9dad43b2",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-7",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "edc9ac21a271a036c0868e11024bb68cc318042687644b025e80f7751be0c8ae",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-8",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e4248a2afa8cd53767c753123dea574cd7623098fcfb6fcb256d30246cebe1de",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-9",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "41a08b6231e9a7db4336896f487c15982198976b14a74abaa342cbc473d63c67",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-10",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "f4ec753c81011c573586062ddc18c35f59c26ac39318e20ba057bf3555e6882d",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-11",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "92293c6c589e98952a404bf0082d50da45fb890c70da0024a321f6678e3e3374",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-12",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "14aaad45c619e10a2a5b54232c6448a086e4597a3853e8772ce694ee86921d9a",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-13",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "892197e8384e49479720646de42bb69b073793823f6577e4dc87a31b1afc4cca",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-14",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "8567c91d30bf655f89c55c4fcf9688c66b97a361d8c121f0b824064eee320163",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-15",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "0017318308c9de7eaf7180f53749950ca151ff2b032f1877005666e80d957db3",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-16",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "868800881dafdadf19211a114b3790ba547ce3a4a72f62007794b21dd74b2a6d",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-17",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "3abf009b3f0d9b9acef37af163b252121f49b7e52ceb4f9e90190101db352cfe",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-18",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "baf729b74d01d703b3a10b8ab530a41162caccb030060f99908dd098f804f7ff",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-19",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "bb9338d61a1963bddcac5d5ce9189c64149d48fa62639ff33e5b1f75c4590b52",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-20",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "00ddc1fed687fa39e22e17864fb934c0b77c5a91cc7ced905cb51ca7ea59f8b7",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-21",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "1ac07c8a5d2cbd6e9a90382044de7827dbf6c0c9127a82cbde0af2ada782fe3f",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-22",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "82e5bc51309e8cec8e5fa80156654269c3c1cf2651a40e89af9223cbb1c1ac5c",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-23",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d6941730ec771492769383895ed6beed484b73328110421e2898cf34dd58a480",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-24",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c1fb1421b5ade2583daccfd58c97db1a0d8738f85eb1584248c17026541373fa",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-25",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "eca421b2d0243a988009fdb10780882cbbace0c55174f4e511c78b71b0675b37",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-26",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "bb7a90989250070fb45575449bf44de3f7c58de362990a5520fcb60699bd1878",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-27",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "2e287ede3dfabec26e892e97c6098d0c18023fb05f15889b52aa5c4b8ef5d603",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-28",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "6b5bc97ef6fcac919c8359c6e766d9b6a49b795d9c048101c7efcc1ad3d907a5",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-29",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "ad597e6e8430354dc8cc9de7bde7b91f0c5cc2918d4673a02fd108f9e2083258",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-30",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "17cb23ea07f627e4afe84ff1245a0744e0813179a453149f2fb905f271d9dd1c",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-31",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "638b2e347700d671d2fbf97fdb73c8444e2582de097039c4999df5ce7fdffe05",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-32",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "93e6f2639f9be774ebebf32f9802c333f9b6e948781293fda7ca94a6f7e6c719",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-33",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e0632dceeb582c1df5d5ad98b3ab2b32dc2be26040e54fc82e83338aeb94ba04",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-34",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "8de30adf3a03ad3850c46d68ae89bde04b1c6fdf5c76dac4f64833297f40787e",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-35",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e112a22e730a4e1857306c15e5f544c6f5fb74cf2c604aef2605ab7ff03373ca",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-36",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "9b4d60a9eb790b8ed3b079b861d5015fd365677426e434dff235f06a82c517ef",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-37",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e6aa7d931838ae0ae2034a144dc8a4b68b5ea091cdcfb4081a738513ff487967",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-38",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "a15a73e21293918e40c257296fbbbf2812a8605d054908c6e5ec9f6f832264e5",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-39",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "9c0b42ff1f851021b5fff96c7a4b5ef618e93d182cf17e9f10eeefc43c3de262",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-40",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c6cfaa022500a48f4be40d96acd3e1dbb5c61f2f4bca6e6937d2d1261e43fb34",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-41",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "8c38d6773f3c719d2040d43faf43b2fb728503197e007cb8190c95b5437b52f4",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-42",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "61738db8358fd82f54b024c9d2f9b113aef7a42e8f4fe86c58c324e11d533195",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-43",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "3b816685975edf37b6b6ecebea50ec6ea8ae66de6848c5145dcf4b0110f78807",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-44",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a236c4893c1198fb9c6657ebe08723fd61ff9c72ef1398f1a5a643be3a0587f4",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-45",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "27604be18f075ca286480f83efc365716731a7f1e6d8370a5a6fa6d07cd64f68",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-46",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "4585179488b98cbf53ac55cc1a23dfc343367bf8d0227063b006d98b07d42527",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-47",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "317bfce366329c57a019d3f660803c093e8fe371052d2326467a08f770b1684e",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-48",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "59b8acf27c7a26c1c0b4676e92301e4d610b0adcd391a7456ca52316aab77728",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-49",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "970be893212db941ace2fa5c779498ff5243694b1f1ddc6f8781d1455bdb6406",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-50",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "5b9405e71231c721e56a0274d0fbe2e91b43c49360379d8bef8417aee30c2af1",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-51",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "dee3e43dcc45a05ab9b6c5a75acfc2d267eacef6f2d8ea0efd5ffe066ae4a29f",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-52",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "dec253de4dacd486004b90e2d0ac66517d810fcecf5bfcdc99c161b6af5fe36f",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-53",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "badca39c72114537de41a53511c291fb2f51a2d8ec88db78d811ae3eb3d5757a",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-54",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "4d6dd89368e1421890948bfbaf5c7ea75c2044166961830eabe8c4e2e77bab9f",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-55",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "250640c49603652d67efa2a472a51495d07407507d8ee7eb5394c8645fa77f2e",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-56",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "8bfb37935c42cac805a0a70ce1343878b4d02e8bea2a253a3e0fe5642e1eb7ae",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-57",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "f2970a9e5ad4accef142446853c50b319d0463a3947a64ee355a0f94bf144f9f",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-58",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "78af1dcaf699d976a3704a0cd8deafb2c44a482821606f4dafe603c850c8a2cd",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-59",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a73d6cb8fd0c564a7b62262d62676c00abfd031419084ed4a6ea225c212f41f6",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-60",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7b9866317e307aed5d85ceb535a1470c314242e23618749296af5edd4a0f9197",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-61",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a5da3075533ebb394523247b82c9b6145f78747db13917a12f6c87c1b1d94763",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-62",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "ac03de08e3733db1b711c08bf594ebf3c4b3fa8ece4c98ffe2ebd7f03c8c407a",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-63",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e6dbc1794415ea74bc38974f769ed86d4140581759470c16a9c60f0eed6bc862",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-64",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "deb7e9fb66677d625a5f5856b22de430dd6cecbc03ea16fdc38b7fe73aac4d01",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-65",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "042f353a260ca0619c8bd2e6bd4639afac1f0936ea6fb9c5c498433650597b14",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-66",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "6a0b1ead975169c8a1080195de129294e2bbc230955829803baa0b1cd209a894",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-67",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7e1f71c13a5d504ed61d458e2edbd734127cc19ac018e198b381ae7a7cdb043f",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-68",
+      "optimized": false,
+      "expected": "valid",
+      "inputSHA256": "15b7931cce971e13577d2eea4036a74c4ee798a1ad142cd52ad1c25c0b8e5f21",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-69",
+      "optimized": false,
+      "expected": "invalid-utf8",
+      "inputSHA256": "51235bc787135f10ba7a6f050dcca1b09e4ea7cb1cba16a508c38f8d4b24a368",
+      "passed": true
+    },
+    {
+      "name": "write-text",
+      "optimized": false,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "write-owner",
+      "optimized": false,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "call-while-live",
+      "optimized": false,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "copy-text",
+      "optimized": false,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "return-text",
+      "optimized": false,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "text-parameter",
+      "optimized": false,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "raw-text",
+      "optimized": false,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "wrong-owner",
+      "optimized": false,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "view-of-words",
+      "optimized": false,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "block-declaration",
+      "optimized": false,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "rebind",
+      "optimized": false,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "escape-through-record",
+      "optimized": false,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "alias-owner-write",
+      "optimized": false,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "hidden-call-second-view",
+      "optimized": false,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "copy-through-ordinary-call",
+      "optimized": false,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "index-scalars",
+      "optimized": false,
+      "expected": "bounds-trap",
+      "passed": true
+    },
+    {
+      "name": "index-minus-one",
+      "optimized": false,
+      "expected": "bounds-trap",
+      "passed": true
+    },
+    {
+      "name": "index-max",
+      "optimized": false,
+      "expected": "bounds-trap",
+      "passed": true
+    },
+    {
+      "name": "index-max-minus-one",
+      "optimized": false,
+      "expected": "bounds-trap",
+      "passed": true
+    },
+    {
+      "name": "range-overflow",
+      "optimized": false,
+      "expected": "bounds-trap",
+      "passed": true
+    },
+    {
+      "name": "empty",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+      "passed": true
+    },
+    {
+      "name": "ascii",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "12222d2375beebbacd5d5aff24a3c2e9d401ea5142992ed905952bc29d06b7c6",
+      "passed": true
+    },
+    {
+      "name": "nul",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "faee935763044f124d7526755a5058a33f9402a595994d59eddd4be8546ff201",
+      "passed": true
+    },
+    {
+      "name": "bom",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "93b302dbbb496e23c1c7829ef7169b54081d9dda95afd2db69e9431d0b19a7b4",
+      "passed": true
+    },
+    {
+      "name": "noncharacters",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "0c531ba616a598db78c8c2807449acd0f117d7478fcc6a874811bf53791f443d",
+      "passed": true
+    },
+    {
+      "name": "tamil",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "faa103eb21a354cad9f75b25124a4dc525299dfe583b4491408df599742ecc60",
+      "passed": true
+    },
+    {
+      "name": "combining",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "2c39f39a5db2c11e0998c57cf30be61882133148d6bc30da560e1fadb2e9fd89",
+      "passed": true
+    },
+    {
+      "name": "emoji-zwj",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "311251bc62540dcdaa36bc08c3494b7f981753ba1f68634e3439fc9a8ea0be30",
+      "passed": true
+    },
+    {
+      "name": "flag",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "8c972d8036ec97b63b031801a8f3c23791e10d7cfad06659f678d4624be9d3d7",
+      "passed": true
+    },
+    {
+      "name": "mixed",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "6e78d705736130ff535f071e79b8841acdf14d5900ae5a74cfc4202a7d9475fe",
+      "passed": true
+    },
+    {
+      "name": "boundary-0",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "faee935763044f124d7526755a5058a33f9402a595994d59eddd4be8546ff201",
+      "passed": true
+    },
+    {
+      "name": "boundary-1",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "fbb59ed10e9cd4ff45a12c5bb92cbd80df984ba1fe60f26a30febf218e2f0f5e",
+      "passed": true
+    },
+    {
+      "name": "boundary-7f",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "017be35bb3c0f5a3fd14554e68c4c096c9c2593a7af8a28c5795ac363dac7117",
+      "passed": true
+    },
+    {
+      "name": "boundary-80",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "4df81d90c10517d16e9421330f86986070e3af4753fd628700542ba83b9ce88a",
+      "passed": true
+    },
+    {
+      "name": "boundary-7ff",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "78645e207092e070a95fe7f2c191c6c7c2e573961e7d098cf56101309f348986",
+      "passed": true
+    },
+    {
+      "name": "boundary-800",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "dca2da6945ff57dab8a1b6bc4cd452425251dd687167f91e05882266ce2543f0",
+      "passed": true
+    },
+    {
+      "name": "boundary-d7ff",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "557e2b84922274f4416ce347fd489684b12bdf1342813bd0d1b39f077dccf6a8",
+      "passed": true
+    },
+    {
+      "name": "boundary-e000",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "6fceb145fe5fd00ec14f924449516320642286675361277aaa37db7ac59dcb73",
+      "passed": true
+    },
+    {
+      "name": "boundary-ffff",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "2a095a7e16e86ebae7d26bb6bd53ae5783e99ae5a84f15e7d25df03cee198445",
+      "passed": true
+    },
+    {
+      "name": "boundary-10000",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "6dabcc9a96ace67a42e2377d015134b11d630ec8ca9e617fd9c9a4831df3adb7",
+      "passed": true
+    },
+    {
+      "name": "boundary-10ffff",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "aeeec81f074166d39e3e6101fbbdeda22efc264d19630327d21c20331ac3c3d9",
+      "passed": true
+    },
+    {
+      "name": "single-byte-80",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c7c029df95ba6baa19602c9581b5b3c18112358e8f3104eaa886944b8aef6a26",
+      "passed": true
+    },
+    {
+      "name": "single-byte-81",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "fb1e37de8477a12ab554e76257049e55950fc049eadce12d2e71f3313b77dff0",
+      "passed": true
+    },
+    {
+      "name": "single-byte-82",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "0e8dd7e146b697e32f0d2d1cf545e48e8645fbd7e591688ed929ae8f340700e1",
+      "passed": true
+    },
+    {
+      "name": "single-byte-83",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "6aabd2c39ee98158f74557d5c382e823391c0105f01aa0c6dfc68574c6dd790a",
+      "passed": true
+    },
+    {
+      "name": "single-byte-84",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "bb3f75c41c76860c9ede51ff423403b2de698ac5f31909e65b1ab6f506cb22a5",
+      "passed": true
+    },
+    {
+      "name": "single-byte-85",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a962701639b7a9fec8ff0e4e09aaf6d1e97bc34b77df7526c114698604101b54",
+      "passed": true
+    },
+    {
+      "name": "single-byte-86",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "53742cdb72991ffd7d02826b0c63b687a5e1781143c4b64b3e536640116b9c35",
+      "passed": true
+    },
+    {
+      "name": "single-byte-87",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "81fe639fefa48be7a6f0eaa262872bf8d9a94fe4b93f896a3419b797e949d48c",
+      "passed": true
+    },
+    {
+      "name": "single-byte-88",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "2314b4ba91c7f66ab2dbf1df0943f4b47044330062e97eac54f074006c5c21a8",
+      "passed": true
+    },
+    {
+      "name": "single-byte-89",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "ff23449093313eceeff12099abad1a51f31cd97b72c9635f058768c2591368d9",
+      "passed": true
+    },
+    {
+      "name": "single-byte-8a",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "80b26bab85f37e2bde3795993cdf7402cd42e68eff6187e8388083ce6cfe7c92",
+      "passed": true
+    },
+    {
+      "name": "single-byte-8b",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e1d7ceb2b7dd7189b84cfc569c2f24bb52f97057266001e83bb4b1c1fa65936d",
+      "passed": true
+    },
+    {
+      "name": "single-byte-8c",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "10afa5c1b29faa283bf891eb027ba50b2d6e629fb7d9a46d68d9dec81dac078f",
+      "passed": true
+    },
+    {
+      "name": "single-byte-8d",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "08e3ba4f5921faa7b070a996fee947866f0c940c82aa9d67277ba4a30015d5e6",
+      "passed": true
+    },
+    {
+      "name": "single-byte-8e",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5c9094858cfb58a53782d66a2f93fff33d8c0d2489647b985f44de707c3a117d",
+      "passed": true
+    },
+    {
+      "name": "single-byte-8f",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "13d73cdf7699a4f5a190c46b845a886ac85ba557d1e6ccd09b77312873e3fa2c",
+      "passed": true
+    },
+    {
+      "name": "single-byte-90",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5d223e91200610a3d8c4cec23ace429a41d6db55a03032b724cd243cf9f7f964",
+      "passed": true
+    },
+    {
+      "name": "single-byte-91",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "f3a0ed628a72009850aba4c8787a54162915a0659c3d50994fbd31c78bca92c7",
+      "passed": true
+    },
+    {
+      "name": "single-byte-92",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a41f61e6d16608f174ab862930c2f90abef724137f1452dcb5100242a2b148cf",
+      "passed": true
+    },
+    {
+      "name": "single-byte-93",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "9cbcd6a9e626a5cd7feefbc1a5a672177b5b74bd905de454f2ae2cd76905f37d",
+      "passed": true
+    },
+    {
+      "name": "single-byte-94",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5cc61b11e7a3b8644fce26d8a210448bcd55c153f361f4e445f4d4392ab2b0fb",
+      "passed": true
+    },
+    {
+      "name": "single-byte-95",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "3fb5b80d0cc5b50d8d28d8e5aebaf86d69ee1668de6377ae73c85d1c4f2a6eef",
+      "passed": true
+    },
+    {
+      "name": "single-byte-96",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7b134905feb2e38953f23b251d8f9d3f33bd5fc3609e78b8cc9e2633de8aa81b",
+      "passed": true
+    },
+    {
+      "name": "single-byte-97",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "17dffac85f39d9fa685f234ff05fdcabb654e9464e354c28304fb670df998b26",
+      "passed": true
+    },
+    {
+      "name": "single-byte-98",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "eca7aadd1d8706a654ffbf512b96ff80f680ed508186774e01edf7e6f85cde90",
+      "passed": true
+    },
+    {
+      "name": "single-byte-99",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "bf2387cc5a4f76c227256f09049982734b693a7be0d2784c80c49dcd801ff1f5",
+      "passed": true
+    },
+    {
+      "name": "single-byte-9a",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e50c0b51e6d6b05bb3859a82c35d9b5aebb2d0af03c4194b9d74a53ba2b2ae29",
+      "passed": true
+    },
+    {
+      "name": "single-byte-9b",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c692bebcbb812dea579412ae717a2b3bf039a32823d56a8739e2c44887377842",
+      "passed": true
+    },
+    {
+      "name": "single-byte-9c",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "454b055f207a3d03e024cd56b3de9a7a15449d77defec5c9a05851493cc3e129",
+      "passed": true
+    },
+    {
+      "name": "single-byte-9d",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d7006cda487b9bf3e0f243052df362ee41a59640b1b331613fa61441ab5828b7",
+      "passed": true
+    },
+    {
+      "name": "single-byte-9e",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "2fc6e945f609bed02c9a90e3dcb8d478aac6e8d80e789cb3c4497358087859d9",
+      "passed": true
+    },
+    {
+      "name": "single-byte-9f",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a6a410d122ba8ac202b2f923237cfef76ff2861e8de4228010c2b55990329c96",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a0",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a3fbb2b6df19ceaa089d2794a26845822a2284d59b277469d167ffc19d00e44b",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a1",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "4b8b69690ca10c2fe7608b15d2682c4a202cdf514d0ca2fdf2040679d2f6c4c6",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a2",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a1d10a4eea6c6be50ba190de375eda312c4847fe21134486c154b29f4d978f81",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a3",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "21a47e10fb9ddaf56703e5fcf55e2237504f930a1477edc8628dfc6fbb1eb2f3",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a4",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "6ba1c93a3d393bcf553a0ed538373089f64b720153a3c8bb5ff32e834ac1737c",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a5",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "3bdbd6b62621c64b6d929e0f57eaa62b20d03ab335221644ba65a25de8f5478d",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a6",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "8e82bb8648e61ad1cfeca601b19fbef9f08eacf0c5e0c1b3a9d74fd0c3da6233",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a7",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "44f7c0d9c7aba3e02da63415afdafc7e5ec59dddec7390edbfdac4602de40458",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a8",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "9eba78194991774d6df927866c21975bbee3685deed07e31c8d1a719b2c788e6",
+      "passed": true
+    },
+    {
+      "name": "single-byte-a9",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d94d788e0c4337f8da538c8d2b4c546887ad220af6a875c54ee73acf4a77d700",
+      "passed": true
+    },
+    {
+      "name": "single-byte-aa",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "778a06dc208e572055e4179a03f27d345660b95250c64f20c58e965711f7a791",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ab",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "0f256f7b1b4050029094540c7b94ecf7a50ec0fe281f5c4513c21896b4aab68f",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ac",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5be783283a570dd10f8700fa76e9f8ac85fb20f5615637ad5284949706313f59",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ad",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "40560cf4f63e97b0056fdc6492a354cf2a3322c288479393d35c3e9ae3fa8ac6",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ae",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "b00df12d14e303db982c8ecaf24a30c102fb8544ebcca27f5eb4266f36f887d9",
+      "passed": true
+    },
+    {
+      "name": "single-byte-af",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "620bae983fd1e992b16fae78c017e86886f37b2897163e80ed086bf6d9abee3e",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b0",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c8235418b5cd55bc46073ea5cf9f3aac5a594ed782bee88dcd0acfd8ede4c756",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b1",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "10626d473de4253022e6d6562d9afa5fa8ee1c6a4c8901638cfb54dbe23882d2",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b2",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "be19a00a37edc12aafd470f1f2b2c03a2152338ce921378ad089d5417df8a97e",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b3",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a80190cd9cf47b85656fa56ea16eb7df2e20308a1b057d9aff561443215c0d78",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b4",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "11fc722a4f697e2ea78be6cc5dc66908fd65d9f22ff0030803bcabdfc1e94eac",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b5",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "fb19f42e24e204e44382b4b047cda6ea1331f28922aeff9af810fe2206c5d311",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b6",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "8acd297888e617826f5577880dc24c455aeecd5f9d9525c419acbcce00806fd5",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b7",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "2571bb4c47822cb9f6dd5053e4d68d36d3ccf6d8fdd66b9dbd947a7356cc0a93",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b8",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "72aa2f825294ca27c3febecaa3d8900331bcd86f359683cf4eb7908a1d5e6c75",
+      "passed": true
+    },
+    {
+      "name": "single-byte-b9",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "fecbb7a193a99120645077d2873c4a8ee3aab7e49b5e19eb584dd857a3ae75c9",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ba",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "1f7afd70fbf5ba70e8bccc02991f2b53687a0b6e853225e50e488d83da967308",
+      "passed": true
+    },
+    {
+      "name": "single-byte-bb",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "0b028a873261b3ed156df7978379516949f5622bcc9c0101b4a0410f68035439",
+      "passed": true
+    },
+    {
+      "name": "single-byte-bc",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "69f4c37ca9bae02a0fdb96e38a35789b9f4c45b97580c4db0d3f85bd91035a0a",
+      "passed": true
+    },
+    {
+      "name": "single-byte-bd",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a74c7f1d4ac173baa4ae341ebf5bd75f892a4b030ba0e92caf058e31fa0a85e0",
+      "passed": true
+    },
+    {
+      "name": "single-byte-be",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "6d63ab63e4beda8ecd98330ed458d14670538bb1f62445b277d8faf59df38af5",
+      "passed": true
+    },
+    {
+      "name": "single-byte-bf",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d4ebe48ec29816845289655ae6d41a0fb159eab255a0befc6427785e43c497a6",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c0",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7c6c1a965fd501d2938c2c0e06626bdaa3531357016e169070c9ef79c4c46bc0",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c1",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e20fe4fbeaa24b62ff470b14e01dc0023a3d0f22013fcbce6e298196d5e32402",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c2",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7061649d87ecd83600ef2d192234999b4170df38adc3d82213bf4ab49575eec8",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c3",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e7e75b8faf45dacccb3974730074032c7dac451409802822acc3080d257b10c9",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c4",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "9b470afea79486e26308a64f482b8cc23ded918a56da88bc0b38e4fa249e1e0f",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c5",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "26e3033b7e4495143a62e9c1758d1236ae6824d626b26366eed50af9401022ee",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c6",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "000fe4dda37dbe5af39808f0131307d696998153559f7e28685134c24eb3e571",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c7",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e26aa672432ba5b34c52f9594902a532fb54a2bb430585e1317498dc0700794d",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c8",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c04857836560bece9ba61161a00778a7c0596d7f62c002ca169fea4d0fd2bad5",
+      "passed": true
+    },
+    {
+      "name": "single-byte-c9",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c0d69b45e3412be8564d6a872e372ed1a88e4935be2746241cd07fefa048728c",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ca",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "037e1e95ddf9525c865c372952f77edf7a29b6a4c22498c23f21edb9dd490371",
+      "passed": true
+    },
+    {
+      "name": "single-byte-cb",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "277000c871bf14ddb10422a0fa39cacc79c3285bfa225e6742bd60b7f7d2d511",
+      "passed": true
+    },
+    {
+      "name": "single-byte-cc",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "24e2b25841a6d7719ab93627da03998d451cbab5d9b68177dc56495ce050cae2",
+      "passed": true
+    },
+    {
+      "name": "single-byte-cd",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a43d3ad99903be7099b4b9790fc3a52943a4e5d9938d47bc6813e91b840d568c",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ce",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d05beec16b90db29b4647c423491785e7a3564cd5a8e835a87b66a126ca38968",
+      "passed": true
+    },
+    {
+      "name": "single-byte-cf",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7e19c957ad5891b598ab1598653e70a67fad625480cb62a87e2a036f2d921887",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d0",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7309bf377cdd0df6412f3888aef831e48fe2f7f062ec55611507f926966bb9c2",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d1",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "4a1bc39c4ed4099d0ce0eb69c44cb20eae85f38cae959be10c033d51af0bf151",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d2",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "3f608c64042f8d0145f2291b41249901f795ad8218235d017a8bd3aa12de806c",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d3",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "0c7dffc2f2e1422a0c65b17090970931a2102a411b7f2185f2c689aece131eea",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d4",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "9109c4ab94d7e0be01ffa35d3a17780289f4f06f6a57e7c55dbceaa02f026595",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d5",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "6bf60738013225dd112e2ad65ebbec04a1f8674e03644acdb0aac064ca00dbbf",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d6",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "24fbf937aac840aabc22136c6ae4db21abcb12d5526dbbbe65265ad3e0c0d0d4",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d7",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "b2708a03c8dceab1756c5239aef062a4912ee7e1083c381abfbf716ca0ed912f",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d8",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c4c56721bdafd3fb282262515e4c80806f6dc0af275e075ca5683075d5fee1bb",
+      "passed": true
+    },
+    {
+      "name": "single-byte-d9",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a9ef4dd4ccfee9437937fdcac58a3379715f0222e007ca54fbda1a736b2cdc32",
+      "passed": true
+    },
+    {
+      "name": "single-byte-da",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d8db24314ef3ccc147e644e189b2b5d153d6a8ba33ee8b3128e46ad7c40cc317",
+      "passed": true
+    },
+    {
+      "name": "single-byte-db",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7ab37283df3227c89840eb96245bc65ec7ebba91e559020ccfe37989c0480c31",
+      "passed": true
+    },
+    {
+      "name": "single-byte-dc",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "4d7f64f8040f640c8f9ef25c86dfcd4ff62eb11090c89d6cdbfd37b47cd75c88",
+      "passed": true
+    },
+    {
+      "name": "single-byte-dd",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a1179bb442d3f493f6681d03c05deb3a1a15a2ede86e14126cf281f27ddd032a",
+      "passed": true
+    },
+    {
+      "name": "single-byte-de",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "0d97b6bea1f8a5c36e94a3678b0c82ecac80ebeddfc11ce13bd909ff8bf3f4b3",
+      "passed": true
+    },
+    {
+      "name": "single-byte-df",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "69a6ad5281ada15fc5327b8b4333f13b9ac115a524689f61258765a977328bfb",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e0",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d5e31e97eb7a9fd671cc22f44dec7185a0c1aa3338fc1c0a297051c292b3fa33",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e1",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a10d21485ffea9b52d2a3d3131db5ec50533727e69d3c2d6f9e869ef6b150cb8",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e2",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "06917a8bdc56842891a531c15de5298d219a3a571e47c377db061fc9df40fa8b",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e3",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "632882d7f08b1dee7ff54d22e7fb8ab7d4c6bedc8485636f00437b452330ddbb",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e4",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "20bce2b73251cc7cc39f1e0909aea93b948dde6986ff009cd621bfee36dcf81e",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e5",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "cddc8c48c33d8fb984c1f0c3480da836f9af3a5b7d96cbdf353ec6ad93da1703",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e6",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "2a9f4072b22f2322d2c4c5b84d634a4d1552894bd04551e9b189bb9e2fad35ea",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e7",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "1e73abc791c441f72f3898e0dd222e755f1a64404babd8cc6ceba931d7bb766c",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e8",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e6dbc1794415ea74bc38974f769ed86d4140581759470c16a9c60f0eed6bc862",
+      "passed": true
+    },
+    {
+      "name": "single-byte-e9",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "72f0efd69674e52c72f32d516fd1ffdd1c4c770ecccafbcc1164a16199a37329",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ea",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "3b097538d707e0ea022f614648be0a53b65572762c62a7d631a3227dde1718a7",
+      "passed": true
+    },
+    {
+      "name": "single-byte-eb",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5b2d6491f115142ba7341e1d5722be58d1bcb481caf815d392b9f49c75a60b72",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ec",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d9a8e7478b0fc6d1d88ec80a2beb07587c9325e9e2eeb2de45ba1e1c30f33832",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ed",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "bf174bb90d56e100ca61384a16e1a36fc2f18d07af9853de0dbf928006f1c154",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ee",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c4f61938dc54794def884dc4d4d11d39b4a104f6031acd414e600df9deb56b48",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ef",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "756377e9ecba0cd3b4de4d150ef64c2a9640451ea2010e180b5be6cfd7dc4fb6",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f0",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "bcfd23e195a1954a21b87ec59d82479f06954efe9bd2ea47a54300acf3fb7fc5",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f1",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c37dc4811d9f1e7e429d5172903aa7062f180b0b6dd9aad18a967dcb7ca25b03",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f2",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "498307d2a760670e445721c12971d2535ba4be221e38c1b1f2e1c51e7d2e4730",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f3",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "4ffb4a0716a24125b21a7f4f6d62c5e300db69865237bf371d9f528b345e3cff",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f4",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "ccf7325cc74d2214db92509dc3736d3f86202dd84ca12a79f5d0bb4c83389eb8",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f5",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "bf53f8c7f9c9458120fe0d82910533c8c7a64e2c8906618cc3903e16549e6f3f",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f6",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "082dd4ed6c1b7296ffd16e105a72e3d9e9959ce9293e7e4c171e275039062177",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f7",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "87a5d9dc8815e747af95d21903ef7fa031f0249a3d852e9fa78a80fcedc6e919",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f8",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5dcf118847f69faec2c995cb99acf92d70cfe3223342f66c96b504350c5d5b19",
+      "passed": true
+    },
+    {
+      "name": "single-byte-f9",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "527a69f44e43467d34f67cc10e586deb4aa2332773b27f0817ee71e5faa3ef60",
+      "passed": true
+    },
+    {
+      "name": "single-byte-fa",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d4197768a7ad7917cac5cbdcfd6c7d3bd1d80539e7d64094ada4964e8dd4845c",
+      "passed": true
+    },
+    {
+      "name": "single-byte-fb",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "3c9dd6a5b4133685e950b1f950b84f27aadc7bfa847873e7e9ce4abe228e82e9",
+      "passed": true
+    },
+    {
+      "name": "single-byte-fc",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "ba53e5a375c1f84e36d5daf5dbfe2fb9329db0e553c9b0e3a6fac82bd6fe0871",
+      "passed": true
+    },
+    {
+      "name": "single-byte-fd",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "f21315664f21449876063ad8fd8db3451e7e5cd0403c71819ceaa569897a3461",
+      "passed": true
+    },
+    {
+      "name": "single-byte-fe",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5a4619fe8105da7516b3f3e4e8f79e47c542b20e615aa49aab8be3dfb5990215",
+      "passed": true
+    },
+    {
+      "name": "single-byte-ff",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "26a66b061e8f48f39927c312f25293959729eee95978e2892d49d3512a5cc092",
+      "passed": true
+    },
+    {
+      "name": "overlong-two",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "3c113bcecba9f03f04926fbcfd4765025c9e86fe2aa8141bf22dae411cb96d0d",
+      "passed": true
+    },
+    {
+      "name": "overlong-two-max",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "13141a2bdd81ce7cb23ed04169af379d2d58d1f4f5490faded6cda648b57b34e",
+      "passed": true
+    },
+    {
+      "name": "overlong-three",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d7186e76af79093c6b02a40f9d48b525ffbeda9314a78527573b425f4744774c",
+      "passed": true
+    },
+    {
+      "name": "overlong-three-max",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5ad11a9732051a5e5ecb35c3489f42f9fb4060033a7778167a5e81bf91f17934",
+      "passed": true
+    },
+    {
+      "name": "overlong-four",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "db6c458dfccb1d4b1fe55636595c7761efc47846c346e667f530f706295d7408",
+      "passed": true
+    },
+    {
+      "name": "overlong-four-max",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "6d55c2080851a8c582aa495cebd6d606303a0b67a9e822168cb030cf135e2cac",
+      "passed": true
+    },
+    {
+      "name": "surrogate-start",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7250d9bc1373210eb3308313285d27da5b61c04853556c817a6577aa955e20a8",
+      "passed": true
+    },
+    {
+      "name": "surrogate-end",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "48e771205f76c47c43a608486efb5991a390676298e40b4c6866a748c1eccdba",
+      "passed": true
+    },
+    {
+      "name": "above-max",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5d5b7127570e2e70abd3a4899f522e4f555e9993ed352295969d24b801b8bb37",
+      "passed": true
+    },
+    {
+      "name": "above-max-end",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "f4bace43f78275b818ee4fb2ea6bd03562829a1a625d2682f5b8ec00ea87b327",
+      "passed": true
+    },
+    {
+      "name": "five-byte",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "ad7d0688b206d4d7867618a544b1ab9cc5822e9f77c83a7346140e0a608ca931",
+      "passed": true
+    },
+    {
+      "name": "bad-two-middle",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "289bffec548b2d7bee2f0a3c07ab61086ec9b86fc5295d43fc5128cdf105eb57",
+      "passed": true
+    },
+    {
+      "name": "bad-three-middle",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "b87f50efd0f5bbde291b96c1803ba72044f6d5880839c42878d533fb563a61ae",
+      "passed": true
+    },
+    {
+      "name": "bad-four-last",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "da273dd6b2fb1c3471f151c73d098d092ac25a08c3f5fb323db31cf88d1c3aed",
+      "passed": true
+    },
+    {
+      "name": "invalid-after-valid",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "36743a575a8124584c64eddaf0cf5018373186edf4b1b69fb07946122a711bef",
+      "passed": true
+    },
+    {
+      "name": "stray-after-valid",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "1c10b90b438257470acdaa2e75de7635167ff170fe603fe150d78e3491898dce",
+      "passed": true
+    },
+    {
+      "name": "continuation-after-nul",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "6e698dc9a28730cd8cae197a7e4b2f3256671634646663f6c108a459c50aba2e",
+      "passed": true
+    },
+    {
+      "name": "truncated-c280-1",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7061649d87ecd83600ef2d192234999b4170df38adc3d82213bf4ab49575eec8",
+      "passed": true
+    },
+    {
+      "name": "truncated-e0a080-1",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d5e31e97eb7a9fd671cc22f44dec7185a0c1aa3338fc1c0a297051c292b3fa33",
+      "passed": true
+    },
+    {
+      "name": "truncated-e0a080-2",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "9ba6b391b1e50b5e31c2076f3f13a242fae57917d4ec496324ea726e9556589f",
+      "passed": true
+    },
+    {
+      "name": "truncated-efbfbf-1",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "756377e9ecba0cd3b4de4d150ef64c2a9640451ea2010e180b5be6cfd7dc4fb6",
+      "passed": true
+    },
+    {
+      "name": "truncated-efbfbf-2",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "ae4f0f4c244af5eadeed03f672cac7a0481a9bd876e73b6c19c30272f9820154",
+      "passed": true
+    },
+    {
+      "name": "truncated-f0908080-1",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "bcfd23e195a1954a21b87ec59d82479f06954efe9bd2ea47a54300acf3fb7fc5",
+      "passed": true
+    },
+    {
+      "name": "truncated-f0908080-2",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "55b7bda4d79128e748093450373371e1a2cde3495d378310374237e530dcf653",
+      "passed": true
+    },
+    {
+      "name": "truncated-f0908080-3",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "bce420852d3643c10827cd604f174425e8463c985e4376eddc5e7c9dbd5839ed",
+      "passed": true
+    },
+    {
+      "name": "truncated-f48fbfbf-1",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "ccf7325cc74d2214db92509dc3736d3f86202dd84ca12a79f5d0bb4c83389eb8",
+      "passed": true
+    },
+    {
+      "name": "truncated-f48fbfbf-2",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "ea400f0c18b7842d7f49779a011f75020643255ccc7f93a306281f6086c0962b",
+      "passed": true
+    },
+    {
+      "name": "truncated-f48fbfbf-3",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "0d78e7bfd539e07f91ce3d1bb0066fb2c7626a201ea7d23570e57b7019da9efd",
+      "passed": true
+    },
+    {
+      "name": "invalid-owner-outside-window",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "a3b6ee10088121844a504573753ae357338a6ad6cb2292bec4b265b35595e9e8",
+      "passed": true
+    },
+    {
+      "name": "empty-after-invalid",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "b7ae7729555ec6829c579c2602edc6cb94b4ed3d820ddda0a45ac54030f8a53d",
+      "passed": true
+    },
+    {
+      "name": "selected-continuation",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "5402d7e3ca5dc6d4b7c3510856477cc6dfd1e34066db1c7c6b4b865ccefcd9b7",
+      "passed": true
+    },
+    {
+      "name": "selected-truncated",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "734865b275521aa4f70303e0435392ae401ecf21358f56a05a9ee96006c5e398",
+      "passed": true
+    },
+    {
+      "name": "selected-full-emoji",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "4b9d9c365e3545929134d32111e587edf8d10f3b39a7aa5bcdafb5eba5026528",
+      "passed": true
+    },
+    {
+      "name": "empty-at-capacity",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "3b8c518a3b7915bef89ea0ffb912fefaccdbd5d2f31069d8fb09ac4eddf72125",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-0",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "86b77e331777eec0ad95e119e39160ad66b0b05fa7a38c765103cf9385f536d0",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-1",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "00b1287d7a5cbc0452c1199d6e26a8d4482925bf9dbcf549f807d35681033d82",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-2",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "1578cfd81c2d21ee0fea8ab448fd7017215d31db71ad6ba30d5ec88cbf8448d3",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-3",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "288f27b7dc9997e51d12ac6b4561da987dd69097cbfa7949afaa542282d4ffb5",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-4",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "900a81441b879aa5f8973eee1fd2052050f72d7905d4dec601680e2811a6492d",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-5",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "3519040e27bb9474c9556447cade6720b5505fb5f8391d53d98a62cd9d03b68f",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-6",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "b6e7e7550a88fc97a06138af4f0845c0943b7c0cb9aa013c82ee288a9989be3c",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-7",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "57da338805b23ce3aa441453c1b9de44571539cb8b4dde837bd1a61aec2dbdc0",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-8",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "c85d5fce49e7c87dad2fafed9e55efdb2a9b6830848ef89e7324ce5553b07e9b",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-9",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "942e60368024d320077525c80f0874687c9e99e0a2a1be76f1ad3eb52ae29169",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-10",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "1a46a63bbc0356ead545b1506157ff504f0ee8a6c864d79521bf85a239068ef6",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-11",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "7b6f00c4cfa03c057b07bb0abefdc0daebb9c64305300b4d644670c5eaea1aa4",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-12",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "63bad14abb60339d7338c71201997cc3f0fc746e333647dfe54450f5a7db5953",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-13",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "76b4ff6302e0953a83d671d38110c63140dd2c25640867f17ea0f7a4de2edce3",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-14",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "eed4fe6daf6c9c5dcd37bf588c330e59193e758976209700a721af068eb3d61b",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-15",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "6bfcb3ebe458650dfd17cded77fb520b8ac3a37f98b227045ff953ecc00ea023",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-16",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "27fac06538a28135d9d54a971f6abdb7fc1c54bad80858739ae58b47c5132015",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-17",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "034ca2a8b7545a806ce4b34409c453fd0f7847b88f234ae1b672030e184c1d92",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-18",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "a2923ba8fb88d1de2e460bce825ca64bd20785d53a33b4206c43cc76614041eb",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-19",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "03c52b40b58a8c1557f38e9228539812e8029cca4e4802ab42931f6b63de84f2",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-20",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "cccd0d48fa0c4940ffc3eae70e8e8b69815dd33aa98ce1822f95177da12050d2",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-21",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "60deb9aa523b9e18390add61bdb1c434dd5e95c1c263a6c082fbe223bac6a856",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-22",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "9c1f2e37d195d12689c18ba0c31a5cd60d597f66715af12b97582d1e07d0250e",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-23",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "15f15535e1be36eb31d05d65cf9268d88dd4490c5fc93fc328b7c9bd03e26435",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-24",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "3e953ca593f331d04a9b5d4975b68030e3b953e16987666d0d9921faab82c432",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-25",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "ae1bac71a43be561d31df3d1af84e8466d3b672d87bbb24f63575d56de38ae64",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-26",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "d8b0efb87a67f8ec19917d0a59f783875663c80e190b5d18d8c7be36f0c325d4",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-27",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "caf9de9f6c91eec8959585a0e5a20abea15d138f643b6ef7edfd713a1b53bad1",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-28",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "d845e05ebd71d627bf081d18b01919e1e4e14c27f0d6316bdbf61e7d15da1b40",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-29",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "bf0621b037e9fa5d413fd97782f6dd1fa1edf84c1933ade36f053c5303376018",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-30",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "f1401d814d7f4558a9aad3e8461bc361e48733ecd5fe407cc4ce5d75277f47fd",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-31",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "fbad6c252fc70e65b4f7d9ada36055dc3b6b1f4e525a0f99fa12572af15cc8d4",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-32",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "efd7c6f6183d710d07a458adefc3f573d641792f8acd0d0e462da34d3d830df8",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-33",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "db0a04616af1d35cad61c2833d54858ec9e35679065b906eb5354da39ae5324e",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-34",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "a6c057b52e411b342ee7b782c98558723bbbc042fb397925d73597173d66be0e",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-35",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "8cbd7aec9b3cf8a8c38bbc187185f337da81a005e24513489f980870c248ab72",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-36",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "5a9e9e60067067298fc92ee7475c5939655019c6b4eb10707f69f5197c3e3b74",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-37",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "3dee54a9d94ba61bf631653652b359e1edb22ba6fac647727718c6331a795897",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-38",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "aa7bffccae41f52b034fd9a839537c1be7577f71e4e566331661d59b9a48b5c0",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-39",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "198429bb9031bae394db109d02847cca5cafbbabfa16c8f77bbd7031d4a0ad35",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-40",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "c06331bb6c4b1be9a60aef13f4168bbc220ae7675f04e4ff8557bb3c80782d42",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-41",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "94f63068d4067440885f1422c3cf4baade92887e7a85a590c461be07eb984750",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-42",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "70fb653c3dd31f39b77df9ad6536d0d6519abebf7a5796912e8c5a733238b608",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-43",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "e92c6314835ac08df131972088ab86c4ffbb40da8a134296dd49672ae42ca79f",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-44",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "fd6a4eef4125ee73a228df43a78ad860bdb021dee5f2418b99f1f56dbb037a14",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-45",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "3b13420e4a3532308d78c7833bb78abd21958ecfabd3f6177ec4aa385c1c3425",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-46",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "8349fedb2fde5a284f5f13c8b3146b4fa2eebca441dd08a72ac67d80b0611dae",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-47",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "ca05e13cdc2984c7e5b9797a7a75258c18b48d82fa0adc2b03ff5621e540b448",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-48",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "b97caac94f5f47ad11e164335d1073857785b193da49ab07a4f18819a6d6a19b",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-49",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "b4608f618cc51a5e498a91ffbd00325809b1d532551682a0d7aae7c619fe4fa0",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-50",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "9d845f3d305747d01a4ffefd5259130209edd51752a380f499958dde3f2e7ad5",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-51",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "6390d500616cad22d3fd2aff2f0fb37fa240afc28879b5b256ec3ae7a4c57502",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-52",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "e55fc6fdb0647f38ef09785cd6edfed5e781925fb5b30569065bb38924d04c22",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-53",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "b5b3e242b23fee5236d65b1c3492d27d0c159b39c4e50d7625d9d0aa51d2bf39",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-54",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "4eaa6cb0e64f2707b322a71b17b218aa5e34060c92a26d77cf378a70ccc03714",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-55",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "550351fb48cfa1fb0916653f61a8ac2368d9c49e58dd9b7c779f70cbb91ba165",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-56",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "1f3f8e876a9ed3dbe33e3f8348d6979f5215d8ac9a06f2517b9e84efefa07ea1",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-57",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "d96ef211be23b960e8ae8b8c1db9b789a8134a2d4c4b4aac68977c65e743c3a4",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-58",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "d3c0ca985799402c63f36b9f4e984ee933704473142b77e0bc39ad0736a1c95e",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-59",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "4cafee41b90c4a216cecb11f6af162833f0f57a3221477ca85fbecf08f0216dc",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-60",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "89650cfeb25d271e875890836ddfe63ed544040146ea95463c3f4bf12a5eeca5",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-61",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "9a1544931fbef076fa4f178101d8716530d7501d1470b595acb5ee17b52474b3",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-62",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "29890579452bbae9907deb971a8da269ce89b96d566ff50978a3250e590fa119",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-63",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "2a2492aea44cc684de2c4e6194d2138f51b2bb431ab3fc264d831f9d96508f81",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-64",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "891e09513275ba09b1b5efec4114e160f01bd90cfd442d6649659e8181976ced",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-65",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "00e031e7bf6031ef002f36b2de280e6c09830a4b308292053ea924e37c0e1cf0",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-66",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "a086a8ce6f9d1dccf79e091acda2d61785a643459abdc29e25a940f41f827fe7",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-67",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "34c452d6eb52689b0482ee7bd239d7e0f678a59ac56baa150f4be448754323d4",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-68",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "15b64462a5c1ac14e3c606b79b1efac09ec5d87b6e12b388b33243dbc9fc75bf",
+      "passed": true
+    },
+    {
+      "name": "generated-valid-69",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "b0a261f83ccc3a06e69924fb81b1eae44264081dba5652f9cc256d9871bbca9e",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-0",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "1768b3665e9b9616b47a9917f384b7f6b0c09761db47b2aac0aa8a376d6adbcb",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-1",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "056aa9be9c9de006b8f2c5b74e8c3dcf4b292ade726dcf71444597cdc3c1a981",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-2",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d865380682f0e81e24f0e1bf728b8af5e8306875b5818e997a95aaaf30d56f71",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-3",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "257ff32fea1b0fb7fc4061c92f7692671412176dbc0ef4949923c4993ea24522",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-4",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "66f008c361c6f4a94eabadc792b66bb79d9e58c996ed433cc432dff677d0d014",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-5",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "0e2e6f3a5a1272bc85420af0f495b99d5e3606952d8704b9c54b7105f8d6a93c",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-6",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "3b52916229bd4931b7a96c717629fb68ec86a32b05ee7ea6727cd44c9dad43b2",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-7",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "edc9ac21a271a036c0868e11024bb68cc318042687644b025e80f7751be0c8ae",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-8",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e4248a2afa8cd53767c753123dea574cd7623098fcfb6fcb256d30246cebe1de",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-9",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "41a08b6231e9a7db4336896f487c15982198976b14a74abaa342cbc473d63c67",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-10",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "f4ec753c81011c573586062ddc18c35f59c26ac39318e20ba057bf3555e6882d",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-11",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "92293c6c589e98952a404bf0082d50da45fb890c70da0024a321f6678e3e3374",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-12",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "14aaad45c619e10a2a5b54232c6448a086e4597a3853e8772ce694ee86921d9a",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-13",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "892197e8384e49479720646de42bb69b073793823f6577e4dc87a31b1afc4cca",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-14",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "8567c91d30bf655f89c55c4fcf9688c66b97a361d8c121f0b824064eee320163",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-15",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "0017318308c9de7eaf7180f53749950ca151ff2b032f1877005666e80d957db3",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-16",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "868800881dafdadf19211a114b3790ba547ce3a4a72f62007794b21dd74b2a6d",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-17",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "3abf009b3f0d9b9acef37af163b252121f49b7e52ceb4f9e90190101db352cfe",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-18",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "baf729b74d01d703b3a10b8ab530a41162caccb030060f99908dd098f804f7ff",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-19",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "bb9338d61a1963bddcac5d5ce9189c64149d48fa62639ff33e5b1f75c4590b52",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-20",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "00ddc1fed687fa39e22e17864fb934c0b77c5a91cc7ced905cb51ca7ea59f8b7",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-21",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "1ac07c8a5d2cbd6e9a90382044de7827dbf6c0c9127a82cbde0af2ada782fe3f",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-22",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "82e5bc51309e8cec8e5fa80156654269c3c1cf2651a40e89af9223cbb1c1ac5c",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-23",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "d6941730ec771492769383895ed6beed484b73328110421e2898cf34dd58a480",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-24",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c1fb1421b5ade2583daccfd58c97db1a0d8738f85eb1584248c17026541373fa",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-25",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "eca421b2d0243a988009fdb10780882cbbace0c55174f4e511c78b71b0675b37",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-26",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "bb7a90989250070fb45575449bf44de3f7c58de362990a5520fcb60699bd1878",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-27",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "2e287ede3dfabec26e892e97c6098d0c18023fb05f15889b52aa5c4b8ef5d603",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-28",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "6b5bc97ef6fcac919c8359c6e766d9b6a49b795d9c048101c7efcc1ad3d907a5",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-29",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "ad597e6e8430354dc8cc9de7bde7b91f0c5cc2918d4673a02fd108f9e2083258",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-30",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "17cb23ea07f627e4afe84ff1245a0744e0813179a453149f2fb905f271d9dd1c",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-31",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "638b2e347700d671d2fbf97fdb73c8444e2582de097039c4999df5ce7fdffe05",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-32",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "93e6f2639f9be774ebebf32f9802c333f9b6e948781293fda7ca94a6f7e6c719",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-33",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e0632dceeb582c1df5d5ad98b3ab2b32dc2be26040e54fc82e83338aeb94ba04",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-34",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "8de30adf3a03ad3850c46d68ae89bde04b1c6fdf5c76dac4f64833297f40787e",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-35",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e112a22e730a4e1857306c15e5f544c6f5fb74cf2c604aef2605ab7ff03373ca",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-36",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "9b4d60a9eb790b8ed3b079b861d5015fd365677426e434dff235f06a82c517ef",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-37",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e6aa7d931838ae0ae2034a144dc8a4b68b5ea091cdcfb4081a738513ff487967",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-38",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "a15a73e21293918e40c257296fbbbf2812a8605d054908c6e5ec9f6f832264e5",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-39",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "9c0b42ff1f851021b5fff96c7a4b5ef618e93d182cf17e9f10eeefc43c3de262",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-40",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "c6cfaa022500a48f4be40d96acd3e1dbb5c61f2f4bca6e6937d2d1261e43fb34",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-41",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "8c38d6773f3c719d2040d43faf43b2fb728503197e007cb8190c95b5437b52f4",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-42",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "61738db8358fd82f54b024c9d2f9b113aef7a42e8f4fe86c58c324e11d533195",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-43",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "3b816685975edf37b6b6ecebea50ec6ea8ae66de6848c5145dcf4b0110f78807",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-44",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a236c4893c1198fb9c6657ebe08723fd61ff9c72ef1398f1a5a643be3a0587f4",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-45",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "27604be18f075ca286480f83efc365716731a7f1e6d8370a5a6fa6d07cd64f68",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-46",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "4585179488b98cbf53ac55cc1a23dfc343367bf8d0227063b006d98b07d42527",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-47",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "317bfce366329c57a019d3f660803c093e8fe371052d2326467a08f770b1684e",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-48",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "59b8acf27c7a26c1c0b4676e92301e4d610b0adcd391a7456ca52316aab77728",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-49",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "970be893212db941ace2fa5c779498ff5243694b1f1ddc6f8781d1455bdb6406",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-50",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "5b9405e71231c721e56a0274d0fbe2e91b43c49360379d8bef8417aee30c2af1",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-51",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "dee3e43dcc45a05ab9b6c5a75acfc2d267eacef6f2d8ea0efd5ffe066ae4a29f",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-52",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "dec253de4dacd486004b90e2d0ac66517d810fcecf5bfcdc99c161b6af5fe36f",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-53",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "badca39c72114537de41a53511c291fb2f51a2d8ec88db78d811ae3eb3d5757a",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-54",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "4d6dd89368e1421890948bfbaf5c7ea75c2044166961830eabe8c4e2e77bab9f",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-55",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "250640c49603652d67efa2a472a51495d07407507d8ee7eb5394c8645fa77f2e",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-56",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "8bfb37935c42cac805a0a70ce1343878b4d02e8bea2a253a3e0fe5642e1eb7ae",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-57",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "f2970a9e5ad4accef142446853c50b319d0463a3947a64ee355a0f94bf144f9f",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-58",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "78af1dcaf699d976a3704a0cd8deafb2c44a482821606f4dafe603c850c8a2cd",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-59",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a73d6cb8fd0c564a7b62262d62676c00abfd031419084ed4a6ea225c212f41f6",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-60",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7b9866317e307aed5d85ceb535a1470c314242e23618749296af5edd4a0f9197",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-61",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "a5da3075533ebb394523247b82c9b6145f78747db13917a12f6c87c1b1d94763",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-62",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "ac03de08e3733db1b711c08bf594ebf3c4b3fa8ece4c98ffe2ebd7f03c8c407a",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-63",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "e6dbc1794415ea74bc38974f769ed86d4140581759470c16a9c60f0eed6bc862",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-64",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "deb7e9fb66677d625a5f5856b22de430dd6cecbc03ea16fdc38b7fe73aac4d01",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-65",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "042f353a260ca0619c8bd2e6bd4639afac1f0936ea6fb9c5c498433650597b14",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-66",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "6a0b1ead975169c8a1080195de129294e2bbc230955829803baa0b1cd209a894",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-67",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "7e1f71c13a5d504ed61d458e2edbd734127cc19ac018e198b381ae7a7cdb043f",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-68",
+      "optimized": true,
+      "expected": "valid",
+      "inputSHA256": "15b7931cce971e13577d2eea4036a74c4ee798a1ad142cd52ad1c25c0b8e5f21",
+      "passed": true
+    },
+    {
+      "name": "generated-bytes-69",
+      "optimized": true,
+      "expected": "invalid-utf8",
+      "inputSHA256": "51235bc787135f10ba7a6f050dcca1b09e4ea7cb1cba16a508c38f8d4b24a368",
+      "passed": true
+    },
+    {
+      "name": "write-text",
+      "optimized": true,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "write-owner",
+      "optimized": true,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "call-while-live",
+      "optimized": true,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "copy-text",
+      "optimized": true,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "return-text",
+      "optimized": true,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "text-parameter",
+      "optimized": true,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "raw-text",
+      "optimized": true,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "wrong-owner",
+      "optimized": true,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "view-of-words",
+      "optimized": true,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "block-declaration",
+      "optimized": true,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "rebind",
+      "optimized": true,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "escape-through-record",
+      "optimized": true,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "alias-owner-write",
+      "optimized": true,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "hidden-call-second-view",
+      "optimized": true,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "copy-through-ordinary-call",
+      "optimized": true,
+      "expected": "compile-refusal",
+      "passed": true
+    },
+    {
+      "name": "index-scalars",
+      "optimized": true,
+      "expected": "bounds-trap",
+      "passed": true
+    },
+    {
+      "name": "index-minus-one",
+      "optimized": true,
+      "expected": "bounds-trap",
+      "passed": true
+    },
+    {
+      "name": "index-max",
+      "optimized": true,
+      "expected": "bounds-trap",
+      "passed": true
+    },
+    {
+      "name": "index-max-minus-one",
+      "optimized": true,
+      "expected": "bounds-trap",
+      "passed": true
+    },
+    {
+      "name": "range-overflow",
+      "optimized": true,
+      "expected": "bounds-trap",
+      "passed": true
+    }
+  ],
+  "caseCount": 686,
+  "inputCasesPerMode": 323,
+  "compileRefusalsPerMode": 15,
+  "scope": "Independent strict-codec oracle plus source refusal/range cases. Unicode scalar values, not grapheme clusters, normalization, locale segmentation or security certification. No speed or token claim."
+}

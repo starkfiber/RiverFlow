@@ -1,7 +1,7 @@
 {
   "name": "rf2",
-  "version": "0.13.0",
-  "description": "RF2 native typed results with exhaustive handling, immutable byte views, checked collections and bounded MCP",
+  "version": "0.14.0",
+  "description": "RF2 native Unicode scalar text views, deferred cleanup, exhaustive results and bounded MCP",
   "author": {
     "name": "Ilangkhumanan Thirunavokkarasu",
     "url": "https://github.com/starkfiber"

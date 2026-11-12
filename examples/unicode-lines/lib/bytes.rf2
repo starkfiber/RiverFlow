@@ -1,0 +1,72 @@
+module bytes
+array Bytes(u8, 255)
+record Outcome(code: u64, value: u64, offset: u64)
+fn outcome_set(out: Outcome, code, value, offset)
+ set out.code=code
+ set out.value=value
+ set out.offset=offset
+ return 0
+end
+fn bytes_get(data: Bytes, index, out: Outcome)
+ if index>=data.length
+  return outcome_set(out,1,0,index)
+ end
+ return outcome_set(out,0,data[index],index)
+end
+fn bytes_set(data: Bytes, index, value, out: Outcome)
+ if index>=data.length
+  return outcome_set(out,1,0,index)
+ end
+ if value>255
+  return outcome_set(out,2,0,index)
+ end
+ set data[index]=value
+ return outcome_set(out,0,value,index)
+end
+fn bytes_read(fd, data: Bytes, count, out: Outcome)
+ if count>data.length
+  return outcome_set(out,1,0,count)
+ end
+ let n=read_bytes(fd,data,count)
+ if n>=9223372036854775808
+  return outcome_set(out,5,0,0-n)
+ end
+ return outcome_set(out,0,n,0)
+end
+fn bytes_write(fd, data: Bytes, count, out: Outcome)
+ if count>data.length
+  return outcome_set(out,1,0,count)
+ end
+ let n=write_bytes(fd,data,count)
+ if n>=9223372036854775808
+  return outcome_set(out,5,0,0-n)
+ end
+ return outcome_set(out,0,n,0)
+end
+fn bytes_parse_u64(data: Bytes, start, count, out: Outcome)
+ if start>data.length
+  return outcome_set(out,1,0,start)
+ end
+ if count>data.length-start
+  return outcome_set(out,1,0,start)
+ end
+ if count==0
+  return outcome_set(out,3,0,start)
+ end
+ let i=0
+ let n=0
+ let digit=0
+ while i<count
+  set digit=data[start+i]
+  if (digit<48)|(digit>57)
+   return outcome_set(out,3,0,start+i)
+  end
+  set digit=digit-48
+  if (n>1844674407370955161)|((n==1844674407370955161)&(digit>5))
+   return outcome_set(out,4,0,start+i)
+  end
+  set n=n*10+digit
+  set i=i+1
+ end
+ return outcome_set(out,0,n,start)
+end

@@ -2,7 +2,7 @@
 name: rf2
 description: Check and execute RiverFlow Core/compact programs, lower checked kernels, use the versioned attendance exporter, and develop native compiler evidence.
 ---
-# RiverFlow RF² 0.13
+# RiverFlow RF² 0.14
 
 Use rf2_status first. Read docs/NATIVE-CORE.md and docs/STANDALONE.md for current profiles/effects. Nine native tools exist: rf2_status, rf2_check, rf2_run, rf2_lower, attendance_export, invoice_total, invoice_prepare, invoice_apply and invoice_release. Users require no Node/npm/Python/C++ runtime. The host provides AI intelligence; the executable has no embedded model.
 
@@ -77,3 +77,9 @@ Read docs/TEXT-BYTES.md. Packed nominal u8 arrays and typed read_bytes/write_byt
 Read docs/RESULTS-VIEWS.md. Result declarations have scalar ok/err payloads; result-returning functions require explicit final root return and calls require exact exhaustive handle syntax. Payload bindings are immutable and arm-scoped. This is not generic payloads, result locals/parameters, exceptions or exhaustive numeric error-code checking. Uninitialized/block-escaped scalar reads now refuse, including optimizer paths.
 
 Function-local byte views are zero-copy, nonescaping and read-only. Multiple windows may coexist; after the first, all calls and array element updates reject until return, including aliased owners. Bounds use subtraction and view length. These are byte views, not automatic UTF-8 validation or logical content counts. Creation/access traps remain distinct from explicit recoverable guards. Use examples/number-audit/main.rf2, preserve adversarial receipts and do not claim a full borrow checker/security proof. Existing nine bounded MCP effects remain unchanged; raw systems source stays CLI-only. No new speed/token claim.
+
+## Unicode scalar views and deferred cleanup, 0.14
+
+Read docs/UNICODE-CLEANUP.md. textview values validate strict UTF-8 over the selected byte range, expose .byte_length and scalar .length, and index scalar values. Scalar counts are not grapheme counts; no normalization or constant-time indexing is claimed. Invalid construction/index traps; the real app prevalidates for recovery. Existing immutable function-wide view freeze remains.
+
+Function-level defer close(expression) captures once and automatically attempts close on ordinary returns/fallthrough, preserving scalar/typed results. Up to16 registrations, reverse order, two hidden slots each. This is best-effort close, not linear ownership, arbitrary destructors or cleanup on fatal traps/exit/signals. Raw descriptor early-close/reuse remains unsafe. Do not register borrowed stdin. Use examples/unicode-lines and finite native/oracle receipts. No new MCP effects, speed or token claim.

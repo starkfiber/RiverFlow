@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "appCases": 282,
+  "fileCases": 42,
+  "cleanupChecks": 6,
+  "limitCases": 2,
+  "modes": [
+    "default",
+    "opt"
+  ],
+  "compilerSHA256": "c42ebd26110ebcd1129ed57a763f38495cda7379d9044d25d178f4d0ae489a74",
+  "compilerSourceSHA256": "a94bdc2fb4668f1e802f09e4d6c911b78c15a777c6923bdf3581831b4d1e2976",
+  "sourceHashes": {
+    "examples/unicode-lines/lib/audit.rf2": "2686182fb594a511765832e7319c43bbe6dbf05ef9c885abd193364b4ab6d4f7",
+    "examples/unicode-lines/lib/bytes.rf2": "82191234e3a2797cdcc0b7d438418e36f6b968b70a781ca97d35befb8067d59d",
+    "examples/unicode-lines/lib/io.rf2": "3a0567b5e2ccbf4bd85203556465438d24292c571553d876a32b38df8e835b6f",
+    "examples/unicode-lines/lib/text.rf2": "ac979369c8b4bbddda5e59a309f4ff2a906418441103a89c45dc9188ef817037",
+    "examples/unicode-lines/main.rf2": "eef3b7f1d7660384dbd4c8f19a8a09e39936e0de68d890f8d51576faee2b047c"
+  },
+  "scope": "Finite native document app comparisons in default/optimized modes. Python strict UTF8 oracle. Explicit read-only input, bounded rows/input. No normalization/grapheme/performance/security certification."
+}

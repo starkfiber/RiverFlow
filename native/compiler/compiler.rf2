@@ -407,7 +407,8 @@ end
 fn scan_record()
  let is_array = match("array")
  let is_result = match("result")
- let is_view = match("view")
+ let is_view = match("view") | match("textview")
+ let is_text = match("textview")
  do advance()
  let t = advance()
  do require(load64(token(t)) == 1, "record name required")
@@ -441,8 +442,8 @@ fn scan_record()
   do require(field != 0, "view source type required")
   do require(load64(record_info(field) + 144) == 2, "view requires byte array type")
   do expect(")")
-  do store64(r + 8, 2)
-  do store64(r + 144, 4)
+  do store64(r + 8, 2 + is_text)
+  do store64(r + 144, 4 + is_text)
   do store64(r + 152, field)
   do store64(state() + 128, id)
   return newline()
@@ -498,7 +499,7 @@ fn construct_record(target, depth)
  let f = load64(state() + 32)
  let id = load64(local_type(f, target))
  do require(load64(record_info(id) + 144) != 3, "result values require handle")
- if load64(record_info(id) + 144) == 4
+ if load64(record_info(id) + 144) >= 4
   return construct_view(target, depth)
  end
  do require(target >= load64(ftable(f) + 8), "record parameter rebinding refused")
@@ -752,7 +753,7 @@ fn scan_functions_more(f)
   if load64(token(load64(state() + 24))) == 5
    do advance()
   else
-   if match("record") | match("array") | match("result") | match("view")
+   if match("record") | match("array") | match("result") | match("view") | match("textview")
     do scan_record()
    else
    do expect("fn")
@@ -835,6 +836,17 @@ fn scan_body(f, params)
   if match("ok") | match("err")
    set slot = add_local(f, i + 1)
    do store64(local_binding(f, slot), 1)
+  end
+  if match("defer")
+   do require(depth == 1, "defer must be function-level")
+   set slot = load64(ftable(f) + 32)
+   set count = load64(cleanup_count(f))
+   do require(count < 16, "defer count bound")
+   do require(slot + 2 <= 256, "defer local bound")
+   do store64(cleanup_slot(f, count), slot)
+   do store64(cleanup_count(f), count + 1)
+   do store64(ftable(f) + 32, slot + 2)
+   do store64(function_leaf(f), 0)
   end
   if match("let")
    set slot = add_local(f, i + 1)
@@ -1116,6 +1128,28 @@ fn bounds_failure_label()
  end
  return failure - 1
 end
+fn cleanup_count(f)
+ return buffer("cleanup_count", 2048) + f * 8
+end
+fn cleanup_slot(f, i)
+ return buffer("cleanup_slots", 32768) + (f * 16 + i) * 8
+end
+fn utf8_label()
+ let n = load64(state() + 208)
+ if n == 0
+  set n = next_label() + 1
+  do store64(state() + 208, n)
+ end
+ return n - 1
+end
+fn utf8_failure_label()
+ let n = load64(state() + 216)
+ if n == 0
+  set n = next_label() + 1
+  do store64(state() + 216, n)
+ end
+ return n - 1
+end
 fn construct_view(target, depth)
  do require(depth == 0, "views must be function-level")
  let f = load64(state() + 32)
@@ -1148,6 +1182,13 @@ fn construct_view(target, depth)
  do emit(2332033024 | (1 << 16))
  do access_local(0, target + 1, 1)
  do access_local(2, target + 2, 1)
+ if load64(record_info(id) + 144) == 5
+  do emit(2852127712 | (2 << 16) | 1)
+  do imm(2, 18446744073709551615)
+  do fix(1, utf8_label())
+  do emit(2483027968)
+  do access_local(0, target + 3, 1)
+ end
  do emit(2432697248 | (((target + 1) * 8) << 10))
  do access_local(0, target, 1)
  do store64(local_ready(f, target), 1)
@@ -1157,8 +1198,20 @@ end
 fn array_address(id)
  do require(id != 0, "index requires array/view")
  let kind = load64(record_info(id) + 144)
- do require((kind == 1) | (kind == 2) | (kind == 4), "index requires array/view")
+ do require((kind == 1) | (kind == 2) | (kind == 4) | (kind == 5), "index requires array/view")
  let failure = bounds_failure_label()
+ if kind == 5
+  do emit(2852127712 | (0 << 16) | 2)
+  do emit(4181721088 | (2 << 10) | (1 << 5) | 3)
+  do emit(3942645791 | (3 << 16) | (2 << 5))
+  do jump(failure, 2)
+  do emit(4181721088 | (1 << 10) | (1 << 5) | 3)
+  do emit(4181721088 | (1 << 5) | 0)
+  do emit(2852127712 | (3 << 16) | 1)
+  do fix(1, utf8_label())
+  do emit(2483027968)
+  return 0
+ end
  if kind == 4
   do emit(4181721088 | (1 << 10) | (1 << 5) | 2)
  else
@@ -1254,26 +1307,40 @@ fn expression(minimum, depth)
   do require(id != 0, "structured value required")
   do require(load64(record_info(id) + 144) != 3, "result requires exhaustive handle")
   if match("[")
-   do require((load64(record_info(id) + 144) == 1) | (load64(record_info(id) + 144) == 2) | (load64(record_info(id) + 144) == 4), "index requires array/view")
+   do require((load64(record_info(id) + 144) == 1) | (load64(record_info(id) + 144) == 2) | (load64(record_info(id) + 144) == 4) | (load64(record_info(id) + 144) == 5), "index requires array/view")
    do advance()
    do push()
    do scalar_expression(1, depth + 1)
    do expect("]")
    do pop1()
    do array_address(id)
+   if load64(record_info(id) + 144) == 5
+    do store64(state() + 136, 0)
+   else
    if load64(record_info(id) + 144) != 1
     do emit(960495616)
    else
     do emit(4181721088)
    end
+   end
   else
    do advance()
    if load64(record_info(id) + 144)
+    if load64(record_info(id) + 144) == 5
+     if match("byte_length")
+      do advance()
+      do emit(4181721088 | (1 << 10))
+     else
+      do expect("length")
+      do emit(4181721088 | (2 << 10))
+     end
+    else
     do expect("length")
     if load64(record_info(id) + 144) == 4
      do emit(4181721088 | (1 << 10))
     else
      do imm(0, load64(record_info(id) + 8))
+    end
     end
    else
     set slot = field_index(id, advance())
@@ -2044,6 +2111,22 @@ fn block(depth)
    do leave_scope(depth)
    return 2
   end
+  if match("defer")
+   do require(depth == 0, "defer must be function-level")
+   do require(load64(state() + 200) == 0, "defer registration while view is live")
+   do advance()
+   do expect("close")
+   do expect("(")
+   do scalar_expression(1, 0)
+   do expect(")")
+   set target = load64(cleanup_slot(load64(state() + 32), load64(state() + 224)))
+   do access_local(0, target + 1, 1)
+   do imm(0, 1)
+   do access_local(0, target, 1)
+   do store64(state() + 224, load64(state() + 224) + 1)
+   do newline()
+   return block(depth)
+  end
   if match("handle")
    do handle_result(depth)
    return block(depth)
@@ -2203,6 +2286,138 @@ fn block(depth)
  end
  return 0
 end
+fn emit_cleanup(f)
+ let n = load64(cleanup_count(f))
+ let skip = 0
+ let slot = 0
+ if n == 0
+  return 0
+ end
+ do push()
+ do emit(4177526784 | (1 << 10) | (31 << 5) | 1)
+ while n != 0
+  set n = n - 1
+  set slot = load64(cleanup_slot(f, n))
+  set skip = next_label()
+  do access_local(0, slot, 0)
+  do emit(4043309087)
+  do jump(skip, 0)
+  do access_local(0, slot + 1, 0)
+  do imm(16, 6)
+  do emit(3556773889)
+  do label(skip)
+ end
+ do emit(4181721088 | (31 << 5) | 0)
+ do emit(4181721088 | (1 << 10) | (31 << 5) | 1)
+ do emit(2432713727)
+ return 0
+end
+fn utf8_cmp(reg, value, target, cond)
+ do imm(10, value)
+ do emit(3942645791 | (10 << 16) | (reg << 5))
+ return jump(target, cond)
+end
+fn emit_utf8_decoder()
+ if load64(state() + 208) == 0
+  return 0
+ end
+ let head = next_label()
+ let ascii = next_label()
+ let two = next_label()
+ let three = next_label()
+ let decoded = next_label()
+ let more = next_label()
+ let complete = next_label()
+ let selected = next_label()
+ let scalar_ok = next_label()
+ let bad = utf8_failure_label()
+ do label(load64(state() + 208) - 1)
+ do imm(3, 0)
+ do imm(4, 0)
+ do label(head)
+ do emit(3942645791 | (1 << 16) | (3 << 5))
+ do jump(complete, 2)
+ do emit(2332033024 | (3 << 16) | (0 << 5) | 5)
+ do emit(960495616 | (5 << 5) | 5)
+ do emit(2432696320 | (1 << 10) | (3 << 5) | 3)
+ do emit(2852127712 | (5 << 16) | 7)
+ do utf8_cmp(5, 128, ascii, 3)
+ do utf8_cmp(5, 194, bad, 3)
+ do utf8_cmp(5, 224, two, 3)
+ do utf8_cmp(5, 240, three, 3)
+ do utf8_cmp(5, 245, bad, 2)
+ do imm(6, 3)
+ do imm(9, 65536)
+ do imm(10, 7)
+ do emit(2315255808 | (10 << 16) | (5 << 5) | 7)
+ do jump(more, 16)
+ do label(two)
+ do imm(6, 1)
+ do imm(9, 128)
+ do imm(10, 31)
+ do emit(2315255808 | (10 << 16) | (5 << 5) | 7)
+ do jump(more, 16)
+ do label(three)
+ do imm(6, 2)
+ do imm(9, 2048)
+ do imm(10, 15)
+ do emit(2315255808 | (10 << 16) | (5 << 5) | 7)
+ do label(more)
+ do emit(3942645791 | (1 << 16) | (3 << 5))
+ do jump(bad, 2)
+ do emit(2332033024 | (3 << 16) | (0 << 5) | 8)
+ do emit(960495616 | (8 << 5) | 8)
+ do utf8_cmp(8, 128, bad, 3)
+ do utf8_cmp(8, 192, bad, 2)
+ do imm(10, 63)
+ do emit(2315255808 | (10 << 16) | (8 << 5) | 8)
+ do imm(10, 6)
+ do emit(2596282368 | (10 << 16) | (7 << 5) | 7)
+ do emit(2852126720 | (8 << 16) | (7 << 5) | 7)
+ do emit(2432696320 | (1 << 10) | (3 << 5) | 3)
+ do emit(3506438144 | (1 << 10) | (6 << 5) | 6)
+ do emit(4043309087 | (6 << 5))
+ do jump(more, 1)
+ do emit(3942645791 | (9 << 16) | (7 << 5))
+ do jump(bad, 3)
+ do utf8_cmp(7, 1114111, bad, 8)
+ do utf8_cmp(7, 55296, scalar_ok, 3)
+ do utf8_cmp(7, 57344, bad, 3)
+ do label(scalar_ok)
+ do jump(decoded, 16)
+ do label(ascii)
+ do label(decoded)
+ do emit(3942645791 | (2 << 16) | (4 << 5))
+ do jump(selected, 0)
+ do emit(2432696320 | (1 << 10) | (4 << 5) | 4)
+ do jump(head, 16)
+ do label(selected)
+ do emit(2852127712 | (7 << 16))
+ do emit(3596551104)
+ do label(complete)
+ do utf8_cmp(2, 18446744073709551615, bounds_failure_label(), 1)
+ do emit(2852127712 | (4 << 16))
+ return emit(3596551104)
+end
+fn emit_utf8_failure()
+ if load64(state() + 216) == 0
+  return 0
+ end
+ do label(load64(state() + 216) - 1)
+ do emit(3506455551)
+ do imm(0, 4055021239082829394)
+ do emit(4177527776)
+ do imm(0, 10)
+ do emit(4177527776 | (1 << 10))
+ do imm(0, 2)
+ do emit(2432697313)
+ do imm(2, 9)
+ do imm(16, 4)
+ do emit(3556773889)
+ do imm(0, 2)
+ do imm(16, 1)
+ return emit(3556773889)
+end
 fn generate()
  let f = 0
  let p = 0
@@ -2230,6 +2445,7 @@ fn generate()
   set p = ftable(f)
   do store64(state() + 32, f)
   do store64(state() + 200, 0)
+  do store64(state() + 224, 0)
   do store64(state() + 24, load64(p + 16))
   do label(load64(p + 40))
   set frame = (load64(p + 32) * 8 + 15) & 18446744073709551600
@@ -2253,11 +2469,18 @@ fn generate()
    do access_local(i, i, 1)
    set i = i + 1
   end
+  set i = 0
+  while i < load64(cleanup_count(f))
+   do imm(0, 0)
+   do access_local(0, load64(cleanup_slot(f, i)), 1)
+   set i = i + 1
+  end
   do store64(state() + 88, next_label())
   do require(block(0) == 0, "unexpected function else")
   do require(load64(state() + 24) == load64(p + 24), "function boundary")
   do imm(0, 0)
   do label(load64(state() + 88))
+  do emit_cleanup(f)
   set i = 0
   while i < 8
    if mapped_local(i) >= 19
@@ -2271,6 +2494,8 @@ fn generate()
   do emit(3596551104)
   set f = f + 1
  end
+ do emit_utf8_decoder()
+ do emit_utf8_failure()
  return array_failure()
 end
 fn resolve(dataoff)
