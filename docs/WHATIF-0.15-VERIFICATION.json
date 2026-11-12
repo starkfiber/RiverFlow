@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "status": "completed",
+  "suiteSha256": "912cedc654b68b77605a231bc4dbc60be015afd23aa1bc1f46a043564007b7ab",
+  "budget": {
+    "maxRequests": 60,
+    "maxProbeDurationMs": 45000,
+    "cases": 3
+  },
+  "requests": 60,
+  "results": [
+    {
+      "name": "baseline",
+      "requests": 20,
+      "smokeSloPassed": true,
+      "evidenceSha256": "385bb7cfd340019c07d2bfb7c82df8a7265a22e15f3b934ed1a3c6472f5e2a05"
+    },
+    {
+      "name": "parallel",
+      "requests": 20,
+      "smokeSloPassed": true,
+      "evidenceSha256": "e09301ba0d4fd401e8daf10f83fb4575c82fcb2a927de3d9c20ababeb006acf3"
+    },
+    {
+      "name": "recovery",
+      "requests": 20,
+      "smokeSloPassed": true,
+      "evidenceSha256": "4d7ede03e69840b590a52b43de5d39192fe9fb42fe6aca195c5c3db328175696"
+    }
+  ],
+  "skipped": [],
+  "passed": true,
+  "capacityVerdict": "NOT_ESTABLISHED",
+  "securityVerdict": "NOT_ESTABLISHED",
+  "runtimeSHA256": "8262307db0b731a3d153189fccc047a08beb87e37b46d294f223e13edf6094a9",
+  "hashVerification": true,
+  "freshCliVerification": true,
+  "normalShutdownVerified": true,
+  "scope": "Disposable Studio GET / expected200 and /unknown expected404; 60 actual requests, maximum configured concurrency5. No fault injection, compiler ownership verdict, HTTP body assertions by WhatIF, capacity or security certification. Parent separately inspected RiverFlow form body.",
+  "rf2SourceReview": {
+    "inspectedFiles": 0,
+    "status": "unsupported-extension-not-a-pass"
+  }
+}

@@ -1,0 +1,1309 @@
+{
+  "passed": true,
+  "checks": 136,
+  "nativeExecutions": 70,
+  "compileRefusals": 66,
+  "compilerSHA256": "72a2900c90b70ee2bd187591974e89b87592f2915c9e86ea8a8f57322ad27abe",
+  "compilerSourceSHA256": "a98cbc3ba82a3412d4fbb9bc913e80a6374fcda5875bc9784022f05776201eee",
+  "scope": "Independent default/optimized owned-file admission and in-process fd reuse/error oracles. Deliberate raw close injects cleanup errors outside the checked ownership contract. Finite host checks, not whole-compiler proof or protection against unsafe raw descriptors.",
+  "results": [
+    {
+      "name": "ordinary-ok",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "330e69cb73cc559914e757bd291df34b9632750beba85344056eff9e6225ed7d",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "ordinary-err",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "0631e9ad765aeabf38f7e378425ead82f1e368c7e58956d1dc1fcfc1859a895c",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "early-before-own",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "323cb600a2eb6837bab5e4d3e4a8fd09ac9f748e2b57c7146e986d1245af6c78",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "branch-return",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "0cd47cdda7b4e27bcc989c918162d7570fb4b4a94d4524288a1b8ec43b7254d1",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "loop-return",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "905508c950fecb62e036d84c0c21492635bf05e2d9912272d5757cf7d95a9dfc",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "two-owners",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "33ba02c6e559506212e533718678c1274f660188c8f9f7a984abf412320dec13",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "second-acquisition-fails",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "9eb3fe2c06c4a49f23150bc577ee08757f511f10c4a34664ab311cac9e4c6085",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "first-acquisition-fails",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "9bfaf7cc5df91ea30df3c86a4d39db34e8c21ae5f46379bb73c08c7528817b85",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "release-success",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "baf91ff80ff63a0aa2992f08b59f4e863090ab1d07299548949bfc861d5a9178",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "read-owned",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "e9aafe7c3d951ee3f1048dbb3e95c40ab896f3b053238159a9693db603a4155e",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "read-zero",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "cfe744683a9fd33d5d5cedb5fb6cc92a0057defc3bac94d1e8c8c00d1b866ff0",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "write-read-only",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "70b4e96d4d30bbd0ee0b6bde54ebcb84f54572fded9521cb7b2904db6d05ce1c",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "read-over-capacity",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "0eb2bd90c37aba227c3c3d311c134bd78c93a3278d9bb8c23df7e6b87f6ac87e",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "release-error-consumed",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "397dd031a93401fd6313788624acc0263e842ada8ec44c0882d18ff2034366b7",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "auto-close-error",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "53b99b9d059e5d8c795628a50c3f88935c3affd453fb7db545102c65bb2a084c",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "primary-error-wins",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "afac2f8244affd0763a60e2a096c4eced25fa5ae4c475e9c0636683e0ecfc084",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "prior-close-error-acquire-primary",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "b2bf5667f606d141dc7378ab9d51d14f7542acf75c00bd7141e47ac7b02ed697",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "multiple-auto-errors-first",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "064ca27c23567031c12ab6d0d7db831402bd23f6788ac143855f519b4f3641e6",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "loop-release-runtime-guard",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "fab49c871a97f7e51394dc2f879c26b2e6cf84c15d010c69b10385ca6aea4973",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "scalar-registers-survive",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "5a7bbf13874fd59b14785fc7c02aec82620ed6a24e57192f73221af8d083c341",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "acquisition-evaluated-once",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "5eb079fad8842556c200546d20ea1f3cb03e3c6e0a1108d27a3dbf2bc478bed3",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "owner-count-16",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "cbd8565c2512d80351975d05dc292c6680b6b0e87b5948e2fdd59c8593306394",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "owner-count-17",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "f5a46ca812a43f542c96543c2e85ec71b7ba458996ef6e7dc9b418b6133cfb44",
+      "passed": true
+    },
+    {
+      "name": "frame-205",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "ea1aa77d057ec54e9b999dee3caa94b7c98fa688ead1b68937159b1b64a3c757",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "frame-206",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "c88887fb2a1383931416995c4ed87a3f72ea6dab89a3515724188c508942e54e",
+      "passed": true
+    },
+    {
+      "name": "copy",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "c3a78fd734323f157943b0d38dabee0895f988147ec729e21049534518dbe928",
+      "passed": true
+    },
+    {
+      "name": "raw-close",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "1647e61fe7881fb2b31c0b67d3b14ecb9ef4fdccb92025c22604d25cf0be44c7",
+      "passed": true
+    },
+    {
+      "name": "raw-syscall",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "a57ed1500363d102e109f3a0762d2aa4050923b430d9f1f7f5405b90e345401a",
+      "passed": true
+    },
+    {
+      "name": "raw-store",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "1c6f271a351b1ee3c70dd2456428e4b323949aeab56e05b202d4826372e9fdb2",
+      "passed": true
+    },
+    {
+      "name": "return-owner",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "0b53e1173d9c6d4c7fecc7daae7d69a1f06e14aff163fcdbde2f97adcbde9c3f",
+      "passed": true
+    },
+    {
+      "name": "arithmetic",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "8fee7a8f3318fcbd79d609fc149f18c41609885626f3aa68bf1958acbc6e265c",
+      "passed": true
+    },
+    {
+      "name": "reverse-arithmetic",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "022dbe84d1f5d033d2d42ef37532e915d1167ac82abc4e88de51ecd5fac66e5d",
+      "passed": true
+    },
+    {
+      "name": "comparison",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "c8759bfdb3262d2dc21b47120046584e9ab3cf667eb6c418c1e73ad8405e7863",
+      "passed": true
+    },
+    {
+      "name": "while-comparison",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "458b5ebf2b844568da5f0bdc58eb66ffab8ee8c3f5b572b594e44ef97fe7ce3a",
+      "passed": true
+    },
+    {
+      "name": "rebind",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "b7d7cb79b6cdc5a4835cef6e5866ea86a8d3b2d4623df6f36b007ef04600481b",
+      "passed": true
+    },
+    {
+      "name": "property-length",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ce3a84c8c22779121f3f77c9959960b19585833dc11b90851f918621700628b6",
+      "passed": true
+    },
+    {
+      "name": "property-fd",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ab2f5433da1b150c33baa1595f00eb3b0d6a94f1ffa87f7df61f2ae93a10dc10",
+      "passed": true
+    },
+    {
+      "name": "index",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "1190ba70ec609a76cc5f75c5295c815545461389b39fe5ac727c947650a92e88",
+      "passed": true
+    },
+    {
+      "name": "write-property",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "fc648d83d569f8dadf661527c1b42710f2c413208e854f882c22bce731bb1504",
+      "passed": true
+    },
+    {
+      "name": "standalone",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "f08a9cc24939c91c12ae4c472a961650199d8457a1990e3d4a4bc73c19a89d4a",
+      "passed": true
+    },
+    {
+      "name": "defer-owner",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "267900fb73379cc3a38feac00e96ef358c7a697420901a366fd1c88c80298cca",
+      "passed": true
+    },
+    {
+      "name": "release-discard",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "0b65b13968f3827b3f8f30ad946e62865f8952761a62524e71b7748224d4b4b7",
+      "passed": true
+    },
+    {
+      "name": "release-as-scalar",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "bc6358333eaf9f84738b0260311a710df298318140e5d26d96b87a36ea0e0c2d",
+      "passed": true
+    },
+    {
+      "name": "read-discard",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "005368b1d2e88c5c34736c187510b8981364aeef0fe115a3953595e1689bf1da",
+      "passed": true
+    },
+    {
+      "name": "release-twice",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "c6530966dd28a8a5e6ed56915781796fc5651024721df9df55a5fa2aa8e86270",
+      "passed": true
+    },
+    {
+      "name": "read-after-release",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "07040b76390832e69953d9f81313d2a18bc93a012b870012010ff7cfab9dca59",
+      "passed": true
+    },
+    {
+      "name": "post-branch-release",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "d02b31effbc2589774c15ae338809e11a7146f8acad6a6ebe42ce31781949276",
+      "passed": true
+    },
+    {
+      "name": "wrong-bytes",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ada35c468afeb3aa78b3d05fa87f3735893d37edb54baf9a2b1b94cc6743c869",
+      "passed": true
+    },
+    {
+      "name": "missing-count",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "e7effd29cd2f70885c0a05cd8282aa60d82d1c2479e3b284574d0faed7456e6e",
+      "passed": true
+    },
+    {
+      "name": "owner-parameter",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "72a67f7b2bc89c3b530f206ed014c06107917b7d561114a4133c39f7932c6159",
+      "passed": true
+    },
+    {
+      "name": "owner-to-helper",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "f323507baa6836934e25217a02038abf1370b0ed79538993936a1b0c7d807cec",
+      "passed": true
+    },
+    {
+      "name": "let-constructor",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "041ccfa9c235485afcfe5c247eb59c6e24a07e540fe544f417526227a3922b1d",
+      "passed": true
+    },
+    {
+      "name": "nested-owner",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ced455425f356cdf16393fadc18e51a8a51a08c382fbfdca2fa8c72d4f09b817",
+      "passed": true
+    },
+    {
+      "name": "wrong-result-owner",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "920c9bf28af220b684dd2f224214c217e3b7f3eee4e8e3119057c3ddaa08deb8",
+      "passed": true
+    },
+    {
+      "name": "scalar-owning-function",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "f0c67c1c9a1a7b4ec1de323f91ed8de2191136f4dc40493186789ec812bd2f0e",
+      "passed": true
+    },
+    {
+      "name": "repeated-400",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "918842ecd370428bde5c7b8f65d96b748f828c4c71c0d57f6c6403060298c60e",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "mixed-owner-before-defer",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "2f3cad29ae6512444471f614739430cd3eb7899cd4d75320b084aff924a593ca",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "mixed-defer-before-owner",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "be5da34a44fd73af2c7a667b5f9cc5aa15afa3ba1d2cc8e6553f132f31b0f9d9",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "combined-registrations-16",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "a579b239c02d56675d6095a2acadc09a52cf1102c34490c5097058b5bb3be0c5",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "combined-registrations-17",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "9f6c5a43ac591cb58814f50d7bd72743cff0a785b2a4e711256b65690833f7f2",
+      "passed": true
+    },
+    {
+      "name": "open-argument-order",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "4feef115d28cd8e0c7b9230dae3231f5810f14e4f43df9cc5d92a171e2639745",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "released-owner-preserves-replacement",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "902ea66864b7519afc5bcff9057fc78e90a0a233ad7201f973527e149f14e3c9",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "write-success",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "cce0cfa25820137c578d4fa257469f76f36b1cf4ae4e5bd7cc879bf9f3deee09",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "write-zero",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "88ef02804a26fed100912f1a8116ebd933c21e354d067bdbb86c34f42433aa67",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "write-over-capacity-9",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "8f512a08a9f11c8831d0cadbe5e6bb34a17a80f7a07e38b3199960a58d75f8b0",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "write-over-capacity-18446744073709551615",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "01a7231b7ce4816fabf1421fa074d804969fd294771517e64228ab172b35e22a",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "mixed-repeated-owner-first",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "f51f72bb47abaa4ece4914354ca8d9d93073e529beeaebb90929b51f5fff6e38",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "mixed-repeated-defer-first",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "a46424beccd27f463c696d56ef048b979b0dd568ffc46c4c67049250aea3bbc0",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "ordinary-ok",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "330e69cb73cc559914e757bd291df34b9632750beba85344056eff9e6225ed7d",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "ordinary-err",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "0631e9ad765aeabf38f7e378425ead82f1e368c7e58956d1dc1fcfc1859a895c",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "early-before-own",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "323cb600a2eb6837bab5e4d3e4a8fd09ac9f748e2b57c7146e986d1245af6c78",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "branch-return",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "0cd47cdda7b4e27bcc989c918162d7570fb4b4a94d4524288a1b8ec43b7254d1",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "loop-return",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "905508c950fecb62e036d84c0c21492635bf05e2d9912272d5757cf7d95a9dfc",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "two-owners",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "33ba02c6e559506212e533718678c1274f660188c8f9f7a984abf412320dec13",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "second-acquisition-fails",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "9eb3fe2c06c4a49f23150bc577ee08757f511f10c4a34664ab311cac9e4c6085",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "first-acquisition-fails",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "9bfaf7cc5df91ea30df3c86a4d39db34e8c21ae5f46379bb73c08c7528817b85",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "release-success",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "baf91ff80ff63a0aa2992f08b59f4e863090ab1d07299548949bfc861d5a9178",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "read-owned",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "e9aafe7c3d951ee3f1048dbb3e95c40ab896f3b053238159a9693db603a4155e",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "read-zero",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "cfe744683a9fd33d5d5cedb5fb6cc92a0057defc3bac94d1e8c8c00d1b866ff0",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "write-read-only",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "70b4e96d4d30bbd0ee0b6bde54ebcb84f54572fded9521cb7b2904db6d05ce1c",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "read-over-capacity",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "0eb2bd90c37aba227c3c3d311c134bd78c93a3278d9bb8c23df7e6b87f6ac87e",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "release-error-consumed",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "397dd031a93401fd6313788624acc0263e842ada8ec44c0882d18ff2034366b7",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "auto-close-error",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "53b99b9d059e5d8c795628a50c3f88935c3affd453fb7db545102c65bb2a084c",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "primary-error-wins",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "afac2f8244affd0763a60e2a096c4eced25fa5ae4c475e9c0636683e0ecfc084",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "prior-close-error-acquire-primary",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "b2bf5667f606d141dc7378ab9d51d14f7542acf75c00bd7141e47ac7b02ed697",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "multiple-auto-errors-first",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "064ca27c23567031c12ab6d0d7db831402bd23f6788ac143855f519b4f3641e6",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "loop-release-runtime-guard",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "fab49c871a97f7e51394dc2f879c26b2e6cf84c15d010c69b10385ca6aea4973",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "scalar-registers-survive",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "5a7bbf13874fd59b14785fc7c02aec82620ed6a24e57192f73221af8d083c341",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "acquisition-evaluated-once",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "5eb079fad8842556c200546d20ea1f3cb03e3c6e0a1108d27a3dbf2bc478bed3",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "owner-count-16",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "cbd8565c2512d80351975d05dc292c6680b6b0e87b5948e2fdd59c8593306394",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "owner-count-17",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "f5a46ca812a43f542c96543c2e85ec71b7ba458996ef6e7dc9b418b6133cfb44",
+      "passed": true
+    },
+    {
+      "name": "frame-205",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "ea1aa77d057ec54e9b999dee3caa94b7c98fa688ead1b68937159b1b64a3c757",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "frame-206",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "c88887fb2a1383931416995c4ed87a3f72ea6dab89a3515724188c508942e54e",
+      "passed": true
+    },
+    {
+      "name": "copy",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "c3a78fd734323f157943b0d38dabee0895f988147ec729e21049534518dbe928",
+      "passed": true
+    },
+    {
+      "name": "raw-close",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "1647e61fe7881fb2b31c0b67d3b14ecb9ef4fdccb92025c22604d25cf0be44c7",
+      "passed": true
+    },
+    {
+      "name": "raw-syscall",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "a57ed1500363d102e109f3a0762d2aa4050923b430d9f1f7f5405b90e345401a",
+      "passed": true
+    },
+    {
+      "name": "raw-store",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "1c6f271a351b1ee3c70dd2456428e4b323949aeab56e05b202d4826372e9fdb2",
+      "passed": true
+    },
+    {
+      "name": "return-owner",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "0b53e1173d9c6d4c7fecc7daae7d69a1f06e14aff163fcdbde2f97adcbde9c3f",
+      "passed": true
+    },
+    {
+      "name": "arithmetic",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "8fee7a8f3318fcbd79d609fc149f18c41609885626f3aa68bf1958acbc6e265c",
+      "passed": true
+    },
+    {
+      "name": "reverse-arithmetic",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "022dbe84d1f5d033d2d42ef37532e915d1167ac82abc4e88de51ecd5fac66e5d",
+      "passed": true
+    },
+    {
+      "name": "comparison",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "c8759bfdb3262d2dc21b47120046584e9ab3cf667eb6c418c1e73ad8405e7863",
+      "passed": true
+    },
+    {
+      "name": "while-comparison",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "458b5ebf2b844568da5f0bdc58eb66ffab8ee8c3f5b572b594e44ef97fe7ce3a",
+      "passed": true
+    },
+    {
+      "name": "rebind",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "b7d7cb79b6cdc5a4835cef6e5866ea86a8d3b2d4623df6f36b007ef04600481b",
+      "passed": true
+    },
+    {
+      "name": "property-length",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ce3a84c8c22779121f3f77c9959960b19585833dc11b90851f918621700628b6",
+      "passed": true
+    },
+    {
+      "name": "property-fd",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ab2f5433da1b150c33baa1595f00eb3b0d6a94f1ffa87f7df61f2ae93a10dc10",
+      "passed": true
+    },
+    {
+      "name": "index",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "1190ba70ec609a76cc5f75c5295c815545461389b39fe5ac727c947650a92e88",
+      "passed": true
+    },
+    {
+      "name": "write-property",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "fc648d83d569f8dadf661527c1b42710f2c413208e854f882c22bce731bb1504",
+      "passed": true
+    },
+    {
+      "name": "standalone",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "f08a9cc24939c91c12ae4c472a961650199d8457a1990e3d4a4bc73c19a89d4a",
+      "passed": true
+    },
+    {
+      "name": "defer-owner",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "267900fb73379cc3a38feac00e96ef358c7a697420901a366fd1c88c80298cca",
+      "passed": true
+    },
+    {
+      "name": "release-discard",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "0b65b13968f3827b3f8f30ad946e62865f8952761a62524e71b7748224d4b4b7",
+      "passed": true
+    },
+    {
+      "name": "release-as-scalar",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "bc6358333eaf9f84738b0260311a710df298318140e5d26d96b87a36ea0e0c2d",
+      "passed": true
+    },
+    {
+      "name": "read-discard",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "005368b1d2e88c5c34736c187510b8981364aeef0fe115a3953595e1689bf1da",
+      "passed": true
+    },
+    {
+      "name": "release-twice",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "c6530966dd28a8a5e6ed56915781796fc5651024721df9df55a5fa2aa8e86270",
+      "passed": true
+    },
+    {
+      "name": "read-after-release",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "07040b76390832e69953d9f81313d2a18bc93a012b870012010ff7cfab9dca59",
+      "passed": true
+    },
+    {
+      "name": "post-branch-release",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "d02b31effbc2589774c15ae338809e11a7146f8acad6a6ebe42ce31781949276",
+      "passed": true
+    },
+    {
+      "name": "wrong-bytes",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ada35c468afeb3aa78b3d05fa87f3735893d37edb54baf9a2b1b94cc6743c869",
+      "passed": true
+    },
+    {
+      "name": "missing-count",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "e7effd29cd2f70885c0a05cd8282aa60d82d1c2479e3b284574d0faed7456e6e",
+      "passed": true
+    },
+    {
+      "name": "owner-parameter",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "72a67f7b2bc89c3b530f206ed014c06107917b7d561114a4133c39f7932c6159",
+      "passed": true
+    },
+    {
+      "name": "owner-to-helper",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "f323507baa6836934e25217a02038abf1370b0ed79538993936a1b0c7d807cec",
+      "passed": true
+    },
+    {
+      "name": "let-constructor",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "041ccfa9c235485afcfe5c247eb59c6e24a07e540fe544f417526227a3922b1d",
+      "passed": true
+    },
+    {
+      "name": "nested-owner",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ced455425f356cdf16393fadc18e51a8a51a08c382fbfdca2fa8c72d4f09b817",
+      "passed": true
+    },
+    {
+      "name": "wrong-result-owner",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "920c9bf28af220b684dd2f224214c217e3b7f3eee4e8e3119057c3ddaa08deb8",
+      "passed": true
+    },
+    {
+      "name": "scalar-owning-function",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "f0c67c1c9a1a7b4ec1de323f91ed8de2191136f4dc40493186789ec812bd2f0e",
+      "passed": true
+    },
+    {
+      "name": "repeated-400",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "918842ecd370428bde5c7b8f65d96b748f828c4c71c0d57f6c6403060298c60e",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "mixed-owner-before-defer",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "2f3cad29ae6512444471f614739430cd3eb7899cd4d75320b084aff924a593ca",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "mixed-defer-before-owner",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "be5da34a44fd73af2c7a667b5f9cc5aa15afa3ba1d2cc8e6553f132f31b0f9d9",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "combined-registrations-16",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "a579b239c02d56675d6095a2acadc09a52cf1102c34490c5097058b5bb3be0c5",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "combined-registrations-17",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "9f6c5a43ac591cb58814f50d7bd72743cff0a785b2a4e711256b65690833f7f2",
+      "passed": true
+    },
+    {
+      "name": "open-argument-order",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "4feef115d28cd8e0c7b9230dae3231f5810f14e4f43df9cc5d92a171e2639745",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "released-owner-preserves-replacement",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "902ea66864b7519afc5bcff9057fc78e90a0a233ad7201f973527e149f14e3c9",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "write-success",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "cce0cfa25820137c578d4fa257469f76f36b1cf4ae4e5bd7cc879bf9f3deee09",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "write-zero",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "88ef02804a26fed100912f1a8116ebd933c21e354d067bdbb86c34f42433aa67",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "write-over-capacity-9",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "8f512a08a9f11c8831d0cadbe5e6bb34a17a80f7a07e38b3199960a58d75f8b0",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "write-over-capacity-18446744073709551615",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "01a7231b7ce4816fabf1421fa074d804969fd294771517e64228ab172b35e22a",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "mixed-repeated-owner-first",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "f51f72bb47abaa4ece4914354ca8d9d93073e529beeaebb90929b51f5fff6e38",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "mixed-repeated-defer-first",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "a46424beccd27f463c696d56ef048b979b0dd568ffc46c4c67049250aea3bbc0",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    }
+  ]
+}

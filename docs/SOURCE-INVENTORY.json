@@ -8,9 +8,9 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 256738,
-    "Python": 232749,
-    "JavaScript": 65508,
+    "RiverFlow": 263890,
+    "Python": 250113,
+    "JavaScript": 65544,
     "HTML": 16558,
     "CSS": 10426,
     "Shell": 2207
@@ -147,6 +147,16 @@
       "bytes": 25
     },
     {
+      "path": "examples/hex/lib/hex.rf2",
+      "language": "RiverFlow",
+      "bytes": 1977
+    },
+    {
+      "path": "examples/hex/main.rf2",
+      "language": "RiverFlow",
+      "bytes": 303
+    },
+    {
       "path": "examples/latency/lib/io.rf2",
       "language": "RiverFlow",
       "bytes": 557
@@ -279,7 +289,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 78365
+      "bytes": 83237
     },
     {
       "path": "native/core.rf2",
@@ -567,6 +577,11 @@
       "bytes": 275
     },
     {
+      "path": "tests/standalone/hex_app_verify.py",
+      "language": "Python",
+      "bytes": 5266
+    },
+    {
       "path": "tests/standalone/instruction_verify.py",
       "language": "Python",
       "bytes": 2671
@@ -617,6 +632,11 @@
       "bytes": 495
     },
     {
+      "path": "tests/standalone/ownership_adversarial.py",
+      "language": "Python",
+      "bytes": 12053
+    },
+    {
       "path": "tests/standalone/platform_verify.py",
       "language": "Python",
       "bytes": 2235
@@ -649,7 +669,7 @@
     {
       "path": "tests/standalone/sdk.mjs",
       "language": "JavaScript",
-      "bytes": 3714
+      "bytes": 3750
     },
     {
       "path": "tests/standalone/text_verify.py",
@@ -669,7 +689,7 @@
     {
       "path": "tests/standalone/verify.py",
       "language": "Python",
-      "bytes": 9656
+      "bytes": 9701
     },
     {
       "path": "tests/standalone/workspace_verify.py",

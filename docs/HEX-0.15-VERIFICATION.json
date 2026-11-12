@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "appComparisons": 162,
+  "fileAndUsageChecks": 10,
+  "inProcessCleanupChecks": 6,
+  "inputLimitChecks": 4,
+  "compilerSHA256": "72a2900c90b70ee2bd187591974e89b87592f2915c9e86ea8a8f57322ad27abe",
+  "compilerSourceSHA256": "a98cbc3ba82a3412d4fbb9bc913e80a6374fcda5875bc9784022f05776201eee",
+  "sourceHashes": {
+    "examples/hex/lib/hex.rf2": "1fe474bc6a3a15274dee1c6fd6c9f783647746cb7507ccf98c354e9cd76834f3",
+    "examples/hex/main.rf2": "b064a8b0b718ac2289415db340840ef0a734fddcda2af70e3cc8f0de719d4967"
+  },
+  "scope": "Finite default/optimized full-byte-output comparisons, unchanged inputs and in-process descriptor reuse after normal/read/output failure. Symlinks follow ordinary read-only open semantics. No forced short-write injection, trap cleanup, ownership proof or performance claim."
+}

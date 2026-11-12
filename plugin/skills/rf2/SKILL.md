@@ -2,7 +2,7 @@
 name: rf2
 description: Check and execute RiverFlow Core/compact programs, lower checked kernels, use the versioned attendance exporter, and develop native compiler evidence.
 ---
-# RiverFlow RF² 0.14
+# RiverFlow RF² 0.15
 
 Use rf2_status first. Read docs/NATIVE-CORE.md and docs/STANDALONE.md for current profiles/effects. Nine native tools exist: rf2_status, rf2_check, rf2_run, rf2_lower, attendance_export, invoice_total, invoice_prepare, invoice_apply and invoice_release. Users require no Node/npm/Python/C++ runtime. The host provides AI intelligence; the executable has no embedded model.
 
@@ -83,3 +83,9 @@ Function-local byte views are zero-copy, nonescaping and read-only. Multiple win
 Read docs/UNICODE-CLEANUP.md. textview values validate strict UTF-8 over the selected byte range, expose .byte_length and scalar .length, and index scalar values. Scalar counts are not grapheme counts; no normalization or constant-time indexing is claimed. Invalid construction/index traps; the real app prevalidates for recovery. Existing immutable function-wide view freeze remains.
 
 Function-level defer close(expression) captures once and automatically attempts close on ordinary returns/fallthrough, preserving scalar/typed results. Up to16 registrations, reverse order, two hidden slots each. This is best-effort close, not linear ownership, arbitrary destructors or cleanup on fatal traps/exit/signals. Raw descriptor early-close/reuse remains unsafe. Do not register borrowed stdin. Use examples/unicode-lines and finite native/oracle receipts. No new MCP effects, speed or token claim.
+
+## Owned files and cleanup errors, 0.15
+
+Read docs/RESOURCE-OWNERSHIP.md. resource File(IO) plus own file=File(path,flags,mode) acquires internally, propagates open failure through a same-IO result function, and exposes no descriptor. Owners cannot be values, copied, rebound, passed or returned. read_owned/write_owned return handled IO outcomes; release consumes on either outcome and disarms before close. Source consumption is conservative across branches; repeated loop release is runtime-guarded.
+
+Automatic cleanup on ordinary returns reports err(65536+errno) if the primary result was ok, preserves primary err and reports only the first cleanup failure. Legacy defer remains best effort. Raw syscalls, traps, exit and signals remain outside checked ownership. No move/transfer, heap or async ownership is established. Use examples/hex, docs/BYTE-REFERENCE.md and docs/CAPABILITY-MAP.md; nine MCP schemas unchanged and no new speed/token claim.

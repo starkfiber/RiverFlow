@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+<title id="title">Two explicit routes through RiverFlow</title>
+<desc id="desc">Humans and an AI host supply readable RiverFlow source. Bounded Core runs in the native runtime and is available through MCP. Trusted systems source is compiled explicitly into native ARM64 programs. These routes have different authority.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#82e6ef"/></marker></defs>
+<rect width="1200" height="400" rx="24" fill="#092033"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="40" y="48" fill="#f4fafc" font-size="27" font-weight="700">Readable source. Explicit authority. Native execution.</text>
+<text x="40" y="77" fill="#a8bdc9" font-size="16">One language direction, with contracts that stay visible.</text>
+<rect x="40" y="151" width="218" height="110" rx="16" fill="#12354b" stroke="#416273"/>
+<text x="62" y="184" fill="#82e6ef" font-size="14" font-weight="700">HUMAN + AI HOST</text>
+<text x="62" y="216" fill="#f4fafc" font-size="22" font-weight="700">Intent into RF2</text>
+<text x="62" y="243" fill="#c8d7df" font-size="15">Host supplies intelligence.</text>
+<path d="M258 181H280V149H300" fill="none" stroke="#82e6ef" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M258 231H280V286H300" fill="none" stroke="#82e6ef" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="310" y="104" width="330" height="98" rx="14" fill="#12354b" stroke="#416273"/>
+<text x="333" y="135" fill="#82e6ef" font-size="15" font-weight="700">CHECKED CORE</text>
+<text x="333" y="164" fill="#f4fafc" font-size="19">Bounded computation</text>
+<text x="333" y="187" fill="#c8d7df" font-size="14">Supplied input reads; explicit error limits</text>
+<rect x="310" y="240" width="330" height="98" rx="14" fill="#12354b" stroke="#416273"/>
+<text x="333" y="271" fill="#ecc297" font-size="15" font-weight="700">TRUSTED SYSTEMS</text>
+<text x="333" y="300" fill="#f4fafc" font-size="19">Explicit native compilation</text>
+<text x="333" y="323" fill="#c8d7df" font-size="14">Files, memory and platform operations</text>
+<path d="M640 153H690" fill="none" stroke="#82e6ef" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M640 289H690" fill="none" stroke="#82e6ef" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="702" y="104" width="456" height="98" rx="14" fill="#12354b" stroke="#416273"/>
+<text x="725" y="136" fill="#f4fafc" font-size="21" font-weight="700">Native runtime + bounded MCP</text>
+<text x="725" y="164" fill="#c8d7df" font-size="15">Checked IR execution; nine native tool schemas</text>
+<text x="725" y="187" fill="#c8d7df" font-size="14">No arbitrary systems-code execution over MCP</text>
+<rect x="702" y="240" width="456" height="98" rx="14" fill="#12354b" stroke="#416273"/>
+<text x="725" y="272" fill="#f4fafc" font-size="21" font-weight="700">ARM64 applications</text>
+<text x="725" y="300" fill="#c8d7df" font-size="15">Direct machine-code emission; Apple Silicon Mac</text>
+<text x="725" y="323" fill="#c8d7df" font-size="14">OS interfaces and signing remain platform responsibilities</text>
+<text x="40" y="376" fill="#a8bdc9" font-size="14">Executed evidence and target limits accompany each release. No universal speed, safety or token-saving promise.</text>
+</g></svg>

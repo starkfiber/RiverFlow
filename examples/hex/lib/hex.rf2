@@ -1,0 +1,122 @@
+module hex
+result IO(u64,u64)
+resource File(IO)
+array Block(u8,16)
+array Line(u8,86)
+fn hex_digit(n)
+ if n<10
+  return 48+n
+ end
+ return 55+n
+end
+fn render_row(data:Block,count,offset,out:Line)
+ let i=0
+ let value=0
+ while i<16
+  set out[i]=hex_digit((offset>>((15-i)*4))&15)
+  set i=i+1
+ end
+ set out[16]=32
+ set out[17]=32
+ set i=0
+ while i<16
+  if i<count
+   set value=data[i]
+   set out[18+i*3]=hex_digit(value>>4)
+   set out[19+i*3]=hex_digit(value&15)
+   set out[20+i*3]=32
+  else
+   set out[18+i*3]=32
+   set out[19+i*3]=32
+   set out[20+i*3]=32
+  end
+  set out[68+i]=32
+  if i<count
+   set value=data[i]
+   if (value>=32)&(value<=126)
+    set out[68+i]=value
+   else
+    set out[68+i]=46
+   end
+  end
+  set i=i+1
+ end
+ set out[66]=32
+ set out[67]=124
+ set out[84]=124
+ set out[85]=10
+ return 86
+end
+fn write_line(out:Line):IO
+ let remaining=86
+ let n=0
+ let i=0
+ while remaining!=0
+  set n=write_bytes(1,out,remaining)
+  if n>>63
+   return err(0-n)
+  end
+  if n==0
+   return err(5)
+  end
+  set remaining=remaining-n
+  set i=0
+  while i<remaining
+   set out[i]=out[i+n]
+   set i=i+1
+  end
+ end
+ return ok(86)
+end
+fn hex_file(path):IO
+ own file=File(path,0,0)
+ let input=Block()
+ let row=Block()
+ let line=Line()
+ let offset=0
+ let used=0
+ let n=0
+ let i=0
+ let done=0
+ while done==0
+  handle read_owned(file,input,16)
+  ok count
+   set n=count
+  err code
+   return err(code)
+  end
+  if n==0
+   set done=1
+  else
+   if offset+used+n>1048576
+    return err(1000)
+   end
+   set i=0
+   while i<n
+    set row[used]=input[i]
+    set used=used+1
+    set i=i+1
+    if used==16
+     do render_row(row,used,offset,line)
+     handle write_line(line)
+     ok written
+      set used=0
+     err code2
+      return err(code2)
+     end
+     set offset=offset+16
+    end
+   end
+  end
+ end
+ if used!=0
+  do render_row(row,used,offset,line)
+  handle write_line(line)
+  ok final_written
+   set offset=offset+used
+  err final_code
+   return err(final_code)
+  end
+ end
+ return ok(offset)
+end

@@ -1,0 +1,17 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/hex.rf2"
+fn main(argc,argv)
+ if argc!=2
+  do write(2,"Usage: rf2-hex file\n",20)
+  return 1
+ end
+ let status=0
+ handle hex_file(load64(argv+8))
+ ok bytes
+  set status=0
+ err code
+  do write(2,"RF2 hex input/output failure\n",29)
+  set status=1
+ end
+ return status
+end

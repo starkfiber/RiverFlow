@@ -1,134 +1,77 @@
 # RF² RiverFlow
 
-**Readable plans. Checked computation. Native tools.**
+### Readable programs. Explicit effects. Native tools.
 
-Created by **Ilangkhumanan Thirunavokkarasu**. Published by **SFE**.
+Created by **Ilangkhumanan Thirunavokkarasu** · Published by **SFE** · **MIT licence**
 
-![RiverFlow](site/assets/riverflow-hero.png)
+[Download](https://github.com/starkfiber/RiverFlow/releases/latest) · [Read the book](https://starkfiber.github.io/RiverFlow/book/) · [Language capability map](docs/CAPABILITY-MAP.md) · [Byte and ASCII reference](docs/BYTE-REFERENCE.md) · [MCP skill](plugin/skills/rf2/SKILL.md)
 
-RiverFlow is a language for readable application plans and explicit systems programming. Its own compiler emits ARM64 machine code. The compiler, runtime, document handlers and new graphical workspace are written in RiverFlow. The AI host supplies intelligence through a bounded MCP interface.
+![A luminous RiverFlow landscape](site/assets/riverflow-hero.png)
 
-**0.14: Unicode scalar text views and automatic deferred close attempts.** Validated UTF-8 spans expose byte and scalar lengths and scalar indexing. Function-level `defer close(fd)` captures once and runs on ordinary returns. The multilingual line auditor recovers from malformed rows and uses both features. Raw descriptor ownership, fatal traps and grapheme handling retain explicit limits.
+RiverFlow turns readable source into useful native programs. Its compiler emits ARM64 machine code directly. The compiler, runtime and application controllers are written in RF2. An AI host can work through the bounded MCP interface; intelligence is supplied by the host, with deterministic language rules around what runs.
 
-[Download 0.14](https://github.com/starkfiber/RiverFlow/releases/tag/v0.14.0) · [Read the book](https://starkfiber.github.io/RiverFlow/book/) · [Unicode/cleanup contract](docs/UNICODE-CLEANUP.md)
+**The direction:** one understandable language for application and systems work. Each capability ships with its input contract, failure behavior, target limits and executed evidence.
+
+## Start with something real
+
+The Apple Silicon Mac package contains ready-to-run tools. Users need no Node, npm, Python or C++ runtime.
 
 ```sh
+./rf2 status
+./rf2-hex document.bin
 printf 'Hello world\n' | ./rf2-unicode-lines
+./rf2 run examples/compact/sum.rf2 '[1,2,3]'
 ```
 
-The ready-to-run app reports line and Unicode scalar counts, including Tamil-block statistics. Malformed rows are rejected while later valid rows continue. Named input files use deferred cleanup; stdin stays borrowed. Number-audit, text-audit and latency tools remain available. No new speed or token-saving claim accompanies this release.
+The document auditor handles UTF-8 rows, reports malformed input and continues with later valid text. It distinguishes byte counts from Unicode scalar counts. The compact sum returns `6`.
 
-[Unicode checks](docs/UNICODE-VIEWS-0.14-VERIFICATION.json) · [Cleanup checks](docs/CLEANUP-0.14-VERIFICATION.json) · [App checks](docs/UNICODE-LINES-0.14-VERIFICATION.json) · [Full-stack direction](docs/RF2-FULL-STACK-DIRECTION.md)
+| Build or use | What works | Open the example |
+| --- | --- | --- |
+| Owned file applications | Noncopyable file owners, typed I/O and visible cleanup errors | [Hex inspector](examples/hex/), [ownership contract](docs/RESOURCE-OWNERSHIP.md) |
+| Text and byte processing | Checked arrays, strict UTF-8 views, scalar indexing and recoverable row validation | [Unicode auditor](examples/unicode-lines/) |
+| Reusable native programs | Local modules, nominal records, functions and explicit file I/O | [Workload analyser](examples/workload/) |
+| Checked computation | Bounded u32 Core, scalar helpers and explicit checked/wrapping arithmetic | [Core contract](docs/NATIVE-CORE.md) |
+| Document applications | File revisions, exact integer totals, direct PDF output and graphical forms | [RiverFlow Studio](docs/GRAPHICAL-EDITOR.md) |
+| AI tool integration | Nine native MCP tools with defined effects and prepared-plan lifecycle | [MCP interface](plugin/skills/rf2/SKILL.md) |
 
-## Build beyond the first application
+## Read it, compile it, inspect it
 
 ```rf2
 profile RF2_SYSTEM_A64_V1
-use "lib/workload.rf2"
-fn main(argc, argv)
- let job = Job(7, 4, 12)
- let summary = Summary(0, 0, 0, 0)
- do workload_accept(job, summary)
- return summary.late
+fn main(argc,argv)
+ let ascii_a=0x41
+ return ascii_a!=65
 end
 ```
 
-The complete [workload analyser](examples/workload/) reads a bounded CSV trace, computes input-order completion/deadline statistics and emits JSON. It uses shared I/O, CSV and accounting modules, with Job and Summary records. It does not claim a better scheduler or device measurements.
-
 ```sh
-./tools/build-program.sh ./rf2c examples/workload/main.rf2 workload-build --opt
-./workload-build/program examples/workload/jobs.csv
+./tools/build-program.sh ./rf2c program.rf2 program-build --opt
+./program-build/program
 ```
 
-Imports, nominal record checks, stack storage and typed borrowed parameters are compiled in RF2. Current field types are u64 machine words. Strings, enums, nested records, general ownership and more machine targets remain further language work. [Exact limits](docs/MODULES-TYPES.md).
+This complete systems program exits `0` when the byte values agree. The build script creates a new directory and applies normal macOS signing; it does not execute the result. [Hex, ASCII and byte order](docs/BYTE-REFERENCE.md) explain the representation. [The capability map](docs/CAPABILITY-MAP.md) separates released features from the wider roadmap.
 
-RiverFlow Studio remains available as a separate graphical worksheet example on Apple Silicon macOS. It renders through a private browser workspace. [Studio contract](docs/GRAPHICAL-EDITOR.md).
+![Two explicit execution routes through RiverFlow](site/assets/rf2-capabilities.svg)
 
-## Start with a real operation
-
-This is a complete versioned application plan:
-
-```rf2
-rf2 app v1
-invoice total
-currency MYR
-tax 600 bps
-```
-
-With the downloaded Apple Silicon Mac package:
-
-```sh
-./rf2 app capabilities/invoice.total.v1/quote.rf2 \
-  capabilities/invoice.total.v1/test-lines.json
-```
-
-The supplied programming fixture returns subtotal 2899 cents, tax 174 cents and total 3073 cents. The rate is an explicit input, not tax advice. Line multiplication and subtotal run through a compiled Core helper/loop. Invoice-level rounding and checked bounds are specified, not guessed. [Input rules, effects and limitations](capabilities/invoice.total.v1/README.md).
-
-For attendance CSV export:
-
-```sh
-./rf2 attendance capabilities/attendance.local.v1/test-records.json new-register.csv
-```
-
-Only an explicit new output file can be created. Existing files and symlinks are refused. Included TEST identifiers are programming fixtures, not participant data. [Attendance contract](capabilities/attendance.local.v1/README.md).
-
-## Save, revise and print
-
-```sh
-./rf2 invoice save capabilities/invoice.total.v1/quote.rf2 \
-  capabilities/invoice.total.v1/test-lines.json first.invoice.json
-./rf2 invoice set first.invoice.json 0 2 250 edited.invoice.json
-./rf2 invoice inspect edited.invoice.json
-./rf2 invoice pdf edited.invoice.json worksheet.pdf
-```
-
-A file-based native workspace: explicit new-file revisions, checked totals and direct PDF output. The graphical editor shares this checked document model. Payment and tax-law determination are outside its contract. [Workspace contract](docs/INVOICE-WORKSPACE.md).
-
-Prepare an immutable plan once, inspect its visible currency/tax rules, apply it to fresh lines, then release it. Up to 32 process-local plans; discard handles on reconnect. [MCP lifecycle](docs/PREPARED-PLANS.md).
-
-[Graphical workspace and safety contract](docs/GRAPHICAL-EDITOR.md) · [Platform ABI](docs/PLATFORM-ABI.md)
-
-## Compute and compile
-
-A complete compact computation:
-
-```rf2
-rf2 v1 checked
-sum input
-```
-
-```sh
-./rf2 run examples/compact/sum.rf2 '[1,2,3]'
-./rf2 check book/examples/example-4.flow
-./rf2 run book/examples/example-4.flow '[2,3,4]'
-./tools/build-core.sh ./rf2 ./rf2c book/examples/example-4.flow squares-build
-./squares-build/program '[2,3,4]'
-```
-
-The helper example returns 29. `run` checks source and executes bounded IR in the native runtime. The explicit build route lowers checked Core to RiverFlow systems functions and compiles an ARM64 executable. These are distinct paths. Core permits only supplied input reads, checked/wrapping u32 operations, bounded loops and acyclic scalar helpers. Trusted systems source has a separate profile and authority. [Native Core boundary](docs/NATIVE-CORE.md).
-
-## Connect MCP
+## Connect an AI host
 
 ```sh
 ./rf2 mcp
 ```
 
-The native server exposes nine tools: `rf2_status`, `rf2_check`, `rf2_run`, `rf2_lower`, `attendance_export`, `invoice_total`, `invoice_prepare`, `invoice_apply`, `invoice_release`. Application tools return data without filesystem access. Lower returns source without compiling or writing it. The Codex plugin launches the installed native executable; it never falls back to Node or silently downloads/builds software. [Plugin skill](plugin/skills/rf2/SKILL.md).
+Native tools: `rf2_status`, `rf2_check`, `rf2_run`, `rf2_lower`, `attendance_export`, `invoice_total`, `invoice_prepare`, `invoice_apply`, `invoice_release`.
 
-## Evidence before claims
+MCP accepts bounded computation and defined application inputs. It does not expose arbitrary file paths, network access or systems-code execution. Lowering returns source; compiling a trusted program is an explicit developer action. The plugin launches an existing native binary and never silently builds, downloads or falls back to Node.
 
-- Invoice: 630 successful comparisons, 108 comparisons with 0.6 Core, 39 refusals, 200 seeded plan mutations and five CLI cases. [Receipt](docs/INVOICE-0.12-VERIFICATION.json).
-- Core: 1095 execution comparisons and 317 admission checks. [Receipt](docs/GENERAL-CORE-0.12-VERIFICATION.json).
-- Direct kernels: 18 builds and 163 executed cases. [Receipt](docs/DIRECT-KERNEL-0.12-VERIFICATION.json).
-- Compact: 1016 compatibility comparisons, input guards and transport mutations. [Receipt](docs/COMPACT-0.12-VERIFICATION.json).
-- Attendance: 34 successful exports/calendar cases, 45 refusals and three file-protection checks. [Receipt](docs/ATTENDANCE-0.12-VERIFICATION.json).
-- Compiler: native fixed point, independently expected results and full runtime byte comparison with the historical encoder. [Receipt](docs/NATIVE-COMPILER-0.12-VERIFICATION.json).
+## Evidence stays beside the code
 
-The optional 0.11 optimiser has a new matched runtime-input comparison against0.10 and Clang -O3. The results and remaining branch gap are reported above. Opt-in `rf2 mcp --compact` reduces the tested complete session's encoded o200k text by 6.70%, retaining structured results and errors. Default MCP output remains compatible. These are local kernel timings and exact interface encodings, not universal speed, model billing or AI code-generation claims. [Raw evidence and method](docs/LANGUAGE-MEASUREMENTS.md).
+**0.15 adds owned files and cleanup errors.** Atomic acquisition exposes no raw descriptor. I/O results require handling; release consumes the owner. Automatic close failure is visible while a primary error remains preserved. [Ownership contract](docs/RESOURCE-OWNERSHIP.md) · [Release receipt](docs/RELEASE-0.15-VERIFICATION.json).
 
-Current native qualification is Apple Silicon macOS. There is no independent security audit, universal platform support, field outcome or model council approval. The retained JavaScript/C reference, Python bootstrap/tests and publishing tools are developer dependencies, not user runtime requirements. Naming research projects does not establish hardware integration or scientific novelty.
+Independent ownership probes and full-output hex comparisons sit beside existing Unicode, compiler, runtime and MCP tests. WhatIF also ran a bounded disposable Studio check; HTTP availability is separate from compiler correctness. The updated book explains the design and remaining limits.
 
-## Rebuild and improve
+Performance is workload-specific. Some guarded reductions remove repeated work; other workloads remain slower than mature compilers. Encoded interface counts are not billed model usage. [Measurement method and limits](docs/LANGUAGE-MEASUREMENTS.md).
+
+## Build the next foundation
 
 ```sh
 ./rf2c native/compiler/compiler.rf2 next-rf2c
@@ -136,22 +79,8 @@ Current native qualification is Apple Silicon macOS. There is no independent sec
 ./tools/build-runtime.sh ./next-rf2c next-runtime
 ```
 
-The build composes nine RiverFlow runtime modules. It invokes no Python, Node, C/C++ compiler, assembler or linker. macOS signing and platform interfaces remain external dependencies. The systems compiler now admits at most 256 functions, with accepted upper-bound executions and refusal at 257. [Build scope](docs/NATIVE-COMPILER.md).
+The native rebuild uses RF2 plus OS file/signing utilities. Python, JavaScript, C references and publishing tools remain development dependencies. Current native qualification is Apple Silicon macOS. Android, iOS, web, x86, boot, concurrency and optical/GPU integration need separate implementations and target tests. RF2 does not yet replace every mature language ecosystem.
 
-The revised book has 23 numbered chapters, worked examples, application contracts, failures and measurements. Original code and text use the MIT licence. Referenced projects and dependencies retain their own licences.
+Bring a small complete program, a precise expected result and a reproducible failure. Contributions should preserve the original oracle and report both improvements and remaining gaps.
 
-## Why the GitHub language bar looks different
-
-GitHub uses Linguist's supported-language list, which does not yet include RiverFlow. Generated book HTML and generated kernels are marked accurately in `.gitattributes`. We do not relabel RiverFlow as another language or hide the reference tools. This project-owned inventory counts RiverFlow source explicitly, alongside development and website code. [Method and file list](docs/SOURCE-INVENTORY.json) · [GitHub language documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-repository-languages).
-
-![Source inventory](docs/SOURCE-INVENTORY.svg)
-
-## Research direction
-
-Kernel 8/9, Developmental AI, Tamil Time Continuum, VOIKE, RU'OS and the human-AI workplace study motivate testable questions. Their names are not implementation evidence. Next: profile large invoice inputs, independently review the compiler/parser, qualify more targets and measure complete AI tasks with real usage receipts. Keep each claim linked to its actual source, test and limitation.
-
-### Release 0.11 qualification
-
-Module/record tests execute 60 record cases, 150 comparisons with 0.9, 60 independently expected workload cases, 44 type refusals, 13 import refusals and 13 workload refusals. Boundary checks cover 16 fields, 32 record types, 32 source files, import depth and recursive record lifetime. Existing Core, compiler, direct kernel, SDK and application suites were rerun. [Module/type receipt](docs/MODULES-TYPES-0.11-VERIFICATION.json) · [Boundary receipt](docs/MODULE-BOUNDS-0.10.json).
-
-The default MCP mode retains all readable results; `--compact` is for clients that consume structuredContent. It does not expand source/file/network permissions. RF2 does not embed a language model or yet replace the Java, C++, Python or assembly ecosystems.
+[Full-stack direction](docs/RF2-FULL-STACK-DIRECTION.md) · [Source inventory](docs/SOURCE-INVENTORY.json) · [MIT licence](LICENSE)
