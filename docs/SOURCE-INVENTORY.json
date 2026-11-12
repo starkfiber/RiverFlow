@@ -25,10 +25,10 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "Python": 350104,
-    "RiverFlow": 319827,
+    "Python": 373569,
+    "RiverFlow": 333022,
     "JavaScript": 67293,
-    "HTML": 16718,
+    "HTML": 20585,
     "CSS": 10426,
     "Shell": 2683,
     "C": 390
@@ -67,7 +67,7 @@
     {
       "path": "bootstrap/seed.py",
       "language": "Python",
-      "bytes": 11453
+      "bytes": 11510
     },
     {
       "path": "capabilities/attendance.local.v1/tally.flow",
@@ -305,6 +305,26 @@
       "bytes": 860
     },
     {
+      "path": "examples/stack-lab/index.html",
+      "language": "HTML",
+      "bytes": 3867
+    },
+    {
+      "path": "examples/stack-lab/python_server.py",
+      "language": "Python",
+      "bytes": 2880
+    },
+    {
+      "path": "examples/stack-lab/server.rf2",
+      "language": "RiverFlow",
+      "bytes": 11134
+    },
+    {
+      "path": "examples/stack-lab/vm.rf2",
+      "language": "RiverFlow",
+      "bytes": 1917
+    },
+    {
       "path": "examples/sum.flow",
       "language": "RiverFlow",
       "bytes": 335
@@ -397,7 +417,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 94541
+      "bytes": 94685
     },
     {
       "path": "native/core.rf2",
@@ -562,7 +582,7 @@
     {
       "path": "tests/standalone/compiler_verify.py",
       "language": "Python",
-      "bytes": 8472
+      "bytes": 8561
     },
     {
       "path": "tests/standalone/conditional_reduction_verify.py",
@@ -850,6 +870,11 @@
       "bytes": 4525
     },
     {
+      "path": "tests/standalone/trust_protocol_keys.py",
+      "language": "Python",
+      "bytes": 4280
+    },
+    {
       "path": "tests/standalone/trust_sdk.mjs",
       "language": "JavaScript",
       "bytes": 1677
@@ -930,6 +955,11 @@
       "bytes": 771
     },
     {
+      "path": "tools/build-stack-lab.py",
+      "language": "Python",
+      "bytes": 1281
+    },
+    {
       "path": "tools/build-studio.py",
       "language": "Python",
       "bytes": 1666
@@ -937,12 +967,17 @@
     {
       "path": "tools/build-trust.py",
       "language": "Python",
-      "bytes": 1578
+      "bytes": 1723
     },
     {
       "path": "tools/check-book-examples.mjs",
       "language": "JavaScript",
       "bytes": 858
+    },
+    {
+      "path": "tools/macho-empty-dyld.py",
+      "language": "Python",
+      "bytes": 1185
     },
     {
       "path": "tools/measure-capability.py",
@@ -975,9 +1010,24 @@
       "bytes": 5170
     },
     {
+      "path": "tools/measure-stack-lab.py",
+      "language": "Python",
+      "bytes": 4851
+    },
+    {
       "path": "tools/measure-studio.py",
       "language": "Python",
       "bytes": 6374
+    },
+    {
+      "path": "tools/package-trust-candidate.py",
+      "language": "Python",
+      "bytes": 2368
+    },
+    {
+      "path": "tools/prepare-vm-lab.py",
+      "language": "Python",
+      "bytes": 2081
     },
     {
       "path": "tools/profile-invoice.py",
@@ -985,9 +1035,19 @@
       "bytes": 3183
     },
     {
+      "path": "tools/qualify-second-host.py",
+      "language": "Python",
+      "bytes": 3595
+    },
+    {
       "path": "tools/source-inventory.py",
       "language": "Python",
       "bytes": 2418
+    },
+    {
+      "path": "tools/stop-stack-showcase.py",
+      "language": "Python",
+      "bytes": 653
     },
     {
       "path": "tools/sync-contract-json.py",

@@ -79,3 +79,7 @@ The source inventory counts developer tests and publishing tools alongside RF2. 
 Next gates: independently reproduce on another host/toolchain; inspect the protocol and cryptographic implementation externally; establish a signing/key-rotation threat model if public signatures are required; test whole developer repair tasks; broaden language capabilities with real target qualification. The stable release and published download assets remain 0.17 until their own release qualification and packaging are completed.
 
 Primary references: [HMAC construction, RFC2104](https://www.rfc-editor.org/rfc/rfc2104), [HMAC-SHA256 test vectors, RFC4231](https://www.rfc-editor.org/rfc/rfc4231). Tests support scoped implementation behavior, not degree approval or claimed new cryptography.
+
+## Hosted qualification and application continuation, 13 November
+
+A second hosted ARM Mac exposed a macOS 15 loader-container defect, now corrected in the native emitter and retained development encoder. The failed bootstrap and intermediate repairs are preserved. The final hosted run passed the finite suites, including 245 additional key/protocol checks. This is another environment of the same architecture and toolchain lineage. Rotation requires service restart. See [deployment and compatibility record](STACK-LAB-0.18.md) and [final hosted evidence](SECOND-HOST-0.18-FINAL.json). Exact candidate archive tests passed locally; that archive has not itself been run remotely. Stable downloads remain 0.17.

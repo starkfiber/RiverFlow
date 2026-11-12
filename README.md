@@ -24,6 +24,10 @@ A separate native verifier, HMAC-authenticated receipts and three bounded contra
 
 Shared-key authentication is not a public signature or proof of uncompromised hardware. The separate algorithm catches the tested two-path defect; a shared three-path defect still escapes. Stable downloads remain 0.17 while the new edition undergoes release qualification.
 
+## Now running: one website, three execution paths
+
+A native RF2 server, host Python control and Python inside a real HVF Linux guest serve the same page and checked computation. RF2's VM controller launches QEMU; QEMU supplies virtualization. The local 3,600-request experiment and its confounders are [fully recorded](docs/STACK-LAB-0.18.md). A second hosted ARM Mac also exposed and verified a fix for the compiler's macOS 15 loader metadata. Stable downloads remain 0.17 while exact-package release checks finish.
+
 ## Start with something real
 
 The Apple Silicon Mac package contains ready-to-run tools. Users need no Node, npm, Python or C++ runtime.

@@ -1,0 +1,11 @@
+"""Package a separately labelled development candidate. Never reads key files or VM disks."""
+from pathlib import Path
+import shutil,sys,hashlib,json,tarfile,subprocess
+R=Path(__file__).resolve().parents[1];out=R/'output';name='rf2-trust-0.18.0-candidate-macos-arm64';stage=out/name;stage.mkdir(exist_ok=False)
+items={'rf2c':R/'output/native-compiler/rf2c-dyld-new','rf2-trust':R/'output/trust-018-releasecandidate/rf2-trust','rf2-verify':R/'output/trust-018-releasecandidate/rf2-verify','rf2-site':R/'output/stack-lab-0.18/rf2-site','rf2-vm':R/'output/stack-lab-0.18/rf2-vm'}
+for name_,p in items.items():shutil.copy2(p,stage/name_)
+shutil.copytree(R/'examples/stack-lab',stage/'examples/stack-lab');shutil.copy2(R/'LICENSE',stage/'LICENSE');shutil.copy2(R/'docs/STACK-LAB-0.18.md',stage/'EXPERIMENT.md');shutil.copy2(R/'output/trust-018-releasecandidate/BUILD.json',stage/'BUILD.json')
+(stage/'README.txt').write_text('RF2 0.18 development candidate, macOS ARM64\nSeparate trust and website research bundle. Stable full runtime remains0.17.\nNative programs require no Node/npm/Python runtime.\n./rf2-trust keygen /private/new-key\n./rf2-trust mcp /private/new-key\n./rf2-site\nThe VM controller needs separately installed QEMU/HVF, firmware and a reviewed Linux image/seed.\nPython reference server and benchmark controller are development/guest components only.\nHMAC uses a shared key, not a public signature. Rotation requires restart. No anti-replay or hardware attestation.\nAd-hoc signed, not Developer-ID signed or notarized. Do not bypass OS security warnings; build/review locally if required.\nThis is not an RF2 hypervisor or production HTTP framework.\nAuthor Ilangkhumanan Thirunavokkarasu. Published by SFE. MIT.\n')
+manifest={'edition':'0.18.0-candidate','stableUnchanged':'0.17.0','commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=R,text=True).strip(),'files':{str(p.relative_to(stage)):hashlib.sha256(p.read_bytes()).hexdigest()for p in stage.rglob('*')if p.is_file()},'keysIncluded':False,'vmDisksIncluded':False,'notarized':False};(stage/'MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n');archive=out/(name+'.tar.gz')
+with tarfile.open(archive,'w:gz')as t:t.add(stage,arcname=name)
+(out/'SHA256SUMS-0.18-candidate.txt').write_text(hashlib.sha256(archive.read_bytes()).hexdigest()+'  '+archive.name+'\n');print(archive)

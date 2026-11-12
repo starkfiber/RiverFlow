@@ -1,0 +1,993 @@
+{
+  "passed": true,
+  "checks": 245,
+  "seed": 180019,
+  "controllerSHA256": "1454a94dd72e485586b90ff2415ea5a558f422702a9f23b512362310e093d85c",
+  "results": [
+    {
+      "name": "keygen",
+      "passed": true
+    },
+    {
+      "name": "reject directory",
+      "passed": true
+    },
+    {
+      "name": "reject fifo",
+      "passed": true
+    },
+    {
+      "name": "reject symlink",
+      "passed": true
+    },
+    {
+      "name": "reject short",
+      "passed": true
+    },
+    {
+      "name": "reject long",
+      "passed": true
+    },
+    {
+      "name": "reject unix socket",
+      "passed": true
+    },
+    {
+      "name": "reject mode 0o0",
+      "passed": true
+    },
+    {
+      "name": "reject mode 0o400",
+      "passed": true
+    },
+    {
+      "name": "reject mode 0o640",
+      "passed": true
+    },
+    {
+      "name": "reject mode 0o644",
+      "passed": true
+    },
+    {
+      "name": "reject mode 0o666",
+      "passed": true
+    },
+    {
+      "name": "reject mode 0o700",
+      "passed": true
+    },
+    {
+      "name": "different key rejects",
+      "passed": true
+    },
+    {
+      "name": "original key accepts",
+      "passed": true
+    },
+    {
+      "name": "init",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 0",
+      "passed": true
+    },
+    {
+      "name": "recovery 0",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 1",
+      "passed": true
+    },
+    {
+      "name": "recovery 1",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 2",
+      "passed": true
+    },
+    {
+      "name": "recovery 2",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 3",
+      "passed": true
+    },
+    {
+      "name": "recovery 3",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 4",
+      "passed": true
+    },
+    {
+      "name": "recovery 4",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 5",
+      "passed": true
+    },
+    {
+      "name": "recovery 5",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 6",
+      "passed": true
+    },
+    {
+      "name": "recovery 6",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 7",
+      "passed": true
+    },
+    {
+      "name": "recovery 7",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 8",
+      "passed": true
+    },
+    {
+      "name": "recovery 8",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 9",
+      "passed": true
+    },
+    {
+      "name": "recovery 9",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 10",
+      "passed": true
+    },
+    {
+      "name": "recovery 10",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 11",
+      "passed": true
+    },
+    {
+      "name": "recovery 11",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 12",
+      "passed": true
+    },
+    {
+      "name": "recovery 12",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 13",
+      "passed": true
+    },
+    {
+      "name": "recovery 13",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 14",
+      "passed": true
+    },
+    {
+      "name": "recovery 14",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 15",
+      "passed": true
+    },
+    {
+      "name": "recovery 15",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 16",
+      "passed": true
+    },
+    {
+      "name": "recovery 16",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 17",
+      "passed": true
+    },
+    {
+      "name": "recovery 17",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 18",
+      "passed": true
+    },
+    {
+      "name": "recovery 18",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 19",
+      "passed": true
+    },
+    {
+      "name": "recovery 19",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 20",
+      "passed": true
+    },
+    {
+      "name": "recovery 20",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 21",
+      "passed": true
+    },
+    {
+      "name": "recovery 21",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 22",
+      "passed": true
+    },
+    {
+      "name": "recovery 22",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 23",
+      "passed": true
+    },
+    {
+      "name": "recovery 23",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 24",
+      "passed": true
+    },
+    {
+      "name": "recovery 24",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 25",
+      "passed": true
+    },
+    {
+      "name": "recovery 25",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 26",
+      "passed": true
+    },
+    {
+      "name": "recovery 26",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 27",
+      "passed": true
+    },
+    {
+      "name": "recovery 27",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 28",
+      "passed": true
+    },
+    {
+      "name": "recovery 28",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 29",
+      "passed": true
+    },
+    {
+      "name": "recovery 29",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 30",
+      "passed": true
+    },
+    {
+      "name": "recovery 30",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 31",
+      "passed": true
+    },
+    {
+      "name": "recovery 31",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 32",
+      "passed": true
+    },
+    {
+      "name": "recovery 32",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 33",
+      "passed": true
+    },
+    {
+      "name": "recovery 33",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 34",
+      "passed": true
+    },
+    {
+      "name": "recovery 34",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 35",
+      "passed": true
+    },
+    {
+      "name": "recovery 35",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 36",
+      "passed": true
+    },
+    {
+      "name": "recovery 36",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 37",
+      "passed": true
+    },
+    {
+      "name": "recovery 37",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 38",
+      "passed": true
+    },
+    {
+      "name": "recovery 38",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 39",
+      "passed": true
+    },
+    {
+      "name": "recovery 39",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 40",
+      "passed": true
+    },
+    {
+      "name": "recovery 40",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 41",
+      "passed": true
+    },
+    {
+      "name": "recovery 41",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 42",
+      "passed": true
+    },
+    {
+      "name": "recovery 42",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 43",
+      "passed": true
+    },
+    {
+      "name": "recovery 43",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 44",
+      "passed": true
+    },
+    {
+      "name": "recovery 44",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 45",
+      "passed": true
+    },
+    {
+      "name": "recovery 45",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 46",
+      "passed": true
+    },
+    {
+      "name": "recovery 46",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 47",
+      "passed": true
+    },
+    {
+      "name": "recovery 47",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 48",
+      "passed": true
+    },
+    {
+      "name": "recovery 48",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 49",
+      "passed": true
+    },
+    {
+      "name": "recovery 49",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 50",
+      "passed": true
+    },
+    {
+      "name": "recovery 50",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 51",
+      "passed": true
+    },
+    {
+      "name": "recovery 51",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 52",
+      "passed": true
+    },
+    {
+      "name": "recovery 52",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 53",
+      "passed": true
+    },
+    {
+      "name": "recovery 53",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 54",
+      "passed": true
+    },
+    {
+      "name": "recovery 54",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 55",
+      "passed": true
+    },
+    {
+      "name": "recovery 55",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 56",
+      "passed": true
+    },
+    {
+      "name": "recovery 56",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 57",
+      "passed": true
+    },
+    {
+      "name": "recovery 57",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 58",
+      "passed": true
+    },
+    {
+      "name": "recovery 58",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 59",
+      "passed": true
+    },
+    {
+      "name": "recovery 59",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 60",
+      "passed": true
+    },
+    {
+      "name": "recovery 60",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 61",
+      "passed": true
+    },
+    {
+      "name": "recovery 61",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 62",
+      "passed": true
+    },
+    {
+      "name": "recovery 62",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 63",
+      "passed": true
+    },
+    {
+      "name": "recovery 63",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 64",
+      "passed": true
+    },
+    {
+      "name": "recovery 64",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 65",
+      "passed": true
+    },
+    {
+      "name": "recovery 65",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 66",
+      "passed": true
+    },
+    {
+      "name": "recovery 66",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 67",
+      "passed": true
+    },
+    {
+      "name": "recovery 67",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 68",
+      "passed": true
+    },
+    {
+      "name": "recovery 68",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 69",
+      "passed": true
+    },
+    {
+      "name": "recovery 69",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 70",
+      "passed": true
+    },
+    {
+      "name": "recovery 70",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 71",
+      "passed": true
+    },
+    {
+      "name": "recovery 71",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 72",
+      "passed": true
+    },
+    {
+      "name": "recovery 72",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 73",
+      "passed": true
+    },
+    {
+      "name": "recovery 73",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 74",
+      "passed": true
+    },
+    {
+      "name": "recovery 74",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 75",
+      "passed": true
+    },
+    {
+      "name": "recovery 75",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 76",
+      "passed": true
+    },
+    {
+      "name": "recovery 76",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 77",
+      "passed": true
+    },
+    {
+      "name": "recovery 77",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 78",
+      "passed": true
+    },
+    {
+      "name": "recovery 78",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 79",
+      "passed": true
+    },
+    {
+      "name": "recovery 79",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 80",
+      "passed": true
+    },
+    {
+      "name": "recovery 80",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 81",
+      "passed": true
+    },
+    {
+      "name": "recovery 81",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 82",
+      "passed": true
+    },
+    {
+      "name": "recovery 82",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 83",
+      "passed": true
+    },
+    {
+      "name": "recovery 83",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 84",
+      "passed": true
+    },
+    {
+      "name": "recovery 84",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 85",
+      "passed": true
+    },
+    {
+      "name": "recovery 85",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 86",
+      "passed": true
+    },
+    {
+      "name": "recovery 86",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 87",
+      "passed": true
+    },
+    {
+      "name": "recovery 87",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 88",
+      "passed": true
+    },
+    {
+      "name": "recovery 88",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 89",
+      "passed": true
+    },
+    {
+      "name": "recovery 89",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 90",
+      "passed": true
+    },
+    {
+      "name": "recovery 90",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 91",
+      "passed": true
+    },
+    {
+      "name": "recovery 91",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 92",
+      "passed": true
+    },
+    {
+      "name": "recovery 92",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 93",
+      "passed": true
+    },
+    {
+      "name": "recovery 93",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 94",
+      "passed": true
+    },
+    {
+      "name": "recovery 94",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 95",
+      "passed": true
+    },
+    {
+      "name": "recovery 95",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 96",
+      "passed": true
+    },
+    {
+      "name": "recovery 96",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 97",
+      "passed": true
+    },
+    {
+      "name": "recovery 97",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 98",
+      "passed": true
+    },
+    {
+      "name": "recovery 98",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 99",
+      "passed": true
+    },
+    {
+      "name": "recovery 99",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 100",
+      "passed": true
+    },
+    {
+      "name": "recovery 100",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 101",
+      "passed": true
+    },
+    {
+      "name": "recovery 101",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 102",
+      "passed": true
+    },
+    {
+      "name": "recovery 102",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 103",
+      "passed": true
+    },
+    {
+      "name": "recovery 103",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 104",
+      "passed": true
+    },
+    {
+      "name": "recovery 104",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 105",
+      "passed": true
+    },
+    {
+      "name": "recovery 105",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 106",
+      "passed": true
+    },
+    {
+      "name": "recovery 106",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 107",
+      "passed": true
+    },
+    {
+      "name": "recovery 107",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 108",
+      "passed": true
+    },
+    {
+      "name": "recovery 108",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 109",
+      "passed": true
+    },
+    {
+      "name": "recovery 109",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 110",
+      "passed": true
+    },
+    {
+      "name": "recovery 110",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 111",
+      "passed": true
+    },
+    {
+      "name": "recovery 111",
+      "passed": true
+    },
+    {
+      "name": "malformed refusal 112",
+      "passed": true
+    },
+    {
+      "name": "recovery 112",
+      "passed": true
+    },
+    {
+      "name": "existing session retains original key",
+      "passed": true
+    },
+    {
+      "name": "clean EOF",
+      "passed": true
+    },
+    {
+      "name": "restart loads rotated key",
+      "passed": true
+    }
+  ],
+  "limits": [
+    "Bounded cases, not proof against arbitrary peers or local same-user compromise",
+    "Key snapshot per process; administrator rotation requires restart; no replay rejection",
+    "No key bytes retained in this report; test directory removed"
+  ]
+}

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Developer builder. Resulting trust/verifier programs execute only native RF2."""
 from pathlib import Path
-import sys,subprocess,hashlib,json
-R=Path(__file__).resolve().parents[1];D=R/'examples/evidence-contract';out=Path(sys.argv[1]).resolve();out.mkdir(parents=True,exist_ok=False);compiler=R/'output/native-compiler/rf2c'
+import sys,subprocess,hashlib,json,os
+R=Path(__file__).resolve().parents[1];D=R/'examples/evidence-contract';out=Path(sys.argv[1]).resolve();out.mkdir(parents=True,exist_ok=False);compiler=Path(os.environ.get('RF2_TEST_COMPILER',R/'output/native-compiler/rf2c'))
 h=hashlib.sha256(b'RF2-CONTRACT-SOURCE-1\0');sources=[]
 for p in sorted(D.rglob('*.rf2')):
  if p.name=='build_identity.rf2':continue

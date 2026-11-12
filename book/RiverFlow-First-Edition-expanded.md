@@ -1284,6 +1284,29 @@ The complete local MCP workflow was measured separately. Its run and verify call
 
 Read docs/TRUST-0.18.md and its raw measurements before reusing these numbers. Independent toolchain replication, external protocol review and real developer tasks remain open. A useful edition makes these boundaries easier to inspect rather than calling a collection of passing tests universal proof.
 
+# 33. A website across native and virtual execution
+
+A language becomes useful when a small application can be built, challenged and measured. This experiment serves one website in three ways. A native RF2 server runs on macOS. A Python server runs on the same Mac as a control. The same Python server runs inside an Ubuntu Linux guest, launched by a native RF2 controller through QEMU and Apple's HVF accelerator.
+
+The distinction matters. RF2 owns the controller and native server source. QEMU owns the virtual device model and invokes hardware virtualization. Linux, Python, macOS and the browser retain their own responsibilities. A successful guest boot does not establish that RF2 implements a hypervisor, nor that software has changed a transistor's physical design.
+
+All three return the same page bytes and integer recurrence result. The computation begins with state one, applies a wrapping 32-bit linear recurrence and sums the resulting states. The endpoint permits zero through one hundred thousand steps. Invalid counts and ambiguous request framing are refused. This is a bounded HTTP subset for local research, not a production web framework.
+
+| Request | RF2 native, ms | Python host, ms | Python Linux guest, ms |
+| --- | --- | --- | --- |
+| Shared page | 0.150 | 0.172 | 0.247 |
+| 10,000 recurrence steps | 0.177 | 0.758 | 0.787 |
+
+These median full-response times came from fifteen shuffled rounds on one physical Mac. The complete experiment measured 3,600 responses, with concurrency one and four. Every response body was checked. The table shows concurrency one. The Python host control is necessary because guest networking and operating-system costs cannot be assigned to a programming language. The native recurrence endpoint was faster in this implementation, while the static-page difference against host Python was small. Guest concurrent tail latency was unstable and remains visible in the raw evidence.
+
+Three sixty-request WhatIF suites passed their bounded smoke checks and hash verification. Sixty-three separate preflight checks covered content, known computation answers, invalid inputs, framing refusals and disconnect recovery. None of these tests establish arbitrary HTTP conformance, internet capacity, energy savings or token savings.
+
+The second-host exercise found a defect before RF2 entered its own main function. macOS 15's loader followed a legacy relocation path for the old executable container. Explicit empty dyld fixup metadata corrected the observed failure. The pinned old bootstrap and its first generated compiler container both needed that metadata; subsequent compiler output emits it directly. The retained development encoder was updated consistently. Three-stage native fixed points, execution tests and SDK checks passed locally. The hosted ARM Mac then passed the finite trust, cryptographic and byte-state suites. It is a second environment on the same architecture, not an independent toolchain.
+
+The key tests also clarify deployment. The native MCP service reads its administrator-owned key once. Changing the file does not silently change an existing session's authority; rotation requires a restart. Two hundred and forty-five additional local checks exercised malformed input, refusal recovery and unsuitable key paths or permissions. Shared-key authentication still cannot establish public authorship or prevent deliberate replay.
+
+The reproducible source, measurements, failed attempts and qualification record are linked in docs/STACK-LAB-0.18.md. Stable 0.17 downloads are preserved while a separate 0.18 candidate is packaged and checked. The useful achievement is an application with visible boundaries and measured behavior. A complete RF2 hypervisor remains a separate platform project with guest-memory, device, interruption and lifecycle requirements.
+
 # Appendix A. Commands and interfaces
 
 Native standalone, no Node or npm required:
