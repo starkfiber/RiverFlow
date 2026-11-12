@@ -806,6 +806,7 @@ fn scan_functions_more(f)
    do require(load64(token(t)) == 1, "function name required")
    do require(logical_name(t) == 0, "reserved logical name")
    do require((tmatch(t, "read_bytes") | tmatch(t, "write_bytes") | tmatch(t, "read_owned") | tmatch(t, "write_owned") | tmatch(t, "release") | tmatch(t, "buffer_reserve") | tmatch(t, "buffer_push") | tmatch(t, "buffer_get") | tmatch(t, "buffer_clear")) == 0, "reserved IO name")
+   do require(tmatch(t,"platform_call")==0,"reserved platform name")
    do require(record_index(t) == 0, "function collides with record")
    set other = 0
    while other < f
@@ -1701,7 +1702,125 @@ fn invoke_logic(name, depth)
  do store64(state() + 136, 0)
  return 0
 end
+# Explicit CLI-only platform imports; scalar ABI and fixed system framework only.
+fn platform_state()
+ return buffer("platform_state",24)
+end
+fn platform_import(i)
+ do require(i<32,"platform import bound")
+ return buffer("platform_imports",768)+i*24
+end
+fn platform_arity(t)
+ if tmatch(t,"hv_vm_create") | tmatch(t,"hv_vm_get_max_vcpu_count") | tmatch(t,"hv_vcpu_destroy") | tmatch(t,"hv_vcpu_run")
+  return 2
+ end
+ if tmatch(t,"hv_vm_destroy")
+  return 1
+ end
+ if tmatch(t,"hv_vm_map")
+  return 5
+ end
+ if tmatch(t,"hv_vm_unmap") | tmatch(t,"hv_vcpus_exit")
+  return 3
+ end
+ if tmatch(t,"hv_vm_protect") | tmatch(t,"hv_vcpu_create") | tmatch(t,"hv_vcpu_set_reg") | tmatch(t,"hv_vcpu_get_reg")
+  return 4
+ end
+ return 0
+end
+fn platform_object(t)
+ let i = 0
+ let n = load64(platform_state())
+ while i<n
+  if name_equal(load64(platform_import(i)),t)
+   return load64(platform_import(i)+8)
+  end
+  set i = i+1
+ end
+ do require(n<32,"platform import bound")
+ let obj = intern(3,t,8)
+ do store64(platform_import(n),t)
+ do store64(platform_import(n)+8,obj)
+ do store64(platform_state(),n+1)
+ return obj
+end
+fn invoke_platform(depth)
+ let library = advance()
+ do require(load64(token(library))==3,"platform library literal required")
+ do require(tmatch(library,"Hypervisor"),"unsupported platform library")
+ do expect(",")
+ let symbol = advance()
+ do require(load64(token(symbol))==3,"platform symbol literal required")
+ let arity = platform_arity(symbol)
+ do require(arity!=0,"unsupported platform symbol")
+ let count = 0
+ if match(",")
+  do advance()
+  set count = arguments(depth,0)
+ end
+ do expect(")")
+ do require(count+1==arity,"platform call arity")
+ let i = count
+ while i!=0
+  set i = i-1
+  do emit(4181722080|i)
+  do emit(2432713727)
+ end
+ do address(16,platform_object(symbol))
+ do emit(4181721616)
+ # LDR X16,[X16]; BLR X16. Imported functions follow the system scalar ABI.
+ do emit(3594453504)
+ do emit(3544186880|(31<<10))
+ do store64(state()+136,0)
+ return 0
+end
+fn bind_byte(v)
+ let n = load64(platform_state()+8)
+ do require(n<16384,"platform bind bound")
+ do store8(buffer("platform_bind",16384)+n,v)
+ do store64(platform_state()+8,n+1)
+ return 0
+end
+fn bind_uleb(v)
+ while v>=128
+  do bind_byte((v&127)|128)
+  set v = v>>7
+ end
+ return bind_byte(v)
+end
+fn platform_bindings()
+ let i = 0
+ let j = 0
+ let t = 0
+ let raw = 0
+ while i<load64(platform_state())
+  set t = token(load64(platform_import(i)))
+  do bind_byte(18)
+  do bind_byte(64)
+  do bind_byte(95)
+  set j = 0
+  set raw = load64(t+8)
+  while j<load64(t+16)
+   do bind_byte(load8(raw+j))
+   set j = j+1
+  end
+  do bind_byte(0)
+  do bind_byte(81)
+  do bind_byte(114)
+  do bind_uleb(load64(object(load64(platform_import(i)+8))+24))
+  do bind_byte(144)
+  set i = i+1
+ end
+ if i!=0
+  do bind_byte(0)
+ end
+ return load64(platform_state()+8)
+end
 fn invoke(name, depth)
+ if tmatch(name,"platform_call")
+  do require(load64(state()+200)==0,"calls forbidden while view is live")
+  return invoke_platform(depth)
+ end
  if tmatch(name, "all") | tmatch(name, "any") | tmatch(name, "not")
   return invoke_logic(name, depth)
  end
@@ -3112,11 +3231,16 @@ fn image_header(dataoff, datasize, digest)
  let text = 0
  let string_size = 0
  let commands_end = 0
+ let binds = platform_bindings()
+ let total_commands = 10
+ if load64(platform_state())!=0
+  set total_commands = 11
+ end
  do append32(4277009103)
  do append32(16777228)
  do append32(0)
  do append32(2)
- do append32(10)
+ do append32(total_commands)
  do append32(0)
  do append32(2097285)
  do append32(0)
@@ -3149,11 +3273,28 @@ fn image_header(dataoff, datasize, digest)
  do append32(917504)
  do append32(1703936)
  do append32(0)
- do segment("__LINKEDIT", base + dataoff + datasize, 0, dataoff + datasize, 0, 1)
+ if load64(platform_state())!=0
+  do append32(12)
+  do append32(112)
+  do append32(24)
+  do append32(0)
+  do append32(65536)
+  do append32(65536)
+  do append_bytes("/System/Library/Frameworks/Hypervisor.framework/Versions/A/Hypervisor",70)
+  do header_zero(18)
+ end
+ do segment("__LINKEDIT",base+dataoff+datasize,(binds+16383)&18446744073709535232,dataoff+datasize,binds,1)
  # Explicit empty fixup metadata avoids macOS15 dyld legacy relocation fallback.
  do append32(2147483682)
  do append32(48)
- do header_zero(40)
+ do header_zero(8)
+ if binds!=0
+  do append32(dataoff+datasize)
+ else
+  do append32(0)
+ end
+ do append32(binds)
+ do header_zero(24)
  set commands_end = load64(state() + 96)
  do store32(header() + 20, commands_end - 32)
  return 0
@@ -3208,6 +3349,7 @@ fn image(path, dataoff, datasize)
   set i = i + 1
  end
  do zeros(fd, datasize - cursor)
+ do output(fd,buffer("platform_bind",16384),load64(platform_state()+8))
  do require(close(fd) == 0, "output close failed")
  return 0
 end

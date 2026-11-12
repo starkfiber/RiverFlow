@@ -1,0 +1,230 @@
+profile RF2_SYSTEM_A64_V1
+# RF2 VMM foundation. Apple's Hypervisor.framework owns hardware virtualization.
+# No QEMU, subprocess, Linux loader or virtual device model is used here.
+fn state()
+ return buffer("vm_state",96)
+end
+fn check(code,stage)
+ if code!=0
+  do store64(state()+32,code)
+  return stage
+ end
+ return 0
+end
+fn probe(mode,left,right)
+ let code=platform_call("Hypervisor","hv_vm_create",0)
+ if code!=0
+  do store64(state()+32,code)
+  return 1
+ end
+ do store64(state(),1)
+ # A duplicate VM must be refused without losing the first one.
+ if platform_call("Hypervisor","hv_vm_create",0)==0
+  return 2
+ end
+ let mem=syscall6(197,0,32768,3,4098,18446744073709551615,0)
+ if mem>>63
+  return 3
+ end
+ do store64(state()+8,mem)
+ # ADD X0,X0,X1; STR X0,[X2]; HVC #0. No guest loop or OS access.
+ do store32(mem,2332098560)
+ do store32(mem+4,4177526848)
+ do store32(mem+8,3556769794)
+ if platform_call("Hypervisor","hv_vm_map",mem+1,65536,16384,5)==0
+  return 4
+ end
+ if platform_call("Hypervisor","hv_vm_map",mem,65537,16384,5)==0
+  return 5
+ end
+ set code=platform_call("Hypervisor","hv_vm_map",mem,65536,16384,5)
+ if code!=0
+  do store64(state()+32,code)
+  return 6
+ end
+ do store64(state()+16,1)
+ set code=platform_call("Hypervisor","hv_vm_map",mem+16384,81920,16384,3)
+ if code!=0
+  return 15
+ end
+ do store64(state()+64,1)
+ if mode==1
+  if platform_call("Hypervisor","hv_vm_protect",81920,16384,1)!=0
+   return 16
+  end
+ end
+ if mode==3
+  if platform_call("Hypervisor","hv_vm_protect",65536,16384,1)!=0
+   return 17
+  end
+ end
+ let cpu=buffer("vcpu",8)
+ let exitinfo=buffer("exit_info_pointer",8)
+ set code=platform_call("Hypervisor","hv_vcpu_create",cpu,exitinfo,0)
+ if code!=0
+  do store64(state()+32,code)
+  return 7
+ end
+ do store64(state()+24,1)
+ set code=platform_call("Hypervisor","hv_vcpu_set_reg",load64(cpu),31,65536)
+ if code!=0
+  return 8
+ end
+ set code=platform_call("Hypervisor","hv_vcpu_set_reg",load64(cpu),34,965)
+ if code!=0
+  return 9
+ end
+ if platform_call("Hypervisor","hv_vcpu_set_reg",load64(cpu),4294967295,0)==0
+  return 18
+ end
+ if platform_call("Hypervisor","hv_vcpu_set_reg",load64(cpu),0,left)!=0
+  return 19
+ end
+ if platform_call("Hypervisor","hv_vcpu_set_reg",load64(cpu),1,right)!=0
+  return 20
+ end
+ let target=81920
+ if mode==2
+  set target=98304
+ end
+ if platform_call("Hypervisor","hv_vcpu_set_reg",load64(cpu),2,target)!=0
+  return 21
+ end
+ set code=platform_call("Hypervisor","hv_vcpu_run",load64(cpu))
+ if code!=0
+  do store64(state()+32,code)
+  return 10
+ end
+ let result=buffer("guest_result",8)
+ set code=platform_call("Hypervisor","hv_vcpu_get_reg",load64(cpu),0,result)
+ if code!=0
+  return 11
+ end
+ do store64(state()+40,load64(result))
+ let ex=load64(exitinfo)
+ do store64(state()+48,load32(ex))
+ do store64(state()+56,load64(ex+8))
+ do store64(state()+72,load64(mem+16384))
+ if mode==0
+  if any(load64(result)!=left+right,load64(mem+16384)!=left+right)
+   return 12
+  end
+ else
+  if all(mode!=3,load64(result)!=left+right)
+   return 23
+  end
+  if all(mode==3,load64(result)!=left)
+   return 24
+  end
+  if load64(mem+16384)!=0
+   return 22
+  end
+ end
+ if load32(ex)!=1
+  return 13
+ end
+ let expected=22
+ if any(mode==1,mode==2)
+  set expected=36
+ end
+ if mode==3
+  set expected=32
+ end
+ if (load64(ex+8)>>26)!=expected
+  return 14
+ end
+ return 0
+end
+fn cleanup()
+ let errors=0
+ if load64(state()+24)
+  if platform_call("Hypervisor","hv_vcpu_destroy",load64(buffer("vcpu",8)))!=0
+   set errors=errors|1
+  end
+ end
+ if load64(state()+16)
+  if platform_call("Hypervisor","hv_vm_unmap",65536,16384)!=0
+   set errors=errors|2
+  end
+ end
+ if load64(state()+64)
+  if platform_call("Hypervisor","hv_vm_unmap",81920,16384)!=0
+   set errors=errors|16
+  end
+ end
+ if load64(state()+8)
+  if syscall6(73,load64(state()+8),32768,0,0,0,0)!=0
+   set errors=errors|4
+  end
+ end
+ if load64(state())
+  if platform_call("Hypervisor","hv_vm_destroy")!=0
+   set errors=errors|8
+  end
+ end
+ return errors
+end
+fn decimal(p)
+ let n=0
+ let i=0
+ while load8(p+i)!=0
+  let c=load8(p+i)
+  if any(c<48,any(c>57,i>=10))
+   return 18446744073709551615
+  end
+  if all(i==1,load8(p)==48)
+   return 18446744073709551615
+  end
+  set n=n*10+c-48
+  if n>4294967295
+   return 18446744073709551615
+  end
+  set i=i+1
+ end
+ if i==0
+  return 18446744073709551615
+ end
+ return n
+end
+fn main(argc,argv)
+ let mode=0
+ let left=19
+ let right=23
+ if argc==4
+  set mode=decimal(load64(argv+8))
+  set left=decimal(load64(argv+16))
+  set right=decimal(load64(argv+24))
+ else
+  if argc!=1
+   return 90
+  end
+ end
+ if any(mode>3,any(left>4294967295,right>4294967295))
+  return 90
+ end
+ let result=probe(mode,left,right)
+ let errors=cleanup()
+ # Reacquire in the same process: cleanup is checked before process exit can help.
+ if all(result==0,errors==0)
+  if platform_call("Hypervisor","hv_vm_create",0)!=0
+   set errors=errors|32
+  else
+   if platform_call("Hypervisor","hv_vm_destroy")!=0
+    set errors=errors|64
+   end
+  end
+ end
+ # Raw little-endian u64 observation tuple: API error,value,reason,ESR,data,cleanup.
+ let out=buffer("observations",48)
+ do store64(out,load64(state()+32))
+ do store64(out+8,load64(state()+40))
+ do store64(out+16,load64(state()+48))
+ do store64(out+24,load64(state()+56))
+ do store64(out+32,load64(state()+72))
+ do store64(out+40,errors)
+ do write(1,out,48)
+ if errors!=0
+  return 64+errors
+ end
+ return result
+end

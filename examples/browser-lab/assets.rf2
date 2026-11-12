@@ -1,0 +1,47 @@
+# Fixed asset allowlist; request paths are never appended to filesystem paths.
+fn asset_root()
+ return buffer("asset_root",8)
+end
+fn serve_asset(fd,name,kind)
+ let root=load64(asset_root())
+ let n=length(root)
+ if any(n==0,n>900)
+  return reply(fd,"404 Not Found","{\"error\":\"asset-root\"}\n")
+ end
+ let path=buffer("asset_path",1024)
+ do copy(path,root,n)
+ do store8(path+n,47)
+ do copy(path+n+1,name,length(name)+1)
+ let file=open(path,260,0)
+ if file>>63
+  return reply(fd,"404 Not Found","{\"error\":\"asset\"}\n")
+ end
+ let stat=buffer("asset_stat",144)
+ if syscall6(339,file,stat,0,0,0,0)!=0
+  do close(file)
+  return 0
+ end
+ if (load32(stat+4)&61440)!=32768
+  do close(file)
+  return 0
+ end
+ let bytes=buffer("asset_bytes",1048577)
+ let used=0
+ let done=0
+ while all(used<1048577,done==0)
+  let got=read(file,bytes+used,1048577-used)
+  if got>>63
+   do close(file)
+   return 0
+  end
+  if got==0
+   set done=1
+  end
+  set used=used+got
+ end
+ do close(file)
+ if used>1048576
+  return 0
+ end
+ return response(fd,"200 OK",bytes,used,kind)
+end

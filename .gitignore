@@ -11,3 +11,6 @@ __pycache__/
 
 # Receipt keys belong outside source control; this does not cover arbitrary filenames.
 *.key
+
+# Local investigation indexes can reference private workspace paths.
+.reverse-lab/

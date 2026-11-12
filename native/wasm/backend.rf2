@@ -1,0 +1,543 @@
+# Direct WebAssembly binary encoder. Uses the checked RF2 Core frontend.
+fn ws()
+ return buffer("wasm_state",24)
+end
+fn wb(v)
+ let n=load64(ws())
+ if n>=1048576
+  do fail(14)
+  return 0
+ end
+ do store8(buffer("wasm_bytes",1048576)+n,v)
+ do store64(ws(),n+1)
+ return 0
+end
+fn wu(v)
+ while v>=128
+  do wb((v&127)|128)
+  set v=v>>7
+ end
+ return wb(v)
+end
+fn wi(v)
+ while v>=64
+  do wb((v&127)|128)
+  set v=v>>7
+ end
+ return wb(v)
+end
+fn wf()
+ let p=load64(ws())
+ let i=0
+ while i<5
+  do wb(0)
+  set i=i+1
+ end
+ return p
+end
+fn we(p)
+ let n=load64(ws())-p-5
+ let i=0
+ while i<4
+  do store8(buffer("wasm_bytes",1048576)+p+i,(n&127)|128)
+  set n=n>>7
+  set i=i+1
+ end
+ do store8(buffer("wasm_bytes",1048576)+p+4,n)
+ return 0
+end
+fn wsection(id)
+ do wb(id)
+ return wf()
+end
+fn wname(p)
+ let n=slen(p)
+ let i=0
+ do wu(n)
+ while i<n
+  do wb(load8(p+i))
+  set i=i+1
+ end
+ return 0
+end
+fn wop(op,index)
+ do wb(op)
+ return wu(index)
+end
+fn wconst(v)
+ do wb(66)
+ return wi(v)
+end
+fn wget(v)
+ if v>=4294967296
+  return wconst(v&4294967295)
+ end
+ return wop(32,v)
+end
+fn werror(code)
+ do wb(65)
+ do wi(code)
+ do wop(36,0)
+ do wconst(0)
+ return wb(15)
+end
+fn wguard()
+ do wop(35,0)
+ do wb(4)
+ do wb(64)
+ do wconst(0)
+ do wb(15)
+ return wb(11)
+end
+fn wtick()
+ do wguard()
+ do wop(35,1)
+ do wb(65)
+ do wi(1)
+ do wb(106)
+ do wop(36,1)
+ do wop(35,1)
+ do wb(65)
+ do wi(1048576)
+ do wb(75)
+ do wb(4)
+ do wb(64)
+ do werror(18)
+ return wb(11)
+end
+fn wrange(pc,until,vars)
+ let p=0
+ let op=0
+ let dst=0
+ let a=0
+ let b=0
+ let nextp=0
+ let j=0
+ while pc<until
+  set p=ci(pc)
+  set op=load64(p)
+  set dst=load64(p+8)
+  set a=load64(p+16)
+  set b=load64(p+24)
+  do wtick()
+  if op==8
+   do wget(a)
+   do wop(33,vars+1)
+   do wop(32,vars+1)
+   do wconst(load64(p+56))
+   do wb(86)
+   do wb(4)
+   do wb(64)
+   do werror(17)
+   do wb(11)
+   do wconst(0)
+   do wop(33,dst)
+   do wb(2)
+   do wb(64)
+   do wb(3)
+   do wb(64)
+   do wop(32,dst)
+   do wop(32,vars+1)
+   do wb(90)
+   do wop(13,1)
+   do wtick()
+   set nextp=load64(p+48)
+   do wrange(pc+1,nextp,vars)
+   do wop(32,dst)
+   do wconst(1)
+   do wb(124)
+   do wop(33,dst)
+   do wop(12,0)
+   do wb(11)
+   do wb(11)
+   set pc=nextp
+  else
+   if op==1
+    do wget(a)
+   end
+   if any(op==2,op==3)
+    do wget(a)
+    do wget(b)
+    if op==2
+     do wb(124)
+    else
+     do wb(126)
+    end
+    do wop(33,vars)
+    if load64(cs()+32)==0
+     do wop(32,vars)
+     do wconst(4294967295)
+     do wb(86)
+     do wb(4)
+     do wb(64)
+     do werror(4)
+     do wb(11)
+    end
+    do wop(32,vars)
+    do wconst(4294967295)
+    do wb(131)
+   end
+   if op==4
+    do wget(b)
+    do wop(35,2)
+    do wb(173)
+    do wb(90)
+    do wb(4)
+    do wb(64)
+    do werror(16)
+    do wb(11)
+    do wget(a)
+    do wget(b)
+    do wconst(4)
+    do wb(126)
+    do wb(124)
+    do wb(167)
+    do wb(53)
+    do wu(2)
+    do wu(0)
+   end
+   if op==5
+    do wget(a)
+    do wb(123)
+   end
+   if op==6
+    do wget(a)
+    do wconst(0)
+    do wb(82)
+    do wb(173)
+   end
+   if op==7
+    set j=0
+    while j<load64(cf(load64(p+48))+8)
+     do wget(load64(p+16+j*8))
+     set j=j+1
+    end
+    do wop(16,load64(p+48))
+    do wop(33,vars)
+    do wguard()
+    do wop(32,vars)
+   end
+   do wop(33,dst)
+   set pc=pc+1
+  end
+ end
+ return 0
+end
+fn wexport(name,kind,index)
+ do wname(name)
+ do wb(kind)
+ return wu(index)
+end
+# Proved finite sum shape only. Wrapper checks pointer/count/capacity first.
+fn wsum_shape()
+ if load64(ws()+8)!=0
+  return 0
+ end
+ if any(load64(cs()+24)!=1,any(load64(cs()+72)!=0,load64(cs()+40)!=4))
+  return 0
+ end
+ if any(load64(cf(0)+8)!=2,any(load64(cf(0)+96)!=0,any(load64(cf(0)+104)!=4,load64(cf(0)+112)!=2)))
+  return 0
+ end
+ if any(load64(ci(0))!=1,any(load64(ci(0)+8)!=2,load64(ci(0)+16)!=4294967296))
+  return 0
+ end
+ if any(load64(ci(1))!=8,any(load64(ci(1)+8)!=3,any(load64(ci(1)+16)!=1,load64(ci(1)+48)!=4)))
+  return 0
+ end
+ if any(load64(ci(2))!=4,any(load64(ci(2)+8)!=4,any(load64(ci(2)+16)!=0,load64(ci(2)+24)!=3)))
+  return 0
+ end
+ if any(load64(ci(3))!=2,any(load64(ci(3)+8)!=2,any(load64(ci(3)+16)!=2,load64(ci(3)+24)!=4)))
+  return 0
+ end
+ return 1
+end
+fn wsum(vars)
+ # Entry, VAR and FOR admission events. Maximum successful work196611 <1048576.
+ do wb(65)
+ do wi(3)
+ do wop(36,1)
+ do wop(32,1)
+ do wconst(load64(ci(1)+56))
+ do wb(86)
+ do wb(4)
+ do wb(64)
+ do werror(17)
+ do wb(11)
+ do wconst(0)
+ do wop(33,2)
+ do wconst(0)
+ do wop(33,3)
+ do wb(2)
+ do wb(64)
+ do wb(3)
+ do wb(64)
+ do wop(32,3)
+ do wop(32,1)
+ do wb(90)
+ do wop(13,1)
+ # Iteration, LOAD and ADD events. No intervening error is possible before ADD.
+ do wop(35,1)
+ do wb(65)
+ do wi(3)
+ do wb(106)
+ do wop(36,1)
+ do wop(32,2)
+ do wop(32,0)
+ do wop(32,3)
+ do wconst(4)
+ do wb(126)
+ do wb(124)
+ do wb(167)
+ do wb(53)
+ do wu(2)
+ do wu(0)
+ do wb(124)
+ do wop(33,vars)
+ if load64(cs()+32)==0
+  do wop(32,vars)
+  do wconst(4294967295)
+  do wb(86)
+  do wb(4)
+  do wb(64)
+  do werror(4)
+  do wb(11)
+ end
+ do wop(32,vars)
+ do wconst(4294967295)
+ do wb(131)
+ do wop(33,2)
+ do wop(32,3)
+ do wconst(1)
+ do wb(124)
+ do wop(33,3)
+ do wop(12,0)
+ do wb(11)
+ do wb(11)
+ return wop(32,2)
+end
+fn wbuild()
+ let n=load64(cs()+24)
+ let i=0
+ let j=0
+ let m=0
+ let body=0
+ let arity=0
+ let vars=0
+ do store64(ws(),0)
+ do wb(0)
+ do wb(97)
+ do wb(115)
+ do wb(109)
+ do wb(1)
+ do wb(0)
+ do wb(0)
+ do wb(0)
+ set m=wsection(1)
+ do wu(7)
+ while i<5
+  do wb(96)
+  do wu(i)
+  set j=0
+  while j<i
+   do wb(126)
+   set j=j+1
+  end
+  do wu(1)
+  do wb(126)
+  set i=i+1
+ end
+ do wb(96)
+ do wu(3)
+ do wb(127)
+ do wb(127)
+ do wb(127)
+ do wu(1)
+ do wb(127)
+ do wb(96)
+ do wu(0)
+ do wu(1)
+ do wb(127)
+ do we(m)
+ set m=wsection(3)
+ do wu(n+3)
+ set i=0
+ while i<n
+  do wu(load64(cf(i)+8))
+  set i=i+1
+ end
+ do wu(5)
+ do wu(6)
+ do wu(6)
+ do we(m)
+ set m=wsection(5)
+ do wu(1)
+ do wu(1)
+ do wu(4)
+ do wu(4)
+ do we(m)
+ set m=wsection(6)
+ do wu(3)
+ set i=0
+ while i<3
+  do wb(127)
+  do wb(1)
+  do wb(65)
+  do wb(0)
+  do wb(11)
+  set i=i+1
+ end
+ do we(m)
+ set m=wsection(7)
+ do wu(4)
+ do wexport("run",0,n)
+ do wexport("status",0,n+1)
+ do wexport("work",0,n+2)
+ do wexport("memory",2,0)
+ do we(m)
+ set m=wsection(10)
+ do wu(n+3)
+ set i=0
+ while i<n
+  set body=wf()
+  set arity=load64(cf(i)+8)
+  set vars=load64(cf(i)+120)
+  do wu(1)
+  do wu(vars-arity+2)
+  do wb(126)
+  if all(i==0,wsum_shape())
+   do wsum(vars)
+  else
+   do wtick()
+   do wrange(load64(cf(i)+96),load64(cf(i)+104),vars)
+   do wget(load64(cf(i)+112))
+  end
+  do wb(11)
+  do we(body)
+  set i=i+1
+ end
+ # Public ABI run(ptr,words,count)->u32; status and work are separate exports.
+ set body=wf()
+ do wu(0)
+ do wb(65)
+ do wb(0)
+ do wop(36,0)
+ do wb(65)
+ do wb(0)
+ do wop(36,1)
+ do wop(32,1)
+ do wb(65)
+ do wi(65536)
+ do wb(75)
+ do wop(32,2)
+ do wop(32,1)
+ do wb(75)
+ do wb(114)
+ do wop(32,0)
+ do wb(65)
+ do wi(262144)
+ do wb(75)
+ do wb(114)
+ do wop(32,0)
+ do wb(65)
+ do wi(3)
+ do wb(113)
+ do wb(114)
+ do wb(4)
+ do wb(64)
+ do wb(65)
+ do wi(2)
+ do wop(36,0)
+ do wb(65)
+ do wi(0)
+ do wb(15)
+ do wb(11)
+ # words <= remaining bytes /4, avoiding pointer/count overflow.
+ do wop(32,1)
+ do wb(65)
+ do wi(262144)
+ do wop(32,0)
+ do wb(107)
+ do wb(65)
+ do wi(2)
+ do wb(118)
+ do wb(75)
+ do wb(4)
+ do wb(64)
+ do wb(65)
+ do wi(2)
+ do wop(36,0)
+ do wb(65)
+ do wi(0)
+ do wb(15)
+ do wb(11)
+ do wop(32,1)
+ do wop(36,2)
+ do wop(32,0)
+ do wb(173)
+ do wop(32,2)
+ do wb(173)
+ do wop(16,load64(cs()+72))
+ do wb(167)
+ do wb(11)
+ do we(body)
+ set body=wf()
+ do wu(0)
+ do wop(35,0)
+ do wb(11)
+ do we(body)
+ set body=wf()
+ do wu(0)
+ do wop(35,1)
+ do wb(11)
+ do we(body)
+ return we(m)
+end
+fn wasm_main(argc,argv)
+ if not(any(argc==3,argc==4))
+  do say("Usage: rf2-wasm source.flow new.wasm\n")
+  return 1
+ end
+ let args=argv
+ do store64(ws()+8,0)
+ if argc==4
+  if not(eq(load64(argv+8),"--generic"))
+   return 1
+  end
+  do store64(ws()+8,1)
+  set args=argv+8
+ end
+ let src=read_source(load64(args+8))
+ if load64(state())==0
+  do source(src,load64(state()+88))
+  do lower_prepare()
+ end
+ if load64(state())!=0
+  do say(error_text(load64(state())))
+  do say("\n")
+  return 1
+ end
+ do wbuild()
+ if load64(state())!=0
+  return 2
+ end
+ let fd=open(load64(args+16),3585,384)
+ if fd>>63
+  return 3
+ end
+ let used=0
+ let n=load64(ws())
+ while used<n
+  let got=write(fd,buffer("wasm_bytes",1048576)+used,n-used)
+  if any(got==0,got>>63)
+   do close(fd)
+   return 4
+  end
+  set used=used+got
+ end
+ if close(fd)!=0
+  return 4
+ end
+ return 0
+end
