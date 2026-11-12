@@ -1,0 +1,1 @@
+6a8364cd3f83abe9d4f2f421416dd026c6e64f686e0e2153f76340aa01f83529  rf2-trust-0.18.0-candidate-macos-arm64.tar.gz
