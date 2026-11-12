@@ -6,9 +6,9 @@ Created by **Ilangkhumanan Thirunavokkarasu**. Published by **SFE**.
 
 ![RiverFlow](site/assets/riverflow-hero.png)
 
-RiverFlow 0.7 runs Core programs and reusable helpers, builds per-program ARM64 executables, and provides attendance export and invoice totals through native MCP. The compiler, runtime and application adapters are written in RiverFlow. **Users need no Node, npm, Python or C++ runtime.** The AI host supplies intelligence; the executable does not contain a model.
+RiverFlow 0.8 runs Core programs and reusable helpers, builds per-program ARM64 executables, and provides attendance export and invoice totals through native MCP. The compiler, runtime and application adapters are written in RiverFlow. **Users need no Node, npm, Python or C++ runtime.** The AI host supplies intelligence; the executable does not contain a model.
 
-[Download 0.7](https://github.com/starkfiber/RiverFlow/releases/tag/v0.7.0) · [Read the book](https://starkfiber.github.io/RiverFlow/book/) · [Specification](docs/SPEC.md) · [Measured results](docs/CAPABILITY-MEASUREMENTS.md)
+[Download 0.8](https://github.com/starkfiber/RiverFlow/releases/tag/v0.8.0) · [Read the book](https://starkfiber.github.io/RiverFlow/book/) · [Specification](docs/SPEC.md) · [Measured results](docs/REUSE-MEASUREMENTS.md)
 
 ## Start with a real operation
 
@@ -38,6 +38,20 @@ For attendance CSV export:
 
 Only an explicit new output file can be created. Existing files and symlinks are refused. Included TEST identifiers are programming fixtures, not participant data. [Attendance contract](capabilities/attendance.local.v1/README.md).
 
+## Save, revise and print
+
+```sh
+./rf2 invoice save capabilities/invoice.total.v1/quote.rf2 \
+  capabilities/invoice.total.v1/test-lines.json first.invoice.json
+./rf2 invoice set first.invoice.json 0 2 250 edited.invoice.json
+./rf2 invoice inspect edited.invoice.json
+./rf2 invoice pdf edited.invoice.json worksheet.pdf
+```
+
+A file-based native workspace: explicit new-file revisions, checked totals and direct PDF output. No graphical editor, payment or tax-law determination is claimed. [Workspace contract](docs/INVOICE-WORKSPACE.md).
+
+Prepare an immutable plan once, inspect its visible currency/tax rules, apply it to fresh lines, then release it. Up to 32 process-local plans; discard handles on reconnect. [MCP lifecycle](docs/PREPARED-PLANS.md).
+
 ## Compute and compile
 
 A complete compact computation:
@@ -63,18 +77,18 @@ The helper example returns 29. `run` checks source and executes bounded IR in th
 ./rf2 mcp
 ```
 
-The native server exposes six tools: `rf2_status`, `rf2_check`, `rf2_run`, `rf2_lower`, `attendance_export`, `invoice_total`. Application tools return data without filesystem access. Lower returns source without compiling or writing it. The Codex plugin launches the installed native executable; it never falls back to Node or silently downloads/builds software. [Plugin skill](plugin/skills/rf2/SKILL.md).
+The native server exposes nine tools: `rf2_status`, `rf2_check`, `rf2_run`, `rf2_lower`, `attendance_export`, `invoice_total`, `invoice_prepare`, `invoice_apply`, `invoice_release`. Application tools return data without filesystem access. Lower returns source without compiling or writing it. The Codex plugin launches the installed native executable; it never falls back to Node or silently downloads/builds software. [Plugin skill](plugin/skills/rf2/SKILL.md).
 
 ## Evidence before claims
 
-- Invoice: 630 successful comparisons, 108 comparisons with 0.6 Core, 39 refusals, 200 seeded plan mutations and five CLI cases. [Receipt](docs/INVOICE-VERIFICATION.json).
-- Core: 1095 execution comparisons and 317 admission checks. [Receipt](docs/GENERAL-CORE-0.7-VERIFICATION.json).
-- Direct kernels: 18 builds and 163 executed cases. [Receipt](docs/DIRECT-KERNEL-0.7-VERIFICATION.json).
-- Compact: 1016 compatibility comparisons, input guards and transport mutations. [Receipt](docs/COMPACT-0.7-VERIFICATION.json).
-- Attendance: 34 successful exports/calendar cases, 45 refusals and three file-protection checks. [Receipt](docs/ATTENDANCE-0.7-VERIFICATION.json).
-- Compiler: native fixed point, independently expected results and full runtime byte comparison with the historical encoder. [Receipt](docs/NATIVE-COMPILER-0.7-VERIFICATION.json).
+- Invoice: 630 successful comparisons, 108 comparisons with 0.6 Core, 39 refusals, 200 seeded plan mutations and five CLI cases. [Receipt](docs/INVOICE-0.8-VERIFICATION.json).
+- Core: 1095 execution comparisons and 317 admission checks. [Receipt](docs/GENERAL-CORE-0.8-VERIFICATION.json).
+- Direct kernels: 18 builds and 163 executed cases. [Receipt](docs/DIRECT-KERNEL-0.8-VERIFICATION.json).
+- Compact: 1016 compatibility comparisons, input guards and transport mutations. [Receipt](docs/COMPACT-0.8-VERIFICATION.json).
+- Attendance: 34 successful exports/calendar cases, 45 refusals and three file-protection checks. [Receipt](docs/ATTENDANCE-0.8-VERIFICATION.json).
+- Compiler: native fixed point, independently expected results and full runtime byte comparison with the historical encoder. [Receipt](docs/NATIVE-COMPILER-0.8-VERIFICATION.json).
 
-Measurements are mixed. The invoice operation beats a JavaScript comparator on one-line requests and loses on larger inputs. The 19-token plan costs more than direct configuration when repeated across the measured 20 tool calls. Raw timings and exact encoded fixtures are published. **No general speed, energy or AI-task token-saving claim is established.** [Method and results](docs/CAPABILITY-MEASUREMENTS.md).
+The measured 1000-line native request is about 19% shorter than 0.7 on this host, while JavaScript remains faster. Prepared plans cost more encoded context for short sessions, but less at 100 repeated calls in the tested fixtures. Raw timings and exact encoded fixtures are published. **No general speed, energy or AI-task token-saving claim is established.** [Method and results](docs/REUSE-MEASUREMENTS.md).
 
 Current native qualification is Apple Silicon macOS. There is no independent security audit, universal platform support, field outcome or model council approval. The retained JavaScript/C reference, Python bootstrap/tests and publishing tools are developer dependencies, not user runtime requirements. Naming research projects does not establish hardware integration or scientific novelty.
 
@@ -86,9 +100,9 @@ Current native qualification is Apple Silicon macOS. There is no independent sec
 ./tools/build-runtime.sh ./next-rf2c next-runtime
 ```
 
-The build composes seven RiverFlow runtime modules. It invokes no Python, Node, C/C++ compiler, assembler or linker. macOS signing and platform interfaces remain external dependencies. The current systems compiler admits at most 128 functions, and this runtime reaches that limit; widening it needs compiler boundary tests, not silent truncation. [Build scope](docs/NATIVE-COMPILER.md).
+The build composes nine RiverFlow runtime modules. It invokes no Python, Node, C/C++ compiler, assembler or linker. macOS signing and platform interfaces remain external dependencies. The systems compiler now admits at most 256 functions, with accepted upper-bound executions and refusal at 257. [Build scope](docs/NATIVE-COMPILER.md).
 
-The revised book has 19 numbered chapters, worked examples, application contracts, failures and measurements. Original code and text use the MIT licence. Referenced projects and dependencies retain their own licences.
+The revised book has 20 numbered chapters, worked examples, application contracts, failures and measurements. Original code and text use the MIT licence. Referenced projects and dependencies retain their own licences.
 
 ## Why the GitHub language bar looks different
 

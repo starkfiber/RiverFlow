@@ -608,6 +608,69 @@ The next engineering decision should follow these results. Profile the larger na
 
 Sources: capabilities/invoice.total.v1/, docs/INVOICE-VERIFICATION.json, docs/CAPABILITY-MEASUREMENTS-0.7.json and docs/INTERFACE-TOKEN-FIXTURES.json. Every timing trial and encoded fixture is retained for another reader to inspect.
 
+# 20. Reuse without hiding the rules
+
+Release 0.8 follows the measurements rather than assuming short syntax must win. It adds checked-plan reuse, improves ordinary input handling and turns the invoice operation into a file-based workspace. Each part has a different contract. A saved document can survive a process. An in-memory plan handle cannot. Neither grants a payment or file permission through MCP.
+
+## Separate setup from repeated work
+
+The prepare tool checks an explicit invoice plan and returns its currency, tax rate and a process-local handle. A caller should inspect those rules before using it. Apply accepts that handle and fresh lines. Release removes it. There are 32 slots; filling them rejects further preparation rather than silently evicting a live plan.
+
+Handles are locators, not authentication or signatures. A process-specific mask comes from OS entropy. A bounded monotonic counter combined with that mask never reissues a released number within the process. This does not prove global uniqueness across processes. Clients must discard handles on reconnect. Separate users should have separate server processes; multi-user isolation is not implemented. Internal entropy access accepts no caller-controlled path.
+
+A failed request cannot silently change the currency or tax rate in a prepared plan. New lines still pass all checks. The interface accepts no rule override, file path or network argument. The tests fill the cache, apply distinct rules, challenge invalid requests, release plans and verify that a fresh process begins without them.
+
+## Measure what changed
+
+Development phase probes pointed toward JSON parsing and line validation as larger costs than reading the short plan. The implementation now avoids repeated field lookups and handles ordinary decimal u32 inputs directly, while retaining the exact parser for other admitted JSON number forms. Unescaped strings can borrow already validated input bytes for the active request. Escaped strings keep the decoder. Borrowed bytes are not retained as saved plan data.
+
+The old suites were rerun after these changes, including malformed UTF-8, controls, duplicate decoded keys, numeric forms and recovery. Passing them is evidence about those cases, not an independent security audit. Three fresh process sets compare the final binary against frozen 0.7 and the exact-integer JavaScript comparator. The following medians cover 21 batch averages per size and variant, including controller and pipe costs, but excluding startup and preparation.
+
+| Lines | Native 0.7, µs | Native 0.8, µs | Prepared 0.8, µs | JS, µs |
+| --- | ---: | ---: | ---: | ---: |
+| 1 | 18.99 | 18.84 | 17.27 | 25.12 |
+| 32 | 57.95 | 50.43 | 49.03 | 32.48 |
+| 1000 | 1187.25 | 962.26 | 959.95 | 294.88 |
+
+The large native request improves over 0.7 here, while JavaScript remains faster. Reuse helps the smallest request more than the largest because new lines still need validation and arithmetic. The data does not support a general native speed, energy or platform claim. Raw phase and request observations remain in the repository, including their limits.
+
+The token experiment includes every discovered tool schema and the complete prepare, apply and release lifecycle. It compares the same calculation with repeated unprepared 0.7 requests. Three issued handles per workload account for variation in their encoded spelling.
+
+| Calls | Reuse, o200k | Unprepared, o200k |
+| --- | ---: | ---: |
+| 1 | 1119 to 1122 | 689 |
+| 20 | 3703 to 3725 | 3577 |
+| 100 | 14685 | 15737 |
+
+Short sessions lose. The measured 100-call session wins on encoded interface size. These are exact tiktoken counts, not billed inference usage or a completed AI coding-task experiment. Actual matched model runs would still need usage receipts, construction costs, failed proposals and repairs. A handle saving repeated description is useful only when the operation behind it is real and its lifetime stays explicit.
+
+## Save and revise a real document
+
+The local workspace stores exactly a versioned format, the plan and lines. It recomputes totals on inspection and export. It rejects unknown stored total fields instead of trusting a stale number. Its commands are:
+
+```sh
+./rf2 invoice save capabilities/invoice.total.v1/quote.rf2 \
+  capabilities/invoice.total.v1/test-lines.json first.invoice.json
+./rf2 invoice inspect first.invoice.json
+./rf2 invoice set first.invoice.json 0 2 250 edited.invoice.json
+./rf2 invoice remove edited.invoice.json 1 revised.invoice.json
+./rf2 invoice pdf revised.invoice.json worksheet.pdf
+```
+
+Indices start at zero. Set can replace a line or append at the current count. Every edit names a new file. Existing files and symlinks are refused; the previous document remains unchanged. A failed operating-system write can leave a partial new file, so crash-safe transactions are not claimed.
+
+The PDF writer is RiverFlow systems source. It writes objects, content streams, page references and cross-reference offsets directly. No external PDF renderer is launched by the user workflow. Forty lines fit on an A4-sized page; larger inputs continue across pages, with totals on the last page. Test libraries independently parse the generated zero, forty, forty-one and thousand-line cases, check page counts and bounds, and reject the need for repair. The example is also rendered for visual inspection.
+
+This is a file-based workspace, not a graphical editor or a legally complete invoice service. It provides editable lines, saved revisions and printable calculation worksheets. Customer registration, tax-law decisions, payments and accounting records need their own requirements. Programming fixtures remain distinct from customer activity.
+
+## Expand a bound with evidence
+
+The runtime had reached the systems compiler's 128-function limit. Release 0.8 widens it to 256, expands both metadata and local-name storage, executes the upper accepted cases and rejects 257 before creating output. The last test function uses all 256 local slots. Native compiler generations reproduce their unsigned image, and the complete runtime still matches the historical encoder.
+
+The larger systems bound does not change Core's sixteen-function contract. It gives implementation modules room to grow while keeping saved computation semantics identifiable. Independent review, more targets, a graphical interface and actual AI-task usage measurement remain separate milestones. A useful release makes these boundaries easier to inspect rather than marking every ambition complete.
+
+Sources: docs/REUSE-MEASUREMENTS-0.8.json, docs/PREPARED-0.8-VERIFICATION.json, docs/WORKSPACE-0.8-VERIFICATION.json and docs/COMPILER-BOUNDS-0.8.json.
+
 # Appendix A. Commands and interfaces
 
 Native standalone, no Node or npm required:

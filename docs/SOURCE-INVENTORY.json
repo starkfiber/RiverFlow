@@ -8,12 +8,12 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 125096,
-    "Python": 83412,
-    "JavaScript": 64451,
-    "HTML": 15628,
+    "RiverFlow": 140680,
+    "Python": 99339,
+    "JavaScript": 65221,
+    "HTML": 15666,
     "CSS": 10426,
-    "Shell": 1525
+    "Shell": 1590
   },
   "files": [
     {
@@ -84,7 +84,7 @@
     {
       "path": "docs/rf2/index.html",
       "language": "HTML",
-      "bytes": 7612
+      "bytes": 7631
     },
     {
       "path": "docs/riverflow.mjs",
@@ -159,7 +159,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 29574
+      "bytes": 29575
     },
     {
       "path": "native/core.rf2",
@@ -179,7 +179,7 @@
     {
       "path": "native/invoice.rf2",
       "language": "RiverFlow",
-      "bytes": 5970
+      "bytes": 6065
     },
     {
       "path": "native/lowered-harness.rf2",
@@ -187,9 +187,19 @@
       "bytes": 14639
     },
     {
+      "path": "native/prepared.rf2",
+      "language": "RiverFlow",
+      "bytes": 4117
+    },
+    {
       "path": "native/rf2.rf2",
       "language": "RiverFlow",
-      "bytes": 34253
+      "bytes": 37392
+    },
+    {
+      "path": "native/workspace.rf2",
+      "language": "RiverFlow",
+      "bytes": 8232
     },
     {
       "path": "plugin/launch-mcp.sh",
@@ -214,7 +224,7 @@
     {
       "path": "site/rf2/index.html",
       "language": "HTML",
-      "bytes": 7612
+      "bytes": 7631
     },
     {
       "path": "site/riverflow.mjs",
@@ -277,9 +287,14 @@
       "bytes": 5806
     },
     {
+      "path": "tests/standalone/compiler_bounds_verify.py",
+      "language": "Python",
+      "bytes": 1199
+    },
+    {
       "path": "tests/standalone/compiler_verify.py",
       "language": "Python",
-      "bytes": 8401
+      "bytes": 8446
     },
     {
       "path": "tests/standalone/core_verify.py",
@@ -294,7 +309,7 @@
     {
       "path": "tests/standalone/invoice_verify.py",
       "language": "Python",
-      "bytes": 8499
+      "bytes": 8581
     },
     {
       "path": "tests/standalone/lowering_verify.py",
@@ -307,14 +322,24 @@
       "bytes": 495
     },
     {
+      "path": "tests/standalone/prepared_verify.py",
+      "language": "Python",
+      "bytes": 2905
+    },
+    {
       "path": "tests/standalone/sdk.mjs",
       "language": "JavaScript",
-      "bytes": 2657
+      "bytes": 3427
     },
     {
       "path": "tests/standalone/verify.py",
       "language": "Python",
-      "bytes": 9183
+      "bytes": 9315
+    },
+    {
+      "path": "tests/standalone/workspace_verify.py",
+      "language": "Python",
+      "bytes": 3211
     },
     {
       "path": "tools/benchmark-native.mjs",
@@ -339,7 +364,7 @@
     {
       "path": "tools/build-runtime.sh",
       "language": "Shell",
-      "bytes": 639
+      "bytes": 704
     },
     {
       "path": "tools/check-book-examples.mjs",
@@ -350,6 +375,16 @@
       "path": "tools/measure-capability.py",
       "language": "Python",
       "bytes": 6280
+    },
+    {
+      "path": "tools/measure-reuse.py",
+      "language": "Python",
+      "bytes": 5170
+    },
+    {
+      "path": "tools/profile-invoice.py",
+      "language": "Python",
+      "bytes": 3183
     },
     {
       "path": "tools/source-inventory.py",

@@ -54,3 +54,7 @@ The application capability attendance.local@1 is separate from Core's read_input
 ## RF2_APP_V1, native release 0.7
 
 A distinct application-plan profile, not an extension to Core effects. Exact grammar: `rf2 app v1 invoice total currency ABC tax N bps`. ASCII whitespace separates ten words. ABC is exactly three uppercase ASCII letters; N is canonical decimal 0..10000. Maximum 256 bytes. The app CLI and invoice_total MCP accept this plan; computation check/run/lower retain their existing profiles. The full data, arithmetic, rounding and effect contract is in capabilities/invoice.total.v1/README.md. Unsupported intent syntax remains unsupported.
+
+## Release 0.8 lifecycle and workspace
+
+Core and RF2_APP_V1 semantics are unchanged. See PREPARED-PLANS.md for immutable process-local invoice plan prepare/apply/release, and INVOICE-WORKSPACE.md for the separate explicit CLI-only document/edit/PDF effects. No MCP file path is admitted. The systems compiler bound expands to 256 functions with separate metadata/local table capacities and boundary tests.

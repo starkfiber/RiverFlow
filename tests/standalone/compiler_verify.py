@@ -29,9 +29,9 @@ c=work/'stage3';data=native_build(b,source,c);assert data==raw
 report['stage3UnsignedSHA256']=hashlib.sha256(data).hexdigest();sign(c)
 report['fixedPointUnsignedImages']=True
 # Run the runtime produced by the native-generated compiler, not the retained binary.
-runtime_source=work/'runtime.rf2';runtime_source.write_text(''.join((R/name).read_text()for name in ['native/rf2.rf2','native/core.rf2','native/attendance.rf2','native/attendance-kernel.rf2','native/fingerprint.rf2','native/invoice.rf2','native/invoice-kernel.rf2']))
+runtime_source=work/'runtime.rf2';runtime_source.write_text(''.join((R/name).read_text()for name in ['native/rf2.rf2','native/core.rf2','native/attendance.rf2','native/attendance-kernel.rf2','native/fingerprint.rf2','native/invoice.rf2','native/invoice-kernel.rf2','native/prepared.rf2','native/workspace.rf2']))
 rt=work/'rf2';assert native_build(c,runtime_source,rt)==reference(runtime_source);sign(rt)
-assert json.loads(run([rt,'status']).stdout)['version']=='0.7.0'
+assert json.loads(run([rt,'status']).stdout)['version']=='0.8.0'
 assert json.loads(run([rt,'run',R/'examples/compact/sum.rf2','[2,3,4]']).stdout)['value']==9
 report['runtimeUnsignedMatchesReference']=True;report['generatedRuntime']=str(rt.relative_to(R))
 # Independent expected process exits cover unsigned arithmetic, loops, calls, memory and branches.
@@ -88,10 +88,10 @@ for i,text in enumerate(invalid):
 p=work/'existing';p.write_bytes(b'preserve');r=run([c,R/'native/hello.rf2',p],ok=False);assert r.returncode==1;assert p.read_bytes()==b'preserve';report['negativeCases']+=1
 link=work/'link';link.symlink_to(p);r=run([c,R/'native/hello.rf2',link],ok=False);assert r.returncode==1;assert p.read_bytes()==b'preserve';report['negativeCases']+=1
 # Runtime result/refusal corpus and official SDK checks against the native-compiled runtime.
-env=dict(os.environ,RF2_TEST_BINARY=str(rt),RF2_TEST_REPORT=str(work/'runtime-verification.json'),RF2_TEST_VERSION='0.7.0',RF2_TEST_TOOLS='6');r=subprocess.run(['python3',str(R/'tests/standalone/verify.py')],cwd=R,env=env,capture_output=True,timeout=40);assert r.returncode==0,r.stderr;report['runtimeCorpusPassed']=True
+env=dict(os.environ,RF2_TEST_BINARY=str(rt),RF2_TEST_REPORT=str(work/'runtime-verification.json'),RF2_TEST_VERSION='0.8.0',RF2_TEST_TOOLS='9');r=subprocess.run(['python3',str(R/'tests/standalone/verify.py')],cwd=R,env=env,capture_output=True,timeout=40);assert r.returncode==0,r.stderr;report['runtimeCorpusPassed']=True
 r=subprocess.run(['/opt/homebrew/opt/node@22/bin/node',str(R/'tests/standalone/sdk.mjs')],cwd=R,env=env,capture_output=True,timeout=20);assert r.returncode==0,r.stderr;report['officialSdkPassed']=True
 report.update(passed=True,sourceSHA256=digest(source),nativeCompilerSHA256=digest(c),historicalSeedSHA256=digest(R/'bootstrap/seed.py'),generatedRuntimeSHA256=digest(rt),seedEncoderRuntimeByteMatch=True)
-(R/'docs/NATIVE-COMPILER-0.7-VERIFICATION.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
+(R/'docs/NATIVE-COMPILER-0.8-VERIFICATION.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
 # Candidate copies are separate from the published 0.4 runtime.
 import shutil
-(R/'output/native-compiler').mkdir(exist_ok=True);shutil.copy2(c,R/'output/native-compiler/rf2c');(R/'output/native-0.7').mkdir(exist_ok=True);shutil.copy2(rt,R/'output/native-0.7/rf2');print('Candidate native compiler and native-built runtime retained')
+(R/'output/native-compiler').mkdir(exist_ok=True);shutil.copy2(c,R/'output/native-compiler/rf2c');(R/'output/native-0.8').mkdir(exist_ok=True);shutil.copy2(rt,R/'output/native-0.8/rf2');print('Candidate native compiler and native-built runtime retained')

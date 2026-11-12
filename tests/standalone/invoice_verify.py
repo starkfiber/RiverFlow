@@ -27,7 +27,7 @@ def main():
  for peer in [native,old]:
   peer.request('initialize',{'protocolVersion':'2024-11-05','capabilities':{},'clientInfo':{'name':'invoice-check','version':'1'}})
   peer.p.stdin.write(b'{"jsonrpc":"2.0","method":"notifications/initialized"}\n');peer.p.stdin.flush()
- tools=native.request('tools/list',{})['result']['tools'];assert len(tools)==6 and tools[-1]['name']=='invoice_total'
+ tools=native.request('tools/list',{})['result']['tools'];assert len(tools)==int(os.environ.get('RF2_TEST_TOOLS','6')) and tools[5]['name']=='invoice_total'
  cases=[[],[{'quantity':2,'unit_cents':1250},{'quantity':1,'unit_cents':399}],[{'quantity':1,'unit_cents':4294967295}]]
  for n in [1,2,17,256,1000]:cases.append([{'quantity':rng.randrange(1,20),'unit_cents':rng.randrange(0,10000)}for _ in range(n)])
  for _ in range(100):cases.append([{'quantity':rng.randrange(1,100),'unit_cents':rng.randrange(0,100000)}for _ in range(rng.randrange(0,20))])
@@ -68,5 +68,5 @@ def main():
   f.write_text('[]');p.write_bytes(plan.encode()+b'\xff');assert subprocess.run([B,'app',p,f],capture_output=True).returncode==1;report['cliCases']+=1
  for p in [native,old,js]:p.close();assert p.p.returncode==0 and not p.p.stderr.read()
  generated=subprocess.check_output([OLD,'lower',R/'capabilities/invoice.total.v1/total.flow']).decode().replace('cgn_','ivg_').replace('c_f','iv_f').replace('"generated_','"invoice_generated_');assert generated==(R/'native/invoice-kernel.rf2').read_text()
- report.update(passed=True,runtimeSHA256=hashlib.sha256(B.read_bytes()).hexdigest(),baseline06SHA256=hashlib.sha256(OLD.read_bytes()).hexdigest(),kernelReproduction=True,sourceSHA256=hashlib.sha256(core.encode()).hexdigest(),kernelSHA256=hashlib.sha256(generated.encode()).hexdigest());(R/'docs/INVOICE-VERIFICATION.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
+ report.update(passed=True,runtimeSHA256=hashlib.sha256(B.read_bytes()).hexdigest(),baseline06SHA256=hashlib.sha256(OLD.read_bytes()).hexdigest(),kernelReproduction=True,sourceSHA256=hashlib.sha256(core.encode()).hexdigest(),kernelSHA256=hashlib.sha256(generated.encode()).hexdigest());Path(os.environ.get('RF2_TEST_REPORT',str(R/'docs/INVOICE-VERIFICATION.json'))).write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
 if __name__=='__main__':main()

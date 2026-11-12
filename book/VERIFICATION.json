@@ -1,6 +1,6 @@
 {
-  "pages": 52,
-  "tocEntries": 24,
+  "pages": 57,
+  "tocEntries": 25,
   "outOfPageText": [],
   "completeExamples": 5,
   "referenceTestGroups": 16,
@@ -10,7 +10,7 @@
   "independentMcpSdk": "passed",
   "rebuildByteIdentity": "passed",
   "epubZipXml": "verified, not full EPUBCheck",
-  "visualReview": "Final cover, contents, application-plan chapter, timing/token tables and appendix rendered and inspected; all-page text bounds and sparse spill check passed",
+  "visualReview": "Final new chapter, tables and contents rendered; all-page bounds and sparse spill checks passed; native-generated worksheet parsed strictly and visually inspected",
   "nativeCompilerFixedPoint": true,
   "nativeCompilerExecutedCases": 24,
   "nativeCompilerNegativeCases": 15,
@@ -30,5 +30,8 @@
   "invoiceRefusals": 39,
   "invoicePlanMutations": 200,
   "invoiceCliCases": 5,
-  "performanceAndTokenScope": "Raw local round-trip timings and exact tiktoken interface fixture counts; no billed inference usage or general saving claim"
+  "performanceAndTokenScope": "Raw local round-trip timings and exact tiktoken interface fixture counts; no billed inference usage or general saving claim",
+  "preparedPlanChecks": "33 prepares, 65 applications, 75 refusals, 32 releases",
+  "workspaceChecks": "6 document cases, 6 PDFs, 3 edits, 15 refusals; strict PDF parse without repair",
+  "compilerBoundChecks": "128/129/255/256 accepted, 257 refused, last function 256 locals"
 }

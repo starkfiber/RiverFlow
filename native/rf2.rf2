@@ -140,6 +140,32 @@ fn json_string(t)
  let v = 0
  let h = 0
  let j = 0
+ let scan = p
+ let escaped = 0
+ # Borrow unescaped bytes only for this request. UTF-8 was validated before tokenization.
+ while (scan < endp) & (escaped == 0)
+  set c = load8(scan)
+  if c == 34
+   do store64(t, 1)
+   do store64(t + 8, start)
+   do store64(t + 16, scan - start)
+   do store64(t + 32, start)
+   do store64(t + 40, scan - start)
+   do store64(s + 8, scan + 1)
+   return 1
+  end
+  if c < 32
+   return fail(1)
+  end
+  if c == 92
+   set escaped = 1
+  else
+   set scan = scan + 1
+  end
+ end
+ if escaped == 0
+  return fail(1)
+ end
  while p < endp
   set c = load8(p)
   set p = p + 1
@@ -613,6 +639,26 @@ fn number_u32(t)
  if load64(t) != 7
   return fail(2)
  end
+ # Common canonical integer fast path. Other valid JSON numeric forms use the unchanged exact parser.
+ if (n > 0) & (n <= 10)
+  while i < n
+   if digit(load8(p + i)) == 0
+    set i = n + 1
+   else
+    set value = value * 10 + load8(p + i) - 48
+    set i = i + 1
+   end
+  end
+  if i == n
+   if value > 4294967295
+    return fail(2)
+   end
+   return value
+  end
+  set i = 0
+  set value = 0
+ end
+
  if load8(p) == 45
   set neg = 1
   set i = 1
@@ -932,7 +978,7 @@ fn result()
  return 0
 end
 fn status()
- return say("{\"version\":\"0.7.0\",\"runtime\":\"RiverFlow systems source compiled to ARM64\",\"target\":\"macos-arm64\",\"syntaxProfiles\":[\"RF2_COMPACT_V1\",\"RF2_U32_CORE_V0\",\"RF2_APP_V1\"],\"operations\":[\"ADD\",\"MUL\",\"LOAD\",\"POPCOUNT\",\"NONZERO\",\"CALL\"],\"coreExecution\":\"bounded native IR runtime\",\"kernelLowering\":\"per-program RiverFlow systems source, compiled with rf2c and trusted harness\",\"coreEffects\":[\"read_input\"],\"applicationCapabilities\":[\"attendance.local@1\",\"invoice.total@1\"],\"mcpFilesystemAccess\":false,\"cliAttendanceWrites\":\"explicit new output path only\",\"nodeRequired\":false,\"cppRequired\":false,\"systemsCompilerSelfReproduces\":true,\"generalCoreParser\":true,\"embeddedAI\":false,\"speedClaim\":null,\"tokenClaim\":null}")
+ return say("{\"version\":\"0.8.0\",\"runtime\":\"RiverFlow systems source compiled to ARM64\",\"target\":\"macos-arm64\",\"syntaxProfiles\":[\"RF2_COMPACT_V1\",\"RF2_U32_CORE_V0\",\"RF2_APP_V1\"],\"operations\":[\"ADD\",\"MUL\",\"LOAD\",\"POPCOUNT\",\"NONZERO\",\"CALL\"],\"coreExecution\":\"bounded native IR runtime\",\"kernelLowering\":\"per-program RiverFlow systems source, compiled with rf2c and trusted harness\",\"coreEffects\":[\"read_input\"],\"applicationCapabilities\":[\"attendance.local@1\",\"invoice.total@1\"],\"mcpFilesystemAccess\":false,\"internalOSEntropyRead\":true,\"preparedPlans\":\"32 immutable process-local plans, explicit release, no rule override\",\"cliAttendanceWrites\":\"explicit new output path only\",\"nodeRequired\":false,\"cppRequired\":false,\"systemsCompilerSelfReproduces\":true,\"generalCoreParser\":true,\"embeddedAI\":false,\"speedClaim\":null,\"tokenClaim\":null}")
 end
 fn compact_ir()
  do say("{\"schema\":\"rf2.compact.plan.v1\",\"coreProfile\":\"RF2_U32_CORE_V0\",\"operation\":")
@@ -966,6 +1012,21 @@ fn expand()
  return say("STEP add = ADD WITH { a: total, b: item, result: total }\nEND FOR\nRETURN total\nEND\n")
 end
 fn error_text(code)
+ if code == 37
+  return "Invalid invoice document, command, line index or checked edit"
+ end
+ if code == 38
+  return "Workspace write failed or output exists; no overwrite permitted"
+ end
+ if code == 34
+  return "Prepared plan capacity reached; release a plan first"
+ end
+ if code == 35
+  return "OS entropy unavailable; no handle created"
+ end
+ if code == 36
+  return "Unknown or released process-local plan handle"
+ end
  if code == 30
   return "Expected rf2 app v1 invoice total currency ABC tax 0..10000 bps, at most 256 ASCII bytes"
  end
@@ -1141,7 +1202,7 @@ fn tool_error(id)
  return say("\"}]}}\n")
 end
 fn tools()
- return say("{\"tools\":[{\"name\":\"rf2_status\",\"description\":\"Read exact native capabilities and limits\",\"inputSchema\":{\"type\":\"object\",\"properties\":{},\"additionalProperties\":false}},{\"name\":\"rf2_check\",\"description\":\"Validate Core or Compact V1, including scalar helpers\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"source\":{\"type\":\"string\",\"maxLength\":32768}},\"required\":[\"source\"],\"additionalProperties\":false}},{\"name\":\"rf2_run\",\"description\":\"Execute bounded Core or Compact V1 in the native runtime\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"source\":{\"type\":\"string\",\"maxLength\":32768},\"data\":{\"type\":\"array\",\"maxItems\":65536,\"items\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":4294967295}},\"count\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":65536}},\"required\":[\"source\",\"data\"],\"additionalProperties\":false}},{\"name\":\"rf2_lower\",\"description\":\"Return checked per-program systems kernel source; no files are written or compiled\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"source\":{\"type\":\"string\",\"maxLength\":32768}},\"required\":[\"source\"],\"additionalProperties\":false}},{\"name\":\"attendance_export\",\"description\":\"attendance.local@1: validate up to 1000 records, reject duplicate student/day, return CSV and counts. No filesystem access.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"records\":{\"type\":\"array\",\"maxItems\":1000,\"items\":{\"type\":\"object\",\"properties\":{\"student_id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":64},\"date\":{\"type\":\"string\",\"minLength\":10,\"maxLength\":10},\"status\":{\"type\":\"string\",\"enum\":[\"present\",\"absent\",\"late\"]}},\"required\":[\"student_id\",\"date\",\"status\"],\"additionalProperties\":false}}},\"required\":[\"records\"],\"additionalProperties\":false}},{\"name\":\"invoice_total\",\"description\":\"invoice.total@1: execute a compact rf2 app v1 invoice plan. Positive integer quantities, u32 cents, explicit basis-point tax and half-up invoice rounding. No file writes or tax advice.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"plan\":{\"type\":\"string\",\"maxLength\":256},\"lines\":{\"type\":\"array\",\"maxItems\":1000,\"items\":{\"type\":\"object\",\"properties\":{\"quantity\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":4294967295},\"unit_cents\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":4294967295}},\"required\":[\"quantity\",\"unit_cents\"],\"additionalProperties\":false}}},\"required\":[\"plan\",\"lines\"],\"additionalProperties\":false}}]}")
+ return say("{\"tools\":[{\"name\":\"rf2_status\",\"description\":\"Read exact native capabilities and limits\",\"inputSchema\":{\"type\":\"object\",\"properties\":{},\"additionalProperties\":false}},{\"name\":\"rf2_check\",\"description\":\"Validate Core or Compact V1, including scalar helpers\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"source\":{\"type\":\"string\",\"maxLength\":32768}},\"required\":[\"source\"],\"additionalProperties\":false}},{\"name\":\"rf2_run\",\"description\":\"Execute bounded Core or Compact V1 in the native runtime\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"source\":{\"type\":\"string\",\"maxLength\":32768},\"data\":{\"type\":\"array\",\"maxItems\":65536,\"items\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":4294967295}},\"count\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":65536}},\"required\":[\"source\",\"data\"],\"additionalProperties\":false}},{\"name\":\"rf2_lower\",\"description\":\"Return checked per-program systems kernel source; no files are written or compiled\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"source\":{\"type\":\"string\",\"maxLength\":32768}},\"required\":[\"source\"],\"additionalProperties\":false}},{\"name\":\"attendance_export\",\"description\":\"attendance.local@1: validate up to 1000 records, reject duplicate student/day, return CSV and counts. No filesystem access.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"records\":{\"type\":\"array\",\"maxItems\":1000,\"items\":{\"type\":\"object\",\"properties\":{\"student_id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":64},\"date\":{\"type\":\"string\",\"minLength\":10,\"maxLength\":10},\"status\":{\"type\":\"string\",\"enum\":[\"present\",\"absent\",\"late\"]}},\"required\":[\"student_id\",\"date\",\"status\"],\"additionalProperties\":false}}},\"required\":[\"records\"],\"additionalProperties\":false}},{\"name\":\"invoice_total\",\"description\":\"invoice.total@1: execute a compact rf2 app v1 invoice plan. Positive integer quantities, u32 cents, explicit basis-point tax and half-up invoice rounding. No file writes or tax advice.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"plan\":{\"type\":\"string\",\"maxLength\":256},\"lines\":{\"type\":\"array\",\"maxItems\":1000,\"items\":{\"type\":\"object\",\"properties\":{\"quantity\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":4294967295},\"unit_cents\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":4294967295}},\"required\":[\"quantity\",\"unit_cents\"],\"additionalProperties\":false}}},\"required\":[\"plan\",\"lines\"],\"additionalProperties\":false}},{\"name\":\"invoice_prepare\",\"description\":\"Check an immutable invoice plan. Up to 32 process-local handles; returns visible currency/tax rules. No user files.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"plan\":{\"type\":\"string\",\"maxLength\":256}},\"required\":[\"plan\"],\"additionalProperties\":false}},{\"name\":\"invoice_apply\",\"description\":\"Apply a prepared invoice plan in this server process. No rule overrides or user files.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"plan_id\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":4294967295},\"lines\":{\"type\":\"array\",\"maxItems\":1000,\"items\":{\"type\":\"object\",\"properties\":{\"quantity\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":4294967295},\"unit_cents\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":4294967295}},\"required\":[\"quantity\",\"unit_cents\"],\"additionalProperties\":false}}},\"required\":[\"plan_id\",\"lines\"],\"additionalProperties\":false}},{\"name\":\"invoice_release\",\"description\":\"Release a process-local invoice plan; later use fails.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"plan_id\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":4294967295}},\"required\":[\"plan_id\"],\"additionalProperties\":false}}]}")
 end
 fn tool_call(id, params)
  let name = field(params, "name")
@@ -1171,6 +1232,15 @@ fn tool_call(id, params)
   do say("\"Native RiverFlow: Core helpers, compact arithmetic and attendance export\"}],\"structuredContent\":")
   do status()
   return say("}}\n")
+ end
+ if matches(token(name), "invoice_prepare")
+  return iptool(id, args, 1)
+ end
+ if matches(token(name), "invoice_apply")
+  return iptool(id, args, 2)
+ end
+ if matches(token(name), "invoice_release")
+  return iptool(id, args, 3)
  end
  if matches(token(name), "invoice_total")
   return ivtool(id, args)
@@ -1334,7 +1404,7 @@ fn request(n)
   end
   do store64(session, 1)
   do rpc_start(id)
-  return say(",\"result\":{\"protocolVersion\":\"2024-11-05\",\"capabilities\":{\"tools\":{}},\"serverInfo\":{\"name\":\"rf2-native\",\"version\":\"0.7.0\"}}}\n")
+  return say(",\"result\":{\"protocolVersion\":\"2024-11-05\",\"capabilities\":{\"tools\":{}},\"serverInfo\":{\"name\":\"rf2-native\",\"version\":\"0.8.0\"}}}\n")
  end
  if matches(token(method), "ping")
   do rpc_start(id)
@@ -1366,7 +1436,7 @@ fn main(argc, argv)
  let count = 0
  let arg = 0
  if argc < 2
-  do say("RiverFlow 0.7 native ARM64\nrf2 status | check file | expand file | run file '[1,2,3]' [count]\nrf2 lower file.flow | attendance records.json new.csv | app plan.rf2 lines.json | mcp\nCompact V1 and checked Core with scalar helpers.\n")
+  do say("RiverFlow 0.8 native ARM64\nrf2 status | check file | expand file | run file '[1,2,3]' [count]\nrf2 lower file.flow | attendance records.json new.csv | app plan.rf2 lines.json | mcp\nCompact V1 and checked Core with scalar helpers.\n")
   return 0
  end
  set cmd = load64(argv + 8)
@@ -1375,6 +1445,15 @@ fn main(argc, argv)
   while n != 0
    do request(n)
    set n = line()
+  end
+  return 0
+ end
+ if eq(cmd, "invoice")
+  do iwcli(argc, argv)
+  if load64(state()) != 0
+   do say(error_text(load64(state())))
+   do say("\n")
+   return 1
   end
   return 0
  end

@@ -1,0 +1,45 @@
+{
+  "scope": "Development phase binaries, cached bytes/tokens/validated words as applicable; process wall time includes startup and one setup validation. 1000 iterations amortize setup. Phase results are not additive whole-request latency or an independent profiler.",
+  "iterations": 1000,
+  "lines": 1000,
+  "trials": {
+    "parse": {
+      "microsecondsPerIteration": [
+        830.96375,
+        421.111083,
+        422.37925
+      ],
+      "medianUs": 422.37925
+    },
+    "plan": {
+      "microsecondsPerIteration": [
+        624.8835,
+        3.4789589999999997,
+        3.153875
+      ],
+      "medianUs": 3.4789589999999997
+    },
+    "validate": {
+      "microsecondsPerIteration": [
+        763.211333,
+        195.10795800000002,
+        190.422666
+      ],
+      "medianUs": 195.10795800000002
+    },
+    "kernel_tax": {
+      "microsecondsPerIteration": [
+        875.469208,
+        111.342584,
+        111.666
+      ],
+      "medianUs": 111.666
+    }
+  },
+  "sourceHashes": {
+    "parse": "fdb4e59b6218da77674febc7b092c90422f63d015624fd6b76f2d3f4fd130d52",
+    "plan": "ca634f0264972859a3c913cc970a62e2262546c393a3ac10f4322c520946259a",
+    "validate": "4ca1c2282ffdcb029ff673ae91dcf59abcc2ffdd3f7bbb619eff447f8f3bd070",
+    "kernel_tax": "bef660ad67ce516475fa6a54f36adf578403755eaf888cf6272e8856773d1dad"
+  }
+}

@@ -1,0 +1,2254 @@
+{
+  "scope": "One-host persistent JSON-lines roundtrip including controller serialization/result checking; startup, discovery and plan preparation excluded from latency. Token experiment includes preparation/release, schemas and exact requests/responses. No inference API invoked.",
+  "host": "macOS-26.5.1-arm64-arm-64bit",
+  "runtimeSHA256": "6a0e46611f7e6085c6c3b4bb417804898f92d5f7e95129959cb2e58e3cea91db",
+  "baseline07SHA256": "19f93246672672d537bd4a53c5e29f5528ae671ffa33ebaaaafb6a34ecab4d64",
+  "raw": [
+    {
+      "processSet": 0,
+      "trial": 0,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 21.9275
+    },
+    {
+      "processSet": 0,
+      "trial": 0,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 19.74916
+    },
+    {
+      "processSet": 0,
+      "trial": 0,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 17.204159999999998
+    },
+    {
+      "processSet": 0,
+      "trial": 0,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 38.81334
+    },
+    {
+      "processSet": 0,
+      "trial": 1,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 20.7725
+    },
+    {
+      "processSet": 0,
+      "trial": 1,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 17.89334
+    },
+    {
+      "processSet": 0,
+      "trial": 1,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 34.485839999999996
+    },
+    {
+      "processSet": 0,
+      "trial": 1,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 20.67
+    },
+    {
+      "processSet": 0,
+      "trial": 2,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 22.14084
+    },
+    {
+      "processSet": 0,
+      "trial": 2,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 28.50916
+    },
+    {
+      "processSet": 0,
+      "trial": 2,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 18.6575
+    },
+    {
+      "processSet": 0,
+      "trial": 2,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 17.93834
+    },
+    {
+      "processSet": 0,
+      "trial": 3,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 23.9575
+    },
+    {
+      "processSet": 0,
+      "trial": 3,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 18.35166
+    },
+    {
+      "processSet": 0,
+      "trial": 3,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 18.12918
+    },
+    {
+      "processSet": 0,
+      "trial": 3,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 16.40332
+    },
+    {
+      "processSet": 0,
+      "trial": 4,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 18.35666
+    },
+    {
+      "processSet": 0,
+      "trial": 4,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 18.84
+    },
+    {
+      "processSet": 0,
+      "trial": 4,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 16.6325
+    },
+    {
+      "processSet": 0,
+      "trial": 4,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 23.93418
+    },
+    {
+      "processSet": 0,
+      "trial": 5,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 18.54166
+    },
+    {
+      "processSet": 0,
+      "trial": 5,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 18.38
+    },
+    {
+      "processSet": 0,
+      "trial": 5,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 29.0825
+    },
+    {
+      "processSet": 0,
+      "trial": 5,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 18.90084
+    },
+    {
+      "processSet": 0,
+      "trial": 6,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 16.87584
+    },
+    {
+      "processSet": 0,
+      "trial": 6,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 23.1125
+    },
+    {
+      "processSet": 0,
+      "trial": 6,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 17.8725
+    },
+    {
+      "processSet": 0,
+      "trial": 6,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 17.6925
+    },
+    {
+      "processSet": 0,
+      "trial": 0,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 57.3425
+    },
+    {
+      "processSet": 0,
+      "trial": 0,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 49.80416
+    },
+    {
+      "processSet": 0,
+      "trial": 0,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 47.98
+    },
+    {
+      "processSet": 0,
+      "trial": 0,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 31.5025
+    },
+    {
+      "processSet": 0,
+      "trial": 1,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 52.00834
+    },
+    {
+      "processSet": 0,
+      "trial": 1,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 49.08332
+    },
+    {
+      "processSet": 0,
+      "trial": 1,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 32.295
+    },
+    {
+      "processSet": 0,
+      "trial": 1,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 57.64834
+    },
+    {
+      "processSet": 0,
+      "trial": 2,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 48.21332
+    },
+    {
+      "processSet": 0,
+      "trial": 2,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 31.745
+    },
+    {
+      "processSet": 0,
+      "trial": 2,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 57.305
+    },
+    {
+      "processSet": 0,
+      "trial": 2,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 50.87666
+    },
+    {
+      "processSet": 0,
+      "trial": 3,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 35.91083999999999
+    },
+    {
+      "processSet": 0,
+      "trial": 3,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 64.17918
+    },
+    {
+      "processSet": 0,
+      "trial": 3,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 49.96584
+    },
+    {
+      "processSet": 0,
+      "trial": 3,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 48.96082
+    },
+    {
+      "processSet": 0,
+      "trial": 4,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 57.353339999999996
+    },
+    {
+      "processSet": 0,
+      "trial": 4,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 51.75834
+    },
+    {
+      "processSet": 0,
+      "trial": 4,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 48.2125
+    },
+    {
+      "processSet": 0,
+      "trial": 4,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 32.955
+    },
+    {
+      "processSet": 0,
+      "trial": 5,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 49.87334
+    },
+    {
+      "processSet": 0,
+      "trial": 5,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 48.334160000000004
+    },
+    {
+      "processSet": 0,
+      "trial": 5,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 27.235
+    },
+    {
+      "processSet": 0,
+      "trial": 5,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 57.55918
+    },
+    {
+      "processSet": 0,
+      "trial": 6,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 49.58666
+    },
+    {
+      "processSet": 0,
+      "trial": 6,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 27.13666
+    },
+    {
+      "processSet": 0,
+      "trial": 6,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 56.89
+    },
+    {
+      "processSet": 0,
+      "trial": 6,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 49.6025
+    },
+    {
+      "processSet": 0,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1172.5875
+    },
+    {
+      "processSet": 0,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 954.2958000000001
+    },
+    {
+      "processSet": 0,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 963.6458
+    },
+    {
+      "processSet": 0,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 296.0125
+    },
+    {
+      "processSet": 0,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 957.175
+    },
+    {
+      "processSet": 0,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 952.6334
+    },
+    {
+      "processSet": 0,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 300.175
+    },
+    {
+      "processSet": 0,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1194.9041000000002
+    },
+    {
+      "processSet": 0,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 957.2041999999999
+    },
+    {
+      "processSet": 0,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 284.3792
+    },
+    {
+      "processSet": 0,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1252.4167
+    },
+    {
+      "processSet": 0,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 962.3708
+    },
+    {
+      "processSet": 0,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 296.74170000000004
+    },
+    {
+      "processSet": 0,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1172.775
+    },
+    {
+      "processSet": 0,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 962.2584
+    },
+    {
+      "processSet": 0,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 959.95
+    },
+    {
+      "processSet": 0,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1173.6
+    },
+    {
+      "processSet": 0,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 956.3416
+    },
+    {
+      "processSet": 0,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 965.8916999999999
+    },
+    {
+      "processSet": 0,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 299.5875
+    },
+    {
+      "processSet": 0,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 962.1916
+    },
+    {
+      "processSet": 0,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 956.2833
+    },
+    {
+      "processSet": 0,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 290.75829999999996
+    },
+    {
+      "processSet": 0,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1173.2584
+    },
+    {
+      "processSet": 0,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 957.4291999999999
+    },
+    {
+      "processSet": 0,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 281.7667
+    },
+    {
+      "processSet": 0,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1178.7625
+    },
+    {
+      "processSet": 0,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 957.2666999999999
+    },
+    {
+      "processSet": 1,
+      "trial": 0,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 20.16416
+    },
+    {
+      "processSet": 1,
+      "trial": 0,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 18.71
+    },
+    {
+      "processSet": 1,
+      "trial": 0,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 16.81084
+    },
+    {
+      "processSet": 1,
+      "trial": 0,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 39.80416
+    },
+    {
+      "processSet": 1,
+      "trial": 1,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 19.27918
+    },
+    {
+      "processSet": 1,
+      "trial": 1,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 17.24084
+    },
+    {
+      "processSet": 1,
+      "trial": 1,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 23.975
+    },
+    {
+      "processSet": 1,
+      "trial": 1,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 18.81416
+    },
+    {
+      "processSet": 1,
+      "trial": 2,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 17.32666
+    },
+    {
+      "processSet": 1,
+      "trial": 2,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 25.82834
+    },
+    {
+      "processSet": 1,
+      "trial": 2,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 20.40834
+    },
+    {
+      "processSet": 1,
+      "trial": 2,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 19.31
+    },
+    {
+      "processSet": 1,
+      "trial": 3,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 23.40834
+    },
+    {
+      "processSet": 1,
+      "trial": 3,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 19.43334
+    },
+    {
+      "processSet": 1,
+      "trial": 3,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 18.89
+    },
+    {
+      "processSet": 1,
+      "trial": 3,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 18.06416
+    },
+    {
+      "processSet": 1,
+      "trial": 4,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 19.55918
+    },
+    {
+      "processSet": 1,
+      "trial": 4,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 20.24168
+    },
+    {
+      "processSet": 1,
+      "trial": 4,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 17.33166
+    },
+    {
+      "processSet": 1,
+      "trial": 4,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 25.11834
+    },
+    {
+      "processSet": 1,
+      "trial": 5,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 18.71666
+    },
+    {
+      "processSet": 1,
+      "trial": 5,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 17.2675
+    },
+    {
+      "processSet": 1,
+      "trial": 5,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 26.47166
+    },
+    {
+      "processSet": 1,
+      "trial": 5,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 18.9875
+    },
+    {
+      "processSet": 1,
+      "trial": 6,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 16.58166
+    },
+    {
+      "processSet": 1,
+      "trial": 6,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 23.64916
+    },
+    {
+      "processSet": 1,
+      "trial": 6,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 18.26584
+    },
+    {
+      "processSet": 1,
+      "trial": 6,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 18.61168
+    },
+    {
+      "processSet": 1,
+      "trial": 0,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 57.295
+    },
+    {
+      "processSet": 1,
+      "trial": 0,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 50.15334
+    },
+    {
+      "processSet": 1,
+      "trial": 0,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 51.1175
+    },
+    {
+      "processSet": 1,
+      "trial": 0,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 32.68416
+    },
+    {
+      "processSet": 1,
+      "trial": 1,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 50.73582
+    },
+    {
+      "processSet": 1,
+      "trial": 1,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 49.14
+    },
+    {
+      "processSet": 1,
+      "trial": 1,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 32.47834
+    },
+    {
+      "processSet": 1,
+      "trial": 1,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 56.89084
+    },
+    {
+      "processSet": 1,
+      "trial": 2,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 49.826660000000004
+    },
+    {
+      "processSet": 1,
+      "trial": 2,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 30.24666
+    },
+    {
+      "processSet": 1,
+      "trial": 2,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 58.43584
+    },
+    {
+      "processSet": 1,
+      "trial": 2,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 49.875
+    },
+    {
+      "processSet": 1,
+      "trial": 3,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 36.55918
+    },
+    {
+      "processSet": 1,
+      "trial": 3,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 65.2525
+    },
+    {
+      "processSet": 1,
+      "trial": 3,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 50.30832
+    },
+    {
+      "processSet": 1,
+      "trial": 3,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 49.025839999999995
+    },
+    {
+      "processSet": 1,
+      "trial": 4,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 59.51168
+    },
+    {
+      "processSet": 1,
+      "trial": 4,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 50.379160000000006
+    },
+    {
+      "processSet": 1,
+      "trial": 4,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 49.00584
+    },
+    {
+      "processSet": 1,
+      "trial": 4,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 36.864160000000005
+    },
+    {
+      "processSet": 1,
+      "trial": 5,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 51.1475
+    },
+    {
+      "processSet": 1,
+      "trial": 5,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 49.42084
+    },
+    {
+      "processSet": 1,
+      "trial": 5,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 28.62418
+    },
+    {
+      "processSet": 1,
+      "trial": 5,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 57.9475
+    },
+    {
+      "processSet": 1,
+      "trial": 6,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 48.52
+    },
+    {
+      "processSet": 1,
+      "trial": 6,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 27.42332
+    },
+    {
+      "processSet": 1,
+      "trial": 6,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 56.9075
+    },
+    {
+      "processSet": 1,
+      "trial": 6,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 50.7125
+    },
+    {
+      "processSet": 1,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1173.1291999999999
+    },
+    {
+      "processSet": 1,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 957.8291999999999
+    },
+    {
+      "processSet": 1,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 964.4125
+    },
+    {
+      "processSet": 1,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 299.9208
+    },
+    {
+      "processSet": 1,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 956.1708000000001
+    },
+    {
+      "processSet": 1,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 955.475
+    },
+    {
+      "processSet": 1,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 314.3125
+    },
+    {
+      "processSet": 1,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1170.7584
+    },
+    {
+      "processSet": 1,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 955.3209
+    },
+    {
+      "processSet": 1,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 290.0584
+    },
+    {
+      "processSet": 1,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1216.3583999999998
+    },
+    {
+      "processSet": 1,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 984.0291
+    },
+    {
+      "processSet": 1,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 309.5458
+    },
+    {
+      "processSet": 1,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1263.3875
+    },
+    {
+      "processSet": 1,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 1004.575
+    },
+    {
+      "processSet": 1,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 999.6084000000001
+    },
+    {
+      "processSet": 1,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1232.3791999999999
+    },
+    {
+      "processSet": 1,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 1040.1959
+    },
+    {
+      "processSet": 1,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 993.9583
+    },
+    {
+      "processSet": 1,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 306.6125
+    },
+    {
+      "processSet": 1,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 986.4417
+    },
+    {
+      "processSet": 1,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 987.1541
+    },
+    {
+      "processSet": 1,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 287.2708
+    },
+    {
+      "processSet": 1,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1204.9167
+    },
+    {
+      "processSet": 1,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 967.25
+    },
+    {
+      "processSet": 1,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 292.27909999999997
+    },
+    {
+      "processSet": 1,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1187.2541999999999
+    },
+    {
+      "processSet": 1,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 991.6416999999999
+    },
+    {
+      "processSet": 2,
+      "trial": 0,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 20.15916
+    },
+    {
+      "processSet": 2,
+      "trial": 0,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 18.46084
+    },
+    {
+      "processSet": 2,
+      "trial": 0,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 16.609180000000002
+    },
+    {
+      "processSet": 2,
+      "trial": 0,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 36.800839999999994
+    },
+    {
+      "processSet": 2,
+      "trial": 1,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 19.41166
+    },
+    {
+      "processSet": 2,
+      "trial": 1,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 17.84
+    },
+    {
+      "processSet": 2,
+      "trial": 1,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 24.42416
+    },
+    {
+      "processSet": 2,
+      "trial": 1,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 21.12082
+    },
+    {
+      "processSet": 2,
+      "trial": 2,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 18.535
+    },
+    {
+      "processSet": 2,
+      "trial": 2,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 26.255
+    },
+    {
+      "processSet": 2,
+      "trial": 2,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 19.7125
+    },
+    {
+      "processSet": 2,
+      "trial": 2,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 21.55916
+    },
+    {
+      "processSet": 2,
+      "trial": 3,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 24.90166
+    },
+    {
+      "processSet": 2,
+      "trial": 3,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 18.68668
+    },
+    {
+      "processSet": 2,
+      "trial": 3,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 17.9325
+    },
+    {
+      "processSet": 2,
+      "trial": 3,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 16.43084
+    },
+    {
+      "processSet": 2,
+      "trial": 4,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 18.6775
+    },
+    {
+      "processSet": 2,
+      "trial": 4,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 18.80668
+    },
+    {
+      "processSet": 2,
+      "trial": 4,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 18.04582
+    },
+    {
+      "processSet": 2,
+      "trial": 4,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 24.8
+    },
+    {
+      "processSet": 2,
+      "trial": 5,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 19.075
+    },
+    {
+      "processSet": 2,
+      "trial": 5,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 17.24666
+    },
+    {
+      "processSet": 2,
+      "trial": 5,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 27.99168
+    },
+    {
+      "processSet": 2,
+      "trial": 5,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 20.8925
+    },
+    {
+      "processSet": 2,
+      "trial": 6,
+      "lines": 1,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 17.65416
+    },
+    {
+      "processSet": 2,
+      "trial": 6,
+      "lines": 1,
+      "variant": "js",
+      "batch": 50,
+      "us": 23.6675
+    },
+    {
+      "processSet": 2,
+      "trial": 6,
+      "lines": 1,
+      "variant": "native07",
+      "batch": 50,
+      "us": 18.545
+    },
+    {
+      "processSet": 2,
+      "trial": 6,
+      "lines": 1,
+      "variant": "native08",
+      "batch": 50,
+      "us": 19.015
+    },
+    {
+      "processSet": 2,
+      "trial": 0,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 58.59666
+    },
+    {
+      "processSet": 2,
+      "trial": 0,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 51.07918
+    },
+    {
+      "processSet": 2,
+      "trial": 0,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 49.330839999999995
+    },
+    {
+      "processSet": 2,
+      "trial": 0,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 33.423339999999996
+    },
+    {
+      "processSet": 2,
+      "trial": 1,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 52.035
+    },
+    {
+      "processSet": 2,
+      "trial": 1,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 49.4775
+    },
+    {
+      "processSet": 2,
+      "trial": 1,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 45.3425
+    },
+    {
+      "processSet": 2,
+      "trial": 1,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 59.03168
+    },
+    {
+      "processSet": 2,
+      "trial": 2,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 48.77834
+    },
+    {
+      "processSet": 2,
+      "trial": 2,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 32.71166
+    },
+    {
+      "processSet": 2,
+      "trial": 2,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 58.15916
+    },
+    {
+      "processSet": 2,
+      "trial": 2,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 49.6675
+    },
+    {
+      "processSet": 2,
+      "trial": 3,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 34.548339999999996
+    },
+    {
+      "processSet": 2,
+      "trial": 3,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 62.96416000000001
+    },
+    {
+      "processSet": 2,
+      "trial": 3,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 92.7975
+    },
+    {
+      "processSet": 2,
+      "trial": 3,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 50.36
+    },
+    {
+      "processSet": 2,
+      "trial": 4,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 58.1525
+    },
+    {
+      "processSet": 2,
+      "trial": 4,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 51.64916
+    },
+    {
+      "processSet": 2,
+      "trial": 4,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 56.9125
+    },
+    {
+      "processSet": 2,
+      "trial": 4,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 41.95
+    },
+    {
+      "processSet": 2,
+      "trial": 5,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 50.434160000000006
+    },
+    {
+      "processSet": 2,
+      "trial": 5,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 48.54916
+    },
+    {
+      "processSet": 2,
+      "trial": 5,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 29.185
+    },
+    {
+      "processSet": 2,
+      "trial": 5,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 57.74416
+    },
+    {
+      "processSet": 2,
+      "trial": 6,
+      "lines": 32,
+      "variant": "prepared08",
+      "batch": 50,
+      "us": 48.75582
+    },
+    {
+      "processSet": 2,
+      "trial": 6,
+      "lines": 32,
+      "variant": "js",
+      "batch": 50,
+      "us": 27.95418
+    },
+    {
+      "processSet": 2,
+      "trial": 6,
+      "lines": 32,
+      "variant": "native07",
+      "batch": 50,
+      "us": 63.1125
+    },
+    {
+      "processSet": 2,
+      "trial": 6,
+      "lines": 32,
+      "variant": "native08",
+      "batch": 50,
+      "us": 50.118339999999996
+    },
+    {
+      "processSet": 2,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1192.1083
+    },
+    {
+      "processSet": 2,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 960.1415999999999
+    },
+    {
+      "processSet": 2,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 957.1875
+    },
+    {
+      "processSet": 2,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 312.425
+    },
+    {
+      "processSet": 2,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 964.2
+    },
+    {
+      "processSet": 2,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 960.6
+    },
+    {
+      "processSet": 2,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 307.67909999999995
+    },
+    {
+      "processSet": 2,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1271.6583
+    },
+    {
+      "processSet": 2,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 978.0125
+    },
+    {
+      "processSet": 2,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 294.3083
+    },
+    {
+      "processSet": 2,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1187.4375
+    },
+    {
+      "processSet": 2,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 968.8833000000001
+    },
+    {
+      "processSet": 2,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 287.7125
+    },
+    {
+      "processSet": 2,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1184.2125
+    },
+    {
+      "processSet": 2,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 964.3584000000001
+    },
+    {
+      "processSet": 2,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 957.7666999999999
+    },
+    {
+      "processSet": 2,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1185.2292
+    },
+    {
+      "processSet": 2,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 953.1958000000001
+    },
+    {
+      "processSet": 2,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 958.5708000000001
+    },
+    {
+      "processSet": 2,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 294.875
+    },
+    {
+      "processSet": 2,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 964.9125
+    },
+    {
+      "processSet": 2,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 954.6
+    },
+    {
+      "processSet": 2,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 285.3458
+    },
+    {
+      "processSet": 2,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1180.9917
+    },
+    {
+      "processSet": 2,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "prepared08",
+      "batch": 10,
+      "us": 970.2709
+    },
+    {
+      "processSet": 2,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "js",
+      "batch": 10,
+      "us": 285.8708
+    },
+    {
+      "processSet": 2,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "native07",
+      "batch": 10,
+      "us": 1198.8583
+    },
+    {
+      "processSet": 2,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "native08",
+      "batch": 10,
+      "us": 961.0083000000001
+    }
+  ],
+  "summary": [
+    {
+      "lines": 1,
+      "native07": {
+        "medianUs": 18.9875,
+        "minUs": 17.8725,
+        "maxUs": 21.9275
+      },
+      "native08": {
+        "medianUs": 18.84,
+        "minUs": 17.6925,
+        "maxUs": 21.55916
+      },
+      "prepared08": {
+        "medianUs": 17.2675,
+        "minUs": 16.40332,
+        "maxUs": 22.14084
+      },
+      "js": {
+        "medianUs": 25.11834,
+        "minUs": 23.1125,
+        "maxUs": 39.80416
+      }
+    },
+    {
+      "lines": 32,
+      "native07": {
+        "medianUs": 57.9475,
+        "minUs": 56.89,
+        "maxUs": 65.2525
+      },
+      "native08": {
+        "medianUs": 50.434160000000006,
+        "minUs": 49.6025,
+        "maxUs": 92.7975
+      },
+      "prepared08": {
+        "medianUs": 49.025839999999995,
+        "minUs": 47.98,
+        "maxUs": 56.9125
+      },
+      "js": {
+        "medianUs": 32.47834,
+        "minUs": 27.13666,
+        "maxUs": 45.3425
+      }
+    },
+    {
+      "lines": 1000,
+      "native07": {
+        "medianUs": 1187.2541999999999,
+        "minUs": 1170.7584,
+        "maxUs": 1271.6583
+      },
+      "native08": {
+        "medianUs": 962.2584,
+        "minUs": 953.1958000000001,
+        "maxUs": 1040.1959
+      },
+      "prepared08": {
+        "medianUs": 959.95,
+        "minUs": 952.6334,
+        "maxUs": 999.6084000000001
+      },
+      "js": {
+        "medianUs": 294.875,
+        "minUs": 281.7667,
+        "maxUs": 314.3125
+      }
+    }
+  ],
+  "tokenization": {
+    "library": "tiktoken",
+    "version": "0.14.0",
+    "scope": "All discovered schemas plus complete prepare/apply/release or unprepared calls, including responses. Shared initialization/framing/caching/model reasoning and actual AI construction/repairs not counted. Exact encoded text, not billed model usage.",
+    "counts": {
+      "o200k_base": {
+        "1-calls-sample-0": {
+          "native08Catalog": 796,
+          "native07Catalog": 537,
+          "reuseLifecycle": 326,
+          "unpreparedLifecycle": 152,
+          "reuseTotal": 1122,
+          "unpreparedTotal": 689
+        },
+        "1-calls-sample-1": {
+          "native08Catalog": 796,
+          "native07Catalog": 537,
+          "reuseLifecycle": 326,
+          "unpreparedLifecycle": 152,
+          "reuseTotal": 1122,
+          "unpreparedTotal": 689
+        },
+        "1-calls-sample-2": {
+          "native08Catalog": 796,
+          "native07Catalog": 537,
+          "reuseLifecycle": 323,
+          "unpreparedLifecycle": 152,
+          "reuseTotal": 1119,
+          "unpreparedTotal": 689
+        },
+        "20-calls-sample-0": {
+          "native08Catalog": 796,
+          "native07Catalog": 537,
+          "reuseLifecycle": 2907,
+          "unpreparedLifecycle": 3040,
+          "reuseTotal": 3703,
+          "unpreparedTotal": 3577
+        },
+        "20-calls-sample-1": {
+          "native08Catalog": 796,
+          "native07Catalog": 537,
+          "reuseLifecycle": 2929,
+          "unpreparedLifecycle": 3040,
+          "reuseTotal": 3725,
+          "unpreparedTotal": 3577
+        },
+        "20-calls-sample-2": {
+          "native08Catalog": 796,
+          "native07Catalog": 537,
+          "reuseLifecycle": 2929,
+          "unpreparedLifecycle": 3040,
+          "reuseTotal": 3725,
+          "unpreparedTotal": 3577
+        },
+        "100-calls-sample-0": {
+          "native08Catalog": 796,
+          "native07Catalog": 537,
+          "reuseLifecycle": 13889,
+          "unpreparedLifecycle": 15200,
+          "reuseTotal": 14685,
+          "unpreparedTotal": 15737
+        },
+        "100-calls-sample-1": {
+          "native08Catalog": 796,
+          "native07Catalog": 537,
+          "reuseLifecycle": 13889,
+          "unpreparedLifecycle": 15200,
+          "reuseTotal": 14685,
+          "unpreparedTotal": 15737
+        },
+        "100-calls-sample-2": {
+          "native08Catalog": 796,
+          "native07Catalog": 537,
+          "reuseLifecycle": 13889,
+          "unpreparedLifecycle": 15200,
+          "reuseTotal": 14685,
+          "unpreparedTotal": 15737
+        }
+      },
+      "cl100k_base": {
+        "1-calls-sample-0": {
+          "native08Catalog": 777,
+          "native07Catalog": 523,
+          "reuseLifecycle": 319,
+          "unpreparedLifecycle": 148,
+          "reuseTotal": 1096,
+          "unpreparedTotal": 671
+        },
+        "1-calls-sample-1": {
+          "native08Catalog": 777,
+          "native07Catalog": 523,
+          "reuseLifecycle": 319,
+          "unpreparedLifecycle": 148,
+          "reuseTotal": 1096,
+          "unpreparedTotal": 671
+        },
+        "1-calls-sample-2": {
+          "native08Catalog": 777,
+          "native07Catalog": 523,
+          "reuseLifecycle": 316,
+          "unpreparedLifecycle": 148,
+          "reuseTotal": 1093,
+          "unpreparedTotal": 671
+        },
+        "20-calls-sample-0": {
+          "native08Catalog": 777,
+          "native07Catalog": 523,
+          "reuseLifecycle": 2843,
+          "unpreparedLifecycle": 2979,
+          "reuseTotal": 3620,
+          "unpreparedTotal": 3502
+        },
+        "20-calls-sample-1": {
+          "native08Catalog": 777,
+          "native07Catalog": 523,
+          "reuseLifecycle": 2865,
+          "unpreparedLifecycle": 2979,
+          "reuseTotal": 3642,
+          "unpreparedTotal": 3502
+        },
+        "20-calls-sample-2": {
+          "native08Catalog": 777,
+          "native07Catalog": 523,
+          "reuseLifecycle": 2865,
+          "unpreparedLifecycle": 2979,
+          "reuseTotal": 3642,
+          "unpreparedTotal": 3502
+        },
+        "100-calls-sample-0": {
+          "native08Catalog": 777,
+          "native07Catalog": 523,
+          "reuseLifecycle": 13585,
+          "unpreparedLifecycle": 14899,
+          "reuseTotal": 14362,
+          "unpreparedTotal": 15422
+        },
+        "100-calls-sample-1": {
+          "native08Catalog": 777,
+          "native07Catalog": 523,
+          "reuseLifecycle": 13585,
+          "unpreparedLifecycle": 14899,
+          "reuseTotal": 14362,
+          "unpreparedTotal": 15422
+        },
+        "100-calls-sample-2": {
+          "native08Catalog": 777,
+          "native07Catalog": 523,
+          "reuseLifecycle": 13585,
+          "unpreparedLifecycle": 14899,
+          "reuseTotal": 14362,
+          "unpreparedTotal": 15422
+        }
+      }
+    }
+  },
+  "sourceHashes": {
+    "tools/measure-reuse.py": "1dc6ef805124e152f9b3eb65dc99f1c6441a47357c875cc07948907e62144bcb",
+    "docs/REUSE-TOKEN-FIXTURES-0.8.json": "20e0ea797333609d2810643a149da2502b1f0621c9562ba8fa6b333711371f1f"
+  }
+}

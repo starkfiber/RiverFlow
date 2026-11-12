@@ -295,12 +295,12 @@ fn number_end(src, n, i, radix)
  return i
 end
 fn ftable(i)
- do require(i < 128, "function bound")
- return buffer("functions", 6144) + i * 48
+ do require(i < 256, "function bound")
+ return buffer("functions", 12288) + i * 48
 end
 fn local(i, j)
  do require(j < 256, "local bound")
- return buffer("locals", 262144) + (i * 256 + j) * 8
+ return buffer("locals", 524288) + (i * 256 + j) * 8
 end
 fn name_equal(a, b)
  return same(load64(token(a) + 8), load64(token(a) + 16), load64(token(b) + 8), load64(token(b) + 16))

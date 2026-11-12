@@ -1,0 +1,14 @@
+{
+  "schema": "rf2.attendance.verification.v1",
+  "successfulExports": 34,
+  "recordsChecked": 1073,
+  "refusals": 45,
+  "fileProtectionCases": 3,
+  "passed": true,
+  "dataScope": "Explicit fictional TEST identifiers used only as test inputs; no student or workplace study",
+  "speedClaim": null,
+  "tokenClaim": null,
+  "runtimeSHA256": "6a0e46611f7e6085c6c3b4bb417804898f92d5f7e95129959cb2e58e3cea91db",
+  "tallySourceSHA256": "9324cab6d17ab2fb120f549f0fe9ae3b3366346cb39d166c0b7613ad448bf14c",
+  "compiledKernelSourceSHA256": "ad3ed7e00c0120411878e405fa5841634955d854353c24f4b2c9aebb31e55e55"
+}

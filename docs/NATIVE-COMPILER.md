@@ -58,3 +58,7 @@ Release 0.5 added the separate compiler while retaining runtime 0.4. Runtime 0.6
 Review the instruction encoder and parser independently; add broader structured fuzzing and admission tests; migrate general Core source and helpers into the native toolchain; qualify another target; then add one real versioned service capability with explicit effects and acceptance tests. No speed, energy or token-saving result is established by self-reproduction.
 
 Release 0.7 composes the invoice adapter and prefixed generated kernel as two additional modules. The complete runtime reaches the existing 128-function bound. The unchanged compiler reproduces the complete new runtime byte for byte with the historical encoder; see NATIVE-COMPILER-0.7-VERIFICATION.json. No compiler bound was silently relaxed.
+
+## Qualified 0.8 bound
+
+Function table capacity is 256, with 12288 metadata bytes and 524288 local-name bytes (256 locals per function). The native-generated compiler executes 128/129/255/256-function cases with the last function using all 256 local slots, and rejects 257 before output creation. See COMPILER-BOUNDS-0.8.json. NATIVE-COMPILER-0.8-VERIFICATION.json reruns fixed-point and complete runtime encoder comparisons. The bound change does not imply more Core functions or platform/security qualification.

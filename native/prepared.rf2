@@ -1,0 +1,143 @@
+# Process-local immutable checked invoice plans; random handles are not authentication.
+fn ipfind(handle)
+ let i = 0
+ while i < 32
+  if load64(buffer("prepared_plans", 1024) + i * 32) == handle
+   if handle != 0
+    return buffer("prepared_plans", 1024) + i * 32
+   end
+  end
+  set i = i + 1
+ end
+ return 0
+end
+fn ipnew()
+ let generation = buffer("prepared_generation", 24)
+ let entropy = buffer("plan_entropy", 4)
+ let fd = 0
+ let n = 0
+ let r = 0
+ let counter = 0
+ let handle = 0
+ if load64(generation + 16) == 0
+  set fd = open("/dev/urandom", 0, 0)
+  if fd >= 9223372036854775808
+   return fail(35)
+  end
+  while n < 4
+   set r = read(fd, entropy + n, 4 - n)
+   if (r == 0) | (r >= 9223372036854775808)
+    do close(fd)
+    return fail(35)
+   end
+   set n = n + r
+  end
+  do close(fd)
+  do store64(generation + 8, load32(entropy))
+  do store64(generation + 16, 1)
+ end
+ # XOR is bijective: a released number is never issued again in this process.
+ set counter = load64(generation) + 1
+ if counter > 4294967295
+  return fail(35)
+ end
+ set handle = counter ^ load64(generation + 8)
+ if handle == 0
+  set counter = counter + 1
+  if counter > 4294967295
+   return fail(35)
+  end
+  set handle = counter ^ load64(generation + 8)
+ end
+ do store64(generation, counter)
+ return handle
+end
+fn iptool(id, args, action)
+ let key = args + 1
+ let fields = 0
+ let src = field(args, "plan")
+ let ht = field(args, "plan_id")
+ let lines = field(args, "lines")
+ let handle = 0
+ let slot = 0
+ let i = 0
+ if (args == 0) | (load64(token(args)) != 2)
+  return rpc_error(id, 32602, "Expected prepared-plan arguments")
+ end
+ while key < load64(token(args) + 24)
+  if action == 1
+   if matches(token(key), "plan") == 0
+    return rpc_error(id, 32602, "Prepare accepts only plan")
+   end
+  else
+   if matches(token(key), "plan_id") == 0
+    if (action != 2) | (matches(token(key), "lines") == 0)
+     return rpc_error(id, 32602, "No rule overrides, paths or permissions accepted")
+    end
+   end
+  end
+  set fields = fields + 1
+  set key = load64(token(key + 1) + 24)
+ end
+ if action == 1
+  if (fields != 1) | (src == 0) | (load64(token(src)) != 1)
+   return rpc_error(id, 32602, "Expected text plan")
+  end
+  do ivplan(load64(token(src) + 32), load64(token(src) + 40))
+  if load64(state()) != 0
+   return tool_error(id)
+  end
+  while (i < 32) & (slot == 0)
+   if load64(buffer("prepared_plans", 1024) + i * 32) == 0
+    set slot = buffer("prepared_plans", 1024) + i * 32
+   end
+   set i = i + 1
+  end
+  if slot == 0
+   do fail(34)
+   return tool_error(id)
+  end
+  set handle = ipnew()
+  if load64(state()) != 0
+   return tool_error(id)
+  end
+  do store64(slot + 8, load64(buffer("invoice_state", 80) + 24))
+  do store32(slot + 16, load32(buffer("invoice_currency", 4)))
+  do store64(slot, handle)
+  do rpc_start(id)
+  do say(",\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Checked plan; valid only in this server process until release\"}],\"structuredContent\":{\"plan_id\":")
+  do decimal(handle)
+  do say(",\"capability\":\"invoice.total@1\",\"currency\":\"")
+  do say(buffer("invoice_currency", 4))
+  do say("\",\"taxBps\":")
+  do decimal(load64(slot + 8))
+  return say("}}}\n")
+ end
+ if (ht == 0) | ((action == 2) & (fields != 2)) | ((action == 3) & (fields != 1))
+  return rpc_error(id, 32602, "Expected plan_id, and lines for apply")
+ end
+ set handle = number_u32(token(ht))
+ set slot = ipfind(handle)
+ if (load64(state()) != 0) | (slot == 0)
+  do fail(36)
+  return tool_error(id)
+ end
+ if action == 3
+  do store64(slot, 0)
+  do rpc_start(id)
+  return say(",\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Plan released\"}],\"structuredContent\":{\"released\":true}}}\n")
+ end
+ if lines == 0
+  return rpc_error(id, 32602, "Expected lines")
+ end
+ do store64(buffer("invoice_state", 80) + 24, load64(slot + 8))
+ do store32(buffer("invoice_currency", 4), load32(slot + 16))
+ do ivbuild(lines)
+ if load64(state()) != 0
+  return tool_error(id)
+ end
+ do rpc_start(id)
+ do say(",\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Checked invoice total\"}],\"structuredContent\":")
+ do ivrender()
+ return say("}}\n")
+end

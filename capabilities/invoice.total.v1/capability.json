@@ -21,6 +21,6 @@
   "sourceSHA256": {
     "capabilities/invoice.total.v1/total.flow": "8f2335ccc1f17033ccfc9f21833d21411e2bb9f85298cd8c3a15cf5ef0a3476d",
     "native/invoice-kernel.rf2": "0e0778112e99d2678159aa1ee856a4ffcb92d964cdc9e27ef921de460b90aa09",
-    "native/invoice.rf2": "7fdc6b900f6038cb8da6329c2fefecb2f572e6d547663e4fd5d9428528b7f1a0"
+    "native/invoice.rf2": "4416e611ac6eda352cf37ee0353d89cd3a829417bd89e8abc48b8b5de6ef44a5"
   }
 }

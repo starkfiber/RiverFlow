@@ -1,0 +1,310 @@
+# Explicit CLI-only versioned invoice documents and native PDF. No MCP filesystem effects.
+fn iwload(path)
+ let src = read_source(path)
+ let plan = 0
+ let lines = 0
+ let key = 1
+ let count = 0
+ if load64(state()) != 0
+  return 0
+ end
+ do json_parse(src, load64(state() + 88))
+ if load64(state()) != 0
+  return 0
+ end
+ if load64(token(0)) != 2
+  return fail(37)
+ end
+ while key < load64(token(0) + 24)
+  if matches(token(key), "format") == 0
+   if matches(token(key), "plan") == 0
+    if matches(token(key), "lines") == 0
+     return fail(37)
+    end
+   end
+  end
+  set count = count + 1
+  set key = load64(token(key + 1) + 24)
+ end
+ if (count != 3) | (matches(token(field(0, "format")), "rf2.invoice.document.v1") == 0)
+  return fail(37)
+ end
+ set plan = field(0, "plan")
+ set lines = field(0, "lines")
+ if load64(token(plan)) != 1
+  return fail(37)
+ end
+ do ivplan(load64(token(plan) + 32), load64(token(plan) + 40))
+ if load64(state()) == 0
+  do ivbuild(lines)
+ end
+ return load64(state()) == 0
+end
+fn iwjson()
+ let i = 0
+ let data = buffer("invoice_words", 8000)
+ do say("{\"format\":\"rf2.invoice.document.v1\",\"plan\":\"rf2 app v1 invoice total currency ")
+ do say(buffer("invoice_currency", 4))
+ do say(" tax ")
+ do decimal(load64(buffer("invoice_state", 80) + 24))
+ do say(" bps\",\"lines\":[")
+ while i < load64(buffer("invoice_state", 80) + 32)
+  if i != 0
+   do say(",")
+  end
+  do say("{\"quantity\":")
+  do decimal(load32(data + i * 8))
+  do say(",\"unit_cents\":")
+  do decimal(load32(data + i * 8 + 4))
+  do say("}")
+  set i = i + 1
+ end
+ return say("]}\n")
+end
+fn iwwrite(path)
+ let fd = open(path, 3585, 384)
+ let n = 0
+ let r = 0
+ let size = load64(buffer("capture_state", 24) + 8)
+ if fd >= 9223372036854775808
+  return fail(38)
+ end
+ while n < size
+  set r = write(fd, buffer("capture_bytes", 1048576) + n, size - n)
+  if (r == 0) | (r >= 9223372036854775808)
+   do close(fd)
+   return fail(38)
+  end
+  set n = n + r
+ end
+ if close(fd) != 0
+  return fail(38)
+ end
+ return 1
+end
+fn iwobj(n)
+ do store64(buffer("pdf_offsets", 1024) + n * 8, load64(buffer("capture_state", 24) + 8))
+ do decimal(n)
+ return say(" 0 obj\n")
+end
+fn iwpdf()
+ let count = load64(buffer("invoice_state", 80) + 32)
+ let pages = (count + 39) // 40
+ let page = 0
+ let index = 0
+ let stop = 0
+ let stream_start = 0
+ let stream_size = 0
+ let xref = 0
+ let objects = 0
+ let i = 0
+ let value = 0
+ let divisor = 1000000000
+ let data = buffer("invoice_words", 8000)
+ if pages == 0
+  set pages = 1
+ end
+ set objects = 3 + pages * 3
+ do say("%PDF-1.4\n")
+ do iwobj(1)
+ do say("<< /Type /Catalog /Pages 2 0 R >>\nendobj\n")
+ do iwobj(2)
+ do say("<< /Type /Pages /Count ")
+ do decimal(pages)
+ do say(" /Kids [")
+ while page < pages
+  do decimal(4 + page * 3)
+  do say(" 0 R ")
+  set page = page + 1
+ end
+ do say("] >>\nendobj\n")
+ do iwobj(3)
+ do say("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>\nendobj\n")
+ set page = 0
+ while page < pages
+  do iwobj(4 + page * 3)
+  do say("<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents ")
+  do decimal(5 + page * 3)
+  do say(" 0 R >>\nendobj\n")
+  do iwobj(5 + page * 3)
+  do say("<< /Length ")
+  do decimal(6 + page * 3)
+  do say(" 0 R >>\nstream\n")
+  set stream_start = load64(buffer("capture_state", 24) + 8)
+  do say("BT /F1 20 Tf 50 790 Td (Invoice worksheet) Tj ET\nBT /F1 11 Tf 50 765 Td (Currency: ")
+  do say(buffer("invoice_currency", 4))
+  do say("   All amounts in cents   Page ")
+  do decimal(page + 1)
+  do say(" of ")
+  do decimal(pages)
+  do say(") Tj ET\nBT /F1 11 Tf 50 740 Td (Line) Tj 70 0 Td (Quantity) Tj 120 0 Td (Unit cents) Tj 120 0 Td (Line cents) Tj ET\n")
+  set index = page * 40
+  set stop = index + 40
+  if stop > count
+   set stop = count
+  end
+  while index < stop
+   do say("BT /F1 11 Tf 50 ")
+   do decimal(718 - (index - page * 40) * 15)
+   do say(" Td (")
+   do decimal(index + 1)
+   do say(") Tj 70 0 Td (")
+   do decimal(load32(data + index * 8))
+   do say(") Tj 120 0 Td (")
+   do decimal(load32(data + index * 8 + 4))
+   do say(") Tj 120 0 Td (")
+   do decimal(load32(data + index * 8) * load32(data + index * 8 + 4))
+   do say(") Tj ET\n")
+   set index = index + 1
+  end
+  if page + 1 == pages
+   do say("BT /F1 10 Tf 50 105 Td (Subtotal: ")
+   do decimal(load64(buffer("invoice_state", 80) + 40))
+   do say("   Tax ")
+   do decimal(load64(buffer("invoice_state", 80) + 24))
+   do say(" bps: ")
+   do decimal(load64(buffer("invoice_state", 80) + 48))
+   do say("   Total: ")
+   do decimal(load64(buffer("invoice_state", 80) + 56))
+   do say(") Tj ET\n")
+  end
+  do say("BT /F1 9 Tf 50 70 Td (Calculated from the explicit plan. Check business and tax rules before issue.) Tj ET\n")
+  set stream_size = load64(buffer("capture_state", 24) + 8) - stream_start
+  do say("endstream\nendobj\n")
+  do iwobj(6 + page * 3)
+  do decimal(stream_size)
+  do say("\nendobj\n")
+  set page = page + 1
+ end
+ set xref = load64(buffer("capture_state", 24) + 8)
+ do say("xref\n0 ")
+ do decimal(objects + 1)
+ do say("\n0000000000 65535 f \n")
+ set i = 1
+ while i <= objects
+  set value = load64(buffer("pdf_offsets", 1024) + i * 8)
+  set divisor = 1000000000
+  while divisor > value
+   do say("0")
+   set divisor = divisor // 10
+  end
+  do decimal(value)
+  do say(" 00000 n \n")
+  set i = i + 1
+ end
+ do say("trailer\n<< /Size ")
+ do decimal(objects + 1)
+ do say(" /Root 1 0 R >>\nstartxref\n")
+ do decimal(xref)
+ return say("\n%%EOF\n")
+end
+fn iwcli(argc, argv)
+ let action = load64(argv + 16)
+ let src = 0
+ let index = 0
+ let quantity = 0
+ let price = 0
+ let count = 0
+ let i = 0
+ let data = buffer("invoice_words", 8000)
+ let path = 0
+ if argc < 4
+  return fail(37)
+ end
+ if eq(action, "save")
+  if argc != 6
+   return fail(37)
+  end
+  set src = read_source(load64(argv + 24))
+  if load64(state()) == 0
+   do ivplan(src, load64(state() + 88))
+  end
+  if load64(state()) == 0
+   do ivfile(load64(argv + 32))
+  end
+  set path = load64(argv + 40)
+ else
+  do iwload(load64(argv + 24))
+  if load64(state()) != 0
+   return 0
+  end
+  if eq(action, "inspect")
+   if argc != 4
+    return fail(37)
+   end
+   do ivrender()
+   return say("\n")
+  end
+  if eq(action, "pdf")
+   if argc != 5
+    return fail(37)
+   end
+   set path = load64(argv + 32)
+  else
+   if eq(action, "set")
+    if argc != 8
+     return fail(37)
+    end
+    set index = unsigned(load64(argv + 32), slen(load64(argv + 32)))
+    set quantity = unsigned(load64(argv + 40), slen(load64(argv + 40)))
+    set price = unsigned(load64(argv + 48), slen(load64(argv + 48)))
+    set count = load64(buffer("invoice_state", 80) + 32)
+    if (index > count) | (index >= 1000) | (quantity == 0) | (quantity > 4294967295) | (price > 4294967295)
+     return fail(37)
+    end
+    do store32(data + index * 8, quantity)
+    do store32(data + index * 8 + 4, price)
+    if index == count
+     do store64(buffer("invoice_state", 80) + 32, count + 1)
+    end
+    set path = load64(argv + 56)
+   else
+    if (eq(action, "remove") == 0) | (argc != 6)
+     return fail(37)
+    end
+    set index = unsigned(load64(argv + 32), slen(load64(argv + 32)))
+    set count = load64(buffer("invoice_state", 80) + 32)
+    if index >= count
+     return fail(37)
+    end
+    set i = index
+    while i + 1 < count
+     do store64(data + i * 8, load64(data + (i + 1) * 8))
+     set i = i + 1
+    end
+    do store64(buffer("invoice_state", 80) + 32, count - 1)
+    set path = load64(argv + 40)
+   end
+  end
+ end
+ if load64(state()) != 0
+  return 0
+ end
+ # Render and revalidate the canonical document before opening any output file.
+ do store64(buffer("capture_state", 24), 1)
+ do store64(buffer("capture_state", 24) + 8, 0)
+ do iwjson()
+ do store64(buffer("capture_state", 24), 0)
+ do json_parse(buffer("capture_bytes", 1048576), load64(buffer("capture_state", 24) + 8))
+ if load64(state()) == 0
+  do ivbuild(field(0, "lines"))
+ end
+ if load64(state()) != 0
+  return 0
+ end
+ if eq(action, "pdf")
+  do store64(buffer("capture_state", 24), 1)
+  do store64(buffer("capture_state", 24) + 8, 0)
+  do iwpdf()
+  do store64(buffer("capture_state", 24), 0)
+ end
+ if load64(state()) != 0
+  return 0
+ end
+ do iwwrite(path)
+ if load64(state()) == 0
+  do ivrender()
+  do say("\n")
+ end
+ return load64(state()) == 0
+end

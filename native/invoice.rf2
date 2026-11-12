@@ -106,6 +106,8 @@ fn ivbuild(lines)
  let fields = 0
  let quantity = 0
  let price = 0
+ let quantity_token = 0
+ let price_token = 0
  let count = 0
  let subtotal = 0
  let tax = 0
@@ -121,8 +123,12 @@ fn ivbuild(lines)
   set key = row + 1
   set fields = 0
   while key < load64(token(row) + 24)
-   if matches(token(key), "quantity") == 0
-    if matches(token(key), "unit_cents") == 0
+   if matches(token(key), "quantity")
+    set quantity_token = key + 1
+   else
+    if matches(token(key), "unit_cents")
+     set price_token = key + 1
+    else
      return fail(31)
     end
    end
@@ -132,8 +138,8 @@ fn ivbuild(lines)
   if fields != 2
    return fail(31)
   end
-  set quantity = number_u32(token(field(row, "quantity")))
-  set price = number_u32(token(field(row, "unit_cents")))
+  set quantity = number_u32(token(quantity_token))
+  set price = number_u32(token(price_token))
   if (load64(state()) != 0) | (quantity == 0)
    return fail(31)
   end

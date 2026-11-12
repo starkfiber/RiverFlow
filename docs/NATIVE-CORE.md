@@ -47,3 +47,5 @@ Test counts describe corpus entries, build cases and executions. Some reference/
 ## Release 0.7 checkpoint
 
 Core semantics are unchanged and the corpus was rerun against the 0.7 runtime; suffixed 0.7 reports retain its exact binary hash. The sixth native tool is invoice_total, using the separate RF2_APP_V1 plan and generated Core subtotal kernel. The systems runtime now composes seven modules and reaches the compiler's 128-function limit. See the versioned invoice contract and measured results; native implementation alone does not establish lower latency or fewer AI tokens.
+
+Release 0.8 reruns the Core and lowering corpora unchanged. Native transport fast-paths canonical integer tokens and borrows unescaped string bytes only during a request; escaped numeric/string forms retain exact parsing. No borrowed input is persisted in prepared plans. Nine runtime modules now include immutable plan reuse and a CLI-only file-based document/PDF workspace. Corresponding 0.8 reports bind the final binary. Core still has 16 functions and input-only effects; the separate systems compiler expands to 256. See PREPARED-PLANS.md, INVOICE-WORKSPACE.md and REUSE-MEASUREMENTS.md.

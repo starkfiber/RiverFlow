@@ -1,0 +1,169 @@
+{
+  "schema": "rf2.compiler.verification.v1",
+  "passed": true,
+  "target": "macos-arm64",
+  "selfHostingScope": "RF2_SYSTEM_A64_V1 compiler source, bounded documented lexical subset",
+  "speedClaim": null,
+  "pythonFreeNativeStages": true,
+  "cases": [
+    {
+      "name": "add",
+      "unsignedByteMatch": true,
+      "expectedExit": 18,
+      "actualExit": 18
+    },
+    {
+      "name": "sub",
+      "unsignedByteMatch": true,
+      "expectedExit": 252,
+      "actualExit": 252
+    },
+    {
+      "name": "mul",
+      "unsignedByteMatch": true,
+      "expectedExit": 67,
+      "actualExit": 67
+    },
+    {
+      "name": "and",
+      "unsignedByteMatch": true,
+      "expectedExit": 17,
+      "actualExit": 17
+    },
+    {
+      "name": "or",
+      "unsignedByteMatch": true,
+      "expectedExit": 131,
+      "actualExit": 131
+    },
+    {
+      "name": "xor",
+      "unsignedByteMatch": true,
+      "expectedExit": 15,
+      "actualExit": 15
+    },
+    {
+      "name": "shift",
+      "unsignedByteMatch": true,
+      "expectedExit": 8,
+      "actualExit": 8
+    },
+    {
+      "name": "division",
+      "unsignedByteMatch": true,
+      "expectedExit": 14,
+      "actualExit": 14
+    },
+    {
+      "name": "zero-div",
+      "unsignedByteMatch": true,
+      "expectedExit": 0,
+      "actualExit": 0
+    },
+    {
+      "name": "not",
+      "unsignedByteMatch": true,
+      "expectedExit": 255,
+      "actualExit": 255
+    },
+    {
+      "name": "neg",
+      "unsignedByteMatch": true,
+      "expectedExit": 249,
+      "actualExit": 249
+    },
+    {
+      "name": "precedence",
+      "unsignedByteMatch": true,
+      "expectedExit": 23,
+      "actualExit": 23
+    },
+    {
+      "name": "parentheses",
+      "unsignedByteMatch": true,
+      "expectedExit": 35,
+      "actualExit": 35
+    },
+    {
+      "name": "unsigned",
+      "unsignedByteMatch": true,
+      "expectedExit": 1,
+      "actualExit": 1
+    },
+    {
+      "name": "eq",
+      "unsignedByteMatch": true,
+      "expectedExit": 1,
+      "actualExit": 1
+    },
+    {
+      "name": "ne",
+      "unsignedByteMatch": true,
+      "expectedExit": 0,
+      "actualExit": 0
+    },
+    {
+      "name": "lt",
+      "unsignedByteMatch": true,
+      "expectedExit": 1,
+      "actualExit": 1
+    },
+    {
+      "name": "le",
+      "unsignedByteMatch": true,
+      "expectedExit": 1,
+      "actualExit": 1
+    },
+    {
+      "name": "ge",
+      "unsignedByteMatch": true,
+      "expectedExit": 1,
+      "actualExit": 1
+    },
+    {
+      "name": "branch",
+      "unsignedByteMatch": true,
+      "expectedExit": 17,
+      "actualExit": 17
+    },
+    {
+      "name": "loop",
+      "unsignedByteMatch": true,
+      "expectedExit": 25,
+      "actualExit": 25
+    },
+    {
+      "name": "memory",
+      "unsignedByteMatch": true,
+      "expectedExit": 171,
+      "actualExit": 171
+    },
+    {
+      "name": "quoted-operators",
+      "unsignedByteMatch": true,
+      "expectedExit": 85,
+      "actualExit": 85
+    },
+    {
+      "name": "forward-eight-argument-call",
+      "unsignedByteMatch": true,
+      "expectedExit": 36,
+      "actualExit": 36
+    }
+  ],
+  "negativeCases": 15,
+  "hashCases": 14,
+  "stage1UnsignedSHA256": "5edaddb80159569be3bf6031271544f1d4151ef1e703e0e60ad275c979821f6c",
+  "stage2UnsignedSHA256": "5edaddb80159569be3bf6031271544f1d4151ef1e703e0e60ad275c979821f6c",
+  "stage3UnsignedSHA256": "5edaddb80159569be3bf6031271544f1d4151ef1e703e0e60ad275c979821f6c",
+  "fixedPointUnsignedImages": true,
+  "runtimeUnsignedMatchesReference": true,
+  "generatedRuntime": "output/compiler-verification/run-nffspeex/rf2",
+  "runtimeCorpusPassed": true,
+  "officialSdkPassed": true,
+  "sourceSHA256": "8dfb590b4b3b8f6e2cd070be299465ff2c7cace26ec6c5837348f368b2837f71",
+  "nativeCompilerSHA256": "43f273af4e7643b9f2a6123d4ffc4c1477b193843f9a2d9611a300df82b287cd",
+  "historicalSeedSHA256": "781d28001f2bd32c0ccafb247df9a41d9a3abd57804982ba8a1ed61d71f474ea",
+  "generatedRuntimeSHA256": "6a0e46611f7e6085c6c3b4bb417804898f92d5f7e95129959cb2e58e3cea91db",
+  "seedEncoderRuntimeByteMatch": true
+}

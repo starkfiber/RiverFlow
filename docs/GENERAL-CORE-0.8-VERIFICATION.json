@@ -1,0 +1,12 @@
+{
+  "schema": "rf2.native.core.verification.v1",
+  "programs": 109,
+  "admissionCases": 317,
+  "executionCases": 1095,
+  "seededMutations": 180,
+  "passed": true,
+  "speedClaim": null,
+  "tokenClaim": null,
+  "uniqueSourcePrograms": 106,
+  "executableSHA256": "6a0e46611f7e6085c6c3b4bb417804898f92d5f7e95129959cb2e58e3cea91db"
+}

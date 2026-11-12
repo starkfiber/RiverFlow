@@ -1,7 +1,7 @@
 {
   "name": "rf2",
-  "version": "0.7.0",
-  "description": "Readable rf2 application plans, native Core and ARM64 compiler, attendance and invoice MCP capabilities with retained measurements",
+  "version": "0.8.0",
+  "description": "Native checked-plan reuse, invoice documents and PDF workspace, bounded compiler and measured MCP interfaces",
   "author": {
     "name": "Ilangkhumanan Thirunavokkarasu",
     "url": "https://github.com/starkfiber"

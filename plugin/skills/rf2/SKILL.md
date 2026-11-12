@@ -2,9 +2,9 @@
 name: rf2
 description: Check and execute RiverFlow Core/compact programs, lower checked kernels, use the versioned attendance exporter, and develop native compiler evidence.
 ---
-# RiverFlow RF² 0.7
+# RiverFlow RF² 0.8
 
-Use rf2_status first. Read docs/NATIVE-CORE.md and STANDALONE.md for current profiles/effects. Six native tools exist: rf2_status, rf2_check, rf2_run, rf2_lower attendance_export and invoice_total. Users require no Node/npm/Python/C++ runtime. The host provides AI intelligence; the executable has no embedded model.
+Use rf2_status first. Read docs/NATIVE-CORE.md and STANDALONE.md for current profiles/effects. Nine native tools exist: rf2_status, rf2_check, rf2_run, rf2_lower, attendance_export, invoice_total, invoice_prepare, invoice_apply and invoice_release. Users require no Node/npm/Python/C++ runtime. The host provides AI intelligence; the executable has no embedded model.
 
 ## Core and compact source
 
@@ -22,7 +22,7 @@ The CLI `rf2 attendance records.json new.csv` performs an explicitly requested f
 
 ## Native builds and evidence
 
-The systems compiler reproduces its own bounded source without Python. tools/build-runtime.sh composes the seven runtime modules; compiling native/rf2.rf2 alone is no longer a complete build. The historical Python seed and JS/C references remain development oracles, not user runtime dependencies. Source hashes establish byte identity, not independent approval or process isolation.
+The systems compiler reproduces its own bounded source without Python. tools/build-runtime.sh composes the nine runtime modules; compiling native/rf2.rf2 alone is no longer a complete build. The historical Python seed and JS/C references remain development oracles, not user runtime dependencies. Source hashes establish byte identity, not independent approval or process isolation.
 
 The plugin uses RF2_BIN or output/bin/rf2 and never silently builds/downloads/falls back to Node. Fresh checkouts need an explicit native binary. Current qualification is on Apple Silicon Mac; normal OS signing remains required. No speed, energy, token-saving, phone or fieldwork claim is established. Preserve failed tests and private data locally; do not put participant records in public releases.
 
@@ -31,3 +31,11 @@ The plugin uses RF2_BIN or output/bin/rf2 and never silently builds/downloads/fa
 RF2_APP_V1 admits `rf2 app v1 invoice total currency MYR tax 600 bps` with ASCII whitespace, exact order, three uppercase currency letters and canonical 0..10000 basis points. Use invoice_total with plan and lines, or explicit CLI `rf2 app plan.rf2 lines.json`. Read capabilities/invoice.total.v1/README.md. Lines contain exactly positive integer quantity and u32 unit_cents, at most 1000 lines. Checked line/subtotal/total limits and invoice-level half-up rounding apply. No fractional quantity, discount, tax-law determination, payment, ledger or file creation is implemented. Do not invent those effects.
 
 Measurements in docs/CAPABILITY-MEASUREMENTS.md are mixed. The native invoice path is slower than the JS comparator for larger tested inputs. The 19-token plan costs more encoded interface tokens than direct configuration across the measured 20 calls. These are exact tokenizer fixture counts, not billed model usage or full-task savings. Preserve the raw results and do not turn compact syntax into an unmeasured advantage claim.
+
+## Prepared plans and local workspace
+
+Read docs/PREPARED-PLANS.md before reuse. Prepare an explicit plan, inspect returned currency/tax rules, apply to fresh lines, then release. Handles are immutable, bounded to 32 process-local slots, not authentication. Discard handles on reconnect. They grant no file or network effects. Internal OS entropy initializes a process-specific handle mask; no caller-controlled path is accepted.
+
+Read docs/INVOICE-WORKSPACE.md for explicit CLI-only invoice save/inspect/set/remove/pdf. Each edit/export names a new file, refuses existing targets/symlinks and recomputes checked totals. This is a file-based workspace, not a graphical editor or legally complete invoice/accounting service. All user runtime document/PDF operations run in RiverFlow. Test/publishing tools in other languages remain development dependencies.
+
+0.8 measurement receipts compare final binary with frozen 0.7 and the JS reference. Reuse setup can cost more for short sessions. State exact measured scope; encoded fixture savings are not actual billed AI usage or universal acceleration. Do not inherit historical measurement values as permanent scores.
