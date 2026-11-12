@@ -8,7 +8,8 @@ assert report['compilerSHA256']=='8cac670c59421bfb83b92e5d12efda7e7951bd01b7c177
 repair=subprocess.run(['python3','tools/macho-empty-dyld.py',str(R/'output/native-compiler/rf2c')],capture_output=True,check=True);report['bootstrapRepair']=json.loads(repair.stdout)
 compiler=R/'output/native-compiler/rf2c';seed=compiler.with_name('rf2c-bootstrap');compiler.rename(seed)
 subprocess.run([seed,R/'native/compiler/compiler.rf2',compiler,'--opt'],check=True)
-subprocess.run(['/usr/bin/codesign','-s','-',compiler],check=True)
+# The old seed also emits the old container. Repair first-generation container.
+subprocess.run(['python3','tools/macho-empty-dyld.py',str(compiler)],check=True)
 report['candidateCompilerSHA256']=hashlib.sha256(compiler.read_bytes()).hexdigest()
 commands=[['python3','tools/sync-contract-json.py','--check'],['python3','tools/build-trust.py','output/trust-0.18'],['python3','tests/standalone/trust_hmac_verify.py'],['python3','tests/standalone/verifier_exhaustive.py'],['python3','tests/standalone/contract_engine_verify.py'],['python3','tests/standalone/contract_exhaustive_verify.py'],['python3','tests/standalone/trust_shared_fault.py'],['python3','tests/standalone/trust_verify.py']]
 env=dict(os.environ,RF2_TRUST_DIR=str(R/'output/trust-0.18'))
