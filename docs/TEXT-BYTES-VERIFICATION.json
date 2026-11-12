@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "byteCases": 10,
+  "byteTraps": 6,
+  "compileRefusals": 14,
+  "recoverableCases": 4,
+  "numericCases": 120,
+  "utf8ValidCases": 226,
+  "utf8InvalidCases": 468,
+  "fileCases": 10,
+  "cleanupCases": 6,
+  "modes": [
+    "default",
+    "opt"
+  ],
+  "compilerSHA256": "75c5c044a1cb6ee789c2a4a37c9cc566e82c66c0be7ade2b49e8961e77466c11",
+  "compilerSourceSHA256": "e4046498e34309035137c0d21c5f844d4fe6e54096910810d9ccecd2a5aaf005",
+  "sources": {
+    "examples/text-audit/main.rf2": "f5e9da62bdb2671a1cd30c3e74493c79e247a45e1bb6202b6c25aee630c031e6",
+    "examples/text-audit/lib/bytes.rf2": "a2c61e59ad1f24b38256e4aaa07e777b7ba7df8f26a1bf6469acf08760ec85b0",
+    "examples/text-audit/lib/audit.rf2": "71287d70fb6ff45effef7367e3454b099af0a4e002b44e5ef8e28844f511d093",
+    "examples/text-audit/lib/io.rf2": "3a0567b5e2ccbf4bd85203556465438d24292c571553d876a32b38df8e835b6f",
+    "examples/text-audit/lib/utf8.rf2": "fa2d84bbff0cb1230b951644993e21788b715c5ff1a3d69b25c232e61d028481"
+  },
+  "scope": "Local default/optimized typed bytes, explicit recoverable status libraries, strict UTF-8 validity/first-error versus Python; invalid grouping is the documented audit policy, not Unicode replacement conformance. File close checked in process. No general exception/ownership proof, thread model, new MCP authority, speed/token claim or phone qualification."
+}

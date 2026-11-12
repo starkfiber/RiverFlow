@@ -382,7 +382,7 @@ fn scan_record()
  let t = advance()
  do require(load64(token(t)) == 1, "record name required")
  do require(record_index(t) == 0, "duplicate record")
- do require((tmatch(t, "buffer") | tmatch(t, "load8") | tmatch(t, "load32") | tmatch(t, "load64") | tmatch(t, "store8") | tmatch(t, "store32") | tmatch(t, "store64") | tmatch(t, "read") | tmatch(t, "write") | tmatch(t, "open") | tmatch(t, "close") | tmatch(t, "exit") | tmatch(t, "syscall6") | tmatch(t, "fork_process")) == 0, "reserved record name")
+ do require((tmatch(t, "read_bytes") | tmatch(t, "write_bytes") | tmatch(t, "buffer") | tmatch(t, "load8") | tmatch(t, "load32") | tmatch(t, "load64") | tmatch(t, "store8") | tmatch(t, "store32") | tmatch(t, "store64") | tmatch(t, "read") | tmatch(t, "write") | tmatch(t, "open") | tmatch(t, "close") | tmatch(t, "exit") | tmatch(t, "syscall6") | tmatch(t, "fork_process")) == 0, "reserved record name")
  let id = load64(state() + 128) + 1
  let r = record_info(id)
  let f = 0
@@ -397,7 +397,9 @@ fn scan_record()
  let j = 0
  if is_array
   do require(tmatch(t, "u64") == 0, "reserved array name")
-  do expect("u64")
+  do require(match("u64") | match("u8"), "array element type required")
+  do store64(r + 144, 1 + match("u8"))
+  do advance()
   do expect(",")
   set field = advance()
   do require(load64(token(field)) == 2, "array length literal required")
@@ -405,7 +407,6 @@ fn scan_record()
   do require((n > 0) & (n <= 255), "array length bound")
   do require((load64(token(field) + 16) <= 3) & (load8(load64(token(field) + 8)) != 48), "array length canonical decimal required")
   do store64(r + 8, n)
-  do store64(r + 144, 1)
   do store64(state() + 128, id)
   do expect(")")
   return newline()
@@ -450,6 +451,9 @@ fn construct_record(target, depth)
  let i = 0
  let n = load64(record_info(id) + 8)
  if load64(record_info(id) + 144)
+  if load64(record_info(id) + 144) == 2
+   set n = (n + 7) // 8
+  end
   do expect(")")
   do imm(0, 0)
   while i < n
@@ -698,6 +702,7 @@ fn scan_functions_more(f)
    do expect("fn")
    set t = advance()
    do require(load64(token(t)) == 1, "function name required")
+   do require((tmatch(t, "read_bytes") | tmatch(t, "write_bytes")) == 0, "reserved byte IO name")
    do require(record_index(t) == 0, "function collides with record")
    set other = 0
    while other < f
@@ -769,6 +774,9 @@ fn scan_body(f, params)
     do require(depth == 1, "record declarations must be function-level")
     do store64(local_type(f, slot), id)
     set count = load64(record_info(id) + 8)
+    if load64(record_info(id) + 144) == 2
+     set count = (count + 7) // 8
+    end
     do require(slot + count < 256, "record local bound")
     do store64(ftable(f) + 32, slot + 1 + count)
    end
@@ -1033,7 +1041,7 @@ fn direct_while(done, invert)
 end
 fn array_address(id)
  do require(id != 0, "index requires array")
- do require(load64(record_info(id) + 144) == 1, "index requires array")
+ do require(load64(record_info(id) + 144) != 0, "index requires array")
  let failure = load64(state() + 192)
  if failure == 0
   set failure = next_label() + 1
@@ -1042,6 +1050,9 @@ fn array_address(id)
  do imm(2, load64(record_info(id) + 8))
  do emit(3942645791 | (2 << 16))
  do jump(failure - 1, 2)
+ if load64(record_info(id) + 144) == 2
+  return emit(2332033056)
+ end
  return emit(2332036128)
 end
 fn array_failure()
@@ -1123,14 +1134,18 @@ fn expression(minimum, depth)
   set id = load64(state() + 136)
   do require(id != 0, "structured value required")
   if match("[")
-   do require(load64(record_info(id) + 144) == 1, "index requires array")
+   do require(load64(record_info(id) + 144) != 0, "index requires array")
    do advance()
    do push()
    do scalar_expression(1, depth + 1)
    do expect("]")
    do pop1()
    do array_address(id)
-   do emit(4181721088)
+   if load64(record_info(id) + 144) == 2
+    do emit(960495616)
+   else
+    do emit(4181721088)
+   end
   else
    do advance()
    if load64(record_info(id) + 144)
@@ -1190,7 +1205,50 @@ fn expression(minimum, depth)
  end
  return 0
 end
+fn invoke_byte_io(name, depth)
+ let id = 0
+ let go = next_label()
+ let done = next_label()
+ do scalar_expression(1, depth + 1)
+ do push()
+ do expect(",")
+ do expression(1, depth + 1)
+ set id = load64(state() + 136)
+ do require(id != 0, "byte IO requires byte array")
+ do require(load64(record_info(id) + 144) == 2, "byte IO requires byte array")
+ do push()
+ do expect(",")
+ do scalar_expression(1, depth + 1)
+ do push()
+ do expect(")")
+ do emit(4181722082)
+ do emit(2432713727)
+ do emit(4181722081)
+ do emit(2432713727)
+ do emit(4181722080)
+ do emit(2432713727)
+ do imm(3, load64(record_info(id) + 8))
+ do emit(3942645791 | (3 << 16) | (2 << 5))
+ do jump(go, 9)
+ do imm(0, 18446744073709551594)
+ do jump(done, 16)
+ do label(go)
+ if tmatch(name, "read_bytes")
+  do imm(16, 3)
+ else
+  do imm(16, 4)
+ end
+ do emit(3556773889)
+ do jump(done, 3)
+ do emit(3405775840)
+ do label(done)
+ do store64(state() + 136, 0)
+ return 0
+end
 fn invoke(name, depth)
+ if tmatch(name, "read_bytes") | tmatch(name, "write_bytes")
+  return invoke_byte_io(name, depth)
+ end
  let count = 0
  let i = 0
  let size = 0
@@ -1824,7 +1882,7 @@ fn block(depth)
     if match("[")
      do require(declaring == 0, "array assignment uses set")
      do require(id != 0, "index requires array")
-     do require(load64(record_info(id) + 144) == 1, "index requires array")
+     do require(load64(record_info(id) + 144) != 0, "index requires array")
      do require(load64(local_ready(load64(state() + 32), target)), "array used before initialization")
      do access_local(0, target, 0)
      do advance()
@@ -1837,7 +1895,14 @@ fn block(depth)
      do expect("=")
      do scalar_expression(1, 0)
      do pop1()
-     do emit(4177526816)
+     if load64(record_info(id) + 144) == 2
+      do imm(2, 255)
+      do emit(3942645791 | (2 << 16))
+      do jump(load64(state() + 192) - 1, 8)
+      do emit(956301344)
+     else
+      do emit(4177526816)
+     end
     else
     if match(".")
      do require(declaring == 0, "field assignment uses set")

@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "successfulEdits": 7,
+  "refusals": 150,
+  "documentRoundtrips": 5,
+  "pdf08ByteComparisons": 1,
+  "uploadCases": 2,
+  "idleConcurrencyCases": 1,
+  "scope": "Private single-draft loopback GUI protocol; programming fixtures only",
+  "cleanupVerified": true,
+  "runtimeSHA256": "e50a6e4aab80844d0265b1f2fa23c3326800c1da2598dc062cd26a2c89d7aea1",
+  "baseline08SHA256": "6a0e46611f7e6085c6c3b4bb417804898f92d5f7e95129959cb2e58e3cea91db"
+}

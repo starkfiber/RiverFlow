@@ -1,5 +1,7 @@
 # Reusable modules and nominal records, 0.10
 
+This document preserves the 0.10 baseline. Release 0.12 adds fixed u64/u8 arrays and text/byte libraries; see CHECKED-ARRAYS.md and TEXT-BYTES.md for the current extension. The original module/record contracts remain applicable.
+
 The native RF2 systems compiler now accepts local source modules and records. This is a systems-language feature, compiled to ARM64. Bounded Core/MCP input does not gain imports, raw memory or OS effects.
 
 ```rf2

@@ -5,11 +5,11 @@ Ilangkhumanan Thirunavokkarasu
 
 Stark Fiber Enterprise
 
-First edition, revised · November 2026 · Package 0.6
+First edition, revised · November 2026 · Package 0.12
 
 # About this edition
 
-RiverFlow is a language in active development. This book describes a small language that runs, a compiler path that can be inspected, and a way to connect research questions to evidence. The complete original examples use RF2_U32_CORE_V0. The standalone 0.4 addition has a separate RF2_COMPACT_V1 front end and an explicitly distinct RF2_SYSTEM_A64_V1 implementation profile. Chapters 16 through 18 cover systems-compiler self-reproduction, native Core helpers, direct kernels and a working attendance export capability. The profile matters more than the age of the book: another dialect may use familiar words while giving them different meanings.
+RiverFlow is a language in active development. This book describes a small language that runs, a compiler path that can be inspected, and a way to connect research questions to evidence. The complete original examples use RF2_U32_CORE_V0. The standalone 0.4 addition has a separate RF2_COMPACT_V1 front end and an explicitly distinct RF2_SYSTEM_A64_V1 implementation profile. Chapters 16 through 25 cover the later native compiler, applications, modules, guarded optimization, checked collections and recoverable text-processing libraries. The 0.12 compiler emits its own ARM64 machine code; early C-emitter examples remain historical reference routes. The profile matters more than the age of the book: another dialect may use familiar words while giving them different meanings.
 
 RiverFlow aims to make programming understandable and useful. This edition does not claim universal compatibility, new semiconductor technology, independent academic approval or million-year durability. Claims need reproducible evidence.
 
@@ -826,6 +826,98 @@ A research idea becomes useful when its proposed mechanism reaches working code 
 The next branch-heavy work needs inspection of generated instructions and vectorisation opportunities. Broader languages still need collections, resource and error semantics, diagnostics and more targets. AI can help write, test and challenge that work. Its assistance is not a substitute for a measured result.
 
 Sources and executable receipts: docs/NATIVE-OPTIMIZATION.md and docs/OPTIMIZER-MEASUREMENTS-0.11.json. The ABI reference is Arm AAPCS64, section 6.1.1; LLVM's vectorisation documentation describes its diagnostic remarks. These references are engineering specifications, not evidence that RF2 already inherits another compiler's capabilities.
+
+# 24. Collections with a stated boundary
+
+The checked-array capability is included in release 0.12. The earlier 0.11 compiler does not implement it.
+
+A language becomes more useful when a program can keep several values together, pass them to a helper and change them without exposing their memory address. RF2's first checked collection is deliberately small: a fixed number of unsigned machine words.
+
+```rf2
+array Readings(u64, 64)
+```
+
+This declares a type. A function creates its own value with `let readings = Readings()`. Every cell starts at zero. `readings[3]` reads one cell, `set readings[3] = 42` changes it, and `readings.length` returns the fixed capacity. A populated count is separate from capacity. A sixty-four-cell array might contain seven actual observations; the other cells do not become observations because memory exists for them.
+
+A helper can accept `readings: Readings`. The type annotation matters: a different array type with the same capacity is still different. The helper borrows the caller's collection and can update its elements. It cannot return the array as a scalar or send it to a raw pointer operation through the typed call boundary.
+
+Owned arrays live in the current function's stack frame. Recursive calls have separate storage. The current compiler refuses ordinary array copies, rebinding and escaping returns. These rules are narrower than a full ownership system. The trusted systems profile still offers raw operations, and this feature does not make an arbitrary program memory-safe. It also does not define concurrent mutation.
+
+## Check before performing the access
+
+An index must be below capacity. The compiler emits an unsigned comparison before calculating the element address, in both default and optimized builds. If the index is out of range, the program writes `RF2 bounds` and exits with status two.
+
+For a write, the check happens before evaluating the value on the right. That order prevents an invalid assignment from first running an unrelated side effect. A test deliberately puts a printing function on that right side and verifies that it never executes when the index is invalid.
+
+The compiler shares one error path across the image. Successful checks fall through without visiting that path. Sharing the diagnostic avoids inserting a copy beside every access; it does not eliminate the checks or prove that their cost is free. Recoverable error values are a future language step. The current failure ends the process.
+
+## Prove the feature in a complete program
+
+The latency-summary example takes up to 128 supplied unsigned samples, parses them, sorts the populated prefix and prints JSON. It is written in RF2, including the typed collection module and integer output. It does not measure a clock. A caller must supply real measurements if the resulting summary is intended to describe real latency.
+
+The example defines its statistics precisely. The lower median selects the lower middle value for an even count. The p95 rule selects the value at the ceiling of 95 percent of the count, with the corresponding zero-based position. Neither rule is left to the reader to infer from the word “percentile.”
+
+The test compares 160 complete executions with an independent sorted-integer calculation, including equal values, maximum accepted samples, a single sample and full capacity. Invalid input tests cover empty, negative, fractional, malformed, oversized and too many values. Other tests exercise borrowing, recursive frames, zero initialization, wrong nominal types and out-of-range reads and writes.
+
+## Measure the right comparison
+
+The measurement keeps the old raw-buffer implementation, a C insertion sort and C qsort visible. The raw buffer has different lifetime and bounds semantics. Qsort changes the algorithm. Those are useful competing implementations, but their times cannot isolate the price of one bounds check.
+
+Seven rotated trials per variant and input retain their cold/warmup observations and verify every output. At these small input sizes, total process times sit near the launch floor and their ordering varies. The evidence demonstrates a working checked collection and complete application. It does not establish a universal speed advantage.
+
+The next useful steps are text and byte semantics, recoverable error values and explicit resource cleanup. Tasks will also need rules for ownership, sharing and cancellation. Each should reach the same standard: a defined contract, a real program, independent expected results, meaningful failure cases and reproducible measurements. That is how one readable language can grow toward larger systems without replacing missing mechanisms with promises.
+
+Executable sources and evidence: docs/CHECKED-ARRAYS.md, tests/standalone/arrays_verify.py, docs/ARRAYS-VERIFICATION.json, tools/measure-collections.py and docs/COLLECTIONS-MEASUREMENTS.json.
+
+# 25. Bytes, text and a recoverable failure
+
+Release 0.12 lets a program report a failed byte operation and continue processing later valid input.
+
+## Give bytes a real type
+
+```rf2
+array Packet(u8, 128)
+```
+
+This is a packed byte array. Each indexed read produces a value from zero through 255. Every ordinary indexed write checks both the index and value. The array is zero-initialized and owned by the current function's frame. Typed helpers borrow it without receiving an untyped memory address.
+
+The compiler now recognizes read_bytes and write_bytes for this type. The caller supplies a descriptor and count. A request larger than capacity fails before the OS operation. A successful result is the actual count, which may be short. A negative result represents failure. The compiler does not silently choose a file, connect to a service or turn an AI request into authority over a user's machine.
+
+Byte I/O belongs to the trusted systems profile on Apple Silicon macOS. Bounded Core and MCP permissions do not expand.
+
+## Make the result explicit
+
+The byte module defines an Outcome record containing code, value and offset. A helper writes all three fields on every operation. The caller checks code before using value. That rule avoids treating yesterday's successful value as today's failed result.
+
+The library covers byte get/set, I/O and decimal parsing. Range, value and I/O failures have distinct statuses. A later valid operation can still succeed.
+
+This is recoverable library behavior. It is not a general exception system or a tagged return type. The compiler does not yet require callers to inspect the record. Those stronger language features need their own syntax, type rules, failure cases and implementation.
+
+The decimal parser accepts ASCII digits within an explicitly supplied range. Before multiplying by ten, it checks whether the next digit can fit in u64. An overflowing number returns an error offset rather than wrapping into a plausible successful value. Empty, signed, fractional and malformed input have stated outcomes.
+
+## Keep text across a read boundary
+
+A file read is not a character boundary. A four-byte UTF-8 sequence may begin at the end of one chunk and finish in the next. The decoder keeps its pending state between calls. It rejects invalid starts, continuation errors, overlong encodings, surrogates and values above the scalar range. At actual EOF it also checks for an incomplete sequence.
+
+The audit reports errors and continues. A non-continuation byte is reconsidered as a possible new start, so a malformed prefix does not swallow a following valid letter. Its diagnostic grouping is documented separately from Unicode replacement rules. The program writes no repaired version of the input.
+
+Counts need definitions. Combining marks count as separate scalars. LF counts as a newline; ASCII whitespace and NUL separate words. Normalization and grapheme segmentation are not implemented.
+
+The encoding reference is Unicode 17, section 3.9 and table 3-7. Native tests compare validity and first-error position with an independent strict decoder. Tamil and emoji are included, as are malformed sequences and characters crossing the byte-buffer boundary.
+
+## Finish the resource path
+
+The complete audit application accepts stdin or one explicit file path. A named file is opened read-only, processed, then closed on normal return, read failure or the one-megabyte limit. Stdin is borrowed and left open. A same-process test verifies that the owned descriptor is no longer usable after each tested return path.
+
+This is explicit control flow, not a general resource-ownership system. A caller-selected special file may still block. A short output write still needs caller handling. These limits belong in the contract rather than being hidden behind the word secure.
+
+## Six foundations, six next gates
+
+This sprint delivers packed bytes, bounded byte I/O, recoverable status helpers, streaming UTF-8 validation, checked integer parsing and the audit application with cleanup. Each has executable tests. There is no new speed or token-saving result to report for this increment.
+
+Next are typed results, byte/text views, owned resources, growable collections, tasks/cancellation and a second-platform proof. Each needs implementation and acceptance tests.
+
+Sources, primary specifications and reproduction: docs/TEXT-BYTES.md. Executed cases: docs/TEXT-BYTES-VERIFICATION.json.
 
 # Appendix A. Commands and interfaces
 

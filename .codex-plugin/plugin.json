@@ -1,7 +1,7 @@
 {
   "name": "rf2",
-  "version": "0.11.0",
-  "description": "RF2 native register optimisation, guarded reductions, modules, nominal records and bounded MCP",
+  "version": "0.12.0",
+  "description": "RF2 native typed arrays, byte IO, recoverable text libraries, guarded optimization and bounded MCP",
   "author": {
     "name": "Ilangkhumanan Thirunavokkarasu",
     "url": "https://github.com/starkfiber"

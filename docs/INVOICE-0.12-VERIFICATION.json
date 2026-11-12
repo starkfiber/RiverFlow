@@ -1,0 +1,15 @@
+{
+  "schema": "rf2.invoice.verification.v1",
+  "passed": true,
+  "validComparisons": 630,
+  "oldCoreComparisons": 108,
+  "refusals": 39,
+  "planMutations": 200,
+  "cliCases": 5,
+  "scope": "Programming fixtures, not customer transactions or tax compliance evidence",
+  "runtimeSHA256": "e50a6e4aab80844d0265b1f2fa23c3326800c1da2598dc062cd26a2c89d7aea1",
+  "baseline06SHA256": "da6d2f58c9e7fd3093457217fc8b749650b5955926a90deb640a8298d4029f20",
+  "kernelReproduction": true,
+  "sourceSHA256": "8f2335ccc1f17033ccfc9f21833d21411e2bb9f85298cd8c3a15cf5ef0a3476d",
+  "kernelSHA256": "0e0778112e99d2678159aa1ee856a4ffcb92d964cdc9e27ef921de460b90aa09"
+}

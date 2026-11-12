@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "prepared": 33,
+  "applied": 65,
+  "refusals": 75,
+  "released": 32,
+  "runtimeSHA256": "e50a6e4aab80844d0265b1f2fa23c3326800c1da2598dc062cd26a2c89d7aea1"
+}

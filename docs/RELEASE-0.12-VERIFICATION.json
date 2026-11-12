@@ -1,0 +1,183 @@
+{
+  "passed": true,
+  "version": "0.12.0",
+  "compilerSHA256": "75c5c044a1cb6ee789c2a4a37c9cc566e82c66c0be7ade2b49e8961e77466c11",
+  "compilerSourceSHA256": "e4046498e34309035137c0d21c5f844d4fe6e54096910810d9ccecd2a5aaf005",
+  "runtimeSHA256": "e50a6e4aab80844d0265b1f2fa23c3326800c1da2598dc062cd26a2c89d7aea1",
+  "suites": [
+    {
+      "name": "text_verify",
+      "exit": 0
+    },
+    {
+      "name": "arrays_verify",
+      "exit": 0
+    },
+    {
+      "name": "conditional_reduction_verify",
+      "exit": 0
+    },
+    {
+      "name": "optimizer_verify",
+      "exit": 0
+    },
+    {
+      "name": "instruction_verify",
+      "exit": 0
+    },
+    {
+      "name": "control_optimizer_verify",
+      "exit": 0
+    },
+    {
+      "name": "narrowing_verify",
+      "exit": 0
+    },
+    {
+      "name": "register_abi_verify",
+      "exit": 0
+    },
+    {
+      "name": "modules_verify",
+      "exit": 0
+    },
+    {
+      "name": "compiler_bounds_verify",
+      "exit": 0
+    },
+    {
+      "name": "bounds-opt",
+      "exit": 0
+    },
+    {
+      "name": "verify",
+      "exit": 0
+    },
+    {
+      "name": "core_verify",
+      "exit": 0
+    },
+    {
+      "name": "lowering_verify",
+      "exit": 0
+    },
+    {
+      "name": "invoice_verify",
+      "exit": 0
+    },
+    {
+      "name": "attendance_verify",
+      "exit": 0
+    },
+    {
+      "name": "prepared_verify",
+      "exit": 0
+    },
+    {
+      "name": "workspace_verify",
+      "exit": 0,
+      "runtime": "bundled Python with PDF dependency",
+      "supersedesEnvironmentFailure": true
+    },
+    {
+      "name": "editor_verify",
+      "exit": 0,
+      "runtime": "bundled Python with PDF dependency",
+      "supersedesEnvironmentFailure": false
+    }
+  ],
+  "receipts": {
+    "ARRAYS-VERIFICATION.json": {
+      "sha256": "ba908c2ebe6df7bd6b191a2a684f56a954e45b4156fbb560bdb8f5df46bd4823",
+      "passed": true
+    },
+    "CONDITIONAL-REDUCTION-VERIFICATION.json": {
+      "sha256": "e3a27cf57035010c6dc93673bd31923b4fb19760b7029c51dd05f9d3cb574bb6",
+      "passed": true
+    },
+    "CONTROL-OPTIMIZER-0.11-VERIFICATION.json": {
+      "sha256": "71e847e0f46aecc2b4d98bc3d8de913ae6645093190999b9dbab910203088956",
+      "passed": true
+    },
+    "INSTRUCTION-SELECTION-0.11-VERIFICATION.json": {
+      "sha256": "7b0ea32eff6407c2857df8ba7e4407fbd92afe6ac389ebf6c253b17530915f5d",
+      "passed": true
+    },
+    "NARROWING-0.11-VERIFICATION.json": {
+      "sha256": "0e78f0c68f6243fd34fe8ca11196d698c6dfcb75c7e5d0542edfd80253c5973d",
+      "passed": true
+    },
+    "OPTIMIZER-0.11-VERIFICATION.json": {
+      "sha256": "47eea7f7e7cc130fa30f04bb9fec7c08853dcfdb21ac046485b5d7a3eba8b1e9",
+      "passed": true
+    },
+    "REGISTER-ABI-0.11-VERIFICATION.json": {
+      "sha256": "1c726e4b707250470d11e6f4b9c1189243bcac5da8473e77d10f316182cfaba4",
+      "passed": true
+    },
+    "TEXT-BYTES-VERIFICATION.json": {
+      "sha256": "c613155d38104b3ec9207aa740cd0e5a6e9172eaa10e919af864612f2865a817",
+      "passed": true
+    },
+    "attendance_verify.json": {
+      "sha256": "1a5331d43f397566e1a33a70fe13357f80d2487758717cfdfa0d446c24c3c6d2",
+      "passed": true
+    },
+    "bounds-opt.json": {
+      "sha256": "541345462b6cd79f110a4f0172e1a74496ced32472f59b27a2af68103dfadb7b",
+      "passed": true
+    },
+    "compiler_bounds_verify.json": {
+      "sha256": "9f3d47214d75267f194579d1b400d5e8b418cb3b364f6c63f6e3929aef1a98dc",
+      "passed": true
+    },
+    "core_verify.json": {
+      "sha256": "5bb46378c0bad5b838b9ed928eae4c28140eaba29f3d8ebaf684333c4413fc08",
+      "passed": true
+    },
+    "editor_verify.json": {
+      "sha256": "7dcb05447f4e2a710f951e837a5535c9f959c335118ea9bc1989e14a0257ce90",
+      "passed": true
+    },
+    "invoice_verify.json": {
+      "sha256": "3242e888458cbf31d9a90220abbc30c3fa1f3226c37715b0a254f6fe7bd33cfe",
+      "passed": true
+    },
+    "lowering_verify.json": {
+      "sha256": "6ca4d564d43f15eb7c6e072044b54363185a2c7297b9780219ce9ccc32426733",
+      "passed": true
+    },
+    "modules_verify.json": {
+      "sha256": "43e9936e4742fb3e7dffc4ee8bb480b942f5c50b5d72915b2299610d65ba46eb",
+      "passed": true
+    },
+    "prepared_verify.json": {
+      "sha256": "3eff2669c08c31d2f60518e9c6bc7947e53bb04b67b9e5d839118388d208fafc",
+      "passed": true
+    },
+    "verify.json": {
+      "sha256": "9986ec69bd803a3d0e2e665e713f70b3e093f5f68a71884207d3cccda090d024",
+      "passed": true
+    },
+    "workspace_verify.json": {
+      "sha256": "11b7ac63f5ad6906d9e566594d3b582491af69f623d26d8659816326ce96b49d",
+      "passed": true
+    }
+  },
+  "nativeCompiler": "docs/NATIVE-COMPILER-0.12-VERIFICATION.json",
+  "installedMcp": "docs/COMPACT-MCP-0.12-VERIFICATION.json",
+  "mcpTools": 9,
+  "mcpPermissionsExpanded": false,
+  "sixDelivered": [
+    "packed nominal u8 arrays",
+    "bounded typed byte IO",
+    "recoverable Outcome APIs",
+    "streaming UTF-8 audit",
+    "checked decimal u64 parsing",
+    "file audit application and explicit close paths"
+  ],
+  "environmentCorrection": "Workspace PDF checks first failed to import pymupdf under system Python, then passed under the bundled runtime with that dependency. Original failure log retained locally.",
+  "speedClaim": null,
+  "tokenClaim": null,
+  "scope": "Finite host-executed software qualification on Apple Silicon macOS. No full memory-safety/ownership proof, generic exceptions, Unicode replacement/normalization conformance, new platform or physical apparatus claim."
+}

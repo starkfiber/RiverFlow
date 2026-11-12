@@ -1,6 +1,6 @@
 # 24. Collections with a stated boundary
 
-Development chapter after the published 0.11 edition. This chapter describes the checked-array candidate on main; it is not present in the 0.11 downloadable compiler or book.
+The checked-array capability is included in release 0.12. The earlier 0.11 compiler does not implement it.
 
 A language becomes more useful when a program can keep several values together, pass them to a helper and change them without exposing their memory address. RF2's first checked collection is deliberately small: a fixed number of unsigned machine words.
 

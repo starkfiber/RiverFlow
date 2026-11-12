@@ -1,0 +1,83 @@
+module utf8
+record TextState(bytes: u64, scalars: u64, lines: u64, words: u64, in_word: u64, need: u64, point: u64, minimum: u64, start: u64, errors: u64, first_error: u64, nuls: u64)
+fn utf8_error(s: TextState, offset)
+ if s.errors==0
+  set s.first_error=offset
+ end
+ set s.errors=s.errors+1
+ set s.need=0
+ set s.point=0
+ set s.minimum=0
+ set s.in_word=0
+ return 1
+end
+fn utf8_emit(s: TextState, point)
+ set s.scalars=s.scalars+1
+ if point==10
+  set s.lines=s.lines+1
+ end
+ if point==0
+  set s.nuls=s.nuls+1
+ end
+ if (point==0)|(point==9)|(point==10)|(point==11)|(point==12)|(point==13)|(point==32)
+  set s.in_word=0
+ else
+  if s.in_word==0
+   set s.words=s.words+1
+   set s.in_word=1
+  end
+ end
+ return 0
+end
+fn utf8_start(s: TextState, byte, offset)
+ if byte<128
+  return utf8_emit(s,byte)
+ end
+ set s.start=offset
+ if (byte>=194)&(byte<=223)
+  set s.need=1
+  set s.point=byte&31
+  set s.minimum=128
+  return 0
+ end
+ if (byte>=224)&(byte<=239)
+  set s.need=2
+  set s.point=byte&15
+  set s.minimum=2048
+  return 0
+ end
+ if (byte>=240)&(byte<=244)
+  set s.need=3
+  set s.point=byte&7
+  set s.minimum=65536
+  return 0
+ end
+ return utf8_error(s,offset)
+end
+fn utf8_feed(s: TextState, byte)
+ let offset=s.bytes
+ set s.bytes=s.bytes+1
+ if s.need==0
+  return utf8_start(s,byte,offset)
+ end
+ if (byte<128)|(byte>191)
+  do utf8_error(s,s.start)
+  do utf8_start(s,byte,offset)
+  return 1
+ end
+ set s.point=s.point*64+(byte&63)
+ set s.need=s.need-1
+ if s.need!=0
+  return 0
+ end
+ if (s.point<s.minimum)|(s.point>1114111)|((s.point>=55296)&(s.point<=57343))
+  return utf8_error(s,s.start)
+ end
+ return utf8_emit(s,s.point)
+end
+fn utf8_finish(s: TextState)
+ if s.need!=0
+  return utf8_error(s,s.start)
+ end
+ return 0
+end

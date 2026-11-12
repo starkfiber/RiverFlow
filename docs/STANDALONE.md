@@ -1,6 +1,8 @@
-# Standalone RiverFlow 0.10
+# Standalone RiverFlow 0.12
 
 Experimental native tools for Apple Silicon Mac. Users need no Node, npm, Python or C++ runtime. The minimum encoded OS target is macOS 14; actual execution is qualified on the recorded local Apple Silicon Mac, not every OS version or device. Binaries are ad-hoc signed, not notarized.
+
+Release 0.12 also includes ready-to-run rf2-text-audit and rf2-latency executables. The compiler supports checked u64/u8 arrays and trusted typed byte I/O; recoverable text operations are explicit libraries. See TEXT-BYTES.md and CHECKED-ARRAYS.md. These do not expand bounded Core/MCP effects.
 
 ## Use the runtime
 

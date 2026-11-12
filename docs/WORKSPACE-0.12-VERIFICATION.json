@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "documentCases": 6,
+  "pdfCases": 6,
+  "editCases": 3,
+  "refusals": 15,
+  "examplePDFSHA256": "53d3fc789e5348d036cd9148cc6183fdcc92c0d22b55abf709c32dce9e864fe8",
+  "runtimeSHA256": "e50a6e4aab80844d0265b1f2fa23c3326800c1da2598dc062cd26a2c89d7aea1"
+}

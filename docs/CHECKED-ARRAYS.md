@@ -1,6 +1,6 @@
 # Checked fixed arrays in the native compiler
 
-This is development on main after release 0.11. It is a new native systems-language capability, not a new release or an expansion of the bounded MCP language.
+This capability is included in the 0.12 native compiler. Historical receipts retain their original compiler identities; current release qualification is recorded separately in RELEASE-0.12-VERIFICATION.json.
 
 ```rf2
 profile RF2_SYSTEM_A64_V1
@@ -18,7 +18,7 @@ end
 
 ## Contract
 
-An array declaration defines a nominal type with a fixed capacity. The element type is u64. The capacity is a canonical decimal integer from 1 through 255; zero, leading-zero/hexadecimal spellings, overflowing literal spellings and larger capacities refuse. Array and record declarations share the existing 32-type limit and namespace. Different declared types remain different even when their capacities match.
+An array declaration defines a nominal type with a fixed capacity. This chapter describes the u64 element type; release 0.12 also supports packed u8 arrays, described in TEXT-BYTES.md. The capacity is a canonical decimal integer from 1 through 255; zero, leading-zero/hexadecimal spellings, overflowing literal spellings and larger capacities refuse. Array and record declarations share the existing 32-type limit and namespace. Different declared types remain different even when their capacities match.
 
 An owned array is constructed with empty parentheses at function level. Every element is initialized to zero. It occupies one pointer slot plus one stack slot per element, within the existing 256-slot function frame limit. Function parameters and other locals consume slots too: a 255-element array fits in a no-parameter function but not alongside main's two parameters. Recursive calls get distinct frames. No implicit heap allocation, growth or shared global collection is involved.
 

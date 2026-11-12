@@ -1,0 +1,41 @@
+module audit
+use "lib/bytes.rf2"
+use "lib/utf8.rf2"
+fn audit_fd(fd, s: TextState, out: Outcome)
+ let data=Bytes()
+ let input=Outcome(0,0,0)
+ let i=0
+ let count=0
+ while 1
+  do bytes_read(fd,data,data.length,input)
+  if input.code!=0
+   return outcome_set(out,input.code,0,input.offset)
+  end
+  set count=input.value
+  if count==0
+   do utf8_finish(s)
+   return outcome_set(out,0,s.bytes,0)
+  end
+  set i=0
+  while i<count
+   if s.bytes>=1048576
+    return outcome_set(out,6,s.bytes,s.bytes)
+   end
+   do utf8_feed(s,data[i])
+   set i=i+1
+  end
+ end
+ return 0
+end
+fn audit_file(path, s: TextState, out: Outcome)
+ let fd=open(path,0,0)
+ if fd>=9223372036854775808
+  return outcome_set(out,5,0,0-fd)
+ end
+ do audit_fd(fd,s,out)
+ let closed=close(fd)
+ if (closed>=9223372036854775808)&(out.code==0)
+  do outcome_set(out,5,0,0-closed)
+ end
+ return 0
+end

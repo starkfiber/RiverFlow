@@ -1,0 +1,46 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/io.rf2"
+use "lib/audit.rf2"
+fn main(argc,argv)
+ if argc>2
+  do io_print("Usage: rf2-text-audit [file]; otherwise reads stdin\n")
+  return 1
+ end
+ let state=TextState(0,0,0,0,0,0,0,0,0,0,18446744073709551615,0)
+ let out=Outcome(0,0,0)
+ if argc==2
+  do audit_file(load64(argv+8),state,out)
+ else
+  do audit_fd(0,state,out)
+ end
+ do io_print("{\"bytes\":")
+ do io_number(state.bytes)
+ do io_print(",\"unicode_scalars\":")
+ do io_number(state.scalars)
+ do io_print(",\"lf_newlines\":")
+ do io_number(state.lines)
+ do io_print(",\"ascii_whitespace_words\":")
+ do io_number(state.words)
+ do io_print(",\"invalid_sequences\":")
+ do io_number(state.errors)
+ do io_print(",\"first_invalid_byte\":")
+ if state.errors==0
+  do io_print("null")
+ else
+  do io_number(state.first_error)
+ end
+ do io_print(",\"nul_scalars\":")
+ do io_number(state.nuls)
+ do io_print(",\"io_status\":")
+ do io_number(out.code)
+ do io_print(",\"detail\":")
+ do io_number(out.offset)
+ do io_print("}\n")
+ if out.code!=0
+  return 1
+ end
+ if state.errors!=0
+  return 2
+ end
+ return 0
+end

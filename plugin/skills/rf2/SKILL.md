@@ -2,7 +2,7 @@
 name: rf2
 description: Check and execute RiverFlow Core/compact programs, lower checked kernels, use the versioned attendance exporter, and develop native compiler evidence.
 ---
-# RiverFlow RF² 0.11
+# RiverFlow RF² 0.12
 
 Use rf2_status first. Read docs/NATIVE-CORE.md and docs/STANDALONE.md for current profiles/effects. Nine native tools exist: rf2_status, rf2_check, rf2_run, rf2_lower, attendance_export, invoice_total, invoice_prepare, invoice_apply and invoice_release. Users require no Node/npm/Python/C++ runtime. The host provides AI intelligence; the executable has no embedded model.
 
@@ -62,8 +62,12 @@ Read docs/NATIVE-OPTIMIZATION.md and versioned receipts. --opt includes leaf-awa
 
 The 20 million-step eligible reduction improved from 24.878 ms in 0.10 to 1.842 ms, versus 3.841 ms for Clang's loop in one matched runtime-input run. Mixed arithmetic medians were 22.496 ms RF2 versus 22.232 ms Clang; branch-heavy code remained 20.216 ms versus 6.501 ms. The equally specialised C formula and startup-sensitive smaller cases remain visible. Cite exact scope; no global speed, novel mathematics, AI inference or universal exponential performance claim is established. No new token-saving measurement is claimed for 0.11; preserve the separate 0.10 compact-MCP result as historical evidence.
 
-## Main-branch checked arrays after 0.11
+## Checked arrays, 0.12
 
-Read docs/CHECKED-ARRAYS.md. This is development source, not the installed 0.11 release feature set. The new compiler supports nominal fixed u64 arrays, zero initialization, typed borrowed parameters, .length capacity and bounds-checked indexing in the trusted systems profile. Owned arrays remain function-local, with no ordinary copy/rebind/return or raw-intrinsic passage. Runtime bounds failure prints RF2 bounds and exits2, before a write RHS runs. This is not recoverable error handling, heap ownership, full memory safety, concurrency or Core/MCP permission expansion.
+Read docs/CHECKED-ARRAYS.md. This feature is included in 0.12. The new compiler supports nominal fixed u64 arrays, zero initialization, typed borrowed parameters, .length capacity and bounds-checked indexing in the trusted systems profile. Owned arrays remain function-local, with no ordinary copy/rebind/return or raw-intrinsic passage. Runtime bounds failure prints RF2 bounds and exits2, before a write RHS runs. This is not recoverable error handling, heap ownership, full memory safety, concurrency or Core/MCP permission expansion.
 
 Use examples/latency/main.rf2 for a complete supplied-sample summary with explicit lower-median/nearest-rank percentile rules. It does not measure a clock. Reproduce the new compiler from the frozen native release, then build/run as documented. Preserve existing release receipts. Launch-inclusive small-input timing differences do not establish general speed or isolated check cost. Current research checks and roadmap remain separate from shipped platform support.
+
+## Text, bytes and recoverable libraries, 0.12
+
+Read docs/TEXT-BYTES.md. Packed nominal u8 arrays and typed read_bytes/write_bytes are trusted systems-compiler capabilities, never raw Core/MCP effects. Ordinary indexing/value errors trap; the byte library provides explicit recoverable Outcome records. Callers must inspect status and handle short I/O. Streaming UTF-8 audit has a documented invalid-grouping policy, ASCII whitespace counts and a 1 MiB app cap; it is not normalization or grapheme handling. Named input descriptors close on tested normal/error paths; no general RAII, exception, heap-ownership or concurrency model is claimed. Use examples/text-audit/main.rf2 and exact verification receipts. No new speed or token result is established.
