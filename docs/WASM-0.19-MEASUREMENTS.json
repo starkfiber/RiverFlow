@@ -1,0 +1,1554 @@
+{
+  "date": "2026-11-13",
+  "runtime": "v22.23.3",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "wasmSHA256": "1c1e5e0fbc8871f61194303edefe19caece0880349c9830e1210ffb2d45fd063",
+  "genericWasmSHA256": "7342c51ccd610f7b70426e2b2a04552d020f90b20550c6b3107428dcff4acb5e",
+  "controllerSHA256": "5f4811ca1b7b050153e9dee93655509e1bb72aaa4806c1b900f7536581e990e9",
+  "summary": [
+    {
+      "n": 64,
+      "wasmMedianUs": 0.03383199999998965,
+      "genericWasmMedianUs": 0.0996679999999941,
+      "jsMedianUs": 0.03133400000000108,
+      "wasmOverJS": 1.0797217080483972,
+      "wasmOverGeneric": 0.33944696392013135
+    },
+    {
+      "n": 1024,
+      "wasmMedianUs": 0.5097499999999968,
+      "genericWasmMedianUs": 1.3787499999999966,
+      "jsMedianUs": 0.934584000000001,
+      "wasmOverJS": 0.5454298383023851,
+      "wasmOverGeneric": 0.3697189483227547
+    },
+    {
+      "n": 16384,
+      "wasmMedianUs": 7.96750000000003,
+      "genericWasmMedianUs": 21.586670000000087,
+      "jsMedianUs": 15.052089999999934,
+      "wasmOverJS": 0.5293284852801216,
+      "wasmOverGeneric": 0.36909351928759726
+    }
+  ],
+  "samples": [
+    {
+      "n": 64,
+      "trial": 0,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.08016699999999588,
+      "microsecondsPerCall": 0.16033399999999176
+    },
+    {
+      "n": 64,
+      "trial": 0,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.20458299999999952,
+      "microsecondsPerCall": 0.40916599999999903
+    },
+    {
+      "n": 64,
+      "trial": 0,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.27404200000000145,
+      "microsecondsPerCall": 0.5480840000000029
+    },
+    {
+      "n": 64,
+      "trial": 1,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.20608299999999957,
+      "microsecondsPerCall": 0.41216599999999914
+    },
+    {
+      "n": 64,
+      "trial": 1,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.016374999999996476,
+      "microsecondsPerCall": 0.03274999999999295
+    },
+    {
+      "n": 64,
+      "trial": 1,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.139166000000003,
+      "microsecondsPerCall": 0.278332000000006
+    },
+    {
+      "n": 64,
+      "trial": 2,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.015875000000001194,
+      "microsecondsPerCall": 0.03175000000000239
+    },
+    {
+      "n": 64,
+      "trial": 2,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.06024999999999636,
+      "microsecondsPerCall": 0.12049999999999272
+    },
+    {
+      "n": 64,
+      "trial": 2,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.11533299999999969,
+      "microsecondsPerCall": 0.23066599999999937
+    },
+    {
+      "n": 64,
+      "trial": 3,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.029958000000000595,
+      "microsecondsPerCall": 0.05991600000000119
+    },
+    {
+      "n": 64,
+      "trial": 3,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.06387499999999591,
+      "microsecondsPerCall": 0.12774999999999181
+    },
+    {
+      "n": 64,
+      "trial": 3,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.01587499999999409,
+      "microsecondsPerCall": 0.03174999999998818
+    },
+    {
+      "n": 64,
+      "trial": 4,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.056708000000000425,
+      "microsecondsPerCall": 0.11341600000000085
+    },
+    {
+      "n": 64,
+      "trial": 4,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.015625,
+      "microsecondsPerCall": 0.03125
+    },
+    {
+      "n": 64,
+      "trial": 4,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.02854200000000162,
+      "microsecondsPerCall": 0.05708400000000324
+    },
+    {
+      "n": 64,
+      "trial": 5,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.01566700000000054,
+      "microsecondsPerCall": 0.03133400000000108
+    },
+    {
+      "n": 64,
+      "trial": 5,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.02845800000000054,
+      "microsecondsPerCall": 0.05691600000000108
+    },
+    {
+      "n": 64,
+      "trial": 5,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.05999999999999517,
+      "microsecondsPerCall": 0.11999999999999034
+    },
+    {
+      "n": 64,
+      "trial": 6,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.03654099999999971,
+      "microsecondsPerCall": 0.07308199999999943
+    },
+    {
+      "n": 64,
+      "trial": 6,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.06337500000000063,
+      "microsecondsPerCall": 0.12675000000000125
+    },
+    {
+      "n": 64,
+      "trial": 6,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.01637500000000358,
+      "microsecondsPerCall": 0.03275000000000716
+    },
+    {
+      "n": 64,
+      "trial": 7,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.061624999999999375,
+      "microsecondsPerCall": 0.12324999999999875
+    },
+    {
+      "n": 64,
+      "trial": 7,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.01633300000000304,
+      "microsecondsPerCall": 0.03266600000000608
+    },
+    {
+      "n": 64,
+      "trial": 7,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.029917000000004634,
+      "microsecondsPerCall": 0.05983400000000927
+    },
+    {
+      "n": 64,
+      "trial": 8,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.016332999999995934,
+      "microsecondsPerCall": 0.03266599999999187
+    },
+    {
+      "n": 64,
+      "trial": 8,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.029624999999995794,
+      "microsecondsPerCall": 0.05924999999999159
+    },
+    {
+      "n": 64,
+      "trial": 8,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.060665999999997666,
+      "microsecondsPerCall": 0.12133199999999533
+    },
+    {
+      "n": 64,
+      "trial": 9,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.01675000000000182,
+      "microsecondsPerCall": 0.03350000000000364
+    },
+    {
+      "n": 64,
+      "trial": 9,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.04800000000000182,
+      "microsecondsPerCall": 0.09600000000000364
+    },
+    {
+      "n": 64,
+      "trial": 9,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.015833000000000652,
+      "microsecondsPerCall": 0.031666000000001304
+    },
+    {
+      "n": 64,
+      "trial": 10,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.04808299999999832,
+      "microsecondsPerCall": 0.09616599999999664
+    },
+    {
+      "n": 64,
+      "trial": 10,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.015708000000003608,
+      "microsecondsPerCall": 0.031416000000007216
+    },
+    {
+      "n": 64,
+      "trial": 10,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.016583000000004233,
+      "microsecondsPerCall": 0.033166000000008466
+    },
+    {
+      "n": 64,
+      "trial": 11,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.015666000000003066,
+      "microsecondsPerCall": 0.03133200000000613
+    },
+    {
+      "n": 64,
+      "trial": 11,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.016542000000001167,
+      "microsecondsPerCall": 0.033084000000002334
+    },
+    {
+      "n": 64,
+      "trial": 11,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.048582999999993604,
+      "microsecondsPerCall": 0.09716599999998721
+    },
+    {
+      "n": 64,
+      "trial": 12,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.016500000000000625,
+      "microsecondsPerCall": 0.03300000000000125
+    },
+    {
+      "n": 64,
+      "trial": 12,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.04870800000000486,
+      "microsecondsPerCall": 0.09741600000000972
+    },
+    {
+      "n": 64,
+      "trial": 12,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.01566700000000054,
+      "microsecondsPerCall": 0.03133400000000108
+    },
+    {
+      "n": 64,
+      "trial": 13,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.04983399999999705,
+      "microsecondsPerCall": 0.0996679999999941
+    },
+    {
+      "n": 64,
+      "trial": 13,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.015666000000003066,
+      "microsecondsPerCall": 0.03133200000000613
+    },
+    {
+      "n": 64,
+      "trial": 13,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.016542000000001167,
+      "microsecondsPerCall": 0.033084000000002334
+    },
+    {
+      "n": 64,
+      "trial": 14,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.015666999999993436,
+      "microsecondsPerCall": 0.03133399999998687
+    },
+    {
+      "n": 64,
+      "trial": 14,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.016500000000000625,
+      "microsecondsPerCall": 0.03300000000000125
+    },
+    {
+      "n": 64,
+      "trial": 14,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.047999999999994714,
+      "microsecondsPerCall": 0.09599999999998943
+    },
+    {
+      "n": 64,
+      "trial": 15,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.016500000000000625,
+      "microsecondsPerCall": 0.03300000000000125
+    },
+    {
+      "n": 64,
+      "trial": 15,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.04866699999999469,
+      "microsecondsPerCall": 0.09733399999998937
+    },
+    {
+      "n": 64,
+      "trial": 15,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.01566599999999596,
+      "microsecondsPerCall": 0.03133199999999192
+    },
+    {
+      "n": 64,
+      "trial": 16,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.04816600000000193,
+      "microsecondsPerCall": 0.09633200000000386
+    },
+    {
+      "n": 64,
+      "trial": 16,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.01566700000000054,
+      "microsecondsPerCall": 0.03133400000000108
+    },
+    {
+      "n": 64,
+      "trial": 16,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.020040999999999087,
+      "microsecondsPerCall": 0.040081999999998175
+    },
+    {
+      "n": 64,
+      "trial": 17,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.01624999999999943,
+      "microsecondsPerCall": 0.03249999999999886
+    },
+    {
+      "n": 64,
+      "trial": 17,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.016915999999994824,
+      "microsecondsPerCall": 0.03383199999998965
+    },
+    {
+      "n": 64,
+      "trial": 17,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.04795899999999875,
+      "microsecondsPerCall": 0.0959179999999975
+    },
+    {
+      "n": 64,
+      "trial": 18,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.016542000000001167,
+      "microsecondsPerCall": 0.033084000000002334
+    },
+    {
+      "n": 64,
+      "trial": 18,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.047750000000000625,
+      "microsecondsPerCall": 0.09550000000000125
+    },
+    {
+      "n": 64,
+      "trial": 18,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.01566700000000054,
+      "microsecondsPerCall": 0.03133400000000108
+    },
+    {
+      "n": 64,
+      "trial": 19,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.04937500000000483,
+      "microsecondsPerCall": 0.09875000000000966
+    },
+    {
+      "n": 64,
+      "trial": 19,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.01566700000000054,
+      "microsecondsPerCall": 0.03133400000000108
+    },
+    {
+      "n": 64,
+      "trial": 19,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.016500000000000625,
+      "microsecondsPerCall": 0.03300000000000125
+    },
+    {
+      "n": 64,
+      "trial": 20,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.015666000000003066,
+      "microsecondsPerCall": 0.03133200000000613
+    },
+    {
+      "n": 64,
+      "trial": 20,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.016542000000001167,
+      "microsecondsPerCall": 0.033084000000002334
+    },
+    {
+      "n": 64,
+      "trial": 20,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.05179199999999895,
+      "microsecondsPerCall": 0.1035839999999979
+    },
+    {
+      "n": 1024,
+      "trial": 0,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.27841699999999747,
+      "microsecondsPerCall": 0.5568339999999949
+    },
+    {
+      "n": 1024,
+      "trial": 0,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.6788749999999979,
+      "microsecondsPerCall": 1.357749999999996
+    },
+    {
+      "n": 1024,
+      "trial": 0,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.5289159999999953,
+      "microsecondsPerCall": 1.0578319999999906
+    },
+    {
+      "n": 1024,
+      "trial": 1,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.6872500000000059,
+      "microsecondsPerCall": 1.3745000000000118
+    },
+    {
+      "n": 1024,
+      "trial": 1,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.5317080000000018,
+      "microsecondsPerCall": 1.063416000000004
+    },
+    {
+      "n": 1024,
+      "trial": 1,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.2642500000000041,
+      "microsecondsPerCall": 0.5285000000000082
+    },
+    {
+      "n": 1024,
+      "trial": 2,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.5352910000000008,
+      "microsecondsPerCall": 1.0705820000000017
+    },
+    {
+      "n": 1024,
+      "trial": 2,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.27070800000000617,
+      "microsecondsPerCall": 0.5414160000000123
+    },
+    {
+      "n": 1024,
+      "trial": 2,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.690958000000002,
+      "microsecondsPerCall": 1.3819160000000037
+    },
+    {
+      "n": 1024,
+      "trial": 3,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.2682500000000019,
+      "microsecondsPerCall": 0.5365000000000038
+    },
+    {
+      "n": 1024,
+      "trial": 3,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.6893749999999983,
+      "microsecondsPerCall": 1.3787499999999966
+    },
+    {
+      "n": 1024,
+      "trial": 3,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.5343329999999966,
+      "microsecondsPerCall": 1.0686659999999935
+    },
+    {
+      "n": 1024,
+      "trial": 4,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.6893749999999983,
+      "microsecondsPerCall": 1.3787499999999966
+    },
+    {
+      "n": 1024,
+      "trial": 4,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.5382090000000019,
+      "microsecondsPerCall": 1.0764180000000036
+    },
+    {
+      "n": 1024,
+      "trial": 4,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.27137499999999903,
+      "microsecondsPerCall": 0.5427499999999981
+    },
+    {
+      "n": 1024,
+      "trial": 5,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.5447500000000005,
+      "microsecondsPerCall": 1.0895000000000008
+    },
+    {
+      "n": 1024,
+      "trial": 5,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.26200000000000045,
+      "microsecondsPerCall": 0.5240000000000009
+    },
+    {
+      "n": 1024,
+      "trial": 5,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.9516670000000005,
+      "microsecondsPerCall": 1.903334000000001
+    },
+    {
+      "n": 1024,
+      "trial": 6,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.261415999999997,
+      "microsecondsPerCall": 0.522831999999994
+    },
+    {
+      "n": 1024,
+      "trial": 6,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.7103749999999991,
+      "microsecondsPerCall": 1.4207499999999982
+    },
+    {
+      "n": 1024,
+      "trial": 6,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.4672920000000005,
+      "microsecondsPerCall": 0.934584000000001
+    },
+    {
+      "n": 1024,
+      "trial": 7,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.6958330000000004,
+      "microsecondsPerCall": 1.3916660000000005
+    },
+    {
+      "n": 1024,
+      "trial": 7,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.4562080000000037,
+      "microsecondsPerCall": 0.9124160000000074
+    },
+    {
+      "n": 1024,
+      "trial": 7,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.24891700000000583,
+      "microsecondsPerCall": 0.49783400000001166
+    },
+    {
+      "n": 1024,
+      "trial": 8,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.47033300000000366,
+      "microsecondsPerCall": 0.9406660000000073
+    },
+    {
+      "n": 1024,
+      "trial": 8,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.2494999999999976,
+      "microsecondsPerCall": 0.4989999999999952
+    },
+    {
+      "n": 1024,
+      "trial": 8,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.8091659999999976,
+      "microsecondsPerCall": 1.6183319999999954
+    },
+    {
+      "n": 1024,
+      "trial": 9,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.25958299999999923,
+      "microsecondsPerCall": 0.5191659999999985
+    },
+    {
+      "n": 1024,
+      "trial": 9,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.6922500000000014,
+      "microsecondsPerCall": 1.3845000000000027
+    },
+    {
+      "n": 1024,
+      "trial": 9,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.5476250000000036,
+      "microsecondsPerCall": 1.0952500000000074
+    },
+    {
+      "n": 1024,
+      "trial": 10,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 1.178207999999998,
+      "microsecondsPerCall": 2.3564159999999954
+    },
+    {
+      "n": 1024,
+      "trial": 10,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.6700420000000022,
+      "microsecondsPerCall": 1.3400840000000043
+    },
+    {
+      "n": 1024,
+      "trial": 10,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.24849999999999994,
+      "microsecondsPerCall": 0.4969999999999999
+    },
+    {
+      "n": 1024,
+      "trial": 11,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.44129200000000424,
+      "microsecondsPerCall": 0.8825840000000085
+    },
+    {
+      "n": 1024,
+      "trial": 11,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.24783299999999997,
+      "microsecondsPerCall": 0.49566599999999994
+    },
+    {
+      "n": 1024,
+      "trial": 11,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.6678339999999992,
+      "microsecondsPerCall": 1.3356679999999983
+    },
+    {
+      "n": 1024,
+      "trial": 12,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.24925000000000352,
+      "microsecondsPerCall": 0.49850000000000705
+    },
+    {
+      "n": 1024,
+      "trial": 12,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.6692499999999981,
+      "microsecondsPerCall": 1.3384999999999965
+    },
+    {
+      "n": 1024,
+      "trial": 12,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.4468749999999986,
+      "microsecondsPerCall": 0.8937499999999972
+    },
+    {
+      "n": 1024,
+      "trial": 13,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.6916670000000025,
+      "microsecondsPerCall": 1.3833340000000047
+    },
+    {
+      "n": 1024,
+      "trial": 13,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.44866700000000037,
+      "microsecondsPerCall": 0.8973340000000007
+    },
+    {
+      "n": 1024,
+      "trial": 13,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.25516599999999556,
+      "microsecondsPerCall": 0.5103319999999911
+    },
+    {
+      "n": 1024,
+      "trial": 14,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.451709000000001,
+      "microsecondsPerCall": 0.903418000000002
+    },
+    {
+      "n": 1024,
+      "trial": 14,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.25279200000000657,
+      "microsecondsPerCall": 0.5055840000000131
+    },
+    {
+      "n": 1024,
+      "trial": 14,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.6865829999999988,
+      "microsecondsPerCall": 1.3731659999999977
+    },
+    {
+      "n": 1024,
+      "trial": 15,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.2541659999999979,
+      "microsecondsPerCall": 0.5083319999999958
+    },
+    {
+      "n": 1024,
+      "trial": 15,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.6811249999999944,
+      "microsecondsPerCall": 1.3622499999999889
+    },
+    {
+      "n": 1024,
+      "trial": 15,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.46691699999999514,
+      "microsecondsPerCall": 0.9338339999999903
+    },
+    {
+      "n": 1024,
+      "trial": 16,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.6799579999999992,
+      "microsecondsPerCall": 1.3599159999999983
+    },
+    {
+      "n": 1024,
+      "trial": 16,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.4556670000000054,
+      "microsecondsPerCall": 0.9113340000000107
+    },
+    {
+      "n": 1024,
+      "trial": 16,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.2548749999999984,
+      "microsecondsPerCall": 0.5097499999999968
+    },
+    {
+      "n": 1024,
+      "trial": 17,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.45383300000000304,
+      "microsecondsPerCall": 0.9076660000000061
+    },
+    {
+      "n": 1024,
+      "trial": 17,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.25499999999999545,
+      "microsecondsPerCall": 0.5099999999999909
+    },
+    {
+      "n": 1024,
+      "trial": 17,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.6817920000000015,
+      "microsecondsPerCall": 1.363584000000003
+    },
+    {
+      "n": 1024,
+      "trial": 18,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.2527499999999918,
+      "microsecondsPerCall": 0.5054999999999836
+    },
+    {
+      "n": 1024,
+      "trial": 18,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.7025000000000006,
+      "microsecondsPerCall": 1.4050000000000011
+    },
+    {
+      "n": 1024,
+      "trial": 18,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.5127499999999969,
+      "microsecondsPerCall": 1.0254999999999939
+    },
+    {
+      "n": 1024,
+      "trial": 19,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.765625,
+      "microsecondsPerCall": 1.53125
+    },
+    {
+      "n": 1024,
+      "trial": 19,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.45870800000000145,
+      "microsecondsPerCall": 0.9174160000000029
+    },
+    {
+      "n": 1024,
+      "trial": 19,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.2518749999999983,
+      "microsecondsPerCall": 0.5037499999999966
+    },
+    {
+      "n": 1024,
+      "trial": 20,
+      "variant": "JS",
+      "repetitions": 500,
+      "batchMs": 0.44225000000000136,
+      "microsecondsPerCall": 0.8845000000000027
+    },
+    {
+      "n": 1024,
+      "trial": 20,
+      "variant": "WASM",
+      "repetitions": 500,
+      "batchMs": 0.24766699999999275,
+      "microsecondsPerCall": 0.4953339999999855
+    },
+    {
+      "n": 1024,
+      "trial": 20,
+      "variant": "GENERIC",
+      "repetitions": 500,
+      "batchMs": 0.6619999999999919,
+      "microsecondsPerCall": 1.3239999999999839
+    },
+    {
+      "n": 16384,
+      "trial": 0,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.8034159999999986,
+      "microsecondsPerCall": 8.034159999999986
+    },
+    {
+      "n": 16384,
+      "trial": 0,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.1097500000000053,
+      "microsecondsPerCall": 21.097500000000053
+    },
+    {
+      "n": 16384,
+      "trial": 0,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.5096669999999932,
+      "microsecondsPerCall": 15.09666999999993
+    },
+    {
+      "n": 16384,
+      "trial": 1,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.154457999999991,
+      "microsecondsPerCall": 21.54457999999991
+    },
+    {
+      "n": 16384,
+      "trial": 1,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.5037500000000108,
+      "microsecondsPerCall": 15.03750000000011
+    },
+    {
+      "n": 16384,
+      "trial": 1,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.7908749999999998,
+      "microsecondsPerCall": 7.908749999999998
+    },
+    {
+      "n": 16384,
+      "trial": 2,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.4839580000000012,
+      "microsecondsPerCall": 14.839580000000012
+    },
+    {
+      "n": 16384,
+      "trial": 2,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.7886670000000038,
+      "microsecondsPerCall": 7.886670000000038
+    },
+    {
+      "n": 16384,
+      "trial": 2,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.1559589999999957,
+      "microsecondsPerCall": 21.559589999999957
+    },
+    {
+      "n": 16384,
+      "trial": 3,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.8143329999999906,
+      "microsecondsPerCall": 8.143329999999906
+    },
+    {
+      "n": 16384,
+      "trial": 3,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.1743749999999977,
+      "microsecondsPerCall": 21.743749999999977
+    },
+    {
+      "n": 16384,
+      "trial": 3,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.5053750000000008,
+      "microsecondsPerCall": 15.05375000000001
+    },
+    {
+      "n": 16384,
+      "trial": 4,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.294832999999997,
+      "microsecondsPerCall": 22.94832999999997
+    },
+    {
+      "n": 16384,
+      "trial": 4,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.4650000000000034,
+      "microsecondsPerCall": 14.650000000000034
+    },
+    {
+      "n": 16384,
+      "trial": 4,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.7750000000000057,
+      "microsecondsPerCall": 7.750000000000057
+    },
+    {
+      "n": 16384,
+      "trial": 5,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.4986249999999899,
+      "microsecondsPerCall": 14.9862499999999
+    },
+    {
+      "n": 16384,
+      "trial": 5,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.7944999999999993,
+      "microsecondsPerCall": 7.944999999999993
+    },
+    {
+      "n": 16384,
+      "trial": 5,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.1828749999999957,
+      "microsecondsPerCall": 21.828749999999953
+    },
+    {
+      "n": 16384,
+      "trial": 6,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.796750000000003,
+      "microsecondsPerCall": 7.96750000000003
+    },
+    {
+      "n": 16384,
+      "trial": 6,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 3.0427079999999904,
+      "microsecondsPerCall": 30.427079999999904
+    },
+    {
+      "n": 16384,
+      "trial": 6,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.490707999999998,
+      "microsecondsPerCall": 14.907079999999977
+    },
+    {
+      "n": 16384,
+      "trial": 7,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.1500410000000016,
+      "microsecondsPerCall": 21.500410000000016
+    },
+    {
+      "n": 16384,
+      "trial": 7,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.52024999999999,
+      "microsecondsPerCall": 15.2024999999999
+    },
+    {
+      "n": 16384,
+      "trial": 7,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.8121249999999947,
+      "microsecondsPerCall": 8.121249999999947
+    },
+    {
+      "n": 16384,
+      "trial": 8,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.538209000000009,
+      "microsecondsPerCall": 15.382090000000089
+    },
+    {
+      "n": 16384,
+      "trial": 8,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.8804999999999978,
+      "microsecondsPerCall": 8.804999999999978
+    },
+    {
+      "n": 16384,
+      "trial": 8,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.1676670000000087,
+      "microsecondsPerCall": 21.676670000000087
+    },
+    {
+      "n": 16384,
+      "trial": 9,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.7835840000000047,
+      "microsecondsPerCall": 7.835840000000047
+    },
+    {
+      "n": 16384,
+      "trial": 9,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.137541000000013,
+      "microsecondsPerCall": 21.37541000000013
+    },
+    {
+      "n": 16384,
+      "trial": 9,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.5052089999999936,
+      "microsecondsPerCall": 15.052089999999934
+    },
+    {
+      "n": 16384,
+      "trial": 10,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.1531669999999963,
+      "microsecondsPerCall": 21.531669999999963
+    },
+    {
+      "n": 16384,
+      "trial": 10,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.5457499999999982,
+      "microsecondsPerCall": 15.457499999999982
+    },
+    {
+      "n": 16384,
+      "trial": 10,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.8177909999999997,
+      "microsecondsPerCall": 8.177909999999997
+    },
+    {
+      "n": 16384,
+      "trial": 11,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.4912920000000014,
+      "microsecondsPerCall": 14.912920000000012
+    },
+    {
+      "n": 16384,
+      "trial": 11,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.787542000000002,
+      "microsecondsPerCall": 7.87542000000002
+    },
+    {
+      "n": 16384,
+      "trial": 11,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.1774579999999872,
+      "microsecondsPerCall": 21.774579999999872
+    },
+    {
+      "n": 16384,
+      "trial": 12,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.9177080000000046,
+      "microsecondsPerCall": 9.177080000000046
+    },
+    {
+      "n": 16384,
+      "trial": 12,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 5.312790999999976,
+      "microsecondsPerCall": 53.12790999999976
+    },
+    {
+      "n": 16384,
+      "trial": 12,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.490916999999996,
+      "microsecondsPerCall": 14.90916999999996
+    },
+    {
+      "n": 16384,
+      "trial": 13,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.1586670000000083,
+      "microsecondsPerCall": 21.586670000000087
+    },
+    {
+      "n": 16384,
+      "trial": 13,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.5123749999999916,
+      "microsecondsPerCall": 15.123749999999916
+    },
+    {
+      "n": 16384,
+      "trial": 13,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.8036669999999901,
+      "microsecondsPerCall": 8.036669999999901
+    },
+    {
+      "n": 16384,
+      "trial": 14,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.5307079999999758,
+      "microsecondsPerCall": 15.307079999999758
+    },
+    {
+      "n": 16384,
+      "trial": 14,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.795958000000013,
+      "microsecondsPerCall": 7.95958000000013
+    },
+    {
+      "n": 16384,
+      "trial": 14,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.144957999999974,
+      "microsecondsPerCall": 21.44957999999974
+    },
+    {
+      "n": 16384,
+      "trial": 15,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.780791999999991,
+      "microsecondsPerCall": 7.8079199999999105
+    },
+    {
+      "n": 16384,
+      "trial": 15,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.163208999999995,
+      "microsecondsPerCall": 21.63208999999995
+    },
+    {
+      "n": 16384,
+      "trial": 15,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.5010000000000048,
+      "microsecondsPerCall": 15.010000000000048
+    },
+    {
+      "n": 16384,
+      "trial": 16,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.1543749999999875,
+      "microsecondsPerCall": 21.54374999999987
+    },
+    {
+      "n": 16384,
+      "trial": 16,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.515749999999997,
+      "microsecondsPerCall": 15.15749999999997
+    },
+    {
+      "n": 16384,
+      "trial": 16,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.7972919999999988,
+      "microsecondsPerCall": 7.972919999999988
+    },
+    {
+      "n": 16384,
+      "trial": 17,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.5354580000000055,
+      "microsecondsPerCall": 15.354580000000055
+    },
+    {
+      "n": 16384,
+      "trial": 17,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.8086250000000064,
+      "microsecondsPerCall": 8.086250000000064
+    },
+    {
+      "n": 16384,
+      "trial": 17,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.124625000000009,
+      "microsecondsPerCall": 21.246250000000092
+    },
+    {
+      "n": 16384,
+      "trial": 18,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.7957499999999982,
+      "microsecondsPerCall": 7.957499999999982
+    },
+    {
+      "n": 16384,
+      "trial": 18,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.168832999999978,
+      "microsecondsPerCall": 21.688329999999777
+    },
+    {
+      "n": 16384,
+      "trial": 18,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.5677909999999997,
+      "microsecondsPerCall": 15.677909999999997
+    },
+    {
+      "n": 16384,
+      "trial": 19,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.2657920000000047,
+      "microsecondsPerCall": 22.65792000000005
+    },
+    {
+      "n": 16384,
+      "trial": 19,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.4877079999999978,
+      "microsecondsPerCall": 14.877079999999978
+    },
+    {
+      "n": 16384,
+      "trial": 19,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.7758340000000032,
+      "microsecondsPerCall": 7.758340000000032
+    },
+    {
+      "n": 16384,
+      "trial": 20,
+      "variant": "JS",
+      "repetitions": 100,
+      "batchMs": 1.50270900000001,
+      "microsecondsPerCall": 15.0270900000001
+    },
+    {
+      "n": 16384,
+      "trial": 20,
+      "variant": "WASM",
+      "repetitions": 100,
+      "batchMs": 0.798624999999987,
+      "microsecondsPerCall": 7.98624999999987
+    },
+    {
+      "n": 16384,
+      "trial": 20,
+      "variant": "GENERIC",
+      "repetitions": 100,
+      "batchMs": 2.157291999999984,
+      "microsecondsPerCall": 21.57291999999984
+    }
+  ],
+  "limits": [
+    "One Node/V8 process, selected checked sum; not network/browser/native CPU or language-wide performance",
+    "WASM preserves general emitted Core instruction/work guards; direct JS is a simpler specialized rival",
+    "No Android, token, energy or hypervisor speed result"
+  ]
+}

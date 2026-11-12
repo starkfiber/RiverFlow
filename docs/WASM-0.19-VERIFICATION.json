@@ -1,0 +1,6485 @@
+{
+  "passed": true,
+  "differentialCases": 588,
+  "boundaryCases": 11,
+  "seed": 190021,
+  "compilerSHA256": "0354a5e01bc748bfa1b6c782ddefb51babfabdacfc7e317460e97a538507d381",
+  "retainedCoreRuntimeSHA256": "681c48fc9d8ca12162102e8841c113603ee044be883cc191668d24c96652692b",
+  "sourceSHA256": "6eee19ea77ed389f4acb8055ff725448d0aaacc4c896f6d47a948272e10322f5",
+  "controllerSHA256": "511195fdaa9838e49b3493326844453379d5f2bf47047dc7046c44b4bfff5a3a",
+  "observations": [
+    {
+      "program": "sum-optimized",
+      "case": 0,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 1,
+      "wasm": {
+        "value": 6,
+        "status": 0,
+        "work": 12
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 2,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 3,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 4,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 5,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 6,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 7,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 8,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 9,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 10,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 11,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 12,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 13,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 14,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 15,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 16,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 17,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 18,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 19,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 20,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 21,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 22,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 23,
+      "wasm": {
+        "value": 1006497804,
+        "status": 0,
+        "work": 6
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 24,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 25,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 26,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 27,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 28,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 29,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 30,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 31,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 32,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 33,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 34,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 35,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 36,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 37,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 18
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 38,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 39,
+      "wasm": {
+        "value": 1064,
+        "status": 0,
+        "work": 63
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 40,
+      "wasm": {
+        "value": 698,
+        "status": 0,
+        "work": 54
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 41,
+      "wasm": {
+        "value": 573,
+        "status": 0,
+        "work": 39
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 42,
+      "wasm": {
+        "value": 844,
+        "status": 0,
+        "work": 57
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 43,
+      "wasm": {
+        "value": 899,
+        "status": 0,
+        "work": 60
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 44,
+      "wasm": {
+        "value": 576,
+        "status": 0,
+        "work": 39
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 45,
+      "wasm": {
+        "value": 527,
+        "status": 0,
+        "work": 42
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 46,
+      "wasm": {
+        "value": 382,
+        "status": 0,
+        "work": 27
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 47,
+      "wasm": {
+        "value": 659,
+        "status": 0,
+        "work": 48
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-optimized",
+      "case": 48,
+      "wasm": {
+        "value": 865,
+        "status": 0,
+        "work": 60
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 0,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 1,
+      "wasm": {
+        "value": 6,
+        "status": 0,
+        "work": 12
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 2,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 3,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 4,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 5,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 6,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 7,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 8,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 9,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 10,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 11,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 12,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 13,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 14,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 15,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 16,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 17,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 18,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 19,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 20,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 21,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 22,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 23,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 24,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 25,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 26,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 27,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 28,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 29,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 30,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 31,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 18
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 32,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 33,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 12
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 34,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 35,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 36,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 37,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 38,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 9
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 39,
+      "wasm": {
+        "value": 665,
+        "status": 0,
+        "work": 33
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 40,
+      "wasm": {
+        "value": 620,
+        "status": 0,
+        "work": 42
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 41,
+      "wasm": {
+        "value": 589,
+        "status": 0,
+        "work": 42
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 42,
+      "wasm": {
+        "value": 811,
+        "status": 0,
+        "work": 51
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 43,
+      "wasm": {
+        "value": 172,
+        "status": 0,
+        "work": 18
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 44,
+      "wasm": {
+        "value": 477,
+        "status": 0,
+        "work": 30
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 45,
+      "wasm": {
+        "value": 873,
+        "status": 0,
+        "work": 57
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 46,
+      "wasm": {
+        "value": 222,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 47,
+      "wasm": {
+        "value": 15,
+        "status": 0,
+        "work": 6
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-generic",
+      "case": 48,
+      "wasm": {
+        "value": 433,
+        "status": 0,
+        "work": 30
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 0,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 1,
+      "wasm": {
+        "value": 6,
+        "status": 0,
+        "work": 12
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 2,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 9
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 3,
+      "wasm": {
+        "value": 65536,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 4,
+      "wasm": {
+        "value": 602317449,
+        "status": 0,
+        "work": 24
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 5,
+      "wasm": {
+        "value": 1215453254,
+        "status": 0,
+        "work": 51
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 6,
+      "wasm": {
+        "value": 501087258,
+        "status": 0,
+        "work": 117
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 7,
+      "wasm": {
+        "value": 1712177178,
+        "status": 0,
+        "work": 126
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 8,
+      "wasm": {
+        "value": 1600922747,
+        "status": 0,
+        "work": 30
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 9,
+      "wasm": {
+        "value": 1045119614,
+        "status": 0,
+        "work": 150
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 10,
+      "wasm": {
+        "value": 1828353883,
+        "status": 0,
+        "work": 111
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 11,
+      "wasm": {
+        "value": 3248391293,
+        "status": 0,
+        "work": 90
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 12,
+      "wasm": {
+        "value": 2261408994,
+        "status": 0,
+        "work": 69
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 13,
+      "wasm": {
+        "value": 799935209,
+        "status": 0,
+        "work": 192
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 14,
+      "wasm": {
+        "value": 2986873481,
+        "status": 0,
+        "work": 189
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 15,
+      "wasm": {
+        "value": 2678436369,
+        "status": 0,
+        "work": 66
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 16,
+      "wasm": {
+        "value": 4176990900,
+        "status": 0,
+        "work": 126
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 17,
+      "wasm": {
+        "value": 1770507253,
+        "status": 0,
+        "work": 96
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 18,
+      "wasm": {
+        "value": 3960956247,
+        "status": 0,
+        "work": 84
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 19,
+      "wasm": {
+        "value": 3667894684,
+        "status": 0,
+        "work": 18
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 20,
+      "wasm": {
+        "value": 2569778187,
+        "status": 0,
+        "work": 132
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 21,
+      "wasm": {
+        "value": 3963117638,
+        "status": 0,
+        "work": 129
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 22,
+      "wasm": {
+        "value": 2402033838,
+        "status": 0,
+        "work": 54
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 23,
+      "wasm": {
+        "value": 4036579456,
+        "status": 0,
+        "work": 114
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 24,
+      "wasm": {
+        "value": 1523310925,
+        "status": 0,
+        "work": 99
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 25,
+      "wasm": {
+        "value": 1913440925,
+        "status": 0,
+        "work": 33
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 26,
+      "wasm": {
+        "value": 2942662995,
+        "status": 0,
+        "work": 75
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 27,
+      "wasm": {
+        "value": 916223550,
+        "status": 0,
+        "work": 27
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 28,
+      "wasm": {
+        "value": 3084499576,
+        "status": 0,
+        "work": 189
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 29,
+      "wasm": {
+        "value": 3118500706,
+        "status": 0,
+        "work": 51
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 30,
+      "wasm": {
+        "value": 4021008520,
+        "status": 0,
+        "work": 21
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 31,
+      "wasm": {
+        "value": 3572995281,
+        "status": 0,
+        "work": 72
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 32,
+      "wasm": {
+        "value": 1595195277,
+        "status": 0,
+        "work": 141
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 33,
+      "wasm": {
+        "value": 2076497718,
+        "status": 0,
+        "work": 144
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 34,
+      "wasm": {
+        "value": 4251191507,
+        "status": 0,
+        "work": 111
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 35,
+      "wasm": {
+        "value": 2678496105,
+        "status": 0,
+        "work": 120
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 36,
+      "wasm": {
+        "value": 20325232,
+        "status": 0,
+        "work": 153
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 37,
+      "wasm": {
+        "value": 3561974265,
+        "status": 0,
+        "work": 108
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 38,
+      "wasm": {
+        "value": 3988611269,
+        "status": 0,
+        "work": 183
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 39,
+      "wasm": {
+        "value": 662,
+        "status": 0,
+        "work": 42
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 40,
+      "wasm": {
+        "value": 269,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 41,
+      "wasm": {
+        "value": 781,
+        "status": 0,
+        "work": 54
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 42,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 43,
+      "wasm": {
+        "value": 636,
+        "status": 0,
+        "work": 48
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 44,
+      "wasm": {
+        "value": 775,
+        "status": 0,
+        "work": 36
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 45,
+      "wasm": {
+        "value": 882,
+        "status": 0,
+        "work": 45
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 46,
+      "wasm": {
+        "value": 667,
+        "status": 0,
+        "work": 36
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 47,
+      "wasm": {
+        "value": 461,
+        "status": 0,
+        "work": 33
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-optimized",
+      "case": 48,
+      "wasm": {
+        "value": 457,
+        "status": 0,
+        "work": 27
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 0,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 1,
+      "wasm": {
+        "value": 6,
+        "status": 0,
+        "work": 12
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 2,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 9
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 3,
+      "wasm": {
+        "value": 65536,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 4,
+      "wasm": {
+        "value": 381007607,
+        "status": 0,
+        "work": 6
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 5,
+      "wasm": {
+        "value": 3514724437,
+        "status": 0,
+        "work": 108
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 6,
+      "wasm": {
+        "value": 3740379346,
+        "status": 0,
+        "work": 39
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 7,
+      "wasm": {
+        "value": 2256211280,
+        "status": 0,
+        "work": 195
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 8,
+      "wasm": {
+        "value": 1244147210,
+        "status": 0,
+        "work": 171
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 9,
+      "wasm": {
+        "value": 2217383130,
+        "status": 0,
+        "work": 168
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 10,
+      "wasm": {
+        "value": 3780115536,
+        "status": 0,
+        "work": 120
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 11,
+      "wasm": {
+        "value": 230950476,
+        "status": 0,
+        "work": 63
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 12,
+      "wasm": {
+        "value": 990624212,
+        "status": 0,
+        "work": 180
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 13,
+      "wasm": {
+        "value": 3318730769,
+        "status": 0,
+        "work": 186
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 14,
+      "wasm": {
+        "value": 3079812715,
+        "status": 0,
+        "work": 168
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 15,
+      "wasm": {
+        "value": 3175609788,
+        "status": 0,
+        "work": 69
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 16,
+      "wasm": {
+        "value": 3517737393,
+        "status": 0,
+        "work": 72
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 17,
+      "wasm": {
+        "value": 1803825307,
+        "status": 0,
+        "work": 78
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 18,
+      "wasm": {
+        "value": 1575036615,
+        "status": 0,
+        "work": 27
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 19,
+      "wasm": {
+        "value": 573615604,
+        "status": 0,
+        "work": 120
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 20,
+      "wasm": {
+        "value": 1492950192,
+        "status": 0,
+        "work": 93
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 21,
+      "wasm": {
+        "value": 191576876,
+        "status": 0,
+        "work": 54
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 22,
+      "wasm": {
+        "value": 889919820,
+        "status": 0,
+        "work": 6
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 23,
+      "wasm": {
+        "value": 1667018293,
+        "status": 0,
+        "work": 36
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 24,
+      "wasm": {
+        "value": 1770146342,
+        "status": 0,
+        "work": 96
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 25,
+      "wasm": {
+        "value": 2207322309,
+        "status": 0,
+        "work": 6
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 26,
+      "wasm": {
+        "value": 3797324313,
+        "status": 0,
+        "work": 150
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 27,
+      "wasm": {
+        "value": 4224786257,
+        "status": 0,
+        "work": 108
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 28,
+      "wasm": {
+        "value": 1945478096,
+        "status": 0,
+        "work": 33
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 29,
+      "wasm": {
+        "value": 1626881308,
+        "status": 0,
+        "work": 39
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 30,
+      "wasm": {
+        "value": 1312447479,
+        "status": 0,
+        "work": 186
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 31,
+      "wasm": {
+        "value": 3853702071,
+        "status": 0,
+        "work": 168
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 32,
+      "wasm": {
+        "value": 2091569674,
+        "status": 0,
+        "work": 108
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 33,
+      "wasm": {
+        "value": 2390381198,
+        "status": 0,
+        "work": 174
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 34,
+      "wasm": {
+        "value": 2710058783,
+        "status": 0,
+        "work": 144
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 35,
+      "wasm": {
+        "value": 931258073,
+        "status": 0,
+        "work": 60
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 36,
+      "wasm": {
+        "value": 713896735,
+        "status": 0,
+        "work": 99
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 37,
+      "wasm": {
+        "value": 4091532774,
+        "status": 0,
+        "work": 195
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 38,
+      "wasm": {
+        "value": 378156234,
+        "status": 0,
+        "work": 57
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 39,
+      "wasm": {
+        "value": 601,
+        "status": 0,
+        "work": 27
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 40,
+      "wasm": {
+        "value": 581,
+        "status": 0,
+        "work": 36
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 41,
+      "wasm": {
+        "value": 408,
+        "status": 0,
+        "work": 39
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 42,
+      "wasm": {
+        "value": 268,
+        "status": 0,
+        "work": 21
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 43,
+      "wasm": {
+        "value": 769,
+        "status": 0,
+        "work": 45
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 44,
+      "wasm": {
+        "value": 934,
+        "status": 0,
+        "work": 57
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 45,
+      "wasm": {
+        "value": 832,
+        "status": 0,
+        "work": 54
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 46,
+      "wasm": {
+        "value": 240,
+        "status": 0,
+        "work": 21
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 47,
+      "wasm": {
+        "value": 598,
+        "status": 0,
+        "work": 33
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "sum-wrap-generic",
+      "case": 48,
+      "wasm": {
+        "value": 132,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 0,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 1,
+      "wasm": {
+        "value": 14,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 2,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 3,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 14
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 4,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 5,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 6,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 7,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 8,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 9,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 10,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 11,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 12,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 13,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 14,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 15,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 16,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 17,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 18,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 19,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 20,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 21,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 22,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 23,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 24,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 25,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 26,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 27,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 28,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 29,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 30,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 31,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 32,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 33,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 34,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 35,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 36,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 37,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 38,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 39,
+      "wasm": {
+        "value": 9070,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 40,
+      "wasm": {
+        "value": 57782,
+        "status": 0,
+        "work": 63
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 41,
+      "wasm": {
+        "value": 50148,
+        "status": 0,
+        "work": 63
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 42,
+      "wasm": {
+        "value": 16577,
+        "status": 0,
+        "work": 31
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 43,
+      "wasm": {
+        "value": 20514,
+        "status": 0,
+        "work": 43
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 44,
+      "wasm": {
+        "value": 37693,
+        "status": 0,
+        "work": 47
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 45,
+      "wasm": {
+        "value": 45079,
+        "status": 0,
+        "work": 71
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 46,
+      "wasm": {
+        "value": 20970,
+        "status": 0,
+        "work": 27
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 47,
+      "wasm": {
+        "value": 32646,
+        "status": 0,
+        "work": 51
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-optimized",
+      "case": 48,
+      "wasm": {
+        "value": 53361,
+        "status": 0,
+        "work": 51
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 0,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 1,
+      "wasm": {
+        "value": 14,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 2,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 3,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 14
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 4,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 5,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 6,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 7,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 8,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 9,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 10,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 11,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 12,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 13,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 14,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 15,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 16,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 17,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 18,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 19,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 20,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 21,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 22,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 23,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 24,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 25,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 26,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 27,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 28,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 29,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 30,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 31,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 32,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 33,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 34,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 35,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 36,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 37,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 38,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 6
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 39,
+      "wasm": {
+        "value": 23365,
+        "status": 0,
+        "work": 39
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 40,
+      "wasm": {
+        "value": 52779,
+        "status": 0,
+        "work": 47
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 41,
+      "wasm": {
+        "value": 44638,
+        "status": 0,
+        "work": 55
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 42,
+      "wasm": {
+        "value": 11359,
+        "status": 0,
+        "work": 23
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 43,
+      "wasm": {
+        "value": 49408,
+        "status": 0,
+        "work": 71
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 44,
+      "wasm": {
+        "value": 7396,
+        "status": 0,
+        "work": 7
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 45,
+      "wasm": {
+        "value": 70746,
+        "status": 0,
+        "work": 83
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 46,
+      "wasm": {
+        "value": 5763,
+        "status": 0,
+        "work": 23
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 47,
+      "wasm": {
+        "value": 8490,
+        "status": 0,
+        "work": 31
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "squares-generic",
+      "case": 48,
+      "wasm": {
+        "value": 22194,
+        "status": 0,
+        "work": 23
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 0,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 1,
+      "wasm": {
+        "value": 4,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 2,
+      "wasm": {
+        "value": 33,
+        "status": 0,
+        "work": 11
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 3,
+      "wasm": {
+        "value": 34,
+        "status": 0,
+        "work": 19
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 4,
+      "wasm": {
+        "value": 606,
+        "status": 0,
+        "work": 159
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 5,
+      "wasm": {
+        "value": 484,
+        "status": 0,
+        "work": 127
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 6,
+      "wasm": {
+        "value": 364,
+        "status": 0,
+        "work": 91
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 7,
+      "wasm": {
+        "value": 814,
+        "status": 0,
+        "work": 215
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 8,
+      "wasm": {
+        "value": 55,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 9,
+      "wasm": {
+        "value": 389,
+        "status": 0,
+        "work": 99
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 10,
+      "wasm": {
+        "value": 275,
+        "status": 0,
+        "work": 75
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 11,
+      "wasm": {
+        "value": 769,
+        "status": 0,
+        "work": 203
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 12,
+      "wasm": {
+        "value": 760,
+        "status": 0,
+        "work": 191
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 13,
+      "wasm": {
+        "value": 620,
+        "status": 0,
+        "work": 159
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 14,
+      "wasm": {
+        "value": 287,
+        "status": 0,
+        "work": 79
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 15,
+      "wasm": {
+        "value": 371,
+        "status": 0,
+        "work": 95
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 16,
+      "wasm": {
+        "value": 348,
+        "status": 0,
+        "work": 95
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 17,
+      "wasm": {
+        "value": 413,
+        "status": 0,
+        "work": 111
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 18,
+      "wasm": {
+        "value": 810,
+        "status": 0,
+        "work": 203
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 19,
+      "wasm": {
+        "value": 890,
+        "status": 0,
+        "work": 231
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 20,
+      "wasm": {
+        "value": 481,
+        "status": 0,
+        "work": 127
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 21,
+      "wasm": {
+        "value": 206,
+        "status": 0,
+        "work": 55
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 22,
+      "wasm": {
+        "value": 641,
+        "status": 0,
+        "work": 155
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 23,
+      "wasm": {
+        "value": 772,
+        "status": 0,
+        "work": 195
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 24,
+      "wasm": {
+        "value": 721,
+        "status": 0,
+        "work": 183
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 25,
+      "wasm": {
+        "value": 485,
+        "status": 0,
+        "work": 123
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 26,
+      "wasm": {
+        "value": 934,
+        "status": 0,
+        "work": 235
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 27,
+      "wasm": {
+        "value": 381,
+        "status": 0,
+        "work": 99
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 28,
+      "wasm": {
+        "value": 794,
+        "status": 0,
+        "work": 207
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 29,
+      "wasm": {
+        "value": 201,
+        "status": 0,
+        "work": 55
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 30,
+      "wasm": {
+        "value": 296,
+        "status": 0,
+        "work": 75
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 31,
+      "wasm": {
+        "value": 779,
+        "status": 0,
+        "work": 195
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 32,
+      "wasm": {
+        "value": 893,
+        "status": 0,
+        "work": 223
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 33,
+      "wasm": {
+        "value": 516,
+        "status": 0,
+        "work": 131
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 34,
+      "wasm": {
+        "value": 597,
+        "status": 0,
+        "work": 155
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 35,
+      "wasm": {
+        "value": 715,
+        "status": 0,
+        "work": 183
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 36,
+      "wasm": {
+        "value": 453,
+        "status": 0,
+        "work": 119
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 37,
+      "wasm": {
+        "value": 309,
+        "status": 0,
+        "work": 83
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 38,
+      "wasm": {
+        "value": 330,
+        "status": 0,
+        "work": 83
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 39,
+      "wasm": {
+        "value": 57,
+        "status": 0,
+        "work": 83
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 40,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 41,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 42,
+      "wasm": {
+        "value": 56,
+        "status": 0,
+        "work": 71
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 43,
+      "wasm": {
+        "value": 43,
+        "status": 0,
+        "work": 51
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 44,
+      "wasm": {
+        "value": 72,
+        "status": 0,
+        "work": 83
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 45,
+      "wasm": {
+        "value": 37,
+        "status": 0,
+        "work": 55
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 46,
+      "wasm": {
+        "value": 41,
+        "status": 0,
+        "work": 51
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 47,
+      "wasm": {
+        "value": 38,
+        "status": 0,
+        "work": 47
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-optimized",
+      "case": 48,
+      "wasm": {
+        "value": 24,
+        "status": 0,
+        "work": 35
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 0,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 1,
+      "wasm": {
+        "value": 4,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 2,
+      "wasm": {
+        "value": 33,
+        "status": 0,
+        "work": 11
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 3,
+      "wasm": {
+        "value": 34,
+        "status": 0,
+        "work": 19
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 4,
+      "wasm": {
+        "value": 224,
+        "status": 0,
+        "work": 59
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 5,
+      "wasm": {
+        "value": 893,
+        "status": 0,
+        "work": 231
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 6,
+      "wasm": {
+        "value": 708,
+        "status": 0,
+        "work": 179
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 7,
+      "wasm": {
+        "value": 660,
+        "status": 0,
+        "work": 167
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 8,
+      "wasm": {
+        "value": 898,
+        "status": 0,
+        "work": 231
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 9,
+      "wasm": {
+        "value": 27,
+        "status": 0,
+        "work": 11
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 10,
+      "wasm": {
+        "value": 816,
+        "status": 0,
+        "work": 207
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 11,
+      "wasm": {
+        "value": 811,
+        "status": 0,
+        "work": 211
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 12,
+      "wasm": {
+        "value": 230,
+        "status": 0,
+        "work": 59
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 13,
+      "wasm": {
+        "value": 918,
+        "status": 0,
+        "work": 239
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 14,
+      "wasm": {
+        "value": 541,
+        "status": 0,
+        "work": 139
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 15,
+      "wasm": {
+        "value": 267,
+        "status": 0,
+        "work": 67
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 16,
+      "wasm": {
+        "value": 626,
+        "status": 0,
+        "work": 159
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 17,
+      "wasm": {
+        "value": 626,
+        "status": 0,
+        "work": 155
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 18,
+      "wasm": {
+        "value": 834,
+        "status": 0,
+        "work": 211
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 19,
+      "wasm": {
+        "value": 728,
+        "status": 0,
+        "work": 183
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 20,
+      "wasm": {
+        "value": 806,
+        "status": 0,
+        "work": 195
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 21,
+      "wasm": {
+        "value": 1008,
+        "status": 0,
+        "work": 259
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 22,
+      "wasm": {
+        "value": 973,
+        "status": 0,
+        "work": 243
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 23,
+      "wasm": {
+        "value": 731,
+        "status": 0,
+        "work": 187
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 24,
+      "wasm": {
+        "value": 31,
+        "status": 0,
+        "work": 11
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 25,
+      "wasm": {
+        "value": 660,
+        "status": 0,
+        "work": 171
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 26,
+      "wasm": {
+        "value": 754,
+        "status": 0,
+        "work": 195
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 27,
+      "wasm": {
+        "value": 55,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 28,
+      "wasm": {
+        "value": 199,
+        "status": 0,
+        "work": 51
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 29,
+      "wasm": {
+        "value": 712,
+        "status": 0,
+        "work": 175
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 30,
+      "wasm": {
+        "value": 707,
+        "status": 0,
+        "work": 175
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 31,
+      "wasm": {
+        "value": 752,
+        "status": 0,
+        "work": 187
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 32,
+      "wasm": {
+        "value": 967,
+        "status": 0,
+        "work": 243
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 33,
+      "wasm": {
+        "value": 1063,
+        "status": 0,
+        "work": 259
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 34,
+      "wasm": {
+        "value": 677,
+        "status": 0,
+        "work": 175
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 35,
+      "wasm": {
+        "value": 181,
+        "status": 0,
+        "work": 51
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 36,
+      "wasm": {
+        "value": 244,
+        "status": 0,
+        "work": 67
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 37,
+      "wasm": {
+        "value": 905,
+        "status": 0,
+        "work": 235
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 38,
+      "wasm": {
+        "value": 864,
+        "status": 0,
+        "work": 223
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 39,
+      "wasm": {
+        "value": 47,
+        "status": 0,
+        "work": 63
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 40,
+      "wasm": {
+        "value": 66,
+        "status": 0,
+        "work": 83
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 41,
+      "wasm": {
+        "value": 56,
+        "status": 0,
+        "work": 71
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 42,
+      "wasm": {
+        "value": 58,
+        "status": 0,
+        "work": 75
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 43,
+      "wasm": {
+        "value": 52,
+        "status": 0,
+        "work": 63
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 44,
+      "wasm": {
+        "value": 15,
+        "status": 0,
+        "work": 19
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 45,
+      "wasm": {
+        "value": 44,
+        "status": 0,
+        "work": 71
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 46,
+      "wasm": {
+        "value": 62,
+        "status": 0,
+        "work": 79
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 47,
+      "wasm": {
+        "value": 36,
+        "status": 0,
+        "work": 43
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "popcount-generic",
+      "case": 48,
+      "wasm": {
+        "value": 17,
+        "status": 0,
+        "work": 31
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 0,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 1,
+      "wasm": {
+        "value": 3,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 2,
+      "wasm": {
+        "value": 2,
+        "status": 0,
+        "work": 11
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 3,
+      "wasm": {
+        "value": 3,
+        "status": 0,
+        "work": 19
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 4,
+      "wasm": {
+        "value": 1,
+        "status": 0,
+        "work": 7
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 5,
+      "wasm": {
+        "value": 40,
+        "status": 0,
+        "work": 163
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 6,
+      "wasm": {
+        "value": 11,
+        "status": 0,
+        "work": 47
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 7,
+      "wasm": {
+        "value": 51,
+        "status": 0,
+        "work": 207
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 8,
+      "wasm": {
+        "value": 5,
+        "status": 0,
+        "work": 23
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 9,
+      "wasm": {
+        "value": 44,
+        "status": 0,
+        "work": 179
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 10,
+      "wasm": {
+        "value": 23,
+        "status": 0,
+        "work": 95
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 11,
+      "wasm": {
+        "value": 30,
+        "status": 0,
+        "work": 123
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 12,
+      "wasm": {
+        "value": 35,
+        "status": 0,
+        "work": 143
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 13,
+      "wasm": {
+        "value": 45,
+        "status": 0,
+        "work": 183
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 14,
+      "wasm": {
+        "value": 46,
+        "status": 0,
+        "work": 187
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 15,
+      "wasm": {
+        "value": 58,
+        "status": 0,
+        "work": 235
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 16,
+      "wasm": {
+        "value": 39,
+        "status": 0,
+        "work": 159
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 17,
+      "wasm": {
+        "value": 11,
+        "status": 0,
+        "work": 47
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 18,
+      "wasm": {
+        "value": 16,
+        "status": 0,
+        "work": 67
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 19,
+      "wasm": {
+        "value": 52,
+        "status": 0,
+        "work": 211
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 20,
+      "wasm": {
+        "value": 7,
+        "status": 0,
+        "work": 31
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 21,
+      "wasm": {
+        "value": 32,
+        "status": 0,
+        "work": 131
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 22,
+      "wasm": {
+        "value": 18,
+        "status": 0,
+        "work": 75
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 23,
+      "wasm": {
+        "value": 44,
+        "status": 0,
+        "work": 179
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 24,
+      "wasm": {
+        "value": 6,
+        "status": 0,
+        "work": 27
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 25,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 26,
+      "wasm": {
+        "value": 61,
+        "status": 0,
+        "work": 247
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 27,
+      "wasm": {
+        "value": 20,
+        "status": 0,
+        "work": 83
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 28,
+      "wasm": {
+        "value": 33,
+        "status": 0,
+        "work": 135
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 29,
+      "wasm": {
+        "value": 41,
+        "status": 0,
+        "work": 167
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 30,
+      "wasm": {
+        "value": 40,
+        "status": 0,
+        "work": 163
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 31,
+      "wasm": {
+        "value": 41,
+        "status": 0,
+        "work": 167
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 32,
+      "wasm": {
+        "value": 46,
+        "status": 0,
+        "work": 187
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 33,
+      "wasm": {
+        "value": 63,
+        "status": 0,
+        "work": 255
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 34,
+      "wasm": {
+        "value": 3,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 35,
+      "wasm": {
+        "value": 56,
+        "status": 0,
+        "work": 227
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 36,
+      "wasm": {
+        "value": 42,
+        "status": 0,
+        "work": 171
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 37,
+      "wasm": {
+        "value": 45,
+        "status": 0,
+        "work": 183
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 38,
+      "wasm": {
+        "value": 42,
+        "status": 0,
+        "work": 171
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 39,
+      "wasm": {
+        "value": 10,
+        "status": 0,
+        "work": 43
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 40,
+      "wasm": {
+        "value": 19,
+        "status": 0,
+        "work": 79
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 41,
+      "wasm": {
+        "value": 16,
+        "status": 0,
+        "work": 67
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 42,
+      "wasm": {
+        "value": 13,
+        "status": 0,
+        "work": 59
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 43,
+      "wasm": {
+        "value": 12,
+        "status": 0,
+        "work": 51
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 44,
+      "wasm": {
+        "value": 3,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 45,
+      "wasm": {
+        "value": 1,
+        "status": 0,
+        "work": 7
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 46,
+      "wasm": {
+        "value": 3,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 47,
+      "wasm": {
+        "value": 17,
+        "status": 0,
+        "work": 71
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-optimized",
+      "case": 48,
+      "wasm": {
+        "value": 3,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 0,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 1,
+      "wasm": {
+        "value": 3,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 2,
+      "wasm": {
+        "value": 2,
+        "status": 0,
+        "work": 11
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 3,
+      "wasm": {
+        "value": 3,
+        "status": 0,
+        "work": 19
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 4,
+      "wasm": {
+        "value": 27,
+        "status": 0,
+        "work": 111
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 5,
+      "wasm": {
+        "value": 33,
+        "status": 0,
+        "work": 135
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 6,
+      "wasm": {
+        "value": 14,
+        "status": 0,
+        "work": 59
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 7,
+      "wasm": {
+        "value": 27,
+        "status": 0,
+        "work": 111
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 8,
+      "wasm": {
+        "value": 53,
+        "status": 0,
+        "work": 215
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 9,
+      "wasm": {
+        "value": 53,
+        "status": 0,
+        "work": 215
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 10,
+      "wasm": {
+        "value": 5,
+        "status": 0,
+        "work": 23
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 11,
+      "wasm": {
+        "value": 7,
+        "status": 0,
+        "work": 31
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 12,
+      "wasm": {
+        "value": 51,
+        "status": 0,
+        "work": 207
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 13,
+      "wasm": {
+        "value": 21,
+        "status": 0,
+        "work": 87
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 14,
+      "wasm": {
+        "value": 42,
+        "status": 0,
+        "work": 171
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 15,
+      "wasm": {
+        "value": 11,
+        "status": 0,
+        "work": 47
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 16,
+      "wasm": {
+        "value": 52,
+        "status": 0,
+        "work": 211
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 17,
+      "wasm": {
+        "value": 14,
+        "status": 0,
+        "work": 59
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 18,
+      "wasm": {
+        "value": 47,
+        "status": 0,
+        "work": 191
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 19,
+      "wasm": {
+        "value": 61,
+        "status": 0,
+        "work": 247
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 20,
+      "wasm": {
+        "value": 32,
+        "status": 0,
+        "work": 131
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 21,
+      "wasm": {
+        "value": 40,
+        "status": 0,
+        "work": 163
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 22,
+      "wasm": {
+        "value": 38,
+        "status": 0,
+        "work": 155
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 23,
+      "wasm": {
+        "value": 58,
+        "status": 0,
+        "work": 235
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 24,
+      "wasm": {
+        "value": 39,
+        "status": 0,
+        "work": 159
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 25,
+      "wasm": {
+        "value": 50,
+        "status": 0,
+        "work": 203
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 26,
+      "wasm": {
+        "value": 15,
+        "status": 0,
+        "work": 63
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 27,
+      "wasm": {
+        "value": 7,
+        "status": 0,
+        "work": 31
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 28,
+      "wasm": {
+        "value": 19,
+        "status": 0,
+        "work": 79
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 29,
+      "wasm": {
+        "value": 22,
+        "status": 0,
+        "work": 91
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 30,
+      "wasm": {
+        "value": 8,
+        "status": 0,
+        "work": 35
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 31,
+      "wasm": {
+        "value": 17,
+        "status": 0,
+        "work": 71
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 32,
+      "wasm": {
+        "value": 2,
+        "status": 0,
+        "work": 11
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 33,
+      "wasm": {
+        "value": 4,
+        "status": 0,
+        "work": 19
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 34,
+      "wasm": {
+        "value": 57,
+        "status": 0,
+        "work": 231
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 35,
+      "wasm": {
+        "value": 33,
+        "status": 0,
+        "work": 135
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 36,
+      "wasm": {
+        "value": 32,
+        "status": 0,
+        "work": 131
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 37,
+      "wasm": {
+        "value": 47,
+        "status": 0,
+        "work": 191
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 38,
+      "wasm": {
+        "value": 35,
+        "status": 0,
+        "work": 143
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 39,
+      "wasm": {
+        "value": 12,
+        "status": 0,
+        "work": 51
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 40,
+      "wasm": {
+        "value": 8,
+        "status": 0,
+        "work": 35
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 41,
+      "wasm": {
+        "value": 9,
+        "status": 0,
+        "work": 39
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 42,
+      "wasm": {
+        "value": 5,
+        "status": 0,
+        "work": 23
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 43,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 44,
+      "wasm": {
+        "value": 5,
+        "status": 0,
+        "work": 23
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 45,
+      "wasm": {
+        "value": 1,
+        "status": 0,
+        "work": 7
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 46,
+      "wasm": {
+        "value": 20,
+        "status": 0,
+        "work": 83
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 47,
+      "wasm": {
+        "value": 10,
+        "status": 0,
+        "work": 47
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "nonzero-generic",
+      "case": 48,
+      "wasm": {
+        "value": 2,
+        "status": 0,
+        "work": 11
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 0,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 1,
+      "wasm": {
+        "value": 12,
+        "status": 0,
+        "work": 21
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 2,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 3,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 26
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 4,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 5,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 6,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 27
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 7,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 14
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 8,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 9,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 10,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 11,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 14
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 12,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 14
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 13,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 20
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 14,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 15,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 16,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 14
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 17,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 14
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 18,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 19,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 20,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 14
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 21,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 22,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 23,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 24,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 14
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 25,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 26,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 27,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 28,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 29,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 30,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 31,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 32,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 14
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 33,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 34,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 35,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 14
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 36,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 21
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 37,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 38,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 39,
+      "wasm": {
+        "value": 674,
+        "status": 0,
+        "work": 33
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 40,
+      "wasm": {
+        "value": 328,
+        "status": 0,
+        "work": 39
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 41,
+      "wasm": {
+        "value": 998,
+        "status": 0,
+        "work": 69
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 42,
+      "wasm": {
+        "value": 1130,
+        "status": 0,
+        "work": 81
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 43,
+      "wasm": {
+        "value": 300,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 44,
+      "wasm": {
+        "value": 44,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 45,
+      "wasm": {
+        "value": 214,
+        "status": 0,
+        "work": 15
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 46,
+      "wasm": {
+        "value": 462,
+        "status": 0,
+        "work": 39
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 47,
+      "wasm": {
+        "value": 32,
+        "status": 0,
+        "work": 9
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-optimized",
+      "case": 48,
+      "wasm": {
+        "value": 152,
+        "status": 0,
+        "work": 9
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 0,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 1,
+      "wasm": {
+        "value": 12,
+        "status": 0,
+        "work": 21
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 2,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 3,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 26
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 4,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 5,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 14
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 6,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 7,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 8,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 9,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 10,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 11,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 12,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 21
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 13,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 27
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 14,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 15,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 16,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 17,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 18,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 19,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 20,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 14
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 21,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 20
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 22,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 23,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 14
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 24,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 25,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 14
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 26,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 27,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 28,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 29,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 30,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 31,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 14
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 32,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 33,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 34,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 15
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 35,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 14
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 36,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 37,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 38,
+      "wasm": {
+        "value": 0,
+        "status": 4,
+        "work": 8
+      },
+      "baselineCoreExit": 1,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 39,
+      "wasm": {
+        "value": 1916,
+        "status": 0,
+        "work": 111
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 40,
+      "wasm": {
+        "value": 0,
+        "status": 0,
+        "work": 3
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 41,
+      "wasm": {
+        "value": 388,
+        "status": 0,
+        "work": 33
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 42,
+      "wasm": {
+        "value": 1574,
+        "status": 0,
+        "work": 81
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 43,
+      "wasm": {
+        "value": 1434,
+        "status": 0,
+        "work": 99
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 44,
+      "wasm": {
+        "value": 588,
+        "status": 0,
+        "work": 39
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 45,
+      "wasm": {
+        "value": 930,
+        "status": 0,
+        "work": 63
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 46,
+      "wasm": {
+        "value": 1684,
+        "status": 0,
+        "work": 105
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 47,
+      "wasm": {
+        "value": 592,
+        "status": 0,
+        "work": 39
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    },
+    {
+      "program": "helpers-generic",
+      "case": 48,
+      "wasm": {
+        "value": 630,
+        "status": 0,
+        "work": 45
+      },
+      "baselineCoreExit": 0,
+      "passed": true
+    }
+  ],
+  "limits": [
+    "Bounded RF2 CoreV0 backend, not general systems/WASI/DOM/threads or legacy-browser WASM",
+    "Node V8 execution is a development oracle; browser acceptance separately required",
+    "One host, no speed, token, energy or Android4.1 hardware claim"
+  ]
+}

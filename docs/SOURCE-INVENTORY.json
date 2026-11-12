@@ -25,11 +25,11 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "Python": 377686,
-    "RiverFlow": 333022,
-    "JavaScript": 67293,
-    "HTML": 20585,
-    "CSS": 10426,
+    "Python": 394569,
+    "RiverFlow": 352366,
+    "JavaScript": 85144,
+    "HTML": 30503,
+    "CSS": 17035,
     "Shell": 2683,
     "C": 390
   },
@@ -100,6 +100,26 @@
       "bytes": 202
     },
     {
+      "path": "docs/lab/app.css",
+      "language": "CSS",
+      "bytes": 2203
+    },
+    {
+      "path": "docs/lab/app.js",
+      "language": "JavaScript",
+      "bytes": 3096
+    },
+    {
+      "path": "docs/lab/index.html",
+      "language": "HTML",
+      "bytes": 3306
+    },
+    {
+      "path": "docs/lab/sum.flow",
+      "language": "RiverFlow",
+      "bytes": 335
+    },
+    {
       "path": "docs/rf2/index.html",
       "language": "HTML",
       "bytes": 8157
@@ -120,6 +140,31 @@
       "bytes": 188
     },
     {
+      "path": "examples/browser-lab/app.css",
+      "language": "CSS",
+      "bytes": 2203
+    },
+    {
+      "path": "examples/browser-lab/app.js",
+      "language": "JavaScript",
+      "bytes": 3096
+    },
+    {
+      "path": "examples/browser-lab/assets.rf2",
+      "language": "RiverFlow",
+      "bytes": 1048
+    },
+    {
+      "path": "examples/browser-lab/index.html",
+      "language": "HTML",
+      "bytes": 3306
+    },
+    {
+      "path": "examples/browser-lab/sum.flow",
+      "language": "RiverFlow",
+      "bytes": 335
+    },
+    {
       "path": "examples/buffer-audit/lib/audit.rf2",
       "language": "RiverFlow",
       "bytes": 1324
@@ -133,6 +178,16 @@
       "path": "examples/buffer-audit/main.rf2",
       "language": "RiverFlow",
       "bytes": 739
+    },
+    {
+      "path": "examples/cloudflare-worker/handler.mjs",
+      "language": "JavaScript",
+      "bytes": 1371
+    },
+    {
+      "path": "examples/cloudflare-worker/worker.mjs",
+      "language": "JavaScript",
+      "bytes": 120
     },
     {
       "path": "examples/compact/bits-checked.rf2",
@@ -258,6 +313,11 @@
       "path": "examples/hex/main.rf2",
       "language": "RiverFlow",
       "bytes": 303
+    },
+    {
+      "path": "examples/hypervisor/main.rf2",
+      "language": "RiverFlow",
+      "bytes": 5351
     },
     {
       "path": "examples/latency/lib/io.rf2",
@@ -417,7 +477,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 94685
+      "bytes": 98317
     },
     {
       "path": "native/core.rf2",
@@ -465,6 +525,11 @@
       "bytes": 1142
     },
     {
+      "path": "native/wasm/backend.rf2",
+      "language": "RiverFlow",
+      "bytes": 8308
+    },
+    {
       "path": "native/workspace.rf2",
       "language": "RiverFlow",
       "bytes": 8326
@@ -493,6 +558,26 @@
       "path": "site/index.html",
       "language": "HTML",
       "bytes": 202
+    },
+    {
+      "path": "site/lab/app.css",
+      "language": "CSS",
+      "bytes": 2203
+    },
+    {
+      "path": "site/lab/app.js",
+      "language": "JavaScript",
+      "bytes": 3096
+    },
+    {
+      "path": "site/lab/index.html",
+      "language": "HTML",
+      "bytes": 3306
+    },
+    {
+      "path": "site/lab/sum.flow",
+      "language": "RiverFlow",
+      "bytes": 335
     },
     {
       "path": "site/rf2/index.html",
@@ -563,6 +648,11 @@
       "path": "tests/standalone/attendance_verify.py",
       "language": "Python",
       "bytes": 5806
+    },
+    {
+      "path": "tests/standalone/browser_worker_verify.mjs",
+      "language": "JavaScript",
+      "bytes": 3154
     },
     {
       "path": "tests/standalone/buffer_audit_verify.py",
@@ -750,6 +840,11 @@
       "bytes": 5266
     },
     {
+      "path": "tests/standalone/hypervisor_verify.py",
+      "language": "Python",
+      "bytes": 3979
+    },
+    {
       "path": "tests/standalone/instruction_verify.py",
       "language": "Python",
       "bytes": 2671
@@ -915,6 +1010,21 @@
       "bytes": 9791
     },
     {
+      "path": "tests/standalone/wasm_measure.mjs",
+      "language": "JavaScript",
+      "bytes": 3014
+    },
+    {
+      "path": "tests/standalone/wasm_peer.mjs",
+      "language": "JavaScript",
+      "bytes": 904
+    },
+    {
+      "path": "tests/standalone/wasm_verify.py",
+      "language": "Python",
+      "bytes": 5740
+    },
+    {
       "path": "tests/standalone/workspace_verify.py",
       "language": "Python",
       "bytes": 3254
@@ -935,6 +1045,11 @@
       "bytes": 18673
     },
     {
+      "path": "tools/build-browser-lab.py",
+      "language": "Python",
+      "bytes": 2237
+    },
+    {
       "path": "tools/build-contract.py",
       "language": "Python",
       "bytes": 1548
@@ -943,6 +1058,11 @@
       "path": "tools/build-core.sh",
       "language": "Shell",
       "bytes": 586
+    },
+    {
+      "path": "tools/build-foundation.py",
+      "language": "Python",
+      "bytes": 1378
     },
     {
       "path": "tools/build-program.sh",
@@ -968,6 +1088,11 @@
       "path": "tools/build-trust.py",
       "language": "Python",
       "bytes": 1723
+    },
+    {
+      "path": "tools/build-wasm.py",
+      "language": "Python",
+      "bytes": 1342
     },
     {
       "path": "tools/check-book-examples.mjs",
@@ -1035,6 +1160,11 @@
       "bytes": 3183
     },
     {
+      "path": "tools/qualify-foundation.py",
+      "language": "Python",
+      "bytes": 2165
+    },
+    {
       "path": "tools/qualify-packaged-candidate.py",
       "language": "Python",
       "bytes": 3915
@@ -1042,7 +1172,7 @@
     {
       "path": "tools/qualify-second-host.py",
       "language": "Python",
-      "bytes": 3645
+      "bytes": 3687
     },
     {
       "path": "tools/source-inventory.py",

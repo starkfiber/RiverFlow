@@ -18,7 +18,15 @@ The [Evidence Contract candidate](docs/EVIDENCE-CONTRACT.md) combines five teste
 
 The [ten-language source audit](docs/TOP-TEN-LANGUAGE-AUDIT.md) compares RF2 with selected implementations from Python through C, SQL and Go, with assembly as a separate low-level reference. It includes an A–Z acceptance ledger and marks missing capabilities explicitly. Popularity and shorter spelling do not prove correctness, speed or adoption.
 
-## Next edition: 0.18 development candidate
+## 0.19 foundation: direct guest control and portable computation
+
+RF2 now emits explicit Hypervisor framework bindings and runs its own bounded VMM program without QEMU. Forty local guest runs cover arithmetic, permission faults, cleanup and same-process VM reacquisition. Apple supplies hardware virtualization; Linux boot and devices remain future work.
+
+The native RF2 WebAssembly encoder passed 588 differential cases across generic and optimized modes. A guarded sum specialization reduced its selected local WASM medians by 63–66%; the simpler JavaScript baseline remained slightly faster for 64 words. [Evidence, losses and next gates](docs/FOUNDATION-0.19.md) · [Try the browser lab](https://starkfiber.github.io/RiverFlow/lab/) · [Cloud candidate and free-service boundaries](docs/FREE-CLOUD-0.19.md).
+
+The browser uses compiled WASM when available and labels its limited JavaScript fallback. Android 4.1 device compatibility and Cloudflare deployment are not claimed. Existing MCP authority is unchanged.
+
+## Frozen 0.18 development candidate
 
 A separate native verifier, HMAC-authenticated receipts and three bounded contract MCP tools are working. The eligible XOR/reversal path has matched before/after measurements; complete authenticated MCP timings are recorded separately. [Trust model, setup and measured evidence](docs/TRUST-0.18.md).
 

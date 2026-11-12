@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": 34,
+  "scope": "Isolated actual browser glue with supplied DOM/XHR stubs and absent/present WASM; actual Worker handler with Request/Response locally; no Cloudflare or Android device execution",
+  "wasmSHA256": "1c1e5e0fbc8871f61194303edefe19caece0880349c9830e1210ffb2d45fd063",
+  "sourceSHA256": "c4e9ae5b12dd236039e5f81054a0ec9361477c4591c6588bbd57dcedbb5efc9d",
+  "limits": [
+    "DOM/XHR stubs are not an old WebKit engine",
+    "Workers production CPU quotas, auth and network not tested",
+    "No remote inference, training, Redis or model improvement claimed"
+  ]
+}

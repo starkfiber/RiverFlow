@@ -1309,6 +1309,36 @@ The key tests also clarify deployment. The native MCP service reads its administ
 
 The final pinned candidate archive also passed exact-byte qualification on the hosted Mac: its manifest, packaged compiler, generated program, native HTTP responses and finite trust/key checks all passed. An intermediate packaging mismatch and truncated diagnostics were corrected before the final archive was frozen. Hardware guest execution was tested only on the local Mac. The candidate is ad-hoc signed, not notarized. The reproducible source, measurements, failed attempts and qualification record are linked in docs/STACK-LAB-0.18.md. Stable 0.17 downloads are preserved while a separate 0.18 candidate is packaged and checked. The useful achievement is an application with visible boundaries and measured behavior. A complete RF2 hypervisor remains a separate platform project with guest-memory, device, interruption and lifecycle requirements.
 
+# 34. Direct guest control and portable computation
+
+The next foundation removes QEMU from the small guest experiment. RF2 emits an explicit platform call into Apple's Hypervisor framework. The compiled program creates a VM, maps guest memory, creates a virtual CPU, sets registers, runs a bounded instruction sequence, inspects the exit and releases resources. Apple still supplies the hardware virtualization mechanism. RF2 now owns the VMM program rather than only a process launcher.
+
+The trusted compiler accepts a fixed Hypervisor library name, an allowlisted literal symbol and its exact scalar arity. Direct Mach-O bindings call the system framework. This is a narrow platform interface, not a general foreign-function safety model. It remains outside Core and MCP execution authority. The explicit hypervisor entitlement is required.
+
+Forty local guest runs tested arithmetic and controlled faults. The guest adds two runtime inputs, stores the result and executes HVC. Its code page is readable/executable; its data page is readable/writable. A write to read-only data, an unmapped store and an instruction fetch without execute permission produce the expected exits. Protected data remains unchanged. After explicit cleanup, the same process creates and destroys another VM. The tests do not rely only on process exit to reclaim resources.
+
+The first ADD constant was wrong. A preserved executable produces incorrect arithmetic and the checker rejects it. That failure is part of the evidence. The final program still has no Linux loader, device model, guest interrupt controller or general deadline. The test controller's timeout is a process control, not proof of a VMM-enforced execution budget.
+
+A separate native RF2 program now emits WebAssembly binary directly from the checked Core frontend. Its module imports no operating-system functions. It exposes fixed memory, a computation entry, status and abstract work count. The bounded integer operations, scalar helpers and non-nested main loops are represented in the new target. This does not make raw systems source, DOM operations, files, threads or every existing language available in a browser.
+
+The generic and optimized encoders passed 588 comparisons against the retained Core runtime for values, overflow and work counts, plus boundary cases. A work-limit constant initially used the wrong signed encoding. A replay against the frozen first encoder accepted too much work; the corrected encoder refuses at event 1,048,577. The mistake and its failing control remain visible.
+
+The first timing check also produced a loss: generic WASM was slower than a simpler JavaScript sum. The correction specializes only one four-node IR shape. Its initial work is three events; each iteration contributes three more. For at most 65,536 inputs, total work is at most 196,611, below the global cap. The wrapper has already checked pointer alignment, memory range and count. Removing the repeated load bound and work-cap checks therefore preserves their outcome for this shape. Checked addition still refuses overflow with the same event count. Other programs keep their generic guards.
+
+| Words | Optimized WASM, us | Generic WASM, us | Direct JS, us |
+| --- | --- | --- | --- |
+| 64 | 0.0338 | 0.0997 | 0.0313 |
+| 1,024 | 0.5097 | 1.3787 | 0.9346 |
+| 16,384 | 7.9675 | 21.5867 | 15.0521 |
+
+These medians came from one Node/V8 process with rotated variants and 21 trials per size. The specialized WASM path reduced time against the generic path by about 63 to 66 percent. Direct JavaScript remained slightly faster at the smallest size. These measurements do not describe browser loading, internet capacity, phone speed, energy or model token use. Guard hoisting and loop specialization have established precedents; their implementation here is not a new physical computing principle.
+
+The browser lab serves the emitted module through an RF2 native HTTP program. Live browser actions confirmed 42, checked overflow refusal and an explicitly selected compatibility result. The compatibility path is a small ES5 JavaScript sum for this example. It is not a complete RF2 interpreter or proof of an Android 4.1 browser. Feature detection chooses a path; OS version alone does not identify a browser engine's support. No original Android 4.1 device or WebKit engine was tested.
+
+A Cloudflare Worker candidate wraps the same module in a small platform handler. Local tests passed; no cloud deployment, model inference, weight training or Redis service ran. Free GitHub CI provides source-build qualification. The current GitHub Models service has been retired, while Cloudflare quotas and model restrictions require a separately authenticated Free-plan check. Provider allowances are not evidence that RF2 has learned or that workloads are free without limit.
+
+The next useful steps are typed VM owners, cancellation, guest-image contracts and explicit virtual devices. A Linux boot claim must wait for those implementations. Broader WASM programs, original legacy browsers and cloud deployment also need their own tests. The source, failed controls, measurements and limits are recorded in docs/FOUNDATION-0.19.md.
+
 # Appendix A. Commands and interfaces
 
 Native standalone, no Node or npm required:

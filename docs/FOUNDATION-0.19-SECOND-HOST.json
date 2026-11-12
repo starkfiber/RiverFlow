@@ -1,0 +1,165 @@
+{
+  "run": "https://github.com/starkfiber/RiverFlow/actions/runs/43331849687",
+  "sourceQualification": {
+    "commit": "b6a0fdfd15ec83dd3944afbe2c6da057f7a9a1da",
+    "system": "macOS-15.8.2-arm64-arm-64bit-Mach-O",
+    "architecture": "arm64",
+    "runnerEnvironment": "github-hosted",
+    "runnerOS": "macOS",
+    "compilerSHA256": "8cac670c59421bfb83b92e5d12efda7e7951bd01b7c177c116d7f7c430deeb5e",
+    "commands": [
+      {
+        "command": [
+          "python3",
+          "tools/sync-contract-json.py",
+          "--check"
+        ],
+        "exit": 0,
+        "seconds": 0.04482508399999574
+      },
+      {
+        "command": [
+          "python3",
+          "tools/build-trust.py",
+          "output/trust-0.18"
+        ],
+        "exit": 0,
+        "seconds": 0.12019533299999807
+      },
+      {
+        "command": [
+          "python3",
+          "tests/standalone/trust_hmac_verify.py"
+        ],
+        "exit": 0,
+        "seconds": 0.9876795829999878
+      },
+      {
+        "command": [
+          "python3",
+          "tests/standalone/verifier_exhaustive.py"
+        ],
+        "exit": 0,
+        "seconds": 0.5769472089999965
+      },
+      {
+        "command": [
+          "python3",
+          "tests/standalone/contract_engine_verify.py"
+        ],
+        "exit": 0,
+        "seconds": 1.9724977089999953
+      },
+      {
+        "command": [
+          "python3",
+          "tests/standalone/contract_exhaustive_verify.py"
+        ],
+        "exit": 0,
+        "seconds": 0.3135986660000043
+      },
+      {
+        "command": [
+          "python3",
+          "tests/standalone/trust_shared_fault.py"
+        ],
+        "exit": 0,
+        "seconds": 0.45230312500000025
+      },
+      {
+        "command": [
+          "python3",
+          "tests/standalone/trust_verify.py"
+        ],
+        "exit": 0,
+        "seconds": 2.2154049170000008
+      },
+      {
+        "command": [
+          "python3",
+          "tests/standalone/trust_protocol_keys.py"
+        ],
+        "exit": 0,
+        "seconds": 0.1766709999999989
+      },
+      {
+        "command": [
+          "python3",
+          "tools/qualify-packaged-candidate.py"
+        ],
+        "exit": 0,
+        "seconds": 2.419037583000005
+      },
+      {
+        "command": [
+          "python3",
+          "tools/qualify-foundation.py"
+        ],
+        "exit": 0,
+        "seconds": 4.376024874999999
+      }
+    ],
+    "bootstrapRepair": {
+      "inputSHA256": "8cac670c59421bfb83b92e5d12efda7e7951bd01b7c177c116d7f7c430deeb5e",
+      "outputSHA256": "70d610767d68395a1f8b5b4e8f5ff37c2fea40cc671b5f00e963fb8bbcaefab5",
+      "repair": "empty LC_DYLD_INFO_ONLY; original code/data bytes unchanged before resigning"
+    },
+    "candidateCompilerSHA256": "9b4f9b7e5b7d508a46203c2a46cb8df0b6543b91e64b5b0b55f36911546d65c7",
+    "passed": true
+  },
+  "foundation": {
+    "passed": true,
+    "hardwareVirtualization": "NOT_RUN: hosted runner is itself a VM; no nested-HV claim",
+    "commands": [
+      {
+        "command": [
+          "python3",
+          "tools/build-foundation.py",
+          "/Users/runner/work/RiverFlow/RiverFlow/output/foundation-hosted"
+        ],
+        "exit": 0,
+        "stdout": "/Users/runner/work/RiverFlow/RiverFlow/output/foundation-hosted\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "python3",
+          "tools/build-wasm.py",
+          "/Users/runner/work/RiverFlow/RiverFlow/output/wasm-hosted"
+        ],
+        "exit": 0,
+        "stdout": "RF2 native image emitted; apply macOS code signing before execution.",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "python3",
+          "tests/standalone/wasm_verify.py"
+        ],
+        "exit": 0,
+        "stdout": "{\"passed\": true, \"differentialCases\": 588, \"report\": \"/Users/runner/work/RiverFlow/RiverFlow/artifacts/foundation-0.19/wasm-1794527296669460000/report.json\"}\n",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "/opt/homebrew/bin/node",
+          "tests/standalone/browser_worker_verify.mjs"
+        ],
+        "exit": 0,
+        "stdout": "{\n  passed: true,\n  checks: 34,\n  scope: 'Isolated actual browser glue with supplied DOM/XHR stubs and absent/present WASM; actual Worker handler with Request/Response locally; no Cloudflare or Android device execution',\n  wasmSHA256: '1c1e5e0fbc8871f61194303edefe19caece0880349c9830e1210ffb2d45fd063',\n  sourceSHA256: 'c4e9ae5b12dd236039e5f81054a0ec9361477c4591c6588bbd57dcedbb5efc9d',\n  limits: [\n    'DOM/XHR stubs are not an old WebKit engine',\n    'Workers production CPU quotas, auth and network not tested',\n    'No remote inference, training, Redis or model improvement claimed'\n  ]\n}\n",
+        "stderr": ""
+      }
+    ],
+    "originalCoreBaselineSHA256": "681c48fc9d8ca12162102e8841c113603ee044be883cc191668d24c96652692b",
+    "baselineContainerRepair": {
+      "inputSHA256": "681c48fc9d8ca12162102e8841c113603ee044be883cc191668d24c96652692b",
+      "outputSHA256": "bec4e398c1a5f3f543bc8a04c5832091ddcb08bc06957c141437ed7912e69123",
+      "repair": "empty LC_DYLD_INFO_ONLY; original code/data bytes unchanged before resigning"
+    }
+  },
+  "limits": [
+    "Hosted source qualification, same architecture/compiler lineage",
+    "Direct hardware VM tests were NOT run on this hosted VM",
+    "No Cloudflare deployment or model inference/training"
+  ]
+}
