@@ -17,4 +17,5 @@ finally:
   for p in (R/root).rglob('report.json'):
    relative=p.relative_to(R);dest=collected/relative;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(p.read_bytes())
  if(R/'output/trust-0.18/BUILD.json').exists():(D/'BUILD.json').write_bytes((R/'output/trust-0.18/BUILD.json').read_bytes())
+ for p in (R/'output/trust-0.18').glob('*.build.log'):(D/p.name).write_bytes(p.read_bytes())
  # Only reports/stdout/stderr above are uploaded. Key files, executables and VM disks are excluded.

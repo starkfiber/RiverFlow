@@ -11,6 +11,6 @@ identity=h.hexdigest();(D/'lib/build_identity.rf2').write_text('module identity\
 rows=[]
 for entry,name in [('trust.rf2','rf2-trust'),('verify.rf2','rf2-verify')]:
  p=subprocess.run([compiler,D/entry,out/name,'--opt'],capture_output=True);(out/(name+'.build.log')).write_bytes(p.stdout+p.stderr)
- if p.returncode:raise SystemExit(p.stderr.decode())
+ if p.returncode:raise SystemExit(f'compiler exit={p.returncode} stdout={p.stdout.decode(errors="replace")} stderr={p.stderr.decode(errors="replace")}')
  subprocess.run(['/usr/bin/codesign','-s','-',out/name],check=True);rows.append({'file':name,'sha256':hashlib.sha256((out/name).read_bytes()).hexdigest()})
 report={'edition':'0.18-dev','sourceIdentity':identity,'compilerSHA256':hashlib.sha256(compiler.read_bytes()).hexdigest(),'sources':sources,'binaries':rows};(out/'BUILD.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
