@@ -5,6 +5,7 @@ R=Path(__file__).resolve().parents[1];D=R/'artifacts/second-host';D.mkdir(parent
 assert platform.system()=='Darwin'and platform.machine()=='arm64','This qualification requires another macOS ARM64 environment.'
 report={'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=R,text=True).strip(),'system':platform.platform(),'architecture':platform.machine(),'runnerEnvironment':os.environ.get('RUNNER_ENVIRONMENT','local'),'runnerOS':os.environ.get('RUNNER_OS'),'compilerSHA256':hashlib.sha256((R/'output/native-compiler/rf2c').read_bytes()).hexdigest(),'commands':[]}
 assert report['compilerSHA256']=='8cac670c59421bfb83b92e5d12efda7e7951bd01b7c177c116d7f7c430deeb5e'
+repair=subprocess.run(['python3','tools/macho-empty-dyld.py',str(R/'output/native-compiler/rf2c')],capture_output=True,check=True);report['bootstrapRepair']=json.loads(repair.stdout)
 commands=[['python3','tools/sync-contract-json.py','--check'],['python3','tools/build-trust.py','output/trust-0.18'],['python3','tests/standalone/trust_hmac_verify.py'],['python3','tests/standalone/verifier_exhaustive.py'],['python3','tests/standalone/contract_engine_verify.py'],['python3','tests/standalone/contract_exhaustive_verify.py'],['python3','tests/standalone/trust_shared_fault.py'],['python3','tests/standalone/trust_verify.py']]
 env=dict(os.environ,RF2_TRUST_DIR=str(R/'output/trust-0.18'))
 try:
