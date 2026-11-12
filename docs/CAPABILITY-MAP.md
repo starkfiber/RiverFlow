@@ -1,6 +1,6 @@
 # What can RF2 build today?
 
-RiverFlow is an implemented language with a native compiler, useful applications and a bounded MCP server. It is not yet a replacement for every Java, C++, Python or assembly workflow. This inventory describes the **0.16** release, with owned files and visible cleanup errors. Qualification receipts define its exact tested scope.
+RiverFlow is an implemented language with a native compiler, useful applications and a bounded MCP server. It is not yet a replacement for every Java, C++, Python or assembly workflow. This inventory describes the **0.17** release, with owned files and visible cleanup errors. Qualification receipts define its exact tested scope.
 
 The long-term direction is one readable language across application and systems work. Each additional target needs its own implementation, contract and executed tests.
 
@@ -24,8 +24,9 @@ The long-term direction is one readable language across application and systems 
 | Integer programming | u64 systems scalars; arithmetic, comparisons, branches, loops and functions | Systems integer behavior differs from checked u32 Core; no floating-point type | [Core](NATIVE-CORE.md), [source](../native/compiler/compiler.rf2) |
 | Hex and bytes | Decimal and lowercase `0x` hex spelling; packed u8 arrays; byte I/O; bitwise operators | No `0b` binary spelling, uppercase `0X` prefix or numeric separators | [Byte reference](BYTE-REFERENCE.md) |
 | Modules and records | Explicit local imports; nominal records with u64 fields; typed borrowed parameters | Shared namespace, bounded source graph; no package registry, nested records or generic types | [Modules](MODULES-TYPES.md), [workload app](../examples/workload/) |
-| Checked arrays | Nominal fixed u64/u8 arrays, bounds checks and typed byte I/O | Function/frame bounds; no growable arrays or heap ownership | [Arrays](CHECKED-ARRAYS.md), [bytes](TEXT-BYTES.md) |
-| Results | Nominal scalar `ok`/`err` returns and mandatory exhaustive handlers | No structured/generic payloads or result locals/parameters; owned open failure has a specific propagation rule | [Results](RESULTS-VIEWS.md) |
+| Growable bytes | Noncopyable reservation-backed byte vectors; capacity grows within declared maximum | Max 1 MiB, function-local, no transfer, vector views or general heap | [Storage/results](STORAGE-RESULTS.md) |
+| Checked arrays | Nominal fixed u64/u8 arrays, bounds checks and typed byte I/O | Function/frame bounds; bounded byte vectors available; no general heap/relocating vectors | [Arrays](CHECKED-ARRAYS.md), [bytes](TEXT-BYTES.md) |
+| Results | Nominal scalar `ok`/`err` returns and mandatory exhaustive handlers | Structured ok records up to 4 scalar fields; errors u64 only; no generic payloads/resultlocals/params | [Results](RESULTS-VIEWS.md) |
 | Unicode text | Validated UTF-8 views, byte/scalar counts and scalar indexing | Scalars are not grapheme clusters; no normalization, collation or language detection | [Unicode](UNICODE-CLEANUP.md), [document app](../examples/unicode-lines/) |
 | Cleanup | Noncopyable owned files, handled release and automatic cleanup errors; legacy deferred close | Ordinary returns only; raw syscalls remain unsafe; no transfer, async or heap ownership | [Ownership](RESOURCE-OWNERSHIP.md) |
 | Files and CLI | Trusted explicit file operations and bounded example parsers | Caller must handle short I/O and failures; not automatic access containment | [Text auditor](../examples/text-audit/), [Unicode auditor](../examples/unicode-lines/) |
@@ -39,7 +40,7 @@ The long-term direction is one readable language across application and systems 
 | Goal | Missing foundation or decisive test |
 | --- | --- |
 | Broader ownership | Ownership transfer, generic resources, async cancellation and richer cleanup error aggregation |
-| Larger application data | Growable storage, allocation lifetime rules, structured result payloads and a broader standard library |
+| Larger application data | General growable containers, heap/transfer lifetime rules, richer result payloads and a broader standard library |
 | Concurrent services | Tasks/threads, synchronization, cancellation and resource behavior under concurrency |
 | Network applications | A reviewed networking library, connection ownership, protocol/error handling and real service acceptance tests |
 | Android, iOS and web targets | Concrete backends/adapters, platform integration, packaging and target-specific acceptance tests |

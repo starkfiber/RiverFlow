@@ -1,0 +1,1134 @@
+{
+  "passed": true,
+  "checks": 120,
+  "nativeExecutions": 54,
+  "compileRefusals": 66,
+  "compilerSHA256": "8cac670c59421bfb83b92e5d12efda7e7951bd01b7c177c116d7f7c430deeb5e",
+  "compilerSourceSHA256": "381b4c9137c7ac0ab87d287483a6825d606c2eb48c662eb9886f9e3de7958d4f",
+  "sourceHashScope": "Supplied compiler source or working source snapshot at run start; compiler binary hash recorded separately",
+  "scope": "Independent finite record-value ABI/lifetime, handler scope/immutability, cleanup register preservation and refusal probes in default/optimized modes. Scalar-only fields, u64 errors; no arbitrary deepownership or whole-compiler proof.",
+  "results": [
+    {
+      "name": "four-fields",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "f18fede45192b348e0b96ad85e3fc1ddec78d670eb2207089be3801310259baa",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "1-fields",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "eeedd3cc2c88c86e963263b125e49eef1d1ec77f1281fec28dfc74d584554ff9",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "2-fields",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "98dad6530c006fefa9dbbdbd6582e0cfe1238dbeacdb61557789587c13b3b1be",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "3-fields",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "29c28fe93f8a19067b36c46e280ab64930b122d2fe8ec33586e9fc2ec3886782",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "full-u64-register-payload",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "85e96e09818a075444b4840c1c56171a965a911745df68d0a91670c9b281a5f5",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "parenthesized-record-return",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "0854efd493d67e37262b6169af4ec77731d98173ed295a2adf11289845245a44",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "record-local-mutated-before-copy",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "69352dd9e960d461ae480a478b7a97978ab8f35583e894f23eca619d8d6fd32c",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "helper-before-return",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "b9e33e3e7d7ea9a2789c9d825f8cda3e6266d1831415d91733eeeb516ad0d9cb",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "late-calls-do-not-clobber-returned-value",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "6ae3fc8b9869b3ac08f66d85c3fdf947bd85e8cdf16004fea84343783bc0c1d5",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "forward-call",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "562bdd2c4232c383140f88c39f43a4d0f69a55c7b192295c6ae0801f5bc6d329",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "nested-wrapper-copy",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "c690507ff618fd4033e46ccdacab0b0fe63bdc4d6049339089416469e320f44d",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "error-payload",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "a65224ad68385d276776f8d495f99fb143a241a16ad9d1f966ba0c05166275d3",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "scalar-field-helper-argument",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "d56b95d9f9fc34479c42bb0d5afea45ca717c29293030150afbd7ee5a2e1484c",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "parenthesized-field-read",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "a01712726ea36c1ff443af6b7660589ac2bb9b7a52c5f4dfba62aa4152f7d872",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "field-scalar-copies-escape-arm",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "a8e827869e3dd7013b46f5ee6719d19ee71a2624c2764c842158f66e74b8f7f7",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "nested-handlers-own-copies",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "f662a1388f306de500ecc21319d4cdc39635eca794558211892105609a142597",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "loop-many-results",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "ab38e371baedbf8549e354d2e223aea31525d4b53c406f309ac0e6b51985ba01",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "defer-preserves-all-fields-1",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "f07c80ac724f5cebddd4f5459eb19ee1d712e9bb8736898a8d80815e20e0ce9f",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "defer-preserves-all-fields-4",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "5f8018d2ecc04415d174ec8d1413c58fe57d1294bb9a0440c8e944f8725bf1a0",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "defer-preserves-all-fields-16",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "88281aa58b22c3a9c20efc78ee221ce74b836e57c7a93fe82bed6d14f454f1f3",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "defer-preserves-error",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "7b66cc9fb7689e4146da0b798e9dedf5afd07e9b95dd5c07145fb497d7249fa4",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "defer-close-error-keeps-record",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "6930f15b722069a443c3ba86186a3c590c49e7be354810ca1aa1335965579c30",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "scalar-io-wrapper",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "3f5629c87f7f87d405e7d7a219e7a59cac40a91e9c6a42e58415f35a5f584f4b",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "frame-248",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "61051a0fd6197ed3f2f7149cc4b5a5453fee5ee36f37a16e3ce3b881688625ee",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "frame-249",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "9b380c3a7952a4d433ab1b5f786eedd0754da4d9778986613e7345d3ab71d876",
+      "passed": true
+    },
+    {
+      "name": "scalar-result-compatible",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "f14becf53a98ba5cf34c47c12c14b2be967e62b7cd0b854e3cf5dfa7008280e5",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "borrowed-source-independent-value",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "d8f0cbccd919ae11a83b19f9b8b0b92e1cfe191f1f20ae82b82e7a9bc95e896f",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "nested-scalar-calls-construct-before-return",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "6743f45d10e0ff49c63053634d8ec7b70aacf70748db6d962d2574d2ec48e269",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "refuse-direct-mutation",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "654d57da783cb888b14003a0151ca5e4c206ff85d9ac1d8dd916e1de26f3b0bb",
+      "passed": true
+    },
+    {
+      "name": "refuse-binding-reassignment",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "c328236704d05f4daebac473e9eec87984d050c555de465e3cc65c007fe55d46",
+      "passed": true
+    },
+    {
+      "name": "refuse-helper-mutation",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "c63a8dfe1cd5bc4baeec1f53fafba2b9362e0250e467f00af624174c64955dea",
+      "passed": true
+    },
+    {
+      "name": "refuse-helper-parentheses",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "1f2420beb89da8390db24f42087c6a817885fbad68ec364d06064aab6441450d",
+      "passed": true
+    },
+    {
+      "name": "refuse-raw-store-payload",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "beb186531955813c1b7b78f6368ee814f8b554328e770446190904c4225f0624",
+      "passed": true
+    },
+    {
+      "name": "refuse-raw-return-pointer",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "8923aa49a9950866e284c35801dd403ed935b7e99683c62e509aba6fff4b44e1",
+      "passed": true
+    },
+    {
+      "name": "refuse-payload-copy-as-scalar",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "9e8219dea1b38ece083fa74c5c275b502c471ac28e200f3d1eaebfb7567201d8",
+      "passed": true
+    },
+    {
+      "name": "refuse-payload-arithmetic",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "028e217071f06499c1a5b5bf267d4c0dd7d6b4629af2bad398f3122aa46154fc",
+      "passed": true
+    },
+    {
+      "name": "refuse-payload-index",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "c2a330efb6b87fb50bb911f93652bdbba17efbd387fed6cc50cf27ff608da810",
+      "passed": true
+    },
+    {
+      "name": "refuse-payload-compare",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "4d20441e052d2128468c604765a405105500ac144a5c9029e02d037f40e2a944",
+      "passed": true
+    },
+    {
+      "name": "refuse-after-arm",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ec66d081f03c6acd1d6d4f4b569da9e66e4e115e4a1ec1e02789bc9beb50a275",
+      "passed": true
+    },
+    {
+      "name": "refuse-opposite-arm",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "3a889ab666888283c7f025138825531bc4c20f45058ad88d68661bb21bdfb216",
+      "passed": true
+    },
+    {
+      "name": "refuse-annotation-missing",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "aaa8bc9c61220184f16d39add463ec41f6a9d91f9f52f96f1b08ce01dd4dc999",
+      "passed": true
+    },
+    {
+      "name": "refuse-annotation-:Other",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "f658ba4a02567d3f9f4d00246e8e171a3e65143e2603be1ec6479583f666404f",
+      "passed": true
+    },
+    {
+      "name": "refuse-annotation-:u64",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "9a4a89e49a09280d5b86fdb16be42a8b1abc70f6282479f110ab990ff63b7633",
+      "passed": true
+    },
+    {
+      "name": "refuse-scalar-annotated-record",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "42d3edec117d967bd289ec937e696facc3d94ddbc978f703b36852ced9e20d39",
+      "passed": true
+    },
+    {
+      "name": "refuse-error-record-annotation",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "e444928d8f8bc8b1579214b5047f075717dd2e0ee3752f1388e4d02d5934e2b7",
+      "passed": true
+    },
+    {
+      "name": "refuse-wrong-nominal",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "6864330306d5eaaeeb3b3d0610d9a88b0ae3be85adcdd9a081b4907d178287bb",
+      "passed": true
+    },
+    {
+      "name": "refuse-scalar-in-record-ok",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "c5cd2af455da7ff1b9fc4ff8ec4b4d554e68eaaeb0f476aa4737680f9f1b99ac",
+      "passed": true
+    },
+    {
+      "name": "refuse-record-in-err",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "030e43718d0b90625a3f81010b90df2fa0e1cb6e867cdaf98717b57155b490b0",
+      "passed": true
+    },
+    {
+      "name": "refuse-record-in-scalar-result",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "0c4d3d144e40d40fb08c07abbe2e7270381ac971a22ed5d5d37b5b6f13951980",
+      "passed": true
+    },
+    {
+      "name": "refuse-structured-result-discard",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "655e73e43a212bb8d0c681b8157894a13dbf7298896cdf5f29320a8d69a8f6aa",
+      "passed": true
+    },
+    {
+      "name": "refuse-structured-result-as-scalar",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "2afdf7815bb40b000947fbdae8caa19abf76b3498a381ecece6031f5b5f3aac7",
+      "passed": true
+    },
+    {
+      "name": "refuse-five-fields",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "d031ccdf6230188c8d792c87fa4762b5430d19dc8fe91cb809c6cc1b1315b06b",
+      "passed": true
+    },
+    {
+      "name": "refuse-record-error",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "34487cd174f2e20ed852f10740d3b969d6fe20eee9b4a1e4447441a3502a4b75",
+      "passed": true
+    },
+    {
+      "name": "refuse-array-payload",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "73b07bb48e38ab9cacacc233f59f272ecb0d2b45876403a2fe24fc042a2f0ef2",
+      "passed": true
+    },
+    {
+      "name": "refuse-view-payload",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "da1737237db6e90769a6121f61bb4e65125f23b7ede4901f69d0bbe143c12c70",
+      "passed": true
+    },
+    {
+      "name": "refuse-owner-payload",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "7b0e897ec2ea8be2c623bf0194419105e0ff3b755e848c111206536dbe228b92",
+      "passed": true
+    },
+    {
+      "name": "refuse-nested-result",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "b47e1fed0832ac928b67e523b0ee3c580650ca2fda8e8ab0c6867e63a87ea3b6",
+      "passed": true
+    },
+    {
+      "name": "refuse-vector-payload",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ffa7b33635deca15853aa22e4c30c21731e09dc66c6a29b48c9d30e811001bdc",
+      "passed": true
+    },
+    {
+      "name": "refuse-resource-structured-result",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "8a9dccca9f962ab29533c59892c7bf1c4b337b53a7a5063aba3d43c0e92bb6f0",
+      "passed": true
+    },
+    {
+      "name": "refuse-owner-in-structured-function",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ee43ef56487f7081581746f14e355e9d087449c5abc62f26e0780a85e600af21",
+      "passed": true
+    },
+    {
+      "name": "four-fields",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "f18fede45192b348e0b96ad85e3fc1ddec78d670eb2207089be3801310259baa",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "1-fields",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "eeedd3cc2c88c86e963263b125e49eef1d1ec77f1281fec28dfc74d584554ff9",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "2-fields",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "98dad6530c006fefa9dbbdbd6582e0cfe1238dbeacdb61557789587c13b3b1be",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "3-fields",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "29c28fe93f8a19067b36c46e280ab64930b122d2fe8ec33586e9fc2ec3886782",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "full-u64-register-payload",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "85e96e09818a075444b4840c1c56171a965a911745df68d0a91670c9b281a5f5",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "parenthesized-record-return",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "0854efd493d67e37262b6169af4ec77731d98173ed295a2adf11289845245a44",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "record-local-mutated-before-copy",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "69352dd9e960d461ae480a478b7a97978ab8f35583e894f23eca619d8d6fd32c",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "helper-before-return",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "b9e33e3e7d7ea9a2789c9d825f8cda3e6266d1831415d91733eeeb516ad0d9cb",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "late-calls-do-not-clobber-returned-value",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "6ae3fc8b9869b3ac08f66d85c3fdf947bd85e8cdf16004fea84343783bc0c1d5",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "forward-call",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "562bdd2c4232c383140f88c39f43a4d0f69a55c7b192295c6ae0801f5bc6d329",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "nested-wrapper-copy",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "c690507ff618fd4033e46ccdacab0b0fe63bdc4d6049339089416469e320f44d",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "error-payload",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "a65224ad68385d276776f8d495f99fb143a241a16ad9d1f966ba0c05166275d3",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "scalar-field-helper-argument",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "d56b95d9f9fc34479c42bb0d5afea45ca717c29293030150afbd7ee5a2e1484c",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "parenthesized-field-read",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "a01712726ea36c1ff443af6b7660589ac2bb9b7a52c5f4dfba62aa4152f7d872",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "field-scalar-copies-escape-arm",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "a8e827869e3dd7013b46f5ee6719d19ee71a2624c2764c842158f66e74b8f7f7",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "nested-handlers-own-copies",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "f662a1388f306de500ecc21319d4cdc39635eca794558211892105609a142597",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "loop-many-results",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "ab38e371baedbf8549e354d2e223aea31525d4b53c406f309ac0e6b51985ba01",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "defer-preserves-all-fields-1",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "f07c80ac724f5cebddd4f5459eb19ee1d712e9bb8736898a8d80815e20e0ce9f",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "defer-preserves-all-fields-4",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "5f8018d2ecc04415d174ec8d1413c58fe57d1294bb9a0440c8e944f8725bf1a0",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "defer-preserves-all-fields-16",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "88281aa58b22c3a9c20efc78ee221ce74b836e57c7a93fe82bed6d14f454f1f3",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "defer-preserves-error",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "7b66cc9fb7689e4146da0b798e9dedf5afd07e9b95dd5c07145fb497d7249fa4",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "defer-close-error-keeps-record",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "6930f15b722069a443c3ba86186a3c590c49e7be354810ca1aa1335965579c30",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "scalar-io-wrapper",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "3f5629c87f7f87d405e7d7a219e7a59cac40a91e9c6a42e58415f35a5f584f4b",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "frame-248",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "61051a0fd6197ed3f2f7149cc4b5a5453fee5ee36f37a16e3ce3b881688625ee",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "frame-249",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "9b380c3a7952a4d433ab1b5f786eedd0754da4d9778986613e7345d3ab71d876",
+      "passed": true
+    },
+    {
+      "name": "scalar-result-compatible",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "f14becf53a98ba5cf34c47c12c14b2be967e62b7cd0b854e3cf5dfa7008280e5",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "borrowed-source-independent-value",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "d8f0cbccd919ae11a83b19f9b8b0b92e1cfe191f1f20ae82b82e7a9bc95e896f",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "nested-scalar-calls-construct-before-return",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "6743f45d10e0ff49c63053634d8ec7b70aacf70748db6d962d2574d2ec48e269",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "refuse-direct-mutation",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "654d57da783cb888b14003a0151ca5e4c206ff85d9ac1d8dd916e1de26f3b0bb",
+      "passed": true
+    },
+    {
+      "name": "refuse-binding-reassignment",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "c328236704d05f4daebac473e9eec87984d050c555de465e3cc65c007fe55d46",
+      "passed": true
+    },
+    {
+      "name": "refuse-helper-mutation",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "c63a8dfe1cd5bc4baeec1f53fafba2b9362e0250e467f00af624174c64955dea",
+      "passed": true
+    },
+    {
+      "name": "refuse-helper-parentheses",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "1f2420beb89da8390db24f42087c6a817885fbad68ec364d06064aab6441450d",
+      "passed": true
+    },
+    {
+      "name": "refuse-raw-store-payload",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "beb186531955813c1b7b78f6368ee814f8b554328e770446190904c4225f0624",
+      "passed": true
+    },
+    {
+      "name": "refuse-raw-return-pointer",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "8923aa49a9950866e284c35801dd403ed935b7e99683c62e509aba6fff4b44e1",
+      "passed": true
+    },
+    {
+      "name": "refuse-payload-copy-as-scalar",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "9e8219dea1b38ece083fa74c5c275b502c471ac28e200f3d1eaebfb7567201d8",
+      "passed": true
+    },
+    {
+      "name": "refuse-payload-arithmetic",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "028e217071f06499c1a5b5bf267d4c0dd7d6b4629af2bad398f3122aa46154fc",
+      "passed": true
+    },
+    {
+      "name": "refuse-payload-index",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "c2a330efb6b87fb50bb911f93652bdbba17efbd387fed6cc50cf27ff608da810",
+      "passed": true
+    },
+    {
+      "name": "refuse-payload-compare",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "4d20441e052d2128468c604765a405105500ac144a5c9029e02d037f40e2a944",
+      "passed": true
+    },
+    {
+      "name": "refuse-after-arm",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ec66d081f03c6acd1d6d4f4b569da9e66e4e115e4a1ec1e02789bc9beb50a275",
+      "passed": true
+    },
+    {
+      "name": "refuse-opposite-arm",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "3a889ab666888283c7f025138825531bc4c20f45058ad88d68661bb21bdfb216",
+      "passed": true
+    },
+    {
+      "name": "refuse-annotation-missing",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "aaa8bc9c61220184f16d39add463ec41f6a9d91f9f52f96f1b08ce01dd4dc999",
+      "passed": true
+    },
+    {
+      "name": "refuse-annotation-:Other",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "f658ba4a02567d3f9f4d00246e8e171a3e65143e2603be1ec6479583f666404f",
+      "passed": true
+    },
+    {
+      "name": "refuse-annotation-:u64",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "9a4a89e49a09280d5b86fdb16be42a8b1abc70f6282479f110ab990ff63b7633",
+      "passed": true
+    },
+    {
+      "name": "refuse-scalar-annotated-record",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "42d3edec117d967bd289ec937e696facc3d94ddbc978f703b36852ced9e20d39",
+      "passed": true
+    },
+    {
+      "name": "refuse-error-record-annotation",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "e444928d8f8bc8b1579214b5047f075717dd2e0ee3752f1388e4d02d5934e2b7",
+      "passed": true
+    },
+    {
+      "name": "refuse-wrong-nominal",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "6864330306d5eaaeeb3b3d0610d9a88b0ae3be85adcdd9a081b4907d178287bb",
+      "passed": true
+    },
+    {
+      "name": "refuse-scalar-in-record-ok",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "c5cd2af455da7ff1b9fc4ff8ec4b4d554e68eaaeb0f476aa4737680f9f1b99ac",
+      "passed": true
+    },
+    {
+      "name": "refuse-record-in-err",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "030e43718d0b90625a3f81010b90df2fa0e1cb6e867cdaf98717b57155b490b0",
+      "passed": true
+    },
+    {
+      "name": "refuse-record-in-scalar-result",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "0c4d3d144e40d40fb08c07abbe2e7270381ac971a22ed5d5d37b5b6f13951980",
+      "passed": true
+    },
+    {
+      "name": "refuse-structured-result-discard",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "655e73e43a212bb8d0c681b8157894a13dbf7298896cdf5f29320a8d69a8f6aa",
+      "passed": true
+    },
+    {
+      "name": "refuse-structured-result-as-scalar",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "2afdf7815bb40b000947fbdae8caa19abf76b3498a381ecece6031f5b5f3aac7",
+      "passed": true
+    },
+    {
+      "name": "refuse-five-fields",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "d031ccdf6230188c8d792c87fa4762b5430d19dc8fe91cb809c6cc1b1315b06b",
+      "passed": true
+    },
+    {
+      "name": "refuse-record-error",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "34487cd174f2e20ed852f10740d3b969d6fe20eee9b4a1e4447441a3502a4b75",
+      "passed": true
+    },
+    {
+      "name": "refuse-array-payload",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "73b07bb48e38ab9cacacc233f59f272ecb0d2b45876403a2fe24fc042a2f0ef2",
+      "passed": true
+    },
+    {
+      "name": "refuse-view-payload",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "da1737237db6e90769a6121f61bb4e65125f23b7ede4901f69d0bbe143c12c70",
+      "passed": true
+    },
+    {
+      "name": "refuse-owner-payload",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "7b0e897ec2ea8be2c623bf0194419105e0ff3b755e848c111206536dbe228b92",
+      "passed": true
+    },
+    {
+      "name": "refuse-nested-result",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "b47e1fed0832ac928b67e523b0ee3c580650ca2fda8e8ab0c6867e63a87ea3b6",
+      "passed": true
+    },
+    {
+      "name": "refuse-vector-payload",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ffa7b33635deca15853aa22e4c30c21731e09dc66c6a29b48c9d30e811001bdc",
+      "passed": true
+    },
+    {
+      "name": "refuse-resource-structured-result",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "8a9dccca9f962ab29533c59892c7bf1c4b337b53a7a5063aba3d43c0e92bb6f0",
+      "passed": true
+    },
+    {
+      "name": "refuse-owner-in-structured-function",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ee43ef56487f7081581746f14e355e9d087449c5abc62f26e0780a85e600af21",
+      "passed": true
+    }
+  ]
+}

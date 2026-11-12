@@ -1,0 +1,38 @@
+module output
+fn text_length(p)
+ let n=0
+ while load8(p+n)!=0
+  set n=n+1
+ end
+ return n
+end
+fn emit_bytes(p,n)
+ let done=0
+ let wrote=0
+ while done<n
+  set wrote=write(1,p+done,n-done)
+  if any(wrote>>63,wrote==0)
+   return 1
+  end
+  set done=done+wrote
+ end
+ return 0
+end
+fn emit(text)
+ return emit_bytes(text,text_length(text))
+end
+fn emit_number(value)
+ let digits=buffer("audit_digits",24)
+ let i=24
+ let q=0
+ if value==0
+  return emit_bytes("0",1)
+ end
+ while value!=0
+  set q=value//10
+  set i=i-1
+  do store8(digits+i,48+value-q*10)
+  set value=q
+ end
+ return emit_bytes(digits+i,24-i)
+end

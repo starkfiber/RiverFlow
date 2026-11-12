@@ -414,12 +414,13 @@ fn scan_record()
  let is_view = match("view") | match("textview")
  let is_text = match("textview")
  let is_resource = match("resource")
+ let is_vector = match("vector")
  do advance()
  let t = advance()
  do require(load64(token(t)) == 1, "record name required")
  do require(record_index(t) == 0, "duplicate record")
  do require(logical_name(t) == 0, "reserved logical name")
- do require((tmatch(t, "read_bytes") | tmatch(t, "write_bytes") | tmatch(t, "buffer") | tmatch(t, "load8") | tmatch(t, "load32") | tmatch(t, "load64") | tmatch(t, "store8") | tmatch(t, "store32") | tmatch(t, "store64") | tmatch(t, "read") | tmatch(t, "write") | tmatch(t, "open") | tmatch(t, "close") | tmatch(t, "exit") | tmatch(t, "read_owned") | tmatch(t, "write_owned") | tmatch(t, "release") | tmatch(t, "syscall6") | tmatch(t, "fork_process")) == 0, "reserved record name")
+ do require((tmatch(t, "read_bytes") | tmatch(t, "write_bytes") | tmatch(t, "buffer") | tmatch(t, "load8") | tmatch(t, "load32") | tmatch(t, "load64") | tmatch(t, "store8") | tmatch(t, "store32") | tmatch(t, "store64") | tmatch(t, "read") | tmatch(t, "write") | tmatch(t, "open") | tmatch(t, "close") | tmatch(t, "exit") | tmatch(t, "read_owned") | tmatch(t, "write_owned") | tmatch(t, "release") | tmatch(t, "buffer_reserve") | tmatch(t, "buffer_push") | tmatch(t, "buffer_get") | tmatch(t, "buffer_clear") | tmatch(t, "syscall6") | tmatch(t, "fork_process")) == 0, "reserved record name")
  let id = load64(state() + 128) + 1
  let r = record_info(id)
  let f = 0
@@ -434,7 +435,14 @@ fn scan_record()
  let j = 0
  if is_result
   do require((tmatch(t, "u64") | tmatch(t, "u8")) == 0, "reserved result name")
-  do expect("u64")
+  set field = advance()
+  if tmatch(field, "u64") == 0
+   set field = record_index(field)
+   do require(field != 0, "unknown result payload type")
+   do require(load64(record_info(field) + 144) == 0, "result payload requires scalar record")
+   do require(load64(record_info(field) + 8) <= 4, "result record payload field bound")
+   do store64(r + 152, field)
+  end
   do expect(",")
   do expect("u64")
   do expect(")")
@@ -443,10 +451,29 @@ fn scan_record()
   do store64(state() + 128, id)
   return newline()
  end
+ if is_vector
+  set field = record_index(advance())
+  do require(field != 0, "vector result type required")
+  do require(load64(record_info(field) + 144) == 3, "vector requires result type")
+  do require(load64(record_info(field) + 152) == 0, "vector requires scalar IO result")
+  do store64(r + 152, field)
+  do expect(",")
+  set field = advance()
+  do require(load64(token(field)) == 2, "vector limit literal required")
+  set n = load64(token(field) + 24)
+  do require((n > 0) & (n <= 1048576), "vector limit bound")
+  do require((load64(token(field) + 16) <= 7) & (load8(load64(token(field) + 8)) >= 49) & (load8(load64(token(field) + 8)) <= 57), "vector limit canonical decimal required")
+  do store64(r + 8, n)
+  do store64(r + 144, 7)
+  do store64(state() + 128, id)
+  do expect(")")
+  return newline()
+ end
  if is_resource
   set field = record_index(advance())
   do require(field != 0, "resource result type required")
   do require(load64(record_info(field) + 144) == 3, "resource requires result type")
+  do require(load64(record_info(field) + 152) == 0, "resource requires scalar IO result")
   do expect(")")
   do store64(r + 8, 2)
   do store64(r + 144, 6)
@@ -515,7 +542,7 @@ fn construct_record(target, depth)
  do require(depth == 0, "record declarations must be function-level")
  let f = load64(state() + 32)
  let id = load64(local_type(f, target))
- do require(load64(record_info(id) + 144) != 6, "resource requires own declaration")
+ do require((load64(record_info(id) + 144) != 6) & (load64(record_info(id) + 144) != 7), "resource requires own declaration")
  do require(load64(record_info(id) + 144) != 3, "result values require handle")
  if load64(record_info(id) + 144) >= 4
   return construct_view(target, depth)
@@ -771,14 +798,14 @@ fn scan_functions_more(f)
   if load64(token(load64(state() + 24))) == 5
    do advance()
   else
-   if match("record") | match("array") | match("result") | match("view") | match("textview") | match("resource")
+   if match("record") | match("array") | match("result") | match("view") | match("textview") | match("resource") | match("vector")
     do scan_record()
    else
    do expect("fn")
    set t = advance()
    do require(load64(token(t)) == 1, "function name required")
    do require(logical_name(t) == 0, "reserved logical name")
-   do require((tmatch(t, "read_bytes") | tmatch(t, "write_bytes") | tmatch(t, "read_owned") | tmatch(t, "write_owned") | tmatch(t, "release")) == 0, "reserved IO name")
+   do require((tmatch(t, "read_bytes") | tmatch(t, "write_bytes") | tmatch(t, "read_owned") | tmatch(t, "write_owned") | tmatch(t, "release") | tmatch(t, "buffer_reserve") | tmatch(t, "buffer_push") | tmatch(t, "buffer_get") | tmatch(t, "buffer_clear")) == 0, "reserved IO name")
    do require(record_index(t) == 0, "function collides with record")
    set other = 0
    while other < f
@@ -855,6 +882,17 @@ fn scan_body(f, params)
   if match("ok") | match("err")
    set slot = add_local(f, i + 1)
    do store64(local_binding(f, slot), 1)
+   if tmatch(i + 2, ":")
+    do require(match("ok"), "err annotation unsupported")
+    set id = record_index(i + 3)
+    do require(id != 0, "unknown handler record type")
+    do require(load64(record_info(id) + 144) == 0, "handler requires scalar record")
+    set count = load64(record_info(id) + 8)
+    do require(count <= 4, "handler record field bound")
+    do require(slot + count < 256, "handler record local bound")
+    do store64(local_type(f, slot), id)
+    do store64(ftable(f) + 32, slot + 1 + count)
+   end
   end
   if match("defer")
    do require(depth == 1, "defer must be function-level")
@@ -874,6 +912,9 @@ fn scan_body(f, params)
     do require(depth == 1, "record declarations must be function-level")
     do store64(local_type(f, slot), id)
     set count = load64(record_info(id) + 8)
+    if load64(record_info(id) + 144) == 7
+     set count = 4
+    end
     if load64(record_info(id) + 144) == 2
      set count = (count + 7) // 8
     end
@@ -882,11 +923,14 @@ fn scan_body(f, params)
    end
    if match("own")
     do require((id != 0) & tmatch(i + 4, "("), "own requires resource constructor")
-    do require(load64(record_info(id) + 144) == 6, "own requires resource type")
+    do require((load64(record_info(id) + 144) == 6) | (load64(record_info(id) + 144) == 7), "own requires resource type")
     set count = load64(cleanup_count(f))
     do require(count < 16, "resource cleanup count bound")
     do store64(cleanup_slot(f, count), slot + 1)
-    do store64(cleanup_owned(f, count), 1)
+    do store64(cleanup_owned(f, count), load64(record_info(id) + 144) - 5)
+    if load64(record_info(id) + 144) == 7
+     do store64(cleanup_span(f, count), load64(record_info(id) + 8))
+    end
     do store64(cleanup_count(f), count + 1)
    end
   end
@@ -1168,6 +1212,9 @@ end
 fn cleanup_owned(f, i)
  return buffer("cleanup_owned", 32768) + (f * 16 + i) * 8
 end
+fn cleanup_span(f, i)
+ return buffer("cleanup_spans", 32768) + (f * 16 + i) * 8
+end
 fn construct_owner(depth)
  do require(depth == 0, "own must be function-level")
  do require(load64(state() + 200) == 0, "ownership acquisition while view is live")
@@ -1176,9 +1223,17 @@ fn construct_owner(depth)
  let slot = find_local(advance())
  let id = load64(local_type(f, slot))
  do require(id != 0, "resource type required")
- do require(load64(record_info(id) + 144) == 6, "resource type required")
+ do require((load64(record_info(id) + 144) == 6) | (load64(record_info(id) + 144) == 7), "resource type required")
  do require(load64(function_result(f)) == load64(record_info(id) + 152), "owner function result type mismatch")
  do expect("=")
+ if load64(record_info(id) + 144) == 7
+  do construct_vector(f, slot, id)
+  do store64(local_ready(f, slot), 1)
+  do store64(local_scope(f, slot), 0)
+  do require(load64(cleanup_slot(f, load64(state() + 224))) == slot + 1, "vector cleanup registration order")
+  do store64(state() + 224, load64(state() + 224) + 1)
+  return newline()
+ end
  do require(record_index(advance()) == id, "resource constructor mismatch")
  do expect("(")
  do require(arguments(0, 0) == 3, "resource open requires path flags mode")
@@ -1211,7 +1266,7 @@ fn invoke_owned(name, depth)
  let slot = local_index(advance())
  let id = load64(local_type(f, slot))
  do require(id != 0, "owned resource required")
- do require(load64(record_info(id) + 144) == 6, "owned resource required")
+ do require((load64(record_info(id) + 144) == 6) | ((load64(record_info(id) + 144) == 7) & tmatch(name, "release")), "owned file required")
  let bad = next_label()
  let done = next_label()
  let success = next_label()
@@ -1225,7 +1280,12 @@ fn invoke_owned(name, depth)
   do imm(0, 0)
   do access_local(0, slot + 1, 1)
   do access_local(0, slot + 2, 0)
-  do imm(16, 6)
+  if load64(record_info(id) + 144) == 7
+   do imm(1, load64(record_info(id) + 8))
+   do imm(16, 73)
+  else
+   do imm(16, 6)
+  end
   do store64(local_ready(f, slot), 0)
  else
   do access_local(0, slot + 2, 0)
@@ -1339,8 +1399,18 @@ end
 fn array_address(id)
  do require(id != 0, "index requires array/view")
  let kind = load64(record_info(id) + 144)
- do require((kind == 1) | (kind == 2) | (kind == 4) | (kind == 5), "index requires array/view")
+ do require((kind == 1) | (kind == 2) | (kind == 4) | (kind == 5) | (kind == 7), "index requires array/view")
  let failure = bounds_failure_label()
+ if kind == 7
+  do emit(4181721088 | (1 << 5) | 2)
+  do emit(4043309087 | (2 << 5))
+  do jump(failure, 0)
+  do emit(4181721088 | (2 << 10) | (1 << 5) | 2)
+  do emit(3942645791 | (2 << 16))
+  do jump(failure, 2)
+  do emit(4181721088 | (1 << 10) | (1 << 5) | 1)
+  return emit(2332033056)
+ end
  if kind == 5
   do emit(2852127712 | (0 << 16) | 2)
   do emit(4181721088 | (2 << 10) | (1 << 5) | 3)
@@ -1402,6 +1472,7 @@ fn expression(minimum, depth)
  let slot = 0
  let id = 0
  do store64(state() + 136, 0)
+ do store64(state() + 232, 0)
  do require(depth < 64, "expression depth bound")
  if match("-") | match("~")
   do advance()
@@ -1441,9 +1512,13 @@ fn expression(minimum, depth)
       end
       if id != 0
        do require(load64(record_info(id) + 144) != 6, "owner cannot be used as a value")
+       if load64(record_info(id) + 144) == 7
+        do require(match("[") | match("."), "vector owner cannot be used as a value")
+       end
       end
       do access_local(0, slot, 0)
       do store64(state() + 136, id)
+      do store64(state() + 232, load64(local_binding(load64(state() + 32), slot)))
      end
      end
     end
@@ -1455,7 +1530,7 @@ fn expression(minimum, depth)
   do require(id != 0, "structured value required")
   do require(load64(record_info(id) + 144) != 3, "result requires exhaustive handle")
   if match("[")
-   do require((load64(record_info(id) + 144) == 1) | (load64(record_info(id) + 144) == 2) | (load64(record_info(id) + 144) == 4) | (load64(record_info(id) + 144) == 5), "index requires array/view")
+   do require((load64(record_info(id) + 144) == 1) | (load64(record_info(id) + 144) == 2) | (load64(record_info(id) + 144) == 4) | (load64(record_info(id) + 144) == 5) | (load64(record_info(id) + 144) == 7), "index requires array/view")
    do advance()
    do push()
    do scalar_expression(1, depth + 1)
@@ -1474,6 +1549,23 @@ fn expression(minimum, depth)
   else
    do advance()
    if load64(record_info(id) + 144)
+    if load64(record_info(id) + 144) == 7
+     do emit(4181721088 | 1)
+     do emit(4043309087 | (1 << 5))
+     do jump(bounds_failure_label(), 0)
+     if match("length")
+      do advance()
+      do emit(4181721088 | (2 << 10))
+     else
+      if match("capacity")
+       do advance()
+       do emit(4181721088 | (3 << 10))
+      else
+       do expect("limit")
+       do imm(0, load64(record_info(id) + 8))
+      end
+     end
+    else
     if load64(record_info(id) + 144) == 5
      if match("byte_length")
       do advance()
@@ -1490,12 +1582,14 @@ fn expression(minimum, depth)
      do imm(0, load64(record_info(id) + 8))
     end
     end
+    end
    else
     set slot = field_index(id, advance())
     do emit(4181721088 | (slot << 10))
    end
   end
   do store64(state() + 136, 0)
+  do store64(state() + 232, 0)
  end
  set i = load64(state() + 24)
  set p = precedence(i)
@@ -1612,6 +1706,9 @@ fn invoke(name, depth)
   return invoke_logic(name, depth)
  end
  do require(load64(state() + 200) == 0, "calls forbidden while view is live")
+ if tmatch(name, "buffer_reserve") | tmatch(name, "buffer_push") | tmatch(name, "buffer_get") | tmatch(name, "buffer_clear")
+  return invoke_vector(name, depth)
+ end
  if tmatch(name, "read_owned") | tmatch(name, "write_owned") | tmatch(name, "release")
   return invoke_owned(name, depth)
  end
@@ -1752,6 +1849,7 @@ fn arguments(depth, callee)
   if callee == 0
    do require(load64(state() + 136) == 0, "record passed to raw intrinsic")
   else
+   do require((load64(state() + 136) == 0) | (load64(state() + 232) == 0), "immutable payload cannot be passed as record")
    do require(count < load64(ftable(callee - 1) + 8), "function arity")
    do require(load64(state() + 136) == load64(local_type(callee - 1, count)), "argument type mismatch")
   end
@@ -2246,7 +2344,21 @@ fn handle_result(depth)
  do expect("ok")
  let slot = find_local(advance())
  do require(load64(local_binding(f, slot)), "payload binding required")
- do access_local(1, slot, 1)
+ let payload = load64(record_info(id) + 152)
+ do require(load64(local_type(f, slot)) == payload, "handler payload type mismatch or annotation missing")
+ if payload != 0
+  do expect(":")
+  do require(record_index(advance()) == payload, "handler payload annotation mismatch")
+  let field = 0
+  while field < load64(record_info(payload) + 8)
+   do access_local(field + 1, slot + 1 + field, 1)
+   set field = field + 1
+  end
+  do emit(2432697248 | (((slot + 1) * 8) << 10))
+  do access_local(0, slot, 1)
+ else
+  do access_local(1, slot, 1)
+ end
  do store64(local_ready(f, slot), 1)
  do store64(local_scope(f, slot), depth + 1)
  do newline()
@@ -2274,9 +2386,21 @@ fn return_value()
  set tag = match("err")
  do advance()
  do expect("(")
- do scalar_expression(1, 0)
+ let payload = load64(record_info(id) + 152)
+ if (tag == 0) & (payload != 0)
+  do expression(1, 0)
+  do require(load64(state() + 136) == payload, "result record payload type mismatch")
+  do emit(2852127712 | (0 << 16) | 5)
+  let field = 0
+  while field < load64(record_info(payload) + 8)
+   do emit(4181721088 | (field << 10) | (5 << 5) | (field + 1))
+   set field = field + 1
+  end
+ else
+  do scalar_expression(1, 0)
+  do emit(2852127713)
+ end
  do expect(")")
- do emit(2852127713)
  return imm(0, tag)
 end
 fn block(depth)
@@ -2480,11 +2604,25 @@ fn emit_cleanup(f)
  let n = load64(cleanup_count(f))
  let skip = 0
  let slot = 0
+ let regs = 2
+ let result = load64(function_result(f))
+ let field = 0
+ let saved = 16
  if n == 0
   return 0
  end
- do push()
- do emit(4177526784 | (1 << 10) | (31 << 5) | 1)
+ if result != 0
+  set result = load64(record_info(result) + 152)
+  if result != 0
+   set regs = load64(record_info(result) + 8) + 1
+  end
+ end
+ set saved = (regs * 8 + 15) & 18446744073709551600
+ do emit(3506439167 | (saved << 10))
+ while field < regs
+  do emit(4177526784 | (field << 10) | (31 << 5) | field)
+  set field = field + 1
+ end
  while n != 0
   set n = n - 1
   set slot = load64(cleanup_slot(f, n))
@@ -2495,7 +2633,12 @@ fn emit_cleanup(f)
   do imm(0, 0)
   do access_local(0, slot, 1)
   do access_local(0, slot + 1, 0)
-  do imm(16, 6)
+  if load64(cleanup_owned(f, n)) == 2
+   do imm(1, load64(cleanup_span(f, n)))
+   do imm(16, 73)
+  else
+   do imm(16, 6)
+  end
   do emit(3556773889)
   if load64(cleanup_owned(f, n))
    do jump(skip, 3)
@@ -2510,9 +2653,12 @@ fn emit_cleanup(f)
   end
   do label(skip)
  end
- do emit(4181721088 | (31 << 5) | 0)
- do emit(4181721088 | (1 << 10) | (31 << 5) | 1)
- do emit(2432713727)
+ set field = 0
+ while field < regs
+  do emit(4181721088 | (field << 10) | (31 << 5) | field)
+  set field = field + 1
+ end
+ do emit(2432697343 | (saved << 10))
  return 0
 end
 fn utf8_cmp(reg, value, target, cond)
@@ -3340,5 +3486,161 @@ fn main(argc, argv)
   do write(2, "RF2 opt: guarded periodic sum reduction applied\n", 48)
  end
  do write(1, "RF2 native image emitted; apply macOS code signing before execution.\n", 68)
+ return 0
+end
+
+# Included by the parent compiler. Reservation-backed, bounded byte vectors.
+fn construct_vector(f, slot, id)
+ do require(record_index(advance()) == id, "vector constructor mismatch")
+ do expect("(")
+ do expect(")")
+ do imm(0, 0)
+ do imm(1, load64(record_info(id) + 8))
+ do imm(2, 0)
+ do imm(3, 4098)
+ do imm(4, 18446744073709551615)
+ do imm(5, 0)
+ do imm(16, 197)
+ do emit(3556773889)
+ let good = next_label()
+ do jump(good, 3)
+ do emit(2852127713)
+ do imm(0, 1)
+ do jump(load64(state() + 88), 16)
+ do label(good)
+ do access_local(0, slot + 2, 1)
+ do imm(0, 0)
+ do access_local(0, slot + 3, 1)
+ do access_local(0, slot + 4, 1)
+ do imm(0, 1)
+ do access_local(0, slot + 1, 1)
+ do emit(2432697248 | (((slot + 1) * 8) << 10))
+ do access_local(0, slot, 1)
+ return 0
+end
+fn vector_error(number, done)
+ do imm(0, 1)
+ do imm(1, number)
+ return jump(done, 16)
+end
+fn vector_protect(slot, done)
+ # Caller has saved request/value on its16-byte temporary stack.
+ do access_local(0, slot + 2, 0)
+ do imm(2, 3)
+ do imm(16, 74)
+ do emit(3556773889)
+ let good = next_label()
+ do jump(good, 3)
+ do emit(2852127713)
+ do imm(0, 1)
+ do emit(2432713727)
+ do jump(done, 16)
+ do label(good)
+ return 0
+end
+fn invoke_vector(name, depth)
+ do require(load64(state() + 200) == 0, "vector operations while view is live")
+ let f = load64(state() + 32)
+ let slot = local_index(advance())
+ let id = load64(local_type(f, slot))
+ do require(id != 0, "vector owner required")
+ do require(load64(record_info(id) + 144) == 7, "vector owner required")
+ let bad = next_label()
+ let invalid = next_label()
+ let range = next_label()
+ let done = next_label()
+ let same = next_label()
+ let ready = next_label()
+ let large = next_label()
+ let clamped = next_label()
+ do access_local(0, slot + 1, 0)
+ do emit(4043309087)
+ do jump(bad, 0)
+ if tmatch(name, "buffer_clear")
+  do expect(")")
+  do imm(0, 0)
+  do access_local(0, slot + 3, 1)
+  do imm(1, 0)
+  do jump(done, 16)
+ else
+  do expect(",")
+  do scalar_expression(1, depth + 1)
+  do expect(")")
+  if tmatch(name, "buffer_get")
+   do access_local(1, slot + 3, 0)
+   do emit(3942645791 | (1 << 16))
+   do jump(range, 2)
+   do access_local(1, slot + 2, 0)
+   do emit(2332033024 | (0 << 16) | (1 << 5) | 0)
+   do emit(960495616 | 1)
+   do imm(0, 0)
+   do jump(done, 16)
+  else
+   if tmatch(name, "buffer_reserve")
+    do imm(1, load64(record_info(id) + 8))
+    do emit(3942645791 | (1 << 16))
+    do jump(invalid, 8)
+    do access_local(1, slot + 4, 0)
+    do emit(3942645791 | (1 << 16))
+    do jump(same, 9)
+    do push()
+    do emit(4181721088 | (31 << 5) | 1)
+    do vector_protect(slot, done)
+    do pop1()
+    do access_local(1, slot + 4, 1)
+    do label(same)
+    do imm(0, 0)
+    do jump(done, 16)
+   else
+    do require(tmatch(name, "buffer_push"), "unknown vector operation")
+    do imm(1, 255)
+    do emit(3942645791 | (1 << 16))
+    do jump(invalid, 8)
+    do access_local(2, slot + 3, 0)
+    do imm(1, load64(record_info(id) + 8))
+    do emit(3942645791 | (1 << 16) | (2 << 5))
+    do jump(invalid, 2)
+    do push()
+    do access_local(1, slot + 4, 0)
+    do emit(3942645791 | (1 << 16) | (2 << 5))
+    do jump(ready, 3)
+    do imm(3, 1)
+    do emit(2596282368 | (3 << 16) | (1 << 5) | 1)
+    do imm(3, 16)
+    do emit(3942645791 | (3 << 16) | (1 << 5))
+    do jump(large, 2)
+    do imm(1, 16)
+    do label(large)
+    do imm(3, load64(record_info(id) + 8))
+    do emit(3942645791 | (3 << 16) | (1 << 5))
+    do jump(clamped, 9)
+    do emit(2852127712 | (3 << 16) | 1)
+    do label(clamped)
+    do emit(4177526784 | (1 << 10) | (31 << 5) | 1)
+    do vector_protect(slot, done)
+    do emit(4181721088 | (1 << 10) | (31 << 5) | 1)
+    do access_local(1, slot + 4, 1)
+    do label(ready)
+    do emit(4181721088 | (31 << 5))
+    do emit(2432713727)
+    do access_local(1, slot + 2, 0)
+    do access_local(2, slot + 3, 0)
+    do emit(2332033024 | (2 << 16) | (1 << 5) | 1)
+    do emit(956301344)
+    do emit(2432696320 | (1 << 10) | (2 << 5) | 1)
+    do access_local(1, slot + 3, 1)
+    do imm(0, 0)
+    do jump(done, 16)
+   end
+  end
+ end
+ do label(bad)
+ do vector_error(9, done)
+ do label(invalid)
+ do vector_error(22, done)
+ do label(range)
+ do vector_error(34, done)
+ do label(done)
+ do store64(state() + 136, load64(record_info(id) + 152))
  return 0
 end

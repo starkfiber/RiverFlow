@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "appComparisons": 188,
+  "fileAndUsageChecks": 10,
+  "cleanupChecks": 6,
+  "limitChecks": 4,
+  "outputFailureChecks": 2,
+  "compilerSHA256": "8cac670c59421bfb83b92e5d12efda7e7951bd01b7c177c116d7f7c430deeb5e",
+  "compilerSourceSHA256": "381b4c9137c7ac0ab87d287483a6825d606c2eb48c662eb9886f9e3de7958d4f",
+  "sourceHashScope": "Compiler source snapshot at test start; candidate binary hash separately recorded",
+  "sourceHashes": {
+    "examples/buffer-audit/lib/audit.rf2": "12f02c1e329710ad54de0c8f837bfe45486e0bf3ad9c0eb3d5d242a66639ea49",
+    "examples/buffer-audit/lib/output.rf2": "70a76f8187aaa1b7b3176d9aaa06130bdca5abcff7225e13abe39ffa14588ed2",
+    "examples/buffer-audit/main.rf2": "1a486119b3bc354316edba519e275d6ce5a25874242cb5afd0851743d01f0200"
+  },
+  "scope": "Finite native app comparisons against independent Python FNV1a64/byte/line oracles in default/optimized modes. Read-only namedinput,1MiB limit. FD checks observe ordinary cleanup in process; no direct mapping-free observation, forced positive shortwrite, physical-memory/performance/cryptographic claim."
+}

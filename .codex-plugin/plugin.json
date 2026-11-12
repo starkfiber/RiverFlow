@@ -1,7 +1,7 @@
 {
   "name": "rf2",
-  "version": "0.16.0",
-  "description": "RF2 native logical guards, owned files, Unicode views and bounded MCP",
+  "version": "0.17.0",
+  "description": "RF2 native growable byte vectors, structured results, owned files and bounded MCP",
   "author": {
     "name": "Ilangkhumanan Thirunavokkarasu",
     "url": "https://github.com/starkfiber"

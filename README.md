@@ -18,6 +18,7 @@ The Apple Silicon Mac package contains ready-to-run tools. Users need no Node, n
 
 ```sh
 ./rf2 status
+./rf2-buffer-audit document.bin
 ./rf2-file-kind document.bin
 ./rf2-hex document.bin
 printf 'Hello world\n' | ./rf2-unicode-lines
@@ -28,6 +29,7 @@ The document auditor handles UTF-8 rows, reports malformed input and continues w
 
 | Build or use | What works | Open the example |
 | --- | --- | --- |
+| Larger byte collections | Bounded growing byte vectors and small report records returned by value | [Buffered audit](examples/buffer-audit/), [storage/results](docs/STORAGE-RESULTS.md) |
 | Owned file applications | Noncopyable file owners, typed I/O and visible cleanup errors | [Hex inspector](examples/hex/), [ownership contract](docs/RESOURCE-OWNERSHIP.md) |
 | Text and byte processing | Checked arrays, strict UTF-8 views, scalar indexing and recoverable row validation | [Unicode auditor](examples/unicode-lines/) |
 | Reusable native programs | Local modules, nominal records, functions and explicit file I/O | [Workload analyser](examples/workload/) |
@@ -66,9 +68,11 @@ MCP accepts bounded computation and defined application inputs. It does not expo
 
 ## Evidence stays beside the code
 
-**0.16 adds short-circuit logical guards and read-only file signature inspection.** [Logical guards](docs/LOGICAL-GUARDS.md) build on owned files and cleanup errors. Atomic acquisition exposes no raw descriptor. I/O results require handling; release consumes the owner. Automatic close failure is visible while a primary error remains preserved. [Ownership contract](docs/RESOURCE-OWNERSHIP.md) · [Release receipt](docs/RELEASE-0.16-VERIFICATION.json).
+**0.17 adds growable byte vectors and record-valued results.** A native buffered audit loads a file, inspects retained bytes and returns a four-field report by value. Growth is bounded within a declared virtual reservation, and cleanup/error behavior remains explicit. [Storage/result contract](docs/STORAGE-RESULTS.md) · [Release receipt](docs/RELEASE-0.17-VERIFICATION.json).
 
-Independent ownership probes and full-output hex comparisons sit beside existing Unicode, compiler, runtime and MCP tests. WhatIF also ran a bounded disposable Studio check; HTTP availability is separate from compiler correctness. The updated book explains the design and remaining limits.
+The [second opinion and roadmap](docs/SECOND-OPINION-ROADMAP.md) compares pinned primary CPython, OpenJDK and LLVM sources by layer. The [external AI review brief](docs/EXTERNAL-REVIEW-BRIEF.md) is ready to copy into another reviewer, with reproducible acceptance gates and no blanket parity claims.
+
+Independent storage, result and app probes sit beside compiler/runtime/MCP qualification. Earlier failures remain recorded. The historical WhatIF 0.15 HTTP check is separate from current compiler semantics. The updated book explains the design and remaining limits.
 
 Performance is workload-specific. Some guarded reductions remove repeated work; other workloads remain slower than mature compilers. Encoded interface counts are not billed model usage. [Measurement method and limits](docs/LANGUAGE-MEASUREMENTS.md).
 

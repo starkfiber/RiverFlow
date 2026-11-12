@@ -2,7 +2,7 @@
 Development Python is an oracle/controller. PATH-free native stages never run it.
 """
 from pathlib import Path
-import sys,subprocess,tempfile,hashlib,json,random,struct,os
+import sys,subprocess,tempfile,hashlib,json,random,struct,os,re
 R=Path(__file__).resolve().parents[2];sys.path.insert(0,str(R/'bootstrap'))
 from seed import Compiler
 ROOT=R/'output/compiler-verification';ROOT.mkdir(parents=True,exist_ok=True)
@@ -31,7 +31,7 @@ report['fixedPointUnsignedImages']=True
 # Run the runtime produced by the native-generated compiler, not the retained binary.
 runtime_source=work/'runtime.rf2';runtime_source.write_text(''.join((R/name).read_text()for name in ['native/rf2.rf2','native/core.rf2','native/attendance.rf2','native/attendance-kernel.rf2','native/fingerprint.rf2','native/invoice.rf2','native/invoice-kernel.rf2','native/prepared.rf2','native/workspace.rf2','native/editor.rf2']))
 rt=work/'rf2';assert native_build(c,runtime_source,rt)==reference(runtime_source);sign(rt)
-assert json.loads(run([rt,'status']).stdout)['version']=='0.16.0'
+assert json.loads(run([rt,'status']).stdout)['version']=='0.17.0'
 assert json.loads(run([rt,'run',R/'examples/compact/sum.rf2','[2,3,4]']).stdout)['value']==9
 report['runtimeUnsignedMatchesReference']=True;report['generatedRuntime']=str(rt.relative_to(R))
 # Independent expected process exits cover unsigned arithmetic, loops, calls, memory and branches.
@@ -56,13 +56,16 @@ p=work/'calls.rf2';p.write_text('profile RF2_SYSTEM_A64_V1\nfn main(argc, argv)\
 out=work/'calls';assert native_build(c,p,out)==reference(p);sign(out);assert run([out],ok=False).returncode==36;report['cases'].append({'name':'forward-eight-argument-call','unsignedByteMatch':True,'expectedExit':36,'actualExit':36})
 # Native SHA-256: exercise complete digests at padding boundaries and with arbitrary bytes.
 # A derived diagnostic main writes the full digest, not merely the 16 UUID bytes.
-sha_source=source.read_text().split('fn main(argc, argv)')[0]+'''fn main(argc, argv)
+diagnostic_main='''fn main(argc, argv)
  let p = read_source(load64(argv + 8))
  let h = sha256(p, load64(state() + 8))
  do write(1, h, 32)
  return 0
 end
 '''
+# Preserve compiler helper functions after main; replace only the main function.
+sha_source,main_count=re.subn(r'(?ms)^fn main\(argc, argv\).*?(?=^fn |\Z)',lambda _:diagnostic_main,source.read_text(),count=1)
+assert main_count==1
 p=work/'hash-probe.rf2';p.write_text(sha_source);out=work/'hash-probe';assert native_build(c,p,out)==reference(p);sign(out)
 randomizer=random.Random(20261112)
 for size in [0,1,3,55,56,63,64,65,119,120,127,128,1024,524288]:
@@ -88,9 +91,9 @@ for i,text in enumerate(invalid):
 p=work/'existing';p.write_bytes(b'preserve');r=run([c,R/'native/hello.rf2',p],ok=False);assert r.returncode==1;assert p.read_bytes()==b'preserve';report['negativeCases']+=1
 link=work/'link';link.symlink_to(p);r=run([c,R/'native/hello.rf2',link],ok=False);assert r.returncode==1;assert p.read_bytes()==b'preserve';report['negativeCases']+=1
 # Runtime result/refusal corpus and official SDK checks against the native-compiled runtime.
-env=dict(os.environ,RF2_TEST_BINARY=str(rt),RF2_TEST_REPORT=str(work/'runtime-verification.json'),RF2_TEST_VERSION='0.16.0',RF2_TEST_TOOLS='9');r=subprocess.run(['python3',str(R/'tests/standalone/verify.py')],cwd=R,env=env,capture_output=True,timeout=40);assert r.returncode==0,r.stderr;report['runtimeCorpusPassed']=True
+env=dict(os.environ,RF2_TEST_BINARY=str(rt),RF2_TEST_REPORT=str(work/'runtime-verification.json'),RF2_TEST_VERSION='0.17.0',RF2_TEST_TOOLS='9');r=subprocess.run(['python3',str(R/'tests/standalone/verify.py')],cwd=R,env=env,capture_output=True,timeout=40);assert r.returncode==0,r.stderr;report['runtimeCorpusPassed']=True
 r=subprocess.run(['/opt/homebrew/opt/node@22/bin/node',str(R/'tests/standalone/sdk.mjs')],cwd=R,env=env,capture_output=True,timeout=20);assert r.returncode==0,r.stderr;report['officialSdkPassed']=True
 report.update(passed=True,sourceSHA256=digest(source),nativeCompilerSHA256=digest(c),historicalSeedSHA256=digest(R/'bootstrap/seed.py'),generatedRuntimeSHA256=digest(rt),seedEncoderRuntimeByteMatch=True)
-(R/'docs/NATIVE-COMPILER-0.16-VERIFICATION.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
+(R/'docs/NATIVE-COMPILER-0.17-VERIFICATION.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
 # Fixed-point outputs remain in the test work directory; do not overwrite release binaries.
 print("Candidate compiler and runtime retained in",work)

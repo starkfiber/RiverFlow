@@ -1,0 +1,128 @@
+{
+  "passed": true,
+  "version": "0.17.0",
+  "compilerSHA256": "8cac670c59421bfb83b92e5d12efda7e7951bd01b7c177c116d7f7c430deeb5e",
+  "compilerSourceSHA256": "381b4c9137c7ac0ab87d287483a6825d606c2eb48c662eb9886f9e3de7958d4f",
+  "runtimeSHA256": "681c48fc9d8ca12162102e8841c113603ee044be883cc191668d24c96652692b",
+  "qualification": [
+    {
+      "name": "results_views_app_verify",
+      "exit": 0
+    },
+    {
+      "name": "multiple_views_verify",
+      "exit": 0
+    },
+    {
+      "name": "results_views_critic",
+      "exit": 0
+    },
+    {
+      "name": "text_verify",
+      "exit": 0
+    },
+    {
+      "name": "arrays_verify",
+      "exit": 0
+    },
+    {
+      "name": "conditional_reduction_verify",
+      "exit": 0
+    },
+    {
+      "name": "optimizer_verify",
+      "exit": 0
+    },
+    {
+      "name": "instruction_verify",
+      "exit": 0
+    },
+    {
+      "name": "control_optimizer_verify",
+      "exit": 0
+    },
+    {
+      "name": "narrowing_verify",
+      "exit": 0
+    },
+    {
+      "name": "register_abi_verify",
+      "exit": 0
+    },
+    {
+      "name": "modules_verify",
+      "exit": 0
+    },
+    {
+      "name": "compiler_bounds_verify",
+      "exit": 0
+    },
+    {
+      "name": "bounds-opt",
+      "exit": 0
+    },
+    {
+      "name": "verify",
+      "exit": 0
+    },
+    {
+      "name": "core_verify",
+      "exit": 0
+    },
+    {
+      "name": "lowering_verify",
+      "exit": 0
+    },
+    {
+      "name": "invoice_verify",
+      "exit": 0
+    },
+    {
+      "name": "attendance_verify",
+      "exit": 0
+    },
+    {
+      "name": "prepared_verify",
+      "exit": 0
+    },
+    {
+      "name": "workspace_verify",
+      "exit": 0
+    },
+    {
+      "name": "editor_verify",
+      "exit": 0
+    },
+    {
+      "name": "sdk-0",
+      "exit": 0
+    },
+    {
+      "name": "sdk-1",
+      "exit": 0
+    }
+  ],
+  "newChecks": {
+    "vector": 94,
+    "structuredResults": 120,
+    "bufferedApplication": 210
+  },
+  "priorReplays": {
+    "logicAndHeaders": 630,
+    "fileOwnership": 136,
+    "hexApplication": 182,
+    "unicodeViews": 686,
+    "legacyCleanup": 52,
+    "unicodeApplication": 332
+  },
+  "nativeCompiler": "NATIVE-COMPILER-0.17-VERIFICATION.json",
+  "installedMCP": "COMPACT-MCP-0.17-VERIFICATION.json",
+  "mcpTools": 9,
+  "mcpPermissionsExpanded": false,
+  "sourceComparison": "Pinned selected CPython/OpenJDK/LLVM source review; no competitor builds or benchmark. Independent task in same AI session, no external provider contacted.",
+  "correctedFailure": "Loop reentry could index released vector; runtime armed guards now cover indexes and properties. Original SIGSEGV retained.",
+  "diagnosticCorrection": "Hash-probe builder truncated helpers located after main; harness now replaces main alone and retains helpers. Final bootstrap/hash suite passed; original failed log retained.",
+  "speedClaim": null,
+  "tokenClaim": null,
+  "scope": "Bounded reservation-backed byte vectors up to1MiB, not relocating general heap/physical residency. Structured ok nominalrecords1..4 scalarfields, u64 errors. Finite software tests including explicit injected native syscall faults, not actual OOM or compiler/security proof."
+}

@@ -1,0 +1,73 @@
+module audit
+result IO(u64,u64)
+resource File(IO)
+vector Bytes(IO,1048576)
+array Chunk(u8,255)
+record Stats(bytes:u64,lines:u64,zeros:u64,fingerprint:u64)
+result Report(Stats,u64)
+fn collect(path,s:Stats):IO
+ own file=File(path,0,0)
+ own data=Bytes()
+ let chunk=Chunk()
+ let more=true
+ let count=0
+ let i=0
+ while more
+  handle read_owned(file,chunk,255)
+  ok got
+   set count=got
+  err cause
+   return err(cause)
+  end
+  if count==0
+   set more=false
+  else
+   set i=0
+   while i<count
+    handle buffer_push(data,chunk[i])
+    ok length
+    err push_error
+     return err(push_error)
+    end
+    set i=i+1
+   end
+  end
+ end
+ # Inspect the completed growing collection in a second pass.
+ let fingerprint=14695981039346656037
+ let lines=0
+ let zeros=0
+ let value=0
+ set i=0
+ while i<data.length
+  set value=data[i]
+  set fingerprint=(fingerprint^value)*1099511628211
+  if value==10
+   set lines=lines+1
+  end
+  if value==0
+   set zeros=zeros+1
+  end
+  set i=i+1
+ end
+ if data.length!=0
+  if data[data.length-1]!=10
+   set lines=lines+1
+  end
+ end
+ set s.bytes=data.length
+ set s.lines=lines
+ set s.zeros=zeros
+ set s.fingerprint=fingerprint
+ return ok(data.length)
+end
+fn audit_file(path):Report
+ let s=Stats(0,0,0,0)
+ handle collect(path,s)
+ ok ignored
+  return ok(s)
+ err cause
+  return err(cause)
+ end
+ return err(5)
+end

@@ -8,10 +8,10 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 267199,
-    "Python": 256112,
-    "JavaScript": 65580,
-    "HTML": 16556,
+    "Python": 283566,
+    "RiverFlow": 279917,
+    "JavaScript": 65616,
+    "HTML": 16546,
     "CSS": 10426,
     "Shell": 2207
   },
@@ -84,7 +84,7 @@
     {
       "path": "docs/rf2/index.html",
       "language": "HTML",
-      "bytes": 8076
+      "bytes": 8071
     },
     {
       "path": "docs/riverflow.mjs",
@@ -100,6 +100,21 @@
       "path": "docs/worker.mjs",
       "language": "JavaScript",
       "bytes": 188
+    },
+    {
+      "path": "examples/buffer-audit/lib/audit.rf2",
+      "language": "RiverFlow",
+      "bytes": 1324
+    },
+    {
+      "path": "examples/buffer-audit/lib/output.rf2",
+      "language": "RiverFlow",
+      "bytes": 598
+    },
+    {
+      "path": "examples/buffer-audit/main.rf2",
+      "language": "RiverFlow",
+      "bytes": 739
     },
     {
       "path": "examples/compact/bits-checked.rf2",
@@ -294,7 +309,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 84484
+      "bytes": 94541
     },
     {
       "path": "native/core.rf2",
@@ -369,7 +384,7 @@
     {
       "path": "site/rf2/index.html",
       "language": "HTML",
-      "bytes": 8076
+      "bytes": 8071
     },
     {
       "path": "site/riverflow.mjs",
@@ -437,6 +452,11 @@
       "bytes": 5806
     },
     {
+      "path": "tests/standalone/buffer_audit_verify.py",
+      "language": "Python",
+      "bytes": 4971
+    },
+    {
       "path": "tests/standalone/cleanup_adversarial.py",
       "language": "Python",
       "bytes": 7905
@@ -449,7 +469,7 @@
     {
       "path": "tests/standalone/compiler_verify.py",
       "language": "Python",
-      "bytes": 8285
+      "bytes": 8472
     },
     {
       "path": "tests/standalone/conditional_reduction_verify.py",
@@ -679,7 +699,12 @@
     {
       "path": "tests/standalone/sdk.mjs",
       "language": "JavaScript",
-      "bytes": 3786
+      "bytes": 3822
+    },
+    {
+      "path": "tests/standalone/structured_results_verify.py",
+      "language": "Python",
+      "bytes": 11695
     },
     {
       "path": "tests/standalone/text_verify.py",
@@ -697,9 +722,14 @@
       "bytes": 9147
     },
     {
+      "path": "tests/standalone/vector_verify.py",
+      "language": "Python",
+      "bytes": 10556
+    },
+    {
       "path": "tests/standalone/verify.py",
       "language": "Python",
-      "bytes": 9746
+      "bytes": 9791
     },
     {
       "path": "tests/standalone/workspace_verify.py",

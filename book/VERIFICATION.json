@@ -1,6 +1,6 @@
 {
-  "pages": 87,
-  "tocEntries": 34,
+  "pages": 90,
+  "tocEntries": 35,
   "outOfPageText": [],
   "completeExamples": 5,
   "referenceTestGroups": 16,
@@ -10,7 +10,7 @@
   "independentMcpSdk": "passed",
   "rebuildByteIdentity": "passed",
   "epubZipXml": "verified, not full EPUBCheck",
-  "visualReview": "Contents and Chapter29 pages82-83 rendered and inspected; all-page bounds passed",
+  "visualReview": "Single-page35-entry contents and Chapter30 pages84-86 inspected; all-page bounds passed. TOC row padding adjusted to avoid orphaned continuation.",
   "nativeCompilerFixedPoint": true,
   "nativeCompilerExecutedCases": 24,
   "nativeCompilerNegativeCases": 15,
@@ -36,11 +36,11 @@
   "compilerBoundChecks": "128/129/255/256 accepted, 257 refused, last function 256 locals",
   "editorChecks": "7 edits, 150 refusals, 5 roundtrips, PDF byte comparison, two uploads and idle concurrency",
   "platformChecks": "5 executions and 4 arity refusals",
-  "runtimeSHA256": "8ee14a20b708b5ba6d5c17873e2a0deb5aa6bedbf8500d3ca5d60c78c6d0a46b",
+  "runtimeSHA256": "681c48fc9d8ca12162102e8841c113603ee044be883cc191668d24c96652692b",
   "modulesAndRecords": "60 record executions, 44 type refusals, 13 import refusals, 60 workload cases, 13 workload refusals, 150 old-version comparisons",
   "moduleBounds": "7 successful field/type/file/depth/recursive lifetime boundaries; 4 refused over-bound cases",
-  "compactMCP": "Installed0.16 plugin passed independent official SDK default and compact modes",
-  "pdfSHA256": "b681151c9072b29811b12e65b383918cdd308f8bf76803b1ede1482a1cbd2177",
+  "compactMCP": "Installed0.17 plugin passed independent official SDK default and compact modes",
+  "pdfSHA256": "733726ff588651497a9816f91ae4dad6c62fada08319c1f046fb8105c2f7ed26",
   "optimizerCases": "240 direct iteration, 80 arbitrary precision, 60 fallback, 2205 instruction edge cases, 180 control cases, 5 side-effecting conditions, 340 narrowing cases",
   "nativeRegisterABI": "4 optimized executions, plus default ABI and optimized maximum-frame checks",
   "optimizerMeasurements": "Seven rotated launch-inclusive trials per variant and size; old RF2, Clang loop and specialised C formula; all checksums checked",
@@ -48,5 +48,6 @@
   "resultsViews": "158 agent-authored mode cases,44 independent critic fixtures,266 app/edge checks,18 multiple-view checks",
   "unicodeCleanup": "686 Unicode view checks,52 cleanup probes,332 real application checks in default and optimized modes",
   "ownedFiles": "136 independent owner probes,182 exact hex application checks; previous Unicode/cleanup apps replayed",
-  "logicalGuards": "630 logic and file-prefix cases in default/optimized modes; prior136 owner and182 hex app probes replayed"
+  "logicalGuards": "630 logic and file-prefix cases in default/optimized modes; prior136 owner and182 hex app probes replayed",
+  "storageResults": "94 vector checks,120 structured-result checks,210 app checks; older feature suites replayed"
 }

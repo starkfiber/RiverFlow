@@ -2,7 +2,7 @@
 name: rf2
 description: Check and execute RiverFlow Core/compact programs, lower checked kernels, use the versioned attendance exporter, and develop native compiler evidence.
 ---
-# RiverFlow RF² 0.16
+# RiverFlow RF² 0.17
 
 Use rf2_status first. Read docs/NATIVE-CORE.md and docs/STANDALONE.md for current profiles/effects. Nine native tools exist: rf2_status, rf2_check, rf2_run, rf2_lower, attendance_export, invoice_total, invoice_prepare, invoice_apply and invoice_release. Users require no Node/npm/Python/C++ runtime. The host provides AI intelligence; the executable has no embedded model.
 
@@ -93,3 +93,9 @@ Automatic cleanup on ordinary returns reports err(65536+errno) if the primary re
 ## Logical guards, 0.16
 
 Read docs/LOGICAL-GUARDS.md. Trusted systems source supports true/false and all(a,b), any(a,b), not(a). Scalars use zero/nonzero truthiness and normalize to0/1. all/any short-circuit at runtime, but skipped operands remain statically checked. Bitwise operators remain eager. Pure logical intrinsics may read live views; actual calls in operands still obey view freeze. These five names are now reserved. No distinct Boolean type, Core/MCP grammar/effect expansion or new speed/token result. Use examples/file-kind for owned read-only signature inspection, not full file validity or security.
+
+## Growable bytes and structured success results, 0.17
+
+Read docs/STORAGE-RESULTS.md. vector Bytes(IO,max) requires canonical decimal 1..1048576. own b=Bytes() reserves virtual address space with PROT_NONE; reserve/push enable a prefix before committing logical capacity. Stable address does not mean an unbounded heap, relocating malloc or measured physical commitment. buffer_reserve/push/get/clear return handled scalar IO outcomes; indexes and properties check logical bounds and lifetime. Release/automatic unmap use the owned cleanup protocol. No vector copy, passing, return, views or raw-pointer extraction.
+
+result Report(Stats,u64) supports 1..4 scalar fields in a nominal record success. return ok(local_record) copies x1..x4; the annotated ok summary:Stats handler copies into its own frame. Payloads are immutable and arm-scoped; passing the whole payload to a mutable helper refuses, while scalar field arguments are allowed. Existing scalar ABI is unchanged. Owners require scalar IO, so a structured wrapper calls a scalar IO helper before returning a record. No generic structured errors, deep ownership or general FFI claim. Use examples/buffer-audit and qualification receipts. The external review brief and second opinion distinguish baseline, proposals and qualified evidence. Nine MCP schemas remain unchanged; no new speed/token claim.

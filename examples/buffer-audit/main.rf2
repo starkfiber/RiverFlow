@@ -1,0 +1,28 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/audit.rf2"
+use "lib/output.rf2"
+fn main(argc,argv)
+ if argc!=2
+  do write(2,"Usage: rf2-buffer-audit file\n",29)
+  return 1
+ end
+ let status=0
+ handle audit_file(load64(argv+8))
+ ok summary:Stats
+  set status=status|emit("{\"bytes\":")
+  set status=status|emit_number(summary.bytes)
+  set status=status|emit(",\"lines\":")
+  set status=status|emit_number(summary.lines)
+  set status=status|emit(",\"zeros\":")
+  set status=status|emit_number(summary.zeros)
+  set status=status|emit(",\"fingerprint\":")
+  set status=status|emit_number(summary.fingerprint)
+  set status=status|emit("}\n")
+ err cause
+  do emit("{\"error\":")
+  do emit_number(cause)
+  do emit("}\n")
+  set status=1
+ end
+ return status
+end
