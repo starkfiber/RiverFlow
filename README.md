@@ -12,6 +12,12 @@ RiverFlow turns readable source into useful native programs. Its compiler emits 
 
 **The direction:** one understandable language for application and systems work. Each capability ships with its input contract, failure behavior, target limits and executed evidence.
 
+## Research direction: make results challengeable
+
+The [Evidence Contract candidate](docs/EVIDENCE-CONTRACT.md) combines five tested mechanisms in a native RF2 application: permission and work checks, atomic byte transformations, independent execution, source-bound SHA-256 receipts and replayable failures. It is a research candidate built with 0.17, separate from the released package. These mechanisms have [established prior art](docs/FIVE-HYPOTHESES-REVIEW.md); their integration is the experiment.
+
+The [ten-language source audit](docs/TOP-TEN-LANGUAGE-AUDIT.md) compares RF2 with selected implementations from Python through C, SQL and Go, with assembly as a separate low-level reference. It includes an A–Z acceptance ledger and marks missing capabilities explicitly. Popularity and shorter spelling do not prove correctness, speed or adoption.
+
 ## Start with something real
 
 The Apple Silicon Mac package contains ready-to-run tools. Users need no Node, npm, Python or C++ runtime.

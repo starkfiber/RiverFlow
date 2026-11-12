@@ -1,0 +1,166 @@
+module engine
+array Data(u8,128)
+array Ops(u64,32)
+record Plan(count:u64,steps:u64,allow:u64,budget:u64)
+record Run(code:u64,step:u64,index:u64,expected:u64,actual:u64,work:u64)
+# Codes:0 success,1 invalid plan,2 denied capability,3 budget,
+# 4 reference checked-add overflow,5 candidate disagreement.
+# Work is an abstract element-operation count, not CPU instructions or time.
+fn execute(data:Data,plan:Plan,codes:Ops,args:Ops,r:Run)
+ let reference=Data()
+ let candidate=Data()
+ let i=0
+ let j=0
+ let n=plan.count
+ let steps=plan.steps
+ let opcode=0
+ let operand=0
+ let value=0
+ let other=0
+ let reverse_parity=0
+ let source_index=0
+ let required=0
+ set r.code=0
+ set r.step=0
+ set r.index=0
+ set r.expected=0
+ set r.actual=0
+ set r.work=0
+ # These bounds precede every indexed read and budget multiplication.
+ if any(n>128,any(steps>32,plan.allow>7))
+  set r.code=1
+  return 1
+ end
+ while j<steps
+  set opcode=codes[j]
+  set operand=args[j]
+  if not(any(opcode==1,any(opcode==2,opcode==4)))
+   set r.code=1
+   set r.step=j
+   set r.actual=opcode
+   return 1
+  end
+  if any(operand>255,all(opcode==4,operand!=0))
+   set r.code=1
+   set r.step=j
+   set r.actual=operand
+   return 1
+  end
+  if (plan.allow&opcode)!=opcode
+   set r.code=2
+   set r.step=j
+   set r.expected=opcode
+   set r.actual=plan.allow
+   return 2
+  end
+  if opcode==4
+   set reverse_parity=reverse_parity^1
+  end
+  set j=j+1
+ end
+ set required=2*n*steps
+ if plan.budget<required
+  set r.code=3
+  set r.expected=required
+  set r.actual=plan.budget
+  return 3
+ end
+ # Both engines work in private arrays. No data writes occur before agreement.
+ while i<n
+  set reference[i]=data[i]
+  set i=i+1
+ end
+ # Reference: complete one operation over the entire array before the next.
+ set j=0
+ while j<steps
+  set opcode=codes[j]
+  set operand=args[j]
+  set i=0
+  if opcode==4
+   while i<(n//2)
+    set value=reference[i]
+    set other=n-1-i
+    set reference[i]=reference[other]
+    set reference[other]=value
+    set i=i+1
+   end
+   set r.work=r.work+n
+  else
+   while i<n
+    set value=reference[i]
+    set r.work=r.work+1
+    if opcode==1
+     if value>255-operand
+      set r.code=4
+      set r.step=j
+      set r.index=i
+      set r.expected=255
+      set r.actual=value+operand
+      return 4
+     end
+     set value=value+operand
+    else
+     set value=value^operand
+    end
+    set reference[i]=value
+    set i=i+1
+   end
+  end
+  set j=j+1
+ end
+ # Candidate: compute each output from its parity-selected original element,
+ # then fuse the pointwise transforms. Reversal commutes with uniform maps.
+ set i=0
+ while i<n
+  set source_index=i
+  if reverse_parity
+   set source_index=n-1-i
+  end
+  set value=data[source_index]
+  set j=0
+  while j<steps
+   set opcode=codes[j]
+   set r.work=r.work+1
+   if opcode==1
+    set value=value+args[j]
+   else
+    if opcode==2
+     set value=value^args[j]
+    end
+   end
+   set j=j+1
+  end
+  # A candidate fault must become a reported disagreement, not a byte trap.
+  if value>255
+   set r.code=5
+   set r.step=steps
+   set r.index=i
+   set r.expected=reference[i]
+   set r.actual=value
+   return 5
+  end
+  # Candidate output store
+  set candidate[i]=value
+  set i=i+1
+ end
+ # Compare complete active state, not just a checksum.
+ set i=0
+ while i<n
+  if candidate[i]!=reference[i]
+   set r.code=5
+   set r.step=steps
+   set r.index=i
+   set r.expected=reference[i]
+   set r.actual=candidate[i]
+   return 5
+  end
+  set i=i+1
+ end
+ # The only writes to public state are in this final commit loop.
+ set i=0
+ while i<n
+  set data[i]=candidate[i]
+  set i=i+1
+ end
+ return 0
+end

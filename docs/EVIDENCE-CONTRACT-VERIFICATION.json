@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-12",
+  "target": "macOS ARM64",
+  "baseline": "b6fae621368f16e4d23cb37975b6b122bb961e39",
+  "candidate": "Research application using unchanged RF2 0.17 compiler; not a replacement release",
+  "build": {
+    "source_identity": "690ee371a7a412a2ef46428c4ee5dbddd4fc4ac9a9c72ac26118cb481c7a673b",
+    "source_files": [
+      {
+        "path": "lib/engine.rf2",
+        "sha256": "5ae7360d040f22ff7c7107b23a0bc7e6f45589374a5a242e7862d3b534977e93",
+        "bytes": 3579
+      },
+      {
+        "path": "lib/output.rf2",
+        "sha256": "b15fba158a6816c71de0bbb35db8c7eb93e728d927414a3ef0aeab06cdde6b23",
+        "bytes": 881
+      },
+      {
+        "path": "lib/parser.rf2",
+        "sha256": "f86c7909888460bb2cfd6f6f04c993356115948190da39c7e5fa7ae019ca57a9",
+        "bytes": 2033
+      },
+      {
+        "path": "lib/sha256.rf2",
+        "sha256": "182e92384692f39749df35fc9be4a30ae3fe07c0698885dfd1359d2c814c78f2",
+        "bytes": 5213
+      },
+      {
+        "path": "main.rf2",
+        "sha256": "4ea85c04aa0552286d62c80cdf42ecea854d2da6c4dbc5bbbe1199e1d465d30e",
+        "bytes": 3666
+      }
+    ],
+    "compiler_sha256": "8cac670c59421bfb83b92e5d12efda7e7951bd01b7c177c116d7f7c430deeb5e",
+    "binary_sha256": "bade420363b8255a6cd529fdfc60a475e7a0bab429faa82bbdafdbc97f0b00ad",
+    "options": [
+      "--opt"
+    ]
+  },
+  "nativeSuites": {
+    "engine": {
+      "passed": true,
+      "checks": 554,
+      "rawReportSHA256": "0b8a72bcdebdbef226464740c05781d49f13a48fc32a5db2d6fbd92667d49bc8",
+      "controller": "tests/standalone/contract_engine_verify.py",
+      "controllerSHA256": "7b07a6f980007f681089fab243b3bebb5f3ec48723feef542e31901ce19605c7"
+    },
+    "cli": {
+      "passed": true,
+      "checks": 290,
+      "rawReportSHA256": "68f7e48ed17a938f34bc812f1328ac85c7199485181621841876819a0782fc74",
+      "controller": "tests/standalone/contract_cli_verify.py",
+      "controllerSHA256": "476caf6297d25462b1df9eca9c94133823a7164f78d25741031ef53a2ed202da"
+    }
+  },
+  "totalNativeChecks": 844,
+  "mcp": {
+    "tools": 9,
+    "sdkDiscoveryResultRefusalRecovery": "passed",
+    "prepared": {
+      "passed": true,
+      "prepared": 33,
+      "applied": 65,
+      "refusals": 75,
+      "released": 32,
+      "runtimeSHA256": "681c48fc9d8ca12162102e8841c113603ee044be883cc191668d24c96652692b"
+    }
+  },
+  "sourceAudit": {
+    "repositories": 9,
+    "selectedFiles": 28,
+    "entireRepositoryAudit": false
+  },
+  "whatif": {
+    "sourceReviewFiles": 0,
+    "coverage": "RF2 extension unsupported; no source-audit pass claimed",
+    "method": "Native oracle, mutation, malformed input and replay tests executed separately"
+  },
+  "rea": {
+    "artifactSHA256": "bade420363b8255a6cd529fdfc60a475e7a0bab429faa82bbdafdbc97f0b00ad",
+    "macho": "ARM64; observed 4 segments, 10 load commands",
+    "signature": "ad-hoc signed, no signing authority, not hardened",
+    "scope": "Static layout/signature, not deep decompilation or behavioral proof"
+  },
+  "limits": [
+    "Finite tests share one compiler and host; not formal proof",
+    "Receipt is source-bound; separate manifest records binary and compiler hashes, no execution attestation",
+    "No new speed/token/energy result",
+    "Five mechanisms have prior art; integration novelty and developer benefit unproved",
+    "Plan plus JSON is a replay capsule; JSON alone is insufficient",
+    "Existing nine MCP tools unchanged; no contract MCP effect added"
+  ]
+}

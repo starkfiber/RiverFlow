@@ -1,0 +1,179 @@
+module digest
+# SHA-256 implementation reused from the RF2 native compiler.
+fn rotate(v, n)
+ return ((v >> n) | (v << (32 - n))) & 4294967295
+end
+fn sha256(src, n)
+ let k = buffer("sha_k", 256)
+ let hstate = buffer("sha_h", 32)
+ let w = buffer("sha_w", 256)
+ let block = buffer("sha_block", 64)
+ let digest = buffer("sha_digest", 32)
+ let i = 0
+ let j = 0
+ let blocks = (n + 72) // 64
+ let position = 0
+ let value = 0
+ let a = 0
+ let b = 0
+ let c = 0
+ let d = 0
+ let e = 0
+ let f = 0
+ let g = 0
+ let h = 0
+ let t1 = 0
+ let t2 = 0
+ let s0 = 0
+ let s1 = 0
+ do store32(k + 0, 1116352408)
+ do store32(k + 4, 1899447441)
+ do store32(k + 8, 3049323471)
+ do store32(k + 12, 3921009573)
+ do store32(k + 16, 961987163)
+ do store32(k + 20, 1508970993)
+ do store32(k + 24, 2453635748)
+ do store32(k + 28, 2870763221)
+ do store32(k + 32, 3624381080)
+ do store32(k + 36, 310598401)
+ do store32(k + 40, 607225278)
+ do store32(k + 44, 1426881987)
+ do store32(k + 48, 1925078388)
+ do store32(k + 52, 2162078206)
+ do store32(k + 56, 2614888103)
+ do store32(k + 60, 3248222580)
+ do store32(k + 64, 3835390401)
+ do store32(k + 68, 4022224774)
+ do store32(k + 72, 264347078)
+ do store32(k + 76, 604807628)
+ do store32(k + 80, 770255983)
+ do store32(k + 84, 1249150122)
+ do store32(k + 88, 1555081692)
+ do store32(k + 92, 1996064986)
+ do store32(k + 96, 2554220882)
+ do store32(k + 100, 2821834349)
+ do store32(k + 104, 2952996808)
+ do store32(k + 108, 3210313671)
+ do store32(k + 112, 3336571891)
+ do store32(k + 116, 3584528711)
+ do store32(k + 120, 113926993)
+ do store32(k + 124, 338241895)
+ do store32(k + 128, 666307205)
+ do store32(k + 132, 773529912)
+ do store32(k + 136, 1294757372)
+ do store32(k + 140, 1396182291)
+ do store32(k + 144, 1695183700)
+ do store32(k + 148, 1986661051)
+ do store32(k + 152, 2177026350)
+ do store32(k + 156, 2456956037)
+ do store32(k + 160, 2730485921)
+ do store32(k + 164, 2820302411)
+ do store32(k + 168, 3259730800)
+ do store32(k + 172, 3345764771)
+ do store32(k + 176, 3516065817)
+ do store32(k + 180, 3600352804)
+ do store32(k + 184, 4094571909)
+ do store32(k + 188, 275423344)
+ do store32(k + 192, 430227734)
+ do store32(k + 196, 506948616)
+ do store32(k + 200, 659060556)
+ do store32(k + 204, 883997877)
+ do store32(k + 208, 958139571)
+ do store32(k + 212, 1322822218)
+ do store32(k + 216, 1537002063)
+ do store32(k + 220, 1747873779)
+ do store32(k + 224, 1955562222)
+ do store32(k + 228, 2024104815)
+ do store32(k + 232, 2227730452)
+ do store32(k + 236, 2361852424)
+ do store32(k + 240, 2428436474)
+ do store32(k + 244, 2756734187)
+ do store32(k + 248, 3204031479)
+ do store32(k + 252, 3329325298)
+ do store32(hstate + 0, 1779033703)
+ do store32(hstate + 4, 3144134277)
+ do store32(hstate + 8, 1013904242)
+ do store32(hstate + 12, 2773480762)
+ do store32(hstate + 16, 1359893119)
+ do store32(hstate + 20, 2600822924)
+ do store32(hstate + 24, 528734635)
+ do store32(hstate + 28, 1541459225)
+ set i = 0
+ while i < blocks
+  set j = 0
+  while j < 64
+   set position = i * 64 + j
+   set value = 0
+   if position < n
+    set value = load8(src + position)
+   else
+    if position == n
+     set value = 128
+    else
+     if position >= blocks * 64 - 8
+      set value = ((n * 8) >> ((blocks * 64 - position - 1) * 8)) & 255
+     end
+    end
+   end
+   do store8(block + j, value)
+   set j = j + 1
+  end
+  set j = 0
+  while j < 16
+   set position = block + j * 4
+   set value = (load8(position) << 24) | (load8(position + 1) << 16) | (load8(position + 2) << 8) | load8(position + 3)
+   do store32(w + j * 4, value)
+   set j = j + 1
+  end
+  while j < 64
+   set value = load32(w + (j - 15) * 4)
+   set s0 = rotate(value, 7) ^ rotate(value, 18) ^ (value >> 3)
+   set value = load32(w + (j - 2) * 4)
+   set s1 = rotate(value, 17) ^ rotate(value, 19) ^ (value >> 10)
+   do store32(w + j * 4, load32(w + (j - 16) * 4) + s0 + load32(w + (j - 7) * 4) + s1)
+   set j = j + 1
+  end
+  set a = load32(hstate)
+  set b = load32(hstate + 4)
+  set c = load32(hstate + 8)
+  set d = load32(hstate + 12)
+  set e = load32(hstate + 16)
+  set f = load32(hstate + 20)
+  set g = load32(hstate + 24)
+  set h = load32(hstate + 28)
+  set j = 0
+  while j < 64
+   set s1 = rotate(e, 6) ^ rotate(e, 11) ^ rotate(e, 25)
+   set value = (e & f) ^ ((~e) & g)
+   set t1 = (h + s1 + value + load32(k + j * 4) + load32(w + j * 4)) & 4294967295
+   set s0 = rotate(a, 2) ^ rotate(a, 13) ^ rotate(a, 22)
+   set value = (a & b) ^ (a & c) ^ (b & c)
+   set t2 = (s0 + value) & 4294967295
+   set h = g
+   set g = f
+   set f = e
+   set e = (d + t1) & 4294967295
+   set d = c
+   set c = b
+   set b = a
+   set a = (t1 + t2) & 4294967295
+   set j = j + 1
+  end
+  do store32(hstate, load32(hstate) + a)
+  do store32(hstate + 4, load32(hstate + 4) + b)
+  do store32(hstate + 8, load32(hstate + 8) + c)
+  do store32(hstate + 12, load32(hstate + 12) + d)
+  do store32(hstate + 16, load32(hstate + 16) + e)
+  do store32(hstate + 20, load32(hstate + 20) + f)
+  do store32(hstate + 24, load32(hstate + 24) + g)
+  do store32(hstate + 28, load32(hstate + 28) + h)
+  set i = i + 1
+ end
+ set i = 0
+ while i < 32
+  set value = load32(hstate + (i // 4) * 4)
+  do store8(digest + i, (value >> ((3 - (i & 3)) * 8)) & 255)
+  set i = i + 1
+ end
+ return digest
+end

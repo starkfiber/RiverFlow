@@ -1,0 +1,7 @@
+RF2E1
+allow 7
+budget 12
+input 3 1 2 250
+steps 2
+xor 1
+add 10

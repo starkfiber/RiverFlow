@@ -1,0 +1,237 @@
+{
+  "reviewDate": "2026-11-12 Asia/Kuala_Lumpur",
+  "scope": "Selected primary implementation source paths fetched, not entire repositories/builds/execution/conformance. wch/r-source is a mirror of R implementation, not a language specification.",
+  "projects": [
+    {
+      "repo": "python/cpython",
+      "commit": "9f386367333f7845095d764fad3ad9b397d04672",
+      "commitDate": "2026-11-12T08:39:32Z",
+      "files": [
+        {
+          "path": "Grammar/python.gram",
+          "url": "https://github.com/python/cpython/blob/9f386367333f7845095d764fad3ad9b397d04672/Grammar/python.gram",
+          "sha256": "a1aa3e27318076703f9f2f824d66ae93703b7e5e0d405e99b36dfe2f64599b5c",
+          "bytes": 45060
+        },
+        {
+          "path": "Objects/listobject.c",
+          "url": "https://github.com/python/cpython/blob/9f386367333f7845095d764fad3ad9b397d04672/Objects/listobject.c",
+          "sha256": "357fe380782dd6c223f6e511db7cd3c5e02fe6be8c9feb77a0832084eb901ec7",
+          "bytes": 132933
+        },
+        {
+          "path": "Objects/dictobject.c",
+          "url": "https://github.com/python/cpython/blob/9f386367333f7845095d764fad3ad9b397d04672/Objects/dictobject.c",
+          "sha256": "e157f894058e70467f11897ac3afb35a0470ef2b8dced0a9065c0d6e683c53f0",
+          "bytes": 265056
+        },
+        {
+          "path": "Python/ceval.c",
+          "url": "https://github.com/python/cpython/blob/9f386367333f7845095d764fad3ad9b397d04672/Python/ceval.c",
+          "sha256": "fbdeaf4b275ab17352dbe3aa304be7343f08b8e0d502e2f5dbe7bedae635b9af",
+          "bytes": 120960
+        }
+      ]
+    },
+    {
+      "repo": "llvm/llvm-project",
+      "commit": "1b1fed44d3dcca649a9877915d57c3357a98124e",
+      "commitDate": "2026-11-12T08:32:59Z",
+      "files": [
+        {
+          "path": "clang/lib/Parse/ParseExpr.cpp",
+          "url": "https://github.com/llvm/llvm-project/blob/1b1fed44d3dcca649a9877915d57c3357a98124e/clang/lib/Parse/ParseExpr.cpp",
+          "sha256": "05010dcd6578d8ee6149f00ad3249f94c8380b447ac834d477f16c9f7088902b",
+          "bytes": 134944
+        },
+        {
+          "path": "clang/lib/Sema/SemaExpr.cpp",
+          "url": "https://github.com/llvm/llvm-project/blob/1b1fed44d3dcca649a9877915d57c3357a98124e/clang/lib/Sema/SemaExpr.cpp",
+          "sha256": "72223fe2e8582e0f81f5e184b41bf61288fe0fc24448711e9064a96083b0d741",
+          "bytes": 911153
+        },
+        {
+          "path": "clang/lib/CodeGen/CGExpr.cpp",
+          "url": "https://github.com/llvm/llvm-project/blob/1b1fed44d3dcca649a9877915d57c3357a98124e/clang/lib/CodeGen/CGExpr.cpp",
+          "sha256": "a709773899291dec39c69d99d0e534ff89ad50b4651ae48a385defbea9170dea",
+          "bytes": 314233
+        },
+        {
+          "path": "libcxx/include/__vector/vector.h",
+          "url": "https://github.com/llvm/llvm-project/blob/1b1fed44d3dcca649a9877915d57c3357a98124e/libcxx/include/__vector/vector.h",
+          "sha256": "a591a76d6c3133850849593df6e2c108b557a420a88dbb219a967895b28acb79",
+          "bytes": 56329
+        },
+        {
+          "path": "llvm/lib/Target/AArch64/AArch64InstrInfo.td",
+          "url": "https://github.com/llvm/llvm-project/blob/1b1fed44d3dcca649a9877915d57c3357a98124e/llvm/lib/Target/AArch64/AArch64InstrInfo.td",
+          "sha256": "9e6b9106721f1b45388e02b4d7dc07dd7adda506cd2b2f7670e9e6617c55ea0f",
+          "bytes": 660754
+        }
+      ]
+    },
+    {
+      "repo": "openjdk/jdk",
+      "commit": "0ffbaaa5f40fdfe6d227e10e2a734eda25772121",
+      "commitDate": "2026-11-12T08:23:45Z",
+      "files": [
+        {
+          "path": "src/jdk.compiler/share/classes/com/sun/tools/javac/main/JavaCompiler.java",
+          "url": "https://github.com/openjdk/jdk/blob/0ffbaaa5f40fdfe6d227e10e2a734eda25772121/src/jdk.compiler/share/classes/com/sun/tools/javac/main/JavaCompiler.java",
+          "sha256": "7aeb43c2af826eb8cb387510ee6ef785762994a1ffff42856df3008715d4d12b",
+          "bytes": 76038
+        },
+        {
+          "path": "src/hotspot/share/runtime/threads.cpp",
+          "url": "https://github.com/openjdk/jdk/blob/0ffbaaa5f40fdfe6d227e10e2a734eda25772121/src/hotspot/share/runtime/threads.cpp",
+          "sha256": "01823257a0be71c60af42e25e9b7e495b5d7016f555553ef632bfd4d9c7ecd75",
+          "bytes": 55586
+        },
+        {
+          "path": "src/java.base/share/classes/java/util/ArrayList.java",
+          "url": "https://github.com/openjdk/jdk/blob/0ffbaaa5f40fdfe6d227e10e2a734eda25772121/src/java.base/share/classes/java/util/ArrayList.java",
+          "sha256": "1b6a277280021955165935bf36683fc7600fa8d543a9895b7c22950064c9548d",
+          "bytes": 66194
+        }
+      ]
+    },
+    {
+      "repo": "dotnet/roslyn",
+      "commit": "b907b90240f9f22873227aa510794dd280d61f57",
+      "commitDate": "2026-11-12T06:37:20Z",
+      "files": [
+        {
+          "path": "src/Compilers/CSharp/Portable/Syntax/SyntaxFactory.cs",
+          "url": "https://github.com/dotnet/roslyn/blob/b907b90240f9f22873227aa510794dd280d61f57/src/Compilers/CSharp/Portable/Syntax/SyntaxFactory.cs",
+          "sha256": "af5808c186f894e09eecef9d83d660dab0ec6d6243b130f190ae8c3d514f7599",
+          "bytes": 154507
+        },
+        {
+          "path": "src/Compilers/VisualBasic/Portable/Compilation/VisualBasicCompilation.vb",
+          "url": "https://github.com/dotnet/roslyn/blob/b907b90240f9f22873227aa510794dd280d61f57/src/Compilers/VisualBasic/Portable/Compilation/VisualBasicCompilation.vb",
+          "sha256": "a638f1a04ed3312cf65c2c87e87f0c4ae5ac9db0d33b43b52a7bb3e6e61740ff",
+          "bytes": 166832
+        }
+      ]
+    },
+    {
+      "repo": "dotnet/runtime",
+      "commit": "5f7ac81dc6222f94c9bac5267ad2c01340b58f93",
+      "commitDate": "2026-11-12T08:46:37Z",
+      "files": [
+        {
+          "path": "src/coreclr/gc/gc.cpp",
+          "url": "https://github.com/dotnet/runtime/blob/5f7ac81dc6222f94c9bac5267ad2c01340b58f93/src/coreclr/gc/gc.cpp",
+          "sha256": "d71e853eac7262b8d06b5a22c21d8d492a4da12a1213f7318295af178d4a98ff",
+          "bytes": 149844
+        },
+        {
+          "path": "src/libraries/System.Private.CoreLib/src/System/Collections/Generic/List.cs",
+          "url": "https://github.com/dotnet/runtime/blob/5f7ac81dc6222f94c9bac5267ad2c01340b58f93/src/libraries/System.Private.CoreLib/src/System/Collections/Generic/List.cs",
+          "sha256": "a90d901f0f4524445935460099157077f4aa036a9928385eb7c3ac989be35a72",
+          "bytes": 43554
+        }
+      ]
+    },
+    {
+      "repo": "v8/v8",
+      "commit": "fb3d762b1d35683776a99bdf4ce466a404280002",
+      "commitDate": "2026-11-12T08:10:09Z",
+      "files": [
+        {
+          "path": "src/parsing/parser.cc",
+          "url": "https://github.com/v8/v8/blob/fb3d762b1d35683776a99bdf4ce466a404280002/src/parsing/parser.cc",
+          "sha256": "91f23ae7e5482ce450f229be38dd20c75c3002875927e3698449a4077e6b6b6d",
+          "bytes": 157218
+        },
+        {
+          "path": "src/interpreter/interpreter.cc",
+          "url": "https://github.com/v8/v8/blob/fb3d762b1d35683776a99bdf4ce466a404280002/src/interpreter/interpreter.cc",
+          "sha256": "7fa7d290d5bb88441dec071df3a6fcfd4c1b9c91b8bed8a6ae1d6220a517386a",
+          "bytes": 14303
+        },
+        {
+          "path": "src/heap/heap.cc",
+          "url": "https://github.com/v8/v8/blob/fb3d762b1d35683776a99bdf4ce466a404280002/src/heap/heap.cc",
+          "sha256": "a76fbb8ca31f72c112f971801d6690950956a2c11d2822c9862cc40d5137c3dd",
+          "bytes": 292835
+        }
+      ]
+    },
+    {
+      "repo": "wch/r-source",
+      "commit": "780021752eb83a71e2198019acf069ba8741103b",
+      "commitDate": "2013-03-24T16:11:35Z",
+      "files": [
+        {
+          "path": "src/main/gram.y",
+          "url": "https://github.com/wch/r-source/blob/780021752eb83a71e2198019acf069ba8741103b/src/main/gram.y",
+          "sha256": "2c34e4c249b51c22ce736acfa05e8c79cad948c12a14f8ad6e2751a4271060fb",
+          "bytes": 89791
+        },
+        {
+          "path": "src/main/memory.c",
+          "url": "https://github.com/wch/r-source/blob/780021752eb83a71e2198019acf069ba8741103b/src/main/memory.c",
+          "sha256": "c99a9839738b0c6f35005424bc3e812350547f16772cea9bfac2d23a1b3ca0d1",
+          "bytes": 104818
+        },
+        {
+          "path": "src/main/eval.c",
+          "url": "https://github.com/wch/r-source/blob/780021752eb83a71e2198019acf069ba8741103b/src/main/eval.c",
+          "sha256": "089d9d614eb5a392893f801ef07ef7129a28a56166c509b733e8064f697820df",
+          "bytes": 156165
+        }
+      ]
+    },
+    {
+      "repo": "postgres/postgres",
+      "commit": "9a849767eb281c9502aab4a7384a654004ec6ffe",
+      "commitDate": "2026-11-12T05:51:23Z",
+      "files": [
+        {
+          "path": "src/backend/parser/gram.y",
+          "url": "https://github.com/postgres/postgres/blob/9a849767eb281c9502aab4a7384a654004ec6ffe/src/backend/parser/gram.y",
+          "sha256": "9915bd2d6050b83c97850e08156c18ebf99e5578bb9520ce05b985817d01fccb",
+          "bytes": 519662
+        },
+        {
+          "path": "src/backend/executor/execMain.c",
+          "url": "https://github.com/postgres/postgres/blob/9a849767eb281c9502aab4a7384a654004ec6ffe/src/backend/executor/execMain.c",
+          "sha256": "35449f5a5340c84290246ccd500213239d37bd01524b4f1fb8091d4e4a443719",
+          "bytes": 101665
+        },
+        {
+          "path": "src/backend/access/transam/xact.c",
+          "url": "https://github.com/postgres/postgres/blob/9a849767eb281c9502aab4a7384a654004ec6ffe/src/backend/access/transam/xact.c",
+          "sha256": "750c6fcefb4f1dff339cecef7d655dc6c4690d22e066cf8da2a951493d002a58",
+          "bytes": 191167
+        }
+      ]
+    },
+    {
+      "repo": "golang/go",
+      "commit": "f37eedeb17ddc24aeeb66e69b9f94a99d23d5504",
+      "commitDate": "2026-11-12T01:54:05Z",
+      "files": [
+        {
+          "path": "src/cmd/compile/README.md",
+          "url": "https://github.com/golang/go/blob/f37eedeb17ddc24aeeb66e69b9f94a99d23d5504/src/cmd/compile/README.md",
+          "sha256": "019dfb6331c2cac982b9d6695cf59f59b7164e841f69fac200bacf50724d3b2c",
+          "bytes": 18090
+        },
+        {
+          "path": "src/runtime/proc.go",
+          "url": "https://github.com/golang/go/blob/f37eedeb17ddc24aeeb66e69b9f94a99d23d5504/src/runtime/proc.go",
+          "sha256": "40ac1ca1bdc1d909e5004c0db3a100c2f1de55030add47bd8e4e33deefaad344",
+          "bytes": 244167
+        },
+        {
+          "path": "src/runtime/mgc.go",
+          "url": "https://github.com/golang/go/blob/f37eedeb17ddc24aeeb66e69b9f94a99d23d5504/src/runtime/mgc.go",
+          "sha256": "b1cb75ff1b5da577a1af442d5c52da2a08328510e4e70f66cb88d92e02a5b33e",
+          "bytes": 79497
+        }
+      ]
+    }
+  ]
+}

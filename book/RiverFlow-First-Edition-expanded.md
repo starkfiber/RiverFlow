@@ -1175,6 +1175,54 @@ The accompanying roadmap compares selected pinned CPython, OpenJDK and LLVM sour
 
 A copyable external-review brief asks another AI to record revisions, reproduce failures and preserve expected results before proposing patches. Next gates include a typed compiler representation, richer data and numerics, ownership transfer, libraries, concurrency and more targets. No universal compatibility, speed or token-saving conclusion follows from this release.
 
+# 31. Challenge the result before trusting it
+
+A useful program should explain what it may do and what evidence supports its result. The Evidence Contract research candidate explores that idea using five established techniques together. It is an RF2 application built with the unchanged 0.17 compiler, separate from the published runtime package.
+
+## A small, inspectable promise
+
+Consider this complete operation plan:
+
+```text
+RF2E1
+allow 7
+budget 18
+input 3 1 2 3
+steps 3
+add 5
+reverse
+xor 2
+```
+
+The input becomes `[10,5,4]`. Permission bits allow only checked byte addition, byte XOR and reversal. The work budget counts abstract element operations across two computations. It does not promise eighteen processor instructions or a particular execution time.
+
+## Five questions a result must answer
+
+First, is every requested operation permitted and within its declared bounds? The runner checks the complete plan before transforming data.
+
+Second, can an error leave half a change behind? Both computations use private arrays. A late overflow preserves the original caller state. This is an in-process transformation contract, not power-loss-safe filesystem storage.
+
+Third, does a differently organized computation agree? The reference applies one operation across the array at a time. The candidate computes each output using reversal parity and fused pointwise operations. Every active byte must match before the engine commits. Deliberately corrupting candidate output is a negative control, not a passing example.
+
+Fourth, which source and input produced this evidence? A versioned SHA-256 receipt binds source identity, exact plan bytes, output and full result fields. A separate build manifest records compiler and executable hashes. An unsigned digest does not authenticate execution. Source identity is not self-attestation by the binary.
+
+Fifth, can someone reproduce the failure? Keep the exact plan file and returned JSON witness together. A fresh process can compare its receipt with the trusted previous one. Changed inputs or sources cannot silently reuse that receipt. The JSON alone is not a complete executable capsule.
+
+## Build, inspect and disagree
+
+```sh
+python3 tools/build-contract.py output/bin/rf2-contract --opt
+output/bin/rf2-contract examples/evidence-contract/demo.plan
+python3 tests/standalone/contract_engine_verify.py
+python3 tests/standalone/contract_cli_verify.py
+```
+
+Python is a development builder and independent test oracle. The resulting native RF2 executable does not use it. The example is a bounded binary transformation preview with no input-file overwrite. It does not expand the nine MCP tools or admit unrestricted systems programs to the AI interface.
+
+These ideas have substantial prior art: effect systems, transactions, translation validation, provenance and deterministic replay. RF2 has not discovered a missing Boolean gate or a universal optimization. The useful hypothesis is that combining understandable contracts, enforced limits and reproducible counterexamples can make human and AI development easier to challenge and repair. That needs real developer experiments.
+
+See `docs/EVIDENCE-CONTRACT.md` for exact receipt encoding and limits, `docs/FIVE-HYPOTHESES-REVIEW.md` for primary references, and `docs/TOP-TEN-LANGUAGE-AUDIT.md` for the broader A–Z capability and acceptance ledger. Passing finite tests does not make a language bulletproof.
+
 # Appendix A. Commands and interfaces
 
 Native standalone, no Node or npm required:

@@ -1,0 +1,131 @@
+module parser
+record Cursor(p:u64,n:u64,i:u64,error:u64)
+fn space(v)
+ return any(v==32,any(v==9,any(v==10,v==13)))
+end
+fn skip(c:Cursor)
+ while c.i<c.n
+  if not(space(load8(c.p+c.i)))
+   return 0
+  end
+  set c.i=c.i+1
+ end
+ return 0
+end
+fn word(c:Cursor,w)
+ do skip(c)
+ let j=0
+ while load8(w+j)!=0
+  if c.i>=c.n
+   set c.error=1
+   return 0
+  end
+  if load8(c.p+c.i)!=load8(w+j)
+   set c.error=1
+   return 0
+  end
+  set c.i=c.i+1
+  set j=j+1
+ end
+ if c.i<c.n
+  if not(space(load8(c.p+c.i)))
+   set c.error=1
+  end
+ end
+ return 0
+end
+fn number(c:Cursor)
+ do skip(c)
+ let value=0
+ let digits=0
+ let byte=0
+ let first=0
+ while c.i<c.n
+  set byte=load8(c.p+c.i)
+  if space(byte)
+   if digits==0
+    set c.error=1
+   end
+   return value
+  end
+  if any(byte<48,byte>57)
+   set c.error=1
+   return 0
+  end
+  if digits==0
+   set first=byte
+  else
+   if first==48
+    set c.error=1
+    return 0
+   end
+  end
+  if any(value>1844674407370955161,all(value==1844674407370955161,byte>53))
+   set c.error=1
+   return 0
+  end
+  set value=value*10+byte-48
+  set digits=digits+1
+  set c.i=c.i+1
+ end
+ if digits==0
+  set c.error=1
+ end
+ return value
+end
+fn parse(c:Cursor,data:Data,p:Plan,codes:Ops,args:Ops)
+ let i=0
+ let v=0
+ do word(c,"RF2E1")
+ do word(c,"allow")
+ set p.allow=number(c)
+ do word(c,"budget")
+ set p.budget=number(c)
+ do word(c,"input")
+ set p.count=number(c)
+ if any(c.error,p.count>128)
+  return 1
+ end
+ while i<p.count
+  set v=number(c)
+  if any(c.error,v>255)
+   return 1
+  end
+  set data[i]=v
+  set i=i+1
+ end
+ do word(c,"steps")
+ set p.steps=number(c)
+ if any(c.error,p.steps>32)
+  return 1
+ end
+ set i=0
+ while i<p.steps
+  do skip(c)
+  if c.i>=c.n
+   return 1
+  end
+  set v=load8(c.p+c.i)
+  if v==97
+   do word(c,"add")
+   set codes[i]=1
+   set args[i]=number(c)
+  else
+   if v==120
+    do word(c,"xor")
+    set codes[i]=2
+    set args[i]=number(c)
+   else
+    do word(c,"reverse")
+    set codes[i]=4
+    set args[i]=0
+   end
+  end
+  if c.error
+   return 1
+  end
+  set i=i+1
+ end
+ do skip(c)
+ return any(c.error,c.i!=c.n)
+end

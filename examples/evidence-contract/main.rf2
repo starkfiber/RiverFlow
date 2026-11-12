@@ -1,0 +1,142 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/engine.rf2"
+use "lib/parser.rf2"
+use "lib/sha256.rf2"
+use "lib/output.rf2"
+use "lib/build_identity.rf2"
+fn copy_bytes(dst,src,n)
+ let i=0
+ while i<n
+  do store8(dst+i,load8(src+i))
+  set i=i+1
+ end
+ return 0
+end
+fn main(argc,argv)
+ if any(argc<2,argc>3)
+  do emit("Usage: rf2-contract planfile [expected-receipt-sha256]\n")
+  return 1
+ end
+ let data=Data()
+ let original=Data()
+ let codes=Ops()
+ let args=Ops()
+ let p=Plan(0,0,0,0)
+ let r=Run(0,0,0,0,0,0)
+ let input=buffer("planfile",8193)
+ let fd=open(load64(argv+8),0,0)
+ let n=0
+ let got=0
+ let reading=1
+ let i=0
+ let status=0
+ if fd>>63
+  do emit("{\"error\":\"open\"}\n")
+  return 1
+ end
+ while all(n<8193,reading)
+  set got=read(fd,input+n,8193-n)
+  if got>>63
+   do close(fd)
+   do emit("{\"error\":\"read\"}\n")
+   return 1
+  end
+  if got==0
+   set reading=0
+  end
+  set n=n+got
+ end
+ set status=close(fd)
+ if any(status>>63,n>8192)
+  do emit("{\"error\":\"size-or-close\"}\n")
+  return 1
+ end
+ let cursor=Cursor(input,n,0,0)
+ if parse(cursor,data,p,codes,args)
+  do emit("{\"error\":\"parse\",\"offset\":")
+  do emit_number(cursor.i)
+  do emit("}\n")
+  return 1
+ end
+ while i<p.count
+  set original[i]=data[i]
+  set i=i+1
+ end
+ do execute(data,p,codes,args,r)
+ # Receipt encoding: domain + source ID ASCII + plan SHA32 + output SHA32
+ # + six little-endian u64 Run fields. All fields have fixed widths.
+ let receipt=buffer("receipt",256)
+ let bytes=buffer("resultbytes",128)
+ let domain="RF2-EVIDENCE-CONTRACT-1"
+ let domainlen=text_length(domain)
+ do copy_bytes(receipt,domain,domainlen)
+ do copy_bytes(receipt+domainlen,build_identity(),64)
+ do copy_bytes(receipt+domainlen+64,sha256(input,n),32)
+ set i=0
+ while i<p.count
+  do store8(bytes+i,data[i])
+  set i=i+1
+ end
+ do copy_bytes(receipt+domainlen+96,sha256(bytes,p.count),32)
+ let fields=receipt+domainlen+128
+ do store64(fields,r.code)
+ do store64(fields+8,r.step)
+ do store64(fields+16,r.index)
+ do store64(fields+24,r.expected)
+ do store64(fields+32,r.actual)
+ do store64(fields+40,r.work)
+ let digest=sha256(receipt,domainlen+176)
+ # External receipt verification precedes publication of successful output.
+ if argc==3
+  let expected=load64(argv+16)
+  let hex="0123456789abcdef"
+  if text_length(expected)!=64
+   do emit("{\"error\":\"receipt-format\"}\n")
+   return 1
+  end
+  set i=0
+  while i<32
+   if any(load8(expected+2*i)!=load8(hex+(load8(digest+i)>>4)),load8(expected+2*i+1)!=load8(hex+(load8(digest+i)&15)))
+    do emit("{\"error\":\"stale-receipt\",\"published\":false}\n")
+    return 1
+   end
+   set i=i+1
+  end
+ end
+ set status=emit("{\"profile\":\"RF2E1\",\"source_identity\":\"")
+ set status=status|emit(build_identity())
+ set status=status|emit("\",\"receipt\":\"")
+ set status=status|emit_hex(digest,32)
+ set status=status|emit("\",\"code\":")
+ set status=status|emit_number(r.code)
+ set status=status|emit(",\"step\":")
+ set status=status|emit_number(r.step)
+ set status=status|emit(",\"index\":")
+ set status=status|emit_number(r.index)
+ set status=status|emit(",\"expected\":")
+ set status=status|emit_number(r.expected)
+ set status=status|emit(",\"actual\":")
+ set status=status|emit_number(r.actual)
+ set status=status|emit(",\"work\":")
+ set status=status|emit_number(r.work)
+ set status=status|emit(",\"input\":[")
+ set i=0
+ while i<p.count
+  if i!=0
+   set status=status|emit(",")
+  end
+  set status=status|emit_number(original[i])
+  set i=i+1
+ end
+ set status=status|emit("],\"output\":[")
+ set i=0
+ while i<p.count
+  if i!=0
+   set status=status|emit(",")
+  end
+  set status=status|emit_number(data[i])
+  set i=i+1
+ end
+ set status=status|emit("]}\n")
+ return any(status,r.code)
+end
