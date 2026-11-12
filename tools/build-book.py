@@ -72,7 +72,7 @@ class NativePipeline(Flowable):
   c.setFont('Sans',7);c.setFillColor(MUTED);c.drawString(0,7,'Figure 2. Runtime execution and per-program compilation are distinct routes.')
 class BookDoc(BaseDocTemplate):
  def __init__(self,path):
-  super().__init__(str(path),pagesize=(W,H),leftMargin=M,rightMargin=M,topMargin=18*mm,bottomMargin=18*mm,title='RiverFlow RF²: Ideas into checked computation',author='Ilangkhumanan Thirunavokkarasu',subject='Revised first edition, native package 0.15 and reference Core')
+  super().__init__(str(path),pagesize=(W,H),leftMargin=M,rightMargin=M,topMargin=18*mm,bottomMargin=18*mm,title='RiverFlow RF²: Ideas into checked computation',author='Ilangkhumanan Thirunavokkarasu',subject='Revised first edition, native package 0.16 and reference Core')
   self.addPageTemplates(PageTemplate('book',[Frame(M,18*mm,TW,H-36*mm,id='normal',leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0)],onPage=self.decorate))
  def decorate(self,c,doc):
   if doc.page==1:
@@ -81,7 +81,7 @@ class BookDoc(BaseDocTemplate):
    art=ROOT/'site/assets/riverflow-hero.png';c.drawImage(str(art),0,43*mm,width=W,height=76*mm,preserveAspectRatio=True,anchor='c')
    c.setFillColor(colors.white);c.setFont('Sans',10);c.drawString(M,29*mm,'Ilangkhumanan Thirunavokkarasu');c.setFillColor(CYAN);c.setFont('Sans',8);c.drawString(M,20*mm,'FIRST EDITION  /  NOVEMBER 2026');return
   c.setStrokeColor(colors.HexColor('#cad4d8'));c.setLineWidth(.4);c.line(M,H-13*mm,W-M,H-13*mm)
-  c.setFont('Sans',7);c.setFillColor(MUTED);c.drawString(M,H-10*mm,'RIVERFLOW RF²');c.drawRightString(W-M,H-10*mm,'REVISED EDITION · 0.15')
+  c.setFont('Sans',7);c.setFillColor(MUTED);c.drawString(M,H-10*mm,'RIVERFLOW RF²');c.drawRightString(W-M,H-10*mm,'REVISED EDITION · 0.16')
   c.drawString(M,10*mm,'Stark Fiber Enterprise');c.drawRightString(W-M,10*mm,str(doc.page))
  def afterFlowable(self,f):
   if isinstance(f,Paragraph) and f.style.name=='H1':
@@ -112,7 +112,7 @@ def blocks(s):
   while i<len(lines) and lines[i].strip() and not lines[i].startswith(('#','```','|','{{')):text.append(lines[i]);i+=1
   yield('p',' '.join(text))
 body=source[source.index('# About this edition'):]
-story=[Spacer(1,H-40*mm),PageBreak(),Paragraph('Publication note',styles['h1']),Paragraph('RiverFlow RF²<br/>Ideas into checked computation',styles['h2']),Paragraph('Ilangkhumanan Thirunavokkarasu<br/>Stark Fiber Enterprise<br/>First edition, revised November 2026<br/>Language package 0.15',styles['body']),Spacer(1,12),Image(str(ROOT/'site/assets/riverflow-mark.png'),35*mm,35*mm),Spacer(1,12),Paragraph('Independently published technical edition. Original text and code are available under the MIT licence. AI assisted development and concept artwork. No ISBN or external academic approval is asserted.',styles['small']),Paragraph('Source, corrections and release files:<br/>https://github.com/starkfiber/RiverFlow',styles['small']),PageBreak(),Paragraph('Contents',styles['h1'])]
+story=[Spacer(1,H-40*mm),PageBreak(),Paragraph('Publication note',styles['h1']),Paragraph('RiverFlow RF²<br/>Ideas into checked computation',styles['h2']),Paragraph('Ilangkhumanan Thirunavokkarasu<br/>Stark Fiber Enterprise<br/>First edition, revised November 2026<br/>Language package 0.16',styles['body']),Spacer(1,12),Image(str(ROOT/'site/assets/riverflow-mark.png'),35*mm,35*mm),Spacer(1,12),Paragraph('Independently published technical edition. Original text and code are available under the MIT licence. AI assisted development and concept artwork. No ISBN or external academic approval is asserted.',styles['small']),Paragraph('Source, corrections and release files:<br/>https://github.com/starkfiber/RiverFlow',styles['small']),PageBreak(),Paragraph('Contents',styles['h1'])]
 toc=TableOfContents();toc.tableStyle=TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),0),('RIGHTPADDING',(0,0),(-1,-1),0),('TOPPADDING',(0,0),(-1,-1),1.5),('BOTTOMPADDING',(0,0),(-1,-1),1.5)]);toc.levelStyles=[ParagraphStyle('TOC0',fontName='Sans',fontSize=8,leading=10,spaceBefore=0,spaceAfter=0,textColor=NAVY)];story+=[toc,PageBreak()]
 first=True
 references=False
@@ -169,5 +169,5 @@ with zipfile.ZipFile(epub)as z:
  for n in z.namelist():
   if n.endswith(('.xhtml','.xml','.opf')):ET.fromstring(z.read(n))
 shutil.copytree(sitebook,ROOT/'docs/book',dirs_exist_ok=True)
-report={'book':'RiverFlow RF²: Ideas into checked computation','edition':'First edition, revised package 0.15','sourceWords':len(re.findall(r'\S+',source)),'sections':len(sections),'pdf':str(pdf.relative_to(ROOT)),'pdfSHA256':hashlib.sha256(pdf.read_bytes()).hexdigest(),'epub':str(epub.relative_to(ROOT)),'epubSHA256':hashlib.sha256(epub.read_bytes()).hexdigest(),'epubXmlWellFormed':True,'limits':'XML/ZIP integrity checks are not a full EPUBCheck certification. PDF requires separate visual inspection.'}
+report={'book':'RiverFlow RF²: Ideas into checked computation','edition':'First edition, revised package 0.16','sourceWords':len(re.findall(r'\S+',source)),'sections':len(sections),'pdf':str(pdf.relative_to(ROOT)),'pdfSHA256':hashlib.sha256(pdf.read_bytes()).hexdigest(),'epub':str(epub.relative_to(ROOT)),'epubSHA256':hashlib.sha256(epub.read_bytes()).hexdigest(),'epubXmlWellFormed':True,'limits':'XML/ZIP integrity checks are not a full EPUBCheck certification. PDF requires separate visual inspection.'}
 (ROOT/'book/BUILD.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

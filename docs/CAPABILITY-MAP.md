@@ -1,6 +1,6 @@
 # What can RF2 build today?
 
-RiverFlow is an implemented language with a native compiler, useful applications and a bounded MCP server. It is not yet a replacement for every Java, C++, Python or assembly workflow. This inventory describes the **0.15** release, with owned files and visible cleanup errors. Qualification receipts define its exact tested scope.
+RiverFlow is an implemented language with a native compiler, useful applications and a bounded MCP server. It is not yet a replacement for every Java, C++, Python or assembly workflow. This inventory describes the **0.16** release, with owned files and visible cleanup errors. Qualification receipts define its exact tested scope.
 
 The long-term direction is one readable language across application and systems work. Each additional target needs its own implementation, contract and executed tests.
 
@@ -20,6 +20,7 @@ The long-term direction is one readable language across application and systems 
 | Area | Released behavior | Present boundary | Contract or example |
 | --- | --- | --- | --- |
 | Native compiler | Compiler and runtime written in RF2; direct ARM64/Mach-O emission; self-reproduction checks | Qualified on Apple Silicon macOS; OS signing remains external | [Compiler](NATIVE-COMPILER.md) |
+| Logical decisions | true/false, short-circuit all/any, not; normalized scalar truthiness | Trusted systems profile only; no separate Boolean type | [Logical guards](LOGICAL-GUARDS.md), [file inspector](../examples/file-kind/) |
 | Integer programming | u64 systems scalars; arithmetic, comparisons, branches, loops and functions | Systems integer behavior differs from checked u32 Core; no floating-point type | [Core](NATIVE-CORE.md), [source](../native/compiler/compiler.rf2) |
 | Hex and bytes | Decimal and lowercase `0x` hex spelling; packed u8 arrays; byte I/O; bitwise operators | No `0b` binary spelling, uppercase `0X` prefix or numeric separators | [Byte reference](BYTE-REFERENCE.md) |
 | Modules and records | Explicit local imports; nominal records with u64 fields; typed borrowed parameters | Shared namespace, bounded source graph; no package registry, nested records or generic types | [Modules](MODULES-TYPES.md), [workload app](../examples/workload/) |

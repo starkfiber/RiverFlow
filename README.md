@@ -18,6 +18,7 @@ The Apple Silicon Mac package contains ready-to-run tools. Users need no Node, n
 
 ```sh
 ./rf2 status
+./rf2-file-kind document.bin
 ./rf2-hex document.bin
 printf 'Hello world\n' | ./rf2-unicode-lines
 ./rf2 run examples/compact/sum.rf2 '[1,2,3]'
@@ -65,7 +66,7 @@ MCP accepts bounded computation and defined application inputs. It does not expo
 
 ## Evidence stays beside the code
 
-**0.15 adds owned files and cleanup errors.** Atomic acquisition exposes no raw descriptor. I/O results require handling; release consumes the owner. Automatic close failure is visible while a primary error remains preserved. [Ownership contract](docs/RESOURCE-OWNERSHIP.md) · [Release receipt](docs/RELEASE-0.15-VERIFICATION.json).
+**0.16 adds short-circuit logical guards and read-only file signature inspection.** [Logical guards](docs/LOGICAL-GUARDS.md) build on owned files and cleanup errors. Atomic acquisition exposes no raw descriptor. I/O results require handling; release consumes the owner. Automatic close failure is visible while a primary error remains preserved. [Ownership contract](docs/RESOURCE-OWNERSHIP.md) · [Release receipt](docs/RELEASE-0.16-VERIFICATION.json).
 
 Independent ownership probes and full-output hex comparisons sit beside existing Unicode, compiler, runtime and MCP tests. WhatIF also ran a bounded disposable Studio check; HTTP availability is separate from compiler correctness. The updated book explains the design and remaining limits.
 

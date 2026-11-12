@@ -1,0 +1,99 @@
+profile RF2_SYSTEM_A64_V1
+result IO(u64,u64)
+resource File(IO)
+array Header(u8,16)
+array Byte(u8,1)
+fn kind(b:Header,n)
+ if all(n>=8,all(b[0]==0x89,all(b[1]==0x50,all(b[2]==0x4e,all(b[3]==0x47,all(b[4]==13,all(b[5]==10,all(b[6]==26,b[7]==10))))))))
+  return 1
+ end
+ if all(n>=5,all(b[0]==37,all(b[1]==80,all(b[2]==68,all(b[3]==70,b[4]==45)))))
+  return 2
+ end
+ if all(n>=4,all(b[0]==127,all(b[1]==69,all(b[2]==76,b[3]==70))))
+  return 3
+ end
+ if all(n>=6,all(b[0]==71,all(b[1]==73,all(b[2]==70,all(b[3]==56,all(any(b[4]==55,b[4]==57),b[5]==97))))))
+  return 4
+ end
+ if all(n>=3,all(b[0]==255,all(b[1]==216,b[2]==255)))
+  return 5
+ end
+ if all(n>=4,all(b[0]==80,all(b[1]==75,any(all(b[2]==3,b[3]==4),any(all(b[2]==5,b[3]==6),all(b[2]==7,b[3]==8))))))
+  return 6
+ end
+ if all(n>=4,any(all(b[0]==0xcf,all(b[1]==0xfa,all(b[2]==0xed,b[3]==0xfe))),all(b[0]==0xfe,all(b[1]==0xed,all(b[2]==0xfa,b[3]==0xcf)))))
+  return 7
+ end
+ return 0
+end
+fn inspect(path):IO
+ own file=File(path,0,0)
+ let b=Header()
+ let one=Byte()
+ let n=0
+ let more=true
+ while all(n<16,more)
+  handle read_owned(file,one,1)
+  ok got
+   if got==0
+    set more=false
+   else
+    set b[n]=one[0]
+    set n=n+1
+   end
+  err cause
+   return err(cause)
+  end
+ end
+ return ok(kind(b,n))
+end
+fn say(p,n)
+ let done=0
+ let wrote=0
+ while done<n
+  set wrote=write(1,p+done,n-done)
+  if any(wrote>>63,wrote==0)
+   return 1
+  end
+  set done=done+wrote
+ end
+ return 0
+end
+fn main(argc,argv)
+ if argc!=2
+  do write(2,"Usage: rf2-file-kind file\n",26)
+  return 1
+ end
+ let status=1
+ handle inspect(load64(argv+8))
+ ok value
+  if value==0
+   set status=say("unknown\n",8)
+  end
+  if value==1
+   set status=say("png\n",4)
+  end
+  if value==2
+   set status=say("pdf\n",4)
+  end
+  if value==3
+   set status=say("elf\n",4)
+  end
+  if value==4
+   set status=say("gif\n",4)
+  end
+  if value==5
+   set status=say("jpeg\n",5)
+  end
+  if value==6
+   set status=say("zip\n",4)
+  end
+  if value==7
+   set status=say("macho64\n",8)
+  end
+ err cause
+  do write(2,"RF2 file read or cleanup failure\n",33)
+ end
+ return status
+end

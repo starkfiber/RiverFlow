@@ -305,7 +305,11 @@ end
 fn name_equal(a, b)
  return same(load64(token(a) + 8), load64(token(a) + 16), load64(token(b) + 8), load64(token(b) + 16))
 end
+fn logical_name(tok)
+ return tmatch(tok, "all") | tmatch(tok, "any") | tmatch(tok, "not") | tmatch(tok, "true") | tmatch(tok, "false")
+end
 fn add_local(f, tok)
+ do require(logical_name(tok) == 0, "reserved logical name")
  let n = load64(ftable(f) + 32)
  let j = 0
  do require(load64(token(tok)) == 1, "local name required")
@@ -414,6 +418,7 @@ fn scan_record()
  let t = advance()
  do require(load64(token(t)) == 1, "record name required")
  do require(record_index(t) == 0, "duplicate record")
+ do require(logical_name(t) == 0, "reserved logical name")
  do require((tmatch(t, "read_bytes") | tmatch(t, "write_bytes") | tmatch(t, "buffer") | tmatch(t, "load8") | tmatch(t, "load32") | tmatch(t, "load64") | tmatch(t, "store8") | tmatch(t, "store32") | tmatch(t, "store64") | tmatch(t, "read") | tmatch(t, "write") | tmatch(t, "open") | tmatch(t, "close") | tmatch(t, "exit") | tmatch(t, "read_owned") | tmatch(t, "write_owned") | tmatch(t, "release") | tmatch(t, "syscall6") | tmatch(t, "fork_process")) == 0, "reserved record name")
  let id = load64(state() + 128) + 1
  let r = record_info(id)
@@ -772,6 +777,7 @@ fn scan_functions_more(f)
    do expect("fn")
    set t = advance()
    do require(load64(token(t)) == 1, "function name required")
+   do require(logical_name(t) == 0, "reserved logical name")
    do require((tmatch(t, "read_bytes") | tmatch(t, "write_bytes") | tmatch(t, "read_owned") | tmatch(t, "write_owned") | tmatch(t, "release")) == 0, "reserved IO name")
    do require(record_index(t) == 0, "function collides with record")
    set other = 0
@@ -1107,6 +1113,9 @@ fn direct_while(done, invert)
  if (load64(state() + 152) == 0) | (load64(token(h)) != 1) | (precedence(h + 1) != 1) | (load64(token(h + 3)) != 5)
   return 0
  end
+ if logical_name(h) | logical_name(h + 2)
+  return 0
+ end
  set slot = local_index(h)
  if load64(local_type(f, slot)) != 0
   return 0
@@ -1418,6 +1427,9 @@ fn expression(minimum, depth)
     else
      do require(kind == 1, "expected expression")
      do advance()
+     if tmatch(i, "true") | tmatch(i, "false")
+      do imm(0, tmatch(i, "true"))
+     else
      if match("(")
       do advance()
       do invoke(i, depth + 1)
@@ -1432,6 +1444,7 @@ fn expression(minimum, depth)
       end
       do access_local(0, slot, 0)
       do store64(state() + 136, id)
+     end
      end
     end
    end
@@ -1506,7 +1519,7 @@ fn expression(minimum, depth)
    do advance()
    do store64(state() + 136, 0)
   else
-   if (load64(state() + 152) != 0) & (load64(token(rhs)) == 1) & (precedence(rhs + 1) <= p) & (tmatch(rhs + 1, ".") == 0) & (tmatch(rhs + 1, "(") == 0) & (tmatch(rhs + 1, "[") == 0)
+   if (load64(state() + 152) != 0) & (load64(token(rhs)) == 1) & (precedence(rhs + 1) <= p) & (tmatch(rhs + 1, ".") == 0) & (tmatch(rhs + 1, "(") == 0) & (tmatch(rhs + 1, "[") == 0) & (logical_name(rhs) == 0)
     set slot = local_index(advance())
     do require(load64(local_type(load64(state() + 32), slot)) == 0, "scalar expression required")
     if mapped_local(slot) != 0
@@ -1571,7 +1584,33 @@ fn invoke_byte_io(name, depth)
  do store64(state() + 136, 0)
  return 0
 end
+fn invoke_logic(name, depth)
+ let skip = next_label()
+ let done = next_label()
+ do scalar_expression(1, depth + 1)
+ do emit(4043309087)
+ if tmatch(name, "not")
+  do expect(")")
+  do emit(2594113504 | (1 << 12))
+ else
+  do expect(",")
+  do jump(skip, tmatch(name, "any"))
+  do scalar_expression(1, depth + 1)
+  do expect(")")
+  do emit(4043309087)
+  do emit(2594113504)
+  do jump(done, 16)
+  do label(skip)
+  do imm(0, tmatch(name, "any"))
+  do label(done)
+ end
+ do store64(state() + 136, 0)
+ return 0
+end
 fn invoke(name, depth)
+ if tmatch(name, "all") | tmatch(name, "any") | tmatch(name, "not")
+  return invoke_logic(name, depth)
+ end
  do require(load64(state() + 200) == 0, "calls forbidden while view is live")
  if tmatch(name, "read_owned") | tmatch(name, "write_owned") | tmatch(name, "release")
   return invoke_owned(name, depth)
@@ -1945,6 +1984,9 @@ fn try_conditional_loop()
   if name_equal(h + 3, h + 1) | name_equal(h + 3, h + 15)
    return 0
   end
+  if logical_name(h + 3)
+   return 0
+  end
   set bound = local_index(h + 3)
   if load64(local_type(f, bound)) != 0
    return 0
@@ -2025,6 +2067,9 @@ fn try_periodic_loop()
    return 0
   end
   if name_equal(h + 3, h + 1) | name_equal(h + 3, h + 6)
+   return 0
+  end
+  if logical_name(h + 3)
    return 0
   end
   set bound = local_index(h + 3)
@@ -2133,6 +2178,9 @@ fn coalesce_target(target)
    end
   end
   if kind == 1
+   if logical_name(i)
+    return 0
+   end
    if tmatch(i + 1, "(")
     return 0
    end

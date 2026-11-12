@@ -5,11 +5,11 @@ Ilangkhumanan Thirunavokkarasu
 
 Stark Fiber Enterprise
 
-First edition, revised · November 2026 · Package 0.15
+First edition, revised · November 2026 · Package 0.16
 
 # About this edition
 
-RiverFlow is a language in active development. This book describes a small language that runs, a compiler path that can be inspected, and a way to connect research questions to evidence. The complete original examples use RF2_U32_CORE_V0. The standalone 0.4 addition has a separate RF2_COMPACT_V1 front end and an explicitly distinct RF2_SYSTEM_A64_V1 implementation profile. Chapters 16 through 28 cover the later native compiler, applications, modules, guarded optimization, checked collections and recoverable text-processing libraries. The 0.15 compiler emits its own ARM64 machine code; early C-emitter examples remain historical reference routes. The profile matters more than the age of the book: another dialect may use familiar words while giving them different meanings.
+RiverFlow is a language in active development. This book describes a small language that runs, a compiler path that can be inspected, and a way to connect research questions to evidence. The complete original examples use RF2_U32_CORE_V0. The standalone 0.4 addition has a separate RF2_COMPACT_V1 front end and an explicitly distinct RF2_SYSTEM_A64_V1 implementation profile. Chapters 16 through 29 cover the later native compiler, applications, modules, guarded optimization, checked collections and recoverable text-processing libraries. The 0.16 compiler emits its own ARM64 machine code; early C-emitter examples remain historical reference routes. The profile matters more than the age of the book: another dialect may use familiar words while giving them different meanings.
 
 RiverFlow aims to make programming understandable and useful. This edition does not claim universal compatibility, new semiconductor technology, independent academic approval or million-year durability. Claims need reproducible evidence.
 
@@ -1085,6 +1085,36 @@ The byte reference lists every ASCII code with decimal and hexadecimal forms. RF
 Agents wrote independent ownership and application probes. WhatIF separately checked a disposable Studio instance with bounded HTTP requests and verified the evidence. Its source heuristic did not parse RF2, and HTTP success does not prove compiler ownership. Each observation belongs to the layer actually tested.
 
 The public capability map, contracts and release receipts make that distinction visible. No new speed, token, energy or hardware advantage follows from this chapter. Next are transferable ownership, richer error data and growable storage, with reproducible applications and failures as their acceptance gates.
+
+# 29. Small foundations, useful decisions
+
+Boolean logic has a small foundation. NAND alone can express arbitrary finite Boolean circuits. In RF2 it can be written not(all(a,b)). But expressing logic is different from shipping every library, data structure and target interface that an application needs. Storage, ownership and failure rules still matter.
+
+Release 0.16 adds true, false, all, any and not to the trusted systems compiler. False is zero; true is one; any nonzero scalar is truthy. Logical results are normalized ordinary u64 values. A separate Boolean type is not introduced.
+
+## Evaluate only what is needed
+
+```rf2
+if all(count>=8,header[7]==10)
+ return 1
+end
+```
+
+The second expression runs only if the first is true. The any intrinsic skips its right side if the first is already true. The not intrinsic evaluates once and reverses truthiness. Existing bitwise operators stay eager; changing them would change programs that deliberately evaluate both sides.
+
+Skipped code is still checked. A constant false cannot hide an unknown name, an invalid owner use or an unhandled result. Pure logical expressions can read live views, but actual calls in either operand still obey view lifetime restrictions. The five new names are reserved, so old programs using them as identifiers must rename them.
+
+The compiler emits branches directly. This makes behavior inspectable but does not establish a speed or token advantage. The first candidate exposed an optimizer admission problem: a new true constant was mistaken for a local variable. Literal-aware fallback paths corrected it, including optimized loop conditions.
+
+## Inspect a real file
+
+The file-kind application opens a named input through an owned-file declaration, reads up to sixteen bytes and matches guarded signatures. It handles short reads and reports PNG, PDF, ELF, GIF, JPEG, ZIP, Mach-O64 or unknown. It changes no input bytes.
+
+A recognized header does not prove that the rest of a file is valid or safe. The tool does not execute content or disassemble instructions. Its purpose is to make a bounded byte-level decision with clear errors and cleanup.
+
+Tests compare normalized truth tables and generated expression trees with separately computed expectations. Side-effect counters confirm that skipped right sides do not execute. Taken and skipped invalid indexes test the actual branch behavior, while malformed operands must still refuse. File tests cover complete signatures, truncations, arbitrary bytes and I/O errors in both compiler modes.
+
+The next foundations remain growable storage and structured outcomes, followed by broader ownership and target support. A small mathematical basis gives a way to express computations; real applications require the rest of the engineering to be implemented and tested.
 
 # Appendix A. Commands and interfaces
 

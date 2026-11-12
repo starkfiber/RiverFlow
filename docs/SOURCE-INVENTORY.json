@@ -8,10 +8,10 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 263890,
-    "Python": 250113,
-    "JavaScript": 65544,
-    "HTML": 16558,
+    "RiverFlow": 267199,
+    "Python": 256112,
+    "JavaScript": 65580,
+    "HTML": 16556,
     "CSS": 10426,
     "Shell": 2207
   },
@@ -84,7 +84,7 @@
     {
       "path": "docs/rf2/index.html",
       "language": "HTML",
-      "bytes": 8077
+      "bytes": 8076
     },
     {
       "path": "docs/riverflow.mjs",
@@ -145,6 +145,11 @@
       "path": "examples/compact/sum.rf2",
       "language": "RiverFlow",
       "bytes": 25
+    },
+    {
+      "path": "examples/file-kind/main.rf2",
+      "language": "RiverFlow",
+      "bytes": 2062
     },
     {
       "path": "examples/hex/lib/hex.rf2",
@@ -289,7 +294,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 83237
+      "bytes": 84484
     },
     {
       "path": "native/core.rf2",
@@ -364,7 +369,7 @@
     {
       "path": "site/rf2/index.html",
       "language": "HTML",
-      "bytes": 8077
+      "bytes": 8076
     },
     {
       "path": "site/riverflow.mjs",
@@ -597,6 +602,11 @@
       "bytes": 8581
     },
     {
+      "path": "tests/standalone/logic_verify.py",
+      "language": "Python",
+      "bytes": 5954
+    },
+    {
       "path": "tests/standalone/lowering_verify.py",
       "language": "Python",
       "bytes": 5228
@@ -669,7 +679,7 @@
     {
       "path": "tests/standalone/sdk.mjs",
       "language": "JavaScript",
-      "bytes": 3750
+      "bytes": 3786
     },
     {
       "path": "tests/standalone/text_verify.py",
@@ -689,7 +699,7 @@
     {
       "path": "tests/standalone/verify.py",
       "language": "Python",
-      "bytes": 9701
+      "bytes": 9746
     },
     {
       "path": "tests/standalone/workspace_verify.py",
