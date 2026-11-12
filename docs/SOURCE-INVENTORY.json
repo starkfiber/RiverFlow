@@ -8,12 +8,12 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 140680,
-    "Python": 99339,
-    "JavaScript": 65221,
-    "HTML": 15666,
+    "RiverFlow": 175370,
+    "Python": 118827,
+    "JavaScript": 65273,
+    "HTML": 16190,
     "CSS": 10426,
-    "Shell": 1590
+    "Shell": 1620
   },
   "files": [
     {
@@ -49,7 +49,7 @@
     {
       "path": "bootstrap/seed.py",
       "language": "Python",
-      "bytes": 10989
+      "bytes": 11453
     },
     {
       "path": "capabilities/attendance.local.v1/tally.flow",
@@ -84,7 +84,7 @@
     {
       "path": "docs/rf2/index.html",
       "language": "HTML",
-      "bytes": 7631
+      "bytes": 7893
     },
     {
       "path": "docs/riverflow.mjs",
@@ -152,6 +152,11 @@
       "bytes": 335
     },
     {
+      "path": "examples/systems/hello-os.rf2",
+      "language": "RiverFlow",
+      "bytes": 362
+    },
+    {
       "path": "native/attendance.rf2",
       "language": "RiverFlow",
       "bytes": 6832
@@ -159,12 +164,17 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 29575
+      "bytes": 30201
     },
     {
       "path": "native/core.rf2",
       "language": "RiverFlow",
       "bytes": 24384
+    },
+    {
+      "path": "native/editor.rf2",
+      "language": "RiverFlow",
+      "bytes": 31838
     },
     {
       "path": "native/fingerprint.rf2",
@@ -194,12 +204,17 @@
     {
       "path": "native/rf2.rf2",
       "language": "RiverFlow",
-      "bytes": 37392
+      "bytes": 38020
+    },
+    {
+      "path": "native/studio/launcher.rf2",
+      "language": "RiverFlow",
+      "bytes": 1142
     },
     {
       "path": "native/workspace.rf2",
       "language": "RiverFlow",
-      "bytes": 8232
+      "bytes": 8326
     },
     {
       "path": "plugin/launch-mcp.sh",
@@ -224,7 +239,7 @@
     {
       "path": "site/rf2/index.html",
       "language": "HTML",
-      "bytes": 7631
+      "bytes": 7893
     },
     {
       "path": "site/riverflow.mjs",
@@ -289,17 +304,22 @@
     {
       "path": "tests/standalone/compiler_bounds_verify.py",
       "language": "Python",
-      "bytes": 1199
+      "bytes": 1245
     },
     {
       "path": "tests/standalone/compiler_verify.py",
       "language": "Python",
-      "bytes": 8446
+      "bytes": 8466
     },
     {
       "path": "tests/standalone/core_verify.py",
       "language": "Python",
       "bytes": 8399
+    },
+    {
+      "path": "tests/standalone/editor_verify.py",
+      "language": "Python",
+      "bytes": 8518
     },
     {
       "path": "tests/standalone/invoice_reference.mjs",
@@ -322,24 +342,29 @@
       "bytes": 495
     },
     {
+      "path": "tests/standalone/platform_verify.py",
+      "language": "Python",
+      "bytes": 2192
+    },
+    {
       "path": "tests/standalone/prepared_verify.py",
       "language": "Python",
-      "bytes": 2905
+      "bytes": 2948
     },
     {
       "path": "tests/standalone/sdk.mjs",
       "language": "JavaScript",
-      "bytes": 3427
+      "bytes": 3479
     },
     {
       "path": "tests/standalone/verify.py",
       "language": "Python",
-      "bytes": 9315
+      "bytes": 9428
     },
     {
       "path": "tests/standalone/workspace_verify.py",
       "language": "Python",
-      "bytes": 3211
+      "bytes": 3254
     },
     {
       "path": "tools/benchmark-native.mjs",
@@ -354,7 +379,7 @@
     {
       "path": "tools/build-book.py",
       "language": "Python",
-      "bytes": 18406
+      "bytes": 18417
     },
     {
       "path": "tools/build-core.sh",
@@ -364,7 +389,12 @@
     {
       "path": "tools/build-runtime.sh",
       "language": "Shell",
-      "bytes": 704
+      "bytes": 734
+    },
+    {
+      "path": "tools/build-studio.py",
+      "language": "Python",
+      "bytes": 1664
     },
     {
       "path": "tools/check-book-examples.mjs",
@@ -380,6 +410,11 @@
       "path": "tools/measure-reuse.py",
       "language": "Python",
       "bytes": 5170
+    },
+    {
+      "path": "tools/measure-studio.py",
+      "language": "Python",
+      "bytes": 6374
     },
     {
       "path": "tools/profile-invoice.py",

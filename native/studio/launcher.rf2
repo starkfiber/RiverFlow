@@ -1,0 +1,56 @@
+profile RF2_SYSTEM_A64_V1
+# macOS bundle entry point: launch the RF2 runtime beside this executable.
+fn same(a, b)
+ let i = 0
+ while load8(a + i) == load8(b + i)
+  if load8(a + i) == 0
+   return 1
+  end
+  set i = i + 1
+ end
+ return 0
+end
+fn main(argc, argv)
+ let source = load64(argv)
+ let i = 0
+ let last = 0
+ let target = buffer("runtime_path", 4096)
+ let suffix = "../Resources/rf2"
+ let args = buffer("runtime_args", 32)
+ let launch_browser = 1
+ if argc == 2
+  if same(load64(argv + 8), "--headless")
+   set launch_browser = 0
+  end
+ end
+ while load8(source + i) != 0
+  if i >= 4000
+   return 1
+  end
+  if load8(source + i) == 47
+   set last = i + 1
+  end
+  set i = i + 1
+ end
+ if last == 0
+  return 1
+ end
+ set i = 0
+ while i < last
+  do store8(target + i, load8(source + i))
+  set i = i + 1
+ end
+ set i = 0
+ while load8(suffix + i) != 0
+  do store8(target + last + i, load8(suffix + i))
+  set i = i + 1
+ end
+ do store64(args, target)
+ do store64(args + 8, "editor")
+ if launch_browser
+  do store64(args + 16, "--open")
+ end
+ do store64(args + 24, 0)
+ do syscall6(59, target, args, buffer("empty_environment", 8), 0, 0, 0)
+ return 1
+end

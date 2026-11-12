@@ -1,6 +1,5 @@
 # Explicit CLI-only versioned invoice documents and native PDF. No MCP filesystem effects.
-fn iwload(path)
- let src = read_source(path)
+fn iwparse(src, size)
  let plan = 0
  let lines = 0
  let key = 1
@@ -8,7 +7,7 @@ fn iwload(path)
  if load64(state()) != 0
   return 0
  end
- do json_parse(src, load64(state() + 88))
+ do json_parse(src, size)
  if load64(state()) != 0
   return 0
  end
@@ -39,6 +38,13 @@ fn iwload(path)
   do ivbuild(lines)
  end
  return load64(state()) == 0
+end
+fn iwload(path)
+ let src = read_source(path)
+ if load64(state()) != 0
+  return 0
+ end
+ return iwparse(src, load64(state() + 88))
 end
 fn iwjson()
  let i = 0

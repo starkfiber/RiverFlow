@@ -1,4 +1,4 @@
-# Standalone RiverFlow 0.8
+# Standalone RiverFlow 0.9
 
 Experimental native tools for Apple Silicon Mac. Users need no Node, npm, Python or C++ runtime. The minimum encoded OS target is macOS 14; actual execution is qualified on the recorded local Apple Silicon Mac, not every OS version or device. Binaries are ad-hoc signed, not notarized.
 
@@ -60,3 +60,7 @@ No speed, energy, token-saving, fieldwork or phone claim is established by this 
 RF2_APP_V1 is a separate fixed application-plan profile. `rf2 app plan.rf2 lines.json` reads only those explicit inputs and returns invoice totals on stdout. It is not a general Core source accepted by check/run/lower. See capabilities/invoice.total.v1/README.md and docs/CAPABILITY-MEASUREMENTS.md for the exact contract and measured limitations.
 
 Release 0.8: nine runtime modules; 256-function systems compiler; explicit CLI invoice document/edit/PDF operations. See INVOICE-WORKSPACE.md and PREPARED-PLANS.md. MCP has no caller-controlled file access; internal OS entropy is used only to initialize process-local handle numbering.
+
+## Graphical workspace and platform layer
+
+Run `./rf2 editor --open` or open RiverFlow Studio.app. The RF2 controller renders standard browser forms, validates exact cents and exports the same document/PDF format. See GRAPHICAL-EDITOR.md, PLATFORM-ABI.md and STUDIO-MEASUREMENTS.md. The trusted systems syscall and fork primitives do not expand bounded MCP permissions. Ten RF2 modules form the runtime.

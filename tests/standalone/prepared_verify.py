@@ -23,4 +23,4 @@ for h in ids:
 new=value(p.call('invoice_prepare',{'plan':plan}))['plan_id'];assert value(p.call('invoice_apply',{'plan_id':new,'lines':rows}))==expect(plan,rows);report['prepared']+=1;report['applied']+=1
 # New process has no retained plan. A random handle is a locator, not access authentication.
 q=connect();assert value(q.call('invoice_apply',{'plan_id':new,'lines':rows}))is None;report['refusals']+=1
-q.close();p.close();report.update(passed=True,runtimeSHA256=hashlib.sha256(B.read_bytes()).hexdigest());(R/'docs/PREPARED-0.8-VERIFICATION.json').write_text(json.dumps(report,indent=2)+'\n');print(report)
+q.close();p.close();report.update(passed=True,runtimeSHA256=hashlib.sha256(B.read_bytes()).hexdigest());Path(os.environ.get('RF2_TEST_REPORT',str(R/'docs/PREPARED-0.8-VERIFICATION.json'))).write_text(json.dumps(report,indent=2)+'\n');print(report)

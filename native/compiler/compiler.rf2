@@ -684,6 +684,36 @@ fn invoke(name, depth)
   do emit(4181722080 | i)
   do emit(2432713727)
  end
+ if tmatch(name, "fork_process")
+  do require(count == 0, "fork_process arity")
+  do imm(16, 2)
+  do emit(3556773889)
+  set skip = next_label()
+  set f = next_label()
+  do jump(skip, 3)
+  do emit(3405775840)
+  do jump(f, 16)
+  do label(skip)
+  do emit(4043309119)
+  do emit(2592084960)
+  do label(f)
+  return 0
+ end
+ if tmatch(name, "syscall6")
+  do require(count == 7, "syscall6 arity")
+  do emit(2852127728)
+  set i = 0
+  while i < 6
+   do emit(2852127712 | ((i + 1) << 16) | i)
+   set i = i + 1
+  end
+  do emit(3556773889)
+  set skip = next_label()
+  do jump(skip, 3)
+  do emit(3405775840)
+  do label(skip)
+  return 0
+ end
  if tmatch(name, "load8")
   set builtin = 960495616
   set arity = 1

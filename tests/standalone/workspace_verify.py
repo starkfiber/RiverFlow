@@ -23,4 +23,4 @@ with tempfile.TemporaryDirectory(prefix='rf2-workspace-')as name:
   src=d/'invalid.json';src.write_text(json.dumps(payload));run(['inspect',src],False);report['refusals']+=1
  # Deliver one actual native-generated, visually reviewable programming example.
  out=d/'example.pdf';run(['pdf',new,out]);(R/'output/Invoice-Worksheet-Example.pdf').write_bytes(out.read_bytes());report['examplePDFSHA256']=hashlib.sha256(out.read_bytes()).hexdigest()
-report.update(passed=True,runtimeSHA256=hashlib.sha256(B.read_bytes()).hexdigest());(R/'docs/WORKSPACE-0.8-VERIFICATION.json').write_text(json.dumps(report,indent=2)+'\n');print(report)
+report.update(passed=True,runtimeSHA256=hashlib.sha256(B.read_bytes()).hexdigest());Path(os.environ.get('RF2_TEST_REPORT',str(R/'docs/WORKSPACE-0.8-VERIFICATION.json'))).write_text(json.dumps(report,indent=2)+'\n');print(report)

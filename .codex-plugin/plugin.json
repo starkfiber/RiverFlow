@@ -1,7 +1,7 @@
 {
   "name": "rf2",
-  "version": "0.8.0",
-  "description": "Native checked-plan reuse, invoice documents and PDF workspace, bounded compiler and measured MCP interfaces",
+  "version": "0.9.0",
+  "description": "RiverFlow-native graphical workspace, ARM64 systems compiler, checked computation and nine bounded MCP tools",
   "author": {
     "name": "Ilangkhumanan Thirunavokkarasu",
     "url": "https://github.com/starkfiber"

@@ -1,0 +1,2226 @@
+{
+  "schema": "rf2.studio.measurement.v1",
+  "runtimeSHA256": "35a5a4ab5bfcd8462598474562ee41c77a427da0de497a7d61fe0e1256f182d4",
+  "baseline08SHA256": "6a0e46611f7e6085c6c3b4bb417804898f92d5f7e95129959cb2e58e3cea91db",
+  "host": "macOS-26.5.1-arm64-arm-64bit",
+  "scope": "One-host persistent MCP roundtrips vs frozen 0.8. Separate GUI timing includes form encoding, POST, redirect GET, HTML generation and controller result check, not browser DOM/layout. Different work; no GUI-vs-MCP speedup claim. Startup/discovery/preparation excluded.",
+  "freshProcessSets": 3,
+  "trialsPerSet": 7,
+  "raw": [
+    {
+      "set": 0,
+      "trial": 0,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 55.30168
+    },
+    {
+      "set": 0,
+      "trial": 0,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 54.97332
+    },
+    {
+      "set": 0,
+      "trial": 0,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 54.51334
+    },
+    {
+      "set": 0,
+      "trial": 0,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1227.0,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 0,
+      "trial": 1,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 53.26418
+    },
+    {
+      "set": 0,
+      "trial": 1,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 50.63668
+    },
+    {
+      "set": 0,
+      "trial": 1,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 51.96168
+    },
+    {
+      "set": 0,
+      "trial": 1,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 842.166,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 0,
+      "trial": 2,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 45.79332
+    },
+    {
+      "set": 0,
+      "trial": 2,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 46.2975
+    },
+    {
+      "set": 0,
+      "trial": 2,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 55.9225
+    },
+    {
+      "set": 0,
+      "trial": 2,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 935.958,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 0,
+      "trial": 3,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 55.620839999999994
+    },
+    {
+      "set": 0,
+      "trial": 3,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 64.18416
+    },
+    {
+      "set": 0,
+      "trial": 3,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 52.59833999999999
+    },
+    {
+      "set": 0,
+      "trial": 3,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 823.209,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 0,
+      "trial": 4,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 56.625
+    },
+    {
+      "set": 0,
+      "trial": 4,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 51.1275
+    },
+    {
+      "set": 0,
+      "trial": 4,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 51.57168
+    },
+    {
+      "set": 0,
+      "trial": 4,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 868.375,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 0,
+      "trial": 5,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 55.56084
+    },
+    {
+      "set": 0,
+      "trial": 5,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 48.64
+    },
+    {
+      "set": 0,
+      "trial": 5,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 51.05
+    },
+    {
+      "set": 0,
+      "trial": 5,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1605.583,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 0,
+      "trial": 6,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 59.86584
+    },
+    {
+      "set": 0,
+      "trial": 6,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 57.52332
+    },
+    {
+      "set": 0,
+      "trial": 6,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 48.86082
+    },
+    {
+      "set": 0,
+      "trial": 6,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 857.417,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 0,
+      "trial": 0,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 125.25833999999999
+    },
+    {
+      "set": 0,
+      "trial": 0,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 131.9725
+    },
+    {
+      "set": 0,
+      "trial": 0,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 133.3925
+    },
+    {
+      "set": 0,
+      "trial": 0,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1540.541,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 0,
+      "trial": 1,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 141.15332
+    },
+    {
+      "set": 0,
+      "trial": 1,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 126.50917999999999
+    },
+    {
+      "set": 0,
+      "trial": 1,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 134.91082
+    },
+    {
+      "set": 0,
+      "trial": 1,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1562.625,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 0,
+      "trial": 2,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 142.99332
+    },
+    {
+      "set": 0,
+      "trial": 2,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 154.695
+    },
+    {
+      "set": 0,
+      "trial": 2,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 133.16666
+    },
+    {
+      "set": 0,
+      "trial": 2,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1736.625,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 0,
+      "trial": 3,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 133.3375
+    },
+    {
+      "set": 0,
+      "trial": 3,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 128.73916
+    },
+    {
+      "set": 0,
+      "trial": 3,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 140.63
+    },
+    {
+      "set": 0,
+      "trial": 3,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1777.75,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 0,
+      "trial": 4,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 141.36834
+    },
+    {
+      "set": 0,
+      "trial": 4,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 122.0025
+    },
+    {
+      "set": 0,
+      "trial": 4,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 120.3075
+    },
+    {
+      "set": 0,
+      "trial": 4,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1541.416,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 0,
+      "trial": 5,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 133.75916
+    },
+    {
+      "set": 0,
+      "trial": 5,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 149.42166
+    },
+    {
+      "set": 0,
+      "trial": 5,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 152.06834
+    },
+    {
+      "set": 0,
+      "trial": 5,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1783.958,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 0,
+      "trial": 6,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 143.35416
+    },
+    {
+      "set": 0,
+      "trial": 6,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 143.98918
+    },
+    {
+      "set": 0,
+      "trial": 6,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 131.45916
+    },
+    {
+      "set": 0,
+      "trial": 6,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1432.625,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 0,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2558.1041
+    },
+    {
+      "set": 0,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2400.275
+    },
+    {
+      "set": 0,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2333.3833
+    },
+    {
+      "set": 0,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 17284.584,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 0,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2410.2459
+    },
+    {
+      "set": 0,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2554.975
+    },
+    {
+      "set": 0,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2691.2542000000003
+    },
+    {
+      "set": 0,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 18061.375,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 0,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2524.6917000000003
+    },
+    {
+      "set": 0,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2667.4332999999997
+    },
+    {
+      "set": 0,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2505.875
+    },
+    {
+      "set": 0,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 18915.0,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 0,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2757.275
+    },
+    {
+      "set": 0,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2733.8625
+    },
+    {
+      "set": 0,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2742.5917000000004
+    },
+    {
+      "set": 0,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 18340.583,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 0,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2670.1917000000003
+    },
+    {
+      "set": 0,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2529.7416000000003
+    },
+    {
+      "set": 0,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2912.3959
+    },
+    {
+      "set": 0,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 17700.083,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 0,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2655.2457999999997
+    },
+    {
+      "set": 0,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2687.5791
+    },
+    {
+      "set": 0,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2718.5625
+    },
+    {
+      "set": 0,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 19495.042,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 0,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2647.5292000000004
+    },
+    {
+      "set": 0,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2721.6958999999997
+    },
+    {
+      "set": 0,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2585.8958
+    },
+    {
+      "set": 0,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 18455.333,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 1,
+      "trial": 0,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 60.04584
+    },
+    {
+      "set": 1,
+      "trial": 0,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 58.00832
+    },
+    {
+      "set": 1,
+      "trial": 0,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 64.21166000000001
+    },
+    {
+      "set": 1,
+      "trial": 0,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1347.291,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 1,
+      "trial": 1,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 66.82332000000001
+    },
+    {
+      "set": 1,
+      "trial": 1,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 52.94
+    },
+    {
+      "set": 1,
+      "trial": 1,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 50.14918
+    },
+    {
+      "set": 1,
+      "trial": 1,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1102.125,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 1,
+      "trial": 2,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 49.7425
+    },
+    {
+      "set": 1,
+      "trial": 2,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 59.2425
+    },
+    {
+      "set": 1,
+      "trial": 2,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 54.82918
+    },
+    {
+      "set": 1,
+      "trial": 2,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 926.667,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 1,
+      "trial": 3,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 53.863339999999994
+    },
+    {
+      "set": 1,
+      "trial": 3,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 59.7275
+    },
+    {
+      "set": 1,
+      "trial": 3,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 45.16582
+    },
+    {
+      "set": 1,
+      "trial": 3,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 890.875,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 1,
+      "trial": 4,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 55.095819999999996
+    },
+    {
+      "set": 1,
+      "trial": 4,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 56.235
+    },
+    {
+      "set": 1,
+      "trial": 4,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 62.574160000000006
+    },
+    {
+      "set": 1,
+      "trial": 4,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1000.458,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 1,
+      "trial": 5,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 56.4
+    },
+    {
+      "set": 1,
+      "trial": 5,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 53.88084
+    },
+    {
+      "set": 1,
+      "trial": 5,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 54.68666
+    },
+    {
+      "set": 1,
+      "trial": 5,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 917.75,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 1,
+      "trial": 6,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 58.239160000000005
+    },
+    {
+      "set": 1,
+      "trial": 6,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 58.7025
+    },
+    {
+      "set": 1,
+      "trial": 6,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 48.74332
+    },
+    {
+      "set": 1,
+      "trial": 6,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 922.75,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 1,
+      "trial": 0,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 145.52584
+    },
+    {
+      "set": 1,
+      "trial": 0,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 151.85
+    },
+    {
+      "set": 1,
+      "trial": 0,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 125.955
+    },
+    {
+      "set": 1,
+      "trial": 0,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1702.334,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 1,
+      "trial": 1,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 152.81584
+    },
+    {
+      "set": 1,
+      "trial": 1,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 138.47166
+    },
+    {
+      "set": 1,
+      "trial": 1,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 153.29834
+    },
+    {
+      "set": 1,
+      "trial": 1,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1423.083,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 1,
+      "trial": 2,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 149.005
+    },
+    {
+      "set": 1,
+      "trial": 2,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 154.9575
+    },
+    {
+      "set": 1,
+      "trial": 2,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 143.66418
+    },
+    {
+      "set": 1,
+      "trial": 2,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1794.917,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 1,
+      "trial": 3,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 145.82834
+    },
+    {
+      "set": 1,
+      "trial": 3,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 143.035
+    },
+    {
+      "set": 1,
+      "trial": 3,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 133.86084
+    },
+    {
+      "set": 1,
+      "trial": 3,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1542.375,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 1,
+      "trial": 4,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 126.21416
+    },
+    {
+      "set": 1,
+      "trial": 4,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 169.43334
+    },
+    {
+      "set": 1,
+      "trial": 4,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 135.44666
+    },
+    {
+      "set": 1,
+      "trial": 4,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1446.125,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 1,
+      "trial": 5,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 133.76582000000002
+    },
+    {
+      "set": 1,
+      "trial": 5,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 141.82084
+    },
+    {
+      "set": 1,
+      "trial": 5,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 142.26834
+    },
+    {
+      "set": 1,
+      "trial": 5,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1528.5,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 1,
+      "trial": 6,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 140.45084
+    },
+    {
+      "set": 1,
+      "trial": 6,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 144.11334
+    },
+    {
+      "set": 1,
+      "trial": 6,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 146.64082000000002
+    },
+    {
+      "set": 1,
+      "trial": 6,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1745.25,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 1,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2762.6417
+    },
+    {
+      "set": 1,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2729.5
+    },
+    {
+      "set": 1,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2803.2875
+    },
+    {
+      "set": 1,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 19622.667,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 1,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2749.2416000000003
+    },
+    {
+      "set": 1,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2744.7832999999996
+    },
+    {
+      "set": 1,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2860.4209
+    },
+    {
+      "set": 1,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 18085.666,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 1,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2700.3333
+    },
+    {
+      "set": 1,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 3168.5375
+    },
+    {
+      "set": 1,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2805.3125
+    },
+    {
+      "set": 1,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 19736.875,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 1,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2702.2292
+    },
+    {
+      "set": 1,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2663.2333
+    },
+    {
+      "set": 1,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2692.2166
+    },
+    {
+      "set": 1,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 19158.0,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 1,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 3045.625
+    },
+    {
+      "set": 1,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 3089.3082999999997
+    },
+    {
+      "set": 1,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2880.2792000000004
+    },
+    {
+      "set": 1,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 21626.666,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 1,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2893.4082999999996
+    },
+    {
+      "set": 1,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2821.2333
+    },
+    {
+      "set": 1,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2711.6083
+    },
+    {
+      "set": 1,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 18727.958,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 1,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2700.1958
+    },
+    {
+      "set": 1,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2758.6917000000003
+    },
+    {
+      "set": 1,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2728.1459
+    },
+    {
+      "set": 1,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 20446.583,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 2,
+      "trial": 0,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 59.1975
+    },
+    {
+      "set": 2,
+      "trial": 0,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 63.51334
+    },
+    {
+      "set": 2,
+      "trial": 0,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 45.3125
+    },
+    {
+      "set": 2,
+      "trial": 0,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 949.458,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 2,
+      "trial": 1,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 54.64584
+    },
+    {
+      "set": 2,
+      "trial": 1,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 51.53416
+    },
+    {
+      "set": 2,
+      "trial": 1,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 79.47167999999999
+    },
+    {
+      "set": 2,
+      "trial": 1,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 938.042,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 2,
+      "trial": 2,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 47.06
+    },
+    {
+      "set": 2,
+      "trial": 2,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 58.2875
+    },
+    {
+      "set": 2,
+      "trial": 2,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 190.43084
+    },
+    {
+      "set": 2,
+      "trial": 2,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1364.917,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 2,
+      "trial": 3,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 62.68666
+    },
+    {
+      "set": 2,
+      "trial": 3,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 55.56416
+    },
+    {
+      "set": 2,
+      "trial": 3,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 59.8625
+    },
+    {
+      "set": 2,
+      "trial": 3,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 928.417,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 2,
+      "trial": 4,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 57.535
+    },
+    {
+      "set": 2,
+      "trial": 4,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 68.0575
+    },
+    {
+      "set": 2,
+      "trial": 4,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 55.9875
+    },
+    {
+      "set": 2,
+      "trial": 4,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1016.667,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 2,
+      "trial": 5,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 64.80166
+    },
+    {
+      "set": 2,
+      "trial": 5,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 60.158339999999995
+    },
+    {
+      "set": 2,
+      "trial": 5,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 57.42082
+    },
+    {
+      "set": 2,
+      "trial": 5,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1225.25,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 2,
+      "trial": 6,
+      "lines": 1,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 51.18
+    },
+    {
+      "set": 2,
+      "trial": 6,
+      "lines": 1,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 65.815
+    },
+    {
+      "set": 2,
+      "trial": 6,
+      "lines": 1,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 56.64584
+    },
+    {
+      "set": 2,
+      "trial": 6,
+      "lines": 1,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1124.291,
+      "htmlBytes": 7776
+    },
+    {
+      "set": 2,
+      "trial": 0,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 133.81418
+    },
+    {
+      "set": 2,
+      "trial": 0,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 142.88832
+    },
+    {
+      "set": 2,
+      "trial": 0,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 143.80416
+    },
+    {
+      "set": 2,
+      "trial": 0,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1577.167,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 2,
+      "trial": 1,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 132.86
+    },
+    {
+      "set": 2,
+      "trial": 1,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 124.615
+    },
+    {
+      "set": 2,
+      "trial": 1,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 144.43583999999998
+    },
+    {
+      "set": 2,
+      "trial": 1,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1915.208,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 2,
+      "trial": 2,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 133.09418
+    },
+    {
+      "set": 2,
+      "trial": 2,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 146.215
+    },
+    {
+      "set": 2,
+      "trial": 2,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 141.82834
+    },
+    {
+      "set": 2,
+      "trial": 2,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1401.125,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 2,
+      "trial": 3,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 143.39416
+    },
+    {
+      "set": 2,
+      "trial": 3,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 141.13082
+    },
+    {
+      "set": 2,
+      "trial": 3,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 135.7325
+    },
+    {
+      "set": 2,
+      "trial": 3,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1553.292,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 2,
+      "trial": 4,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 160.76416
+    },
+    {
+      "set": 2,
+      "trial": 4,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 154.155
+    },
+    {
+      "set": 2,
+      "trial": 4,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 142.82082
+    },
+    {
+      "set": 2,
+      "trial": 4,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 1667.791,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 2,
+      "trial": 5,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 140.57667999999998
+    },
+    {
+      "set": 2,
+      "trial": 5,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 143.73
+    },
+    {
+      "set": 2,
+      "trial": 5,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 158.39
+    },
+    {
+      "set": 2,
+      "trial": 5,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 2067.583,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 2,
+      "trial": 6,
+      "lines": 32,
+      "variant": "mcp08",
+      "batch": 50,
+      "us": 161.64416
+    },
+    {
+      "set": 2,
+      "trial": 6,
+      "lines": 32,
+      "variant": "mcp09",
+      "batch": 50,
+      "us": 153.2475
+    },
+    {
+      "set": 2,
+      "trial": 6,
+      "lines": 32,
+      "variant": "prepared09",
+      "batch": 50,
+      "us": 138.82168
+    },
+    {
+      "set": 2,
+      "trial": 6,
+      "lines": 32,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 2051.208,
+      "htmlBytes": 19167
+    },
+    {
+      "set": 2,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2909.6291
+    },
+    {
+      "set": 2,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2738.6792
+    },
+    {
+      "set": 2,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2914.4166
+    },
+    {
+      "set": 2,
+      "trial": 0,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 20026.416,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 2,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2708.7209
+    },
+    {
+      "set": 2,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2691.0417
+    },
+    {
+      "set": 2,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2668.6125
+    },
+    {
+      "set": 2,
+      "trial": 1,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 19174.667,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 2,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2833.825
+    },
+    {
+      "set": 2,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2699.175
+    },
+    {
+      "set": 2,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2769.7917
+    },
+    {
+      "set": 2,
+      "trial": 2,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 17608.541,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 2,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2809.8
+    },
+    {
+      "set": 2,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2805.0459
+    },
+    {
+      "set": 2,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2915.8875
+    },
+    {
+      "set": 2,
+      "trial": 3,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 19939.583,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 2,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2782.9332999999997
+    },
+    {
+      "set": 2,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 3078.1708
+    },
+    {
+      "set": 2,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2682.1417
+    },
+    {
+      "set": 2,
+      "trial": 4,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 21443.958,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 2,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2767.0959
+    },
+    {
+      "set": 2,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2718.9209
+    },
+    {
+      "set": 2,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2778.3916
+    },
+    {
+      "set": 2,
+      "trial": 5,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 22438.0,
+      "htmlBytes": 382675
+    },
+    {
+      "set": 2,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "mcp08",
+      "batch": 10,
+      "us": 2721.8166
+    },
+    {
+      "set": 2,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "mcp09",
+      "batch": 10,
+      "us": 2934.3875
+    },
+    {
+      "set": 2,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "prepared09",
+      "batch": 10,
+      "us": 2863.5875
+    },
+    {
+      "set": 2,
+      "trial": 6,
+      "lines": 1000,
+      "variant": "gui_http09",
+      "batch": 1,
+      "us": 19222.417,
+      "htmlBytes": 382675
+    }
+  ],
+  "summary": [
+    {
+      "lines": 1,
+      "mcp08": {
+        "medianUs": 55.9875,
+        "minUs": 46.2975,
+        "maxUs": 79.47167999999999
+      },
+      "mcp09": {
+        "medianUs": 57.42082,
+        "minUs": 51.05,
+        "maxUs": 190.43084
+      },
+      "prepared09": {
+        "medianUs": 52.59833999999999,
+        "minUs": 45.16582,
+        "maxUs": 68.0575
+      },
+      "gui_http09": {
+        "medianUs": 938.042,
+        "minUs": 823.209,
+        "maxUs": 1605.583
+      }
+    },
+    {
+      "lines": 32,
+      "mcp08": {
+        "medianUs": 143.39416,
+        "minUs": 120.3075,
+        "maxUs": 161.64416
+      },
+      "mcp09": {
+        "medianUs": 142.88832,
+        "minUs": 126.21416,
+        "maxUs": 160.76416
+      },
+      "prepared09": {
+        "medianUs": 135.7325,
+        "minUs": 122.0025,
+        "maxUs": 169.43334
+      },
+      "gui_http09": {
+        "medianUs": 1577.167,
+        "minUs": 1401.125,
+        "maxUs": 2067.583
+      }
+    },
+    {
+      "lines": 1000,
+      "mcp08": {
+        "medianUs": 2718.9209,
+        "minUs": 2558.1041,
+        "maxUs": 3168.5375
+      },
+      "mcp09": {
+        "medianUs": 2733.8625,
+        "minUs": 2400.275,
+        "maxUs": 3045.625
+      },
+      "prepared09": {
+        "medianUs": 2742.5917000000004,
+        "minUs": 2333.3833,
+        "maxUs": 3089.3082999999997
+      },
+      "gui_http09": {
+        "medianUs": 19174.667,
+        "minUs": 17284.584,
+        "maxUs": 22438.0
+      }
+    }
+  ],
+  "tokens": {
+    "library": "tiktoken",
+    "version": "0.14.0",
+    "catalogSHA256": "02a2343fedf9f1012fc8b6071e707694af281778687e274a4d3580ac82d5dbcd",
+    "catalogByteIdentical08And09": true,
+    "counts": {
+      "o200k_base": {
+        "20-calls-sample-0": {
+          "old08": 3725,
+          "new09": 3725
+        },
+        "20-calls-sample-1": {
+          "old08": 3725,
+          "new09": 3725
+        },
+        "20-calls-sample-2": {
+          "old08": 3703,
+          "new09": 3725
+        },
+        "100-calls-sample-0": {
+          "old08": 14583,
+          "new09": 14685
+        },
+        "100-calls-sample-1": {
+          "old08": 14685,
+          "new09": 14685
+        },
+        "100-calls-sample-2": {
+          "old08": 14583,
+          "new09": 14583
+        }
+      },
+      "cl100k_base": {
+        "20-calls-sample-0": {
+          "old08": 3642,
+          "new09": 3642
+        },
+        "20-calls-sample-1": {
+          "old08": 3642,
+          "new09": 3642
+        },
+        "20-calls-sample-2": {
+          "old08": 3620,
+          "new09": 3642
+        },
+        "100-calls-sample-0": {
+          "old08": 14260,
+          "new09": 14362
+        },
+        "100-calls-sample-1": {
+          "old08": 14362,
+          "new09": 14362
+        },
+        "100-calls-sample-2": {
+          "old08": 14260,
+          "new09": 14260
+        }
+      }
+    },
+    "scope": "All nine actual discovered schemas plus complete prepare/apply/release requests and responses. Random handle spelling varies. Exact encoded text, not billed model usage or complete AI-task savings. No model API called; no provider usage receipts. Browser UI has no inference client."
+  },
+  "sourceHashes": {
+    "tools/measure-studio.py": "2c14bbe7198f0580425ee02f7e1644ad697a551c27524bcfd111f33b230ad25e",
+    "docs/STUDIO-TOKEN-FIXTURES-0.9.json": "964e0693bd5488d04e0ae6fd8869742c2289e60421709224819b28ab2d60cdd5"
+  }
+}

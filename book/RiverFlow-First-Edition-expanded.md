@@ -671,6 +671,54 @@ The larger systems bound does not change Core's sixteen-function contract. It gi
 
 Sources: docs/REUSE-MEASUREMENTS-0.8.json, docs/PREPARED-0.8-VERIFICATION.json, docs/WORKSPACE-0.8-VERIFICATION.json and docs/COMPILER-BOUNDS-0.8.json.
 
+# 21. From machine calls to graphical applications
+
+A language becomes useful through complete paths. A quantity typed into a form should reach a checked calculation, survive a save and reopen, and appear correctly in a PDF. The same compiler should also express the process, memory and I/O operations needed underneath. Release 0.9 connects those paths in RiverFlow Studio.
+
+The launcher, socket controller, request parser, HTML renderer, draft model and PDF writer are RF2 source. The compiler emits ARM64 machine code. The browser displays standard HTML and CSS and submits ordinary forms. There is no client script or embedded language model. This is a browser-displayed local workspace, not an AppKit widget window. The operating system and browser remain explicit platform dependencies.
+
+## A small plan, a complete path
+
+The invoice plan remains readable: choose the invoice-total capability, currency and tax basis points. Its calculation uses integer cents. The editor accepts decimal prices only to make human input easier. The RF2 parser converts at most two decimal places exactly; it never uses binary floating point to decide money. Quantity is a positive integer. Adding or removing a row, changing tax and exporting a worksheet all recompute the same checked totals.
+
+Saved documents use the existing versioned format. Opening a document validates uploaded bytes rather than accepting an arbitrary server path. Exported PDFs are byte-identical to the 0.8 writer for the same document. Those checks establish compatibility of these operations, not a complete accounting or tax-compliance system. Customer records, invoice numbering, payment collection and legal invoice rules are further capabilities to specify.
+
+## The platform boundary is an ABI
+
+The trusted systems profile now provides syscall6 with a call number and six arguments. The compiler places the number in x16, arguments in x0 through x5 and emits the Darwin service instruction. BSD carry-set errors become negative errno values. A portable-looking function name cannot erase a platform-specific return convention. Multiple-return-register calls need explicit wrappers.
+
+Fork exposed that distinction. An early launcher interpreted only x0 and started a second controller instead of opening the browser. Darwin also reports the child path in x1. The corrected fork_process primitive uses that flag and gives the child zero, while the parent receives the PID. An executed test makes the child exit with status 7, then checks the parent's wait result. The editor reaps its browser-opener child when closing.
+
+The platform tests also execute PID and UID queries, negative errno and a six-argument memory mapping followed by a write, read and unmap. The native compiler's unsigned output matches the historical encoder for these fixtures. The compiler again reproduces its own image. These are precise executable checks, not a proof of memory safety, every OS call, universal compatibility or a new transistor design.
+
+## Request state matters as much as arithmetic
+
+The controller binds only to IPv4 loopback at a fresh port. A private nonce comes from operating-system entropy. Every edit and download checks exact Host, Origin, nonce and draft revision. A stale form refuses rather than silently overwriting another revision. POST followed by a redirect keeps refresh from repeating a valid edit. Failed validation restores both committed data and visible fields.
+
+Idle browser preconnections caused another real failure. A blocking controller waited for an empty connection while an active form sat behind it. The fix polls the listener and eight bounded client slots. It waits only on connections ready to read and closes idle sockets silently. An active partial request has a five-second timeout. Tests retain this failure case so later changes cannot simply reintroduce it.
+
+Saved documents and PDF downloads also require POST with current revision. Unsupported methods, duplicate request fields, oversized bodies and malformed multipart endings refuse. A content policy disallows scripts, remote assets and embedding. These controls support a private desktop controller. They do not qualify it as a public multi-user service or independently audited security system. Raw platform calls and editor launch remain outside the nine bounded MCP tools.
+
+## Measure what changed
+
+The final comparison uses frozen 0.8 and final 0.9 on one host. Three fresh process sets each run seven rotated trials after warmup. The editor transaction includes form encoding, POST, redirect, GET and HTML generation, but excludes browser layout and painting. It does different work from an MCP invoice call.
+
+| Lines | MCP 0.8 µs | MCP 0.9 µs | Editor HTTP µs |
+| --- | --- | --- | --- |
+| 1 | 55.99 | 57.42 | 938.04 |
+| 32 | 143.39 | 142.89 | 1577.17 |
+| 1000 | 2718.92 | 2733.86 | 19174.67 |
+
+The unchanged invoice operation performs similarly. The graphical path adds work. Neither result justifies a general speed claim. Prepared 0.9 medians were 52.60, 135.73 and 2742.59 microseconds for the three sizes. Host-level timing variation and different request work remain visible in the raw receipts.
+
+The nine MCP schemas are byte-identical. Across three matched 100-call prepared sessions, encodings range from 14,583 to 14,685 o200k tokens or 14,260 to 14,362 cl100k tokens. Two pairs match; one 0.9 transcript costs 102 tokens more. Short sessions also vary by random handle spelling, including one older transcript 22 tokens shorter. There is no measured token reduction here. These are exact tokenizer counts for retained exchanges, not provider billing or the full cost of an AI building an application.
+
+## Build the language beyond this application
+
+The editor is an integration checkpoint. Reusable modules, structured values, owned strings, explicit error and resource lifetimes, foreign interfaces and additional code-generation targets remain language work. Each should arrive with clear semantics, working programs, refusal tests and comparisons with simpler methods. A second architecture requires its own instruction encoding and ABI qualification. Writing all of this in RF2 is a direction supported by incremental evidence, not an assertion that every existing library has already been replaced.
+
+Sources: native/editor.rf2, native/studio/launcher.rf2, docs/PLATFORM-ABI.md, docs/EDITOR-0.9-VERIFICATION.json, docs/PLATFORM-0.9-VERIFICATION.json, docs/STUDIO-MEASUREMENTS-0.9.json and docs/STUDIO-TOKEN-FIXTURES-0.9.json. The tests preserve both successful behavior and refusal paths. The findings are useful because another developer can inspect, rerun and challenge them.
+
 # Appendix A. Commands and interfaces
 
 Native standalone, no Node or npm required:

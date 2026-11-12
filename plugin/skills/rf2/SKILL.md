@@ -2,9 +2,9 @@
 name: rf2
 description: Check and execute RiverFlow Core/compact programs, lower checked kernels, use the versioned attendance exporter, and develop native compiler evidence.
 ---
-# RiverFlow RF² 0.8
+# RiverFlow RF² 0.9
 
-Use rf2_status first. Read docs/NATIVE-CORE.md and STANDALONE.md for current profiles/effects. Nine native tools exist: rf2_status, rf2_check, rf2_run, rf2_lower, attendance_export, invoice_total, invoice_prepare, invoice_apply and invoice_release. Users require no Node/npm/Python/C++ runtime. The host provides AI intelligence; the executable has no embedded model.
+Use rf2_status first. Read docs/NATIVE-CORE.md and docs/STANDALONE.md for current profiles/effects. Nine native tools exist: rf2_status, rf2_check, rf2_run, rf2_lower, attendance_export, invoice_total, invoice_prepare, invoice_apply and invoice_release. Users require no Node/npm/Python/C++ runtime. The host provides AI intelligence; the executable has no embedded model.
 
 ## Core and compact source
 
@@ -22,7 +22,7 @@ The CLI `rf2 attendance records.json new.csv` performs an explicitly requested f
 
 ## Native builds and evidence
 
-The systems compiler reproduces its own bounded source without Python. tools/build-runtime.sh composes the nine runtime modules; compiling native/rf2.rf2 alone is no longer a complete build. The historical Python seed and JS/C references remain development oracles, not user runtime dependencies. Source hashes establish byte identity, not independent approval or process isolation.
+The systems compiler reproduces its own bounded source without Python. tools/build-runtime.sh composes the ten runtime modules; compiling native/rf2.rf2 alone is no longer a complete build. The historical Python seed and JS/C references remain development oracles, not user runtime dependencies. Source hashes establish byte identity, not independent approval or process isolation.
 
 The plugin uses RF2_BIN or output/bin/rf2 and never silently builds/downloads/falls back to Node. Fresh checkouts need an explicit native binary. Current qualification is on Apple Silicon Mac; normal OS signing remains required. No speed, energy, token-saving, phone or fieldwork claim is established. Preserve failed tests and private data locally; do not put participant records in public releases.
 
@@ -36,6 +36,14 @@ Measurements in docs/CAPABILITY-MEASUREMENTS.md are mixed. The native invoice pa
 
 Read docs/PREPARED-PLANS.md before reuse. Prepare an explicit plan, inspect returned currency/tax rules, apply to fresh lines, then release. Handles are immutable, bounded to 32 process-local slots, not authentication. Discard handles on reconnect. They grant no file or network effects. Internal OS entropy initializes a process-specific handle mask; no caller-controlled path is accepted.
 
-Read docs/INVOICE-WORKSPACE.md for explicit CLI-only invoice save/inspect/set/remove/pdf. Each edit/export names a new file, refuses existing targets/symlinks and recomputes checked totals. This is a file-based workspace, not a graphical editor or legally complete invoice/accounting service. All user runtime document/PDF operations run in RiverFlow. Test/publishing tools in other languages remain development dependencies.
+Read docs/INVOICE-WORKSPACE.md for explicit CLI-only invoice save/inspect/set/remove/pdf. Each edit/export names a new file, refuses existing targets/symlinks and recomputes checked totals. This CLI is file-based. Release 0.9 also has an explicit graphical editor; neither route is a legally complete invoice/accounting service. All user runtime document/PDF operations run in RiverFlow. Test/publishing tools in other languages remain development dependencies.
 
 0.8 measurement receipts compare final binary with frozen 0.7 and the JS reference. Reuse setup can cost more for short sessions. State exact measured scope; encoded fixture savings are not actual billed AI usage or universal acceleration. Do not inherit historical measurement values as permanent scores.
+
+## RiverFlow Studio and systems platform ABI
+
+Read docs/GRAPHICAL-EDITOR.md and docs/PLATFORM-ABI.md. Launch `rf2 editor` or RiverFlow Studio.app for a private loopback browser workspace. The RF2-compiled controller renders standard HTML forms, checks revisions and exact cents, and handles document upload/download and PDF generation. The browser displays the interface; this is not an AppKit widget window. CLI-only launch has no automatic browser effect unless --open is supplied. Graphical effects are not new MCP tools.
+
+The trusted systems profile provides syscall6 and fork_process. These compile to ARM64 machine instructions with Darwin-specific ABI handling, not portable Core effects. Never admit raw systems code through the bounded MCP checker. Nine MCP tool names and schemas remain unchanged from 0.8.
+
+The 0.9 receipt reports similar MCP invoice performance to 0.8 and no encoded token reduction for matched prepared exchanges. GUI HTTP timings exclude browser layout. Read docs/STUDIO-MEASUREMENTS.md before citing numbers. No billed model usage experiment, universal speed claim, x86 backend or arbitrary Python/C++ compatibility is established.

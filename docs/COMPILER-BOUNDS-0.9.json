@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "functions": 128,
+      "lastFunctionLocals": 256,
+      "accepted": true
+    },
+    {
+      "functions": 129,
+      "lastFunctionLocals": 256,
+      "accepted": true
+    },
+    {
+      "functions": 255,
+      "lastFunctionLocals": 256,
+      "accepted": true
+    },
+    {
+      "functions": 256,
+      "lastFunctionLocals": 256,
+      "accepted": true
+    },
+    {
+      "functions": 257,
+      "lastFunctionLocals": 256,
+      "accepted": false
+    }
+  ],
+  "compilerSHA256": "4833129888996b776924ca26a94af8fa80b2f8979681714aa19ffc53a9ddcd91"
+}

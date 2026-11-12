@@ -1,0 +1,16 @@
+profile RF2_SYSTEM_A64_V1
+# Trusted macOS ARM64 program. Writes through the OS interface emitted by rf2c.
+fn length(text)
+ let n = 0
+ while load8(text + n) != 0
+  set n = n + 1
+ end
+ return n
+end
+fn print(text)
+ return syscall6(4, 1, text, length(text), 0, 0, 0)
+end
+fn main(argc, argv)
+ do print("Hello from RiverFlow's native platform layer.\n")
+ return 0
+end

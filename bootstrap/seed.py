@@ -63,11 +63,17 @@ class Compiler:
    if name=='buffer':
     if len(node.args)!=2:raise ValueError('buffer arity')
     key=ast.literal_eval(node.args[0]);size=ast.literal_eval(node.args[1]);self.address(0,self.obj('buf:'+key,size=size));return
-   expected={'load8':1,'load32':1,'load64':1,'store8':2,'store32':2,'store64':2,'read':3,'write':3,'open':3,'close':1,'exit':1}.get(name)
+   expected={'load8':1,'load32':1,'load64':1,'store8':2,'store32':2,'store64':2,'read':3,'write':3,'open':3,'close':1,'exit':1,'syscall6':7,'fork_process':0}.get(name)
    if expected is not None and len(node.args)!=expected:raise ValueError('Builtin arity')
    for a in node.args:self.expr(a);self.push()
    for i in range(len(node.args)-1,-1,-1):self.emit(0xf94003e0|i);self.emit(0x910043ff)
-   if name in ('load8','load32','load64'):self.emit({'load8':0x39400000,'load32':0xb9400000,'load64':0xf9400000}[name])
+   if name=='fork_process':
+    self.imm(16,2);self.emit(0xd4001001);success=self.fresh();done=self.fresh();self.jump(success,3);self.emit(0xcb0003e0);self.jump(done);self.label(success);self.emit(0xf100003f);self.emit(0x9a8013e0);self.label(done)
+   elif name=='syscall6':
+    self.mov(16,0)
+    for i in range(6):self.mov(i,i+1)
+    self.emit(0xd4001001);skip=self.fresh();self.jump(skip,3);self.emit(0xcb0003e0);self.label(skip)
+   elif name in ('load8','load32','load64'):self.emit({'load8':0x39400000,'load32':0xb9400000,'load64':0xf9400000}[name])
    elif name in ('store8','store32','store64'):self.emit({'store8':0x39000001,'store32':0xb9000001,'store64':0xf9000001}[name])
    elif name in ('read','write','open','close','exit'):
     self.imm(16,{'read':3,'write':4,'open':5,'close':6,'exit':1}[name]);self.emit(0xd4001001)

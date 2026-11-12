@@ -6,9 +6,19 @@ Created by **Ilangkhumanan Thirunavokkarasu**. Published by **SFE**.
 
 ![RiverFlow](site/assets/riverflow-hero.png)
 
-RiverFlow 0.8 runs Core programs and reusable helpers, builds per-program ARM64 executables, and provides attendance export and invoice totals through native MCP. The compiler, runtime and application adapters are written in RiverFlow. **Users need no Node, npm, Python or C++ runtime.** The AI host supplies intelligence; the executable does not contain a model.
+RiverFlow is a language for readable application plans and explicit systems programming. Its own compiler emits ARM64 machine code. The compiler, runtime, document handlers and new graphical workspace are written in RiverFlow. The AI host supplies intelligence through a bounded MCP interface.
 
-[Download 0.8](https://github.com/starkfiber/RiverFlow/releases/tag/v0.8.0) · [Read the book](https://starkfiber.github.io/RiverFlow/book/) · [Specification](docs/SPEC.md) · [Measured results](docs/REUSE-MEASUREMENTS.md)
+**0.9: RiverFlow Studio** opens an editable local workspace for line items, exact decimal prices, checked totals, saved documents and PDF export. The Mac app launches an RF2 controller and displays its forms in your browser.
+
+[Download 0.9](https://github.com/starkfiber/RiverFlow/releases/tag/v0.9.0) · [Read the book](https://starkfiber.github.io/RiverFlow/book/) · [Language roadmap](docs/LANGUAGE-ROADMAP.md) · [Measured results](docs/STUDIO-MEASUREMENTS.md)
+
+## Open RiverFlow Studio
+
+Download and unzip the Studio app for Apple Silicon Mac, then open it. The current build is ad-hoc signed, not notarized; macOS may require a normal user approval. The command-line package also provides `./rf2 editor --open`.
+
+![RiverFlow Studio](docs/assets/riverflow-studio-0.9.png)
+
+The release targets macOS ARM64. General Core computation, direct systems compilation, private platform I/O and bounded application effects are implemented. Additional machine targets and general application libraries are planned, with executable qualification required for each.
 
 ## Start with a real operation
 
@@ -48,9 +58,11 @@ Only an explicit new output file can be created. Existing files and symlinks are
 ./rf2 invoice pdf edited.invoice.json worksheet.pdf
 ```
 
-A file-based native workspace: explicit new-file revisions, checked totals and direct PDF output. No graphical editor, payment or tax-law determination is claimed. [Workspace contract](docs/INVOICE-WORKSPACE.md).
+A file-based native workspace: explicit new-file revisions, checked totals and direct PDF output. The graphical editor shares this checked document model. Payment and tax-law determination are outside its contract. [Workspace contract](docs/INVOICE-WORKSPACE.md).
 
 Prepare an immutable plan once, inspect its visible currency/tax rules, apply it to fresh lines, then release it. Up to 32 process-local plans; discard handles on reconnect. [MCP lifecycle](docs/PREPARED-PLANS.md).
+
+[Graphical workspace and safety contract](docs/GRAPHICAL-EDITOR.md) · [Platform ABI](docs/PLATFORM-ABI.md)
 
 ## Compute and compile
 
@@ -81,14 +93,14 @@ The native server exposes nine tools: `rf2_status`, `rf2_check`, `rf2_run`, `rf2
 
 ## Evidence before claims
 
-- Invoice: 630 successful comparisons, 108 comparisons with 0.6 Core, 39 refusals, 200 seeded plan mutations and five CLI cases. [Receipt](docs/INVOICE-0.8-VERIFICATION.json).
-- Core: 1095 execution comparisons and 317 admission checks. [Receipt](docs/GENERAL-CORE-0.8-VERIFICATION.json).
-- Direct kernels: 18 builds and 163 executed cases. [Receipt](docs/DIRECT-KERNEL-0.8-VERIFICATION.json).
-- Compact: 1016 compatibility comparisons, input guards and transport mutations. [Receipt](docs/COMPACT-0.8-VERIFICATION.json).
-- Attendance: 34 successful exports/calendar cases, 45 refusals and three file-protection checks. [Receipt](docs/ATTENDANCE-0.8-VERIFICATION.json).
-- Compiler: native fixed point, independently expected results and full runtime byte comparison with the historical encoder. [Receipt](docs/NATIVE-COMPILER-0.8-VERIFICATION.json).
+- Invoice: 630 successful comparisons, 108 comparisons with 0.6 Core, 39 refusals, 200 seeded plan mutations and five CLI cases. [Receipt](docs/INVOICE-0.9-VERIFICATION.json).
+- Core: 1095 execution comparisons and 317 admission checks. [Receipt](docs/GENERAL-CORE-0.9-VERIFICATION.json).
+- Direct kernels: 18 builds and 163 executed cases. [Receipt](docs/DIRECT-KERNEL-0.9-VERIFICATION.json).
+- Compact: 1016 compatibility comparisons, input guards and transport mutations. [Receipt](docs/COMPACT-0.9-VERIFICATION.json).
+- Attendance: 34 successful exports/calendar cases, 45 refusals and three file-protection checks. [Receipt](docs/ATTENDANCE-0.9-VERIFICATION.json).
+- Compiler: native fixed point, independently expected results and full runtime byte comparison with the historical encoder. [Receipt](docs/NATIVE-COMPILER-0.9-VERIFICATION.json).
 
-The measured 1000-line native request is about 19% shorter than 0.7 on this host, while JavaScript remains faster. Prepared plans cost more encoded context for short sessions, but less at 100 repeated calls in the tested fixtures. Raw timings and exact encoded fixtures are published. **No general speed, energy or AI-task token-saving claim is established.** [Method and results](docs/REUSE-MEASUREMENTS.md).
+The final 0.9 comparison with 0.8 shows similar invoice performance and no matched prepared-exchange token reduction. Earlier 0.7/0.8 results are preserved as historical experiments. **No general speed, energy or AI-task token-saving claim is established.** [Current method and results](docs/STUDIO-MEASUREMENTS.md).
 
 Current native qualification is Apple Silicon macOS. There is no independent security audit, universal platform support, field outcome or model council approval. The retained JavaScript/C reference, Python bootstrap/tests and publishing tools are developer dependencies, not user runtime requirements. Naming research projects does not establish hardware integration or scientific novelty.
 
@@ -102,7 +114,7 @@ Current native qualification is Apple Silicon macOS. There is no independent sec
 
 The build composes nine RiverFlow runtime modules. It invokes no Python, Node, C/C++ compiler, assembler or linker. macOS signing and platform interfaces remain external dependencies. The systems compiler now admits at most 256 functions, with accepted upper-bound executions and refusal at 257. [Build scope](docs/NATIVE-COMPILER.md).
 
-The revised book has 20 numbered chapters, worked examples, application contracts, failures and measurements. Original code and text use the MIT licence. Referenced projects and dependencies retain their own licences.
+The revised book has 21 numbered chapters, worked examples, application contracts, failures and measurements. Original code and text use the MIT licence. Referenced projects and dependencies retain their own licences.
 
 ## Why the GitHub language bar looks different
 
@@ -113,3 +125,9 @@ GitHub uses Linguist's supported-language list, which does not yet include River
 ## Research direction
 
 Kernel 8/9, Developmental AI, Tamil Time Continuum, VOIKE, RU'OS and the human-AI workplace study motivate testable questions. Their names are not implementation evidence. Next: profile large invoice inputs, independently review the compiler/parser, qualify more targets and measure complete AI tasks with real usage receipts. Keep each claim linked to its actual source, test and limitation.
+
+### Release 0.9 qualification
+
+The editor suite passed seven edit cases, 150 refusal cases, five document round trips, a 1,000-line upload, idle-connection concurrency and byte-exact PDF comparison with 0.8. Platform tests execute process creation, six-argument memory calls and error handling. Existing Core, invoice, attendance, workspace, prepared-plan, compiler and official MCP SDK checks were rerun. [Editor receipt](docs/EDITOR-0.9-VERIFICATION.json) · [Platform receipt](docs/PLATFORM-0.9-VERIFICATION.json).
+
+The 1,000-line MCP median was 2,733.86 µs versus 2718.92 µs in 0.8 on the tested host. The full editor HTTP transaction was 19,174.67 µs, excluding browser layout. Matched 100-call prepared transcripts range from 14,583 to 14,685 o200k tokens; two pairs match and one 0.9 transcript costs 102 more. This release adds capability; it does not establish faster computation or lower model bills.
