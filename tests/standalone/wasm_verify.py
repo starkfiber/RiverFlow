@@ -40,6 +40,7 @@ try:
     if p.returncode==0:
      v=json.loads(p.stdout);assert r=={'value':v['value'],'status':0,'work':v['steps']},(name,i,r,v)
     else:
+     assert p.returncode==1 and p.stdout,(name,i,'native baseline failed unexpectedly',p.returncode,p.stderr)
      assert r['status']==4,(name,i,r,p.stdout)
     rows.append({'program':name,'case':i,'wasm':r,'baselineCoreExit':p.returncode,'passed':True})
  # Bounds, reset after error, exact wrapping and finite work cap.
