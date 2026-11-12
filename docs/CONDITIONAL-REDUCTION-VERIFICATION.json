@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "smallIterationCases": 384,
+  "largeIntegerCases": 128,
+  "old11Comparisons": 384,
+  "fallbackCases": 72,
+  "literalBoundsCases": 18,
+  "preservedSpillCases": 384,
+  "compilerSHA256": "6ca632a0f10489b8d7b3b2ffb8a77b8e2166f2d6d19e9bea4a03cd2263735a9a",
+  "sourceSHA256": "cb42dcefce9e8f3d9db05db02c694455e594992c8e8163100657bb8fa7373396",
+  "baselineCompilerSHA256": "8c62af26581c48f617cad29a71b7a7f6f8f37823624def248a1cde8d66ac3585",
+  "scope": "Exact pure conditional masked sum, power-of-two nested periods through 2^32, unsigned wrapping u64, zero/false entry and final induction state. No arbitrary conditional loop optimization, whole compiler proof or physical hardware result."
+}

@@ -8,8 +8,8 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 205697,
-    "Python": 157244,
+    "RiverFlow": 212062,
+    "Python": 167254,
     "JavaScript": 65400,
     "HTML": 16410,
     "CSS": 10426,
@@ -152,6 +152,11 @@
       "bytes": 335
     },
     {
+      "path": "examples/systems/conditional-sum.rf2",
+      "language": "RiverFlow",
+      "bytes": 1039
+    },
+    {
       "path": "examples/systems/hello-os.rf2",
       "language": "RiverFlow",
       "bytes": 362
@@ -184,7 +189,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 55897
+      "bytes": 61223
     },
     {
       "path": "native/core.rf2",
@@ -332,6 +337,11 @@
       "bytes": 8285
     },
     {
+      "path": "tests/standalone/conditional_reduction_verify.py",
+      "language": "Python",
+      "bytes": 5351
+    },
+    {
       "path": "tests/standalone/control_optimizer_verify.py",
       "language": "Python",
       "bytes": 3891
@@ -465,6 +475,11 @@
       "path": "tools/measure-capability.py",
       "language": "Python",
       "bytes": 6280
+    },
+    {
+      "path": "tools/measure-conditional-reduction.py",
+      "language": "Python",
+      "bytes": 4659
     },
     {
       "path": "tools/measure-language.py",

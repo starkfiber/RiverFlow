@@ -1,0 +1,1310 @@
+{
+  "schema": "rf2.conditional.measurements.v1",
+  "host": "macOS-26.5.1-arm64-arm-64bit",
+  "clang": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+  "compilerSHA256": "6ca632a0f10489b8d7b3b2ffb8a77b8e2166f2d6d19e9bea4a03cd2263735a9a",
+  "baselineCompilerSHA256": "8c62af26581c48f617cad29a71b7a7f6f8f37823624def248a1cde8d66ac3585",
+  "scope": "Identical runtime inputs; seven rotated process trials after separately retained cold/warmup. Wall time includes process launch on one uncontrolled Mac. Clang loop, scalar-only loop and equally specialized closed form retained. No energy, token, full-stack or universal speed claim.",
+  "raw": [
+    {
+      "variant": "rf2-0.11",
+      "iterations": 1000,
+      "coldOrWarmupMs": 436.734708,
+      "excludedFromMedian": true
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 1000,
+      "coldOrWarmupMs": 758.338084,
+      "excludedFromMedian": true
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 1000,
+      "coldOrWarmupMs": 744.9345,
+      "excludedFromMedian": true
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 1000,
+      "coldOrWarmupMs": 726.145709,
+      "excludedFromMedian": true
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 1000,
+      "coldOrWarmupMs": 759.537459,
+      "excludedFromMedian": true
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 1000,
+      "trial": 0,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 5.470667
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 1000,
+      "trial": 0,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 4.665917
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 1000,
+      "trial": 0,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 4.460708
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 1000,
+      "trial": 0,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 3.3775
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 1000,
+      "trial": 0,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 2.653541
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 1000,
+      "trial": 1,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 2.664
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 1000,
+      "trial": 1,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 2.381708
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 1000,
+      "trial": 1,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 2.581625
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 1000,
+      "trial": 1,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 2.183458
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 1000,
+      "trial": 1,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 2.098875
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 1000,
+      "trial": 2,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 2.187667
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 1000,
+      "trial": 2,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 2.108333
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 1000,
+      "trial": 2,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.993667
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 1000,
+      "trial": 2,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.918417
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 1000,
+      "trial": 2,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 2.008917
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 1000,
+      "trial": 3,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 2.188959
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 1000,
+      "trial": 3,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.892958
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 1000,
+      "trial": 3,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.931958
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 1000,
+      "trial": 3,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.981708
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 1000,
+      "trial": 3,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.7735
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 1000,
+      "trial": 4,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.781417
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 1000,
+      "trial": 4,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.748459
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 1000,
+      "trial": 4,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.816917
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 1000,
+      "trial": 4,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.740792
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 1000,
+      "trial": 4,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.743291
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 1000,
+      "trial": 5,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.64675
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 1000,
+      "trial": 5,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.735209
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 1000,
+      "trial": 5,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.874792
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 1000,
+      "trial": 5,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.761125
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 1000,
+      "trial": 5,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.645208
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 1000,
+      "trial": 6,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.607625
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 1000,
+      "trial": 6,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.577958
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 1000,
+      "trial": 6,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.555959
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 1000,
+      "trial": 6,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.537292
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 1000,
+      "trial": 6,
+      "start": 17,
+      "bound": 1017,
+      "seed": 987654321,
+      "expected": 987668095,
+      "ms": 1.567
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 2000000,
+      "coldOrWarmupMs": 4.351208,
+      "excludedFromMedian": true
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 2000000,
+      "coldOrWarmupMs": 1.989542,
+      "excludedFromMedian": true
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 2000000,
+      "coldOrWarmupMs": 2.073417,
+      "excludedFromMedian": true
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 2000000,
+      "coldOrWarmupMs": 2.262667,
+      "excludedFromMedian": true
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 2000000,
+      "coldOrWarmupMs": 1.5845,
+      "excludedFromMedian": true
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 2000000,
+      "trial": 0,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 1.615958
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 2000000,
+      "trial": 0,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 2.149125
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 2000000,
+      "trial": 0,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 3.816459
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 2000000,
+      "trial": 0,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 2.09325
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 2000000,
+      "trial": 0,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 2.290666
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 2000000,
+      "trial": 1,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 1.941833
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 2000000,
+      "trial": 1,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 3.884875
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 2000000,
+      "trial": 1,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 2.183375
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 2000000,
+      "trial": 1,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 1.907292
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 2000000,
+      "trial": 1,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 1.616959
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 2000000,
+      "trial": 2,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 1.607042
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 2000000,
+      "trial": 2,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 3.932375
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 2000000,
+      "trial": 2,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 1.757458
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 2000000,
+      "trial": 2,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 3.154041
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 2000000,
+      "trial": 2,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 2.400334
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 2000000,
+      "trial": 3,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 2.212584
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 2000000,
+      "trial": 3,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 1.777792
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 2000000,
+      "trial": 3,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 4.371291
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 2000000,
+      "trial": 3,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 2.289292
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 2000000,
+      "trial": 3,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 1.732958
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 2000000,
+      "trial": 4,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 4.022417
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 2000000,
+      "trial": 4,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 1.702541
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 2000000,
+      "trial": 4,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 2.140958
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 2000000,
+      "trial": 4,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 1.874041
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 2000000,
+      "trial": 4,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 2.2935
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 2000000,
+      "trial": 5,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 4.112375
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 2000000,
+      "trial": 5,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 1.686458
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 2000000,
+      "trial": 5,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 2.122166
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 2000000,
+      "trial": 5,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 1.835584
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 2000000,
+      "trial": 5,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 2.063709
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 2000000,
+      "trial": 6,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 3.902292
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 2000000,
+      "trial": 6,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 1.618042
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 2000000,
+      "trial": 6,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 1.559583
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 2000000,
+      "trial": 6,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 2.128
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 2000000,
+      "trial": 6,
+      "start": 17,
+      "bound": 2000017,
+      "seed": 987654321,
+      "expected": 1015154321,
+      "ms": 2.2305
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 20000000,
+      "coldOrWarmupMs": 19.509583,
+      "excludedFromMedian": true
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 20000000,
+      "coldOrWarmupMs": 2.556667,
+      "excludedFromMedian": true
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 20000000,
+      "coldOrWarmupMs": 6.506833,
+      "excludedFromMedian": true
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 20000000,
+      "coldOrWarmupMs": 6.535791,
+      "excludedFromMedian": true
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 20000000,
+      "coldOrWarmupMs": 1.725,
+      "excludedFromMedian": true
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 20000000,
+      "trial": 0,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 2.33675
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 20000000,
+      "trial": 0,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 7.329542
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 20000000,
+      "trial": 0,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 24.568709
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 20000000,
+      "trial": 0,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 2.274333
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 20000000,
+      "trial": 0,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 6.132834
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 20000000,
+      "trial": 1,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 6.148166
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 20000000,
+      "trial": 1,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 26.648917
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 20000000,
+      "trial": 1,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 6.711291
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 20000000,
+      "trial": 1,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 1.732
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 20000000,
+      "trial": 1,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 1.965
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 20000000,
+      "trial": 2,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 1.733584
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 20000000,
+      "trial": 2,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 19.304083
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 20000000,
+      "trial": 2,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 1.925042
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 20000000,
+      "trial": 2,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 6.375375
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 20000000,
+      "trial": 2,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 6.269875
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 20000000,
+      "trial": 3,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 6.591417
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 20000000,
+      "trial": 3,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 1.6345
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 20000000,
+      "trial": 3,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 21.359541
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 20000000,
+      "trial": 3,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 6.38125
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 20000000,
+      "trial": 3,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 1.7335
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 20000000,
+      "trial": 4,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 22.200166
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 20000000,
+      "trial": 4,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 1.834458
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 20000000,
+      "trial": 4,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 6.468583
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 20000000,
+      "trial": 4,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 1.744417
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 20000000,
+      "trial": 4,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 6.686416
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 20000000,
+      "trial": 5,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 20.713459
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 20000000,
+      "trial": 5,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 2.102167
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 20000000,
+      "trial": 5,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 5.961291
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 20000000,
+      "trial": 5,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 1.909209
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 20000000,
+      "trial": 5,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 6.534292
+    },
+    {
+      "variant": "rf2-0.11",
+      "iterations": 20000000,
+      "trial": 6,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 21.385458
+    },
+    {
+      "variant": "clang-formula",
+      "iterations": 20000000,
+      "trial": 6,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 2.080917
+    },
+    {
+      "variant": "rf2-candidate",
+      "iterations": 20000000,
+      "trial": 6,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 1.686292
+    },
+    {
+      "variant": "clang-scalar",
+      "iterations": 20000000,
+      "trial": 6,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 6.427916
+    },
+    {
+      "variant": "clang-O3",
+      "iterations": 20000000,
+      "trial": 6,
+      "start": 17,
+      "bound": 20000017,
+      "seed": 987654321,
+      "expected": 1262654321,
+      "ms": 6.195792
+    }
+  ],
+  "summary": [
+    {
+      "iterations": 1000,
+      "medianMs": {
+        "rf2-0.11": 1.931958,
+        "rf2-candidate": 1.7735,
+        "clang-O3": 1.981708,
+        "clang-scalar": 1.918417,
+        "clang-formula": 1.892958
+      },
+      "minMs": {
+        "rf2-0.11": 1.607625,
+        "rf2-candidate": 1.555959,
+        "clang-O3": 1.567,
+        "clang-scalar": 1.537292,
+        "clang-formula": 1.577958
+      },
+      "maxMs": {
+        "rf2-0.11": 4.460708,
+        "rf2-candidate": 5.470667,
+        "clang-O3": 2.664,
+        "clang-scalar": 4.665917,
+        "clang-formula": 3.3775
+      }
+    },
+    {
+      "iterations": 2000000,
+      "medianMs": {
+        "rf2-0.11": 3.932375,
+        "rf2-candidate": 1.686458,
+        "clang-O3": 2.2305,
+        "clang-scalar": 2.183375,
+        "clang-formula": 1.835584
+      },
+      "minMs": {
+        "rf2-0.11": 3.816459,
+        "rf2-candidate": 1.559583,
+        "clang-O3": 1.941833,
+        "clang-scalar": 2.063709,
+        "clang-formula": 1.607042
+      },
+      "maxMs": {
+        "rf2-0.11": 4.371291,
+        "rf2-candidate": 1.757458,
+        "clang-O3": 2.400334,
+        "clang-scalar": 3.154041,
+        "clang-formula": 2.09325
+      }
+    },
+    {
+      "iterations": 20000000,
+      "medianMs": {
+        "rf2-0.11": 21.385458,
+        "rf2-candidate": 1.925042,
+        "clang-O3": 6.195792,
+        "clang-scalar": 6.591417,
+        "clang-formula": 1.744417
+      },
+      "minMs": {
+        "rf2-0.11": 19.304083,
+        "rf2-candidate": 1.686292,
+        "clang-O3": 5.961291,
+        "clang-scalar": 6.375375,
+        "clang-formula": 1.6345
+      },
+      "maxMs": {
+        "rf2-0.11": 26.648917,
+        "rf2-candidate": 2.33675,
+        "clang-O3": 6.468583,
+        "clang-scalar": 7.329542,
+        "clang-formula": 2.274333
+      }
+    }
+  ],
+  "compileRaw": [
+    {
+      "variant": "rf2-0.11",
+      "trial": 0,
+      "ms": 2.950292
+    },
+    {
+      "variant": "rf2-0.11",
+      "trial": 1,
+      "ms": 2.101542
+    },
+    {
+      "variant": "rf2-0.11",
+      "trial": 2,
+      "ms": 1.990542
+    },
+    {
+      "variant": "rf2-0.11",
+      "trial": 3,
+      "ms": 2.094708
+    },
+    {
+      "variant": "rf2-0.11",
+      "trial": 4,
+      "ms": 1.963084
+    },
+    {
+      "variant": "rf2-candidate",
+      "trial": 0,
+      "ms": 2.483041
+    },
+    {
+      "variant": "rf2-candidate",
+      "trial": 1,
+      "ms": 2.074292
+    },
+    {
+      "variant": "rf2-candidate",
+      "trial": 2,
+      "ms": 1.916625
+    },
+    {
+      "variant": "rf2-candidate",
+      "trial": 3,
+      "ms": 1.977958
+    },
+    {
+      "variant": "rf2-candidate",
+      "trial": 4,
+      "ms": 2.490125
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "artifacts/conditional-performance/conditional.rf2",
+      "sha256": "0751629ed805957fef44583b5e421b0c317504983e151ad5ef62ac0a675ae029"
+    },
+    {
+      "path": "artifacts/conditional-performance/conditional.c",
+      "sha256": "6b17560dac305163dd19e05ad6179e7559941dd6b8253b19941d1a6ce03e1773"
+    },
+    {
+      "path": "artifacts/conditional-performance/formula.c",
+      "sha256": "40b0c3ef6a70c93f277ace61bbd9878ce22577776c2fdd9d6f1382db7a02047e"
+    },
+    {
+      "path": "artifacts/conditional-performance/rf2-0.11",
+      "sha256": "8931690d45f7184640724c409cd4fc6eebd7d1f03541ecbcf41026392b527529"
+    },
+    {
+      "path": "artifacts/conditional-performance/rf2-candidate",
+      "sha256": "c630c001926a5e0e3baf898542fe30d36b197d7e57b5ac0706c897fd0a7af023"
+    },
+    {
+      "path": "artifacts/conditional-performance/clang-O3",
+      "sha256": "aae856778d897d9daa240176cb06ce4cbc77c5b5e799af111bd75fbc1342646b"
+    },
+    {
+      "path": "artifacts/conditional-performance/clang-scalar",
+      "sha256": "802a8265a9cf5adf5430a4b3402a579e4b63011c30a0a9e310de1d4d2866af37"
+    },
+    {
+      "path": "artifacts/conditional-performance/clang-formula",
+      "sha256": "b33118dcdfda75fbaa4c0ae87a747410058b876e2afa82af76cefc4d239ac60c"
+    }
+  ]
+}

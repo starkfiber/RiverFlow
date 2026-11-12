@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "compilerSHA256": "6ca632a0f10489b8d7b3b2ffb8a77b8e2166f2d6d19e9bea4a03cd2263735a9a",
+  "compilerSourceSHA256": "cb42dcefce9e8f3d9db05db02c694455e594992c8e8163100657bb8fa7373396",
+  "compilerTests": [
+    "240 direct +80 large +60 fallback periodic cases",
+    "2205 instruction edge cases",
+    "180 control cases +5 side-effect conditions",
+    "340 narrowing cases",
+    "4 optimized register ABI executions",
+    "record/module/workload suite and150 baseline comparisons",
+    "default and optimized maximum-function/frame bounds"
+  ],
+  "runtimeTests": [
+    "1016 compact comparisons,42 negatives,250 mutations",
+    "1095 Core executions,317 admissions",
+    "18 direct kernel builds,163 executions",
+    "Official MCP SDK default and compact modes"
+  ],
+  "runtimeByteIdenticalToPublished011": true,
+  "runtimeSHA256": "5a94e4423fabcd1dd7c54694d73e4fd22986e4bcf98529f5766a5e31b32660fe",
+  "unsignedFixedPoint": {
+    "passed": true,
+    "unsignedFixedPointStages": 2,
+    "unsignedSHA256": "da15c670fdff52bf69cc25f36348edb43f36b231d1649328d762c7bd5fcc7c83",
+    "sourceSHA256": "cb42dcefce9e8f3d9db05db02c694455e594992c8e8163100657bb8fa7373396",
+    "scope": "Two consecutive generated native compiler images match before OS ad hoc signing; no whole compiler correctness proof"
+  },
+  "localReports": {
+    "CONTROL-OPTIMIZER-0.11-VERIFICATION.json": {
+      "sha256": "e3e31d13a1b23b5f8679448bb748f876780a71e69e6ee0b9ba23e34ca263e9c0",
+      "passed": true
+    },
+    "INSTRUCTION-SELECTION-0.11-VERIFICATION.json": {
+      "sha256": "2d635acd18f3821fb2421af95164da2505fa21f32e0a001b28fd9b3a86170efb",
+      "passed": true
+    },
+    "NARROWING-0.11-VERIFICATION.json": {
+      "sha256": "00c774701d274119fb5d7b40448ff0fdfb64b743f9ab5a2d556da0a23cd33209",
+      "passed": true
+    },
+    "OPTIMIZER-0.11-VERIFICATION.json": {
+      "sha256": "627f7f405f33668947e71083cb92a8dd222e8e4e58f9fdc52c7022d72d08555a",
+      "passed": true
+    },
+    "REGISTER-ABI-0.11-VERIFICATION.json": {
+      "sha256": "b4c0f68715c24f3820a6c58c6251d480d8af01cc2c6254e617a7c39f27d5b283",
+      "passed": true
+    },
+    "bounds-optimized.json": {
+      "sha256": "cf04a6d68128264b50b481be68ef624b672bf7fb3885de39a51680608510c197",
+      "passed": true
+    },
+    "compiler_bounds_verify.json": {
+      "sha256": "acf47a090ea3dd26d1e557a76897877644202341ed6c0bb6f11f822ffe54d017",
+      "passed": true
+    },
+    "core_verify.json": {
+      "sha256": "7311c46e60280a4799a57466b896ff65746fd588363fb6f00c25b9a3b37bbb67",
+      "passed": true
+    },
+    "lowering_verify.json": {
+      "sha256": "a238ac565ed0131d175c57c7c213bf7c9393ecddb96b035456dbede74a1a32db",
+      "passed": true
+    },
+    "modules_verify.json": {
+      "sha256": "f4a313a4dd1f340ac787b9d3418ac07b691fc7e4aea751fbb85954532ab3effc",
+      "passed": true
+    },
+    "verify.json": {
+      "sha256": "d0a554f10c010f32ebceef81f82cb3f9207c466bde85f81432af2d124d67f96a",
+      "passed": true
+    }
+  },
+  "scope": "Post-0.11 compiler candidate only; finite host checks. Existing published 0.11 receipts preserved. No whole-compiler proof, independently staffed review, new runtime effects, multi-target qualification or installed candidate claim."
+}

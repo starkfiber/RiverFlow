@@ -20,6 +20,10 @@ RiverFlow is a language for readable application plans and explicit systems prog
 
 These are one-host, runtime-input, launch-inclusive medians. The eligible reduction beats the loop-based Clang baseline in this run. An equally specialised C formula and smaller cases remain in the report; startup variation prevents a broad formula-speed conclusion. The branch-heavy gap remains a concrete target. [Methods, guards and limits](docs/NATIVE-OPTIMIZATION.md).
 
+## Development after 0.11
+
+A guarded conditional-periodic reduction is now implemented on main. It replaces one exact pure conditional sum with fixed-size arithmetic. The published 0.11 binaries remain unchanged. [Contract, evidence and reproduction](docs/CONDITIONAL-REDUCTION.md) · [One-language full-stack direction](docs/RF2-FULL-STACK-DIRECTION.md).
+
 ## Build beyond the first application
 
 ```rf2

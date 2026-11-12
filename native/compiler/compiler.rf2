@@ -1274,6 +1274,242 @@ fn prefix_periodic(input, output_reg, shift, mask)
  do emit(2600500224 | (6 << 16) | (4 << 5) | 4)
  return emit(2332033024 | (5 << 16) | (4 << 5) | output_reg)
 end
+fn prefix_conditional(input, output_reg, shift, mask, select_shift, select_mask, value)
+ do prefix_periodic(input, output_reg, shift, mask)
+ do emit(3544251392 | (select_shift << 16) | (input << 5) | 3)
+ if select_shift != 0
+  do emit(3544186880 | ((select_shift - 1) << 10) | (input << 5) | 6)
+  do emit(4043309087 | (6 << 5))
+  do emit(2594113504 | 6)
+  do emit(2332033024 | (6 << 16) | (3 << 5) | 3)
+ end
+ do prefix_periodic(3, 4, shift - select_shift, mask >> select_shift)
+ if select_shift != 0
+  do emit(3544186880 | ((64 - select_shift) << 16) | ((63 - select_shift) << 10) | (4 << 5) | 4)
+ end
+ do emit(3405774848 | (4 << 16) | (output_reg << 5) | output_reg)
+ do imm(6, value)
+ do emit(2600500224 | (6 << 16) | (3 << 5) | 3)
+ return emit(2332033024 | (3 << 16) | (output_reg << 5) | output_reg)
+end
+fn try_conditional_loop()
+ let h = load64(state() + 24)
+ let f = load64(state() + 32)
+ let i = 0
+ let acc = 0
+ let bound = 0
+ let literal = 0
+ let mask = 0
+ let select_mask = 0
+ let value = 0
+ let shift = 0
+ let select_shift = 0
+ let period = 0
+ let done = 0
+ if load64(state() + 152) == 0
+  return 0
+ end
+ if load64(state() + 16) < h + 45
+  return 0
+ end
+ if tmatch(h + 0, "while") == 0
+  return 0
+ end
+ if tmatch(h + 2, "<") == 0
+  return 0
+ end
+ if load64(token(h + 4)) != 5
+  return 0
+ end
+ if tmatch(h + 5, "if") == 0
+  return 0
+ end
+ if tmatch(h + 6, "(") == 0
+  return 0
+ end
+ if tmatch(h + 8, "&") == 0
+  return 0
+ end
+ if load64(token(h + 9)) != 2
+  return 0
+ end
+ if tmatch(h + 10, ")") == 0
+  return 0
+ end
+ if tmatch(h + 11, "==") == 0
+  return 0
+ end
+ if load64(token(h + 12)) != 2
+  return 0
+ end
+ if load64(token(h + 13)) != 5
+  return 0
+ end
+ if tmatch(h + 14, "set") == 0
+  return 0
+ end
+ if tmatch(h + 16, "=") == 0
+  return 0
+ end
+ if tmatch(h + 18, "+") == 0
+  return 0
+ end
+ if load64(token(h + 19)) != 2
+  return 0
+ end
+ if load64(token(h + 20)) != 5
+  return 0
+ end
+ if tmatch(h + 21, "else") == 0
+  return 0
+ end
+ if load64(token(h + 22)) != 5
+  return 0
+ end
+ if tmatch(h + 23, "set") == 0
+  return 0
+ end
+ if tmatch(h + 25, "=") == 0
+  return 0
+ end
+ if tmatch(h + 27, "+") == 0
+  return 0
+ end
+ if tmatch(h + 28, "(") == 0
+  return 0
+ end
+ if tmatch(h + 30, "&") == 0
+  return 0
+ end
+ if load64(token(h + 31)) != 2
+  return 0
+ end
+ if tmatch(h + 32, ")") == 0
+  return 0
+ end
+ if load64(token(h + 33)) != 5
+  return 0
+ end
+ if tmatch(h + 34, "end") == 0
+  return 0
+ end
+ if load64(token(h + 35)) != 5
+  return 0
+ end
+ if tmatch(h + 36, "set") == 0
+  return 0
+ end
+ if tmatch(h + 38, "=") == 0
+  return 0
+ end
+ if tmatch(h + 40, "+") == 0
+  return 0
+ end
+ if load64(token(h + 41)) != 2
+  return 0
+ end
+ if load64(token(h + 42)) != 5
+  return 0
+ end
+ if tmatch(h + 43, "end") == 0
+  return 0
+ end
+ if load64(token(h + 44)) != 5
+  return 0
+ end
+ if (load64(token(h + 1)) != 1) | (name_equal(h + 1, h + 1) == 0)
+  return 0
+ end
+ if (load64(token(h + 7)) != 1) | (name_equal(h + 1, h + 7) == 0)
+  return 0
+ end
+ if (load64(token(h + 29)) != 1) | (name_equal(h + 1, h + 29) == 0)
+  return 0
+ end
+ if (load64(token(h + 37)) != 1) | (name_equal(h + 1, h + 37) == 0)
+  return 0
+ end
+ if (load64(token(h + 39)) != 1) | (name_equal(h + 1, h + 39) == 0)
+  return 0
+ end
+ if (load64(token(h + 15)) != 1) | (name_equal(h + 15, h + 15) == 0)
+  return 0
+ end
+ if (load64(token(h + 17)) != 1) | (name_equal(h + 15, h + 17) == 0)
+  return 0
+ end
+ if (load64(token(h + 24)) != 1) | (name_equal(h + 15, h + 24) == 0)
+  return 0
+ end
+ if (load64(token(h + 26)) != 1) | (name_equal(h + 15, h + 26) == 0)
+  return 0
+ end
+ if name_equal(h + 1, h + 15)
+  return 0
+ end
+ if (load64(token(h + 12) + 24) != 0) | (load64(token(h + 41) + 24) != 1)
+  return 0
+ end
+ set mask = load64(token(h + 31) + 24)
+ set select_mask = load64(token(h + 9) + 24)
+ set value = load64(token(h + 19) + 24)
+ if (mask > 4294967295) | (select_mask > mask)
+  return 0
+ end
+ if ((mask & (mask + 1)) != 0) | ((select_mask & (select_mask + 1)) != 0)
+  return 0
+ end
+ set period = mask + 1
+ while period > 1
+  set shift = shift + 1
+  set period = period >> 1
+ end
+ set period = select_mask + 1
+ while period > 1
+  set select_shift = select_shift + 1
+  set period = period >> 1
+ end
+ if load64(token(h + 3)) == 2
+  set literal = 1
+  set bound = load64(token(h + 3) + 24)
+ else
+  if load64(token(h + 3)) != 1
+   return 0
+  end
+  if name_equal(h + 3, h + 1) | name_equal(h + 3, h + 15)
+   return 0
+  end
+  set bound = local_index(h + 3)
+  if load64(local_type(f, bound)) != 0
+   return 0
+  end
+ end
+ set i = local_index(h + 1)
+ set acc = local_index(h + 15)
+ if (load64(local_type(f, i)) | load64(local_type(f, acc))) != 0
+  return 0
+ end
+ do access_local(0, i, 0)
+ if literal
+  do imm(1, bound)
+ else
+  do access_local(1, bound, 0)
+ end
+ do access_local(2, acc, 0)
+ set done = next_label()
+ do emit(3942711327)
+ do jump(done, 2)
+ do prefix_conditional(1, 8, shift, mask, select_shift, select_mask, value)
+ do prefix_conditional(0, 7, shift, mask, select_shift, select_mask, value)
+ do emit(3405774848 | (7 << 16) | (8 << 5) | 8)
+ do emit(2332033024 | (8 << 16) | (2 << 5) | 2)
+ do access_local(2, acc, 1)
+ do access_local(1, i, 1)
+ do label(done)
+ do store64(state() + 24, h + 45)
+ do store64(state() + 160, load64(state() + 160) + 1)
+ return 1
+end
 fn try_periodic_loop()
  let h = load64(state() + 24)
  let f = load64(state() + 32)
@@ -1355,6 +1591,12 @@ fn try_periodic_loop()
  do store64(state() + 24, h + 25)
  do store64(state() + 160, load64(state() + 160) + 1)
  return 1
+end
+fn try_reduction_loop()
+ if try_conditional_loop()
+  return 1
+ end
+ return try_periodic_loop()
 end
 fn try_inplace(target)
  let h = load64(state() + 24)
@@ -1562,7 +1804,7 @@ fn block(depth)
        end
       else
        if match("while")
-        if try_periodic_loop() == 0
+        if try_reduction_loop() == 0
         if load64(state() + 152)
          do rotated_while(depth)
         else
