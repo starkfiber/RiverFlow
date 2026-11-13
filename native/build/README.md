@@ -9,3 +9,7 @@ The cache key includes the builder-source identity, selected compiler image byte
 Read [the full contract and tests](../../docs/INCREMENTAL-BUILDS.md) before use. Cache storage is private, serialized and trusted to its owner. There is no authenticated shared-cache or hostile same-UID writer guarantee.
 
 With a qualified 0.27 compiler, --compact selects the smaller image layout and is bound into the cache key. Build the driver itself with the same optional flag through tools/build-incremental.py. Current default behavior remains compatible. Function-map sidecars are separate developer evidence and are not admitted to the target cache.
+
+## Explicit compiler stores, 0.28
+
+`--compiler-store existing-private-directory` retains the verified compiler snapshot across otherwise independent target caches. The store is owner-checked and locked; compiler content, mode and link checks remain. A retained store avoids repeated first execution of newly copied compiler files. Its first-ever setup still costs time. See [the workflow and measured scope](../../docs/COMPILER-STORE-0.28.md). Function reuse remains a separate compiler option and is not silently enabled by this driver.

@@ -20,3 +20,5 @@ Both compiler modes matter. A refusing test needs a valid nearby control so an u
 Fixtures and old comparators preserve their original semantics. Do not update expected output just to make a failing candidate pass. No whole-language proof or independent academic approval follows from a green suite.
 
 For compact images, use compact_image_verify.py with RF2_TEST_COMPILER. To rerun incremental scenarios in compact mode, set RF2_INCREMENTAL_COMPACT=1 and choose compilers that support --compact. The diagnostic function-map tests remain distinct from executable image and MCP acceptance tests.
+
+0.28: `standalone/function_reuse_verify.py` compares opt-in function reuse with clean images and execution; `standalone/compiler_store_verify.py` checks explicit private stores and retained-inode behavior. Both require explicit RF2_TEST_COMPILER and the store suite also RF2_BUILD_BIN. Existing cache, compact-image, compiler and native MCP gates remain required.

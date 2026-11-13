@@ -60,7 +60,7 @@ The program exits successfully. The build creates a new directory and signs the 
 
 **Stable package: 0.17.** Bounded Core computation, local modules, records, checked arrays, UTF-8 scalar views, typed outcomes, owned files, bounded growing bytes and nine defined MCP tools.
 
-**Development source: 0.27 compact-image candidate.** Adds compact native images and function-change evidence to dependency-aware whole-target reuse, alongside native SHA instructions, guarded optimizations, guest ownership experiments and a bounded WebAssembly backend. Development source and frozen candidate bundles are separate from the stable download. See the [engineering history](docs/RESEARCH-HISTORY.md) for each implementation and its executed tests.
+**Development source: 0.28 reuse candidate.** Adds [opt-in scalar-function reuse](docs/FUNCTION-REUSE-0.28.md) and [explicit compiler stores](docs/COMPILER-STORE-0.28.md) to compact images and dependency-aware whole-target reuse, alongside native SHA instructions, guarded optimizations, guest ownership experiments and a bounded WebAssembly backend. Development source and frozen candidate bundles are separate from the stable download. See the [engineering history](docs/RESEARCH-HISTORY.md) for each implementation and its executed tests.
 
 MCP does not grant arbitrary filesystem, network or systems-code execution. AI intelligence comes from the connected host. There is no embedded model or automatic proof of correctness.
 

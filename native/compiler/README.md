@@ -25,3 +25,7 @@ No broad argument-register lowering is enabled by the catalogue refactor. The fa
 ## Optional image and change-evidence modes
 
 --compact separates initialized file bytes from zero-filled VM reservations. Default output retains the prior format. --functions writes a bounded diagnostic sidecar with token fingerprints, code ranges, relocation records and direct-call edges. These are not relocatable objects or reusable function bodies. Read docs/COMPACT-IMAGES-0.27.md and use the clean-build and native loader gates.
+
+## Opt-in scalar function reuse, 0.28
+
+`--reuse-cache existing-private-directory` admits only single-return scalar arithmetic helpers and emits a reuse report. Templates are captured before resolution, current exit fixups are rebuilt, and keys bind compiler file identity, options, declaration context and body tokens. All other source uses normal generation; diagnostic map mode deliberately disables reuse. The measured route is currently slower than clean compilation. Read [the contract and limits](../../docs/FUNCTION-REUSE-0.28.md) before use.

@@ -282,14 +282,25 @@ fn publish_output(path,p,n,pid)
  do close(dir)
  return ok
 end
+# Existing private owner-controlled directories only; locking is explicit at the call site.
+fn private_build_directory(path)
+ let fd=open(path,0x1100104,0)
+ do require(failed(fd)==0,"cache/store must be an existing private directory")
+ let stat=buffer("private_directory_stat",144)
+ do require(syscall6(339,fd,stat,0,0,0,0)==0,"cache/store stat failed")
+ do require(load32(stat+16)==syscall6(24,0,0,0,0,0,0),"cache/store owner mismatch")
+ do require((load32(stat+4)&63)==0,"cache/store permissions must exclude group and other")
+ return fd
+end
 fn main(argc,argv)
- if any(argc<5,argc>8)
-  do write(2,"usage: rf2-build compiler source new-output private-cache [--opt] [--clean] [--compact]\n",88)
+ if any(argc<5,argc>10)
+  do write(2,"usage: rf2-build compiler source new-output private-cache [--opt] [--clean] [--compact] [--compiler-store directory]\n",117)
   return 2
  end
  let opt=0
  let clean=0
  let compact=0
+ let compiler_store_path=0
  let i=5
  while i<argc
   let arg=load64(argv+i*8)
@@ -301,20 +312,36 @@ fn main(argc,argv)
     do require(compact==0,"duplicate option")
     set compact=1
    else
-    do require(same(arg,length(arg),"--clean",7),"unknown build option")
-    do require(clean==0,"duplicate option")
-    set clean=1
+    if same(arg,length(arg),"--compiler-store",16)
+     do require(compiler_store_path==0,"duplicate compiler store")
+     do require(i+1<argc,"compiler store directory missing")
+     set i=i+1
+     set compiler_store_path=load64(argv+i*8)
+    else
+     do require(same(arg,length(arg),"--clean",7),"unknown build option")
+     do require(clean==0,"duplicate option")
+     set clean=1
+    end
    end
   end
   set i=i+1
  end
- let root=open(load64(argv+32),0x1100104,0)
- do require(failed(root)==0,"cache must be an existing private directory")
- let stat=buffer("cache_root_stat",144)
- do require(syscall6(339,root,stat,0,0,0,0)==0,"cache stat failed")
- do require(load32(stat+16)==syscall6(24,0,0,0,0,0,0),"cache owner mismatch")
- do require((load32(stat+4)&63)==0,"cache permissions must exclude group and other")
+ let root=private_build_directory(load64(argv+32))
  do require(syscall6(131,root,6,0,0,0,0)==0,"cache busy; retry after active builder exits")
+ let compiler_store=root
+ if compiler_store_path!=0
+  let candidate=private_build_directory(compiler_store_path)
+  let root_stat=buffer("cache_identity",144)
+  let store_stat=buffer("store_identity",144)
+  do require(syscall6(339,root,root_stat,0,0,0,0)==0,"cache identity failed")
+  do require(syscall6(339,candidate,store_stat,0,0,0,0)==0,"store identity failed")
+  if all(load32(root_stat)==load32(store_stat),load64(root_stat+8)==load64(store_stat+8))
+   do close(candidate)
+  else
+   do require(syscall6(131,candidate,6,0,0,0,0)==0,"compiler store busy; retry after active builder exits")
+   set compiler_store=candidate
+  end
+ end
  let compiler=buffer("compiler_snapshot",16777217)
  let compiler_n=read_regular(load64(argv+8),compiler,16777216)
  do require(failed(compiler_n)==0,"compiler must be a regular file within 16 MiB")
@@ -388,9 +415,15 @@ fn main(argc,argv)
  end
  let pid=syscall6(20,0,0,0,0,0,0)
  if hit==0
-  let executable=compiler_snapshot(root,compiler,compiler_n,key_data+64,pid)
+  let executable=compiler_snapshot(compiler_store,compiler,compiler_n,key_data+64,pid)
   let executable_path=buffer("compiler_exec_path",1024)
-  do append_text(executable_path,append_text(executable_path,0,"../"),executable)
+  if compiler_store_path!=0
+   do require(syscall6(92,compiler_store,50,executable_path,0,0,0)==0,"compiler store path unavailable")
+   let at_path=append_text(executable_path,length(executable_path),"/")
+   do append_text(executable_path,at_path,executable)
+  else
+   do append_text(executable_path,append_text(executable_path,0,"../"),executable)
+  end
   let workname=buffer("work_name",1024)
   let at=append_text(workname,0,".rf2-work-")
   do decimal(workname+at,pid)
@@ -451,6 +484,9 @@ fn main(argc,argv)
   do require(syscall6(465,root,tmp,root,name,0,0)==0,"cache atomic commit failed")
  end
  do require(publish_output(load64(argv+24),entry+80,count-80,pid),"output publish failed; existing destinations are never overwritten")
+ if compiler_store!=root
+  do close(compiler_store)
+ end
  do close(root)
  do write(1,"{\"cache\":\"",10)
  if hit

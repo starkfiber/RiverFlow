@@ -1,0 +1,595 @@
+{
+  "driverProfile": {
+    "rows": [
+      {
+        "trial": 0,
+        "kind": "cold",
+        "totalMs": 1108.596167,
+        "stagesMs": {
+          "readCompiler": 2.800125,
+          "hashCompiler": 0.283292,
+          "dependenciesAndKey": 1.9355,
+          "compilerSnapshot": 0.44925,
+          "workInputs": 3.283417,
+          "forkToExec": 0.525167,
+          "execToWait": 534.841083,
+          "imageAndCache": 1.187417,
+          "publishOutput": 1.6985,
+          "inProcess": 547.027459
+        },
+        "marksNs": {
+          "0": 367080751458041,
+          "1": 367080754258166,
+          "2": 367080754541458,
+          "3": 367080756476958,
+          "4": 367080756500666,
+          "5": 367080756949916,
+          "6": 367080760233333,
+          "7": 367080760758500,
+          "8": 367081295599583,
+          "9": 367081296787000,
+          "10": 367081298485500
+        },
+        "imageSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+      },
+      {
+        "trial": 0,
+        "kind": "forced",
+        "totalMs": 30.609542,
+        "stagesMs": {
+          "readCompiler": 0.403125,
+          "hashCompiler": 0.160834,
+          "dependenciesAndKey": 0.276833,
+          "compilerSnapshot": 0.305792,
+          "workInputs": 2.016708,
+          "forkToExec": 0.880959,
+          "execToWait": 10.626791,
+          "imageAndCache": 1.268667,
+          "publishOutput": 1.09225,
+          "inProcess": 17.042042
+        },
+        "marksNs": {
+          "0": 367081314495666,
+          "1": 367081314898791,
+          "2": 367081315059625,
+          "3": 367081315336458,
+          "4": 367081315346541,
+          "5": 367081315652333,
+          "6": 367081317669041,
+          "7": 367081318550000,
+          "8": 367081329176791,
+          "9": 367081330445458,
+          "10": 367081331537708
+        },
+        "imageSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+      },
+      {
+        "trial": 0,
+        "kind": "hit",
+        "totalMs": 14.476459,
+        "stagesMs": {
+          "readCompiler": 0.212375,
+          "hashCompiler": 0.152042,
+          "dependenciesAndKey": 0.230375,
+          "publishOutput": 1.037917,
+          "inProcess": 1.736042
+        },
+        "marksNs": {
+          "0": 367081344801166,
+          "1": 367081345013541,
+          "2": 367081345165583,
+          "3": 367081345395958,
+          "9": 367081345499291,
+          "10": 367081346537208
+        },
+        "imageSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+      },
+      {
+        "trial": 1,
+        "kind": "cold",
+        "totalMs": 275.471917,
+        "stagesMs": {
+          "readCompiler": 0.197291,
+          "hashCompiler": 0.152084,
+          "dependenciesAndKey": 0.276083,
+          "compilerSnapshot": 0.477459,
+          "workInputs": 0.613,
+          "forkToExec": 0.341166,
+          "execToWait": 260.094417,
+          "imageAndCache": 1.368875,
+          "publishOutput": 0.687583,
+          "inProcess": 264.243041
+        },
+        "marksNs": {
+          "0": 367081359470750,
+          "1": 367081359668041,
+          "2": 367081359820125,
+          "3": 367081360096208,
+          "4": 367081360131291,
+          "5": 367081360608750,
+          "6": 367081361221750,
+          "7": 367081361562916,
+          "8": 367081621657333,
+          "9": 367081623026208,
+          "10": 367081623713791
+        },
+        "imageSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+      },
+      {
+        "trial": 1,
+        "kind": "forced",
+        "totalMs": 23.736792,
+        "stagesMs": {
+          "readCompiler": 0.179375,
+          "hashCompiler": 0.177542,
+          "dependenciesAndKey": 0.208708,
+          "compilerSnapshot": 0.254541,
+          "workInputs": 0.677417,
+          "forkToExec": 0.447,
+          "execToWait": 7.354708,
+          "imageAndCache": 1.177584,
+          "publishOutput": 0.932416,
+          "inProcess": 11.415625
+        },
+        "marksNs": {
+          "0": 367081636123291,
+          "1": 367081636302666,
+          "2": 367081636480208,
+          "3": 367081636688916,
+          "4": 367081636695250,
+          "5": 367081636949791,
+          "6": 367081637627208,
+          "7": 367081638074208,
+          "8": 367081645428916,
+          "9": 367081646606500,
+          "10": 367081647538916
+        },
+        "imageSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+      },
+      {
+        "trial": 1,
+        "kind": "hit",
+        "totalMs": 10.028667,
+        "stagesMs": {
+          "readCompiler": 0.283791,
+          "hashCompiler": 0.1935,
+          "dependenciesAndKey": 0.232667,
+          "publishOutput": 0.649792,
+          "inProcess": 1.482583
+        },
+        "marksNs": {
+          "0": 367081657029625,
+          "1": 367081657313416,
+          "2": 367081657506916,
+          "3": 367081657739583,
+          "9": 367081657862416,
+          "10": 367081658512208
+        },
+        "imageSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+      },
+      {
+        "trial": 2,
+        "kind": "cold",
+        "totalMs": 234.762416,
+        "stagesMs": {
+          "readCompiler": 0.137209,
+          "hashCompiler": 0.176291,
+          "dependenciesAndKey": 0.184292,
+          "compilerSnapshot": 0.404666,
+          "workInputs": 0.451667,
+          "forkToExec": 0.247458,
+          "execToWait": 221.946792,
+          "imageAndCache": 0.895167,
+          "publishOutput": 0.809666,
+          "inProcess": 225.27
+        },
+        "marksNs": {
+          "0": 367081668003041,
+          "1": 367081668140250,
+          "2": 367081668316541,
+          "3": 367081668500833,
+          "4": 367081668517625,
+          "5": 367081668922291,
+          "6": 367081669373958,
+          "7": 367081669621416,
+          "8": 367081891568208,
+          "9": 367081892463375,
+          "10": 367081893273041
+        },
+        "imageSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+      },
+      {
+        "trial": 2,
+        "kind": "forced",
+        "totalMs": 17.557791,
+        "stagesMs": {
+          "readCompiler": 0.136292,
+          "hashCompiler": 0.178125,
+          "dependenciesAndKey": 0.203416,
+          "compilerSnapshot": 0.2595,
+          "workInputs": 0.524916,
+          "forkToExec": 0.270667,
+          "execToWait": 6.43425,
+          "imageAndCache": 1.005417,
+          "publishOutput": 0.567833,
+          "inProcess": 9.5865
+        },
+        "marksNs": {
+          "0": 367081902268458,
+          "1": 367081902404750,
+          "2": 367081902582875,
+          "3": 367081902786291,
+          "4": 367081902792375,
+          "5": 367081903051875,
+          "6": 367081903576791,
+          "7": 367081903847458,
+          "8": 367081910281708,
+          "9": 367081911287125,
+          "10": 367081911854958
+        },
+        "imageSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+      },
+      {
+        "trial": 2,
+        "kind": "hit",
+        "totalMs": 9.026416,
+        "stagesMs": {
+          "readCompiler": 0.142042,
+          "hashCompiler": 0.178667,
+          "dependenciesAndKey": 0.211958,
+          "publishOutput": 0.63825,
+          "inProcess": 1.246875
+        },
+        "marksNs": {
+          "0": 367081920233166,
+          "1": 367081920375208,
+          "2": 367081920553875,
+          "3": 367081920765833,
+          "9": 367081920841791,
+          "10": 367081921480041
+        },
+        "imageSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+      },
+      {
+        "trial": 3,
+        "kind": "cold",
+        "totalMs": 213.53375,
+        "stagesMs": {
+          "readCompiler": 0.111083,
+          "hashCompiler": 0.176125,
+          "dependenciesAndKey": 0.1825,
+          "compilerSnapshot": 0.3135,
+          "workInputs": 0.468,
+          "forkToExec": 0.291083,
+          "execToWait": 204.43075,
+          "imageAndCache": 0.787,
+          "publishOutput": 0.528542,
+          "inProcess": 207.304875
+        },
+        "marksNs": {
+          "0": 367081927959583,
+          "1": 367081928070666,
+          "2": 367081928246791,
+          "3": 367081928429291,
+          "4": 367081928445583,
+          "5": 367081928759083,
+          "6": 367081929227083,
+          "7": 367081929518166,
+          "8": 367082133948916,
+          "9": 367082134735916,
+          "10": 367082135264458
+        },
+        "imageSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+      },
+      {
+        "trial": 3,
+        "kind": "forced",
+        "totalMs": 14.667,
+        "stagesMs": {
+          "readCompiler": 0.152083,
+          "hashCompiler": 0.144125,
+          "dependenciesAndKey": 0.165959,
+          "compilerSnapshot": 0.207375,
+          "workInputs": 0.384292,
+          "forkToExec": 0.244,
+          "execToWait": 4.994625,
+          "imageAndCache": 0.74075,
+          "publishOutput": 0.669792,
+          "inProcess": 7.708667
+        },
+        "marksNs": {
+          "0": 367082141859458,
+          "1": 367082142011541,
+          "2": 367082142155666,
+          "3": 367082142321625,
+          "4": 367082142327291,
+          "5": 367082142534666,
+          "6": 367082142918958,
+          "7": 367082143162958,
+          "8": 367082148157583,
+          "9": 367082148898333,
+          "10": 367082149568125
+        },
+        "imageSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+      },
+      {
+        "trial": 3,
+        "kind": "hit",
+        "totalMs": 9.210667,
+        "stagesMs": {
+          "readCompiler": 0.124,
+          "hashCompiler": 0.138708,
+          "dependenciesAndKey": 0.165959,
+          "publishOutput": 0.624333,
+          "inProcess": 1.149375
+        },
+        "marksNs": {
+          "0": 367082159053083,
+          "1": 367082159177083,
+          "2": 367082159315791,
+          "3": 367082159481750,
+          "9": 367082159578125,
+          "10": 367082160202458
+        },
+        "imageSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+      },
+      {
+        "trial": 4,
+        "kind": "cold",
+        "totalMs": 167.664375,
+        "stagesMs": {
+          "readCompiler": 0.121375,
+          "hashCompiler": 0.139458,
+          "dependenciesAndKey": 0.165917,
+          "compilerSnapshot": 0.3325,
+          "workInputs": 0.398458,
+          "forkToExec": 0.280875,
+          "execToWait": 157.533042,
+          "imageAndCache": 0.615541,
+          "publishOutput": 0.459667,
+          "inProcess": 160.063708
+        },
+        "marksNs": {
+          "0": 367082168265875,
+          "1": 367082168387250,
+          "2": 367082168526708,
+          "3": 367082168692625,
+          "4": 367082168709500,
+          "5": 367082169042000,
+          "6": 367082169440458,
+          "7": 367082169721333,
+          "8": 367082327254375,
+          "9": 367082327869916,
+          "10": 367082328329583
+        },
+        "imageSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+      },
+      {
+        "trial": 4,
+        "kind": "forced",
+        "totalMs": 13.584167,
+        "stagesMs": {
+          "readCompiler": 0.116708,
+          "hashCompiler": 0.138917,
+          "dependenciesAndKey": 0.160458,
+          "compilerSnapshot": 0.214667,
+          "workInputs": 0.593958,
+          "forkToExec": 0.459375,
+          "execToWait": 4.817417,
+          "imageAndCache": 0.611292,
+          "publishOutput": 0.465958,
+          "inProcess": 7.584708
+        },
+        "marksNs": {
+          "0": 367082334821875,
+          "1": 367082334938583,
+          "2": 367082335077500,
+          "3": 367082335237958,
+          "4": 367082335243916,
+          "5": 367082335458583,
+          "6": 367082336052541,
+          "7": 367082336511916,
+          "8": 367082341329333,
+          "9": 367082341940625,
+          "10": 367082342406583
+        },
+        "imageSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+      },
+      {
+        "trial": 4,
+        "kind": "hit",
+        "totalMs": 5.376375,
+        "stagesMs": {
+          "readCompiler": 0.083,
+          "hashCompiler": 0.135709,
+          "dependenciesAndKey": 0.148583,
+          "publishOutput": 0.440625,
+          "inProcess": 0.867792
+        },
+        "marksNs": {
+          "0": 367082347313416,
+          "1": 367082347396416,
+          "2": 367082347532125,
+          "3": 367082347680708,
+          "9": 367082347740583,
+          "10": 367082348181208
+        },
+        "imageSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+      }
+    ],
+    "scope": "Instrumented driver copy from 0.27; one host warm filesystem; five trial order cold/forced/hit; stage observations not uninstrumented speed claims",
+    "compilerSHA256": "7a6dbd499a415d50f0da6f17d0d99672b42c9254f9d43a50f571fc207075b10c",
+    "profileSourceSHA256": "234e36227da337481f8203b0a0082e39d7273b81a18cf5f6c30e5b12a898e289"
+  },
+  "cloneProbe": [
+    {
+      "trial": 0,
+      "kind": "copy",
+      "call": 0,
+      "ms": 151.374
+    },
+    {
+      "trial": 0,
+      "kind": "copy",
+      "call": 1,
+      "ms": 5.052541
+    },
+    {
+      "trial": 0,
+      "kind": "clone",
+      "call": 0,
+      "ms": 104.404959
+    },
+    {
+      "trial": 0,
+      "kind": "clone",
+      "call": 1,
+      "ms": 7.931959
+    },
+    {
+      "trial": 1,
+      "kind": "clone",
+      "call": 0,
+      "ms": 104.808375
+    },
+    {
+      "trial": 1,
+      "kind": "clone",
+      "call": 1,
+      "ms": 9.514833
+    },
+    {
+      "trial": 1,
+      "kind": "copy",
+      "call": 0,
+      "ms": 117.274917
+    },
+    {
+      "trial": 1,
+      "kind": "copy",
+      "call": 1,
+      "ms": 7.056334
+    },
+    {
+      "trial": 2,
+      "kind": "copy",
+      "call": 0,
+      "ms": 104.798667
+    },
+    {
+      "trial": 2,
+      "kind": "copy",
+      "call": 1,
+      "ms": 7.167333
+    },
+    {
+      "trial": 2,
+      "kind": "clone",
+      "call": 0,
+      "ms": 110.3165
+    },
+    {
+      "trial": 2,
+      "kind": "clone",
+      "call": 1,
+      "ms": 7.311458
+    },
+    {
+      "trial": 3,
+      "kind": "clone",
+      "call": 0,
+      "ms": 109.484708
+    },
+    {
+      "trial": 3,
+      "kind": "clone",
+      "call": 1,
+      "ms": 5.024792
+    },
+    {
+      "trial": 3,
+      "kind": "copy",
+      "call": 0,
+      "ms": 103.72125
+    },
+    {
+      "trial": 3,
+      "kind": "copy",
+      "call": 1,
+      "ms": 4.386041
+    },
+    {
+      "trial": 4,
+      "kind": "copy",
+      "call": 0,
+      "ms": 99.09425
+    },
+    {
+      "trial": 4,
+      "kind": "copy",
+      "call": 1,
+      "ms": 3.453917
+    },
+    {
+      "trial": 4,
+      "kind": "clone",
+      "call": 0,
+      "ms": 106.500167
+    },
+    {
+      "trial": 4,
+      "kind": "clone",
+      "call": 1,
+      "ms": 3.637083
+    },
+    {
+      "trial": 5,
+      "kind": "clone",
+      "call": 0,
+      "ms": 100.057875
+    },
+    {
+      "trial": 5,
+      "kind": "clone",
+      "call": 1,
+      "ms": 4.459292
+    },
+    {
+      "trial": 5,
+      "kind": "copy",
+      "call": 0,
+      "ms": 101.008166
+    },
+    {
+      "trial": 5,
+      "kind": "copy",
+      "call": 1,
+      "ms": 5.087958
+    },
+    {
+      "trial": 6,
+      "kind": "copy",
+      "call": 0,
+      "ms": 116.708
+    },
+    {
+      "trial": 6,
+      "kind": "copy",
+      "call": 1,
+      "ms": 3.922417
+    },
+    {
+      "trial": 6,
+      "kind": "clone",
+      "call": 0,
+      "ms": 111.698666
+    },
+    {
+      "trial": 6,
+      "kind": "clone",
+      "call": 1,
+      "ms": 9.092667
+    }
+  ],
+  "limits": "Local instrumented probes; first-execution delay observed, specific operating-system security service attribution remains inference."
+}
