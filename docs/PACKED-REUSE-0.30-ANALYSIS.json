@@ -1,0 +1,37 @@
+{
+  "analysis": "Paired trial deltas; deterministic 10000 bootstrap medians, exploratory one-host interval, not a universal significance claim.",
+  "rows": [
+    {
+      "task": "small",
+      "packMinusFilesPairedMedianMs": 0.017000000000000126,
+      "bootstrap95Ms": [
+        -0.09308400000000017,
+        0.04770799999999964
+      ]
+    },
+    {
+      "task": "checksum",
+      "packMinusFilesPairedMedianMs": -0.04945799999999956,
+      "bootstrap95Ms": [
+        -0.07908399999999993,
+        0.0182500000000001
+      ]
+    },
+    {
+      "task": "sha40",
+      "packMinusFilesPairedMedianMs": 0.05470799999999976,
+      "bootstrap95Ms": [
+        -0.1366240000000003,
+        0.13233300000000003
+      ]
+    },
+    {
+      "task": "numeric",
+      "packMinusFilesPairedMedianMs": -0.9603330000000003,
+      "bootstrap95Ms": [
+        -1.060041,
+        -0.8359589999999995
+      ]
+    }
+  ]
+}
