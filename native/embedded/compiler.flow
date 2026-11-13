@@ -34,6 +34,9 @@ fn rv_identifier()
  return t
 end
 fn rv_intrinsic(t)
+ return rv_mmio(t)|tmatch(t,"irq_install")|tmatch(t,"irq_enable")|tmatch(t,"irq_save")|tmatch(t,"irq_restore")|tmatch(t,"irq_replenish")|tmatch(t,"irq_active")
+end
+fn rv_mmio(t)
  return tmatch(t,"load8")|tmatch(t,"load32")|tmatch(t,"store8")|tmatch(t,"store32")
 end
 fn rv_lookup_fn(t)
@@ -88,6 +91,11 @@ fn rv_scan()
  do rv_skip_newlines()
  let count = 0
  while load64(token(load64(state()+24)))!=0
+  let interrupt = 0
+  if match("interrupt")
+   do advance()
+   set interrupt = 1
+  end
   do expect("fn")
   let name = rv_identifier()
   do require(rv_intrinsic(name)==0,"reserved embedded MMIO intrinsic")
@@ -98,6 +106,7 @@ fn rv_scan()
   end
   let f = rv_fn(count)
   do store64(f,name)
+  do store64(f+72,interrupt)
   do expect("(")
   let params = 0
   if match(")")==0
@@ -122,6 +131,11 @@ fn rv_scan()
    do advance()
   end
   do store64(f+8,params)
+  if interrupt
+   do require(params==1,"interrupt handler requires one cause parameter")
+   do require(load64(rv_state()+64)==0,"one interrupt dispatcher supported")
+   do store64(rv_state()+64,count+1)
+  end
   if match(":")
    do advance()
    do expect("u32")
@@ -328,6 +342,14 @@ end
 fn rv_call(t,depth)
  let count = 0
  do expect("(")
+ if tmatch(t,"irq_install")
+  let handler = rv_lookup_fn(rv_identifier())
+  do expect(")")
+  do require(load64(rv_fn(handler)+72),"irq_install requires declared interrupt handler")
+  do store64(rv_state()+72,1)
+  do store64(buffer("rv_effects",512)+load64(rv_state())*8,load64(buffer("rv_effects",512)+load64(rv_state())*8)|1)
+  return rv_irq_install()
+ end
  if match(")")==0
   let more = 1
   while more
@@ -348,7 +370,7 @@ fn rv_call(t,depth)
   set n = n-1
   do rv_pop(10+n)
  end
- if rv_intrinsic(t)
+ if rv_mmio(t)
   if tmatch(t,"load8")|tmatch(t,"load32")
    do require(count==1,"embedded load arity1")
    let width = 4
@@ -366,7 +388,11 @@ fn rv_call(t,depth)
    do rv_emit(rv_i(19,10,0,0,0))
   end
  else
+  if rv_intrinsic(t)
+   return rv_irq_intrinsic(t,count)
+  end
   let f = rv_lookup_fn(t)
+  do require(load64(rv_fn(f)+72)==0,"interrupt handler cannot be called as ordinary function")
   do require(load64(rv_fn(f)+8)==count,"embedded call argument mismatch")
   let caller = rv_fn(load64(rv_state()))
   do store64(caller+64,load64(caller+64)|(1<<f))
@@ -502,6 +528,7 @@ fn rv_block(depth)
        do rv_mark(done)
       else
        if match("while")
+        do store64(buffer("rv_effects",512)+load64(rv_state())*8,load64(buffer("rv_effects",512)+load64(rv_state())*8)|2)
         do advance()
         let begin = rv_label()
         let loop_done = rv_label()
@@ -581,6 +608,229 @@ fn rv_graph(f,depth)
  do store64(p+56,longest)
  return longest
 end
+fn rv_csr(csr,rd,kind,source)
+ return rv_emit(115|(rd<<7)|(kind<<12)|(source<<15)|(csr<<20))
+end
+fn rv_irq_effects(f)
+ let cached = load64(buffer("rv_effects_cache",512)+f*8)
+ if cached
+  return cached-1
+ end
+ let flags = load64(buffer("rv_effects",512)+f*8)
+ let edges = load64(rv_fn(f)+64)
+ let child = 0
+ while child<load64(rv_state()+8)
+  if (edges>>child)&1
+   set flags = flags|rv_irq_effects(child)
+  end
+  set child = child+1
+ end
+ do store64(buffer("rv_effects_cache",512)+f*8,flags+1)
+ return flags
+end
+fn rv_irq_guard(failed)
+ do rv_csr(0x305,10,2,0)
+ do rv_imm(5,0x40380100)
+ do rv_emit(rv_r(10,4,10,5,0))
+ do rv_emit(rv_i(19,10,3,10,1))
+ do rv_branch_zero(failed)
+ do rv_imm(5,0x3fca8100)
+ do rv_emit(rv_i(3,10,2,5,20))
+ do rv_imm(6,0x52463249)
+ do rv_emit(rv_r(10,4,10,6,0))
+ do rv_emit(rv_i(19,10,3,10,1))
+ do rv_branch_zero(failed)
+ # Only CPU interrupt line1 belongs to this bounded dispatcher.
+ do rv_imm(5,0x600c2104)
+ do rv_emit(rv_i(3,10,2,5,0))
+ do rv_emit(rv_i(19,10,7,10,4093))
+ do rv_emit(rv_i(19,10,3,10,1))
+ do rv_branch_zero(failed)
+ return 0
+end
+fn rv_irq_install()
+ let already = rv_label()
+ let done = rv_label()
+ do rv_imm(5,0x3fca8100)
+ do rv_emit(rv_i(3,10,2,5,20))
+ do rv_imm(6,0x52463249)
+ do rv_emit(rv_r(10,4,10,6,0))
+ do rv_branch_zero(already)
+ do rv_csr(0x300,0,7,8)
+ do rv_csr(0x304,0,1,0)
+ do rv_imm(5,0x600c2104)
+ do rv_emit(rv_s(2,5,0,0))
+ do rv_imm(5,0x40380100)
+ do rv_csr(0x305,0,1,5)
+ do rv_imm(5,0x3fcb0000)
+ do rv_csr(0x340,0,1,5)
+ do rv_imm(5,0x3fca8100)
+ do rv_imm(10,64)
+ do rv_emit(rv_s(2,5,10,0))
+ do rv_imm(10,0x52463249)
+ do rv_emit(rv_s(2,5,10,20))
+ do rv_imm(10,0)
+ do rv_fix(done,0)
+ do rv_mark(already)
+ do rv_imm(10,0x80000402)
+ do rv_mark(done)
+ return 0
+end
+fn rv_irq_intrinsic(t,count)
+ if tmatch(t,"irq_save")
+  do require(count==0,"irq_save arity0")
+  do rv_csr(0x300,10,7,8)
+  return rv_emit(rv_i(19,10,7,10,8))
+ end
+ if tmatch(t,"irq_active")
+  do require(count==0,"irq_active arity0")
+  do rv_imm(5,0x3fca8100)
+  return rv_emit(rv_i(3,10,2,5,28))
+ end
+ do store64(buffer("rv_effects",512)+load64(rv_state())*8,load64(buffer("rv_effects",512)+load64(rv_state())*8)|1)
+ let failed = rv_label()
+ let done = rv_label()
+ if tmatch(t,"irq_restore")
+  do require(count==1,"irq_restore arity1")
+  do rv_csr(0x300,0,7,8)
+  do rv_emit(rv_i(19,10,7,10,8))
+  let zero = rv_label()
+  do rv_branch_zero(zero)
+  do rv_irq_guard(failed)
+  do rv_imm(5,2048)
+  do rv_csr(0x304,0,2,5)
+  do rv_csr(0x300,0,6,8)
+  do rv_mark(zero)
+  do rv_imm(10,0)
+ else
+  do require(count==0,"interrupt control arity0")
+  do require(load64(rv_state()+64)!=0,"interrupt control requires dispatcher")
+  do rv_irq_guard(failed)
+  if tmatch(t,"irq_enable")
+   do rv_imm(5,2048)
+   do rv_csr(0x304,0,2,5)
+   do rv_csr(0x300,0,6,8)
+  else
+   do require(tmatch(t,"irq_replenish"),"unknown interrupt intrinsic")
+   do rv_csr(0x300,6,7,8)
+   do rv_imm(5,0x3fca8100)
+   do rv_imm(10,64)
+   do rv_emit(rv_s(2,5,10,0))
+   do rv_emit(rv_i(19,6,7,6,8))
+   do rv_csr(0x300,0,2,6)
+  end
+  do rv_imm(10,0)
+ end
+ do rv_fix(done,0)
+ do rv_mark(failed)
+ do rv_imm(10,0x80000401)
+ do rv_mark(done)
+ return 0
+end
+fn rv_irq_vector()
+ # Direct mtvec, 144-byte aligned frame on a separate16KiB interrupt stack.
+ do require(load64(rv_state()+16)==256,"interrupt vector placement")
+ let nested = rv_label()
+ do rv_csr(0x340,2,1,2)
+ # In an active ISR mscratch is0. A synchronous nested fault must not write
+ # either the interrupted foreground stack or memory below a zero stack.
+ do rv_emit(5120|(2<<15)|99)
+ do rv_fix(nested,0)
+ do rv_emit(rv_i(19,2,0,2,0-144))
+ let r = 1
+ while r<32
+  if r!=2
+   do rv_emit(rv_s(2,2,r,r*4))
+  end
+  set r = r+1
+ end
+ do rv_csr(0x340,5,2,0)
+ do rv_emit(rv_s(2,2,5,8))
+ do rv_csr(0x340,0,1,0)
+ do rv_csr(0x341,5,2,0)
+ do rv_emit(rv_s(2,2,5,0))
+ do rv_csr(0x300,5,2,0)
+ do rv_emit(rv_s(2,2,5,128))
+ do rv_csr(0x343,5,2,0)
+ do rv_emit(rv_s(2,2,5,132))
+ do rv_csr(0x342,10,2,0)
+ do rv_emit(rv_s(2,2,10,136))
+ do rv_imm(5,0x3fca8100)
+ do rv_emit(rv_s(2,5,10,8))
+ do rv_emit(rv_i(3,6,2,2,0))
+ do rv_emit(rv_s(2,5,6,12))
+ do rv_emit(rv_i(3,6,2,2,132))
+ do rv_emit(rv_s(2,5,6,16))
+ let unexpected = rv_label()
+ let storm = rv_label()
+ let handler_bad = rv_label()
+ let halt = rv_label()
+ do rv_imm(6,0x80000001)
+ do rv_emit(rv_r(10,4,10,6,0))
+ do rv_emit(rv_i(19,10,3,10,1))
+ do rv_branch_zero(unexpected)
+ do rv_emit(rv_i(3,10,2,5,0))
+ do rv_branch_zero(storm)
+ do rv_emit(rv_i(19,10,0,10,0-1))
+ do rv_emit(rv_s(2,5,10,0))
+ do rv_emit(rv_i(3,10,2,5,24))
+ do rv_emit(rv_i(19,10,0,10,1))
+ do rv_emit(rv_s(2,5,10,24))
+ do rv_imm(10,1)
+ do rv_emit(rv_s(2,5,10,28))
+ do rv_emit(rv_i(3,10,2,2,136))
+ do rv_fix(load64(rv_state()+64)-1,1)
+ # Handler status0 is success; preserve nonzero status as a fail-closed fault.
+ let success = rv_label()
+ do rv_branch_zero(success)
+ do rv_fix(handler_bad,0)
+ do rv_mark(success)
+ do rv_imm(5,0x3fca8100)
+ do rv_emit(rv_s(2,5,0,28))
+ do rv_emit(rv_i(3,5,2,2,0))
+ do rv_csr(0x341,0,1,5)
+ do rv_emit(rv_i(3,5,2,2,128))
+ do rv_csr(0x300,0,1,5)
+ do rv_emit(rv_i(3,5,2,2,8))
+ do rv_csr(0x340,0,1,5)
+ set r = 1
+ while r<32
+  if r!=2
+   do rv_emit(rv_i(3,r,2,2,r*4))
+  end
+  set r = r+1
+ end
+ do rv_emit(rv_i(19,2,0,2,144))
+ do rv_csr(0x340,2,1,2)
+ do rv_emit(0x30200073)
+ do rv_mark(unexpected)
+ do rv_imm(10,0x80000403)
+ do rv_fix(halt,0)
+ do rv_mark(storm)
+ do rv_imm(10,0x80000404)
+ do rv_fix(halt,0)
+ do rv_mark(handler_bad)
+ do rv_fix(halt,0)
+ do rv_mark(nested)
+ do rv_imm(5,0x3fca8100)
+ do rv_csr(0x342,10,2,0)
+ do rv_emit(rv_s(2,5,10,8))
+ do rv_csr(0x341,10,2,0)
+ do rv_emit(rv_s(2,5,10,12))
+ do rv_csr(0x343,10,2,0)
+ do rv_emit(rv_s(2,5,10,16))
+ do rv_imm(10,0x80000405)
+ # a0 contains the handler's exact failure status.
+ do rv_mark(halt)
+ do rv_imm(5,0x3fca8100)
+ do rv_emit(rv_s(2,5,10,4))
+ do rv_imm(5,0x600c2104)
+ do rv_emit(rv_s(2,5,0,0))
+ do rv_csr(0x300,0,7,8)
+ do rv_csr(0x304,0,1,0)
+ do rv_emit(rv_jword(0,0))
+ return 0
+end
 fn rv_compile()
  do rv_scan()
  let f = 0
@@ -592,17 +842,39 @@ fn rv_compile()
   set f = f+1
  end
  do require(main_index!=64,"embedded main required")
+ do require(load64(rv_fn(main_index)+72)==0,"main cannot be interrupt handler")
  do require(load64(rv_fn(main_index)+8)==0,"embedded main takes no arguments")
  # Reserve function label IDs first so forward calls are stable.
  do store64(rv_state()+24,load64(rv_state()+8))
- # Bounded bare-metal contract: interrupts disabled, no ISR ABI claimed.
+ # Main return remains entry+24. A boot thunk clears boot-local runtime state.
  do rv_emit(0x30047073)
  do rv_emit(0x30401073)
  do rv_imm(2,0x3fcc0000)
  do rv_emit(rv_i(19,8,0,0,0))
- do rv_fix(main_index,1)
+ let boot = rv_label()
+ do rv_fix(boot,1)
  # main return lands at permanent loop; a0 preserves its returned value.
  do rv_emit(rv_jword(0,0))
+ do rv_mark(boot)
+ do rv_imm(5,0x3fca8100)
+ let n = 0
+ while n<32
+  do rv_emit(rv_s(2,5,0,n))
+  set n = n+4
+ end
+ do rv_imm(5,0x3fca8200)
+ do rv_emit(rv_s(2,5,0,0))
+ do rv_fix(main_index,0)
+ if load64(rv_state()+64)
+  while load64(rv_state()+16)<256
+   do rv_emit(19)
+  end
+  do rv_irq_vector()
+  do require(load64(rv_state()+16)<=1024,"interrupt vector reservation exceeded")
+  while load64(rv_state()+16)<1024
+   do rv_emit(19)
+  end
+ end
  set f = 0
  while f<load64(rv_state()+8)
   do rv_generate_function(f)
@@ -612,6 +884,10 @@ fn rv_compile()
  while f<load64(rv_state()+8)
   do rv_graph(f,1)
   set f = f+1
+ end
+ if load64(rv_state()+64)
+  do require(load64(rv_state()+72),"interrupt declaration requires irq_install")
+  do require(rv_irq_effects(load64(rv_state()+64)-1)==0,"interrupt path contains loop or interrupt control")
  end
  do rv_resolve()
  return 0
