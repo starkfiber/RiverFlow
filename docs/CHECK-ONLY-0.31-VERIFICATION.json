@@ -1,0 +1,236 @@
+{
+  "passed": true,
+  "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce",
+  "sourceSHA256": "31af429df972fef17db52a180d086811065a5c752df60e903f8203f0d0aa853b",
+  "controllerSHA256": "4964e8b343416c4b2e96165f3e8186a777527201d39ef53e95e4449c197a1d62",
+  "workspace": "/Users/ik/Projects/RiverFlow/artifacts/check-only/verify-1794563899470356000/workspace",
+  "workspaceManifest": {
+    "valid.rf2": {
+      "sha": "a8db1ba2956589fb28f7054812fd778d7ffb3c6009fb5fd0a0a2b4357307189d",
+      "size": 59,
+      "mode": 33188,
+      "mtime": 1794563899470516916
+    },
+    "bad-intrinsic.rf2": {
+      "sha": "fa3c6e6c1fbe033f773c1c258d911b8027f5b07fd595894ee46060da845865c0",
+      "size": 69,
+      "mode": 33188,
+      "mtime": 1794563899497788127
+    },
+    "helper.rf2": {
+      "sha": "44deb2aa2c24e6008ddd3c05ada115cf89339cf6744f21730d4eb2a2541c8cbc",
+      "size": 38,
+      "mode": 33188,
+      "mtime": 1794563899518763860
+    },
+    "owned-result.rf2": {
+      "sha": "f48a2efd38bb345dadd107d8eaa2f4d8f60d60baf433d2723bf4a3844a21d099",
+      "size": 157,
+      "mode": 33188,
+      "mtime": 1794563899505383026
+    },
+    "array-bound.rf2": {
+      "sha": "26fa85fd6895c0d337551548815827fd157056b0e2807a98f2a1bf6834ffd60d",
+      "size": 87,
+      "mode": 33188,
+      "mtime": 1794563899501749390
+    },
+    "missing-end.rf2": {
+      "sha": "0e104ea7571c166e47bbc509a356e7a5a483e00a73cc52e97902356efe34464b",
+      "size": 55,
+      "mode": 33188,
+      "mtime": 1794563899493863656
+    },
+    "imports.rf2": {
+      "sha": "9b6c824000e691a17b316b733f5dafb9c05872a466ce3493c7d8dcb5d6b017c6",
+      "size": 79,
+      "mode": 33188,
+      "mtime": 1794563899518825277
+    },
+    "bad-local.rf2": {
+      "sha": "e023862817169c64a63c1c2bf306592d805b1eff78e92842b032f7c34ade2d13",
+      "size": 64,
+      "mode": 33188,
+      "mtime": 1794563899486471174
+    },
+    "writer.rf2": {
+      "sha": "8600c4e6fdfa560dd9d5e5fce5f4b9ee8f48e71d55fad5e78ea9c77026f974ed",
+      "size": 138,
+      "mode": 33188,
+      "mtime": 1794563899536976793
+    },
+    "overflow.rf2": {
+      "sha": "aff560d01dd15b857e118ef965ec9874aa9a2f60bee59dc4f43c658654b86758",
+      "size": 78,
+      "mode": 33188,
+      "mtime": 1794563899490078478
+    }
+  },
+  "cases": [
+    {
+      "case": "valid",
+      "accepted": true,
+      "workspaceUnchanged": true,
+      "cleanCompilerStatusMatch": true
+    },
+    {
+      "case": "valid",
+      "flags": [],
+      "normalCompileByteMatch": true
+    },
+    {
+      "case": "valid",
+      "flags": [
+        "--opt"
+      ],
+      "normalCompileByteMatch": true
+    },
+    {
+      "case": "valid",
+      "flags": [
+        "--opt",
+        "--compact"
+      ],
+      "normalCompileByteMatch": true
+    },
+    {
+      "case": "bad-local",
+      "accepted": false,
+      "workspaceUnchanged": true,
+      "cleanCompilerStatusMatch": true
+    },
+    {
+      "case": "overflow",
+      "accepted": false,
+      "workspaceUnchanged": true,
+      "cleanCompilerStatusMatch": true
+    },
+    {
+      "case": "missing-end",
+      "accepted": false,
+      "workspaceUnchanged": true,
+      "cleanCompilerStatusMatch": true
+    },
+    {
+      "case": "bad-intrinsic",
+      "accepted": false,
+      "workspaceUnchanged": true,
+      "cleanCompilerStatusMatch": true
+    },
+    {
+      "case": "array-bound",
+      "accepted": false,
+      "workspaceUnchanged": true,
+      "cleanCompilerStatusMatch": true
+    },
+    {
+      "case": "owned-result",
+      "accepted": true,
+      "workspaceUnchanged": true,
+      "cleanCompilerStatusMatch": true
+    },
+    {
+      "case": "owned-result",
+      "flags": [],
+      "normalCompileByteMatch": true
+    },
+    {
+      "case": "owned-result",
+      "flags": [
+        "--opt"
+      ],
+      "normalCompileByteMatch": true
+    },
+    {
+      "case": "owned-result",
+      "flags": [
+        "--opt",
+        "--compact"
+      ],
+      "normalCompileByteMatch": true
+    },
+    {
+      "case": "imports",
+      "accepted": true,
+      "workspaceUnchanged": true
+    },
+    {
+      "case": "extra-option-refusal",
+      "args": [
+        "--check"
+      ],
+      "workspaceUnchanged": true
+    },
+    {
+      "case": "extra-option-refusal",
+      "args": [
+        "--check",
+        "/Users/ik/Projects/RiverFlow/artifacts/check-only/verify-1794563899470356000/workspace/imports.rf2",
+        "--opt"
+      ],
+      "workspaceUnchanged": true
+    },
+    {
+      "case": "extra-option-refusal",
+      "args": [
+        "--check",
+        "/Users/ik/Projects/RiverFlow/artifacts/check-only/verify-1794563899470356000/workspace/imports.rf2",
+        "--compact"
+      ],
+      "workspaceUnchanged": true
+    },
+    {
+      "case": "extra-option-refusal",
+      "args": [
+        "--check",
+        "/Users/ik/Projects/RiverFlow/artifacts/check-only/verify-1794563899470356000/workspace/imports.rf2",
+        "--functions"
+      ],
+      "workspaceUnchanged": true
+    },
+    {
+      "case": "extra-option-refusal",
+      "args": [
+        "--check",
+        "/Users/ik/Projects/RiverFlow/artifacts/check-only/verify-1794563899470356000/workspace/imports.rf2",
+        "--reuse-pack",
+        "/Users/ik/Projects/RiverFlow/artifacts/check-only/verify-1794563899470356000/workspace"
+      ],
+      "workspaceUnchanged": true
+    },
+    {
+      "case": "extra-option-refusal",
+      "args": [
+        "--check",
+        "/Users/ik/Projects/RiverFlow/artifacts/check-only/verify-1794563899470356000/workspace/imports.rf2",
+        "--reuse-cache",
+        "/Users/ik/Projects/RiverFlow/artifacts/check-only/verify-1794563899470356000/workspace"
+      ],
+      "workspaceUnchanged": true
+    },
+    {
+      "case": "extra-option-refusal",
+      "args": [
+        "--check",
+        "/Users/ik/Projects/RiverFlow/artifacts/check-only/verify-1794563899470356000/workspace/imports.rf2",
+        "extra"
+      ],
+      "workspaceUnchanged": true
+    },
+    {
+      "case": "missing-file",
+      "workspaceUnchanged": true
+    },
+    {
+      "case": "check-noexecute-positive-control",
+      "workspaceUnchanged": true,
+      "explicitRunCreatedExpectedMarker": true
+    },
+    {
+      "case": "default-self-fixedpoint",
+      "independentEncoderByteMatch": true,
+      "unsignedSHA256": "26419efdeb407c0add20616bc6194256932d20e1cd2d2769a3bba18ca6ef6c2d"
+    }
+  ],
+  "limits": "Native trusted systems compiler. Check uses default compiler options and checks code generation without publication, not runtime safety. Imports still read trusted local files; no sandbox or new MCP effects. FIFO/device inputs deliberately not tested because existing reader can block."
+}

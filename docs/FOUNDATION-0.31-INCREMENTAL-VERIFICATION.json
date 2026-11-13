@@ -1,0 +1,394 @@
+{
+  "schema": "rf2.incremental.verification.v1",
+  "passed": true,
+  "cases": [
+    {
+      "case": "first complete dependency snapshot",
+      "outcome": "miss",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "fresh-process hit",
+      "outcome": "hit",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "fresh-process different cwd",
+      "outcome": "hit",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "second target cold",
+      "outcome": "miss",
+      "key": "21683c5204c2641def3d61267306344fe99cc001291f964dbfec2f1ea53e72bd",
+      "dependencies": 2,
+      "unsignedSHA256": "041dd72cb3962bcfd6ce64696edfdc02e4c9a83fff87012f74900e0dd9650416"
+    },
+    {
+      "case": "private dependency rebuilds affected target",
+      "outcome": "miss",
+      "key": "c0a17c1f017619a53cfdaea24a9bec732c0520fe9c9910bfcb15aab155768de9",
+      "dependencies": 3,
+      "unsignedSHA256": "adb4d0fb9478bc80679420df6af0c164b136b032f9bd1dadebc94b8388969d1d"
+    },
+    {
+      "case": "private dependency leaves second target reusable",
+      "outcome": "hit",
+      "key": "21683c5204c2641def3d61267306344fe99cc001291f964dbfec2f1ea53e72bd",
+      "dependencies": 2,
+      "unsignedSHA256": "041dd72cb3962bcfd6ce64696edfdc02e4c9a83fff87012f74900e0dd9650416"
+    },
+    {
+      "case": "private dependency revert reuses first target",
+      "outcome": "hit",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "option separation True",
+      "outcome": "miss",
+      "key": "766da230880125435dc3c13e792560e2bcb58176aa8312f837d5a18375234dac",
+      "dependencies": 3,
+      "unsignedSHA256": "4ea05a96789eac17f72977146902ff711d5bdfec50cfe6628736038773376dcb"
+    },
+    {
+      "case": "option separation False",
+      "outcome": "hit",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "forced clean bypasses valid cache",
+      "outcome": "miss",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "unrelated file leaves target reusable",
+      "outcome": "hit",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "transitive same-size same-mtime change",
+      "outcome": "miss",
+      "key": "0ce267aff48f9cd23f52dbd310c7129aafca5fcc0ed8bfd5705d6b004050a0f1",
+      "dependencies": 3,
+      "unsignedSHA256": "a87759eab9e90e78e9265c37e019044ebc0f19894a9ce78aa5eeae7f5ceeff0e"
+    },
+    {
+      "case": "transitive changed hit",
+      "outcome": "hit",
+      "key": "0ce267aff48f9cd23f52dbd310c7129aafca5fcc0ed8bfd5705d6b004050a0f1",
+      "dependencies": 3,
+      "unsignedSHA256": "a87759eab9e90e78e9265c37e019044ebc0f19894a9ce78aa5eeae7f5ceeff0e"
+    },
+    {
+      "case": "direct dependency edit",
+      "outcome": "miss",
+      "key": "e3a68ef266cec3197114cfe59c2ad080f56c61d8d3cfe7e0021b6e75a92ac75d",
+      "dependencies": 3,
+      "unsignedSHA256": "ac889a645f1e3d25c75c69eed84d64cdc4df600e7a9886220a8c6c302f40bc93"
+    },
+    {
+      "case": "root edit",
+      "outcome": "miss",
+      "key": "49d95a86d618a948f20470ac4b9f295933ee3be4a4c93def95409814a61554f0",
+      "dependencies": 3,
+      "unsignedSHA256": "2132de8dbcdf98089d3a5b9d98c0ee93b2be4a663ce510ee995ce757469718a4"
+    },
+    {
+      "case": "dependency comment edit",
+      "outcome": "miss",
+      "key": "a15e19101adecdd121e419d72a679dbeeca317e25a9abf8750e63fdcbbe08651",
+      "dependencies": 3,
+      "unsignedSHA256": "e50c71d6b188c617e828728d4198e7250ef5307f604673348ee13637acd08021"
+    },
+    {
+      "case": "add dependency edge",
+      "outcome": "miss",
+      "key": "f1fa0a21b603308fb0a0c0e5e9a8a1a1bf067b59b6b28647398dfeda26b97ee8",
+      "dependencies": 4,
+      "unsignedSHA256": "cdfc8de9ea764235888e1a63480a487f76c9b8b58538f596a8f643583f890dd7"
+    },
+    {
+      "case": "remove dependency edge",
+      "outcome": "miss",
+      "key": "afd69bcdb76a43aa347d14ae66ab0d0cf0874e42e68af6add7693338ae605a5c",
+      "dependencies": 3,
+      "unsignedSHA256": "73d973ea8700e08b2720fa06352d5fd1bd14a7af47376249c88853f111dd830a"
+    },
+    {
+      "case": "remove unreferenced dependency file",
+      "outcome": "hit",
+      "key": "afd69bcdb76a43aa347d14ae66ab0d0cf0874e42e68af6add7693338ae605a5c",
+      "dependencies": 3,
+      "unsignedSHA256": "73d973ea8700e08b2720fa06352d5fd1bd14a7af47376249c88853f111dd830a"
+    },
+    {
+      "case": "revert complete snapshot",
+      "outcome": "hit",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "changed compiler bytes",
+      "outcome": "miss",
+      "key": "69783f288fb4f64996d1f9c0b725f2ddcbabec806475e6c53c1f62c14a52c461",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "original compiler cache remains valid",
+      "outcome": "hit",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "compiler path changes but bytes identical",
+      "outcome": "hit",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "truncated header",
+      "outcome": "miss",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "wrong magic",
+      "outcome": "miss",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "wrong key",
+      "outcome": "miss",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "wrong declared length",
+      "outcome": "miss",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "payload bit flip",
+      "outcome": "miss",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "truncated payload",
+      "outcome": "miss",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "cache symlink does not overwrite referent",
+      "outcome": "miss",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "cache FIFO refuses read and repairs without blocking",
+      "outcome": "miss",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "incomplete sibling temp ignored",
+      "outcome": "hit",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "deleted dependency cannot hit",
+      "outcome": "refused",
+      "stderr": "module must be a readable regular file within bound\n"
+    },
+    {
+      "case": "invalid changed dependency cannot hit",
+      "outcome": "refused",
+      "stderr": "unknown function\nnear expanded-source 3:16 (line:byte-column; entry main.rf2)\ncompiler rejected snapshot; no cache result published\n"
+    },
+    {
+      "case": "import cycle refuses",
+      "outcome": "refused",
+      "stderr": "module import cycle\n"
+    },
+    {
+      "case": "root final symlink refuses",
+      "outcome": "refused",
+      "stderr": "source must be a readable regular file within bound\n"
+    },
+    {
+      "case": "dependency final symlink refuses",
+      "outcome": "refused",
+      "stderr": "module must be a readable regular file within bound\n"
+    },
+    {
+      "case": "source FIFO refuses without blocking",
+      "outcome": "refused",
+      "stderr": "source must be a readable regular file within bound\n"
+    },
+    {
+      "case": "source size bound",
+      "outcome": "refused",
+      "stderr": "source must be a readable regular file within bound\n"
+    },
+    {
+      "case": "compiler size bound",
+      "outcome": "refused",
+      "stderr": "compiler must be a regular file within 16 MiB\n"
+    },
+    {
+      "case": "existing output file preserved",
+      "outcome": "refused",
+      "stderr": "output publish failed; existing destinations are never overwritten\n"
+    },
+    {
+      "case": "existing output symlink preserved",
+      "outcome": "refused",
+      "stderr": "output publish failed; existing destinations are never overwritten\n"
+    },
+    {
+      "case": "existing output directory preserved",
+      "outcome": "refused",
+      "stderr": "output publish failed; existing destinations are never overwritten\n"
+    },
+    {
+      "case": "shared-permission cache refuses",
+      "outcome": "refused",
+      "stderr": "cache/store permissions must exclude group and other\n"
+    },
+    {
+      "case": "cache-root final symlink refuses",
+      "outcome": "refused",
+      "stderr": "cache/store must be an existing private directory\n"
+    },
+    {
+      "case": "concurrent cache lock refuses rather than racing",
+      "outcome": "refused",
+      "stderr": "cache busy; retry after active builder exits\n"
+    },
+    {
+      "case": "OS lock release permits next hit",
+      "outcome": "hit",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "post-failure recovery",
+      "outcome": "hit",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "corrupt stored compiler is replaced before execution",
+      "outcome": "miss",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "stored compiler permission mismatch repairs",
+      "outcome": "miss",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "stored compiler hardlink is isolated by replacement",
+      "outcome": "miss",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "stored compiler symlink is replaced without following",
+      "outcome": "miss",
+      "key": "4c9dd3bf368b2b0dc584581c96e28855435242d309a736ee3f0d8da4382fa2cb",
+      "dependencies": 3,
+      "unsignedSHA256": "2bad7c0baa9052d11824a8c3b1248c65c7951834f969e9fbe99dc04ee3b8099d"
+    },
+    {
+      "case": "real checksum app cold",
+      "outcome": "miss",
+      "key": "1c75fc177096e341b98a3b73ad85261726eecb702f0240232f5a46400588ae88",
+      "dependencies": 2,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "case": "real checksum app warm",
+      "outcome": "hit",
+      "key": "1c75fc177096e341b98a3b73ad85261726eecb702f0240232f5a46400588ae88",
+      "dependencies": 2,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "case": "signing output leaves cached unsigned image unchanged",
+      "outcome": "hit",
+      "key": "1c75fc177096e341b98a3b73ad85261726eecb702f0240232f5a46400588ae88",
+      "dependencies": 2,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "case": "original edited after snapshot; result equals clean captured inputs",
+      "outcome": "miss",
+      "key": "902d916fc0072e5c0c56993038d75b48459784dbde5eaef8785f5c04d0ce5bd0"
+    },
+    {
+      "case": "next build observes original edit",
+      "outcome": "miss",
+      "key": "cfdbdc355bc756cb81ce9e980f94c72fdf7ad74b5331937624d53052fda14031",
+      "dependencies": 3,
+      "unsignedSHA256": "77f8e512cd095d5966499bd357ddb0b7a63f7f4b3e92d31b2a31352b77166f16"
+    },
+    {
+      "case": "edited snapshot fresh-process reuse",
+      "outcome": "hit",
+      "key": "cfdbdc355bc756cb81ce9e980f94c72fdf7ad74b5331937624d53052fda14031",
+      "dependencies": 3,
+      "unsignedSHA256": "77f8e512cd095d5966499bd357ddb0b7a63f7f4b3e92d31b2a31352b77166f16"
+    }
+  ],
+  "caseCount": 58,
+  "imageFlags": [
+    "--compact"
+  ],
+  "realApplicationExecuted": true,
+  "inputSnapshotGranularity": "whole target and all transitive modules; not function/object code reuse",
+  "normalCompletionWorkDirectoriesLeft": [],
+  "builderSHA256": "2b650a4082efcad1636645b1b67737d6c0c9d766aa19642e9eed9fd35a59bc7e",
+  "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce",
+  "builderSourceSHA256": "1e7f0f1c5548a347a7a12b5f665f365d7934f0822237cbb1d136e01211f7a5db",
+  "controllerSHA256": "8257a66bae38668160fd58494225575b0bb45297f66782f0aa30d9f852da1495",
+  "limits": "One local Darwin host. Private cache assumes trusted same-UID owner; hashes detect accidental corruption, not a forged malicious cache. No cross-host, concurrent source transaction, function-level or universal speed claim."
+}
