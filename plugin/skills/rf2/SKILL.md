@@ -165,3 +165,11 @@ Final short-message medians0.666ms versus0.24's1.103ms and directC0.627ms; direc
 Read docs/INCREMENTAL-BUILDS.md before using rf2-build. This is explicit trusted local CLI compilation, not a new bounded MCP effect. Select the existing native compiler, source entry, new output path and existing private cache directory. Actual compiler bytes, options, builder-source identity and every raw transitive dependency bind the key. Hits verify the complete cached image. Misses compile captured source and compiler snapshots. Existing outputs refuse; --clean bypasses image reuse.
 
 Reuse is whole-target, not function/object/AST reuse. The native compiler and nine stable MCP tools remain unchanged. Private cache owner trust is required; hashes are not authenticated shared-cache receipts. Preserve mixed timings and cold-build costs; there is no universal twofold speed, Clang/Python replacement, energy or AI-token claim.
+
+## 0.27 source candidate: compact images and function-change evidence
+
+Read docs/COMPACT-IMAGES-0.27.md. Native rf2c --compact separates file bytes from zero-filled VM tails; it changes raw object layout and is optional. rf2-build binds this flag into the whole-target cache key. Use a qualified current compiler; no silent older-tool fallback. This is distinct from compact Core syntax and MCP reply compaction.
+
+--functions emits diagnostic token fingerprints, code ranges, relocations and direct-call edges. tools/function-impact.py reports change propagation with machineCodeReused false. No function/object reuse, complete semantic-effect replay or stable linker ABI is implemented. Keep type context and compiler provenance explicit.
+
+Matched local complete build trials improved the tested legacy routes, including the smaller checksum target, but compact misses still cost more than direct compact compilation. File bytes and child CPU-time observations do not establish electrical energy or general runtime superiority. Nine MCP tools and their effects remain unchanged. Examples and failure controls are developer references, not field or hardware results.
