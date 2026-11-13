@@ -8,6 +8,7 @@ from datetime import datetime,timezone
 import hashlib,json,os,random,subprocess,time
 R=Path(__file__).resolve().parents[1]
 C=Path(os.environ['RF2_TEST_COMPILER']).resolve()
+REUSE_FLAG=os.environ.get('RF2_FUNCTION_REUSE_FLAG','--reuse-cache');assert REUSE_FLAG in ['--reuse-cache','--reuse-pack']
 LIMIT=int(os.environ.get('RF2_STRESS_PROGRAMS','4000'));assert 1<=LIMIT<=4000
 DEADLINE=datetime.fromisoformat(os.environ['RF2_STRESS_DEADLINE']).timestamp()if os.environ.get('RF2_STRESS_DEADLINE')else time.time()+900
 D=R/'artifacts/reuse-stress-029'/('run-'+str(time.time_ns()));D.mkdir(parents=True)
@@ -54,7 +55,7 @@ def program(index):
 
 def invoke(args,timeout=45):return subprocess.run([str(x)for x in args],capture_output=True,timeout=timeout,env={'PATH':'/nonexistent'})
 def build(source,out,opt,cache=None):
- q=invoke([C,source,out,'--compact',*(['--opt']if opt else[]),*(['--reuse-cache',cache]if cache else[])])
+ q=invoke([C,source,out,'--compact',*(['--opt']if opt else[]),*([REUSE_FLAG,cache]if cache else[])])
  assert q.returncode==0,(out.name,q.returncode,q.stdout[:200],q.stderr[:1000]);raw=out.read_bytes()
  receipt=json.loads(Path(str(out)+'.reuse.json').read_text())if cache else None
  return raw,receipt
@@ -63,7 +64,7 @@ def observe(out,expected):
  q=invoke([out],10);assert q.returncode==0 and q.stdout==expected.to_bytes(8,'little')and not q.stderr,(out.name,q.returncode,q.stdout.hex(),q.stderr[:300],expected)
 
 def checkpoint(status,error=None):
- data=dict(schema='rf2.reuse.stress.v1',status=status,passed=status in ['complete','deadline-complete'],programLimit=LIMIT,completedPrograms=len(rows),seed=29013116,compilerSHA256=compiler_hash,controllerSHA256=controller_hash,startedUTC=datetime.fromtimestamp(started,timezone.utc).isoformat(),finishedUTC=datetime.now(timezone.utc).isoformat(),deadlineUTC=datetime.fromtimestamp(DEADLINE,timezone.utc).isoformat(),rows=rows,currentCase=str(current)if current else None,error=error,limits='Finite one-host randomized scalar linear programs. Current-mode clean byte equality and independent u64 result oracle, including wrapping arithmetic, shifts modulo64 and division byzero result0. Compiler execution only, no MCP authority expansion, hardware/energy/token or universal safety claim.')
+ data=dict(schema='rf2.reuse.stress.v1',status=status,reuseFlag=REUSE_FLAG,passed=status in ['complete','deadline-complete'],programLimit=LIMIT,completedPrograms=len(rows),seed=29013116,compilerSHA256=compiler_hash,controllerSHA256=controller_hash,startedUTC=datetime.fromtimestamp(started,timezone.utc).isoformat(),finishedUTC=datetime.now(timezone.utc).isoformat(),deadlineUTC=datetime.fromtimestamp(DEADLINE,timezone.utc).isoformat(),rows=rows,currentCase=str(current)if current else None,error=error,limits='Finite one-host randomized scalar linear programs. Current-mode clean byte equality and independent u64 result oracle, including wrapping arithmetic, shifts modulo64 and division byzero result0. Compiler execution only, no MCP authority expansion, hardware/energy/token or universal safety claim.')
  (D/'progress.json').write_text(json.dumps(data,indent=2)+'\n');return data
 print(json.dumps({'campaign':str(D),'programLimit':LIMIT,'deadlineUTC':datetime.fromtimestamp(DEADLINE,timezone.utc).isoformat()}),flush=True)
 try:

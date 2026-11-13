@@ -6,7 +6,7 @@ if len(sys.argv)not in (3,4):raise SystemExit('Usage: build-incremental.py quali
 compact=['--compact']if len(sys.argv)==4 and sys.argv[3]=='--compact'else[]
 if len(sys.argv)==4 and not compact:raise SystemExit('Unknown build option')
 compiler=Path(sys.argv[1]).resolve();out=Path(sys.argv[2]).resolve();out.mkdir(parents=True)
-text=(R/'native/compiler/compiler.rf2').read_text();names=['state','die','require','length','same','cp','digit','letter','identifier_end','module_state','module_info','module_path','line_end','line_trim','line_starts','module_path_check','module_append','module_walk','expand_modules']
+text=(R/'native/compiler/compiler.rf2').read_text();names=['state','die','diagnostic_number','diagnostic_position','require','length','same','cp','digit','letter','identifier_end','module_state','module_info','module_path','line_end','line_trim','line_starts','module_path_check','module_append','module_walk','expand_modules']
 parts=[]
 for name in names:
  m=re.search(r'^fn '+name+r'\(',text,re.M);assert m,name;n=re.search(r'^fn ',text[m.end():],re.M);parts.append(text[m.start():m.end()+n.start()]if n else text[m.start():])
