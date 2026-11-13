@@ -1,0 +1,164 @@
+module esp32c3_peripheral
+# Boot-local leases for resource1(SYSTIMER0/target0/CPU line1) and2(TIMG0 WDT).
+# Trusted bare-metal helpers, not authentication or a raw-MMIO sandbox.
+fn peripheral_finish(saved,result)
+ let restored=irq_restore(saved)
+ if result&0x80000000
+  return result
+ end
+ if restored
+  return restored
+ end
+ return result
+end
+fn peripheral_validate(token,resource)
+ if (resource<1)|(resource>2)|(token&0x80000000)
+  return 0x80000501
+ end
+ if load32(0x3FCA8200)!=0x52463250
+  return 0x80000503
+ end
+ if ((token&255)!=resource)|((token>>8)==0)
+  return 0x80000503
+ end
+ if load32(0x3FCA820C+resource*4)!=token
+  return 0x80000503
+ end
+ return 0
+end
+fn peripheral_claim(resource)
+ if (resource<1)|(resource>2)
+  return 0x80000501
+ end
+ let saved=irq_save()
+ if load32(0x3FCA8200)!=0x52463250
+  do store32(0x3FCA8204,0)
+  do store32(0x3FCA8208,0)
+  do store32(0x3FCA8210,0)
+  do store32(0x3FCA8214,0)
+  do store32(0x3FCA8200,0x52463250)
+ end
+ if load32(0x3FCA820C+resource*4)
+  return peripheral_finish(saved,0x80000502)
+ end
+ if resource==1
+  if (load32(0x60023000)&0x01000000)|(load32(0x60023064)&1)|(load32(0x600C2104)&2)
+   return peripheral_finish(saved,0x80000502)
+  end
+  let source=0
+  while source<62
+   if load32(0x600C2000+source*4)==1
+    return peripheral_finish(saved,0x80000502)
+   end
+   set source=source+1
+  end
+ end
+ let generation=load32(0x3FCA8200+resource*4)
+ if generation>=0x007FFFFF
+  return peripheral_finish(saved,0x80000505)
+ end
+ set generation=generation+1
+ let token=(generation<<8)|resource
+ do store32(0x3FCA8200+resource*4,generation)
+ do store32(0x3FCA820C+resource*4,token)
+ return peripheral_finish(saved,token)
+end
+fn peripheral_release(token)
+ let resource=token&255
+ let saved=irq_save()
+ let failure=peripheral_validate(token,resource)
+ if failure
+  return peripheral_finish(saved,failure)
+ end
+ if resource==1
+  do store32(0x600C2104,load32(0x600C2104)&0xFFFFFFFD)
+  do store32(0x60023064,load32(0x60023064)&0xFFFFFFFE)
+  do store32(0x60023000,load32(0x60023000)&0xFEFFFFFF)
+  do store32(0x6002306C,1)
+  do store32(0x600C2094,0)
+  if (load32(0x600C2104)&2)|(load32(0x60023064)&1)|(load32(0x60023000)&0x01000000)
+   return peripheral_finish(saved,0x80000504)
+  end
+ else
+  set failure=watchdog_disarm()
+  if failure
+   return peripheral_finish(saved,failure)
+  end
+ end
+ do store32(0x3FCA820C+resource*4,0)
+ return peripheral_finish(saved,0)
+end
+fn owned_timer_start(token,period_us)
+ if (period_us<1000)|(period_us>1000000)
+  return 0x80000501
+ end
+ let saved=irq_save()
+ let failure=peripheral_validate(token,1)
+ if failure
+  return peripheral_finish(saved,failure)
+ end
+ if load32(0x3FCA8114)!=0x52463249
+  return peripheral_finish(saved,0x80000401)
+ end
+ set failure=timer_init()
+ if failure
+  return peripheral_finish(saved,failure)
+ end
+ do store32(0x600C2104,load32(0x600C2104)&0xFFFFFFFD)
+ do store32(0x60023000,load32(0x60023000)&0xFEFFFFFF)
+ do store32(0x60023064,load32(0x60023064)&0xFFFFFFFE)
+ do store32(0x6002306C,1)
+ do store32(0x3FCA8300,0)
+ do store32(0x60023034,0x40000000|(period_us*16))
+ do store32(0x60023050,1)
+ do store32(0x600C2094,1)
+ do store32(0x600C2108,load32(0x600C2108)&0xFFFFFFFD)
+ do store32(0x600C2118,1)
+ do store32(0x600C2194,0)
+ do store32(0x60023064,load32(0x60023064)|1)
+ do store32(0x60023000,load32(0x60023000)|0x01000000)
+ do store32(0x600C2104,load32(0x600C2104)|2)
+ if (load32(0x60023034)!=(0x40000000|(period_us*16)))|(load32(0x600C2094)!=1)
+  return peripheral_finish(saved,0x80000504)
+ end
+ if ((load32(0x60023064)&1)==0)|((load32(0x60023000)&0x01000000)==0)|((load32(0x600C2104)&2)==0)
+  return peripheral_finish(saved,0x80000504)
+ end
+ return peripheral_finish(saved,0)
+end
+fn owned_timer_interrupt(cause)
+ if cause!=0x80000001
+  return 0x80000403
+ end
+ let token=load32(0x3FCA8210)
+ let failure=peripheral_validate(token,1)
+ if failure
+  return failure
+ end
+ do store32(0x6002306C,1)
+ do store32(0x3FCA8300,(load32(0x3FCA8300)+1)&0x7FFFFFFF)
+ return 0
+end
+fn owned_timer_ticks(token)
+ let failure=peripheral_validate(token,1)
+ if failure
+  return failure
+ end
+ return load32(0x3FCA8300)
+end
+fn owned_watchdog_arm(token,timeout)
+ let saved=irq_save()
+ let failure=peripheral_validate(token,2)
+ if failure==0
+  set failure=watchdog_arm_ms(timeout)
+ end
+ return peripheral_finish(saved,failure)
+end
+fn owned_watchdog_feed(token)
+ let saved=irq_save()
+ let failure=peripheral_validate(token,2)
+ if failure==0
+  set failure=watchdog_feed()
+ end
+ return peripheral_finish(saved,failure)
+end
