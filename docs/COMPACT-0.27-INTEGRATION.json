@@ -1,0 +1,309 @@
+{
+  "passed": true,
+  "compiler": {
+    "schema": "rf2.compiler.verification.v1",
+    "passed": true,
+    "target": "macos-arm64",
+    "selfHostingScope": "RF2_SYSTEM_A64_V1 compiler source, bounded documented lexical subset",
+    "speedClaim": null,
+    "pythonFreeNativeStages": true,
+    "cases": [
+      {
+        "name": "add",
+        "unsignedByteMatch": true,
+        "expectedExit": 18,
+        "actualExit": 18
+      },
+      {
+        "name": "sub",
+        "unsignedByteMatch": true,
+        "expectedExit": 252,
+        "actualExit": 252
+      },
+      {
+        "name": "mul",
+        "unsignedByteMatch": true,
+        "expectedExit": 67,
+        "actualExit": 67
+      },
+      {
+        "name": "and",
+        "unsignedByteMatch": true,
+        "expectedExit": 17,
+        "actualExit": 17
+      },
+      {
+        "name": "or",
+        "unsignedByteMatch": true,
+        "expectedExit": 131,
+        "actualExit": 131
+      },
+      {
+        "name": "xor",
+        "unsignedByteMatch": true,
+        "expectedExit": 15,
+        "actualExit": 15
+      },
+      {
+        "name": "shift",
+        "unsignedByteMatch": true,
+        "expectedExit": 8,
+        "actualExit": 8
+      },
+      {
+        "name": "division",
+        "unsignedByteMatch": true,
+        "expectedExit": 14,
+        "actualExit": 14
+      },
+      {
+        "name": "zero-div",
+        "unsignedByteMatch": true,
+        "expectedExit": 0,
+        "actualExit": 0
+      },
+      {
+        "name": "not",
+        "unsignedByteMatch": true,
+        "expectedExit": 255,
+        "actualExit": 255
+      },
+      {
+        "name": "neg",
+        "unsignedByteMatch": true,
+        "expectedExit": 249,
+        "actualExit": 249
+      },
+      {
+        "name": "precedence",
+        "unsignedByteMatch": true,
+        "expectedExit": 23,
+        "actualExit": 23
+      },
+      {
+        "name": "parentheses",
+        "unsignedByteMatch": true,
+        "expectedExit": 35,
+        "actualExit": 35
+      },
+      {
+        "name": "unsigned",
+        "unsignedByteMatch": true,
+        "expectedExit": 1,
+        "actualExit": 1
+      },
+      {
+        "name": "eq",
+        "unsignedByteMatch": true,
+        "expectedExit": 1,
+        "actualExit": 1
+      },
+      {
+        "name": "ne",
+        "unsignedByteMatch": true,
+        "expectedExit": 0,
+        "actualExit": 0
+      },
+      {
+        "name": "lt",
+        "unsignedByteMatch": true,
+        "expectedExit": 1,
+        "actualExit": 1
+      },
+      {
+        "name": "le",
+        "unsignedByteMatch": true,
+        "expectedExit": 1,
+        "actualExit": 1
+      },
+      {
+        "name": "ge",
+        "unsignedByteMatch": true,
+        "expectedExit": 1,
+        "actualExit": 1
+      },
+      {
+        "name": "branch",
+        "unsignedByteMatch": true,
+        "expectedExit": 17,
+        "actualExit": 17
+      },
+      {
+        "name": "loop",
+        "unsignedByteMatch": true,
+        "expectedExit": 25,
+        "actualExit": 25
+      },
+      {
+        "name": "memory",
+        "unsignedByteMatch": true,
+        "expectedExit": 171,
+        "actualExit": 171
+      },
+      {
+        "name": "quoted-operators",
+        "unsignedByteMatch": true,
+        "expectedExit": 85,
+        "actualExit": 85
+      },
+      {
+        "name": "forward-eight-argument-call",
+        "unsignedByteMatch": true,
+        "expectedExit": 36,
+        "actualExit": 36
+      }
+    ],
+    "negativeCases": 15,
+    "hashCases": 14,
+    "stage1UnsignedSHA256": "25274b6597c8953365fa75827614e576a56b11ab763dd51e5d2686d422b4a224",
+    "stage2UnsignedSHA256": "25274b6597c8953365fa75827614e576a56b11ab763dd51e5d2686d422b4a224",
+    "stage3UnsignedSHA256": "25274b6597c8953365fa75827614e576a56b11ab763dd51e5d2686d422b4a224",
+    "fixedPointUnsignedImages": true,
+    "runtimeUnsignedMatchesReference": true,
+    "generatedRuntime": "output/compiler-verification/run-p1pf0zfq/rf2",
+    "runtimeCorpusPassed": true,
+    "officialSdkPassed": true,
+    "sourceSHA256": "9ec02166c493eebe0ba13112acb9bb3b23a78548d61a7980bd054b9b470b47a5",
+    "nativeCompilerSHA256": "61d4f44879431b944676a8b800f77a1db0cdbf5b00ce0200897e7028302b0879",
+    "historicalSeedSHA256": "1b7749a7e4c5c7c02b6228c5b3e3c0047da2931e8496bf21d00da9246cd5322c",
+    "generatedRuntimeSHA256": "250c24fe653ffd3cb6ecb268b263e9db2f7529e674e01f7279eb1eb2d29460f6",
+    "seedEncoderRuntimeByteMatch": true
+  },
+  "builder": {
+    "schema": "rf2.incremental.build.v1",
+    "builderIdentity": "564debf44370bd017b47a25fb637a3f4e5cfa144dd006813ba852c0592e65ee8",
+    "buildScriptSHA256": "dd806cf806b5f53061d11bde2fe7dd3b26b566fed06395a1db13ec7ae15de723",
+    "sourceSHA256": "89048c9bb574cdbc57db19e3baf95bb6a4a9497df4d0ee6342597e7a787b6cd9",
+    "compilerSHA256": "7a6dbd499a415d50f0da6f17d0d99672b42c9254f9d43a50f571fc207075b10c",
+    "binarySHA256": "2ad82ff8928ed18ae3549a169fec2dae7287cdda1a8684d3fdb78fce503023f5",
+    "extractedCompilerFunctions": [
+      "state",
+      "die",
+      "require",
+      "length",
+      "same",
+      "cp",
+      "digit",
+      "letter",
+      "identifier_end",
+      "module_state",
+      "module_info",
+      "module_path",
+      "line_end",
+      "line_trim",
+      "line_starts",
+      "module_path_check",
+      "module_append",
+      "module_walk",
+      "expand_modules"
+    ],
+    "extractSourceSHA256": "9ec02166c493eebe0ba13112acb9bb3b23a78548d61a7980bd054b9b470b47a5",
+    "shaLibrarySHA256": "8b183bce14462f1fc19fc550bcc6f97d5d9f19c54d266b4e1dde3806b7416ec4",
+    "compactImage": true,
+    "target": "macos-arm64",
+    "runtimeDependencies": "Native RF2 executable and explicitly selected native compiler; normal Darwin APIs. No Python/Node runtime."
+  },
+  "runtime": {
+    "schema": "rf2.standalone.verification.v1",
+    "target": "macos-arm64",
+    "speedClaim": null,
+    "differentialCases": 1016,
+    "independentCases": 1016,
+    "negativeCases": 42,
+    "parserMutations": 250,
+    "maxInputWords": 65536,
+    "tests": [
+      "Eight compact operations/modes expand to checked Core; native result, event counts and overflow agree with JS and independent integer arithmetic",
+      "Malformed JSON, duplicate/escaped keys, UTF-8, surrogate pairs, size/depth/data bounds, numeric forms, 250 seeded mutations and request recovery exercised",
+      "Native CLI runs with PATH=/nonexistent"
+    ],
+    "runtimeVersion": "0.17.0",
+    "systemsCompiler": "Native compiler self-reproduction is qualified in a separate report",
+    "sourceFiles": {
+      "native/rf2.rf2": "d3c088855043eeabc8124dfe295c4f7e44a04bd1c4d3e36d3839505e7943dd1e",
+      "native/core.rf2": "a9c9fb00d40bec2afb2e7af70073f04e071b3716e447394bf519cfbb80350b78",
+      "native/attendance.rf2": "721252c4710bd0264c9e8115be6d7c5e838c459473474ce99d45ca6de97b3453",
+      "native/attendance-kernel.rf2": "ad3ed7e00c0120411878e405fa5841634955d854353c24f4b2c9aebb31e55e55",
+      "native/fingerprint.rf2": "618f8f6cf7277132829c303319482aa762c53201fa88c9096d80f2d6feb6b9b3",
+      "native/invoice.rf2": "4416e611ac6eda352cf37ee0353d89cd3a829417bd89e8abc48b8b5de6ef44a5",
+      "native/invoice-kernel.rf2": "0e0778112e99d2678159aa1ee856a4ffcb92d964cdc9e27ef921de460b90aa09",
+      "native/prepared.rf2": "6a85bf0eca69fd557b24103c94ab228ba0a195edbe91cf3fe917d833cf35a5d1",
+      "native/workspace.rf2": "b475230a0dbd0b2f7d277e08ee0d9a9d1c6b34b62d2f12acfd48eed402cac606",
+      "native/editor.rf2": "4ddb41e80a6cb4f22cd865c88207821c4f30af11533e5ab6b9d8d1e5535eb1d1"
+    },
+    "executableSHA256": "73285388c294b9eee997679c1035e5e2d3d54bd7e0317216600d47fcb9eca118",
+    "sourceSHA256": "d3c088855043eeabc8124dfe295c4f7e44a04bd1c4d3e36d3839505e7943dd1e",
+    "bootstrapSHA256": "1b7749a7e4c5c7c02b6228c5b3e3c0047da2931e8496bf21d00da9246cd5322c",
+    "passed": true
+  },
+  "mcpSDK": "Independent MCP SDK: native discovery, result, refusal and recovery passed",
+  "cacheHit": {
+    "cache": "hit",
+    "key": "f8f0aed04f6d41e6d603d139750e6a395e7404a1634b1c4620f64a1b0db9f8ce",
+    "dependencies": 1
+  },
+  "hypervisor": {
+    "passed": true,
+    "runs": [
+      {
+        "optimized": false,
+        "compact": false,
+        "mode": 0,
+        "observationHex": "00000000000000002a0000000000000001000000000000000100005a000000002a000000000000000000000000000000",
+        "exit": 0
+      },
+      {
+        "optimized": false,
+        "compact": false,
+        "mode": 1,
+        "observationHex": "00000000000000002a0000000000000001000000000000004780c0930000000000000000000000000000000000000000",
+        "exit": 0
+      },
+      {
+        "optimized": false,
+        "compact": true,
+        "mode": 0,
+        "observationHex": "00000000000000002a0000000000000001000000000000000100005a000000002a000000000000000000000000000000",
+        "exit": 0
+      },
+      {
+        "optimized": false,
+        "compact": true,
+        "mode": 1,
+        "observationHex": "00000000000000002a0000000000000001000000000000004780c0930000000000000000000000000000000000000000",
+        "exit": 0
+      },
+      {
+        "optimized": true,
+        "compact": false,
+        "mode": 0,
+        "observationHex": "00000000000000002a0000000000000001000000000000000100005a000000002a000000000000000000000000000000",
+        "exit": 0
+      },
+      {
+        "optimized": true,
+        "compact": false,
+        "mode": 1,
+        "observationHex": "00000000000000002a0000000000000001000000000000004780c0930000000000000000000000000000000000000000",
+        "exit": 0
+      },
+      {
+        "optimized": true,
+        "compact": true,
+        "mode": 0,
+        "observationHex": "00000000000000002a0000000000000001000000000000000100005a000000002a000000000000000000000000000000",
+        "exit": 0
+      },
+      {
+        "optimized": true,
+        "compact": true,
+        "mode": 1,
+        "observationHex": "00000000000000002a0000000000000001000000000000004780c0930000000000000000000000000000000000000000",
+        "exit": 0
+      }
+    ],
+    "scope": "Own process guest probes and cleanup, not Linux boot or general hypervisor parity.",
+    "compilerSHA256": "7a6dbd499a415d50f0da6f17d0d99672b42c9254f9d43a50f571fc207075b10c"
+  },
+  "scope": "One host native integration; not universal compatibility, full function caching, energy or runtime superiority."
+}

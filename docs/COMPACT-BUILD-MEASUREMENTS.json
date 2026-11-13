@@ -1,0 +1,4199 @@
+{
+  "passed": true,
+  "schema": "rf2.compact.build.measurements.v1",
+  "trialsPerTaskVariant": 21,
+  "rows": [
+    {
+      "task": "compiler",
+      "medianMs": {
+        "old direct": 49.01325,
+        "old forced": 80.086208,
+        "old warm": 18.356583,
+        "old cold": 234.920084,
+        "compact direct": 23.533958,
+        "compact forced": 26.656125,
+        "compact warm": 3.155167,
+        "compact cold": 147.835375
+      },
+      "comparisons": {
+        "compact warm": {
+          "candidateMinusLegacyPairedMedianMs": -15.313042000000001,
+          "bootstrap95Ms": [
+            -16.851709,
+            -13.328792000000002
+          ],
+          "legacyOverCompactRatio": 5.81794339253675
+        },
+        "compact forced": {
+          "candidateMinusLegacyPairedMedianMs": -50.690667000000005,
+          "bootstrap95Ms": [
+            -61.105083,
+            -43.181208
+          ],
+          "legacyOverCompactRatio": 3.004420484972966
+        },
+        "compact direct": {
+          "candidateMinusLegacyPairedMedianMs": -23.802542000000003,
+          "bootstrap95Ms": [
+            -27.466584000000005,
+            -20.746582999999998
+          ],
+          "legacyOverCompactRatio": 2.0826607237082686
+        },
+        "compact cold": {
+          "candidateMinusLegacyPairedMedianMs": -84.097834,
+          "bootstrap95Ms": [
+            -93.44883300000001,
+            -75.35091700000001
+          ],
+          "legacyOverCompactRatio": 1.5890654317344546
+        }
+      }
+    },
+    {
+      "task": "runtime",
+      "medianMs": {
+        "old direct": 52.356666,
+        "old forced": 86.346083,
+        "old warm": 21.804917,
+        "old cold": 267.649334,
+        "compact direct": 24.066042,
+        "compact forced": 27.330792,
+        "compact warm": 3.21525,
+        "compact cold": 162.39275
+      },
+      "comparisons": {
+        "compact warm": {
+          "candidateMinusLegacyPairedMedianMs": -18.572417,
+          "bootstrap95Ms": [
+            -23.672166999999998,
+            -16.380916999999997
+          ],
+          "legacyOverCompactRatio": 6.781717440323458
+        },
+        "compact forced": {
+          "candidateMinusLegacyPairedMedianMs": -58.509376,
+          "bootstrap95Ms": [
+            -78.30541699999999,
+            -48.425792
+          ],
+          "legacyOverCompactRatio": 3.159296774129341
+        },
+        "compact direct": {
+          "candidateMinusLegacyPairedMedianMs": -29.671459,
+          "bootstrap95Ms": [
+            -46.393249999999995,
+            -25.262083
+          ],
+          "legacyOverCompactRatio": 2.175541204490543
+        },
+        "compact cold": {
+          "candidateMinusLegacyPairedMedianMs": -101.18504199999998,
+          "bootstrap95Ms": [
+            -134.83825000000002,
+            -89.80908400000001
+          ],
+          "legacyOverCompactRatio": 1.6481606106183928
+        }
+      }
+    },
+    {
+      "task": "checksum",
+      "medianMs": {
+        "old direct": 7.341042,
+        "old forced": 23.074125,
+        "old warm": 9.487792,
+        "old cold": 164.438375,
+        "compact direct": 4.257875,
+        "compact forced": 7.041792,
+        "compact warm": 3.214792,
+        "compact cold": 116.650917
+      },
+      "comparisons": {
+        "compact warm": {
+          "candidateMinusLegacyPairedMedianMs": -6.368874,
+          "bootstrap95Ms": [
+            -7.037583,
+            -5.785834000000001
+          ],
+          "legacyOverCompactRatio": 2.9512926497266387
+        },
+        "compact forced": {
+          "candidateMinusLegacyPairedMedianMs": -16.003166,
+          "bootstrap95Ms": [
+            -17.831958,
+            -14.685
+          ],
+          "legacyOverCompactRatio": 3.276740494465045
+        },
+        "compact direct": {
+          "candidateMinusLegacyPairedMedianMs": -3.3367489999999997,
+          "bootstrap95Ms": [
+            -4.356625,
+            -2.4578749999999996
+          ],
+          "legacyOverCompactRatio": 1.7241093268355692
+        },
+        "compact cold": {
+          "candidateMinusLegacyPairedMedianMs": -40.87625,
+          "bootstrap95Ms": [
+            -54.745875,
+            -35.651542000000006
+          ],
+          "legacyOverCompactRatio": 1.409662086068299
+        }
+      }
+    }
+  ],
+  "unsignedImageBytes": {
+    "compiler old": 12304384,
+    "compiler new": 229376,
+    "runtime old": 13647872,
+    "runtime new": 212992,
+    "checksum old": 1097728,
+    "checksum new": 49152
+  },
+  "raw": [
+    {
+      "task": "compiler",
+      "trial": 0,
+      "variant": "old direct",
+      "ms": 51.682917,
+      "observedChildCpuMs": 43.57899999999998,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 0,
+      "variant": "compact cold",
+      "ms": 134.040917,
+      "observedChildCpuMs": 32.25400000000006,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 0,
+      "variant": "compact warm",
+      "ms": 3.44225,
+      "observedChildCpuMs": 2.210999999999963,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 0,
+      "variant": "compact forced",
+      "ms": 29.580166,
+      "observedChildCpuMs": 26.283,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 0,
+      "variant": "compact direct",
+      "ms": 23.330334,
+      "observedChildCpuMs": 22.258999999999972,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 0,
+      "variant": "old warm",
+      "ms": 20.293959,
+      "observedChildCpuMs": 14.867000000000019,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 0,
+      "variant": "old cold",
+      "ms": 217.210833,
+      "observedChildCpuMs": 71.04300000000002,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 0,
+      "variant": "old forced",
+      "ms": 99.60025,
+      "observedChildCpuMs": 68.44499999999998,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 1,
+      "variant": "old direct",
+      "ms": 51.938875,
+      "observedChildCpuMs": 46.653999999999975,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 1,
+      "variant": "compact direct",
+      "ms": 23.845791,
+      "observedChildCpuMs": 22.322999999999983,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 1,
+      "variant": "old forced",
+      "ms": 87.962292,
+      "observedChildCpuMs": 62.365000000000116,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 1,
+      "variant": "compact warm",
+      "ms": 3.217,
+      "observedChildCpuMs": 2.1859999999999102,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 1,
+      "variant": "old warm",
+      "ms": 21.043166,
+      "observedChildCpuMs": 14.724999999999987,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 1,
+      "variant": "compact forced",
+      "ms": 26.763625,
+      "observedChildCpuMs": 24.66400000000002,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 1,
+      "variant": "old cold",
+      "ms": 278.796208,
+      "observedChildCpuMs": 89.534,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 1,
+      "variant": "compact cold",
+      "ms": 144.090416,
+      "observedChildCpuMs": 27.254,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 2,
+      "variant": "old cold",
+      "ms": 221.392917,
+      "observedChildCpuMs": 78.92599999999995,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 2,
+      "variant": "old direct",
+      "ms": 60.237875,
+      "observedChildCpuMs": 53.16600000000005,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 2,
+      "variant": "compact cold",
+      "ms": 227.542791,
+      "observedChildCpuMs": 32.95999999999999,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 2,
+      "variant": "compact forced",
+      "ms": 30.952708,
+      "observedChildCpuMs": 28.182999999999957,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 2,
+      "variant": "compact direct",
+      "ms": 27.628166,
+      "observedChildCpuMs": 25.541000000000036,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 2,
+      "variant": "compact warm",
+      "ms": 2.907917,
+      "observedChildCpuMs": 2.0329999999999515,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 2,
+      "variant": "old warm",
+      "ms": 19.739416,
+      "observedChildCpuMs": 15.730000000000022,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 2,
+      "variant": "old forced",
+      "ms": 81.643375,
+      "observedChildCpuMs": 63.60100000000002,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 3,
+      "variant": "old warm",
+      "ms": 18.356583,
+      "observedChildCpuMs": 14.791999999999916,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 3,
+      "variant": "compact warm",
+      "ms": 3.155167,
+      "observedChildCpuMs": 2.0860000000000323,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 3,
+      "variant": "old cold",
+      "ms": 248.825333,
+      "observedChildCpuMs": 69.63900000000001,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 3,
+      "variant": "old direct",
+      "ms": 47.3365,
+      "observedChildCpuMs": 44.24899999999998,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 3,
+      "variant": "compact direct",
+      "ms": 23.533958,
+      "observedChildCpuMs": 22.246999999999908,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 3,
+      "variant": "compact forced",
+      "ms": 30.9035,
+      "observedChildCpuMs": 24.848000000000205,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 3,
+      "variant": "old forced",
+      "ms": 70.484458,
+      "observedChildCpuMs": 61.461999999999904,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 3,
+      "variant": "compact cold",
+      "ms": 171.012666,
+      "observedChildCpuMs": 33.45399999999987,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 4,
+      "variant": "compact warm",
+      "ms": 3.426958,
+      "observedChildCpuMs": 2.3730000000001805,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 4,
+      "variant": "compact cold",
+      "ms": 134.120833,
+      "observedChildCpuMs": 33.67399999999998,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 4,
+      "variant": "old forced",
+      "ms": 86.035125,
+      "observedChildCpuMs": 73.50400000000002,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 4,
+      "variant": "old warm",
+      "ms": 21.960125,
+      "observedChildCpuMs": 14.870999999999857,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 4,
+      "variant": "old cold",
+      "ms": 252.937625,
+      "observedChildCpuMs": 62.875000000000014,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 4,
+      "variant": "compact forced",
+      "ms": 26.656125,
+      "observedChildCpuMs": 24.940000000000182,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 4,
+      "variant": "compact direct",
+      "ms": 23.071209,
+      "observedChildCpuMs": 22.199999999999996,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 4,
+      "variant": "old direct",
+      "ms": 40.223666,
+      "observedChildCpuMs": 38.57700000000008,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 5,
+      "variant": "compact cold",
+      "ms": 168.702291,
+      "observedChildCpuMs": 33.46799999999983,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 5,
+      "variant": "compact direct",
+      "ms": 25.705375,
+      "observedChildCpuMs": 24.54299999999998,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 5,
+      "variant": "old cold",
+      "ms": 210.879791,
+      "observedChildCpuMs": 76.89200000000018,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 5,
+      "variant": "compact forced",
+      "ms": 26.792875,
+      "observedChildCpuMs": 25.173999999999808,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 5,
+      "variant": "old warm",
+      "ms": 17.034792,
+      "observedChildCpuMs": 14.922000000000102,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 5,
+      "variant": "old forced",
+      "ms": 76.191625,
+      "observedChildCpuMs": 72.10700000000014,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 5,
+      "variant": "old direct",
+      "ms": 43.104125,
+      "observedChildCpuMs": 41.050999999999725,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 5,
+      "variant": "compact warm",
+      "ms": 4.002875,
+      "observedChildCpuMs": 2.75000000000003,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 6,
+      "variant": "old cold",
+      "ms": 233.368084,
+      "observedChildCpuMs": 74.627,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 6,
+      "variant": "compact cold",
+      "ms": 138.747084,
+      "observedChildCpuMs": 32.21500000000033,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 6,
+      "variant": "old warm",
+      "ms": 18.830375,
+      "observedChildCpuMs": 15.945999999999572,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 6,
+      "variant": "compact warm",
+      "ms": 3.273917,
+      "observedChildCpuMs": 2.251000000000225,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 6,
+      "variant": "old forced",
+      "ms": 88.0715,
+      "observedChildCpuMs": 78.8129999999998,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 6,
+      "variant": "compact forced",
+      "ms": 26.966417,
+      "observedChildCpuMs": 25.258000000000003,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 6,
+      "variant": "compact direct",
+      "ms": 23.062083,
+      "observedChildCpuMs": 22.131000000000345,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 6,
+      "variant": "old direct",
+      "ms": 40.601833,
+      "observedChildCpuMs": 39.00599999999965,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 7,
+      "variant": "old warm",
+      "ms": 15.695458,
+      "observedChildCpuMs": 13.886999999999983,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 7,
+      "variant": "compact forced",
+      "ms": 25.663208,
+      "observedChildCpuMs": 24.300999999999906,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 7,
+      "variant": "old forced",
+      "ms": 69.47725,
+      "observedChildCpuMs": 65.43500000000036,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 7,
+      "variant": "old direct",
+      "ms": 67.228625,
+      "observedChildCpuMs": 61.30799999999992,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 7,
+      "variant": "old cold",
+      "ms": 288.716209,
+      "observedChildCpuMs": 75.54700000000025,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 7,
+      "variant": "compact warm",
+      "ms": 3.4165,
+      "observedChildCpuMs": 2.241999999999855,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 7,
+      "variant": "compact cold",
+      "ms": 147.835375,
+      "observedChildCpuMs": 31.584999999999752,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 7,
+      "variant": "compact direct",
+      "ms": 25.330792,
+      "observedChildCpuMs": 24.00900000000039,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 8,
+      "variant": "old cold",
+      "ms": 225.730584,
+      "observedChildCpuMs": 68.79199999999975,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 8,
+      "variant": "compact cold",
+      "ms": 139.072333,
+      "observedChildCpuMs": 33.506000000000036,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 8,
+      "variant": "old direct",
+      "ms": 49.922,
+      "observedChildCpuMs": 48.41700000000016,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 8,
+      "variant": "compact warm",
+      "ms": 3.253584,
+      "observedChildCpuMs": 2.134999999999998,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 8,
+      "variant": "old forced",
+      "ms": 64.617708,
+      "observedChildCpuMs": 59.6779999999999,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 8,
+      "variant": "old warm",
+      "ms": 35.94975,
+      "observedChildCpuMs": 14.315999999999995,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 8,
+      "variant": "compact direct",
+      "ms": 23.961541,
+      "observedChildCpuMs": 22.803999999999824,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 8,
+      "variant": "compact forced",
+      "ms": 25.765792,
+      "observedChildCpuMs": 24.41799999999983,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 9,
+      "variant": "old warm",
+      "ms": 15.622458,
+      "observedChildCpuMs": 13.768000000000225,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 9,
+      "variant": "old direct",
+      "ms": 43.04225,
+      "observedChildCpuMs": 41.59400000000035,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 9,
+      "variant": "compact forced",
+      "ms": 25.295875,
+      "observedChildCpuMs": 24.028999999999634,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 9,
+      "variant": "compact direct",
+      "ms": 22.839542,
+      "observedChildCpuMs": 21.9459999999998,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 9,
+      "variant": "compact warm",
+      "ms": 2.549459,
+      "observedChildCpuMs": 1.7340000000003464,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 9,
+      "variant": "old cold",
+      "ms": 235.152833,
+      "observedChildCpuMs": 79.35199999999965,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 9,
+      "variant": "old forced",
+      "ms": 104.370542,
+      "observedChildCpuMs": 75.88100000000031,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 9,
+      "variant": "compact cold",
+      "ms": 167.489542,
+      "observedChildCpuMs": 25.88199999999974,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 10,
+      "variant": "compact direct",
+      "ms": 23.137875,
+      "observedChildCpuMs": 22.165000000000212,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 10,
+      "variant": "compact forced",
+      "ms": 25.912458,
+      "observedChildCpuMs": 24.45200000000014,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 10,
+      "variant": "old cold",
+      "ms": 204.776542,
+      "observedChildCpuMs": 74.63700000000006,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 10,
+      "variant": "compact warm",
+      "ms": 3.0405,
+      "observedChildCpuMs": 2.0999999999995467,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 10,
+      "variant": "compact cold",
+      "ms": 141.07575,
+      "observedChildCpuMs": 33.688000000000606,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 10,
+      "variant": "old warm",
+      "ms": 18.553084,
+      "observedChildCpuMs": 15.127999999999808,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 10,
+      "variant": "old direct",
+      "ms": 46.407542,
+      "observedChildCpuMs": 38.00399999999993,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 10,
+      "variant": "old forced",
+      "ms": 69.093666,
+      "observedChildCpuMs": 65.16699999999975,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 11,
+      "variant": "compact cold",
+      "ms": 169.565958,
+      "observedChildCpuMs": 32.60500000000022,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 11,
+      "variant": "compact forced",
+      "ms": 29.268375,
+      "observedChildCpuMs": 27.59199999999984,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 11,
+      "variant": "old cold",
+      "ms": 206.415625,
+      "observedChildCpuMs": 73.62600000000042,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 11,
+      "variant": "old warm",
+      "ms": 17.27275,
+      "observedChildCpuMs": 14.814999999999579,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 11,
+      "variant": "old forced",
+      "ms": 87.15225,
+      "observedChildCpuMs": 79.77999999999996,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 11,
+      "variant": "compact warm",
+      "ms": 5.856959,
+      "observedChildCpuMs": 2.4330000000003515,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 11,
+      "variant": "compact direct",
+      "ms": 22.613208,
+      "observedChildCpuMs": 21.872999999999365,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 11,
+      "variant": "old direct",
+      "ms": 37.23025,
+      "observedChildCpuMs": 35.93500000000071,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 12,
+      "variant": "old cold",
+      "ms": 234.920084,
+      "observedChildCpuMs": 71.29800000000009,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 12,
+      "variant": "compact warm",
+      "ms": 3.22025,
+      "observedChildCpuMs": 2.1439999999994797,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 12,
+      "variant": "compact forced",
+      "ms": 25.215834,
+      "observedChildCpuMs": 24.014000000000202,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 12,
+      "variant": "compact direct",
+      "ms": 22.7785,
+      "observedChildCpuMs": 21.875999999999785,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 12,
+      "variant": "old forced",
+      "ms": 69.188167,
+      "observedChildCpuMs": 64.50599999999973,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 12,
+      "variant": "old warm",
+      "ms": 23.225958,
+      "observedChildCpuMs": 14.339000000000546,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 12,
+      "variant": "old direct",
+      "ms": 45.251708,
+      "observedChildCpuMs": 43.62499999999958,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 12,
+      "variant": "compact cold",
+      "ms": 159.569167,
+      "observedChildCpuMs": 30.500000000000416,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 13,
+      "variant": "old warm",
+      "ms": 28.771792,
+      "observedChildCpuMs": 17.468999999999735,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 13,
+      "variant": "compact warm",
+      "ms": 3.309708,
+      "observedChildCpuMs": 2.235000000000209,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 13,
+      "variant": "old direct",
+      "ms": 43.594333,
+      "observedChildCpuMs": 41.403000000000304,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 13,
+      "variant": "compact cold",
+      "ms": 129.381833,
+      "observedChildCpuMs": 26.52999999999972,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 13,
+      "variant": "compact forced",
+      "ms": 27.397667,
+      "observedChildCpuMs": 25.784999999999947,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 13,
+      "variant": "old forced",
+      "ms": 70.175708,
+      "observedChildCpuMs": 64.74100000000016,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 13,
+      "variant": "compact direct",
+      "ms": 24.200583,
+      "observedChildCpuMs": 23.162000000000127,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 13,
+      "variant": "old cold",
+      "ms": 213.479667,
+      "observedChildCpuMs": 71.83399999999995,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 14,
+      "variant": "old warm",
+      "ms": 16.205333,
+      "observedChildCpuMs": 14.193999999999818,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 14,
+      "variant": "old forced",
+      "ms": 62.216292,
+      "observedChildCpuMs": 58.545999999999765,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 14,
+      "variant": "compact warm",
+      "ms": 3.053208,
+      "observedChildCpuMs": 2.0459999999999923,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 14,
+      "variant": "compact direct",
+      "ms": 22.86975,
+      "observedChildCpuMs": 22.075000000000067,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 14,
+      "variant": "old cold",
+      "ms": 254.332417,
+      "observedChildCpuMs": 88.87100000000015,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 14,
+      "variant": "old direct",
+      "ms": 67.213958,
+      "observedChildCpuMs": 56.16299999999974,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 14,
+      "variant": "compact cold",
+      "ms": 170.04475,
+      "observedChildCpuMs": 36.33100000000056,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 14,
+      "variant": "compact forced",
+      "ms": 28.450708,
+      "observedChildCpuMs": 27.015999999999707,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 15,
+      "variant": "old forced",
+      "ms": 67.809417,
+      "observedChildCpuMs": 62.96000000000035,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 15,
+      "variant": "compact forced",
+      "ms": 25.772375,
+      "observedChildCpuMs": 24.43300000000015,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 15,
+      "variant": "compact warm",
+      "ms": 2.676625,
+      "observedChildCpuMs": 1.7979999999990781,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 15,
+      "variant": "compact direct",
+      "ms": 22.575834,
+      "observedChildCpuMs": 21.766000000000396,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 15,
+      "variant": "old warm",
+      "ms": 16.005417,
+      "observedChildCpuMs": 14.038999999999469,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 15,
+      "variant": "old cold",
+      "ms": 253.97375,
+      "observedChildCpuMs": 92.9000000000002,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 15,
+      "variant": "compact cold",
+      "ms": 142.236916,
+      "observedChildCpuMs": 33.818000000000126,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 15,
+      "variant": "old direct",
+      "ms": 62.394834,
+      "observedChildCpuMs": 60.68500000000032,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 16,
+      "variant": "compact warm",
+      "ms": 2.910708,
+      "observedChildCpuMs": 2.0199999999999108,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 16,
+      "variant": "old cold",
+      "ms": 227.468959,
+      "observedChildCpuMs": 85.21599999999995,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 16,
+      "variant": "compact forced",
+      "ms": 25.906667,
+      "observedChildCpuMs": 24.521999999999267,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 16,
+      "variant": "compact cold",
+      "ms": 147.065708,
+      "observedChildCpuMs": 32.69300000000097,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 16,
+      "variant": "compact direct",
+      "ms": 25.789625,
+      "observedChildCpuMs": 24.862999999999857,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 16,
+      "variant": "old warm",
+      "ms": 16.006916,
+      "observedChildCpuMs": 14.256999999999742,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 16,
+      "variant": "old forced",
+      "ms": 93.319042,
+      "observedChildCpuMs": 68.36299999999973,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 16,
+      "variant": "old direct",
+      "ms": 49.01325,
+      "observedChildCpuMs": 47.146000000000576,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 17,
+      "variant": "old warm",
+      "ms": 22.968792,
+      "observedChildCpuMs": 15.189999999999593,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 17,
+      "variant": "old forced",
+      "ms": 80.086208,
+      "observedChildCpuMs": 67.94100000000026,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 17,
+      "variant": "old direct",
+      "ms": 49.365459,
+      "observedChildCpuMs": 47.47699999999977,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 17,
+      "variant": "compact forced",
+      "ms": 26.403375,
+      "observedChildCpuMs": 24.41199999999988,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 17,
+      "variant": "compact cold",
+      "ms": 175.617625,
+      "observedChildCpuMs": 29.549000000001158,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 17,
+      "variant": "old cold",
+      "ms": 218.929959,
+      "observedChildCpuMs": 82.38099999999982,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 17,
+      "variant": "compact direct",
+      "ms": 24.087791,
+      "observedChildCpuMs": 22.810999999999026,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 17,
+      "variant": "compact warm",
+      "ms": 2.846125,
+      "observedChildCpuMs": 1.9420000000005544,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 18,
+      "variant": "compact warm",
+      "ms": 2.639875,
+      "observedChildCpuMs": 1.7759999999995557,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 18,
+      "variant": "compact forced",
+      "ms": 25.664875,
+      "observedChildCpuMs": 24.013000000000062,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 18,
+      "variant": "old forced",
+      "ms": 104.708125,
+      "observedChildCpuMs": 67.27699999999982,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 18,
+      "variant": "old warm",
+      "ms": 16.013334,
+      "observedChildCpuMs": 13.870000000000715,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 18,
+      "variant": "old direct",
+      "ms": 51.657875,
+      "observedChildCpuMs": 49.63799999999985,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 18,
+      "variant": "old cold",
+      "ms": 270.981875,
+      "observedChildCpuMs": 98.85500000000036,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 18,
+      "variant": "compact cold",
+      "ms": 147.442166,
+      "observedChildCpuMs": 34.33799999999998,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 18,
+      "variant": "compact direct",
+      "ms": 26.012125,
+      "observedChildCpuMs": 24.840999999999447,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 19,
+      "variant": "old cold",
+      "ms": 254.453375,
+      "observedChildCpuMs": 90.00899999999933,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 19,
+      "variant": "old direct",
+      "ms": 51.993084,
+      "observedChildCpuMs": 50.15900000000073,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 19,
+      "variant": "old warm",
+      "ms": 18.218709,
+      "observedChildCpuMs": 14.358999999999789,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 19,
+      "variant": "compact forced",
+      "ms": 27.474917,
+      "observedChildCpuMs": 24.91500000000002,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 19,
+      "variant": "old forced",
+      "ms": 58.177417,
+      "observedChildCpuMs": 54.851000000000205,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 19,
+      "variant": "compact warm",
+      "ms": 2.943583,
+      "observedChildCpuMs": 2.072000000000074,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 19,
+      "variant": "compact cold",
+      "ms": 161.004542,
+      "observedChildCpuMs": 29.140999999999195,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 19,
+      "variant": "compact direct",
+      "ms": 24.5265,
+      "observedChildCpuMs": 23.471000000000686,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 20,
+      "variant": "compact direct",
+      "ms": 22.726584,
+      "observedChildCpuMs": 21.896999999999167,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 20,
+      "variant": "old forced",
+      "ms": 133.607125,
+      "observedChildCpuMs": 63.813000000000564,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 20,
+      "variant": "compact cold",
+      "ms": 180.655125,
+      "observedChildCpuMs": 36.30900000000015,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 20,
+      "variant": "old warm",
+      "ms": 18.249458,
+      "observedChildCpuMs": 16.192999999999458,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 20,
+      "variant": "old direct",
+      "ms": 43.473167,
+      "observedChildCpuMs": 41.97800000000029,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 20,
+      "variant": "compact warm",
+      "ms": 2.936416,
+      "observedChildCpuMs": 2.012000000000569,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "compiler",
+      "trial": 20,
+      "variant": "old cold",
+      "ms": 270.287125,
+      "observedChildCpuMs": 107.38499999999985,
+      "unsignedBytes": 12304384
+    },
+    {
+      "task": "compiler",
+      "trial": 20,
+      "variant": "compact forced",
+      "ms": 26.507041,
+      "observedChildCpuMs": 24.89200000000036,
+      "unsignedBytes": 229376
+    },
+    {
+      "task": "runtime",
+      "trial": 0,
+      "variant": "old direct",
+      "ms": 217.525875,
+      "observedChildCpuMs": 90.08299999999991,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 0,
+      "variant": "compact cold",
+      "ms": 175.424875,
+      "observedChildCpuMs": 28.740000000000876,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 0,
+      "variant": "compact warm",
+      "ms": 3.571791,
+      "observedChildCpuMs": 2.686999999999884,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 0,
+      "variant": "compact forced",
+      "ms": 27.316666,
+      "observedChildCpuMs": 25.51300000000012,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 0,
+      "variant": "compact direct",
+      "ms": 22.916,
+      "observedChildCpuMs": 21.81599999999939,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 0,
+      "variant": "old warm",
+      "ms": 19.660583,
+      "observedChildCpuMs": 17.383000000000592,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 0,
+      "variant": "old cold",
+      "ms": 320.377334,
+      "observedChildCpuMs": 90.91999999999878,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 0,
+      "variant": "old forced",
+      "ms": 126.468458,
+      "observedChildCpuMs": 92.94400000000103,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 1,
+      "variant": "old direct",
+      "ms": 85.103042,
+      "observedChildCpuMs": 63.86700000000012,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 1,
+      "variant": "compact direct",
+      "ms": 26.809333,
+      "observedChildCpuMs": 24.292999999999232,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 1,
+      "variant": "old forced",
+      "ms": 76.695,
+      "observedChildCpuMs": 69.63700000000017,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 1,
+      "variant": "compact warm",
+      "ms": 3.839333,
+      "observedChildCpuMs": 2.686999999999884,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 1,
+      "variant": "old warm",
+      "ms": 19.254417,
+      "observedChildCpuMs": 17.197999999999602,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 1,
+      "variant": "compact forced",
+      "ms": 29.008083,
+      "observedChildCpuMs": 27.041000000000537,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 1,
+      "variant": "old cold",
+      "ms": 228.182584,
+      "observedChildCpuMs": 77.66699999999993,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 1,
+      "variant": "compact cold",
+      "ms": 142.907792,
+      "observedChildCpuMs": 27.925999999999895,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 2,
+      "variant": "old cold",
+      "ms": 283.666667,
+      "observedChildCpuMs": 82.58100000000024,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 2,
+      "variant": "old direct",
+      "ms": 75.230334,
+      "observedChildCpuMs": 70.8000000000002,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 2,
+      "variant": "compact cold",
+      "ms": 179.108792,
+      "observedChildCpuMs": 26.776999999999163,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 2,
+      "variant": "compact forced",
+      "ms": 28.131541,
+      "observedChildCpuMs": 26.65500000000076,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 2,
+      "variant": "compact direct",
+      "ms": 26.659583,
+      "observedChildCpuMs": 24.663999999999575,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 2,
+      "variant": "compact warm",
+      "ms": 3.855041,
+      "observedChildCpuMs": 2.77399999999961,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 2,
+      "variant": "old warm",
+      "ms": 78.533375,
+      "observedChildCpuMs": 30.34900000000018,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 2,
+      "variant": "old forced",
+      "ms": 86.640917,
+      "observedChildCpuMs": 81.87700000000042,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 3,
+      "variant": "old warm",
+      "ms": 17.998833,
+      "observedChildCpuMs": 15.92899999999986,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 3,
+      "variant": "compact warm",
+      "ms": 3.26125,
+      "observedChildCpuMs": 2.260000000000595,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 3,
+      "variant": "old cold",
+      "ms": 270.027167,
+      "observedChildCpuMs": 66.03999999999921,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 3,
+      "variant": "old direct",
+      "ms": 48.058666,
+      "observedChildCpuMs": 46.29700000000092,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 3,
+      "variant": "compact direct",
+      "ms": 22.589041,
+      "observedChildCpuMs": 21.546999999999095,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 3,
+      "variant": "compact forced",
+      "ms": 26.440875,
+      "observedChildCpuMs": 24.678999999999895,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 3,
+      "variant": "old forced",
+      "ms": 107.111292,
+      "observedChildCpuMs": 73.33999999999996,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 3,
+      "variant": "compact cold",
+      "ms": 148.487959,
+      "observedChildCpuMs": 26.33600000000058,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 4,
+      "variant": "compact warm",
+      "ms": 2.855125,
+      "observedChildCpuMs": 2.0150000000001,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 4,
+      "variant": "compact cold",
+      "ms": 128.34825,
+      "observedChildCpuMs": 25.119000000000113,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 4,
+      "variant": "old forced",
+      "ms": 67.007709,
+      "observedChildCpuMs": 63.202999999999676,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 4,
+      "variant": "old warm",
+      "ms": 18.284083,
+      "observedChildCpuMs": 15.871000000000635,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 4,
+      "variant": "old cold",
+      "ms": 263.1865,
+      "observedChildCpuMs": 98.18199999999955,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 4,
+      "variant": "compact forced",
+      "ms": 28.784583,
+      "observedChildCpuMs": 26.931999999999512,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 4,
+      "variant": "compact direct",
+      "ms": 24.30725,
+      "observedChildCpuMs": 23.07500000000129,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 4,
+      "variant": "old direct",
+      "ms": 63.0155,
+      "observedChildCpuMs": 58.043999999998874,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 5,
+      "variant": "compact cold",
+      "ms": 158.495583,
+      "observedChildCpuMs": 25.110999999998995,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 5,
+      "variant": "compact direct",
+      "ms": 25.578,
+      "observedChildCpuMs": 23.38000000000129,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 5,
+      "variant": "old cold",
+      "ms": 267.649334,
+      "observedChildCpuMs": 75.78299999999949,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 5,
+      "variant": "compact forced",
+      "ms": 32.47275,
+      "observedChildCpuMs": 28.688999999999965,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 5,
+      "variant": "old warm",
+      "ms": 28.519583,
+      "observedChildCpuMs": 21.315000000001305,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 5,
+      "variant": "old forced",
+      "ms": 170.177083,
+      "observedChildCpuMs": 107.80199999999951,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 5,
+      "variant": "old direct",
+      "ms": 63.383083,
+      "observedChildCpuMs": 56.88699999999969,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 5,
+      "variant": "compact warm",
+      "ms": 3.396333,
+      "observedChildCpuMs": 2.276000000000167,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 6,
+      "variant": "old cold",
+      "ms": 332.886625,
+      "observedChildCpuMs": 107.36099999999915,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 6,
+      "variant": "compact cold",
+      "ms": 168.548666,
+      "observedChildCpuMs": 29.060000000001196,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 6,
+      "variant": "old warm",
+      "ms": 21.750375,
+      "observedChildCpuMs": 18.435999999999453,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 6,
+      "variant": "compact warm",
+      "ms": 3.19,
+      "observedChildCpuMs": 2.1660000000007784,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 6,
+      "variant": "old forced",
+      "ms": 80.799875,
+      "observedChildCpuMs": 74.81699999999947,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 6,
+      "variant": "compact forced",
+      "ms": 26.377,
+      "observedChildCpuMs": 24.242000000000985,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 6,
+      "variant": "compact direct",
+      "ms": 24.004042,
+      "observedChildCpuMs": 22.66999999999797,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 6,
+      "variant": "old direct",
+      "ms": 46.125667,
+      "observedChildCpuMs": 44.67299999999952,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 7,
+      "variant": "old warm",
+      "ms": 26.953584,
+      "observedChildCpuMs": 19.56700000000211,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 7,
+      "variant": "compact forced",
+      "ms": 25.992833,
+      "observedChildCpuMs": 24.132999999999072,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 7,
+      "variant": "old forced",
+      "ms": 82.658959,
+      "observedChildCpuMs": 70.04999999999839,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 7,
+      "variant": "old direct",
+      "ms": 49.011333,
+      "observedChildCpuMs": 45.83600000000132,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 7,
+      "variant": "old cold",
+      "ms": 223.329125,
+      "observedChildCpuMs": 73.83300000000048,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 7,
+      "variant": "compact warm",
+      "ms": 3.281417,
+      "observedChildCpuMs": 2.161999999998443,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 7,
+      "variant": "compact cold",
+      "ms": 133.215167,
+      "observedChildCpuMs": 28.6470000000012,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 7,
+      "variant": "compact direct",
+      "ms": 23.74925,
+      "observedChildCpuMs": 22.389999999999688,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 8,
+      "variant": "old cold",
+      "ms": 218.561083,
+      "observedChildCpuMs": 78.58200000000082,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 8,
+      "variant": "compact cold",
+      "ms": 134.747708,
+      "observedChildCpuMs": 30.215999999999354,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 8,
+      "variant": "old direct",
+      "ms": 51.228583,
+      "observedChildCpuMs": 49.428000000000694,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 8,
+      "variant": "compact warm",
+      "ms": 3.2325,
+      "observedChildCpuMs": 2.1189999999986497,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 8,
+      "variant": "old forced",
+      "ms": 92.582542,
+      "observedChildCpuMs": 77.75900000000036,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 8,
+      "variant": "old warm",
+      "ms": 21.804917,
+      "observedChildCpuMs": 16.018000000000754,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 8,
+      "variant": "compact direct",
+      "ms": 29.209084,
+      "observedChildCpuMs": 22.125999999998314,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 8,
+      "variant": "compact forced",
+      "ms": 26.073584,
+      "observedChildCpuMs": 24.21900000000221,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 9,
+      "variant": "old warm",
+      "ms": 29.484083,
+      "observedChildCpuMs": 19.085999999999714,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 9,
+      "variant": "old direct",
+      "ms": 40.736792,
+      "observedChildCpuMs": 38.90899999999853,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 9,
+      "variant": "compact forced",
+      "ms": 25.009083,
+      "observedChildCpuMs": 23.649000000000697,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 9,
+      "variant": "compact direct",
+      "ms": 22.053167,
+      "observedChildCpuMs": 21.122000000000085,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 9,
+      "variant": "compact warm",
+      "ms": 2.781208,
+      "observedChildCpuMs": 1.8950000000010903,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 9,
+      "variant": "old cold",
+      "ms": 265.7,
+      "observedChildCpuMs": 86.07099999999868,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 9,
+      "variant": "old forced",
+      "ms": 103.3145,
+      "observedChildCpuMs": 78.33100000000037,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 9,
+      "variant": "compact cold",
+      "ms": 169.958916,
+      "observedChildCpuMs": 34.21700000000172,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 10,
+      "variant": "compact direct",
+      "ms": 24.557208,
+      "observedChildCpuMs": 23.550999999997657,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 10,
+      "variant": "compact forced",
+      "ms": 25.481334,
+      "observedChildCpuMs": 23.838000000001358,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 10,
+      "variant": "old cold",
+      "ms": 211.973917,
+      "observedChildCpuMs": 74.85099999999889,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 10,
+      "variant": "compact warm",
+      "ms": 3.12525,
+      "observedChildCpuMs": 2.055000000000362,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 10,
+      "variant": "compact cold",
+      "ms": 139.244125,
+      "observedChildCpuMs": 28.665999999999414,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 10,
+      "variant": "old warm",
+      "ms": 23.284875,
+      "observedChildCpuMs": 17.652999999999253,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 10,
+      "variant": "old direct",
+      "ms": 41.106584,
+      "observedChildCpuMs": 37.223000000000894,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 10,
+      "variant": "old forced",
+      "ms": 79.083333,
+      "observedChildCpuMs": 72.84100000000038,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 11,
+      "variant": "compact cold",
+      "ms": 162.39275,
+      "observedChildCpuMs": 26.355000000000572,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 11,
+      "variant": "compact forced",
+      "ms": 24.980667,
+      "observedChildCpuMs": 23.5019999999988,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 11,
+      "variant": "old cold",
+      "ms": 220.35875,
+      "observedChildCpuMs": 80.92900000000114,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 11,
+      "variant": "old warm",
+      "ms": 28.038584,
+      "observedChildCpuMs": 16.147000000000133,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 11,
+      "variant": "old forced",
+      "ms": 66.432,
+      "observedChildCpuMs": 62.4880000000001,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 11,
+      "variant": "compact warm",
+      "ms": 3.21525,
+      "observedChildCpuMs": 2.222999999998976,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 11,
+      "variant": "compact direct",
+      "ms": 21.782333,
+      "observedChildCpuMs": 20.901999999999532,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 11,
+      "variant": "old direct",
+      "ms": 51.453792,
+      "observedChildCpuMs": 49.69300000000132,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 12,
+      "variant": "old cold",
+      "ms": 267.798417,
+      "observedChildCpuMs": 86.38099999999937,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 12,
+      "variant": "compact warm",
+      "ms": 3.193917,
+      "observedChildCpuMs": 2.1890000000013288,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 12,
+      "variant": "compact forced",
+      "ms": 24.81225,
+      "observedChildCpuMs": 23.425999999998837,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 12,
+      "variant": "compact direct",
+      "ms": 23.6445,
+      "observedChildCpuMs": 21.523999999999432,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 12,
+      "variant": "old forced",
+      "ms": 69.889084,
+      "observedChildCpuMs": 65.16700000000064,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 12,
+      "variant": "old warm",
+      "ms": 20.449875,
+      "observedChildCpuMs": 15.564000000001244,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 12,
+      "variant": "old direct",
+      "ms": 42.063875,
+      "observedChildCpuMs": 37.592999999997545,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 12,
+      "variant": "compact cold",
+      "ms": 166.613375,
+      "observedChildCpuMs": 26.070000000000704,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 13,
+      "variant": "old warm",
+      "ms": 18.182542,
+      "observedChildCpuMs": 15.899000000000996,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 13,
+      "variant": "compact warm",
+      "ms": 3.092583,
+      "observedChildCpuMs": 2.060000000000173,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 13,
+      "variant": "old direct",
+      "ms": 49.491875,
+      "observedChildCpuMs": 48.05399999999871,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 13,
+      "variant": "compact cold",
+      "ms": 170.162083,
+      "observedChildCpuMs": 28.233999999999426,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 13,
+      "variant": "compact forced",
+      "ms": 27.568084,
+      "observedChildCpuMs": 25.949000000000666,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 13,
+      "variant": "old forced",
+      "ms": 64.777333,
+      "observedChildCpuMs": 60.58099999999911,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 13,
+      "variant": "compact direct",
+      "ms": 22.718667,
+      "observedChildCpuMs": 21.530000000002047,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 13,
+      "variant": "old cold",
+      "ms": 239.711,
+      "observedChildCpuMs": 81.22099999999932,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 14,
+      "variant": "old warm",
+      "ms": 29.356875,
+      "observedChildCpuMs": 19.02199999999965,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 14,
+      "variant": "old forced",
+      "ms": 75.756584,
+      "observedChildCpuMs": 71.52100000000061,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 14,
+      "variant": "compact warm",
+      "ms": 2.999583,
+      "observedChildCpuMs": 2.050999999999803,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 14,
+      "variant": "compact direct",
+      "ms": 22.3365,
+      "observedChildCpuMs": 21.32099999999859,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 14,
+      "variant": "old cold",
+      "ms": 359.97275,
+      "observedChildCpuMs": 107.28000000000115,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 14,
+      "variant": "old direct",
+      "ms": 62.158541,
+      "observedChildCpuMs": 48.56599999999922,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 14,
+      "variant": "compact cold",
+      "ms": 163.560875,
+      "observedChildCpuMs": 28.602000000001127,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 14,
+      "variant": "compact forced",
+      "ms": 27.330792,
+      "observedChildCpuMs": 25.71600000000096,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 15,
+      "variant": "old forced",
+      "ms": 86.346083,
+      "observedChildCpuMs": 75.52300000000045,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 15,
+      "variant": "compact forced",
+      "ms": 25.808875,
+      "observedChildCpuMs": 24.185999999998486,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 15,
+      "variant": "compact warm",
+      "ms": 3.064292,
+      "observedChildCpuMs": 2.112000000000336,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 15,
+      "variant": "compact direct",
+      "ms": 24.793709,
+      "observedChildCpuMs": 23.47499999999947,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 15,
+      "variant": "old warm",
+      "ms": 19.445209,
+      "observedChildCpuMs": 16.790999999999556,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 15,
+      "variant": "old cold",
+      "ms": 293.497208,
+      "observedChildCpuMs": 88.50100000000083,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 15,
+      "variant": "compact cold",
+      "ms": 149.095792,
+      "observedChildCpuMs": 32.41499999999853,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 15,
+      "variant": "old direct",
+      "ms": 47.585625,
+      "observedChildCpuMs": 43.14700000000116,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 16,
+      "variant": "compact warm",
+      "ms": 3.39025,
+      "observedChildCpuMs": 2.2860000000015646,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 16,
+      "variant": "old cold",
+      "ms": 248.508792,
+      "observedChildCpuMs": 71.16299999999853,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 16,
+      "variant": "compact forced",
+      "ms": 28.867958,
+      "observedChildCpuMs": 26.835000000000164,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 16,
+      "variant": "compact cold",
+      "ms": 158.699708,
+      "observedChildCpuMs": 29.923000000000144,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 16,
+      "variant": "compact direct",
+      "ms": 25.629417,
+      "observedChildCpuMs": 23.97999999999989,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 16,
+      "variant": "old warm",
+      "ms": 26.660042,
+      "observedChildCpuMs": 21.215999999999013,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 16,
+      "variant": "old forced",
+      "ms": 103.011917,
+      "observedChildCpuMs": 93.24000000000154,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 16,
+      "variant": "old direct",
+      "ms": 52.356666,
+      "observedChildCpuMs": 49.7879999999995,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 17,
+      "variant": "old warm",
+      "ms": 18.8665,
+      "observedChildCpuMs": 16.39499999999927,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 17,
+      "variant": "old forced",
+      "ms": 84.496958,
+      "observedChildCpuMs": 79.8760000000005,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 17,
+      "variant": "old direct",
+      "ms": 101.437875,
+      "observedChildCpuMs": 77.94699999999999,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 17,
+      "variant": "compact forced",
+      "ms": 68.336208,
+      "observedChildCpuMs": 35.90499999999963,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 17,
+      "variant": "compact cold",
+      "ms": 155.520084,
+      "observedChildCpuMs": 25.717000000000212,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 17,
+      "variant": "old cold",
+      "ms": 243.707791,
+      "observedChildCpuMs": 83.05000000000007,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 17,
+      "variant": "compact direct",
+      "ms": 25.959834,
+      "observedChildCpuMs": 24.627999999999872,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 17,
+      "variant": "compact warm",
+      "ms": 3.088667,
+      "observedChildCpuMs": 2.1480000000000388,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 18,
+      "variant": "compact warm",
+      "ms": 2.93125,
+      "observedChildCpuMs": 1.991000000000298,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 18,
+      "variant": "compact forced",
+      "ms": 41.654667,
+      "observedChildCpuMs": 27.260000000000062,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 18,
+      "variant": "old forced",
+      "ms": 126.07975,
+      "observedChildCpuMs": 96.68199999999949,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 18,
+      "variant": "old warm",
+      "ms": 35.188167,
+      "observedChildCpuMs": 23.81800000000034,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 18,
+      "variant": "old direct",
+      "ms": 133.162541,
+      "observedChildCpuMs": 78.42699999999958,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 18,
+      "variant": "old cold",
+      "ms": 390.842834,
+      "observedChildCpuMs": 94.34100000000178,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 18,
+      "variant": "compact cold",
+      "ms": 185.572333,
+      "observedChildCpuMs": 33.01299999999863,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 18,
+      "variant": "compact direct",
+      "ms": 33.598708,
+      "observedChildCpuMs": 27.440000000000353,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 19,
+      "variant": "old cold",
+      "ms": 282.764875,
+      "observedChildCpuMs": 89.71499999999999,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 19,
+      "variant": "old direct",
+      "ms": 108.650416,
+      "observedChildCpuMs": 81.5210000000004,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 19,
+      "variant": "old warm",
+      "ms": 20.695,
+      "observedChildCpuMs": 18.10700000000054,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 19,
+      "variant": "compact forced",
+      "ms": 29.676875,
+      "observedChildCpuMs": 26.41199999999877,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 19,
+      "variant": "old forced",
+      "ms": 149.887375,
+      "observedChildCpuMs": 115.39100000000069,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 19,
+      "variant": "compact warm",
+      "ms": 3.608292,
+      "observedChildCpuMs": 2.4580000000007374,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 19,
+      "variant": "compact cold",
+      "ms": 189.637834,
+      "observedChildCpuMs": 28.773999999998523,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 19,
+      "variant": "compact direct",
+      "ms": 24.066042,
+      "observedChildCpuMs": 22.898000000001417,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 20,
+      "variant": "compact direct",
+      "ms": 23.133916,
+      "observedChildCpuMs": 22.064999999999557,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 20,
+      "variant": "old forced",
+      "ms": 141.239625,
+      "observedChildCpuMs": 84.33899999999817,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 20,
+      "variant": "compact cold",
+      "ms": 172.351375,
+      "observedChildCpuMs": 32.17400000000126,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 20,
+      "variant": "old warm",
+      "ms": 25.922042,
+      "observedChildCpuMs": 20.239000000000118,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 20,
+      "variant": "old direct",
+      "ms": 69.527166,
+      "observedChildCpuMs": 64.02500000000089,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 20,
+      "variant": "compact warm",
+      "ms": 5.666541,
+      "observedChildCpuMs": 3.7759999999984473,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "runtime",
+      "trial": 20,
+      "variant": "old cold",
+      "ms": 439.165541,
+      "observedChildCpuMs": 117.65399999999993,
+      "unsignedBytes": 13647872
+    },
+    {
+      "task": "runtime",
+      "trial": 20,
+      "variant": "compact forced",
+      "ms": 41.2865,
+      "observedChildCpuMs": 33.7240000000012,
+      "unsignedBytes": 212992
+    },
+    {
+      "task": "checksum",
+      "trial": 0,
+      "variant": "old direct",
+      "ms": 5.285875,
+      "observedChildCpuMs": 4.2090000000012395,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 0,
+      "variant": "compact cold",
+      "ms": 148.289917,
+      "observedChildCpuMs": 6.9360000000013855,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 0,
+      "variant": "compact warm",
+      "ms": 3.993916,
+      "observedChildCpuMs": 3.1789999999993768,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 0,
+      "variant": "compact forced",
+      "ms": 7.698375,
+      "observedChildCpuMs": 5.971999999999866,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 0,
+      "variant": "compact direct",
+      "ms": 4.273208,
+      "observedChildCpuMs": 3.054999999999808,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 0,
+      "variant": "old warm",
+      "ms": 10.690083,
+      "observedChildCpuMs": 8.684999999999832,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 0,
+      "variant": "old cold",
+      "ms": 194.274333,
+      "observedChildCpuMs": 20.90700000000112,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 0,
+      "variant": "old forced",
+      "ms": 25.468208,
+      "observedChildCpuMs": 21.742999999998958,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 1,
+      "variant": "old direct",
+      "ms": 8.165208,
+      "observedChildCpuMs": 6.787000000000987,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 1,
+      "variant": "compact direct",
+      "ms": 4.341917,
+      "observedChildCpuMs": 3.135999999997807,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 1,
+      "variant": "old forced",
+      "ms": 22.143667,
+      "observedChildCpuMs": 20.435000000002645,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 1,
+      "variant": "compact warm",
+      "ms": 3.124625,
+      "observedChildCpuMs": 2.1479999999982624,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 1,
+      "variant": "old warm",
+      "ms": 10.139459,
+      "observedChildCpuMs": 8.579000000001002,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 1,
+      "variant": "compact forced",
+      "ms": 7.04625,
+      "observedChildCpuMs": 5.710000000000548,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 1,
+      "variant": "old cold",
+      "ms": 185.000042,
+      "observedChildCpuMs": 20.37299999999931,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 1,
+      "variant": "compact cold",
+      "ms": 149.3485,
+      "observedChildCpuMs": 8.641999999998262,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 2,
+      "variant": "old cold",
+      "ms": 194.440541,
+      "observedChildCpuMs": 20.524000000001763,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 2,
+      "variant": "old direct",
+      "ms": 9.077792,
+      "observedChildCpuMs": 7.4019999999990205,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 2,
+      "variant": "compact cold",
+      "ms": 115.504375,
+      "observedChildCpuMs": 6.674000000000291,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 2,
+      "variant": "compact forced",
+      "ms": 6.966875,
+      "observedChildCpuMs": 5.3680000000007055,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 2,
+      "variant": "compact direct",
+      "ms": 4.576583,
+      "observedChildCpuMs": 3.41500000000039,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 2,
+      "variant": "compact warm",
+      "ms": 2.674042,
+      "observedChildCpuMs": 1.809999999998979,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 2,
+      "variant": "old warm",
+      "ms": 9.022959,
+      "observedChildCpuMs": 7.650999999999186,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 2,
+      "variant": "old forced",
+      "ms": 26.442584,
+      "observedChildCpuMs": 22.518000000001592,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 3,
+      "variant": "old warm",
+      "ms": 9.168417,
+      "observedChildCpuMs": 7.906999999999442,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 3,
+      "variant": "compact warm",
+      "ms": 2.7465,
+      "observedChildCpuMs": 1.885999999998944,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 3,
+      "variant": "old cold",
+      "ms": 213.332584,
+      "observedChildCpuMs": 21.68100000000095,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 3,
+      "variant": "old direct",
+      "ms": 10.439042,
+      "observedChildCpuMs": 7.481999999999545,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 3,
+      "variant": "compact direct",
+      "ms": 6.082417,
+      "observedChildCpuMs": 4.322000000000159,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 3,
+      "variant": "compact forced",
+      "ms": 8.300459,
+      "observedChildCpuMs": 6.577000000000055,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 3,
+      "variant": "old forced",
+      "ms": 24.303625,
+      "observedChildCpuMs": 20.97199999999866,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 3,
+      "variant": "compact cold",
+      "ms": 137.372333,
+      "observedChildCpuMs": 6.861000000000672,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 4,
+      "variant": "compact warm",
+      "ms": 3.533916,
+      "observedChildCpuMs": 2.4830000000015673,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 4,
+      "variant": "compact cold",
+      "ms": 114.743083,
+      "observedChildCpuMs": 6.224999999998815,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 4,
+      "variant": "old forced",
+      "ms": 26.140667,
+      "observedChildCpuMs": 22.896000000001138,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 4,
+      "variant": "old warm",
+      "ms": 9.31975,
+      "observedChildCpuMs": 7.956999999999326,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 4,
+      "variant": "old cold",
+      "ms": 166.854291,
+      "observedChildCpuMs": 20.200000000000884,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 4,
+      "variant": "compact forced",
+      "ms": 7.279291,
+      "observedChildCpuMs": 5.564999999998932,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 4,
+      "variant": "compact direct",
+      "ms": 3.619042,
+      "observedChildCpuMs": 2.812000000000481,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 4,
+      "variant": "old direct",
+      "ms": 8.182333,
+      "observedChildCpuMs": 7.331999999999894,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 5,
+      "variant": "compact cold",
+      "ms": 125.896542,
+      "observedChildCpuMs": 6.0029999999997585,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 5,
+      "variant": "compact direct",
+      "ms": 8.726625,
+      "observedChildCpuMs": 3.7289999999998713,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 5,
+      "variant": "old cold",
+      "ms": 181.572667,
+      "observedChildCpuMs": 24.66600000000163,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 5,
+      "variant": "compact forced",
+      "ms": 7.283125,
+      "observedChildCpuMs": 5.732999999999322,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 5,
+      "variant": "old warm",
+      "ms": 9.487792,
+      "observedChildCpuMs": 8.364999999997735,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 5,
+      "variant": "old forced",
+      "ms": 30.960917,
+      "observedChildCpuMs": 28.64900000000148,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 5,
+      "variant": "old direct",
+      "ms": 10.341209,
+      "observedChildCpuMs": 9.26499999999919,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 5,
+      "variant": "compact warm",
+      "ms": 3.959292,
+      "observedChildCpuMs": 2.729999999999677,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 6,
+      "variant": "old cold",
+      "ms": 181.367541,
+      "observedChildCpuMs": 21.99600000000146,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 6,
+      "variant": "compact cold",
+      "ms": 112.237875,
+      "observedChildCpuMs": 7.172000000000622,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 6,
+      "variant": "old warm",
+      "ms": 12.976375,
+      "observedChildCpuMs": 10.585999999999984,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 6,
+      "variant": "compact warm",
+      "ms": 3.214792,
+      "observedChildCpuMs": 2.158999999998912,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 6,
+      "variant": "old forced",
+      "ms": 23.074125,
+      "observedChildCpuMs": 20.450999999999553,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 6,
+      "variant": "compact forced",
+      "ms": 6.611375,
+      "observedChildCpuMs": 5.076000000000747,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 6,
+      "variant": "compact direct",
+      "ms": 3.209375,
+      "observedChildCpuMs": 2.50300000000081,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 6,
+      "variant": "old direct",
+      "ms": 5.963584,
+      "observedChildCpuMs": 4.946999999997814,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 7,
+      "variant": "old warm",
+      "ms": 8.636208,
+      "observedChildCpuMs": 7.1280000000015775,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 7,
+      "variant": "compact forced",
+      "ms": 6.31,
+      "observedChildCpuMs": 5.046000000000106,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 7,
+      "variant": "old forced",
+      "ms": 24.257625,
+      "observedChildCpuMs": 18.480000000000274,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 7,
+      "variant": "old direct",
+      "ms": 12.193417,
+      "observedChildCpuMs": 5.126999999998105,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 7,
+      "variant": "old cold",
+      "ms": 244.63275,
+      "observedChildCpuMs": 21.581000000001183,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 7,
+      "variant": "compact warm",
+      "ms": 3.313667,
+      "observedChildCpuMs": 2.117999999999398,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 7,
+      "variant": "compact cold",
+      "ms": 119.707375,
+      "observedChildCpuMs": 6.520999999999333,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 7,
+      "variant": "compact direct",
+      "ms": 4.392792,
+      "observedChildCpuMs": 3.3970000000014267,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 8,
+      "variant": "old cold",
+      "ms": 154.16575,
+      "observedChildCpuMs": 25.114000000000303,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 8,
+      "variant": "compact cold",
+      "ms": 119.812958,
+      "observedChildCpuMs": 8.098999999999634,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 8,
+      "variant": "old direct",
+      "ms": 9.570666,
+      "observedChildCpuMs": 8.090999999998516,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 8,
+      "variant": "compact warm",
+      "ms": 3.950458,
+      "observedChildCpuMs": 2.656000000001768,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 8,
+      "variant": "old forced",
+      "ms": 23.782875,
+      "observedChildCpuMs": 21.898999999999447,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 8,
+      "variant": "old warm",
+      "ms": 9.43375,
+      "observedChildCpuMs": 8.05500000000059,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 8,
+      "variant": "compact direct",
+      "ms": 3.807375,
+      "observedChildCpuMs": 2.8669999999983986,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 8,
+      "variant": "compact forced",
+      "ms": 5.950917,
+      "observedChildCpuMs": 5.041000000002072,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 9,
+      "variant": "old warm",
+      "ms": 8.918333,
+      "observedChildCpuMs": 7.543999999999329,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 9,
+      "variant": "old direct",
+      "ms": 5.748417,
+      "observedChildCpuMs": 4.787000000000319,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 9,
+      "variant": "compact forced",
+      "ms": 5.877125,
+      "observedChildCpuMs": 4.711999999999605,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 9,
+      "variant": "compact direct",
+      "ms": 3.408583,
+      "observedChildCpuMs": 2.596000000000487,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 9,
+      "variant": "compact warm",
+      "ms": 2.549459,
+      "observedChildCpuMs": 1.6899999999999693,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 9,
+      "variant": "old cold",
+      "ms": 164.438375,
+      "observedChildCpuMs": 17.47299999999896,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 9,
+      "variant": "old forced",
+      "ms": 21.366375,
+      "observedChildCpuMs": 18.985999999999947,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 9,
+      "variant": "compact cold",
+      "ms": 112.88825,
+      "observedChildCpuMs": 7.027000000000783,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 10,
+      "variant": "compact direct",
+      "ms": 7.169584,
+      "observedChildCpuMs": 3.5799999999994725,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 10,
+      "variant": "compact forced",
+      "ms": 9.005125,
+      "observedChildCpuMs": 6.902000000000186,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 10,
+      "variant": "old cold",
+      "ms": 169.895917,
+      "observedChildCpuMs": 20.189999999999486,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 10,
+      "variant": "compact warm",
+      "ms": 4.56975,
+      "observedChildCpuMs": 2.963000000001159,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 10,
+      "variant": "compact cold",
+      "ms": 115.150042,
+      "observedChildCpuMs": 6.301000000000556,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 10,
+      "variant": "old warm",
+      "ms": 24.416833,
+      "observedChildCpuMs": 12.00299999999821,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 10,
+      "variant": "old direct",
+      "ms": 7.247625,
+      "observedChildCpuMs": 6.18099999999977,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 10,
+      "variant": "old forced",
+      "ms": 40.089084,
+      "observedChildCpuMs": 23.669000000001716,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 11,
+      "variant": "compact cold",
+      "ms": 118.420958,
+      "observedChildCpuMs": 6.758999999998849,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 11,
+      "variant": "compact forced",
+      "ms": 9.272417,
+      "observedChildCpuMs": 7.259000000001237,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 11,
+      "variant": "old cold",
+      "ms": 153.131625,
+      "observedChildCpuMs": 18.590999999998914,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 11,
+      "variant": "old warm",
+      "ms": 12.759917,
+      "observedChildCpuMs": 8.993999999999502,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 11,
+      "variant": "old forced",
+      "ms": 20.130167,
+      "observedChildCpuMs": 18.171999999999855,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 11,
+      "variant": "compact warm",
+      "ms": 2.446667,
+      "observedChildCpuMs": 1.6500000000014836,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 11,
+      "variant": "compact direct",
+      "ms": 3.363709,
+      "observedChildCpuMs": 2.5610000000000355,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 11,
+      "variant": "old direct",
+      "ms": 5.821584,
+      "observedChildCpuMs": 5.048999999999637,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 12,
+      "variant": "old cold",
+      "ms": 143.498375,
+      "observedChildCpuMs": 17.955999999998085,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 12,
+      "variant": "compact warm",
+      "ms": 3.273708,
+      "observedChildCpuMs": 2.1780000000006794,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 12,
+      "variant": "compact forced",
+      "ms": 6.152833,
+      "observedChildCpuMs": 5.072000000001964,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 12,
+      "variant": "compact direct",
+      "ms": 3.451584,
+      "observedChildCpuMs": 2.682000000000073,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 12,
+      "variant": "old forced",
+      "ms": 24.449333,
+      "observedChildCpuMs": 21.10399999999757,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 12,
+      "variant": "old warm",
+      "ms": 9.047459,
+      "observedChildCpuMs": 7.553000000001475,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 12,
+      "variant": "old direct",
+      "ms": 6.693125,
+      "observedChildCpuMs": 5.5200000000006355,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 12,
+      "variant": "compact cold",
+      "ms": 111.78725,
+      "observedChildCpuMs": 5.888999999999811,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 13,
+      "variant": "old warm",
+      "ms": 9.986291,
+      "observedChildCpuMs": 8.532999999999902,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 13,
+      "variant": "compact warm",
+      "ms": 2.948708,
+      "observedChildCpuMs": 1.939000000000135,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 13,
+      "variant": "old direct",
+      "ms": 7.522459,
+      "observedChildCpuMs": 6.418000000000035,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 13,
+      "variant": "compact cold",
+      "ms": 112.698459,
+      "observedChildCpuMs": 5.38699999999892,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 13,
+      "variant": "compact forced",
+      "ms": 6.062875,
+      "observedChildCpuMs": 4.767000000001076,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 13,
+      "variant": "old forced",
+      "ms": 17.615417,
+      "observedChildCpuMs": 15.874000000000166,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 13,
+      "variant": "compact direct",
+      "ms": 3.219208,
+      "observedChildCpuMs": 2.3769999999991853,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 13,
+      "variant": "old cold",
+      "ms": 142.788375,
+      "observedChildCpuMs": 14.616000000000184,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 14,
+      "variant": "old warm",
+      "ms": 24.843333,
+      "observedChildCpuMs": 7.466000000000861,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 14,
+      "variant": "old forced",
+      "ms": 20.321375,
+      "observedChildCpuMs": 18.23699999999917,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 14,
+      "variant": "compact warm",
+      "ms": 2.702041,
+      "observedChildCpuMs": 1.787000000000205,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 14,
+      "variant": "compact direct",
+      "ms": 3.16075,
+      "observedChildCpuMs": 2.4589999999982126,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 14,
+      "variant": "old cold",
+      "ms": 149.453667,
+      "observedChildCpuMs": 17.243000000000563,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 14,
+      "variant": "old direct",
+      "ms": 7.341042,
+      "observedChildCpuMs": 6.223999999999563,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 14,
+      "variant": "compact cold",
+      "ms": 108.577417,
+      "observedChildCpuMs": 6.21500000000097,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 14,
+      "variant": "compact forced",
+      "ms": 6.841458,
+      "observedChildCpuMs": 5.487999999999715,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 15,
+      "variant": "old forced",
+      "ms": 22.1685,
+      "observedChildCpuMs": 20.054000000001793,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 15,
+      "variant": "compact forced",
+      "ms": 6.045875,
+      "observedChildCpuMs": 4.847999999999075,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 15,
+      "variant": "compact warm",
+      "ms": 2.27575,
+      "observedChildCpuMs": 1.5459999999993812,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 15,
+      "variant": "compact direct",
+      "ms": 3.217584,
+      "observedChildCpuMs": 2.4940000000004403,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 15,
+      "variant": "old warm",
+      "ms": 8.390541,
+      "observedChildCpuMs": 7.054000000000116,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 15,
+      "variant": "old cold",
+      "ms": 153.961125,
+      "observedChildCpuMs": 18.663999999999348,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 15,
+      "variant": "compact cold",
+      "ms": 171.585667,
+      "observedChildCpuMs": 8.418000000000703,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 15,
+      "variant": "old direct",
+      "ms": 9.545125,
+      "observedChildCpuMs": 8.064999999998435,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 16,
+      "variant": "compact warm",
+      "ms": 4.613834,
+      "observedChildCpuMs": 3.189000000002551,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 16,
+      "variant": "old cold",
+      "ms": 154.974542,
+      "observedChildCpuMs": 18.709999999998672,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 16,
+      "variant": "compact forced",
+      "ms": 9.387125,
+      "observedChildCpuMs": 7.094000000000378,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 16,
+      "variant": "compact cold",
+      "ms": 116.961,
+      "observedChildCpuMs": 6.243999999998806,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 16,
+      "variant": "compact direct",
+      "ms": 4.257875,
+      "observedChildCpuMs": 3.0310000000017823,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 16,
+      "variant": "old warm",
+      "ms": 8.675292,
+      "observedChildCpuMs": 7.331999999998118,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 16,
+      "variant": "old forced",
+      "ms": 24.072125,
+      "observedChildCpuMs": 20.974999999999966,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 16,
+      "variant": "old direct",
+      "ms": 5.098334,
+      "observedChildCpuMs": 4.0810000000011115,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 17,
+      "variant": "old warm",
+      "ms": 9.588875,
+      "observedChildCpuMs": 7.953999999999795,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 17,
+      "variant": "old forced",
+      "ms": 21.324584,
+      "observedChildCpuMs": 18.992000000000786,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 17,
+      "variant": "old direct",
+      "ms": 6.029792,
+      "observedChildCpuMs": 4.751999999999867,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 17,
+      "variant": "compact forced",
+      "ms": 7.587166,
+      "observedChildCpuMs": 5.808000000000035,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 17,
+      "variant": "compact cold",
+      "ms": 112.471167,
+      "observedChildCpuMs": 5.467999999998696,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 17,
+      "variant": "old cold",
+      "ms": 150.621583,
+      "observedChildCpuMs": 20.060000000000855,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 17,
+      "variant": "compact direct",
+      "ms": 4.51175,
+      "observedChildCpuMs": 3.2239999999994495,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 17,
+      "variant": "compact warm",
+      "ms": 3.556042,
+      "observedChildCpuMs": 2.3640000000000327,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 18,
+      "variant": "compact warm",
+      "ms": 3.823625,
+      "observedChildCpuMs": 2.4380000000014945,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 18,
+      "variant": "compact forced",
+      "ms": 7.041792,
+      "observedChildCpuMs": 5.521999999999139,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 18,
+      "variant": "old forced",
+      "ms": 22.667208,
+      "observedChildCpuMs": 20.333999999998298,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 18,
+      "variant": "old warm",
+      "ms": 9.240834,
+      "observedChildCpuMs": 7.820000000002381,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 18,
+      "variant": "old direct",
+      "ms": 7.265792,
+      "observedChildCpuMs": 5.869000000000568,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 18,
+      "variant": "old cold",
+      "ms": 152.161334,
+      "observedChildCpuMs": 19.091999999997,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 18,
+      "variant": "compact cold",
+      "ms": 116.650917,
+      "observedChildCpuMs": 6.803000000001447,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 18,
+      "variant": "compact direct",
+      "ms": 4.678792,
+      "observedChildCpuMs": 3.3130000000003434,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 19,
+      "variant": "old cold",
+      "ms": 203.052333,
+      "observedChildCpuMs": 26.459999999998374,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 19,
+      "variant": "old direct",
+      "ms": 30.483917,
+      "observedChildCpuMs": 9.245000000001724,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 19,
+      "variant": "old warm",
+      "ms": 22.708,
+      "observedChildCpuMs": 8.464999999999279,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 19,
+      "variant": "compact forced",
+      "ms": 6.90275,
+      "observedChildCpuMs": 5.596999999999852,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 19,
+      "variant": "old forced",
+      "ms": 20.986166,
+      "observedChildCpuMs": 18.57700000000051,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 19,
+      "variant": "compact warm",
+      "ms": 2.903708,
+      "observedChildCpuMs": 1.9550000000005952,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 19,
+      "variant": "compact cold",
+      "ms": 116.380667,
+      "observedChildCpuMs": 6.024999999999281,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 19,
+      "variant": "compact direct",
+      "ms": 4.418167,
+      "observedChildCpuMs": 3.224999999998701,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 20,
+      "variant": "compact direct",
+      "ms": 3.619792,
+      "observedChildCpuMs": 2.920000000001366,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 20,
+      "variant": "old forced",
+      "ms": 21.767541,
+      "observedChildCpuMs": 19.377999999999673,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 20,
+      "variant": "compact cold",
+      "ms": 116.807084,
+      "observedChildCpuMs": 6.906000000000745,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 20,
+      "variant": "old warm",
+      "ms": 13.325458,
+      "observedChildCpuMs": 11.198999999999515,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 20,
+      "variant": "old direct",
+      "ms": 6.956541,
+      "observedChildCpuMs": 5.55699999999959,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 20,
+      "variant": "compact warm",
+      "ms": 3.182541,
+      "observedChildCpuMs": 2.3100000000013665,
+      "unsignedBytes": 49152
+    },
+    {
+      "task": "checksum",
+      "trial": 20,
+      "variant": "old cold",
+      "ms": 153.708125,
+      "observedChildCpuMs": 20.891999999998134,
+      "unsignedBytes": 1097728
+    },
+    {
+      "task": "checksum",
+      "trial": 20,
+      "variant": "compact forced",
+      "ms": 8.855917,
+      "observedChildCpuMs": 6.971000000001837,
+      "unsignedBytes": 49152
+    }
+  ],
+  "binarySHA256": {
+    "/Users/ik/Projects/RiverFlow/output/rf2c-dispatch-final": "8766e3461e0a79004e34ec55fe36a7373af1895befbf3d5163ddf30ac91a2046",
+    "/Users/ik/Projects/RiverFlow/output/incremental-final/rf2-build": "11b815016a3dc9fbd46377bab0e1515d52cbeb94946be3622b0f863606b62da8",
+    "/Users/ik/Projects/RiverFlow/output/rf2c-027-reviewed": "7a6dbd499a415d50f0da6f17d0d99672b42c9254f9d43a50f571fc207075b10c",
+    "/Users/ik/Projects/RiverFlow/output/incremental-027-coldfix/rf2-build": "2ad82ff8928ed18ae3549a169fec2dae7287cdda1a8684d3fdb78fce503023f5"
+  },
+  "controllerSHA256": "5d67c3240bc0c938f0d3ae7e5645c067d8436877d942f6724fdc6b069021f360",
+  "host": "macOS-26.5.1-arm64-arm-64bit",
+  "limits": "One host, warm filesystem, rotated process-inclusive build and output-publication tasks; cold variants use a fresh empty cache and include compiler snapshot creation; forced and warm variants reuse an existing cache. Each format compared byte-for-byte against its own direct clean oracle; legacy and compact layouts intentionally differ. Child CPU observations are not watts, joules, physical memory, model tokens or Clang/Python runtime comparisons."
+}
