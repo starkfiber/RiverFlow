@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "filesVerified": 11,
+  "bothExtractedNativeAppsExecuted": true,
+  "zipSHA256": "cc211e39a05e0147785178c6659489f99a2a0efd11842d1f014d3b2b04c5ae48",
+  "scope": "Same-Mac fresh native extraction and byte checks, developer runtimes absent; not notarization or cross-host qualification."
+}

@@ -4,6 +4,10 @@ RiverFlow is an implemented language with a native compiler, useful applications
 
 The long-term direction is one readable language across application and systems work. Each additional target needs its own implementation, contract and executed tests.
 
+## Development 0.32: structured fixed arrays
+
+[Separate array arenas and larger bounded frames](STRUCTURED-STORAGE-0.32.md) remove the former per-element scalar-slot cost. The tested bounds are4096 u64 elements or32768 u8 bytes per declaration and49152 aggregate payload bytes per function. Named-local metadata stays bounded. Two native applications share the same library and support4096-byte queries. This is fixed function-local storage, not general heap transfer, concurrency or ecosystem parity.
+
 ## Development additions through 0.21
 
 These are source-development capabilities with scoped evidence, separate from the stable 0.17 download. Native stdio authenticated contract tools, direct Apple Hypervisor VMM control, bounded Core WebAssembly, VM/vCPU ownership, owned guest mappings and shared-key image authentication now have local tests. See [0.21 boot contract](BOOT-CONTRACT-0.21.md). No Linux boot, x86 backend or general mobile platform qualification follows from those tests.

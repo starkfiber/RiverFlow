@@ -1,0 +1,62 @@
+{
+  "version": "0.32.0-dev",
+  "target": "macos-arm64",
+  "runtimeContract": "0.17 nine bounded tools",
+  "smokePassed": true,
+  "logSmoke": {
+    "bytes": 22,
+    "query_bytes": 4,
+    "lines": 2,
+    "matching_lines": 1,
+    "matches": 1,
+    "first_line": 1
+  },
+  "packagerSHA256": "54b0f4ef2ed80abc837055d4a48e53ad05f6262778044975f7f973e5b6f532bf",
+  "files": {
+    "LICENSE": {
+      "bytes": 1087,
+      "sha256": "439e5b1ea79a6a0a2007acf65173490db2462b238b9805abab0ee820838b23e8"
+    },
+    "README.txt": {
+      "bytes": 1038,
+      "sha256": "068b6de07fbe459a6928df86c2dc2cfc9a0e5748325aecff76fecb219bebad54"
+    },
+    "examples/search-tools/README.md": {
+      "bytes": 7056,
+      "sha256": "39d2eb2f922881ac2b30b72f8d89d1fa7da4a6e51100694b360814d3113f181e"
+    },
+    "examples/search-tools/lib/search.rf2": {
+      "bytes": 1868,
+      "sha256": "bcb5d790dea7946c4c04e6a88294cd587103a74602ef8a03071eae3cce86aa1f"
+    },
+    "examples/search-tools/log-scan.rf2": {
+      "bytes": 2722,
+      "sha256": "38f7dccce5257b535cb9cd243e1f9abf0e8d8b84eb8f19486ff2a480a21c8803"
+    },
+    "examples/search-tools/main.rf2": {
+      "bytes": 2541,
+      "sha256": "ab407ad47f473c2c861868254c513454d9bcd2020ab77bb131f85d4eda080c7c"
+    },
+    "log-scan": {
+      "bytes": 67520,
+      "sha256": "55b1e2e52c801002ea17532828280b4aa8af936fc184536c54f379697bab533d"
+    },
+    "rf2": {
+      "bytes": 231664,
+      "sha256": "5a8ae6a7586b7dc432b43da5f771758bab7fc73fc2d612814fb6cc7c51fd5efd"
+    },
+    "rf2c": {
+      "bytes": 280928,
+      "sha256": "396ced46694d226bcb3aa8dcf2d2a3a2144306fc797291a8529c6444e380b425"
+    },
+    "source/compiler.rf2": {
+      "bytes": 158425,
+      "sha256": "98d1aaa1f74428c4253a6f20fb03b8e8817d0ca09cb7ae4faef9086939e29115"
+    },
+    "text-search": {
+      "bytes": 67520,
+      "sha256": "689a4008409718fa2db2acdb47d08abca4eae3de073874ae1947b226bf79b11a"
+    }
+  },
+  "limits": "Same-Mac development smoke; ad-hoc signed, not notarized, no whole-language safety, portability, concurrency, speed or AI productivity claim."
+}

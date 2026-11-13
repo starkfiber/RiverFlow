@@ -60,7 +60,7 @@ The program exits successfully. The build creates a new directory and signs the 
 
 **Stable package: 0.17.** Bounded Core computation, local modules, records, checked arrays, UTF-8 scalar views, typed outcomes, owned files, bounded growing bytes and nine defined MCP tools.
 
-**Development source: 0.31 foundation candidate.** A separate [native development bundle](dist/0.31-candidate/README.md) is available for the tested Apple Silicon Mac target. Check a native program before creating an executable, locate mistakes with bounded source diagnostics, and build a [useful byte-search tool from a reusable RF2 library](examples/text-search/README.md). See the [implemented changes, measurements and remaining limits](docs/FOUNDATION-0.31.md). Native builds also support compact images and explicit target/function reuse. Development source is separate from the stable download. The [engineering history](docs/RESEARCH-HISTORY.md) retains earlier experiments; the [developer roadmap](docs/DEVELOPER-ROADMAP.md) states what must work next.
+**Development source: 0.32 structured-storage candidate.** Fixed-array payloads use a separate stack arena with checked larger-frame lowering. Two [native search tools](examples/text-search/README.md) share one library and accept queries up to 4096 bytes. See [executed tests and limits](docs/STRUCTURED-STORAGE-0.32.md), the [native development bundle](dist/0.32-candidate/README.md) and the [developer roadmap](docs/DEVELOPER-ROADMAP.md). Stable downloads are separate and unchanged.
 
 MCP does not grant arbitrary filesystem, network or systems-code execution. AI intelligence comes from the connected host. There is no embedded model or automatic proof of correctness.
 

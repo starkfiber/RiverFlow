@@ -694,8 +694,13 @@ fn scan_record()
   set field = advance()
   do require(load64(token(field)) == 2, "array length literal required")
   set n = load64(token(field) + 24)
-  do require((n > 0) & (n <= 255), "array length bound")
-  do require((load64(token(field) + 16) <= 3) & (load8(load64(token(field) + 8)) != 48), "array length canonical decimal required")
+  do require((n > 0) & (n <= 4096 + (load64(r + 144) == 2) * 28672), "array length bound")
+  do require((load64(token(field) + 16) <= 5) & (load8(load64(token(field) + 8)) != 48), "array length canonical decimal required")
+  set j = 0
+  while j < load64(token(field) + 16)
+   do require(digit(load8(load64(token(field) + 8) + j)), "array length canonical decimal required")
+   set j = j + 1
+  end
   do store64(r + 8, n)
   do store64(state() + 128, id)
   do expect(")")
@@ -731,6 +736,47 @@ fn scalar_expression(minimum, depth)
  do expression(minimum, depth)
  return require(load64(state() + 136) == 0, "scalar expression required")
 end
+# Fixed-array payload layout is distinct from named and record/resource slots.
+fn array_arena(f)
+ return buffer("array_arena_sizes",2048)+f*8
+end
+fn array_payload(f,slot)
+ return buffer("array_payload_offsets",524288)+(f*256+slot)*8
+end
+# Materialize x29-relative byte addresses using only legal ADD immediates.
+fn frame_address(reg,offset)
+ do require(offset<=65536,"frame address bound")
+ if offset<4096
+  return emit(2432697248 | (offset<<10) | reg)
+ end
+ do emit(2436891552 | ((offset//4096)<<10) | reg)
+ return emit(2432696320 | ((offset&4095)<<10) | (reg<<5) | reg)
+end
+# Darwin ARM64 stack frames remain 16-byte aligned; touch each crossed 4KiB.
+# This is conservative on the qualified Mac's larger pages, not arbitrary host qualification.
+fn frame_adjust(bytes,allocate)
+ do require((bytes<=65536)&((bytes&15)==0),"frame bound")
+ if bytes<4096
+  return emit(2432697343 | (allocate*1073741824) | (bytes<<10))
+ end
+ if allocate
+  while bytes>=4096
+   do emit(3510634495)
+   do emit(4177527807)
+   set bytes = bytes-4096
+  end
+  if bytes
+   do emit(3506439167 | (bytes<<10))
+   do emit(4177527807)
+  end
+ else
+  do emit(2436891647 | ((bytes//4096)<<10))
+  if (bytes&4095)
+   do emit(2432697343 | ((bytes&4095)<<10))
+  end
+ end
+ return 0
+end
 fn construct_record(target, depth)
  do require(depth == 0, "record declarations must be function-level")
  let f = load64(state() + 32)
@@ -746,15 +792,23 @@ fn construct_record(target, depth)
  let i = 0
  let n = load64(record_info(id) + 8)
  if load64(record_info(id) + 144)
-  if load64(record_info(id) + 144) == 2
-   set n = (n + 7) // 8
-  end
   do expect(")")
-  do imm(0, 0)
-  while i < n
-   do access_local(0, target + 1 + i, 1)
-   set i = i + 1
+  let bytes = n * 8
+  if load64(record_info(id) + 144) == 2
+   set bytes = (n + 7) & 18446744073709551608
   end
+  # Payload lives in the current call frame, never in the local-symbol table.
+  do require(load64(array_payload(f,target)) != 0, "array payload missing")
+  do frame_address(0, ((load64(ftable(f)+32)*8+15)&18446744073709551600)+load64(array_payload(f,target))-1)
+  do access_local(0,target,1)
+  do imm(1,bytes)
+  let zero_loop = next_label()
+  do label(zero_loop)
+  do emit(4177526815)
+  do emit(2432696320 | (8 << 10))
+  do emit(3506438177 | (8 << 10))
+  do emit(4043309087 | (0 << 16) | (1 << 5))
+  do jump(zero_loop,1)
  else
  while i < n
   if i != 0
@@ -766,8 +820,10 @@ fn construct_record(target, depth)
  end
  do expect(")")
  end
- do emit(2432697248 | (((target + 1) * 8) << 10))
- do access_local(0, target, 1)
+ if load64(record_info(id)+144)==0
+  do emit(2432697248 | (((target + 1) * 8) << 10))
+  do access_local(0, target, 1)
+ end
  do store64(local_ready(f, target), 1)
  return 0
 end
@@ -1113,8 +1169,16 @@ fn scan_body(f, params)
     if load64(record_info(id) + 144) == 7
      set count = 4
     end
-    if load64(record_info(id) + 144) == 2
-     set count = (count + 7) // 8
+    if (load64(record_info(id)+144)==1)|(load64(record_info(id)+144)==2)
+     if load64(record_info(id)+144)==1
+      set count = count*8
+     else
+      set count = (count+7)&18446744073709551608
+     end
+     do require(count<=49152-load64(array_arena(f)),"array arena bound")
+     do store64(array_payload(f,slot),load64(array_arena(f))+1)
+     do store64(array_arena(f),load64(array_arena(f))+count)
+     set count = 0
     end
     do require(slot + count < 256, "record local bound")
     do store64(ftable(f) + 32, slot + 1 + count)
@@ -3595,7 +3659,7 @@ fn frame_omittable(f)
  if (load64(state() + 152) == 0) | (load64(function_leaf(f)) == 0)
   return 0
  end
- if (load64(ftable(f) + 32) > 7) | (load64(cleanup_count(f)) != 0) | (load64(function_result(f)) != 0)
+ if (load64(array_arena(f)) != 0) | (load64(ftable(f) + 32) > 7) | (load64(cleanup_count(f)) != 0) | (load64(function_result(f)) != 0)
   return 0
  end
  let i = 0
@@ -3649,20 +3713,26 @@ fn generate()
   set reuse_labels = load64(state()+48)
   set reuse_objects = load64(state()+72)
   set frame = (load64(p + 32) * 8 + 15) & 18446744073709551600
+  set frame = (frame+load64(array_arena(f))+15)&18446744073709551600
   set save_offset = frame
   if (load64(state() + 152) != 0) & (load64(function_leaf(f)) == 0)
    set frame = frame + 64
   end
-  do require(frame <= 4095, "frame bound")
+  do require(frame <= 65536, "frame bound")
   if frame_omittable(f) == 0
    do emit(2847898621)
-   do emit(3506439167 | (frame << 10))
+   do frame_adjust(frame,1)
    do emit(2432697341)
   end
   set i = 0
   while i < 8
    if mapped_local(i) >= 19
-    do emit(4177526784 | (((save_offset // 8) + i) << 10) | (29 << 5) | (19 + i))
+    if save_offset+i*8<=32760
+     do emit(4177526784 | (((save_offset // 8) + i) << 10) | (29 << 5) | (19 + i))
+    else
+     do frame_address(16,save_offset+i*8)
+     do emit(4177526784 | (16 << 5) | (19+i))
+    end
    end
    set i = i + 1
   end
@@ -3686,13 +3756,18 @@ fn generate()
   set i = 0
   while i < 8
    if mapped_local(i) >= 19
-    do emit(4181721088 | (((save_offset // 8) + i) << 10) | (29 << 5) | (19 + i))
+    if save_offset+i*8<=32760
+     do emit(4181721088 | (((save_offset // 8) + i) << 10) | (29 << 5) | (19 + i))
+    else
+     do frame_address(16,save_offset+i*8)
+     do emit(4181721088 | (16 << 5) | (19+i))
+    end
    end
    set i = i + 1
   end
   if frame_omittable(f) == 0
    do emit(2432697279)
-   do emit(2432697343 | (frame << 10))
+   do frame_adjust(frame,0)
    do emit(2831252477)
   end
   do emit(3596551104)
@@ -4983,7 +5058,7 @@ end
 fn reuse_shape(f)
  let p = ftable(f)
  let i = 0
- if tmatch(load64(p),"main")|(load64(function_result(f))!=0)|(load64(cleanup_count(f))!=0)
+ if (load64(array_arena(f))!=0)|tmatch(load64(p),"main")|(load64(function_result(f))!=0)|(load64(cleanup_count(f))!=0)
   return 0
  end
  while i<load64(p+32)
@@ -5002,7 +5077,7 @@ fn reuse_eligible(f)
  let slot = 0
  let declaring = 0
  let valid = 1
- if tmatch(load64(p),"main")|(load64(function_result(f))!=0)|(load64(cleanup_count(f))!=0)
+ if (load64(array_arena(f))!=0)|tmatch(load64(p),"main")|(load64(function_result(f))!=0)|(load64(cleanup_count(f))!=0)
   return 0
  end
  while i<load64(p+32)

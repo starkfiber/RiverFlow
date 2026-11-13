@@ -1,0 +1,1586 @@
+{
+  "passed": true,
+  "compiler": "/Users/ik/Projects/RiverFlow/output/rf2c-032-storage-v2",
+  "compilerSHA256": "396ced46694d226bcb3aa8dcf2d2a3a2144306fc797291a8529c6444e380b425",
+  "workingSourceAtInspectionSHA256": "98d1aaa1f74428c4253a6f20fb03b8e8817d0ca09cb7ae4faef9086939e29115",
+  "programs": 79,
+  "modeCases": 158,
+  "passedCases": 158,
+  "results": [
+    {
+      "name": "result-ok",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "3d3df5b397c4e885c42cf817be8f2c46b4cb1d04ad60775c617254df1f298fd9",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "acf6943953504197b99b6f03f37565dd87fdbb61c9f9ea30214698e5fc68e622"
+    },
+    {
+      "name": "result-ok",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "3d3df5b397c4e885c42cf817be8f2c46b4cb1d04ad60775c617254df1f298fd9",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "180e017a12f460295b4e28515daebe4ce9d43a99b757694bb1db4f041d40ec32"
+    },
+    {
+      "name": "result-err",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "83d770968fa048e89219fcab436e2871189b28ea0d93813fa63df89fabb5f2d9",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "be853ac0afc423b0aa83fe0856413c29be8855c786310820a2438affaaffe489"
+    },
+    {
+      "name": "result-err",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "83d770968fa048e89219fcab436e2871189b28ea0d93813fa63df89fabb5f2d9",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "6ebae7901eb7420e5aebb50fbd2473824481b1ea7d7cd063069cf1385326de6b"
+    },
+    {
+      "name": "result-arm-if",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "502016a5918ca9dcaa7c4bbab81825779087942626983fd055664cc8434415de",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "d98cfe236d1d5b2a5e2b74f7c9e239a39fe8e46f07af788aafec874405056a8f"
+    },
+    {
+      "name": "result-arm-if",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "502016a5918ca9dcaa7c4bbab81825779087942626983fd055664cc8434415de",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "9533e28f5d20fecb431fa7535584900c5b0664c28702e2a33eeb87e9951aa5e0"
+    },
+    {
+      "name": "result-typed-root-return",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "73b8921227e6f84c3af679f63f2441c384c2ef5f6d282c8d600a13afbebbba12",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "b2fb92d3b6ce5e4bbaabd94d93bf5f41ba3d6b297af88f4745df4ad891b83a7e"
+    },
+    {
+      "name": "result-typed-root-return",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "73b8921227e6f84c3af679f63f2441c384c2ef5f6d282c8d600a13afbebbba12",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "88fee62062ec660e98e262df3570aae910825f7118856fb03805e0800d94c415"
+    },
+    {
+      "name": "result-missing-err",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "missing err arm\nnear source 17:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-missing-err.rf2)\n",
+      "sourceSHA256": "e044a437e67355c478460bb948c7d9f315810d59b607dd21042d6d0bf75a7d7a",
+      "passed": true
+    },
+    {
+      "name": "result-missing-err",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "missing err arm\nnear source 17:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-missing-err.rf2)\n",
+      "sourceSHA256": "e044a437e67355c478460bb948c7d9f315810d59b607dd21042d6d0bf75a7d7a",
+      "passed": true
+    },
+    {
+      "name": "result-missing-ok",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "expected: ok got: err unexpected token\nnear source 14:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-missing-ok.rf2)\n",
+      "sourceSHA256": "1fdb791bf90ee70f8f3ca83a0025a1af67e45d3e7517eea15d59eb76670168ff",
+      "passed": true
+    },
+    {
+      "name": "result-missing-ok",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "expected: ok got: err unexpected token\nnear source 14:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-missing-ok.rf2)\n",
+      "sourceSHA256": "1fdb791bf90ee70f8f3ca83a0025a1af67e45d3e7517eea15d59eb76670168ff",
+      "passed": true
+    },
+    {
+      "name": "result-duplicate-ok",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "expected: err got: ok unexpected token\nnear source 16:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-duplicate-ok.rf2)\n",
+      "sourceSHA256": "d8c75bc635d31ebe1aa2663c99c794220dcad88ac03c6160f2709602c30a683d",
+      "passed": true
+    },
+    {
+      "name": "result-duplicate-ok",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "expected: err got: ok unexpected token\nnear source 16:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-duplicate-ok.rf2)\n",
+      "sourceSHA256": "d8c75bc635d31ebe1aa2663c99c794220dcad88ac03c6160f2709602c30a683d",
+      "passed": true
+    },
+    {
+      "name": "result-duplicate-err",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "duplicate or missing result arm\nnear source 18:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-duplicate-err.rf2)\n",
+      "sourceSHA256": "8505aa72993a3dbcf05fdac721511f5b5c8b4b07fc271f2950594137380da8b2",
+      "passed": true
+    },
+    {
+      "name": "result-duplicate-err",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "duplicate or missing result arm\nnear source 18:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-duplicate-err.rf2)\n",
+      "sourceSHA256": "8505aa72993a3dbcf05fdac721511f5b5c8b4b07fc271f2950594137380da8b2",
+      "passed": true
+    },
+    {
+      "name": "result-wildcard",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "missing err arm\nnear source 17:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-wildcard.rf2)\n",
+      "sourceSHA256": "268910cfa712b9a614a6796059d8f68ef74b69d29c75306b8e0967a4d948d897",
+      "passed": true
+    },
+    {
+      "name": "result-wildcard",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "missing err arm\nnear source 17:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-wildcard.rf2)\n",
+      "sourceSHA256": "268910cfa712b9a614a6796059d8f68ef74b69d29c75306b8e0967a4d948d897",
+      "passed": true
+    },
+    {
+      "name": "result-wrong-order",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "expected: ok got: err unexpected token\nnear source 14:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-wrong-order.rf2)\n",
+      "sourceSHA256": "5f806c6bb6980bea9a552f085e6d7cc7e05289e82e5e0ba66ddde6f9e2c2134a",
+      "passed": true
+    },
+    {
+      "name": "result-wrong-order",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "expected: ok got: err unexpected token\nnear source 14:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-wrong-order.rf2)\n",
+      "sourceSHA256": "5f806c6bb6980bea9a552f085e6d7cc7e05289e82e5e0ba66ddde6f9e2c2134a",
+      "passed": true
+    },
+    {
+      "name": "result-handle-scalar",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "handle requires typed result\nnear source 13:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-handle-scalar.rf2)\n",
+      "sourceSHA256": "bb7453ba1489b38fe902dbafdd8838fbf9a912accb7732c1b120c5e023aa9e21",
+      "passed": true
+    },
+    {
+      "name": "result-handle-scalar",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "handle requires typed result\nnear source 13:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-handle-scalar.rf2)\n",
+      "sourceSHA256": "bb7453ba1489b38fe902dbafdd8838fbf9a912accb7732c1b120c5e023aa9e21",
+      "passed": true
+    },
+    {
+      "name": "result-handle-arithmetic",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "record arithmetic refused\nnear source 13:18 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-handle-arithmetic.rf2)\n",
+      "sourceSHA256": "261cbc862f95eafc9701bd14aac66506baa3bfefde57e0f78a67f8f88c02d06a",
+      "passed": true
+    },
+    {
+      "name": "result-handle-arithmetic",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "record arithmetic refused\nnear source 13:18 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-handle-arithmetic.rf2)\n",
+      "sourceSHA256": "261cbc862f95eafc9701bd14aac66506baa3bfefde57e0f78a67f8f88c02d06a",
+      "passed": true
+    },
+    {
+      "name": "result-discard",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result cannot be ignored\nnear source 13:13 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-discard.rf2)\n",
+      "sourceSHA256": "c49ecdf6eea6925713526924feb69497137a3e9291b67eee96ad1808a90725a3",
+      "passed": true
+    },
+    {
+      "name": "result-discard",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result cannot be ignored\nnear source 13:13 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-discard.rf2)\n",
+      "sourceSHA256": "c49ecdf6eea6925713526924feb69497137a3e9291b67eee96ad1808a90725a3",
+      "passed": true
+    },
+    {
+      "name": "result-as-local",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 13:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-as-local.rf2)\n",
+      "sourceSHA256": "5afc5d3e9c54f98dd87dbc88e5d7fd7156146b15548a26747e7ca3547c5874e8",
+      "passed": true
+    },
+    {
+      "name": "result-as-local",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 13:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-as-local.rf2)\n",
+      "sourceSHA256": "5afc5d3e9c54f98dd87dbc88e5d7fd7156146b15548a26747e7ca3547c5874e8",
+      "passed": true
+    },
+    {
+      "name": "result-length-escape",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result requires exhaustive handle\nnear source 13:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-length-escape.rf2)\n",
+      "sourceSHA256": "ceeda252bab4535f833080a158214264865be4257c1b2dbb92d9634e3f4b6d4f",
+      "passed": true
+    },
+    {
+      "name": "result-length-escape",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result requires exhaustive handle\nnear source 13:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-length-escape.rf2)\n",
+      "sourceSHA256": "ceeda252bab4535f833080a158214264865be4257c1b2dbb92d9634e3f4b6d4f",
+      "passed": true
+    },
+    {
+      "name": "result-index-escape",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result requires exhaustive handle\nnear source 13:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-index-escape.rf2)\n",
+      "sourceSHA256": "1606320f236c6cd5a93c8cffec7884248c2f1ef01f57c836249922d24fa11d3f",
+      "passed": true
+    },
+    {
+      "name": "result-index-escape",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result requires exhaustive handle\nnear source 13:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-index-escape.rf2)\n",
+      "sourceSHA256": "1606320f236c6cd5a93c8cffec7884248c2f1ef01f57c836249922d24fa11d3f",
+      "passed": true
+    },
+    {
+      "name": "result-parenthesized-scalar",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 13:19 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-parenthesized-scalar.rf2)\n",
+      "sourceSHA256": "ce522ddb793386a4d17960aa96ee8dd68975ff7758b2083c227e88bf4fccdd6e",
+      "passed": true
+    },
+    {
+      "name": "result-parenthesized-scalar",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 13:19 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-parenthesized-scalar.rf2)\n",
+      "sourceSHA256": "ce522ddb793386a4d17960aa96ee8dd68975ff7758b2083c227e88bf4fccdd6e",
+      "passed": true
+    },
+    {
+      "name": "result-scalar-call",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "argument type mismatch\nnear source 13:23 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-scalar-call.rf2)\n",
+      "sourceSHA256": "23d41cab8d8ea9506cb6542509d32697d163ef8028e49b9d6f6de4fb655a16ca",
+      "passed": true
+    },
+    {
+      "name": "result-scalar-call",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "argument type mismatch\nnear source 13:23 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-scalar-call.rf2)\n",
+      "sourceSHA256": "23d41cab8d8ea9506cb6542509d32697d163ef8028e49b9d6f6de4fb655a16ca",
+      "passed": true
+    },
+    {
+      "name": "result-tag-field",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 13:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-tag-field.rf2)\n",
+      "sourceSHA256": "f18206628c6889adfd9b7ed16f2de7bc408c974b1fd50a02a794dca2292085b9",
+      "passed": true
+    },
+    {
+      "name": "result-tag-field",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 13:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-tag-field.rf2)\n",
+      "sourceSHA256": "f18206628c6889adfd9b7ed16f2de7bc408c974b1fd50a02a794dca2292085b9",
+      "passed": true
+    },
+    {
+      "name": "result-payload-outside",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 20:13 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-payload-outside.rf2)\n",
+      "sourceSHA256": "10fa2be9703a916d1deda604c11e6e6cce37cfa307d0edd36bd74fd28232d4de",
+      "passed": true
+    },
+    {
+      "name": "result-payload-outside",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 20:13 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-payload-outside.rf2)\n",
+      "sourceSHA256": "10fa2be9703a916d1deda604c11e6e6cce37cfa307d0edd36bd74fd28232d4de",
+      "passed": true
+    },
+    {
+      "name": "result-error-outside",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 20:13 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-error-outside.rf2)\n",
+      "sourceSHA256": "96650b0aeee49d6d82167174291e7d9ecd5db744974d2f4a618fc6f6a6d5dac2",
+      "passed": true
+    },
+    {
+      "name": "result-error-outside",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 20:13 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-error-outside.rf2)\n",
+      "sourceSHA256": "96650b0aeee49d6d82167174291e7d9ecd5db744974d2f4a618fc6f6a6d5dac2",
+      "passed": true
+    },
+    {
+      "name": "result-payload-assignment",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "payload binding is immutable\nnear source 16:10 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-payload-assignment.rf2)\n",
+      "sourceSHA256": "75e3a6bfc485e5133e5850b1dcecc2d59fdba655f5bb94a6ed1125b9713b464d",
+      "passed": true
+    },
+    {
+      "name": "result-payload-assignment",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "payload binding is immutable\nnear source 16:10 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-payload-assignment.rf2)\n",
+      "sourceSHA256": "75e3a6bfc485e5133e5850b1dcecc2d59fdba655f5bb94a6ed1125b9713b464d",
+      "passed": true
+    },
+    {
+      "name": "result-payload-in-err",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 18:17 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-payload-in-err.rf2)\n",
+      "sourceSHA256": "d43c91de2f85ab6dadb2a60bb6cbfff2091ef662ea5cd0675b33a168403a7355",
+      "passed": true
+    },
+    {
+      "name": "result-payload-in-err",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 18:17 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-payload-in-err.rf2)\n",
+      "sourceSHA256": "d43c91de2f85ab6dadb2a60bb6cbfff2091ef662ea5cd0675b33a168403a7355",
+      "passed": true
+    },
+    {
+      "name": "result-error-in-ok",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 16:17 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-error-in-ok.rf2)\n",
+      "sourceSHA256": "252709dc7e3ac0735abbdfc5e8c1dddd7d2d59153e9deafc1ad3de6b79b4d2e8",
+      "passed": true
+    },
+    {
+      "name": "result-error-in-ok",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 16:17 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-error-in-ok.rf2)\n",
+      "sourceSHA256": "252709dc7e3ac0735abbdfc5e8c1dddd7d2d59153e9deafc1ad3de6b79b4d2e8",
+      "passed": true
+    },
+    {
+      "name": "result-payload-fast-rhs",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 18:24 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-payload-fast-rhs.rf2)\n",
+      "sourceSHA256": "54b1ffab1a07617d28112bfd0b0760f698b33bd24c117e5b0cc6086cc16e4309",
+      "passed": true
+    },
+    {
+      "name": "result-payload-fast-rhs",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 18:12 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-payload-fast-rhs.rf2)\n",
+      "sourceSHA256": "54b1ffab1a07617d28112bfd0b0760f698b33bd24c117e5b0cc6086cc16e4309",
+      "passed": true
+    },
+    {
+      "name": "result-payload-fast-condition",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 18:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-payload-fast-condition.rf2)\n",
+      "sourceSHA256": "6e05535be4b7950b9f8b538fc183f8283a24a5887e7c52918c6d285584eed2d7",
+      "passed": true
+    },
+    {
+      "name": "result-payload-fast-condition",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 18:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-payload-fast-condition.rf2)\n",
+      "sourceSHA256": "6e05535be4b7950b9f8b538fc183f8283a24a5887e7c52918c6d285584eed2d7",
+      "passed": true
+    },
+    {
+      "name": "result-payload-fast-while",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 19:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-payload-fast-while.rf2)\n",
+      "sourceSHA256": "83e363ab9375f5e84c336df7a0ccd2c14f7eda0200ddf375d5d463813c42e370",
+      "passed": true
+    },
+    {
+      "name": "result-payload-fast-while",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 19:7 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-payload-fast-while.rf2)\n",
+      "sourceSHA256": "83e363ab9375f5e84c336df7a0ccd2c14f7eda0200ddf375d5d463813c42e370",
+      "passed": true
+    },
+    {
+      "name": "result-payload-periodic-reducer",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 20:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-payload-periodic-reducer.rf2)\n",
+      "sourceSHA256": "69a76bceffbfca8c18e0a31bfd4f24c771b24e2445b72f8d73c2448ad5b86baf",
+      "passed": true
+    },
+    {
+      "name": "result-payload-periodic-reducer",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 20:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-payload-periodic-reducer.rf2)\n",
+      "sourceSHA256": "69a76bceffbfca8c18e0a31bfd4f24c771b24e2445b72f8d73c2448ad5b86baf",
+      "passed": true
+    },
+    {
+      "name": "result-payload-conditional-reducer",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 20:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-payload-conditional-reducer.rf2)\n",
+      "sourceSHA256": "cd0453309742c2d5efda4d10ec05f89422c2f1b252b655ae6b389e32d24ec6ff",
+      "passed": true
+    },
+    {
+      "name": "result-payload-conditional-reducer",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 20:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-payload-conditional-reducer.rf2)\n",
+      "sourceSHA256": "cd0453309742c2d5efda4d10ec05f89422c2f1b252b655ae6b389e32d24ec6ff",
+      "passed": true
+    },
+    {
+      "name": "result-return-scalar",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "typed result return needs ok or err\nnear source 4:8 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-return-scalar.rf2)\n",
+      "sourceSHA256": "b56e27f11b371312742d246840a8adfbe34e13f23abeb914bd8b89fd60f3fd39",
+      "passed": true
+    },
+    {
+      "name": "result-return-scalar",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "typed result return needs ok or err\nnear source 4:8 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-return-scalar.rf2)\n",
+      "sourceSHA256": "b56e27f11b371312742d246840a8adfbe34e13f23abeb914bd8b89fd60f3fd39",
+      "passed": true
+    },
+    {
+      "name": "result-missing-root-return",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result function requires final explicit return\nnear source 9:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-missing-root-return.rf2)\n",
+      "sourceSHA256": "cc5641d8048fa5cd64d9c438034682948f2c85a926f504201c20051d55ec4c20",
+      "passed": true
+    },
+    {
+      "name": "result-missing-root-return",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result function requires final explicit return\nnear source 9:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-missing-root-return.rf2)\n",
+      "sourceSHA256": "cc5641d8048fa5cd64d9c438034682948f2c85a926f504201c20051d55ec4c20",
+      "passed": true
+    },
+    {
+      "name": "result-main-typed",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "main cannot return result\nnear source 6:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-main-typed.rf2)\n",
+      "sourceSHA256": "7ee4af91d373deefa86713e2ec8d1a15f0a8f704ca7ad9144ddb83326c49a5e7",
+      "passed": true
+    },
+    {
+      "name": "result-main-typed",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "main cannot return result\nnear source 6:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-main-typed.rf2)\n",
+      "sourceSHA256": "7ee4af91d373deefa86713e2ec8d1a15f0a8f704ca7ad9144ddb83326c49a5e7",
+      "passed": true
+    },
+    {
+      "name": "result-constructor-untyped",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "unknown function\nnear source 3:11 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-constructor-untyped.rf2)\n",
+      "sourceSHA256": "b5a5671adedab7f6f51f27d4e336167ab2b3b28d8c48f84eac83e45e6d0d8ba0",
+      "passed": true
+    },
+    {
+      "name": "result-constructor-untyped",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "unknown function\nnear source 3:11 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-constructor-untyped.rf2)\n",
+      "sourceSHA256": "b5a5671adedab7f6f51f27d4e336167ab2b3b28d8c48f84eac83e45e6d0d8ba0",
+      "passed": true
+    },
+    {
+      "name": "result-nonscalar-payload",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 6:12 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-nonscalar-payload.rf2)\n",
+      "sourceSHA256": "29d9fce57fccce0b6ae24aeb970f9e7538965c1caa3cdce20ac00039ef9857cd",
+      "passed": true
+    },
+    {
+      "name": "result-nonscalar-payload",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 6:12 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-nonscalar-payload.rf2)\n",
+      "sourceSHA256": "29d9fce57fccce0b6ae24aeb970f9e7538965c1caa3cdce20ac00039ef9857cd",
+      "passed": true
+    },
+    {
+      "name": "baseline-scalar-forward-read",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 3:8 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/baseline-scalar-forward-read.rf2)\n",
+      "sourceSHA256": "5867a26ea034b0aa52106dd3a3d0a93990fcd099e40d4f52eb1e234ce658ef02",
+      "passed": true
+    },
+    {
+      "name": "baseline-scalar-forward-read",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 3:8 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/baseline-scalar-forward-read.rf2)\n",
+      "sourceSHA256": "5867a26ea034b0aa52106dd3a3d0a93990fcd099e40d4f52eb1e234ce658ef02",
+      "passed": true
+    },
+    {
+      "name": "baseline-scalar-false-arm-read",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 6:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/baseline-scalar-false-arm-read.rf2)\n",
+      "sourceSHA256": "a9959068039058896092229ffde88183ea38ab171cdd4d48c2ef1d0e075ff1d6",
+      "passed": true
+    },
+    {
+      "name": "baseline-scalar-false-arm-read",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 6:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/baseline-scalar-false-arm-read.rf2)\n",
+      "sourceSHA256": "a9959068039058896092229ffde88183ea38ab171cdd4d48c2ef1d0e075ff1d6",
+      "passed": true
+    },
+    {
+      "name": "view-first",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "b15b56ade83a7a59aea7d8ece2a8b21d51f296796294eff4d29cdb482ada3f89",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "c43e8f52d7eeecbe043c36e33f5fce7eb5241d44f2fdda810c3b3b5b4680da95"
+    },
+    {
+      "name": "view-first",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "b15b56ade83a7a59aea7d8ece2a8b21d51f296796294eff4d29cdb482ada3f89",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "c95b363125b956f1abdf766d8f0b2ec2990b512f88a4aa72eeb039858370b1ca"
+    },
+    {
+      "name": "view-last",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "e8f0b79e1e160710d5257a437c8b2d8024a76d82f62a380982a2fef13b320a08",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "366e2b55561de2f156b229cea0e45c722df6c2406049df2619bc225f6aaeec4c"
+    },
+    {
+      "name": "view-last",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "e8f0b79e1e160710d5257a437c8b2d8024a76d82f62a380982a2fef13b320a08",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "8de593c0831da371aaaa63f2357b3c54b632aba397ceac4491078f91b8d9a83a"
+    },
+    {
+      "name": "view-middle",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "f4ee46a39b4d64bf74d701d4d0acd4ef19969b359e97459faed211f406653784",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "d01bc6ee96373866142f622dd95c541dab79dedcbc077fea4a7d5336e7f9b9d2"
+    },
+    {
+      "name": "view-middle",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "f4ee46a39b4d64bf74d701d4d0acd4ef19969b359e97459faed211f406653784",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "8db52ceaaa4013995d3c8a91fd7a1496c5fba123c777a496ddf7e1c63669cd75"
+    },
+    {
+      "name": "view-whole",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "da9cf7735d3761bb869745a1536098d915883294a146ff25cf77a17f1b5dd9cf",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "b3c465a6949a69dba6ab5c7c476d1dd1e0beccbf5b81471ab768c0123ad80298"
+    },
+    {
+      "name": "view-whole",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "da9cf7735d3761bb869745a1536098d915883294a146ff25cf77a17f1b5dd9cf",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "d979b9623b192269f8e9b33778960b5e3e543a6661cf1bc0d120eff9d2e6bb1d"
+    },
+    {
+      "name": "view-empty-start",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "601f6fdae2185e165a29be196173669b7b69cf423edaecaa504c181ad8706e8a",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "7dc8342e79e23344349c2054e380e6c89946d0044d32472bf570c11b1cf24d49"
+    },
+    {
+      "name": "view-empty-start",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "601f6fdae2185e165a29be196173669b7b69cf423edaecaa504c181ad8706e8a",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "e5fa1c1a113a07874cb54c3768be354b73ea5f0ac6937aa8ce940c61060bb7d0"
+    },
+    {
+      "name": "view-empty-end",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "615d13dcb0833750daf4573ae17842bd5c41890189cadd15a524959ee085eeeb",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "37a7771b4bdb3f7431303b5dc8d3ac45a2c21bd97a4ec338c8bd35096134bdd7"
+    },
+    {
+      "name": "view-empty-end",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "615d13dcb0833750daf4573ae17842bd5c41890189cadd15a524959ee085eeeb",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "cc390cf5781512cc3282bb81869412cc5505bee7c274cce2d5c4cb47ea4ce867"
+    },
+    {
+      "name": "view-read-expression",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "cdbc697451eba917c181f978130ed7b65b6493546c35859eb026f45198e97262",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "94625449cea90afcb0a799d14be327df58b7003aebb44c65b2d5fdd2f66ed324"
+    },
+    {
+      "name": "view-read-expression",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "cdbc697451eba917c181f978130ed7b65b6493546c35859eb026f45198e97262",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "42f19905f69b4be292ec97ca8f034abb622b105fe0c2a8cf8e3a4f74d3d732ee"
+    },
+    {
+      "name": "view-start-over",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "6fa6df9c2086078125b5eb739cb17c9004cbdbd112e61a6ba088d19189dc3673",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "041247ff9c298fc9d630e5365dabf0634956be4f10de29cfca50b324947ca3bf"
+    },
+    {
+      "name": "view-start-over",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "6fa6df9c2086078125b5eb739cb17c9004cbdbd112e61a6ba088d19189dc3673",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "eadcf89f4ee2709ec7ca2ee27a995bd6fc0a6c9c5af9f2ae1d8d35bd3568f71b"
+    },
+    {
+      "name": "view-range-over",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "4b1407d0dac65d7cc2d0f81365ddff77b9b166cc3c3de33ba7d895edf50207e5",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "ea56420d063f7e5250bde776ada013986dd7eac23703acdc9ea68cf12bdcf278"
+    },
+    {
+      "name": "view-range-over",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "4b1407d0dac65d7cc2d0f81365ddff77b9b166cc3c3de33ba7d895edf50207e5",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "bd6edda31fa5b7fbf85ada5a188604fc1bcb7c157f957cef4b50726bf78730c9"
+    },
+    {
+      "name": "view-overflow-wrap",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "7e0b27b3f8af530f991e037975bacf48cc108b0f5a1c81a6afbff3f9b7a7b02b",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "af084a142c292b7984fa9271c0b8b86174dcf3407be8037be6ac19b34949b8a7"
+    },
+    {
+      "name": "view-overflow-wrap",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "7e0b27b3f8af530f991e037975bacf48cc108b0f5a1c81a6afbff3f9b7a7b02b",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "47bd63ddda47a077e9e0fcc99fd7b68d8b9cc3d4055baa3cf48bcfc87f9c1224"
+    },
+    {
+      "name": "view-length-wrap",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "81d33ad7b1583cf8d6b11ac4c383f0b33493349edfb9194d83a3bf0c5c35eba6",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "5a8803ea58c060765996ba4916b3fcd5a3ea57c40fadfb38be7c484c708ff950"
+    },
+    {
+      "name": "view-length-wrap",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "81d33ad7b1583cf8d6b11ac4c383f0b33493349edfb9194d83a3bf0c5c35eba6",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "4806b3369270fbe3e909350cf875b441c4da27638b842d4b0a8e6f2563ec9af5"
+    },
+    {
+      "name": "view-outside-subrange",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "0e892a8fc3df490c33d848a0fc2bda0002831b6887e68ce3f13619ddfcfabc17",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "fdca4a35002f740ebf898eb08553f967dfd31c4d8516fb66bda2b9a4244c1276"
+    },
+    {
+      "name": "view-outside-subrange",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "0e892a8fc3df490c33d848a0fc2bda0002831b6887e68ce3f13619ddfcfabc17",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "63cd4bc6381cbc44fe5aa771f7ec4665b07dd683cb0ae1031d64ca92446ff7a3"
+    },
+    {
+      "name": "view-empty-read",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "5e323fdcff4c81314908b65154ab92b28d0f4f0e5930a50ba00c79b12467ea7d",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "e745146c38a79b21346e63584872f7c94382eb9e3e9b2c6339be396d2151e43c"
+    },
+    {
+      "name": "view-empty-read",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "5e323fdcff4c81314908b65154ab92b28d0f4f0e5930a50ba00c79b12467ea7d",
+      "passed": true,
+      "runExit": 2,
+      "runStdout": "",
+      "runStderr": "RF2 bounds\n",
+      "executableSHA256": "1a4d11aaca2699a2b36e43e385064488500249a70b245a98d3e5071da1009b02"
+    },
+    {
+      "name": "view-owner-write",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "array writes forbidden while view is live\nnear source 16:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-owner-write.rf2)\n",
+      "sourceSHA256": "4ffbb5cf1c2e8120f8a40eb2671a598441b6bc4879d0f85fe0ad63a7847dc276",
+      "passed": true
+    },
+    {
+      "name": "view-owner-write",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "array writes forbidden while view is live\nnear source 16:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-owner-write.rf2)\n",
+      "sourceSHA256": "4ffbb5cf1c2e8120f8a40eb2671a598441b6bc4879d0f85fe0ad63a7847dc276",
+      "passed": true
+    },
+    {
+      "name": "view-owner-read-bytes",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 16:18 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-owner-read-bytes.rf2)\n",
+      "sourceSHA256": "cd74a8e3ce2e41dae2fc93004314ebd964db8a6a1584ee0e2c7f09c05a4ba499",
+      "passed": true
+    },
+    {
+      "name": "view-owner-read-bytes",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 16:18 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-owner-read-bytes.rf2)\n",
+      "sourceSHA256": "cd74a8e3ce2e41dae2fc93004314ebd964db8a6a1584ee0e2c7f09c05a4ba499",
+      "passed": true
+    },
+    {
+      "name": "view-helper-call",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 16:11 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-helper-call.rf2)\n",
+      "sourceSHA256": "979ec898fc0169402909df2c3af67a04f4bcc3ccab8a87295960ea2595ba32f3",
+      "passed": true
+    },
+    {
+      "name": "view-helper-call",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 16:11 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-helper-call.rf2)\n",
+      "sourceSHA256": "979ec898fc0169402909df2c3af67a04f4bcc3ccab8a87295960ea2595ba32f3",
+      "passed": true
+    },
+    {
+      "name": "view-pure-call",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 16:15 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-pure-call.rf2)\n",
+      "sourceSHA256": "9b655b620e3dc50de9dddd71915069c047e89a288966f7094a3d7b0fe6d39b58",
+      "passed": true
+    },
+    {
+      "name": "view-pure-call",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 16:15 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-pure-call.rf2)\n",
+      "sourceSHA256": "9b655b620e3dc50de9dddd71915069c047e89a288966f7094a3d7b0fe6d39b58",
+      "passed": true
+    },
+    {
+      "name": "view-raw-load",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 16:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-raw-load.rf2)\n",
+      "sourceSHA256": "56abff3992d73c66ede168a09d824a2c3384beaa27facecc51700cef7c4cfe87",
+      "passed": true
+    },
+    {
+      "name": "view-raw-load",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 16:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-raw-load.rf2)\n",
+      "sourceSHA256": "56abff3992d73c66ede168a09d824a2c3384beaa27facecc51700cef7c4cfe87",
+      "passed": true
+    },
+    {
+      "name": "view-raw-write",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 16:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-raw-write.rf2)\n",
+      "sourceSHA256": "de9eaa938feb687e130b7705e9abf4e0fc2bd2f4d7bd46c0fe86d53747eb91ec",
+      "passed": true
+    },
+    {
+      "name": "view-raw-write",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 16:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-raw-write.rf2)\n",
+      "sourceSHA256": "de9eaa938feb687e130b7705e9abf4e0fc2bd2f4d7bd46c0fe86d53747eb91ec",
+      "passed": true
+    },
+    {
+      "name": "view-copy",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 16:12 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-copy.rf2)\n",
+      "sourceSHA256": "8636ac427e7d3aa286b2de8211e5e680075a8ddc26f3da665a0836df0b80227f",
+      "passed": true
+    },
+    {
+      "name": "view-copy",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 16:12 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-copy.rf2)\n",
+      "sourceSHA256": "8636ac427e7d3aa286b2de8211e5e680075a8ddc26f3da665a0836df0b80227f",
+      "passed": true
+    },
+    {
+      "name": "view-return",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 16:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-return.rf2)\n",
+      "sourceSHA256": "9c52d6c85be3c312411a527a4ca5da5a4d8f4a0d7e3c25d9fb520ce98637c28b",
+      "passed": true
+    },
+    {
+      "name": "view-return",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 16:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-return.rf2)\n",
+      "sourceSHA256": "9c52d6c85be3c312411a527a4ca5da5a4d8f4a0d7e3c25d9fb520ce98637c28b",
+      "passed": true
+    },
+    {
+      "name": "view-rebind",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "record rebinding refused\nnear source 16:7 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-rebind.rf2)\n",
+      "sourceSHA256": "a4559dc2c15256308542615482b6c4fda382ebd3e6c7cf436d04e1a08747fab5",
+      "passed": true
+    },
+    {
+      "name": "view-rebind",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "record rebinding refused\nnear source 16:7 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-rebind.rf2)\n",
+      "sourceSHA256": "a4559dc2c15256308542615482b6c4fda382ebd3e6c7cf436d04e1a08747fab5",
+      "passed": true
+    },
+    {
+      "name": "view-write",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "array writes forbidden while view is live\nnear source 16:6 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-write.rf2)\n",
+      "sourceSHA256": "f933d04d8987e720cee26c0aac58c0bf98ce5932accf1a0858f8d3e6a21ed458",
+      "passed": true
+    },
+    {
+      "name": "view-write",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "array writes forbidden while view is live\nnear source 16:6 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-write.rf2)\n",
+      "sourceSHA256": "f933d04d8987e720cee26c0aac58c0bf98ce5932accf1a0858f8d3e6a21ed458",
+      "passed": true
+    },
+    {
+      "name": "view-length-write",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "field assignment requires record\nnear source 16:6 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-length-write.rf2)\n",
+      "sourceSHA256": "dcdfabf30719da1f18c5bd0b5e7dc14d0792f4bbd924fb98a88744651779d69c",
+      "passed": true
+    },
+    {
+      "name": "view-length-write",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "field assignment requires record\nnear source 16:6 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-length-write.rf2)\n",
+      "sourceSHA256": "dcdfabf30719da1f18c5bd0b5e7dc14d0792f4bbd924fb98a88744651779d69c",
+      "passed": true
+    },
+    {
+      "name": "view-address-field",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "expected: length got: pointer unexpected token\nnear source 16:10 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-address-field.rf2)\n",
+      "sourceSHA256": "243ecebb5bbf503137c22021387547e672f6dc63325852bc5e50377f84b815d8",
+      "passed": true
+    },
+    {
+      "name": "view-address-field",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "expected: length got: pointer unexpected token\nnear source 16:10 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-address-field.rf2)\n",
+      "sourceSHA256": "243ecebb5bbf503137c22021387547e672f6dc63325852bc5e50377f84b815d8",
+      "passed": true
+    },
+    {
+      "name": "view-box-escape",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 16:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-box-escape.rf2)\n",
+      "sourceSHA256": "4ae7f8840b763401b4a6d88cd75e2210b4c89150d146386292fd940d51a7d2a2",
+      "passed": true
+    },
+    {
+      "name": "view-box-escape",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 16:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-box-escape.rf2)\n",
+      "sourceSHA256": "4ae7f8840b763401b4a6d88cd75e2210b4c89150d146386292fd940d51a7d2a2",
+      "passed": true
+    },
+    {
+      "name": "view-arithmetic-escape",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 16:11 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-arithmetic-escape.rf2)\n",
+      "sourceSHA256": "1a8842cc6b966d928a2092e4acb040e0f27eb8f2d8140c12415e5a7b6b90cf80",
+      "passed": true
+    },
+    {
+      "name": "view-arithmetic-escape",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 16:11 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-arithmetic-escape.rf2)\n",
+      "sourceSHA256": "1a8842cc6b966d928a2092e4acb040e0f27eb8f2d8140c12415e5a7b6b90cf80",
+      "passed": true
+    },
+    {
+      "name": "view-owner-uninitialized",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 14:17 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-owner-uninitialized.rf2)\n",
+      "sourceSHA256": "82919a22385fa15239ebd26cd85a9af4e07ed64b4d6cc4803701f1a4e77926ba",
+      "passed": true
+    },
+    {
+      "name": "view-owner-uninitialized",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 14:17 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-owner-uninitialized.rf2)\n",
+      "sourceSHA256": "82919a22385fa15239ebd26cd85a9af4e07ed64b4d6cc4803701f1a4e77926ba",
+      "passed": true
+    },
+    {
+      "name": "view-alias-write",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "array writes forbidden while view is live\nnear source 15:6 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-alias-write.rf2)\n",
+      "sourceSHA256": "1e184b82f3668f7acd8281ef082222c7c1b8101b5c941332b2b03bc2b289483d",
+      "passed": true
+    },
+    {
+      "name": "view-alias-write",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "array writes forbidden while view is live\nnear source 15:6 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-alias-write.rf2)\n",
+      "sourceSHA256": "1e184b82f3668f7acd8281ef082222c7c1b8101b5c941332b2b03bc2b289483d",
+      "passed": true
+    },
+    {
+      "name": "view-alias-read-bytes",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 15:15 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-alias-read-bytes.rf2)\n",
+      "sourceSHA256": "f99fb9858e862196164bd5b7483414b28ab3f7d873f1707645361fa58f15bbd5",
+      "passed": true
+    },
+    {
+      "name": "view-alias-read-bytes",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 15:15 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-alias-read-bytes.rf2)\n",
+      "sourceSHA256": "f99fb9858e862196164bd5b7483414b28ab3f7d873f1707645361fa58f15bbd5",
+      "passed": true
+    },
+    {
+      "name": "view-alias-helper",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 15:11 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-alias-helper.rf2)\n",
+      "sourceSHA256": "6db34ebd52a1975ca2bd672edb0bdd3eedf044390a5672d72a5988786bf047db",
+      "passed": true
+    },
+    {
+      "name": "view-alias-helper",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 15:11 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-alias-helper.rf2)\n",
+      "sourceSHA256": "6db34ebd52a1975ca2bd672edb0bdd3eedf044390a5672d72a5988786bf047db",
+      "passed": true
+    },
+    {
+      "name": "view-parameter",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result/view parameters unsupported\nnear source 13:19 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-parameter.rf2)\n",
+      "sourceSHA256": "6b6e570d5aff25d86af38bb10df540210d381ab7ae018bb342ede62a69286c8a",
+      "passed": true
+    },
+    {
+      "name": "view-parameter",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "result/view parameters unsupported\nnear source 13:19 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-parameter.rf2)\n",
+      "sourceSHA256": "6b6e570d5aff25d86af38bb10df540210d381ab7ae018bb342ede62a69286c8a",
+      "passed": true
+    },
+    {
+      "name": "view-word-owner",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "view requires byte array type\nnear source 3:17 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-word-owner.rf2)\n",
+      "sourceSHA256": "b3e5724cae23c3683c47e494bcd021c44f53979a8324993abdeb7065043b5677",
+      "passed": true
+    },
+    {
+      "name": "view-word-owner",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "view requires byte array type\nnear source 3:17 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-word-owner.rf2)\n",
+      "sourceSHA256": "b3e5724cae23c3683c47e494bcd021c44f53979a8324993abdeb7065043b5677",
+      "passed": true
+    },
+    {
+      "name": "view-result-escape",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 17:12 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-result-escape.rf2)\n",
+      "sourceSHA256": "096ccf4ab8936ba4495ea3564daf37bbcc4289b6e30a0d6a5a183f3c19602c5c",
+      "passed": true
+    },
+    {
+      "name": "view-result-escape",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 17:12 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-result-escape.rf2)\n",
+      "sourceSHA256": "096ccf4ab8936ba4495ea3564daf37bbcc4289b6e30a0d6a5a183f3c19602c5c",
+      "passed": true
+    },
+    {
+      "name": "result-payload-inplace",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "payload binding is immutable\nnear source 16:10 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-payload-inplace.rf2)\n",
+      "sourceSHA256": "c0cfe227f9e07897ddacbfd7de03df5fffde3e9dd28c73999a2040dfe9d6cb6a",
+      "passed": true
+    },
+    {
+      "name": "result-payload-inplace",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "payload binding is immutable\nnear source 16:10 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-payload-inplace.rf2)\n",
+      "sourceSHA256": "c0cfe227f9e07897ddacbfd7de03df5fffde3e9dd28c73999a2040dfe9d6cb6a",
+      "passed": true
+    },
+    {
+      "name": "result-ignored-condition",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 13:13 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-ignored-condition.rf2)\n",
+      "sourceSHA256": "c3e7340a2bba05e85d9256f9b9e2968b586f4e749e3927b861c997d453b1ce1f",
+      "passed": true
+    },
+    {
+      "name": "result-ignored-condition",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 13:13 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-ignored-condition.rf2)\n",
+      "sourceSHA256": "c3e7340a2bba05e85d9256f9b9e2968b586f4e749e3927b861c997d453b1ce1f",
+      "passed": true
+    },
+    {
+      "name": "result-ignored-while",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 13:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-ignored-while.rf2)\n",
+      "sourceSHA256": "8c0a530ea342d37ee8760f16d533aa2cd7745384c30cc0fd706a5f85d8975b65",
+      "passed": true
+    },
+    {
+      "name": "result-ignored-while",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "scalar expression required\nnear source 13:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-ignored-while.rf2)\n",
+      "sourceSHA256": "8c0a530ea342d37ee8760f16d533aa2cd7745384c30cc0fd706a5f85d8975b65",
+      "passed": true
+    },
+    {
+      "name": "result-nested-handles",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "a338fdec9511f9a52fbfa7aeb3441cb3a809022c768a4dbb210544bfa2d8d320",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "c66d1fa4281db7b62f4137a594eada59394cfc9628d912314bd266ad8217279e"
+    },
+    {
+      "name": "result-nested-handles",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "a338fdec9511f9a52fbfa7aeb3441cb3a809022c768a4dbb210544bfa2d8d320",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "c52274368b7c1e190f70e1fb76cf76c0402c9ec39b96fe74fc0d8181353a4c1c"
+    },
+    {
+      "name": "result-inner-payload-after-handle",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 22:17 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-inner-payload-after-handle.rf2)\n",
+      "sourceSHA256": "54d536aed3ac441ef54b3d6c03940c92c06a3ba68e7f76ed9c6008453f588daf",
+      "passed": true
+    },
+    {
+      "name": "result-inner-payload-after-handle",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 22:17 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/result-inner-payload-after-handle.rf2)\n",
+      "sourceSHA256": "54d536aed3ac441ef54b3d6c03940c92c06a3ba68e7f76ed9c6008453f588daf",
+      "passed": true
+    },
+    {
+      "name": "view-handle-call-ban",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 26:15 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-handle-call-ban.rf2)\n",
+      "sourceSHA256": "f1054f841dbc9614bfeb27c24f2f203faf4a2c9b94745249183ee943fe38667c",
+      "passed": true
+    },
+    {
+      "name": "view-handle-call-ban",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 26:15 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-handle-call-ban.rf2)\n",
+      "sourceSHA256": "f1054f841dbc9614bfeb27c24f2f203faf4a2c9b94745249183ee943fe38667c",
+      "passed": true
+    },
+    {
+      "name": "view-unreachable-call-ban",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 17:11 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-unreachable-call-ban.rf2)\n",
+      "sourceSHA256": "de619559c57b0a60d9daf689aa0aed275a5c052fbba16e6498622d93872c4b6c",
+      "passed": true
+    },
+    {
+      "name": "view-unreachable-call-ban",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 17:11 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-unreachable-call-ban.rf2)\n",
+      "sourceSHA256": "de619559c57b0a60d9daf689aa0aed275a5c052fbba16e6498622d93872c4b6c",
+      "passed": true
+    },
+    {
+      "name": "view-byteio-in-index",
+      "optimized": false,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 16:21 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-byteio-in-index.rf2)\n",
+      "sourceSHA256": "5ab0018ededaaeeab07684197f511a1c0d5ecc25700691772f44e55c24180c72",
+      "passed": true
+    },
+    {
+      "name": "view-byteio-in-index",
+      "optimized": true,
+      "expectedCompile": false,
+      "compileExit": 1,
+      "stderr": "calls forbidden while view is live\nnear source 16:21 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/redteam-results-views/new-candidate/run-1794567344498924000/view-byteio-in-index.rf2)\n",
+      "sourceSHA256": "5ab0018ededaaeeab07684197f511a1c0d5ecc25700691772f44e55c24180c72",
+      "passed": true
+    },
+    {
+      "name": "view-result-observation",
+      "optimized": false,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "eddea5c42e10c955179cd03c5a11bd88af21ae7f912e2cf20c0532bf57e98e6b",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "18337383e47c4f91a079d7f5b2005e33c362d51679aa6760b54449592dff7c08"
+    },
+    {
+      "name": "view-result-observation",
+      "optimized": true,
+      "expectedCompile": true,
+      "compileExit": 0,
+      "stderr": "",
+      "sourceSHA256": "eddea5c42e10c955179cd03c5a11bd88af21ae7f912e2cf20c0532bf57e98e6b",
+      "passed": true,
+      "runExit": 0,
+      "runStdout": "",
+      "runStderr": "",
+      "executableSHA256": "74c5ca08a263fe612977e36b432631f0dc3b64c12552de5c62112425e4c092d7"
+    }
+  ],
+  "scope": "Independent finite local native red-team programs. Negative admissions are never executed. No external traffic, raw-memory exploit or general safety proof. View syntax is a read-only byte slice, not automatically permanent UTF-8 validity."
+}

@@ -1,6 +1,6 @@
 {
   "name": "rf2",
-  "version": "0.31.0-dev",
+  "version": "0.32.0-dev",
   "description": "Native RF2 tools and bounded MCP; owned guest mappings and authenticated bounded boot research",
   "author": {
     "name": "Ilangkhumanan Thirunavokkarasu",

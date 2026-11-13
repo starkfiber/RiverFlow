@@ -1,0 +1,529 @@
+{
+  "passed": true,
+  "checks": 52,
+  "nativeExecutions": 34,
+  "compileRefusals": 18,
+  "compilerSHA256": "396ced46694d226bcb3aa8dcf2d2a3a2144306fc797291a8529c6444e380b425",
+  "sourceSHA256": "98d1aaa1f74428c4253a6f20fb03b8e8817d0ca09cb7ae4faef9086939e29115",
+  "scope": "Independent default/optimized in-process close validity, captured value, early return, result preservation and bound checks. Raw descriptor reuse remains trusted; close errors do not overwrite ordinary returns. No runtime LIFO-order proof, trap cleanup guarantee, linear ownership or universal leak/security proof.",
+  "results": [
+    {
+      "name": "scalar-return",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "f4d7c2c46280c2cdf55f20acfc6b1908cd5d09cec317338383e89d59e5bd03b3",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "fallthrough",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "cd7282809831636d75d7c0de8a42cff2e3a670bbb488e4c8a7e635ea09a4e448",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "branch-return",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "fac232f7ca8bb79a108fca94004998a35dda3025e1c11345e44fe3e49790a530",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "loop-return",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "d48e5358274e7c2215e9b1e9ef21e83a7dfcba06541c0517681d7b86088b461b",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "typed-ok",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "39f73dca8688f3b6c5559f5d9035cb6797d1e9870281f72ef036010ddf55869f",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "typed-err",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "cfc1087d61e6bf45f2a3b5a7b8281f4c7d8d734dfc1c4d16165280d66d6bcea1",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "early-before-registration",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "ab9b13000a2532405c9eee08c0fbe62ad89bb282f11266e22b53f7c3c115a8b9",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "snapshot-mutated-local",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "86c58f85bcdbd5e1c94e14efbe0ef4150045fd3a3d2a82efad4aaeb88eaef216",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "capture-expression-evaluated-once",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "2fd962acbc4f7264a7184f27e47d3684adaa6a6cdc7e76f2c6af92810f6fc0e2",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "nested-call-register-preservation",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "0c7409b0dddca9f884359430956f5ce691a0335211ca85769fc95b7918238f9a",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "repeated-no-fd-leak",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "f1b124f65551693ef01edb2b89e7a8b8da025e18d59bcb1322a8eae6853a4ffa",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "runtime-arm-flags-per-invocation",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "aeaa2aa651da91b2537e08d307a031ec879c2845b973075054bf151eed1f0126",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "cleanup-does-not-replace-result-on-close-error",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "9dc5163e4820ed5ba9b92300932854934a933ec500b9c496e3be5b5745a5a6f7",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "raw-descriptor-reuse-is-not-ownership",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "aa40bc35d8cca9db0012e832099ac08f02a24a69f2d5f229e199a7e2f0bed5d1",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "multiple-registrations",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "8a20447c161767daf7132ee8780ab7ffbb974e97c66a45c039ce90d90769d0ad",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "registration-bound-16",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "28a7e4bb585bc8ee5b48d087c0ec1205595e195eca8da5b089b8d0eabd9af8f0",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "registration-bound-17",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "e8499f5489dac8faa40a72d9f949407755abb40b3f2077d3c555474d518aa82b",
+      "passed": true
+    },
+    {
+      "name": "frame-capture-budget-223",
+      "optimized": false,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "74c4dda4d6e0e32eedd5d156decf8e495b1684f88e79a8c53a869bf0652a7060",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "frame-capture-budget-224",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "0dae66e4e186844e40588764e623670968989f3adc7569da31e4e47e0b954874",
+      "passed": true
+    },
+    {
+      "name": "branch-registration",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "bef7156aeebcb4a9e62155b2d08c1919eef0797b152fbc12c465ef89b25a80ec",
+      "passed": true
+    },
+    {
+      "name": "loop-registration",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "cd17846f8a5447926b6626e57d2010435404fa2f5bd3cb9210eba92b018b5d65",
+      "passed": true
+    },
+    {
+      "name": "wrong-operation",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ee2a6b3470a82c6b1f5edb22d111c9c7c16feb0a92b6e413336b8728cbb858e6",
+      "passed": true
+    },
+    {
+      "name": "wrong-arity",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ebc88f8c1d6b47a7bffc3770dfc4c09ee85b34d64c5bba7a7a28128e067579d3",
+      "passed": true
+    },
+    {
+      "name": "missing-argument",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "4aad4089cada5b3ce3b01443581b12d16deed1f1d4ff9c1e765beb82c7a361a2",
+      "passed": true
+    },
+    {
+      "name": "uninitialized-capture",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "5f077527a5000839e5862c388db2ba45875941dc57ef6da4957a7258cb4db9af",
+      "passed": true
+    },
+    {
+      "name": "block-escaped-capture",
+      "optimized": false,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ef5c10144ff4adcc641a695c3a1abf29e9dd2cfe5e02497d344adc49949f0233",
+      "passed": true
+    },
+    {
+      "name": "scalar-return",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "f4d7c2c46280c2cdf55f20acfc6b1908cd5d09cec317338383e89d59e5bd03b3",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "fallthrough",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "cd7282809831636d75d7c0de8a42cff2e3a670bbb488e4c8a7e635ea09a4e448",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "branch-return",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "fac232f7ca8bb79a108fca94004998a35dda3025e1c11345e44fe3e49790a530",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "loop-return",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "d48e5358274e7c2215e9b1e9ef21e83a7dfcba06541c0517681d7b86088b461b",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "typed-ok",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "39f73dca8688f3b6c5559f5d9035cb6797d1e9870281f72ef036010ddf55869f",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "typed-err",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "cfc1087d61e6bf45f2a3b5a7b8281f4c7d8d734dfc1c4d16165280d66d6bcea1",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "early-before-registration",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "ab9b13000a2532405c9eee08c0fbe62ad89bb282f11266e22b53f7c3c115a8b9",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "snapshot-mutated-local",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "86c58f85bcdbd5e1c94e14efbe0ef4150045fd3a3d2a82efad4aaeb88eaef216",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "capture-expression-evaluated-once",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "2fd962acbc4f7264a7184f27e47d3684adaa6a6cdc7e76f2c6af92810f6fc0e2",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "nested-call-register-preservation",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "0c7409b0dddca9f884359430956f5ce691a0335211ca85769fc95b7918238f9a",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "repeated-no-fd-leak",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "f1b124f65551693ef01edb2b89e7a8b8da025e18d59bcb1322a8eae6853a4ffa",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "runtime-arm-flags-per-invocation",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "aeaa2aa651da91b2537e08d307a031ec879c2845b973075054bf151eed1f0126",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "cleanup-does-not-replace-result-on-close-error",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "9dc5163e4820ed5ba9b92300932854934a933ec500b9c496e3be5b5745a5a6f7",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "raw-descriptor-reuse-is-not-ownership",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "aa40bc35d8cca9db0012e832099ac08f02a24a69f2d5f229e199a7e2f0bed5d1",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "multiple-registrations",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "8a20447c161767daf7132ee8780ab7ffbb974e97c66a45c039ce90d90769d0ad",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "registration-bound-16",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "28a7e4bb585bc8ee5b48d087c0ec1205595e195eca8da5b089b8d0eabd9af8f0",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "registration-bound-17",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "e8499f5489dac8faa40a72d9f949407755abb40b3f2077d3c555474d518aa82b",
+      "passed": true
+    },
+    {
+      "name": "frame-capture-budget-223",
+      "optimized": true,
+      "expectedAdmission": true,
+      "compileExit": 0,
+      "sourceSHA256": "74c4dda4d6e0e32eedd5d156decf8e495b1684f88e79a8c53a869bf0652a7060",
+      "runExit": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "frame-capture-budget-224",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "0dae66e4e186844e40588764e623670968989f3adc7569da31e4e47e0b954874",
+      "passed": true
+    },
+    {
+      "name": "branch-registration",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "bef7156aeebcb4a9e62155b2d08c1919eef0797b152fbc12c465ef89b25a80ec",
+      "passed": true
+    },
+    {
+      "name": "loop-registration",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "cd17846f8a5447926b6626e57d2010435404fa2f5bd3cb9210eba92b018b5d65",
+      "passed": true
+    },
+    {
+      "name": "wrong-operation",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ee2a6b3470a82c6b1f5edb22d111c9c7c16feb0a92b6e413336b8728cbb858e6",
+      "passed": true
+    },
+    {
+      "name": "wrong-arity",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ebc88f8c1d6b47a7bffc3770dfc4c09ee85b34d64c5bba7a7a28128e067579d3",
+      "passed": true
+    },
+    {
+      "name": "missing-argument",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "4aad4089cada5b3ce3b01443581b12d16deed1f1d4ff9c1e765beb82c7a361a2",
+      "passed": true
+    },
+    {
+      "name": "uninitialized-capture",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "5f077527a5000839e5862c388db2ba45875941dc57ef6da4957a7258cb4db9af",
+      "passed": true
+    },
+    {
+      "name": "block-escaped-capture",
+      "optimized": true,
+      "expectedAdmission": false,
+      "compileExit": 1,
+      "sourceSHA256": "ef5c10144ff4adcc641a695c3a1abf29e9dd2cfe5e02497d344adc49949f0233",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,3230 @@
+{
+  "passed": true,
+  "schema": "rf2.shared.search.apps.verification.v1",
+  "cases": 406,
+  "rows": [
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 0,
+      "bytes": 0,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 0,
+      "bytes": 0,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 1,
+      "bytes": 1,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 1,
+      "bytes": 1,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 2,
+      "bytes": 2,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 2,
+      "bytes": 2,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 3,
+      "bytes": 3,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 3,
+      "bytes": 3,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 4,
+      "bytes": 4,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 4,
+      "bytes": 4,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 5,
+      "bytes": 7,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 5,
+      "bytes": 7,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 6,
+      "bytes": 2,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 6,
+      "bytes": 2,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 7,
+      "bytes": 26,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 7,
+      "bytes": 26,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 8,
+      "bytes": 5,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 8,
+      "bytes": 5,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 9,
+      "bytes": 49,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 9,
+      "bytes": 49,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 10,
+      "bytes": 1048576,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 10,
+      "bytes": 1048576,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 11,
+      "bytes": 1048576,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 11,
+      "bytes": 1048576,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 12,
+      "bytes": 1790,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 12,
+      "bytes": 1790,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 13,
+      "bytes": 285,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 13,
+      "bytes": 285,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 14,
+      "bytes": 993,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 14,
+      "bytes": 993,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 15,
+      "bytes": 1831,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 15,
+      "bytes": 1831,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 16,
+      "bytes": 1790,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 16,
+      "bytes": 1790,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 17,
+      "bytes": 759,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 17,
+      "bytes": 759,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 18,
+      "bytes": 149,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 18,
+      "bytes": 149,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 19,
+      "bytes": 397,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 19,
+      "bytes": 397,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 20,
+      "bytes": 288,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 20,
+      "bytes": 288,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 21,
+      "bytes": 161,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 21,
+      "bytes": 161,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 22,
+      "bytes": 21,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 22,
+      "bytes": 21,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 23,
+      "bytes": 1352,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 23,
+      "bytes": 1352,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 24,
+      "bytes": 1232,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 24,
+      "bytes": 1232,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 25,
+      "bytes": 412,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 25,
+      "bytes": 412,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 26,
+      "bytes": 479,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 26,
+      "bytes": 479,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 27,
+      "bytes": 1483,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 27,
+      "bytes": 1483,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 28,
+      "bytes": 229,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 28,
+      "bytes": 229,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 29,
+      "bytes": 436,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 29,
+      "bytes": 436,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 30,
+      "bytes": 1793,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 30,
+      "bytes": 1793,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 31,
+      "bytes": 1182,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 31,
+      "bytes": 1182,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 32,
+      "bytes": 1185,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 32,
+      "bytes": 1185,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 33,
+      "bytes": 1269,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 33,
+      "bytes": 1269,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 34,
+      "bytes": 1376,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 34,
+      "bytes": 1376,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 35,
+      "bytes": 1768,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 35,
+      "bytes": 1768,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 36,
+      "bytes": 786,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 36,
+      "bytes": 786,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 37,
+      "bytes": 854,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 37,
+      "bytes": 854,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 38,
+      "bytes": 1319,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 38,
+      "bytes": 1319,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 39,
+      "bytes": 2024,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 39,
+      "bytes": 2024,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 40,
+      "bytes": 858,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 40,
+      "bytes": 858,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 41,
+      "bytes": 758,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 41,
+      "bytes": 758,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 42,
+      "bytes": 1941,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 42,
+      "bytes": 1941,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 43,
+      "bytes": 1144,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 43,
+      "bytes": 1144,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 44,
+      "bytes": 756,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 44,
+      "bytes": 756,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 45,
+      "bytes": 2041,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 45,
+      "bytes": 2041,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 46,
+      "bytes": 1941,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 46,
+      "bytes": 1941,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 47,
+      "bytes": 1660,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 47,
+      "bytes": 1660,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 48,
+      "bytes": 1321,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 48,
+      "bytes": 1321,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 49,
+      "bytes": 24,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 49,
+      "bytes": 24,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 50,
+      "bytes": 106,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 50,
+      "bytes": 106,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 51,
+      "bytes": 266,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 51,
+      "bytes": 266,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 52,
+      "bytes": 888,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 52,
+      "bytes": 888,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 53,
+      "bytes": 1204,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 53,
+      "bytes": 1204,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 54,
+      "bytes": 391,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 54,
+      "bytes": 391,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 55,
+      "bytes": 564,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 55,
+      "bytes": 564,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 56,
+      "bytes": 2009,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 56,
+      "bytes": 2009,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 57,
+      "bytes": 967,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 57,
+      "bytes": 967,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 58,
+      "bytes": 554,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 58,
+      "bytes": 554,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 59,
+      "bytes": 1928,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 59,
+      "bytes": 1928,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 60,
+      "bytes": 1735,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 60,
+      "bytes": 1735,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 61,
+      "bytes": 20,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 61,
+      "bytes": 20,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 62,
+      "bytes": 759,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 62,
+      "bytes": 759,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 63,
+      "bytes": 394,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 63,
+      "bytes": 394,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 64,
+      "bytes": 1358,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 64,
+      "bytes": 1358,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 65,
+      "bytes": 1598,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 65,
+      "bytes": 1598,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 66,
+      "bytes": 539,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 66,
+      "bytes": 539,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 67,
+      "bytes": 1930,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 67,
+      "bytes": 1930,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 68,
+      "bytes": 970,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 68,
+      "bytes": 970,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 69,
+      "bytes": 25,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 69,
+      "bytes": 25,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 70,
+      "bytes": 278,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 70,
+      "bytes": 278,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 71,
+      "bytes": 202,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 71,
+      "bytes": 202,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 72,
+      "bytes": 107,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 72,
+      "bytes": 107,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 73,
+      "bytes": 2038,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 73,
+      "bytes": 2038,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 74,
+      "bytes": 1484,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 74,
+      "bytes": 1484,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 75,
+      "bytes": 947,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 75,
+      "bytes": 947,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 76,
+      "bytes": 1637,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 76,
+      "bytes": 1637,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 77,
+      "bytes": 322,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 77,
+      "bytes": 322,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 78,
+      "bytes": 1008,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 78,
+      "bytes": 1008,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 79,
+      "bytes": 1394,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 79,
+      "bytes": 1394,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 80,
+      "bytes": 1284,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 80,
+      "bytes": 1284,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 81,
+      "bytes": 849,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 81,
+      "bytes": 849,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 82,
+      "bytes": 1221,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 82,
+      "bytes": 1221,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 83,
+      "bytes": 1530,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 83,
+      "bytes": 1530,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 84,
+      "bytes": 899,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 84,
+      "bytes": 899,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 85,
+      "bytes": 1482,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 85,
+      "bytes": 1482,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 86,
+      "bytes": 293,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 86,
+      "bytes": 293,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 87,
+      "bytes": 713,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 87,
+      "bytes": 713,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 88,
+      "bytes": 1144,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 88,
+      "bytes": 1144,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 89,
+      "bytes": 875,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 89,
+      "bytes": 875,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 90,
+      "bytes": 832,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 90,
+      "bytes": 832,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": false,
+      "sample": 91,
+      "bytes": 692,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "sample": 91,
+      "bytes": 692,
+      "queryBytes": 3
+    },
+    {
+      "case": "extended query application oracle",
+      "app": "text-search",
+      "optimized": false,
+      "queryBytes": 4096,
+      "bytes": 12289
+    },
+    {
+      "case": "extended query application oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "queryBytes": 4096,
+      "bytes": 12289
+    },
+    {
+      "case": "extended query application oracle",
+      "app": "text-search",
+      "optimized": false,
+      "queryBytes": 4096,
+      "bytes": 16384
+    },
+    {
+      "case": "extended query application oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "queryBytes": 4096,
+      "bytes": 16384
+    },
+    {
+      "case": "extended query application oracle",
+      "app": "text-search",
+      "optimized": false,
+      "queryBytes": 512,
+      "bytes": 1025
+    },
+    {
+      "case": "extended query application oracle",
+      "app": "log-scan",
+      "optimized": false,
+      "queryBytes": 512,
+      "bytes": 1025
+    },
+    {
+      "case": "chunked stdin writes preserve result",
+      "app": "text-search",
+      "optimized": false
+    },
+    {
+      "case": "application refusal",
+      "app": "text-search",
+      "optimized": false,
+      "exit": 2
+    },
+    {
+      "case": "application refusal",
+      "app": "text-search",
+      "optimized": false,
+      "exit": 2
+    },
+    {
+      "case": "application refusal",
+      "app": "text-search",
+      "optimized": false,
+      "exit": 2
+    },
+    {
+      "case": "application refusal",
+      "app": "text-search",
+      "optimized": false,
+      "exit": 4
+    },
+    {
+      "case": "borrowed descriptor failures and help",
+      "app": "text-search",
+      "optimized": false,
+      "checks": 3
+    },
+    {
+      "case": "chunked stdin writes preserve result",
+      "app": "log-scan",
+      "optimized": false
+    },
+    {
+      "case": "application refusal",
+      "app": "log-scan",
+      "optimized": false,
+      "exit": 2
+    },
+    {
+      "case": "application refusal",
+      "app": "log-scan",
+      "optimized": false,
+      "exit": 2
+    },
+    {
+      "case": "application refusal",
+      "app": "log-scan",
+      "optimized": false,
+      "exit": 2
+    },
+    {
+      "case": "application refusal",
+      "app": "log-scan",
+      "optimized": false,
+      "exit": 4
+    },
+    {
+      "case": "borrowed descriptor failures and help",
+      "app": "log-scan",
+      "optimized": false,
+      "checks": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 0,
+      "bytes": 0,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 0,
+      "bytes": 0,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 1,
+      "bytes": 1,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 1,
+      "bytes": 1,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 2,
+      "bytes": 2,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 2,
+      "bytes": 2,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 3,
+      "bytes": 3,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 3,
+      "bytes": 3,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 4,
+      "bytes": 4,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 4,
+      "bytes": 4,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 5,
+      "bytes": 7,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 5,
+      "bytes": 7,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 6,
+      "bytes": 2,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 6,
+      "bytes": 2,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 7,
+      "bytes": 26,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 7,
+      "bytes": 26,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 8,
+      "bytes": 5,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 8,
+      "bytes": 5,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 9,
+      "bytes": 49,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 9,
+      "bytes": 49,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 10,
+      "bytes": 1048576,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 10,
+      "bytes": 1048576,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 11,
+      "bytes": 1048576,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 11,
+      "bytes": 1048576,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 12,
+      "bytes": 1790,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 12,
+      "bytes": 1790,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 13,
+      "bytes": 285,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 13,
+      "bytes": 285,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 14,
+      "bytes": 993,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 14,
+      "bytes": 993,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 15,
+      "bytes": 1831,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 15,
+      "bytes": 1831,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 16,
+      "bytes": 1790,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 16,
+      "bytes": 1790,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 17,
+      "bytes": 759,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 17,
+      "bytes": 759,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 18,
+      "bytes": 149,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 18,
+      "bytes": 149,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 19,
+      "bytes": 397,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 19,
+      "bytes": 397,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 20,
+      "bytes": 288,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 20,
+      "bytes": 288,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 21,
+      "bytes": 161,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 21,
+      "bytes": 161,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 22,
+      "bytes": 21,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 22,
+      "bytes": 21,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 23,
+      "bytes": 1352,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 23,
+      "bytes": 1352,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 24,
+      "bytes": 1232,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 24,
+      "bytes": 1232,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 25,
+      "bytes": 412,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 25,
+      "bytes": 412,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 26,
+      "bytes": 479,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 26,
+      "bytes": 479,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 27,
+      "bytes": 1483,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 27,
+      "bytes": 1483,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 28,
+      "bytes": 229,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 28,
+      "bytes": 229,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 29,
+      "bytes": 436,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 29,
+      "bytes": 436,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 30,
+      "bytes": 1793,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 30,
+      "bytes": 1793,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 31,
+      "bytes": 1182,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 31,
+      "bytes": 1182,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 32,
+      "bytes": 1185,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 32,
+      "bytes": 1185,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 33,
+      "bytes": 1269,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 33,
+      "bytes": 1269,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 34,
+      "bytes": 1376,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 34,
+      "bytes": 1376,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 35,
+      "bytes": 1768,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 35,
+      "bytes": 1768,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 36,
+      "bytes": 786,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 36,
+      "bytes": 786,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 37,
+      "bytes": 854,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 37,
+      "bytes": 854,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 38,
+      "bytes": 1319,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 38,
+      "bytes": 1319,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 39,
+      "bytes": 2024,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 39,
+      "bytes": 2024,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 40,
+      "bytes": 858,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 40,
+      "bytes": 858,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 41,
+      "bytes": 758,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 41,
+      "bytes": 758,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 42,
+      "bytes": 1941,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 42,
+      "bytes": 1941,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 43,
+      "bytes": 1144,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 43,
+      "bytes": 1144,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 44,
+      "bytes": 756,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 44,
+      "bytes": 756,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 45,
+      "bytes": 2041,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 45,
+      "bytes": 2041,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 46,
+      "bytes": 1941,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 46,
+      "bytes": 1941,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 47,
+      "bytes": 1660,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 47,
+      "bytes": 1660,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 48,
+      "bytes": 1321,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 48,
+      "bytes": 1321,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 49,
+      "bytes": 24,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 49,
+      "bytes": 24,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 50,
+      "bytes": 106,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 50,
+      "bytes": 106,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 51,
+      "bytes": 266,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 51,
+      "bytes": 266,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 52,
+      "bytes": 888,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 52,
+      "bytes": 888,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 53,
+      "bytes": 1204,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 53,
+      "bytes": 1204,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 54,
+      "bytes": 391,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 54,
+      "bytes": 391,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 55,
+      "bytes": 564,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 55,
+      "bytes": 564,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 56,
+      "bytes": 2009,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 56,
+      "bytes": 2009,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 57,
+      "bytes": 967,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 57,
+      "bytes": 967,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 58,
+      "bytes": 554,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 58,
+      "bytes": 554,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 59,
+      "bytes": 1928,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 59,
+      "bytes": 1928,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 60,
+      "bytes": 1735,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 60,
+      "bytes": 1735,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 61,
+      "bytes": 20,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 61,
+      "bytes": 20,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 62,
+      "bytes": 759,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 62,
+      "bytes": 759,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 63,
+      "bytes": 394,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 63,
+      "bytes": 394,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 64,
+      "bytes": 1358,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 64,
+      "bytes": 1358,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 65,
+      "bytes": 1598,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 65,
+      "bytes": 1598,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 66,
+      "bytes": 539,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 66,
+      "bytes": 539,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 67,
+      "bytes": 1930,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 67,
+      "bytes": 1930,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 68,
+      "bytes": 970,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 68,
+      "bytes": 970,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 69,
+      "bytes": 25,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 69,
+      "bytes": 25,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 70,
+      "bytes": 278,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 70,
+      "bytes": 278,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 71,
+      "bytes": 202,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 71,
+      "bytes": 202,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 72,
+      "bytes": 107,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 72,
+      "bytes": 107,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 73,
+      "bytes": 2038,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 73,
+      "bytes": 2038,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 74,
+      "bytes": 1484,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 74,
+      "bytes": 1484,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 75,
+      "bytes": 947,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 75,
+      "bytes": 947,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 76,
+      "bytes": 1637,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 76,
+      "bytes": 1637,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 77,
+      "bytes": 322,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 77,
+      "bytes": 322,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 78,
+      "bytes": 1008,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 78,
+      "bytes": 1008,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 79,
+      "bytes": 1394,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 79,
+      "bytes": 1394,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 80,
+      "bytes": 1284,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 80,
+      "bytes": 1284,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 81,
+      "bytes": 849,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 81,
+      "bytes": 849,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 82,
+      "bytes": 1221,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 82,
+      "bytes": 1221,
+      "queryBytes": 5
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 83,
+      "bytes": 1530,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 83,
+      "bytes": 1530,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 84,
+      "bytes": 899,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 84,
+      "bytes": 899,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 85,
+      "bytes": 1482,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 85,
+      "bytes": 1482,
+      "queryBytes": 1
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 86,
+      "bytes": 293,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 86,
+      "bytes": 293,
+      "queryBytes": 15
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 87,
+      "bytes": 713,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 87,
+      "bytes": 713,
+      "queryBytes": 2
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 88,
+      "bytes": 1144,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 88,
+      "bytes": 1144,
+      "queryBytes": 128
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 89,
+      "bytes": 875,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 89,
+      "bytes": 875,
+      "queryBytes": 512
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 90,
+      "bytes": 832,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 90,
+      "bytes": 832,
+      "queryBytes": 0
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "text-search",
+      "optimized": true,
+      "sample": 91,
+      "bytes": 692,
+      "queryBytes": 3
+    },
+    {
+      "case": "independent application byte oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "sample": 91,
+      "bytes": 692,
+      "queryBytes": 3
+    },
+    {
+      "case": "extended query application oracle",
+      "app": "text-search",
+      "optimized": true,
+      "queryBytes": 4096,
+      "bytes": 12289
+    },
+    {
+      "case": "extended query application oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "queryBytes": 4096,
+      "bytes": 12289
+    },
+    {
+      "case": "extended query application oracle",
+      "app": "text-search",
+      "optimized": true,
+      "queryBytes": 4096,
+      "bytes": 16384
+    },
+    {
+      "case": "extended query application oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "queryBytes": 4096,
+      "bytes": 16384
+    },
+    {
+      "case": "extended query application oracle",
+      "app": "text-search",
+      "optimized": true,
+      "queryBytes": 512,
+      "bytes": 1025
+    },
+    {
+      "case": "extended query application oracle",
+      "app": "log-scan",
+      "optimized": true,
+      "queryBytes": 512,
+      "bytes": 1025
+    },
+    {
+      "case": "chunked stdin writes preserve result",
+      "app": "text-search",
+      "optimized": true
+    },
+    {
+      "case": "application refusal",
+      "app": "text-search",
+      "optimized": true,
+      "exit": 2
+    },
+    {
+      "case": "application refusal",
+      "app": "text-search",
+      "optimized": true,
+      "exit": 2
+    },
+    {
+      "case": "application refusal",
+      "app": "text-search",
+      "optimized": true,
+      "exit": 2
+    },
+    {
+      "case": "application refusal",
+      "app": "text-search",
+      "optimized": true,
+      "exit": 4
+    },
+    {
+      "case": "borrowed descriptor failures and help",
+      "app": "text-search",
+      "optimized": true,
+      "checks": 3
+    },
+    {
+      "case": "chunked stdin writes preserve result",
+      "app": "log-scan",
+      "optimized": true
+    },
+    {
+      "case": "application refusal",
+      "app": "log-scan",
+      "optimized": true,
+      "exit": 2
+    },
+    {
+      "case": "application refusal",
+      "app": "log-scan",
+      "optimized": true,
+      "exit": 2
+    },
+    {
+      "case": "application refusal",
+      "app": "log-scan",
+      "optimized": true,
+      "exit": 2
+    },
+    {
+      "case": "application refusal",
+      "app": "log-scan",
+      "optimized": true,
+      "exit": 4
+    },
+    {
+      "case": "borrowed descriptor failures and help",
+      "app": "log-scan",
+      "optimized": true,
+      "checks": 3
+    },
+    {
+      "case": "one isolated shared-module mutation affects both applications",
+      "app": "text-search",
+      "librarySHA256": "d8eac443b5612acca4c3655ec4d99b4a3d5642da1d6a234048cdfe8a76a66c71"
+    },
+    {
+      "case": "one isolated shared-module mutation affects both applications",
+      "app": "log-scan",
+      "librarySHA256": "d8eac443b5612acca4c3655ec4d99b4a3d5642da1d6a234048cdfe8a76a66c71"
+    }
+  ],
+  "compilerSHA256": "396ced46694d226bcb3aa8dcf2d2a3a2144306fc797291a8529c6444e380b425",
+  "controllerSHA256": "6831acdd86d258b8ba440414c8340e5af5d1d1f176510304afc1b701a9acabf9",
+  "sources": {
+    "examples/text-search/lib/search.rf2": "bcb5d790dea7946c4c04e6a88294cd587103a74602ef8a03071eae3cce86aa1f",
+    "examples/text-search/main.rf2": "ab407ad47f473c2c861868254c513454d9bcd2020ab77bb131f85d4eda080c7c",
+    "examples/text-search/log-scan.rf2": "38f7dccce5257b535cb9cd243e1f9abf0e8d8b84eb8f19486ff2a480a21c8803"
+  },
+  "images": [
+    {
+      "app": "text-search",
+      "optimized": false,
+      "binary": "artifacts/shared-search/verify-1794567392245585000/text-search-False",
+      "unsignedSHA256": "fbaa11fa988167d959cea89f0e20cf0c4a718b44e244240a8d90aaff65e5d6d7",
+      "signedSHA256": "602def2fce624a5305376559fb98347dbee34710043660fa362fbd1ce7cbfe27",
+      "sharedLibrarySHA256": "bcb5d790dea7946c4c04e6a88294cd587103a74602ef8a03071eae3cce86aa1f"
+    },
+    {
+      "app": "log-scan",
+      "optimized": false,
+      "binary": "artifacts/shared-search/verify-1794567392245585000/log-scan-False",
+      "unsignedSHA256": "81f79793ce23068da0426922a9b7355fdc0f60a197bf555e943a0632e216f9f4",
+      "signedSHA256": "1bc4b640e0488de65517fe979600ec4cc43fbc09eec3f4fd1248a2cc28945dad",
+      "sharedLibrarySHA256": "bcb5d790dea7946c4c04e6a88294cd587103a74602ef8a03071eae3cce86aa1f"
+    },
+    {
+      "app": "text-search",
+      "optimized": true,
+      "binary": "artifacts/shared-search/verify-1794567392245585000/text-search-True",
+      "unsignedSHA256": "e1082eee446d611c9c60ddbf26f496c961f457a0d91372cb4315328bfa66c2b7",
+      "signedSHA256": "689a4008409718fa2db2acdb47d08abca4eae3de073874ae1947b226bf79b11a",
+      "sharedLibrarySHA256": "bcb5d790dea7946c4c04e6a88294cd587103a74602ef8a03071eae3cce86aa1f"
+    },
+    {
+      "app": "log-scan",
+      "optimized": true,
+      "binary": "artifacts/shared-search/verify-1794567392245585000/log-scan-True",
+      "unsignedSHA256": "9e646b39f7bf334a1634b81cfbe1577026bde1e93cd90e9ac26bd3ca6610def9",
+      "signedSHA256": "55b1e2e52c801002ea17532828280b4aa8af936fc184536c54f379697bab533d",
+      "sharedLibrarySHA256": "bcb5d790dea7946c4c04e6a88294cd587103a74602ef8a03071eae3cce86aa1f"
+    }
+  ],
+  "oneCanonicalLibrary": true,
+  "queryLimit": 4096,
+  "prefixPayloadBytes": 32768,
+  "limits": "Two actual native CLIs on one Apple Silicon Mac; exact byte oracles, LF-only line delimiter (CR retained), empty-input/query contracts, split writes, descriptor and budget failures. These are bounded local application tests, not evidence of live production log incidents, Unicode normalization, general security, concurrency, PDF extraction or speed superiority."
+}

@@ -1,0 +1,4994 @@
+{
+  "passed": true,
+  "schema": "rf2.text.search.verification.v1",
+  "cases": 726,
+  "rows": [
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 0,
+      "bytes": 0,
+      "needleBytes": 0,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 1,
+      "bytes": 0,
+      "needleBytes": 1,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 2,
+      "bytes": 5,
+      "needleBytes": 2,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 3,
+      "bytes": 5,
+      "needleBytes": 2,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 4,
+      "bytes": 3,
+      "needleBytes": 3,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 5,
+      "bytes": 3,
+      "needleBytes": 4,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 6,
+      "bytes": 256,
+      "needleBytes": 1,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 7,
+      "bytes": 4,
+      "needleBytes": 2,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 8,
+      "bytes": 31,
+      "needleBytes": 12,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 9,
+      "bytes": 1048576,
+      "needleBytes": 128,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 10,
+      "bytes": 1048576,
+      "needleBytes": 128,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 11,
+      "bytes": 1048576,
+      "needleBytes": 0,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 12,
+      "bytes": 1048576,
+      "needleBytes": 512,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 13,
+      "bytes": 1048576,
+      "needleBytes": 512,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 14,
+      "bytes": 24576,
+      "needleBytes": 511,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 15,
+      "bytes": 1048576,
+      "needleBytes": 4096,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 16,
+      "bytes": 1048576,
+      "needleBytes": 4096,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 17,
+      "bytes": 4096,
+      "needleBytes": 4096,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 18,
+      "bytes": 727,
+      "needleBytes": 9,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 19,
+      "bytes": 215,
+      "needleBytes": 5,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 20,
+      "bytes": 467,
+      "needleBytes": 28,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 21,
+      "bytes": 706,
+      "needleBytes": 31,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 22,
+      "bytes": 724,
+      "needleBytes": 7,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 23,
+      "bytes": 89,
+      "needleBytes": 9,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 24,
+      "bytes": 809,
+      "needleBytes": 12,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 25,
+      "bytes": 834,
+      "needleBytes": 10,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 26,
+      "bytes": 735,
+      "needleBytes": 13,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 27,
+      "bytes": 351,
+      "needleBytes": 20,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 28,
+      "bytes": 267,
+      "needleBytes": 26,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 29,
+      "bytes": 559,
+      "needleBytes": 11,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 30,
+      "bytes": 459,
+      "needleBytes": 0,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 31,
+      "bytes": 445,
+      "needleBytes": 9,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 32,
+      "bytes": 487,
+      "needleBytes": 19,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 33,
+      "bytes": 557,
+      "needleBytes": 28,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 34,
+      "bytes": 359,
+      "needleBytes": 0,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 35,
+      "bytes": 336,
+      "needleBytes": 7,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 36,
+      "bytes": 537,
+      "needleBytes": 6,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 37,
+      "bytes": 441,
+      "needleBytes": 16,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 38,
+      "bytes": 199,
+      "needleBytes": 11,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 39,
+      "bytes": 569,
+      "needleBytes": 23,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 40,
+      "bytes": 222,
+      "needleBytes": 6,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 41,
+      "bytes": 31,
+      "needleBytes": 21,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 42,
+      "bytes": 37,
+      "needleBytes": 29,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 43,
+      "bytes": 541,
+      "needleBytes": 13,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 44,
+      "bytes": 230,
+      "needleBytes": 20,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 45,
+      "bytes": 379,
+      "needleBytes": 25,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 46,
+      "bytes": 711,
+      "needleBytes": 28,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 47,
+      "bytes": 573,
+      "needleBytes": 26,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 48,
+      "bytes": 143,
+      "needleBytes": 13,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 49,
+      "bytes": 81,
+      "needleBytes": 18,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 50,
+      "bytes": 807,
+      "needleBytes": 0,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 51,
+      "bytes": 427,
+      "needleBytes": 3,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 52,
+      "bytes": 459,
+      "needleBytes": 6,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 53,
+      "bytes": 35,
+      "needleBytes": 29,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 54,
+      "bytes": 210,
+      "needleBytes": 26,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 55,
+      "bytes": 746,
+      "needleBytes": 14,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 56,
+      "bytes": 837,
+      "needleBytes": 31,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 57,
+      "bytes": 95,
+      "needleBytes": 0,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 58,
+      "bytes": 278,
+      "needleBytes": 27,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 59,
+      "bytes": 404,
+      "needleBytes": 9,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 60,
+      "bytes": 7,
+      "needleBytes": 4,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 61,
+      "bytes": 249,
+      "needleBytes": 2,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 62,
+      "bytes": 506,
+      "needleBytes": 27,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 63,
+      "bytes": 487,
+      "needleBytes": 4,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 64,
+      "bytes": 252,
+      "needleBytes": 11,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 65,
+      "bytes": 18,
+      "needleBytes": 3,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 66,
+      "bytes": 251,
+      "needleBytes": 31,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 67,
+      "bytes": 487,
+      "needleBytes": 19,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 68,
+      "bytes": 198,
+      "needleBytes": 20,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 69,
+      "bytes": 672,
+      "needleBytes": 18,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 70,
+      "bytes": 797,
+      "needleBytes": 31,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 71,
+      "bytes": 649,
+      "needleBytes": 3,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 72,
+      "bytes": 579,
+      "needleBytes": 7,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 73,
+      "bytes": 880,
+      "needleBytes": 18,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 74,
+      "bytes": 710,
+      "needleBytes": 9,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 75,
+      "bytes": 388,
+      "needleBytes": 22,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 76,
+      "bytes": 530,
+      "needleBytes": 22,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 77,
+      "bytes": 220,
+      "needleBytes": 14,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 78,
+      "bytes": 623,
+      "needleBytes": 18,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 79,
+      "bytes": 682,
+      "needleBytes": 28,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 80,
+      "bytes": 816,
+      "needleBytes": 2,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 81,
+      "bytes": 56,
+      "needleBytes": 4,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 82,
+      "bytes": 145,
+      "needleBytes": 13,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 83,
+      "bytes": 241,
+      "needleBytes": 7,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 84,
+      "bytes": 677,
+      "needleBytes": 25,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 85,
+      "bytes": 518,
+      "needleBytes": 18,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 86,
+      "bytes": 344,
+      "needleBytes": 12,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 87,
+      "bytes": 713,
+      "needleBytes": 31,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 88,
+      "bytes": 768,
+      "needleBytes": 13,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 89,
+      "bytes": 379,
+      "needleBytes": 8,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 90,
+      "bytes": 681,
+      "needleBytes": 3,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 91,
+      "bytes": 767,
+      "needleBytes": 4,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 92,
+      "bytes": 48,
+      "needleBytes": 9,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 93,
+      "bytes": 601,
+      "needleBytes": 12,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 94,
+      "bytes": 397,
+      "needleBytes": 28,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 95,
+      "bytes": 615,
+      "needleBytes": 15,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 96,
+      "bytes": 92,
+      "needleBytes": 28,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 97,
+      "bytes": 536,
+      "needleBytes": 1,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 98,
+      "bytes": 561,
+      "needleBytes": 0,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 99,
+      "bytes": 615,
+      "needleBytes": 23,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 100,
+      "bytes": 755,
+      "needleBytes": 17,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 101,
+      "bytes": 173,
+      "needleBytes": 5,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 102,
+      "bytes": 36,
+      "needleBytes": 30,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 103,
+      "bytes": 50,
+      "needleBytes": 1,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 104,
+      "bytes": 508,
+      "needleBytes": 18,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 105,
+      "bytes": 704,
+      "needleBytes": 6,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 106,
+      "bytes": 369,
+      "needleBytes": 17,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 107,
+      "bytes": 72,
+      "needleBytes": 16,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 108,
+      "bytes": 91,
+      "needleBytes": 7,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 109,
+      "bytes": 660,
+      "needleBytes": 17,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 110,
+      "bytes": 214,
+      "needleBytes": 29,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 111,
+      "bytes": 433,
+      "needleBytes": 3,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 112,
+      "bytes": 429,
+      "needleBytes": 17,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 113,
+      "bytes": 688,
+      "needleBytes": 1,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 114,
+      "bytes": 209,
+      "needleBytes": 8,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 115,
+      "bytes": 685,
+      "needleBytes": 13,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 116,
+      "bytes": 145,
+      "needleBytes": 14,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 117,
+      "bytes": 780,
+      "needleBytes": 16,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 118,
+      "bytes": 823,
+      "needleBytes": 2,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 119,
+      "bytes": 677,
+      "needleBytes": 22,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 120,
+      "bytes": 88,
+      "needleBytes": 4,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 121,
+      "bytes": 518,
+      "needleBytes": 15,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 122,
+      "bytes": 153,
+      "needleBytes": 10,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 123,
+      "bytes": 433,
+      "needleBytes": 15,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 124,
+      "bytes": 28,
+      "needleBytes": 0,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 125,
+      "bytes": 559,
+      "needleBytes": 28,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 126,
+      "bytes": 306,
+      "needleBytes": 15,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 127,
+      "bytes": 160,
+      "needleBytes": 5,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 128,
+      "bytes": 882,
+      "needleBytes": 20,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 129,
+      "bytes": 271,
+      "needleBytes": 21,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 130,
+      "bytes": 398,
+      "needleBytes": 20,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 131,
+      "bytes": 91,
+      "needleBytes": 12,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 132,
+      "bytes": 37,
+      "needleBytes": 28,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 133,
+      "bytes": 101,
+      "needleBytes": 14,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 134,
+      "bytes": 832,
+      "needleBytes": 31,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 135,
+      "bytes": 314,
+      "needleBytes": 14,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 136,
+      "bytes": 109,
+      "needleBytes": 5,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 137,
+      "bytes": 208,
+      "needleBytes": 7,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 138,
+      "bytes": 462,
+      "needleBytes": 31,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 139,
+      "bytes": 765,
+      "needleBytes": 16,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 140,
+      "bytes": 655,
+      "needleBytes": 21,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 141,
+      "bytes": 678,
+      "needleBytes": 13,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 142,
+      "bytes": 15,
+      "needleBytes": 10,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 143,
+      "bytes": 798,
+      "needleBytes": 0,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 144,
+      "bytes": 181,
+      "needleBytes": 9,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 145,
+      "bytes": 356,
+      "needleBytes": 7,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 146,
+      "bytes": 612,
+      "needleBytes": 0,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 147,
+      "bytes": 557,
+      "needleBytes": 24,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 148,
+      "bytes": 564,
+      "needleBytes": 23,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 149,
+      "bytes": 579,
+      "needleBytes": 6,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 150,
+      "bytes": 778,
+      "needleBytes": 2,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 151,
+      "bytes": 373,
+      "needleBytes": 12,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 152,
+      "bytes": 186,
+      "needleBytes": 14,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 153,
+      "bytes": 296,
+      "needleBytes": 7,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 154,
+      "bytes": 669,
+      "needleBytes": 29,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 155,
+      "bytes": 496,
+      "needleBytes": 8,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 156,
+      "bytes": 167,
+      "needleBytes": 20,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 157,
+      "bytes": 307,
+      "needleBytes": 19,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 158,
+      "bytes": 711,
+      "needleBytes": 31,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 159,
+      "bytes": 552,
+      "needleBytes": 4,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 160,
+      "bytes": 302,
+      "needleBytes": 17,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 161,
+      "bytes": 400,
+      "needleBytes": 17,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 162,
+      "bytes": 742,
+      "needleBytes": 8,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 163,
+      "bytes": 372,
+      "needleBytes": 1,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 164,
+      "bytes": 598,
+      "needleBytes": 15,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 165,
+      "bytes": 227,
+      "needleBytes": 28,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 166,
+      "bytes": 760,
+      "needleBytes": 6,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 167,
+      "bytes": 573,
+      "needleBytes": 22,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 168,
+      "bytes": 558,
+      "needleBytes": 30,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 169,
+      "bytes": 512,
+      "needleBytes": 23,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 170,
+      "bytes": 368,
+      "needleBytes": 14,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 171,
+      "bytes": 433,
+      "needleBytes": 11,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 172,
+      "bytes": 130,
+      "needleBytes": 27,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 173,
+      "bytes": 307,
+      "needleBytes": 7,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 174,
+      "bytes": 694,
+      "needleBytes": 25,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 175,
+      "bytes": 95,
+      "needleBytes": 8,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 176,
+      "bytes": 635,
+      "needleBytes": 29,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 177,
+      "bytes": 719,
+      "needleBytes": 18,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 178,
+      "bytes": 343,
+      "needleBytes": 15,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 179,
+      "bytes": 291,
+      "needleBytes": 25,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 180,
+      "bytes": 366,
+      "needleBytes": 24,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 181,
+      "bytes": 137,
+      "needleBytes": 29,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 182,
+      "bytes": 500,
+      "needleBytes": 7,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 183,
+      "bytes": 367,
+      "needleBytes": 21,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 184,
+      "bytes": 540,
+      "needleBytes": 21,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 185,
+      "bytes": 8,
+      "needleBytes": 0,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 186,
+      "bytes": 874,
+      "needleBytes": 17,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 187,
+      "bytes": 507,
+      "needleBytes": 29,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 188,
+      "bytes": 788,
+      "needleBytes": 31,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 189,
+      "bytes": 194,
+      "needleBytes": 19,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 190,
+      "bytes": 879,
+      "needleBytes": 28,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 191,
+      "bytes": 661,
+      "needleBytes": 7,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 192,
+      "bytes": 68,
+      "needleBytes": 22,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 193,
+      "bytes": 607,
+      "needleBytes": 6,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 194,
+      "bytes": 364,
+      "needleBytes": 20,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 195,
+      "bytes": 96,
+      "needleBytes": 5,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 196,
+      "bytes": 442,
+      "needleBytes": 12,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": false,
+      "sample": 197,
+      "bytes": 761,
+      "needleBytes": 31,
+      "overlap": 1
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 1,
+      "bytes": 0,
+      "needleBytes": 0
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 1,
+      "bytes": 0,
+      "needleBytes": 1
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 1,
+      "bytes": 5,
+      "needleBytes": 2
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 1,
+      "bytes": 5,
+      "needleBytes": 2
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 1,
+      "bytes": 3,
+      "needleBytes": 3
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 1,
+      "bytes": 3,
+      "needleBytes": 4
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 1,
+      "bytes": 256,
+      "needleBytes": 1
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 1,
+      "bytes": 4,
+      "needleBytes": 2
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 1,
+      "bytes": 31,
+      "needleBytes": 12
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 1,
+      "bytes": 16384,
+      "needleBytes": 128
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 1,
+      "bytes": 128,
+      "needleBytes": 128
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 1,
+      "bytes": 512,
+      "needleBytes": 512
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 1,
+      "bytes": 16384,
+      "needleBytes": 512
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 1,
+      "bytes": 4096,
+      "needleBytes": 4096
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 1,
+      "bytes": 16384,
+      "needleBytes": 4096
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 2,
+      "bytes": 0,
+      "needleBytes": 0
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 2,
+      "bytes": 0,
+      "needleBytes": 1
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 2,
+      "bytes": 5,
+      "needleBytes": 2
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 2,
+      "bytes": 5,
+      "needleBytes": 2
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 2,
+      "bytes": 3,
+      "needleBytes": 3
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 2,
+      "bytes": 3,
+      "needleBytes": 4
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 2,
+      "bytes": 256,
+      "needleBytes": 1
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 2,
+      "bytes": 4,
+      "needleBytes": 2
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 2,
+      "bytes": 31,
+      "needleBytes": 12
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 2,
+      "bytes": 16384,
+      "needleBytes": 128
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 2,
+      "bytes": 128,
+      "needleBytes": 128
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 2,
+      "bytes": 512,
+      "needleBytes": 512
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 2,
+      "bytes": 16384,
+      "needleBytes": 512
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 2,
+      "bytes": 4096,
+      "needleBytes": 4096
+    },
+    {
+      "case": "guarded range",
+      "optimized": false,
+      "mode": 2,
+      "bytes": 16384,
+      "needleBytes": 4096
+    },
+    {
+      "case": "API bounds reject before read",
+      "optimized": false,
+      "n": 1048577,
+      "m": 0,
+      "overlap": 0
+    },
+    {
+      "case": "API bounds reject before read",
+      "optimized": false,
+      "n": 0,
+      "m": 4097,
+      "overlap": 0
+    },
+    {
+      "case": "API bounds reject before read",
+      "optimized": false,
+      "n": 0,
+      "m": 0,
+      "overlap": 2
+    },
+    {
+      "case": "API bounds reject before read",
+      "optimized": false,
+      "n": 18446744073709551615,
+      "m": 18446744073709551615,
+      "overlap": 0
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 0
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 1
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 2
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 3
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 4
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 5
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 6
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 7
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 8
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 9
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 10
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 11
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 12
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 13
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 14
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 15
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 16
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 17
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 18
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 19
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 20
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 21
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 22
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 23
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 24
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 25
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 26
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 27
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 28
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 29
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 30
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 31
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 32
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 33
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 34
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 35
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 36
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 37
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 38
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 39
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 40
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 41
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 42
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 43
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 44
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 45
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 46
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 47
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 48
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 49
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 50
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 51
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 52
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 53
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 54
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 55
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 56
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 57
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 58
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 59
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 60
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 61
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 62
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 63
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 64
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 65
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 66
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 67
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 68
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 69
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 70
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 71
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 72
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 73
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 74
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 75
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 76
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 77
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 78
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 79
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 80
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 81
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 82
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 83
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 84
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 85
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 86
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 87
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 88
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 89
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 90
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 91
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 92
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 93
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 94
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 95
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 96
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 97
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 98
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 99
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 100
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 101
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 102
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 103
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 104
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 105
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 106
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 107
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 108
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 109
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 110
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 111
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 112
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 113
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 114
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 115
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 116
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 117
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 118
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": false,
+      "sample": 119
+    },
+    {
+      "case": "extended CLI query oracle",
+      "optimized": false,
+      "queryBytes": 512,
+      "bytes": 2048
+    },
+    {
+      "case": "extended CLI query oracle",
+      "optimized": false,
+      "queryBytes": 512,
+      "bytes": 16384
+    },
+    {
+      "case": "extended CLI query oracle",
+      "optimized": false,
+      "queryBytes": 257,
+      "bytes": 257
+    },
+    {
+      "case": "extended CLI query oracle",
+      "optimized": false,
+      "queryBytes": 4096,
+      "bytes": 8192
+    },
+    {
+      "case": "extended CLI query oracle",
+      "optimized": false,
+      "queryBytes": 4096,
+      "bytes": 16384
+    },
+    {
+      "case": "CLI refusal",
+      "optimized": false,
+      "expectedExit": 2
+    },
+    {
+      "case": "CLI refusal",
+      "optimized": false,
+      "expectedExit": 2
+    },
+    {
+      "case": "CLI refusal",
+      "optimized": false,
+      "expectedExit": 2
+    },
+    {
+      "case": "CLI refusal",
+      "optimized": false,
+      "expectedExit": 2
+    },
+    {
+      "case": "CLI refusal",
+      "optimized": false,
+      "expectedExit": 4
+    },
+    {
+      "case": "CLI descriptors/help",
+      "optimized": false,
+      "checks": 3
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 0,
+      "bytes": 0,
+      "needleBytes": 0,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 1,
+      "bytes": 0,
+      "needleBytes": 1,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 2,
+      "bytes": 5,
+      "needleBytes": 2,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 3,
+      "bytes": 5,
+      "needleBytes": 2,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 4,
+      "bytes": 3,
+      "needleBytes": 3,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 5,
+      "bytes": 3,
+      "needleBytes": 4,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 6,
+      "bytes": 256,
+      "needleBytes": 1,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 7,
+      "bytes": 4,
+      "needleBytes": 2,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 8,
+      "bytes": 31,
+      "needleBytes": 12,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 9,
+      "bytes": 1048576,
+      "needleBytes": 128,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 10,
+      "bytes": 1048576,
+      "needleBytes": 128,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 11,
+      "bytes": 1048576,
+      "needleBytes": 0,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 12,
+      "bytes": 1048576,
+      "needleBytes": 512,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 13,
+      "bytes": 1048576,
+      "needleBytes": 512,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 14,
+      "bytes": 24576,
+      "needleBytes": 511,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 15,
+      "bytes": 1048576,
+      "needleBytes": 4096,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 16,
+      "bytes": 1048576,
+      "needleBytes": 4096,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 17,
+      "bytes": 4096,
+      "needleBytes": 4096,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 18,
+      "bytes": 727,
+      "needleBytes": 9,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 19,
+      "bytes": 215,
+      "needleBytes": 5,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 20,
+      "bytes": 467,
+      "needleBytes": 28,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 21,
+      "bytes": 706,
+      "needleBytes": 31,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 22,
+      "bytes": 724,
+      "needleBytes": 7,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 23,
+      "bytes": 89,
+      "needleBytes": 9,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 24,
+      "bytes": 809,
+      "needleBytes": 12,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 25,
+      "bytes": 834,
+      "needleBytes": 10,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 26,
+      "bytes": 735,
+      "needleBytes": 13,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 27,
+      "bytes": 351,
+      "needleBytes": 20,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 28,
+      "bytes": 267,
+      "needleBytes": 26,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 29,
+      "bytes": 559,
+      "needleBytes": 11,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 30,
+      "bytes": 459,
+      "needleBytes": 0,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 31,
+      "bytes": 445,
+      "needleBytes": 9,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 32,
+      "bytes": 487,
+      "needleBytes": 19,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 33,
+      "bytes": 557,
+      "needleBytes": 28,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 34,
+      "bytes": 359,
+      "needleBytes": 0,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 35,
+      "bytes": 336,
+      "needleBytes": 7,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 36,
+      "bytes": 537,
+      "needleBytes": 6,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 37,
+      "bytes": 441,
+      "needleBytes": 16,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 38,
+      "bytes": 199,
+      "needleBytes": 11,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 39,
+      "bytes": 569,
+      "needleBytes": 23,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 40,
+      "bytes": 222,
+      "needleBytes": 6,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 41,
+      "bytes": 31,
+      "needleBytes": 21,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 42,
+      "bytes": 37,
+      "needleBytes": 29,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 43,
+      "bytes": 541,
+      "needleBytes": 13,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 44,
+      "bytes": 230,
+      "needleBytes": 20,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 45,
+      "bytes": 379,
+      "needleBytes": 25,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 46,
+      "bytes": 711,
+      "needleBytes": 28,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 47,
+      "bytes": 573,
+      "needleBytes": 26,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 48,
+      "bytes": 143,
+      "needleBytes": 13,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 49,
+      "bytes": 81,
+      "needleBytes": 18,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 50,
+      "bytes": 807,
+      "needleBytes": 0,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 51,
+      "bytes": 427,
+      "needleBytes": 3,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 52,
+      "bytes": 459,
+      "needleBytes": 6,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 53,
+      "bytes": 35,
+      "needleBytes": 29,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 54,
+      "bytes": 210,
+      "needleBytes": 26,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 55,
+      "bytes": 746,
+      "needleBytes": 14,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 56,
+      "bytes": 837,
+      "needleBytes": 31,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 57,
+      "bytes": 95,
+      "needleBytes": 0,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 58,
+      "bytes": 278,
+      "needleBytes": 27,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 59,
+      "bytes": 404,
+      "needleBytes": 9,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 60,
+      "bytes": 7,
+      "needleBytes": 4,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 61,
+      "bytes": 249,
+      "needleBytes": 2,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 62,
+      "bytes": 506,
+      "needleBytes": 27,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 63,
+      "bytes": 487,
+      "needleBytes": 4,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 64,
+      "bytes": 252,
+      "needleBytes": 11,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 65,
+      "bytes": 18,
+      "needleBytes": 3,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 66,
+      "bytes": 251,
+      "needleBytes": 31,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 67,
+      "bytes": 487,
+      "needleBytes": 19,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 68,
+      "bytes": 198,
+      "needleBytes": 20,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 69,
+      "bytes": 672,
+      "needleBytes": 18,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 70,
+      "bytes": 797,
+      "needleBytes": 31,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 71,
+      "bytes": 649,
+      "needleBytes": 3,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 72,
+      "bytes": 579,
+      "needleBytes": 7,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 73,
+      "bytes": 880,
+      "needleBytes": 18,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 74,
+      "bytes": 710,
+      "needleBytes": 9,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 75,
+      "bytes": 388,
+      "needleBytes": 22,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 76,
+      "bytes": 530,
+      "needleBytes": 22,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 77,
+      "bytes": 220,
+      "needleBytes": 14,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 78,
+      "bytes": 623,
+      "needleBytes": 18,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 79,
+      "bytes": 682,
+      "needleBytes": 28,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 80,
+      "bytes": 816,
+      "needleBytes": 2,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 81,
+      "bytes": 56,
+      "needleBytes": 4,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 82,
+      "bytes": 145,
+      "needleBytes": 13,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 83,
+      "bytes": 241,
+      "needleBytes": 7,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 84,
+      "bytes": 677,
+      "needleBytes": 25,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 85,
+      "bytes": 518,
+      "needleBytes": 18,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 86,
+      "bytes": 344,
+      "needleBytes": 12,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 87,
+      "bytes": 713,
+      "needleBytes": 31,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 88,
+      "bytes": 768,
+      "needleBytes": 13,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 89,
+      "bytes": 379,
+      "needleBytes": 8,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 90,
+      "bytes": 681,
+      "needleBytes": 3,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 91,
+      "bytes": 767,
+      "needleBytes": 4,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 92,
+      "bytes": 48,
+      "needleBytes": 9,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 93,
+      "bytes": 601,
+      "needleBytes": 12,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 94,
+      "bytes": 397,
+      "needleBytes": 28,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 95,
+      "bytes": 615,
+      "needleBytes": 15,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 96,
+      "bytes": 92,
+      "needleBytes": 28,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 97,
+      "bytes": 536,
+      "needleBytes": 1,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 98,
+      "bytes": 561,
+      "needleBytes": 0,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 99,
+      "bytes": 615,
+      "needleBytes": 23,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 100,
+      "bytes": 755,
+      "needleBytes": 17,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 101,
+      "bytes": 173,
+      "needleBytes": 5,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 102,
+      "bytes": 36,
+      "needleBytes": 30,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 103,
+      "bytes": 50,
+      "needleBytes": 1,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 104,
+      "bytes": 508,
+      "needleBytes": 18,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 105,
+      "bytes": 704,
+      "needleBytes": 6,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 106,
+      "bytes": 369,
+      "needleBytes": 17,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 107,
+      "bytes": 72,
+      "needleBytes": 16,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 108,
+      "bytes": 91,
+      "needleBytes": 7,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 109,
+      "bytes": 660,
+      "needleBytes": 17,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 110,
+      "bytes": 214,
+      "needleBytes": 29,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 111,
+      "bytes": 433,
+      "needleBytes": 3,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 112,
+      "bytes": 429,
+      "needleBytes": 17,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 113,
+      "bytes": 688,
+      "needleBytes": 1,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 114,
+      "bytes": 209,
+      "needleBytes": 8,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 115,
+      "bytes": 685,
+      "needleBytes": 13,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 116,
+      "bytes": 145,
+      "needleBytes": 14,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 117,
+      "bytes": 780,
+      "needleBytes": 16,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 118,
+      "bytes": 823,
+      "needleBytes": 2,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 119,
+      "bytes": 677,
+      "needleBytes": 22,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 120,
+      "bytes": 88,
+      "needleBytes": 4,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 121,
+      "bytes": 518,
+      "needleBytes": 15,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 122,
+      "bytes": 153,
+      "needleBytes": 10,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 123,
+      "bytes": 433,
+      "needleBytes": 15,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 124,
+      "bytes": 28,
+      "needleBytes": 0,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 125,
+      "bytes": 559,
+      "needleBytes": 28,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 126,
+      "bytes": 306,
+      "needleBytes": 15,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 127,
+      "bytes": 160,
+      "needleBytes": 5,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 128,
+      "bytes": 882,
+      "needleBytes": 20,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 129,
+      "bytes": 271,
+      "needleBytes": 21,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 130,
+      "bytes": 398,
+      "needleBytes": 20,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 131,
+      "bytes": 91,
+      "needleBytes": 12,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 132,
+      "bytes": 37,
+      "needleBytes": 28,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 133,
+      "bytes": 101,
+      "needleBytes": 14,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 134,
+      "bytes": 832,
+      "needleBytes": 31,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 135,
+      "bytes": 314,
+      "needleBytes": 14,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 136,
+      "bytes": 109,
+      "needleBytes": 5,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 137,
+      "bytes": 208,
+      "needleBytes": 7,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 138,
+      "bytes": 462,
+      "needleBytes": 31,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 139,
+      "bytes": 765,
+      "needleBytes": 16,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 140,
+      "bytes": 655,
+      "needleBytes": 21,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 141,
+      "bytes": 678,
+      "needleBytes": 13,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 142,
+      "bytes": 15,
+      "needleBytes": 10,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 143,
+      "bytes": 798,
+      "needleBytes": 0,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 144,
+      "bytes": 181,
+      "needleBytes": 9,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 145,
+      "bytes": 356,
+      "needleBytes": 7,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 146,
+      "bytes": 612,
+      "needleBytes": 0,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 147,
+      "bytes": 557,
+      "needleBytes": 24,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 148,
+      "bytes": 564,
+      "needleBytes": 23,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 149,
+      "bytes": 579,
+      "needleBytes": 6,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 150,
+      "bytes": 778,
+      "needleBytes": 2,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 151,
+      "bytes": 373,
+      "needleBytes": 12,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 152,
+      "bytes": 186,
+      "needleBytes": 14,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 153,
+      "bytes": 296,
+      "needleBytes": 7,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 154,
+      "bytes": 669,
+      "needleBytes": 29,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 155,
+      "bytes": 496,
+      "needleBytes": 8,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 156,
+      "bytes": 167,
+      "needleBytes": 20,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 157,
+      "bytes": 307,
+      "needleBytes": 19,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 158,
+      "bytes": 711,
+      "needleBytes": 31,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 159,
+      "bytes": 552,
+      "needleBytes": 4,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 160,
+      "bytes": 302,
+      "needleBytes": 17,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 161,
+      "bytes": 400,
+      "needleBytes": 17,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 162,
+      "bytes": 742,
+      "needleBytes": 8,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 163,
+      "bytes": 372,
+      "needleBytes": 1,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 164,
+      "bytes": 598,
+      "needleBytes": 15,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 165,
+      "bytes": 227,
+      "needleBytes": 28,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 166,
+      "bytes": 760,
+      "needleBytes": 6,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 167,
+      "bytes": 573,
+      "needleBytes": 22,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 168,
+      "bytes": 558,
+      "needleBytes": 30,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 169,
+      "bytes": 512,
+      "needleBytes": 23,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 170,
+      "bytes": 368,
+      "needleBytes": 14,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 171,
+      "bytes": 433,
+      "needleBytes": 11,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 172,
+      "bytes": 130,
+      "needleBytes": 27,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 173,
+      "bytes": 307,
+      "needleBytes": 7,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 174,
+      "bytes": 694,
+      "needleBytes": 25,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 175,
+      "bytes": 95,
+      "needleBytes": 8,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 176,
+      "bytes": 635,
+      "needleBytes": 29,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 177,
+      "bytes": 719,
+      "needleBytes": 18,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 178,
+      "bytes": 343,
+      "needleBytes": 15,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 179,
+      "bytes": 291,
+      "needleBytes": 25,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 180,
+      "bytes": 366,
+      "needleBytes": 24,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 181,
+      "bytes": 137,
+      "needleBytes": 29,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 182,
+      "bytes": 500,
+      "needleBytes": 7,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 183,
+      "bytes": 367,
+      "needleBytes": 21,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 184,
+      "bytes": 540,
+      "needleBytes": 21,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 185,
+      "bytes": 8,
+      "needleBytes": 0,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 186,
+      "bytes": 874,
+      "needleBytes": 17,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 187,
+      "bytes": 507,
+      "needleBytes": 29,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 188,
+      "bytes": 788,
+      "needleBytes": 31,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 189,
+      "bytes": 194,
+      "needleBytes": 19,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 190,
+      "bytes": 879,
+      "needleBytes": 28,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 191,
+      "bytes": 661,
+      "needleBytes": 7,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 192,
+      "bytes": 68,
+      "needleBytes": 22,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 193,
+      "bytes": 607,
+      "needleBytes": 6,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 194,
+      "bytes": 364,
+      "needleBytes": 20,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 195,
+      "bytes": 96,
+      "needleBytes": 5,
+      "overlap": 1
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 196,
+      "bytes": 442,
+      "needleBytes": 12,
+      "overlap": 0
+    },
+    {
+      "case": "binary API oracle",
+      "optimized": true,
+      "sample": 197,
+      "bytes": 761,
+      "needleBytes": 31,
+      "overlap": 1
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 1,
+      "bytes": 0,
+      "needleBytes": 0
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 1,
+      "bytes": 0,
+      "needleBytes": 1
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 1,
+      "bytes": 5,
+      "needleBytes": 2
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 1,
+      "bytes": 5,
+      "needleBytes": 2
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 1,
+      "bytes": 3,
+      "needleBytes": 3
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 1,
+      "bytes": 3,
+      "needleBytes": 4
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 1,
+      "bytes": 256,
+      "needleBytes": 1
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 1,
+      "bytes": 4,
+      "needleBytes": 2
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 1,
+      "bytes": 31,
+      "needleBytes": 12
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 1,
+      "bytes": 16384,
+      "needleBytes": 128
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 1,
+      "bytes": 128,
+      "needleBytes": 128
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 1,
+      "bytes": 512,
+      "needleBytes": 512
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 1,
+      "bytes": 16384,
+      "needleBytes": 512
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 1,
+      "bytes": 4096,
+      "needleBytes": 4096
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 1,
+      "bytes": 16384,
+      "needleBytes": 4096
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 2,
+      "bytes": 0,
+      "needleBytes": 0
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 2,
+      "bytes": 0,
+      "needleBytes": 1
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 2,
+      "bytes": 5,
+      "needleBytes": 2
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 2,
+      "bytes": 5,
+      "needleBytes": 2
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 2,
+      "bytes": 3,
+      "needleBytes": 3
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 2,
+      "bytes": 3,
+      "needleBytes": 4
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 2,
+      "bytes": 256,
+      "needleBytes": 1
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 2,
+      "bytes": 4,
+      "needleBytes": 2
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 2,
+      "bytes": 31,
+      "needleBytes": 12
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 2,
+      "bytes": 16384,
+      "needleBytes": 128
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 2,
+      "bytes": 128,
+      "needleBytes": 128
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 2,
+      "bytes": 512,
+      "needleBytes": 512
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 2,
+      "bytes": 16384,
+      "needleBytes": 512
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 2,
+      "bytes": 4096,
+      "needleBytes": 4096
+    },
+    {
+      "case": "guarded range",
+      "optimized": true,
+      "mode": 2,
+      "bytes": 16384,
+      "needleBytes": 4096
+    },
+    {
+      "case": "API bounds reject before read",
+      "optimized": true,
+      "n": 1048577,
+      "m": 0,
+      "overlap": 0
+    },
+    {
+      "case": "API bounds reject before read",
+      "optimized": true,
+      "n": 0,
+      "m": 4097,
+      "overlap": 0
+    },
+    {
+      "case": "API bounds reject before read",
+      "optimized": true,
+      "n": 0,
+      "m": 0,
+      "overlap": 2
+    },
+    {
+      "case": "API bounds reject before read",
+      "optimized": true,
+      "n": 18446744073709551615,
+      "m": 18446744073709551615,
+      "overlap": 0
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 0
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 1
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 2
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 3
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 4
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 5
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 6
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 7
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 8
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 9
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 10
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 11
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 12
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 13
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 14
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 15
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 16
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 17
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 18
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 19
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 20
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 21
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 22
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 23
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 24
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 25
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 26
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 27
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 28
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 29
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 30
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 31
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 32
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 33
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 34
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 35
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 36
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 37
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 38
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 39
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 40
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 41
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 42
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 43
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 44
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 45
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 46
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 47
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 48
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 49
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 50
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 51
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 52
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 53
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 54
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 55
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 56
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 57
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 58
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 59
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 60
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 61
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 62
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 63
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 64
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 65
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 66
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 67
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 68
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 69
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 70
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 71
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 72
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 73
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 74
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 75
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 76
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 77
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 78
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 79
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 80
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 81
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 82
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 83
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 84
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 85
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 86
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 87
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 88
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 89
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 90
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 91
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 92
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 93
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 94
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 95
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 96
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 97
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 98
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 99
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 100
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 101
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 102
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 103
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 104
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 105
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 106
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 107
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 108
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 109
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 110
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 111
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 112
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 113
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 114
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 115
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 116
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 117
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 118
+    },
+    {
+      "case": "CLI JSON oracle",
+      "optimized": true,
+      "sample": 119
+    },
+    {
+      "case": "extended CLI query oracle",
+      "optimized": true,
+      "queryBytes": 512,
+      "bytes": 2048
+    },
+    {
+      "case": "extended CLI query oracle",
+      "optimized": true,
+      "queryBytes": 512,
+      "bytes": 16384
+    },
+    {
+      "case": "extended CLI query oracle",
+      "optimized": true,
+      "queryBytes": 257,
+      "bytes": 257
+    },
+    {
+      "case": "extended CLI query oracle",
+      "optimized": true,
+      "queryBytes": 4096,
+      "bytes": 8192
+    },
+    {
+      "case": "extended CLI query oracle",
+      "optimized": true,
+      "queryBytes": 4096,
+      "bytes": 16384
+    },
+    {
+      "case": "CLI refusal",
+      "optimized": true,
+      "expectedExit": 2
+    },
+    {
+      "case": "CLI refusal",
+      "optimized": true,
+      "expectedExit": 2
+    },
+    {
+      "case": "CLI refusal",
+      "optimized": true,
+      "expectedExit": 2
+    },
+    {
+      "case": "CLI refusal",
+      "optimized": true,
+      "expectedExit": 2
+    },
+    {
+      "case": "CLI refusal",
+      "optimized": true,
+      "expectedExit": 4
+    },
+    {
+      "case": "CLI descriptors/help",
+      "optimized": true,
+      "checks": 3
+    }
+  ],
+  "compilerSHA256": "396ced46694d226bcb3aa8dcf2d2a3a2144306fc797291a8529c6444e380b425",
+  "controllerSHA256": "80549f7509fc810a09f6f347d90e3f2876bf8d85a5e49d80e627abbbbc69ee3c",
+  "sources": {
+    "examples/text-search/main.rf2": "ab407ad47f473c2c861868254c513454d9bcd2020ab77bb131f85d4eda080c7c",
+    "examples/text-search/lib/search.rf2": "bcb5d790dea7946c4c04e6a88294cd587103a74602ef8a03071eae3cce86aa1f"
+  },
+  "images": [
+    {
+      "optimized": false,
+      "appBinary": "artifacts/text-search/verify-1794567336418526000/text-search-False",
+      "apiBinary": "artifacts/text-search/verify-1794567336418526000/api-False",
+      "appUnsignedSHA256": "fbaa11fa988167d959cea89f0e20cf0c4a718b44e244240a8d90aaff65e5d6d7",
+      "apiUnsignedSHA256": "770b1186c9d68881221331547fff70ac50b34e3e61804b7fd9da73691f8571eb"
+    },
+    {
+      "optimized": true,
+      "appBinary": "artifacts/text-search/verify-1794567336418526000/text-search-True",
+      "apiBinary": "artifacts/text-search/verify-1794567336418526000/api-True",
+      "appUnsignedSHA256": "e1082eee446d611c9c60ddbf26f496c961f457a0d91372cb4315328bfa66c2b7",
+      "apiUnsignedSHA256": "188a06abf5859e19b9a745932161e92629b258320fd48c8acbbc4f3385c62001"
+    }
+  ],
+  "limits": "Finite Apple Silicon Mac native execution; independent Python bytes oracle, two optimizer modes, guard pages immediately outside each range, explicit size budgets. Exact byte semantics, not grapheme/locale/normalization. Trusted caller supplies valid nonaliasing readable ranges and writable output. Caller supplies a distinct typed prefix workspace; no thread support or ownership transfer is claimed. No speed, memory-safety, energy or AI token claim."
+}
