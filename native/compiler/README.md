@@ -29,3 +29,5 @@ No broad argument-register lowering is enabled by the catalogue refactor. The fa
 ## Opt-in scalar function reuse, 0.28
 
 `--reuse-cache existing-private-directory` admits only single-return scalar arithmetic helpers and emits a reuse report. Templates are captured before resolution, current exit fixups are rebuilt, and keys bind compiler file identity, options, declaration context and body tokens. All other source uses normal generation; diagnostic map mode deliberately disables reuse. The measured route is currently slower than clean compilation. Read [the contract and limits](../../docs/FUNCTION-REUSE-0.28.md) before use.
+
+0.29: guarded hardware hashing, one-pass context fingerprints and memoized linear-scalar eligibility reduce reuse overhead. RF2FN002 binds local count and metadata/code integrity; full validation remains required on misses. See [the current contract and mixed measurements](../../docs/FUNCTION-REUSE-0.29.md).
