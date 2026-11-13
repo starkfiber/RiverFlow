@@ -1,0 +1,1124 @@
+{
+  "passed": true,
+  "host": "macOS-26.5.1-arm64-arm-64bit",
+  "pythonVersion": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+  "trials": 21,
+  "summary": [
+    {
+      "task": "sha",
+      "medianMs": {
+        "RF2 0.21": 2.870917,
+        "RF2 rotate candidate": 2.365792,
+        "Clang/CommonCrypto": 1.830875,
+        "Python/hashlib": 11.51525
+      },
+      "minMs": {
+        "RF2 0.21": 2.5935,
+        "RF2 rotate candidate": 2.126041,
+        "Clang/CommonCrypto": 1.572792,
+        "Python/hashlib": 10.7655
+      },
+      "maxMs": {
+        "RF2 0.21": 3.574625,
+        "RF2 rotate candidate": 3.194334,
+        "Clang/CommonCrypto": 2.497875,
+        "Python/hashlib": 17.3565
+      }
+    },
+    {
+      "task": "sha-batch",
+      "medianMs": {
+        "RF2 0.21": 56.983084,
+        "RF2 rotate candidate": 35.345208,
+        "Clang/CommonCrypto": 2.555917,
+        "Python/hashlib": 13.102166
+      },
+      "minMs": {
+        "RF2 0.21": 55.935625,
+        "RF2 rotate candidate": 34.478208,
+        "Clang/CommonCrypto": 2.188792,
+        "Python/hashlib": 11.522208
+      },
+      "maxMs": {
+        "RF2 0.21": 61.138792,
+        "RF2 rotate candidate": 52.864708,
+        "Clang/CommonCrypto": 6.720917,
+        "Python/hashlib": 23.553541
+      }
+    }
+  ],
+  "raw": [
+    {
+      "task": "sha",
+      "variant": "RF2 0.21",
+      "excludedWarmupMs": 3.904042
+    },
+    {
+      "task": "sha",
+      "variant": "RF2 rotate candidate",
+      "excludedWarmupMs": 386.682167
+    },
+    {
+      "task": "sha",
+      "variant": "Clang/CommonCrypto",
+      "excludedWarmupMs": 7.949042
+    },
+    {
+      "task": "sha",
+      "variant": "Python/hashlib",
+      "excludedWarmupMs": 27.096542
+    },
+    {
+      "task": "sha",
+      "trial": 0,
+      "variant": "Python/hashlib",
+      "ms": 17.3565
+    },
+    {
+      "task": "sha",
+      "trial": 0,
+      "variant": "RF2 rotate candidate",
+      "ms": 3.194334
+    },
+    {
+      "task": "sha",
+      "trial": 0,
+      "variant": "RF2 0.21",
+      "ms": 3.574625
+    },
+    {
+      "task": "sha",
+      "trial": 0,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.0955
+    },
+    {
+      "task": "sha",
+      "trial": 1,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.891666
+    },
+    {
+      "task": "sha",
+      "trial": 1,
+      "variant": "RF2 0.21",
+      "ms": 3.157625
+    },
+    {
+      "task": "sha",
+      "trial": 1,
+      "variant": "Python/hashlib",
+      "ms": 12.794958
+    },
+    {
+      "task": "sha",
+      "trial": 1,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.74875
+    },
+    {
+      "task": "sha",
+      "trial": 2,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.372875
+    },
+    {
+      "task": "sha",
+      "trial": 2,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.708667
+    },
+    {
+      "task": "sha",
+      "trial": 2,
+      "variant": "Python/hashlib",
+      "ms": 11.795708
+    },
+    {
+      "task": "sha",
+      "trial": 2,
+      "variant": "RF2 0.21",
+      "ms": 2.852709
+    },
+    {
+      "task": "sha",
+      "trial": 3,
+      "variant": "RF2 0.21",
+      "ms": 2.633542
+    },
+    {
+      "task": "sha",
+      "trial": 3,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.126041
+    },
+    {
+      "task": "sha",
+      "trial": 3,
+      "variant": "Python/hashlib",
+      "ms": 11.365708
+    },
+    {
+      "task": "sha",
+      "trial": 3,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.968333
+    },
+    {
+      "task": "sha",
+      "trial": 4,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.837125
+    },
+    {
+      "task": "sha",
+      "trial": 4,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.164917
+    },
+    {
+      "task": "sha",
+      "trial": 4,
+      "variant": "Python/hashlib",
+      "ms": 10.824667
+    },
+    {
+      "task": "sha",
+      "trial": 4,
+      "variant": "RF2 0.21",
+      "ms": 2.655458
+    },
+    {
+      "task": "sha",
+      "trial": 5,
+      "variant": "Python/hashlib",
+      "ms": 13.35475
+    },
+    {
+      "task": "sha",
+      "trial": 5,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.956166
+    },
+    {
+      "task": "sha",
+      "trial": 5,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.497875
+    },
+    {
+      "task": "sha",
+      "trial": 5,
+      "variant": "RF2 0.21",
+      "ms": 3.305875
+    },
+    {
+      "task": "sha",
+      "trial": 6,
+      "variant": "RF2 0.21",
+      "ms": 3.243292
+    },
+    {
+      "task": "sha",
+      "trial": 6,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.814292
+    },
+    {
+      "task": "sha",
+      "trial": 6,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.830875
+    },
+    {
+      "task": "sha",
+      "trial": 6,
+      "variant": "Python/hashlib",
+      "ms": 12.891209
+    },
+    {
+      "task": "sha",
+      "trial": 7,
+      "variant": "Python/hashlib",
+      "ms": 11.773041
+    },
+    {
+      "task": "sha",
+      "trial": 7,
+      "variant": "RF2 0.21",
+      "ms": 3.087125
+    },
+    {
+      "task": "sha",
+      "trial": 7,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.365792
+    },
+    {
+      "task": "sha",
+      "trial": 7,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.572792
+    },
+    {
+      "task": "sha",
+      "trial": 8,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.283375
+    },
+    {
+      "task": "sha",
+      "trial": 8,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.878792
+    },
+    {
+      "task": "sha",
+      "trial": 8,
+      "variant": "Python/hashlib",
+      "ms": 13.721959
+    },
+    {
+      "task": "sha",
+      "trial": 8,
+      "variant": "RF2 0.21",
+      "ms": 2.950917
+    },
+    {
+      "task": "sha",
+      "trial": 9,
+      "variant": "Python/hashlib",
+      "ms": 11.295333
+    },
+    {
+      "task": "sha",
+      "trial": 9,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.583833
+    },
+    {
+      "task": "sha",
+      "trial": 9,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.683541
+    },
+    {
+      "task": "sha",
+      "trial": 9,
+      "variant": "RF2 0.21",
+      "ms": 2.654333
+    },
+    {
+      "task": "sha",
+      "trial": 10,
+      "variant": "Python/hashlib",
+      "ms": 11.451417
+    },
+    {
+      "task": "sha",
+      "trial": 10,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.044333
+    },
+    {
+      "task": "sha",
+      "trial": 10,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.275708
+    },
+    {
+      "task": "sha",
+      "trial": 10,
+      "variant": "RF2 0.21",
+      "ms": 2.94375
+    },
+    {
+      "task": "sha",
+      "trial": 11,
+      "variant": "Python/hashlib",
+      "ms": 11.32375
+    },
+    {
+      "task": "sha",
+      "trial": 11,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.456416
+    },
+    {
+      "task": "sha",
+      "trial": 11,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.687333
+    },
+    {
+      "task": "sha",
+      "trial": 11,
+      "variant": "RF2 0.21",
+      "ms": 2.751875
+    },
+    {
+      "task": "sha",
+      "trial": 12,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.65625
+    },
+    {
+      "task": "sha",
+      "trial": 12,
+      "variant": "Python/hashlib",
+      "ms": 11.149666
+    },
+    {
+      "task": "sha",
+      "trial": 12,
+      "variant": "RF2 0.21",
+      "ms": 2.870917
+    },
+    {
+      "task": "sha",
+      "trial": 12,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.370833
+    },
+    {
+      "task": "sha",
+      "trial": 13,
+      "variant": "RF2 0.21",
+      "ms": 2.5935
+    },
+    {
+      "task": "sha",
+      "trial": 13,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.139583
+    },
+    {
+      "task": "sha",
+      "trial": 13,
+      "variant": "Python/hashlib",
+      "ms": 10.7655
+    },
+    {
+      "task": "sha",
+      "trial": 13,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.886625
+    },
+    {
+      "task": "sha",
+      "trial": 14,
+      "variant": "RF2 0.21",
+      "ms": 2.846791
+    },
+    {
+      "task": "sha",
+      "trial": 14,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.22025
+    },
+    {
+      "task": "sha",
+      "trial": 14,
+      "variant": "Python/hashlib",
+      "ms": 11.728417
+    },
+    {
+      "task": "sha",
+      "trial": 14,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.002583
+    },
+    {
+      "task": "sha",
+      "trial": 15,
+      "variant": "Python/hashlib",
+      "ms": 11.074583
+    },
+    {
+      "task": "sha",
+      "trial": 15,
+      "variant": "RF2 0.21",
+      "ms": 2.961458
+    },
+    {
+      "task": "sha",
+      "trial": 15,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.658583
+    },
+    {
+      "task": "sha",
+      "trial": 15,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.190334
+    },
+    {
+      "task": "sha",
+      "trial": 16,
+      "variant": "Python/hashlib",
+      "ms": 11.243208
+    },
+    {
+      "task": "sha",
+      "trial": 16,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.713083
+    },
+    {
+      "task": "sha",
+      "trial": 16,
+      "variant": "RF2 0.21",
+      "ms": 2.711083
+    },
+    {
+      "task": "sha",
+      "trial": 16,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.755
+    },
+    {
+      "task": "sha",
+      "trial": 17,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.798625
+    },
+    {
+      "task": "sha",
+      "trial": 17,
+      "variant": "RF2 0.21",
+      "ms": 3.003625
+    },
+    {
+      "task": "sha",
+      "trial": 17,
+      "variant": "Python/hashlib",
+      "ms": 11.701917
+    },
+    {
+      "task": "sha",
+      "trial": 17,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.543791
+    },
+    {
+      "task": "sha",
+      "trial": 18,
+      "variant": "Python/hashlib",
+      "ms": 11.347625
+    },
+    {
+      "task": "sha",
+      "trial": 18,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.957667
+    },
+    {
+      "task": "sha",
+      "trial": 18,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.200042
+    },
+    {
+      "task": "sha",
+      "trial": 18,
+      "variant": "RF2 0.21",
+      "ms": 2.823084
+    },
+    {
+      "task": "sha",
+      "trial": 19,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.34225
+    },
+    {
+      "task": "sha",
+      "trial": 19,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.665459
+    },
+    {
+      "task": "sha",
+      "trial": 19,
+      "variant": "Python/hashlib",
+      "ms": 11.51525
+    },
+    {
+      "task": "sha",
+      "trial": 19,
+      "variant": "RF2 0.21",
+      "ms": 2.913291
+    },
+    {
+      "task": "sha",
+      "trial": 20,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.696625
+    },
+    {
+      "task": "sha",
+      "trial": 20,
+      "variant": "RF2 rotate candidate",
+      "ms": 2.303292
+    },
+    {
+      "task": "sha",
+      "trial": 20,
+      "variant": "RF2 0.21",
+      "ms": 2.762792
+    },
+    {
+      "task": "sha",
+      "trial": 20,
+      "variant": "Python/hashlib",
+      "ms": 11.534375
+    },
+    {
+      "task": "sha-batch",
+      "variant": "RF2 0.21",
+      "excludedWarmupMs": 57.623167
+    },
+    {
+      "task": "sha-batch",
+      "variant": "RF2 rotate candidate",
+      "excludedWarmupMs": 431.307959
+    },
+    {
+      "task": "sha-batch",
+      "variant": "Clang/CommonCrypto",
+      "excludedWarmupMs": 9.757125
+    },
+    {
+      "task": "sha-batch",
+      "variant": "Python/hashlib",
+      "excludedWarmupMs": 48.011125
+    },
+    {
+      "task": "sha-batch",
+      "trial": 0,
+      "variant": "Python/hashlib",
+      "ms": 23.553541
+    },
+    {
+      "task": "sha-batch",
+      "trial": 0,
+      "variant": "RF2 rotate candidate",
+      "ms": 52.864708
+    },
+    {
+      "task": "sha-batch",
+      "trial": 0,
+      "variant": "RF2 0.21",
+      "ms": 61.138792
+    },
+    {
+      "task": "sha-batch",
+      "trial": 0,
+      "variant": "Clang/CommonCrypto",
+      "ms": 3.25425
+    },
+    {
+      "task": "sha-batch",
+      "trial": 1,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.57625
+    },
+    {
+      "task": "sha-batch",
+      "trial": 1,
+      "variant": "RF2 0.21",
+      "ms": 59.18025
+    },
+    {
+      "task": "sha-batch",
+      "trial": 1,
+      "variant": "Python/hashlib",
+      "ms": 22.191958
+    },
+    {
+      "task": "sha-batch",
+      "trial": 1,
+      "variant": "RF2 rotate candidate",
+      "ms": 44.794417
+    },
+    {
+      "task": "sha-batch",
+      "trial": 2,
+      "variant": "RF2 rotate candidate",
+      "ms": 36.326
+    },
+    {
+      "task": "sha-batch",
+      "trial": 2,
+      "variant": "Clang/CommonCrypto",
+      "ms": 6.720917
+    },
+    {
+      "task": "sha-batch",
+      "trial": 2,
+      "variant": "Python/hashlib",
+      "ms": 19.603291
+    },
+    {
+      "task": "sha-batch",
+      "trial": 2,
+      "variant": "RF2 0.21",
+      "ms": 57.205875
+    },
+    {
+      "task": "sha-batch",
+      "trial": 3,
+      "variant": "RF2 0.21",
+      "ms": 56.7885
+    },
+    {
+      "task": "sha-batch",
+      "trial": 3,
+      "variant": "RF2 rotate candidate",
+      "ms": 36.078958
+    },
+    {
+      "task": "sha-batch",
+      "trial": 3,
+      "variant": "Python/hashlib",
+      "ms": 19.597
+    },
+    {
+      "task": "sha-batch",
+      "trial": 3,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.683709
+    },
+    {
+      "task": "sha-batch",
+      "trial": 4,
+      "variant": "Clang/CommonCrypto",
+      "ms": 3.208167
+    },
+    {
+      "task": "sha-batch",
+      "trial": 4,
+      "variant": "RF2 rotate candidate",
+      "ms": 35.345208
+    },
+    {
+      "task": "sha-batch",
+      "trial": 4,
+      "variant": "Python/hashlib",
+      "ms": 14.014417
+    },
+    {
+      "task": "sha-batch",
+      "trial": 4,
+      "variant": "RF2 0.21",
+      "ms": 56.450792
+    },
+    {
+      "task": "sha-batch",
+      "trial": 5,
+      "variant": "Python/hashlib",
+      "ms": 13.110125
+    },
+    {
+      "task": "sha-batch",
+      "trial": 5,
+      "variant": "RF2 rotate candidate",
+      "ms": 36.486167
+    },
+    {
+      "task": "sha-batch",
+      "trial": 5,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.699917
+    },
+    {
+      "task": "sha-batch",
+      "trial": 5,
+      "variant": "RF2 0.21",
+      "ms": 57.384875
+    },
+    {
+      "task": "sha-batch",
+      "trial": 6,
+      "variant": "RF2 0.21",
+      "ms": 57.235042
+    },
+    {
+      "task": "sha-batch",
+      "trial": 6,
+      "variant": "RF2 rotate candidate",
+      "ms": 35.502833
+    },
+    {
+      "task": "sha-batch",
+      "trial": 6,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.555917
+    },
+    {
+      "task": "sha-batch",
+      "trial": 6,
+      "variant": "Python/hashlib",
+      "ms": 12.463709
+    },
+    {
+      "task": "sha-batch",
+      "trial": 7,
+      "variant": "Python/hashlib",
+      "ms": 13.426542
+    },
+    {
+      "task": "sha-batch",
+      "trial": 7,
+      "variant": "RF2 0.21",
+      "ms": 57.412041
+    },
+    {
+      "task": "sha-batch",
+      "trial": 7,
+      "variant": "RF2 rotate candidate",
+      "ms": 35.212958
+    },
+    {
+      "task": "sha-batch",
+      "trial": 7,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.83025
+    },
+    {
+      "task": "sha-batch",
+      "trial": 8,
+      "variant": "RF2 rotate candidate",
+      "ms": 34.83475
+    },
+    {
+      "task": "sha-batch",
+      "trial": 8,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.7205
+    },
+    {
+      "task": "sha-batch",
+      "trial": 8,
+      "variant": "Python/hashlib",
+      "ms": 13.043
+    },
+    {
+      "task": "sha-batch",
+      "trial": 8,
+      "variant": "RF2 0.21",
+      "ms": 56.73275
+    },
+    {
+      "task": "sha-batch",
+      "trial": 9,
+      "variant": "Python/hashlib",
+      "ms": 13.012584
+    },
+    {
+      "task": "sha-batch",
+      "trial": 9,
+      "variant": "RF2 rotate candidate",
+      "ms": 35.412708
+    },
+    {
+      "task": "sha-batch",
+      "trial": 9,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.5785
+    },
+    {
+      "task": "sha-batch",
+      "trial": 9,
+      "variant": "RF2 0.21",
+      "ms": 56.983084
+    },
+    {
+      "task": "sha-batch",
+      "trial": 10,
+      "variant": "Python/hashlib",
+      "ms": 13.495375
+    },
+    {
+      "task": "sha-batch",
+      "trial": 10,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.188792
+    },
+    {
+      "task": "sha-batch",
+      "trial": 10,
+      "variant": "RF2 rotate candidate",
+      "ms": 36.03225
+    },
+    {
+      "task": "sha-batch",
+      "trial": 10,
+      "variant": "RF2 0.21",
+      "ms": 56.920625
+    },
+    {
+      "task": "sha-batch",
+      "trial": 11,
+      "variant": "Python/hashlib",
+      "ms": 13.102166
+    },
+    {
+      "task": "sha-batch",
+      "trial": 11,
+      "variant": "RF2 rotate candidate",
+      "ms": 35.293584
+    },
+    {
+      "task": "sha-batch",
+      "trial": 11,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.231833
+    },
+    {
+      "task": "sha-batch",
+      "trial": 11,
+      "variant": "RF2 0.21",
+      "ms": 57.439
+    },
+    {
+      "task": "sha-batch",
+      "trial": 12,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.357125
+    },
+    {
+      "task": "sha-batch",
+      "trial": 12,
+      "variant": "Python/hashlib",
+      "ms": 12.291583
+    },
+    {
+      "task": "sha-batch",
+      "trial": 12,
+      "variant": "RF2 0.21",
+      "ms": 57.098375
+    },
+    {
+      "task": "sha-batch",
+      "trial": 12,
+      "variant": "RF2 rotate candidate",
+      "ms": 35.316417
+    },
+    {
+      "task": "sha-batch",
+      "trial": 13,
+      "variant": "RF2 0.21",
+      "ms": 57.618583
+    },
+    {
+      "task": "sha-batch",
+      "trial": 13,
+      "variant": "RF2 rotate candidate",
+      "ms": 35.080292
+    },
+    {
+      "task": "sha-batch",
+      "trial": 13,
+      "variant": "Python/hashlib",
+      "ms": 12.438416
+    },
+    {
+      "task": "sha-batch",
+      "trial": 13,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.333583
+    },
+    {
+      "task": "sha-batch",
+      "trial": 14,
+      "variant": "RF2 0.21",
+      "ms": 55.935625
+    },
+    {
+      "task": "sha-batch",
+      "trial": 14,
+      "variant": "RF2 rotate candidate",
+      "ms": 35.189583
+    },
+    {
+      "task": "sha-batch",
+      "trial": 14,
+      "variant": "Python/hashlib",
+      "ms": 12.674667
+    },
+    {
+      "task": "sha-batch",
+      "trial": 14,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.327667
+    },
+    {
+      "task": "sha-batch",
+      "trial": 15,
+      "variant": "Python/hashlib",
+      "ms": 11.522208
+    },
+    {
+      "task": "sha-batch",
+      "trial": 15,
+      "variant": "RF2 0.21",
+      "ms": 56.01275
+    },
+    {
+      "task": "sha-batch",
+      "trial": 15,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.486584
+    },
+    {
+      "task": "sha-batch",
+      "trial": 15,
+      "variant": "RF2 rotate candidate",
+      "ms": 35.077625
+    },
+    {
+      "task": "sha-batch",
+      "trial": 16,
+      "variant": "Python/hashlib",
+      "ms": 12.794541
+    },
+    {
+      "task": "sha-batch",
+      "trial": 16,
+      "variant": "RF2 rotate candidate",
+      "ms": 34.862583
+    },
+    {
+      "task": "sha-batch",
+      "trial": 16,
+      "variant": "RF2 0.21",
+      "ms": 56.421625
+    },
+    {
+      "task": "sha-batch",
+      "trial": 16,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.532
+    },
+    {
+      "task": "sha-batch",
+      "trial": 17,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.253166
+    },
+    {
+      "task": "sha-batch",
+      "trial": 17,
+      "variant": "RF2 0.21",
+      "ms": 56.91775
+    },
+    {
+      "task": "sha-batch",
+      "trial": 17,
+      "variant": "Python/hashlib",
+      "ms": 12.441542
+    },
+    {
+      "task": "sha-batch",
+      "trial": 17,
+      "variant": "RF2 rotate candidate",
+      "ms": 35.826417
+    },
+    {
+      "task": "sha-batch",
+      "trial": 18,
+      "variant": "Python/hashlib",
+      "ms": 14.331708
+    },
+    {
+      "task": "sha-batch",
+      "trial": 18,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.511625
+    },
+    {
+      "task": "sha-batch",
+      "trial": 18,
+      "variant": "RF2 rotate candidate",
+      "ms": 34.775667
+    },
+    {
+      "task": "sha-batch",
+      "trial": 18,
+      "variant": "RF2 0.21",
+      "ms": 58.32675
+    },
+    {
+      "task": "sha-batch",
+      "trial": 19,
+      "variant": "RF2 rotate candidate",
+      "ms": 36.312375
+    },
+    {
+      "task": "sha-batch",
+      "trial": 19,
+      "variant": "Clang/CommonCrypto",
+      "ms": 4.104625
+    },
+    {
+      "task": "sha-batch",
+      "trial": 19,
+      "variant": "Python/hashlib",
+      "ms": 12.688416
+    },
+    {
+      "task": "sha-batch",
+      "trial": 19,
+      "variant": "RF2 0.21",
+      "ms": 56.27325
+    },
+    {
+      "task": "sha-batch",
+      "trial": 20,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.487084
+    },
+    {
+      "task": "sha-batch",
+      "trial": 20,
+      "variant": "RF2 rotate candidate",
+      "ms": 34.478208
+    },
+    {
+      "task": "sha-batch",
+      "trial": 20,
+      "variant": "RF2 0.21",
+      "ms": 56.809125
+    },
+    {
+      "task": "sha-batch",
+      "trial": 20,
+      "variant": "Python/hashlib",
+      "ms": 13.512625
+    }
+  ],
+  "compilerSHA256": "836c736102887abd0f17c00276c682f52190fa062dc96c6eab95ec8083bc2e6c",
+  "compilerSourceSHA256": "9559e27916496bd3756de2f5c23d4d0eeb8f202c4d0100b0ec0d8b81e2e87697",
+  "shaSourceSHA256": "cb633d30ddc8f9db315bdb8049a8ffe79d6ba83a4ae82f727c6d3957064ac434",
+  "controllerSHA256": "9913190430ee91242f5006ff4cc4faeb123520b695260389a9c58f74408e58d8",
+  "baselineReportSHA256": "50250640734a702e09235faa82c00f2f23ed3747a88833ac89aced4d6c004808",
+  "artifacts": [
+    {
+      "path": "artifacts/rotate-0.22/bench-1794537032942307000/sha.rf2",
+      "sha256": "cae2b8c9eef1bf00daf691b499af3a179ce208b96dc43a67f5ff46f37d81999a"
+    },
+    {
+      "path": "artifacts/rotate-0.22/bench-1794537032942307000/sha-batch",
+      "sha256": "6a662ca2b2eeed5655ea3c8f90cb54a972627fbb738d604b8c0e9f70915ecbcd"
+    },
+    {
+      "path": "artifacts/rotate-0.22/bench-1794537032942307000/sha",
+      "sha256": "105ada5c2db9e6511042049a2def171334db730682d607ac4ec926587d95b559"
+    },
+    {
+      "path": "artifacts/rotate-0.22/bench-1794537032942307000/sha-batch.rf2",
+      "sha256": "fd11042af5cad39d5cb4c1bd55dcdc2a9fd1c24c549a8421b0c8a964439fb19a"
+    }
+  ],
+  "scope": "Same runtime file and output oracle,21rotated fresh-process trials afterwarmup. Includesstartup; batch50 variesfirstbyte/hash. FrozenRF2baseline, CCommonCrypto andPythonhashlib retained. No isolated single-instruction, universal speed, energy, fullAI-task or billedtoken claim."
+}

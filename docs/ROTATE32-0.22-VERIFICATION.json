@@ -1,0 +1,183 @@
+{
+  "passed": true,
+  "rotatePairsPerMode": 3989,
+  "compilerModes": 2,
+  "negativeCases": 4,
+  "shaCases": [
+    {
+      "bytes": 0,
+      "optimized": false,
+      "expectedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1,
+      "optimized": false,
+      "expectedSHA256": "26e5bfe4b0686167e3e4e0aac40cbae03515171d375f91ea563c9c044e9c5cc7"
+    },
+    {
+      "bytes": 3,
+      "optimized": false,
+      "expectedSHA256": "6ebf48ca35bd30e8a8e9a0c952b8c3ff3594009ed908605564dbc86110b4532e"
+    },
+    {
+      "bytes": 31,
+      "optimized": false,
+      "expectedSHA256": "3fa76110b77297ea4aa5224987785d7c5cb8203f8f6c60509c44212980abcedd"
+    },
+    {
+      "bytes": 55,
+      "optimized": false,
+      "expectedSHA256": "6cdedb6e996f8852f2a90d3b20d762bb9a08ee4f56619e3acdca42c0e6adae5a"
+    },
+    {
+      "bytes": 56,
+      "optimized": false,
+      "expectedSHA256": "a5f7e9ee22d8dd80dab600ab031636fe5cbd1dc0636ef7caa6b9900ea02ad55f"
+    },
+    {
+      "bytes": 63,
+      "optimized": false,
+      "expectedSHA256": "6b33ed65ed0007db5d0bf3b3e47caecb9805d4d89d6804da4f5c1598c025183c"
+    },
+    {
+      "bytes": 64,
+      "optimized": false,
+      "expectedSHA256": "4372a9233bea61baed78b194ff2d10ae381ee5e4b40ee888466e9367399643cf"
+    },
+    {
+      "bytes": 65,
+      "optimized": false,
+      "expectedSHA256": "b08b8182abe96f89dcb2ea2540cab6ec10af3506b7b3bb6cb8311d116c785339"
+    },
+    {
+      "bytes": 127,
+      "optimized": false,
+      "expectedSHA256": "992b92841201eca9404f1b36dff6fa59204a5c54feb712e0da172d88dba2320d"
+    },
+    {
+      "bytes": 128,
+      "optimized": false,
+      "expectedSHA256": "ef2eee27b12e0b68ec4892683a8dca66c757c29f0d47fa7801c48821bf588a94"
+    },
+    {
+      "bytes": 129,
+      "optimized": false,
+      "expectedSHA256": "1186c0cfa15f659c13b8d41ef9608cfb049198c6ea097881bbd6f084ddfe4cd2"
+    },
+    {
+      "bytes": 255,
+      "optimized": false,
+      "expectedSHA256": "8fd105491519505d7d5c28d8b42285a02862309ea12a0ba6fbd459124cba9fe6"
+    },
+    {
+      "bytes": 1024,
+      "optimized": false,
+      "expectedSHA256": "0dc0ff73d4e08b68bb8e5f5be6c2fbba48a03d37a720c754cf14d6facd3a6a38"
+    },
+    {
+      "bytes": 4096,
+      "optimized": false,
+      "expectedSHA256": "9f257be19f2ff60234258054ca32ee5eb9ea03b5f02cae5d36237ab791b5951a"
+    },
+    {
+      "bytes": 32768,
+      "optimized": false,
+      "expectedSHA256": "bec62ebd6ce1568bce2831d45e8146182140ebfe7cfb6b44c225e2cdd0a6317c"
+    },
+    {
+      "bytes": 65536,
+      "optimized": false,
+      "expectedSHA256": "4294d4d05f7384bb2b1f804e0bb6fbc1c4ff4d60d6e95bf03041193b938e1997"
+    },
+    {
+      "bytes": 0,
+      "optimized": true,
+      "expectedSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1,
+      "optimized": true,
+      "expectedSHA256": "2795044ce0f83f718bc79c5f2add1e52521978df91ce9b7f82c9097191d33602"
+    },
+    {
+      "bytes": 3,
+      "optimized": true,
+      "expectedSHA256": "e0df848c7183bbc059d1b767219e617930ba63332efcd820b0adfa9487297737"
+    },
+    {
+      "bytes": 31,
+      "optimized": true,
+      "expectedSHA256": "88fdcc3d4c7b9163b75fc1af6f80af49585372d57f9fc6c24af746dbcf12793f"
+    },
+    {
+      "bytes": 55,
+      "optimized": true,
+      "expectedSHA256": "79337e6410be86e20eb8edd6c8fc74da744e76a0971fc4497894eb076c6cd7e8"
+    },
+    {
+      "bytes": 56,
+      "optimized": true,
+      "expectedSHA256": "9d38a6a53cf97843649830ff5a7188038508394d261df3b3438630465b69ff52"
+    },
+    {
+      "bytes": 63,
+      "optimized": true,
+      "expectedSHA256": "8f9a640dc9706fae6a230eaf6503397036080f6f657d6c55ca0b83cdf50d2c42"
+    },
+    {
+      "bytes": 64,
+      "optimized": true,
+      "expectedSHA256": "a40e948961722e2db25d645cfb694fa6f5dedbba9dc548f349e5161bfe694003"
+    },
+    {
+      "bytes": 65,
+      "optimized": true,
+      "expectedSHA256": "f01ba748911ebd5fe115cc9d25801b8374c001dd21897323a69e85917e0bfd90"
+    },
+    {
+      "bytes": 127,
+      "optimized": true,
+      "expectedSHA256": "ef768109427c75c9306a80f00d81f6e20a648f4035b1d77a604064b2375b4442"
+    },
+    {
+      "bytes": 128,
+      "optimized": true,
+      "expectedSHA256": "54ce526b51d78c4eddc7e7e045bc0244bf8201c97d124661837c787f9aa4725e"
+    },
+    {
+      "bytes": 129,
+      "optimized": true,
+      "expectedSHA256": "df1d5ff8c248ac18951a614b5336d21095e02c2d62162a7b035ccbd037bba878"
+    },
+    {
+      "bytes": 255,
+      "optimized": true,
+      "expectedSHA256": "891d2e814b834880a2acd3938de68d904768b5166e573b80306fa379c0b7fee9"
+    },
+    {
+      "bytes": 1024,
+      "optimized": true,
+      "expectedSHA256": "c5c9e5840ac79da124b0c9d08ec1e3afa57ccddf5ca343cade8ed1110fe0ed9f"
+    },
+    {
+      "bytes": 4096,
+      "optimized": true,
+      "expectedSHA256": "b08de17c6dc76e335a9841fa46110664e7dcfb4ecd522abad6f06603d0155a82"
+    },
+    {
+      "bytes": 32768,
+      "optimized": true,
+      "expectedSHA256": "3b46a41dd0f99741843a3302f262eb0afec52b075a1edb97848ff7a4525ab3d6"
+    },
+    {
+      "bytes": 65536,
+      "optimized": true,
+      "expectedSHA256": "014aa0a6bb99ce1ff431f3fa31792b25c890a9448cf88f4191c885722078b514"
+    }
+  ],
+  "compilerSHA256": "836c736102887abd0f17c00276c682f52190fa062dc96c6eab95ec8083bc2e6c",
+  "compilerSourceSHA256": "9559e27916496bd3756de2f5c23d4d0eeb8f202c4d0100b0ec0d8b81e2e87697",
+  "shaSourceSHA256": "cb633d30ddc8f9db315bdb8049a8ffe79d6ba83a4ae82f727c6d3957064ac434",
+  "controllerSHA256": "815a6c86728ece8c70b9390f8de7fecc39e5bc6f023d9423e704a02a6a12680d",
+  "scope": "ror32 returns low32input rotated by amountmod32, zero extended. Native32-bit RORV, no floating point or new Core/MCP effect. Finite native/Python differential SHA checks, not wholecrypto/compiler proof."
+}

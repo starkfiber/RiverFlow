@@ -133,3 +133,9 @@ Read docs/BOOT-CONTRACT-0.21.md and docs/BENCHMARKS-0.21.md. resource Pages(IO,m
 The native guest CLI generates keys, seals and verifies RF2A021 shared-key HMAC-SHA256 images, then enforces a fixed memory/register/slice contract. Valid MAC does not override policy. Keys remain local owner-only regular files; no public signatures, anti-rollback, measured hardware boot or Linux/ELF support. Replay is allowed. Current admitted exit is HVC #1; a retained HVC #0 counterexample invalidated broader register-preservation assumptions. New hardware authority remains CLI-only, never Core or MCP.
 
 Fresh matched task, HTTP and MCP reports retain the fifty-hash loss versus Python/hashlib and Clang/CommonCrypto. No 100% Python/C/assembly parity, universal speed, actual billed-token or full AI-task claim. The19report inventory distinguishes historical measurements from reruns. Native artifact metadata is not complete REA API/runtime coverage, and WhatIF source scanning skips RF2. Stable packages and the exact0.18archive remain unchanged.
+
+## Local native rotate candidate, 0.22
+
+ror32(value,amount) in trusted systems source emits ARM64 RORV over low32input bits with amount modulo32 and zero-extended u64 result. It is pure arithmetic, not floating point or a new Core/MCP effect. SHA uses the primitive instead of helper calls.3989pairs per compiler mode,34SHAcases and existing guest/trust/SDK checks passed. The selected50-hash batch median fell56.98to35.35ms in21matched trials; Python/hashlib and C/CommonCrypto still win that batch. Read docs/ROTATE32-0.22.md. No broad parity, energy, fullAI-task or billedtoken claim.
+
+SFE GitHub identity must be verified before remote writes. The explicitly selected SFE connector returned `starkfiber`, account ID 6210371, before publishing this source candidate. Stable downloads remain unchanged. Never use the old credential workaround or treat an installed SFE repository as proof of the acting account.

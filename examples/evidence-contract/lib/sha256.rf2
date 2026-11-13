@@ -127,9 +127,9 @@ fn sha256(src, n)
   end
   while j < 64
    set value = load32(w + (j - 15) * 4)
-   set s0 = rotate(value, 7) ^ rotate(value, 18) ^ (value >> 3)
+   set s0 = ror32(value, 7) ^ ror32(value, 18) ^ (value >> 3)
    set value = load32(w + (j - 2) * 4)
-   set s1 = rotate(value, 17) ^ rotate(value, 19) ^ (value >> 10)
+   set s1 = ror32(value, 17) ^ ror32(value, 19) ^ (value >> 10)
    do store32(w + j * 4, load32(w + (j - 16) * 4) + s0 + load32(w + (j - 7) * 4) + s1)
    set j = j + 1
   end
@@ -143,10 +143,10 @@ fn sha256(src, n)
   set h = load32(hstate + 28)
   set j = 0
   while j < 64
-   set s1 = rotate(e, 6) ^ rotate(e, 11) ^ rotate(e, 25)
+   set s1 = ror32(e, 6) ^ ror32(e, 11) ^ ror32(e, 25)
    set value = (e & f) ^ ((~e) & g)
    set t1 = (h + s1 + value + load32(k + j * 4) + load32(w + j * 4)) & 4294967295
-   set s0 = rotate(a, 2) ^ rotate(a, 13) ^ rotate(a, 22)
+   set s0 = ror32(a, 2) ^ ror32(a, 13) ^ ror32(a, 22)
    set value = (a & b) ^ (a & c) ^ (b & c)
    set t2 = (s0 + value) & 4294967295
    set h = g

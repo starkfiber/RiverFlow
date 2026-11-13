@@ -18,6 +18,10 @@ The [Evidence Contract candidate](docs/EVIDENCE-CONTRACT.md) combines five teste
 
 The [ten-language source audit](docs/TOP-TEN-LANGUAGE-AUDIT.md) compares RF2 with selected implementations from Python through C, SQL and Go, with assembly as a separate low-level reference. It includes an A–Z acceptance ledger and marks missing capabilities explicitly. Popularity and shorter spelling do not prove correctness, speed or adoption.
 
+## Local 0.22 candidate: native rotate
+
+A direct32-bit rotation primitive reduces the selected50-hash SHA batch median from56.98to35.35ms in21matched trials. Library baselines remain faster. This is a source candidate; stable downloads are unchanged. SFE connector authentication was verified before publication. [Evidence and limits](docs/ROTATE32-0.22.md).
+
 ## 0.21 development: owned mappings and authenticated guest entry
 
 RF2 now owns guest mapping lifetimes and authenticates a fixed boot contract with shared-key HMAC. The final local suite passed 34 guest runs, 77 refusals, 23 mapping scenarios in both compiler modes and six controlled fault substitutions. A stronger test found an older HVC #0 counterexample; the current profile requires HVC #1. [Contract and limits](docs/BOOT-CONTRACT-0.21.md).

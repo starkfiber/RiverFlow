@@ -1431,6 +1431,29 @@ Nineteen retained benchmark reports are indexed separately. Historical optimizer
 
 RF2 is not at complete Python, C or assembly coverage. Floating point, arbitrary precision, general heap and ownership transfer, concurrency, comprehensive libraries, broad foreign interfaces and other CPU/OS targets remain substantial work. Direct native emission and a few complete apps are useful foundations. Their limits define the next tests.
 
+# 38. A smaller instruction, a measured improvement
+
+The repeated-hash result in the preceding chapter exposed a concrete cost. The next local candidate targets that cost with an established ARM64 instruction rather than a new cryptographic claim.
+
+```rf2
+let rotated=ror32(0x12345678,8)
+```
+
+The intrinsic rotates the low 32 input bits by the amount modulo 32 and returns a zero-extended u64 value. It emits RORV W0,W0,W1 directly. Zero amounts, full-width amounts and high input bits have explicit semantics. This is integer arithmetic, not floating point, new transistor logic or a new Core/MCP effect.
+
+The SHA implementation replaces its repeated rotation helper calls with the intrinsic. Its padding, message schedule, constants and round calculations remain. Both compiler modes passed 3,989 runtime pairs, giving 7,978 native comparisons against independent Python expectations. Four name or arity errors refused. Thirty-four SHA cases, including padding boundaries and messages through 65,536 bytes, matched hashlib. Compiler self-generation, runtime SDK, authenticated guest and bounded MCP checks also passed.
+
+A matched experiment retained the frozen 0.21 programs and the existing C/CommonCrypto and Python/hashlib comparators. Twenty-one rotated trials per task followed a retained warmup on one Mac. Process startup and input reading remain included. The batch changes the first byte for each of fifty hashes of 32 KiB.
+
+| Median time, ms | Frozen RF2 | Rotate candidate | C library | Python library |
+| --- | --- | --- | --- | --- |
+| One hash | 2.871 | 2.366 | 1.831 | 11.515 |
+| Fifty hashes | 56.983 | 35.345 | 2.556 | 13.102 |
+
+The batch candidate took about 38% less time than the frozen RF2 baseline. Both library comparators still beat it. That retained loss matters: a useful compiler improvement does not establish universal speed, a superior hash algorithm, an energy saving or a reduction in billed AI tokens.
+
+This is a development source candidate, not a stable binary release. The explicitly selected SFE connector returned authenticated login starkfiber, account ID 6210371, before publication. Other account credentials are not a fallback for SFE work. The next technical experiment is to profile the remaining SHA schedule and round costs. Numeric types, general memory ownership, concurrency, libraries and other machine targets remain distinct pieces of language development.
+
 # Appendix A. Commands and interfaces
 
 Native standalone, no Node or npm required:
