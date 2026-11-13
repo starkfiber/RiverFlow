@@ -62,10 +62,14 @@ fn diagnostic_position()
   end
   set i = i+1
  end
+ if (load64(buffer("heap_lowering_state",32))!=0)&(offset>=load64(buffer("heap_lowering_state",32)))
+  do write(2,"near compiler collection lowering ",length("near compiler collection lowering "))
+ else
  if load64(d+24)
   do write(2,"near expanded-source ",21)
  else
   do write(2,"near source ",12)
+ end
  end
  do diagnostic_number(line)
  do write(2,":",1)
@@ -588,12 +592,14 @@ fn scan_record()
  let is_text = match("textview")
  let is_resource = match("resource")
  let is_vector = match("vector")
+ let is_collection = match("collection")
  do advance()
  let t = advance()
+ do heap_name_guard(t)
  do require(load64(token(t)) == 1, "record name required")
  do require((tmatch(t, "mapping_store32") | tmatch(t, "mapping_read64") | tmatch(t, "vm_map_owned") | tmatch(t, "vm_unmap_owned") | tmatch(t, "vm_protect_owned") | tmatch(t, "vcpu_set_owned") | tmatch(t, "vcpu_sys_owned") | tmatch(t, "vcpu_read_owned") | tmatch(t, "vcpu_run_owned") | tmatch(t, "vcpu_cancel_owned") | tmatch(t, "vcpu_offset_owned") | tmatch(t, "vcpu_timer_owned") | tmatch(t, "vm_clock_ticks") | tmatch(t, "clock_timebase")) == 0, "reserved platform name")
  do require(record_index(t) == 0, "duplicate record")
- do require(logical_name(t) == 0, "reserved logical name")
+ do require((logical_name(t) | heap_intrinsic(t)) == 0, "reserved logical/collection name")
  do require((intrinsic_flags(t) & 1) == 0, "reserved arithmetic name")
  do require((tmatch(t, "read_bytes") | tmatch(t, "write_bytes") | tmatch(t, "buffer") | tmatch(t, "load8") | tmatch(t, "load32") | tmatch(t, "load64") | tmatch(t, "store8") | tmatch(t, "store32") | tmatch(t, "store64") | tmatch(t, "read") | tmatch(t, "write") | tmatch(t, "open") | tmatch(t, "close") | tmatch(t, "exit") | tmatch(t, "read_owned") | tmatch(t, "write_owned") | tmatch(t, "release") | tmatch(t, "buffer_reserve") | tmatch(t, "buffer_push") | tmatch(t, "buffer_get") | tmatch(t, "buffer_clear") | tmatch(t, "syscall6") | tmatch(t, "fork_process")) == 0, "reserved record name")
  let id = load64(state() + 128) + 1
@@ -626,7 +632,7 @@ fn scan_record()
   do store64(state() + 128, id)
   return newline()
  end
- if is_vector
+ if is_vector | is_collection
   set field = record_index(advance())
   do require(field != 0, "vector result type required")
   do require(load64(record_info(field) + 144) == 3, "vector requires result type")
@@ -636,10 +642,10 @@ fn scan_record()
   set field = advance()
   do require(load64(token(field)) == 2, "vector limit literal required")
   set n = load64(token(field) + 24)
-  do require((n > 0) & (n <= 1048576), "vector limit bound")
+  do require((n > 0) & (n <= 1048576-is_collection*983040), "vector limit bound")
   do require((load64(token(field) + 16) <= 7) & (load8(load64(token(field) + 8)) >= 49) & (load8(load64(token(field) + 8)) <= 57), "vector limit canonical decimal required")
   do store64(r + 8, n)
-  do store64(r + 144, 7)
+  do store64(r + 144, 7+is_collection*4)
   do store64(state() + 128, id)
   do expect(")")
   return newline()
@@ -1050,13 +1056,14 @@ fn scan_functions_more(f)
   if load64(token(load64(state() + 24))) == 5
    do advance()
   else
-   if match("record") | match("array") | match("result") | match("view") | match("textview") | match("resource") | match("vector")
+   if match("record") | match("array") | match("result") | match("view") | match("textview") | match("resource") | match("vector") | match("collection")
     do scan_record()
    else
    do expect("fn")
    set t = advance()
+   do heap_name_guard(t)
    do require(load64(token(t)) == 1, "function name required")
-   do require(logical_name(t) == 0, "reserved logical name")
+   do require((logical_name(t) | heap_intrinsic(t)) == 0, "reserved logical/collection name")
  do require((intrinsic_flags(t) & 1) == 0, "reserved arithmetic name")
    do require((tmatch(t, "read_bytes") | tmatch(t, "write_bytes") | tmatch(t, "read_owned") | tmatch(t, "write_owned") | tmatch(t, "release") | tmatch(t, "buffer_reserve") | tmatch(t, "buffer_push") | tmatch(t, "buffer_get") | tmatch(t, "buffer_clear")) == 0, "reserved IO name")
    do require((tmatch(t,"platform_call") | tmatch(t, "clock_timebase") | tmatch(t, "mapping_store32") | tmatch(t, "mapping_read64") | tmatch(t, "vm_map_owned") | tmatch(t, "vm_unmap_owned") | tmatch(t, "vm_protect_owned") | tmatch(t, "vcpu_set_owned") | tmatch(t, "vcpu_sys_owned") | tmatch(t, "vcpu_read_owned") | tmatch(t, "vcpu_run_owned") | tmatch(t, "vcpu_cancel_owned") | tmatch(t, "vcpu_offset_owned") | tmatch(t, "vcpu_timer_owned") | tmatch(t, "vm_clock_ticks"))==0,"reserved platform name")
@@ -1080,7 +1087,7 @@ fn scan_functions_more(f)
      if tmatch(other, "u64") == 0
       set other = record_index(other)
       do require(other != 0, "unknown parameter type")
-      do require(load64(record_info(other) + 144) < 3, "result/view parameters unsupported")
+      do require((load64(record_info(other) + 144) < 3)|(load64(record_info(other)+144)==11), "result/view parameters unsupported")
       do store64(local_type(f, t), other)
       do store64(local_ready(f, t), 1)
      end
@@ -1162,12 +1169,18 @@ fn scan_body(f, params)
   if match("let") | match("own")
    set slot = add_local(f, i + 1)
    set id = record_index(i + 3)
-   if (id != 0) & tmatch(i + 4, "(")
+   if tmatch(i+3,"move")
+    do require(match("own") & tmatch(i+4,"(") & tmatch(i+6,")"),"move requires own target and one local")
+    let source_slot = heap_find_local(f,i+5)
+    set id = load64(local_type(f,source_slot))
+    do require((id!=0)&(load64(record_info(id)+144)==11),"move requires collection owner")
+   end
+   if ((id != 0) & tmatch(i + 4, "("))
     do require(depth == 1, "record declarations must be function-level")
     do store64(local_type(f, slot), id)
     set count = load64(record_info(id) + 8)
-    if load64(record_info(id) + 144) == 7
-     set count = 4
+    if (load64(record_info(id) + 144) == 7)|(load64(record_info(id)+144)==11)
+     set count = 4+(load64(record_info(id)+144)==11)*2
     end
     if (load64(record_info(id)+144)==1)|(load64(record_info(id)+144)==2)
      if load64(record_info(id)+144)==1
@@ -1185,7 +1198,7 @@ fn scan_body(f, params)
    end
    if match("own")
     do require((id != 0) & tmatch(i + 4, "("), "own requires resource constructor")
-    do require((load64(record_info(id) + 144) == 6) | (load64(record_info(id) + 144) == 7) | (load64(record_info(id) + 144) == 8) | (load64(record_info(id) + 144) == 9) | (load64(record_info(id) + 144) == 10), "own requires resource type")
+    do require((load64(record_info(id) + 144) == 6) | (load64(record_info(id) + 144) == 7) | (load64(record_info(id) + 144) == 8) | (load64(record_info(id) + 144) == 9) | (load64(record_info(id) + 144) == 10) | (load64(record_info(id)+144)==11), "own requires resource type")
     set count = load64(cleanup_count(f))
     do require(count < 16, "resource cleanup count bound")
     do store64(cleanup_slot(f, count), slot + 1)
@@ -1490,9 +1503,12 @@ fn construct_owner(depth)
  let slot = find_local(advance())
  let id = load64(local_type(f, slot))
  do require(id != 0, "resource type required")
- do require((load64(record_info(id) + 144) == 6) | (load64(record_info(id) + 144) == 7) | (load64(record_info(id) + 144) == 8) | (load64(record_info(id) + 144) == 9) | (load64(record_info(id) + 144) == 10), "resource type required")
+ do require((load64(record_info(id) + 144) == 6) | (load64(record_info(id) + 144) == 7) | (load64(record_info(id) + 144) == 8) | (load64(record_info(id) + 144) == 9) | (load64(record_info(id) + 144) == 10) | (load64(record_info(id)+144)==11), "resource type required")
  do require(load64(function_result(f)) == load64(record_info(id) + 152), "owner function result type mismatch")
  do expect("=")
+ if load64(record_info(id)+144)==11
+  return construct_collection(f,slot,id)
+ end
  if load64(record_info(id) + 144) == 10
   return construct_mapping_owner(f, slot, id)
  end
@@ -1539,6 +1555,9 @@ fn invoke_owned(name, depth)
  let slot = local_index(advance())
  let id = load64(local_type(f, slot))
  do require(id != 0, "owned resource required")
+ if load64(record_info(id)+144)==11
+  return invoke_collection(name,depth,f,slot,id)
+ end
  if load64(record_info(id) + 144) >= 8
   do require(tmatch(name, "release"), "VM owner operation required")
   return invoke_vm_owner(name, depth, f, slot, id)
@@ -1788,7 +1807,7 @@ fn expression(minimum, depth)
        do require(load64(local_ready(load64(state() + 32), slot)) != 0, "record used before initialization")
       end
       if id != 0
-       do require((load64(record_info(id) + 144) != 6) & (load64(record_info(id) + 144) < 8), "owner cannot be used as a value")
+       do require((load64(record_info(id) + 144) != 6) & ((load64(record_info(id) + 144) < 8)|(load64(record_info(id)+144)==11)), "owner cannot be used as a value")
        if load64(record_info(id) + 144) == 7
         do require(match("[") | match("."), "vector owner cannot be used as a value")
        end
@@ -1826,6 +1845,9 @@ fn expression(minimum, depth)
   else
    do advance()
    if load64(record_info(id) + 144)
+    if load64(record_info(id)+144)==11
+     do collection_property(id)
+    else
     if load64(record_info(id) + 144) == 7
      do emit(4181721088 | 1)
      do emit(4043309087 | (1 << 5))
@@ -1857,6 +1879,7 @@ fn expression(minimum, depth)
      do emit(4181721088 | (1 << 10))
     else
      do imm(0, load64(record_info(id) + 8))
+    end
     end
     end
     end
@@ -2486,6 +2509,7 @@ fn direct_memory_arguments(arity)
  return arity + 1
 end
 fn invoke(name, depth)
+ do heap_name_guard(name)
  if tmatch(name,"bswap64")
   do scalar_expression(1, depth + 1)
   do expect(")")
@@ -2543,6 +2567,9 @@ fn invoke(name, depth)
   return invoke_logic(name, depth)
  end
  do require(load64(state() + 200) == 0, "calls forbidden while view is live")
+ if heap_intrinsic(name)
+  return parse_collection(name,depth)
+ end
  if tmatch(name, "buffer_reserve") | tmatch(name, "buffer_push") | tmatch(name, "buffer_get") | tmatch(name, "buffer_clear")
   return invoke_vector(name, depth)
  end
@@ -3503,6 +3530,18 @@ fn emit_cleanup(f)
   do access_local(0, slot, 0)
   do emit(4043309087)
   do jump(skip, 0)
+  if load64(cleanup_owned(f,n))==6
+   do access_local(0,slot-1,0)
+   do imm(1,5)
+   do imm(2,0)
+   do imm(3,0)
+   do imm(4,0)
+   do collection_call()
+   do emit(4043309087)
+   do jump(skip,0)
+   # Heap helper returns positive errno in x1; common cleanup path expects x0.
+   do emit(2852193248)
+  else
   do imm(0, 0)
   do access_local(0, slot, 1)
   do access_local(0, slot + 1, 0)
@@ -3527,6 +3566,7 @@ fn emit_cleanup(f)
    end
    do emit(3556773889)
    do jump(skip, 3)
+  end
   end
   if load64(cleanup_owned(f, n))
    do emit(4181721088 | (31 << 5) | 2)
@@ -4432,11 +4472,15 @@ fn line_starts(p, end, start, text)
 end
 fn module_path_check(p, n)
  do require((n >= 5) & (n <= 240), "module path length")
- do require(same(p + n - 4, 4, ".rf2", 4), "module extension")
+ let extension = 4
+ if same(p+n-4,4,".rf2",4)==0
+  do require((n>=6)&same(p+n-5,5,".flow",5),"module extension")
+  set extension = 5
+ end
  let i = 0
  let c = 0
  let segment = 0
- while i < n - 4
+ while i < n - extension
   set c = load8(p + i)
   if c == 47
    do require(segment != 0, "empty module path segment")
@@ -5402,6 +5446,7 @@ fn main(argc, argv)
  do store64(buffer("diagnostic_state",64)+24,load64(module_state()))
  do store64(buffer("diagnostic_state",64),1)
  do tokenize_tail(src, load64(state() + 8), 0, 0)
+ set src = heap_prepare(src)
  do store64(buffer("diagnostic_state",64),2)
  do scan_functions()
  do store64(buffer("diagnostic_state",64),0)
@@ -6031,4 +6076,210 @@ fn invoke_mapping(name, depth, f, slot, id)
  do label(done)
  do store64(state() + 136, load64(record_info(id) + 152))
  return 0
+end
+
+fn heap_state()
+ return buffer("heap_lowering_state",32)
+end
+fn heap_intrinsic(t)
+ return tmatch(t,"collection_reserve")|tmatch(t,"collection_push")|tmatch(t,"collection_get")|tmatch(t,"collection_set")|tmatch(t,"collection_clear")
+end
+fn heap_name_guard(t)
+ let p = load64(token(t)+8)
+ if load64(token(t)+16)>=9
+  if same(p,9,"__rf2heap",9)
+   do require((load64(heap_state())!=0)&(load32(buffer("token_positions",262144)+t*4)>=load64(heap_state())),"reserved compiler collection helper")
+  end
+ end
+ return 0
+end
+fn heap_find_local(f,t)
+ let i = 0
+ while i<load64(ftable(f)+32)
+  if load64(local(f,i))
+   if name_equal(load64(local(f,i)),t)
+    return i
+   end
+  end
+  set i = i+1
+ end
+ do die("move source must be a preceding local")
+ return 0
+end
+fn heap_prepare(src)
+ let i = 0
+ let needed = 0
+ while i<load64(state()+16)
+  if tmatch(i,"collection")&(load64(token(i))==1)
+   if (i==0)|(load64(token(i-1))==5)
+    set needed = 1
+   end
+  end
+  set i = i+1
+ end
+ if needed==0
+  return src
+ end
+ let n = load64(state()+8)
+ let extra = heap_runtime_source()
+ let size = length(extra)
+ do require(n+size<=524288,"collection lowered source size bound")
+ let dst = src
+ do cp(dst+n,extra,size)
+ do store8(dst+n+size,0)
+ do store64(heap_state(),n)
+ do store64(state(),dst)
+ do store64(state()+8,n+size)
+ do store64(state()+16,0)
+ do store64(state()+24,0)
+ do tokenize_tail(dst,n+size,0,0)
+ return dst
+end
+fn collection_call()
+ let f = 0
+ while f<load64(state()+40)
+  if tmatch(load64(ftable(f)),"__rf2heap_op")
+   do fix(1,load64(ftable(f)+40))
+   return emit(2483027968)
+  end
+  set f = f+1
+ end
+ do die("internal collection runtime missing")
+ return 0
+end
+fn construct_collection(f,slot,id)
+ let i = 0
+ if match("move")
+  do advance()
+  do expect("(")
+  let source = local_index(advance())
+  do require(source>=load64(ftable(f)+8),"borrowed collection cannot be moved")
+  do require(load64(local_type(f,source))==id,"move collection type mismatch")
+  do expect(")")
+  do access_local(0,source,0)
+  do emit(4181721088 | (0<<5) | 1)
+  do emit(4043309087 | (1<<5))
+  let good = next_label()
+  do jump(good,1)
+  do imm(0,1)
+  do imm(1,9)
+  do jump(load64(state()+88),16)
+  do label(good)
+  set i = 0
+  while i<6
+   do access_local(0,source+1+i,0)
+   do access_local(0,slot+1+i,1)
+   do imm(0,0)
+   do access_local(0,source+1+i,1)
+   set i = i+1
+  end
+  do store64(local_ready(f,source),0)
+ else
+  do require(record_index(advance())==id,"collection constructor mismatch")
+  do expect("(")
+  do expect(")")
+  do imm(0,0)
+  set i = 1
+  while i<=6
+   do access_local(0,slot+i,1)
+   set i = i+1
+  end
+  do imm(0,1)
+  do access_local(0,slot+1,1)
+ end
+ do local_pointer(0,slot+1)
+ do access_local(0,slot,1)
+ do store64(local_ready(f,slot),1)
+ do store64(local_scope(f,slot),0)
+ do require(load64(cleanup_slot(f,load64(state()+224)))==slot+1,"collection cleanup order")
+ do store64(state()+224,load64(state()+224)+1)
+ return newline()
+end
+fn collection_property(id)
+ do emit(4181721088 | 1)
+ do emit(4043309087 | (1<<5))
+ do jump(bounds_failure_label(),0)
+ if match("length")
+  do advance()
+  do emit(4181721088 | (2<<10))
+ else
+  if match("capacity")
+   do advance()
+   do emit(4181721088 | (3<<10))
+  else
+   do expect("limit")
+   do imm(0,load64(record_info(id)+8))
+  end
+ end
+ return 0
+end
+fn parse_collection(name,depth)
+ let f = load64(state()+32)
+ let slot = local_index(advance())
+ let id = load64(local_type(f,slot))
+ do require((id!=0)&(load64(record_info(id)+144)==11),"collection owner required")
+ return invoke_collection(name,depth,f,slot,id)
+end
+fn invoke_collection(name,depth,f,slot,id)
+ do require(load64(state()+200)==0,"collection operation while view live")
+ let operation = 0
+ let arguments_count = 0
+ if tmatch(name,"release")
+  do require(slot>=load64(ftable(f)+8),"borrowed collection cannot be released")
+  set operation = 5
+ else
+  if tmatch(name,"collection_push")
+   set operation = 1
+  else
+   if tmatch(name,"collection_get")
+    set operation = 2
+   else
+    if tmatch(name,"collection_set")
+     set operation = 3
+    else
+     if tmatch(name,"collection_clear")
+      set operation = 4
+     else
+      do require(tmatch(name,"collection_reserve"),"unknown collection operation")
+     end
+    end
+   end
+  end
+ end
+ do access_local(0,slot,0)
+ do push()
+ if (operation!=4)&(operation!=5)
+  do expect(",")
+  do scalar_expression(1,depth+1)
+  do push()
+  set arguments_count = 1
+  if operation==3
+   do expect(",")
+   do scalar_expression(1,depth+1)
+   do push()
+   set arguments_count = 2
+  end
+ end
+ do expect(")")
+ do imm(3,0)
+ do imm(2,0)
+ if arguments_count==2
+  do emit(4181722083)
+  do emit(2432713727)
+ end
+ if arguments_count
+  do emit(4181722082)
+  do emit(2432713727)
+ end
+ do emit(4181722080)
+ do emit(2432713727)
+ do imm(1,operation)
+ do imm(4,load64(record_info(id)+8))
+ do collection_call()
+ do store64(state()+136,load64(record_info(id)+152))
+ return 0
+end
+
+fn heap_runtime_source()
+ return "\nresult __rf2heap_IO(u64,u64)\nfn __rf2heap_pending(d):__rf2heap_IO\n let p = load64(d+32)\n if p==0\n  return ok(0)\n end\n let status = syscall6(73,p,load64(d+40)*8,0,0,0,0)\n if status>>63\n  return err(0-status)\n end\n do store64(d+32,0)\n do store64(d+40,0)\n return ok(0)\nend\nfn __rf2heap_grow(d,wanted,limit):__rf2heap_IO\n if wanted>limit\n  return err(22)\n end\n handle __rf2heap_pending(d)\n ok cleaned\n err pending_error\n  return err(pending_error)\n end\n let cap = load64(d+24)\n if wanted<=cap\n  return ok(cap)\n end\n let next = cap*2\n if next<16\n  set next = 16\n end\n if next>limit\n  set next = limit\n end\n while next<wanted\n  set next = next*2\n  if next>limit\n   set next = limit\n  end\n end\n let fresh = syscall6(197,0,next*8,3,4098,18446744073709551615,0)\n if fresh>>63\n  return err(0-fresh)\n end\n let old = load64(d+8)\n let size = load64(d+16)\n let i = 0\n while i<size\n  do store64(fresh+i*8,load64(old+i*8))\n  set i = i+1\n end\n if old\n  let status = syscall6(73,old,cap*8,0,0,0,0)\n  if status>>63\n   do store64(d+32,fresh)\n   do store64(d+40,next)\n   return err(0-status)\n  end\n end\n do store64(d+8,fresh)\n do store64(d+24,next)\n return ok(next)\nend\nfn __rf2heap_drop(d):__rf2heap_IO\n if load64(d)==0\n  return err(9)\n end\n let first = 0\n let p = load64(d+8)\n if p\n  let status = syscall6(73,p,load64(d+24)*8,0,0,0,0)\n  if status>>63\n   set first = 0-status\n  else\n   do store64(d+8,0)\n   do store64(d+16,0)\n   do store64(d+24,0)\n  end\n end\n handle __rf2heap_pending(d)\n ok cleaned\n err pending_error\n  if first==0\n   set first = pending_error\n  end\n end\n if (load64(d+8)==0)&(load64(d+32)==0)\n  do store64(d,0)\n end\n if first\n  return err(first)\n end\n return ok(0)\nend\nfn __rf2heap_op(d,op,a,b,limit):__rf2heap_IO\n if load64(d)==0\n  return err(9)\n end\n if op==5\n  handle __rf2heap_drop(d)\n  ok released\n   return ok(released)\n  err release_error\n   return err(release_error)\n  end\n end\n if op==0\n  handle __rf2heap_grow(d,a,limit)\n  ok reserve_capacity\n   return ok(reserve_capacity)\n  err grow_error\n   return err(grow_error)\n  end\n end\n if op==1\n  let length = load64(d+16)\n  if length>=limit\n   return err(22)\n  end\n  handle __rf2heap_grow(d,length+1,limit)\n  ok push_capacity\n  err push_error\n   return err(push_error)\n  end\n  do store64(load64(d+8)+length*8,a)\n  do store64(d+16,length+1)\n  return ok(length+1)\n end\n if op==4\n  do store64(d+16,0)\n  return ok(0)\n end\n if a>=load64(d+16)\n  return err(34)\n end\n if op==2\n  return ok(load64(load64(d+8)+a*8))\n end\n do store64(load64(d+8)+a*8,b)\n return ok(b)\nend\n"
 end
