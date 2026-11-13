@@ -63,6 +63,16 @@ def emit(text):return ''.join(' do uart_byte('+str(b)+')\n'for b in text.encode(
 def bits(word):return[(word>>n)&1 for n in reversed(range(16))]
 def register(word):return[1,0,0,1,0]+bits(word)+[1]
 CASES=[dict(name='positive25C',samples=register(0x60a0)+register(0x1900),start=0,duration=0,status=0,sda=44,scl=96,text='TMP102 00001900 25.0000C\n'),dict(name='negative25C',samples=register(0x60a0)+register(0xe700),start=0,duration=0,status=0,sda=44,scl=96,text='TMP102 0000E700 -25.0000C\n'),dict(name='addressNACK',samples=[1,1,1],start=0,duration=0,status=0x80000001,sda=3,scl=11,text='TMP102 80000001\n'),dict(name='stuckSCL',samples=[],start=1,duration=10000,status=0x80000002,sda=0,scl=1000,text='TMP102 80000002\n')]
+extended=os.environ.get('RF2_SENSOR_EXTENDED')=='1'
+if extended:
+ # Full signed-code boundaries test conversion, not physical measurement range.
+ for raw,display in [(0,'0.0000'),(0x10,'0.0625'),(0xfff0,'-0.0625'),(0x7ff0,'127.9375'),(0x8000,'-128.0000'),(0x0640,'6.2500'),(0xf9c0,'-6.2500')]:
+  CASES.append(dict(name='signedCode'+format(raw,'04X'),samples=register(0x60a0)+register(raw),start=0,duration=0,status=0,sda=44,scl=96,text=f'TMP102 {raw:08X} {display}C\n'))
+ for config,raw,status in [(0x60b0,0x1900,0x80000006),(0x20a0,0x1900,0x80000006),(0x60a1,0x1900,0x80000005),(0x60a0,0x1901,0x80000005),(0x60a0,0xffff,0x80000005)]:
+  CASES.append(dict(name=f'rejected_{config:04X}_{raw:04X}',samples=register(config)+register(raw),start=0,duration=0,status=status,sda=44,scl=96,text=f'TMP102 {status:08X}\n'))
+ for poll in [1,48,96]:
+  CASES.append(dict(name='stretch999At'+str(poll),samples=register(0x60a0)+register(0x1900),start=poll,duration=999,status=0,sda=44,scl=1095,text='TMP102 00001900 25.0000C\n'))
+ CASES.append(dict(name='lastSTOPClockTimeout',samples=register(0x60a0)+register(0x1900),start=96,duration=10000,status=0x80000002,sda=43,scl=1095,text='TMP102 80000002\n'))
 rows=[]
 for case in CASES:
  name=case['name'];prefix=D/name;path=prefix.with_suffix('.flow')
