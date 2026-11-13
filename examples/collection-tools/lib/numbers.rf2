@@ -1,0 +1,201 @@
+module numbers
+result IO(u64,u64)
+collection Numbers(IO,65536)
+record Stats(count:u64,minimum:u64,maximum:u64,total:u64)
+fn numeric_space(c)
+ return (c==9)|(c==10)|(c==13)|(c==32)
+end
+fn read_input(data):IO
+ let used=0
+ let got=1
+ while got!=0
+  set got=read(0,data+used,1048577-used)
+  if got>>63
+   return err(3)
+  end
+  set used=used+got
+  if used>1048576
+   return err(27)
+  end
+ end
+ return ok(used)
+end
+# Canonical unsigned decimals, separated by whitespace or single commas.
+fn parse_numbers(data,n,values:Numbers):IO
+ let i=0
+ let comma=0
+ while i<n
+  while all(i<n,numeric_space(load8(data+i)))
+   set i=i+1
+  end
+  if i<n
+   let first=load8(data+i)
+   if (first<48)|(first>57)
+    return err(22)
+   end
+   let value=0
+   let digits=0
+   while all(i<n,all(load8(data+i)>=48,load8(data+i)<=57))
+    let digit=load8(data+i)-48
+    if value>(18446744073709551615-digit)//10
+     return err(75)
+    end
+    set value=value*10+digit
+    set digits=digits+1
+    set i=i+1
+   end
+   if (digits>1)&(first==48)
+    return err(22)
+   end
+   handle collection_push(values,value)
+   ok appended
+   err push_error
+    return err(push_error)
+   end
+   set comma=0
+   while all(i<n,numeric_space(load8(data+i)))
+    set i=i+1
+   end
+   if i<n
+    if load8(data+i)==44
+     set comma=1
+     set i=i+1
+    else
+     if (load8(data+i)<48)|(load8(data+i)>57)
+      return err(22)
+     end
+    end
+   end
+  end
+ end
+ if comma
+  return err(22)
+ end
+ return ok(values.length)
+end
+fn number_swap(values:Numbers,a,b):IO
+ let left=0
+ let right=0
+ handle collection_get(values,a)
+ ok first
+  set left=first
+ err first_error
+  return err(first_error)
+ end
+ handle collection_get(values,b)
+ ok second
+  set right=second
+ err second_error
+  return err(second_error)
+ end
+ handle collection_set(values,a,right)
+ ok wrote_left
+ err left_error
+  return err(left_error)
+ end
+ handle collection_set(values,b,left)
+ ok wrote_right
+ err right_error
+  return err(right_error)
+ end
+ return ok(0)
+end
+fn sift_numbers(values:Numbers,start,count):IO
+ let root=start
+ let active=1
+ let child=0
+ let child_value=0
+ let root_value=0
+ while all(active,root<count//2)
+  set child=root*2+1
+  handle collection_get(values,child)
+  ok selected
+   set child_value=selected
+  err child_error
+   return err(child_error)
+  end
+  if child+1<count
+   handle collection_get(values,child+1)
+   ok right_value
+    if right_value>child_value
+     set child=child+1
+     set child_value=right_value
+    end
+   err right_error
+    return err(right_error)
+   end
+  end
+  handle collection_get(values,root)
+  ok current_root
+   set root_value=current_root
+  err root_error
+   return err(root_error)
+  end
+  if root_value<child_value
+   handle number_swap(values,root,child)
+   ok swapped
+   err swap_error
+    return err(swap_error)
+   end
+   set root=child
+  else
+   set active=0
+  end
+ end
+ return ok(0)
+end
+fn sort_numbers(values:Numbers):IO
+ let count=values.length
+ let start=count//2
+ while start>0
+  set start=start-1
+  handle sift_numbers(values,start,count)
+  ok heapified
+  err heap_error
+   return err(heap_error)
+  end
+ end
+ let end=count
+ while end>1
+  set end=end-1
+  handle number_swap(values,0,end)
+  ok exchanged
+  err exchange_error
+   return err(exchange_error)
+  end
+  handle sift_numbers(values,0,end)
+  ok repaired
+  err repair_error
+   return err(repair_error)
+  end
+ end
+ return ok(count)
+end
+fn summarize_numbers(values:Numbers,out:Stats):IO
+ let n=values.length
+ if n==0
+  return err(22)
+ end
+ set out.count=n
+ set out.total=0
+ let i=0
+ while i<n
+  handle collection_get(values,i)
+  ok value
+   if value>18446744073709551615-out.total
+    return err(75)
+   end
+   set out.total=out.total+value
+   if i==0
+    set out.minimum=value
+   end
+   if i==n-1
+    set out.maximum=value
+   end
+  err read_error
+   return err(read_error)
+  end
+  set i=i+1
+ end
+ return ok(n)
+end
