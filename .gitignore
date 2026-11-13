@@ -17,3 +17,6 @@ __pycache__/
 
 # Local WhatIF cases are retained with project evidence, outside public source.
 .whatif/
+
+# Native incremental cache contains local compiler and application images.
+.rf2-cache/
