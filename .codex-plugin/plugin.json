@@ -1,7 +1,7 @@
 {
   "name": "rf2",
-  "version": "0.34.0-dev",
-  "description": "Native RF2 tools, bounded MCP and experimental ESP32-C3 cross-compilation",
+  "version": "0.36.0-dev",
+  "description": "Native RF2 tools, bounded MCP and experimental ESP32-C3 interrupt and peripheral-lease support",
   "author": {
     "name": "Ilangkhumanan Thirunavokkarasu",
     "url": "https://github.com/starkfiber"
