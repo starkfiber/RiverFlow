@@ -1,0 +1,47 @@
+{
+  "method": "Paired trial candidate-minus-baseline differences; 10000 deterministic bootstrap medians. Exploratory one-host intervals only.",
+  "rows": [
+    {
+      "task": "short",
+      "pairedMedianMs": -0.008458999999999994,
+      "bootstrap95Ms": [
+        -0.09925000000000006,
+        0.17016600000000004
+      ]
+    },
+    {
+      "task": "document-64k",
+      "pairedMedianMs": -0.010874999999999968,
+      "bootstrap95Ms": [
+        -0.07887500000000003,
+        0.058124000000000065
+      ]
+    },
+    {
+      "task": "no-match-1m",
+      "pairedMedianMs": -1.2198759999999993,
+      "bootstrap95Ms": [
+        -1.2882489999999995,
+        -1.1199580000000005
+      ]
+    },
+    {
+      "task": "overlap-64k",
+      "pairedMedianMs": 0.023667000000000105,
+      "bootstrap95Ms": [
+        -0.06220900000000018,
+        0.1796249999999997
+      ]
+    },
+    {
+      "task": "periodic-1m",
+      "pairedMedianMs": 0.06158300000000061,
+      "bootstrap95Ms": [
+        -0.1577920000000006,
+        0.19000000000000128
+      ]
+    }
+  ],
+  "finalPromotedBinaryIdenticalToMeasuredCandidate": true,
+  "finalPromotedBinarySHA256": "9157dd2b8ab587b3899f281ad15c6bda355fa850f7cc71cbe544cb9c235e31ab"
+}

@@ -26,13 +26,13 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 727324,
-    "Python": 611263,
+    "RiverFlow": 740120,
+    "Python": 672580,
     "JavaScript": 85144,
     "HTML": 30503,
     "CSS": 17035,
     "Assembly": 6795,
-    "C": 2898,
+    "C": 3957,
     "Shell": 2683
   },
   "files": [
@@ -457,6 +457,16 @@
       "bytes": 1085
     },
     {
+      "path": "examples/text-search/lib/search.rf2",
+      "language": "RiverFlow",
+      "bytes": 1866
+    },
+    {
+      "path": "examples/text-search/main.rf2",
+      "language": "RiverFlow",
+      "bytes": 2538
+    },
+    {
       "path": "examples/unicode-lines/lib/audit.rf2",
       "language": "RiverFlow",
       "bytes": 2510
@@ -519,7 +529,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 148657
+      "bytes": 155704
     },
     {
       "path": "native/core.rf2",
@@ -662,6 +672,16 @@
       "bytes": 7469
     },
     {
+      "path": "tests/comparators/text_search.c",
+      "language": "C",
+      "bytes": 1059
+    },
+    {
+      "path": "tests/comparators/text_search_kmp.rf2",
+      "language": "RiverFlow",
+      "bytes": 1345
+    },
+    {
       "path": "tests/fixtures/compiler-0.23-reference.rf2",
       "language": "RiverFlow",
       "bytes": 117109
@@ -735,6 +755,11 @@
       "path": "tests/standalone/buffer_audit_verify.py",
       "language": "Python",
       "bytes": 4971
+    },
+    {
+      "path": "tests/standalone/check_only_verify.py",
+      "language": "Python",
+      "bytes": 5338
     },
     {
       "path": "tests/standalone/cleanup_adversarial.py",
@@ -815,6 +840,11 @@
       "path": "tests/standalone/core_verify.py",
       "language": "Python",
       "bytes": 8399
+    },
+    {
+      "path": "tests/standalone/diagnostics_verify.py",
+      "language": "Python",
+      "bytes": 6137
     },
     {
       "path": "tests/standalone/editor_verify.py",
@@ -942,6 +972,16 @@
       "bytes": 506
     },
     {
+      "path": "tests/standalone/foundation_redteam_verify.py",
+      "language": "Python",
+      "bytes": 13783
+    },
+    {
+      "path": "tests/standalone/function_pack_verify.py",
+      "language": "Python",
+      "bytes": 13673
+    },
+    {
       "path": "tests/standalone/function_reuse_extended_verify.py",
       "language": "Python",
       "bytes": 17385
@@ -1034,7 +1074,7 @@
     {
       "path": "tests/standalone/number_lab_web_verify.py",
       "language": "Python",
-      "bytes": 13400
+      "bytes": 14381
     },
     {
       "path": "tests/standalone/optimizer_verify.py",
@@ -1132,6 +1172,11 @@
       "bytes": 11695
     },
     {
+      "path": "tests/standalone/text_search_verify.py",
+      "language": "Python",
+      "bytes": 7279
+    },
+    {
       "path": "tests/standalone/text_verify.py",
       "language": "Python",
       "bytes": 8413
@@ -1222,6 +1267,11 @@
       "bytes": 3254
     },
     {
+      "path": "tools/benchmark-check-only.py",
+      "language": "Python",
+      "bytes": 2708
+    },
+    {
       "path": "tools/benchmark-checksum-files.py",
       "language": "Python",
       "bytes": 5489
@@ -1262,6 +1312,11 @@
       "bytes": 3711
     },
     {
+      "path": "tools/benchmark-packed-reuse.py",
+      "language": "Python",
+      "bytes": 3488
+    },
+    {
       "path": "tools/benchmark-real-apps.py",
       "language": "Python",
       "bytes": 9957
@@ -1285,6 +1340,11 @@
       "path": "tools/benchmark-sha-steady.py",
       "language": "Python",
       "bytes": 7186
+    },
+    {
+      "path": "tools/benchmark-text-search.py",
+      "language": "Python",
+      "bytes": 3569
     },
     {
       "path": "tools/benchmark.mjs",
@@ -1324,7 +1384,7 @@
     {
       "path": "tools/build-incremental.py",
       "language": "Python",
-      "bytes": 2365
+      "bytes": 2407
     },
     {
       "path": "tools/build-program.sh",
@@ -1422,6 +1482,11 @@
       "bytes": 6374
     },
     {
+      "path": "tools/package-foundation.py",
+      "language": "Python",
+      "bytes": 4180
+    },
+    {
       "path": "tools/package-trust-candidate.py",
       "language": "Python",
       "bytes": 2370
@@ -1464,7 +1529,7 @@
     {
       "path": "tools/stress-function-reuse.py",
       "language": "Python",
-      "bytes": 7125
+      "bytes": 7264
     },
     {
       "path": "tools/sync-contract-json.py",
