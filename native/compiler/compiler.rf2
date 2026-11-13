@@ -4669,10 +4669,147 @@ fn reuse_init(path)
  do require(close(fd)==0,"compiler identity close failed")
  do store64(reuse_state(),root+1)
  do cp(reuse_state()+64,map_context_digest(),32)
+ if load64(reuse_state()+104)
+  do reuse_pack_load()
+ end
  return 0
 end
 # Parse the same precedence/comparison rules without generating instructions.
 # Only own scalar parameters and numeric literals are admitted as atoms.
+# A pack is an optional container of the same independently checked function units.
+# Its namespace binds compiler, declaration context and both image options.
+fn reuse_pack_key()
+ let key = buffer("reuse_pack_key",80)
+ do cp(key,reuse_state()+32,64)
+ do store64(key+64,load64(state()+152))
+ do store64(key+72,load64(image_options()))
+ return sha256(key,80)
+end
+fn reuse_pack_name()
+ let name = buffer("reuse_pack_name",80)
+ do cp(name,reuse_name(reuse_pack_key()),64)
+ do cp(name+64,".pack",6)
+ return name
+end
+fn reuse_pack_load()
+ let p = buffer("reuse_pack_input",1114113)
+ let fd = syscall6(463,load64(reuse_state())-1,reuse_pack_name(),0x1000104,0,0,0)
+ do store64(reuse_state()+120,1)
+ if fd>>63
+  return 0
+ end
+ let n = reuse_read(fd,p,1114112)
+ if (n>>63)|(n<96)|(n>1114112)
+  return 0
+ end
+ let count = load64(state()+40)
+ if (same(p,8,"RF2FP001",8)==0)|(same(p+8,32,reuse_pack_key(),32)==0)
+  return 0
+ end
+ if (load64(p+72)!=count)|(load64(p+80)!=n)|(load64(p+88)!=0)|(n<96+count*48)
+  return 0
+ end
+ if same(p+40,32,sha256(p+72,n-72),32)==0
+  return 0
+ end
+ let cursor = 96+count*48
+ let f = 0
+ while f<count
+  let d = p+96+f*48
+  let off = load64(d)
+  let size = load64(d+8)
+  if size
+   if (off!=cursor)|(size<104)|(size>65640)|(off>n)|(size>n-off)
+    return 0
+   end
+   if same(d+16,32,p+off+8,32)==0
+    return 0
+   end
+   set cursor = cursor+size
+  else
+   if off
+    return 0
+   end
+   let j = 0
+   while j<32
+    if load8(d+16+j)
+     return 0
+    end
+    set j = j+1
+   end
+  end
+  set f = f+1
+ end
+ if cursor!=n
+  return 0
+ end
+ do store64(reuse_state()+112,n)
+ return 0
+end
+fn reuse_pack_finish(root)
+ let f = 0
+ let changed = 0
+ while f<load64(state()+40)
+  if load64(reuse_unit(f))==3
+   set changed = 1
+  end
+  set f = f+1
+ end
+ if changed==0
+  return 0
+ end
+ let p = buffer("reuse_pack_output",1114112)
+ let count = load64(state()+40)
+ let cursor = 96+count*48
+ do cp(p,"RF2FP001",8)
+ do cp(p+8,reuse_pack_key(),32)
+ do store64(p+72,count)
+ set f = 0
+ while f<count
+  let unit = reuse_unit(f)
+  let status = load64(unit)
+  if (status==2)|(status==3)
+   let entry = p+cursor
+   let size = 0
+   if status==2
+    let old = buffer("reuse_pack_input",1114113)+96+f*48
+    set size = load64(old+8)
+    do require((size>=104)&(size<=65640)&(cursor+size<=1114112),"function pack bound")
+    do cp(entry,buffer("reuse_pack_input",1114113)+load64(old),size)
+   else
+    let n = load64(unit+48)
+    set size = n+104
+    do require(cursor+size<=1114112,"function pack bound")
+    do cp(entry,"RF2FN002",8)
+    do cp(entry+8,unit+8,32)
+    do store64(entry+72,n)
+    do store64(entry+80,load64(unit+56))
+    do store64(entry+88,load64(unit+64))
+    do store64(entry+96,load64(ftable(f)+32))
+    do cp(entry+104,buffer("reuse_pending",1048576)+load64(unit+40),n)
+    do cp(entry+40,sha256(entry+72,n+32),32)
+   end
+   let d = p+96+f*48
+   do store64(d,cursor)
+   do store64(d+8,size)
+   do cp(d+16,unit+8,32)
+   set cursor = cursor+size
+  end
+  set f = f+1
+ end
+ do store64(p+80,cursor)
+ do cp(p+40,sha256(p+72,cursor-72),32)
+ let name = buffer("reuse_pack_temp",80)
+ do cp(name,reuse_pack_name(),69)
+ do cp(name+69,".tmp",5)
+ do syscall6(472,root,name,0,0,0,0)
+ let fd = syscall6(463,root,name,0x1000b01,384,0,0)
+ do require((fd>>63)==0,"function pack temporary create failed")
+ do output(fd,p,cursor)
+ do require(close(fd)==0,"function pack close failed")
+ do require(syscall6(465,root,name,root,reuse_pack_name(),0,0)==0,"function pack commit failed")
+ return 0
+end
 fn reuse_ready(slot)
  return buffer("reuse_readiness",2048)+slot*8
 end
@@ -4888,11 +5025,22 @@ fn reuse_try(f)
  do cp(key+80,reuse_body_digest(f),32)
  do cp(unit+8,sha256(key,112),32)
  do store64(unit,0)
- let fd = syscall6(463,load64(reuse_state())-1,reuse_name(unit+8),0x1000104,0,0,0)
  let entry = buffer("reuse_entry",65641)
  let n = -1
- if (fd>>63)==0
-  set n = reuse_read(fd,entry,65640)
+ if load64(reuse_state()+104)
+  if load64(reuse_state()+112)
+   let d = buffer("reuse_pack_input",1114113)+96+f*48
+   if same(d+16,32,unit+8,32)
+    set n = load64(d+8)
+    set entry = buffer("reuse_pack_input",1114113)+load64(d)
+   end
+  end
+ else
+  do store64(reuse_state()+120,load64(reuse_state()+120)+1)
+  let fd = syscall6(463,load64(reuse_state())-1,reuse_name(unit+8),0x1000104,0,0,0)
+  if (fd>>63)==0
+   set n = reuse_read(fd,entry,65640)
+  end
  end
  if n>=104
   if n<=65640
@@ -4974,6 +5122,9 @@ fn reuse_finish(path)
  let name = buffer("reuse_publish_name",128)
  let fd = 0
  let n = 0
+ if load64(reuse_state()+104)
+  do reuse_pack_finish(root)
+ else
  while f<load64(state()+40)
   set unit = reuse_unit(f)
   if load64(unit)==3
@@ -4998,6 +5149,7 @@ fn reuse_finish(path)
   end
   set f = f+1
  end
+ end
  set n = length(path)
  do require(n+12<1024,"reuse report path bound")
  let report_path = buffer("reuse_report_path",1024)
@@ -5015,6 +5167,10 @@ fn reuse_finish(path)
  do map_number(fd,load64(reuse_state()+8))
  do output(fd,",\"fullValidationChecks\":",24)
  do map_number(fd,load64(reuse_state()+96))
+ do output(fd,",\"unitContainerReads\":",22)
+ do map_number(fd,load64(reuse_state()+120))
+ do output(fd,",\"packed\":",10)
+ do map_number(fd,load64(reuse_state()+104))
  do output(fd,",\"unitFormat\":\"RF2FN002\"",24)
  do output(fd,",\"compilerSHA256\":\"",19)
  do map_hex(fd,reuse_state()+32,32)
@@ -5028,12 +5184,13 @@ fn main(argc, argv)
  let digest = 0
  let dataoff = 0
  let datasize = 0
- do require((argc>=3)&(argc<=8),"rf2c source new-output [--opt] [--compact] [--functions] [--reuse-cache directory]")
+ do require((argc>=3)&(argc<=8),"rf2c source new-output [--opt] [--compact] [--functions] [--reuse-cache directory | --reuse-pack directory]")
  let reuse_path = 0
  let option = 3
  while option<argc
   let text = load64(argv+option*8)
-  if same(text,length(text),"--reuse-cache",13)
+  if same(text,length(text),"--reuse-cache",13)|same(text,length(text),"--reuse-pack",12)
+   do store64(reuse_state()+104,same(text,length(text),"--reuse-pack",12))
    do require((reuse_path==0)&(option+1<argc),"function cache option requires one directory")
    set option = option+1
    set reuse_path = load64(argv+option*8)
