@@ -421,7 +421,7 @@ fn scan_record()
  do require((tmatch(t, "mapping_store32") | tmatch(t, "mapping_read64") | tmatch(t, "vm_map_owned") | tmatch(t, "vm_unmap_owned") | tmatch(t, "vm_protect_owned") | tmatch(t, "vcpu_set_owned") | tmatch(t, "vcpu_sys_owned") | tmatch(t, "vcpu_read_owned") | tmatch(t, "vcpu_run_owned") | tmatch(t, "vcpu_cancel_owned") | tmatch(t, "vcpu_offset_owned") | tmatch(t, "vcpu_timer_owned") | tmatch(t, "vm_clock_ticks") | tmatch(t, "clock_timebase")) == 0, "reserved platform name")
  do require(record_index(t) == 0, "duplicate record")
  do require(logical_name(t) == 0, "reserved logical name")
- do require(tmatch(t,"ror32") == 0, "reserved rotate name")
+ do require((tmatch(t,"ror32") | tmatch(t,"sha256_blocks_armv8") | tmatch(t,"bswap32") | tmatch(t,"bswap64") | tmatch(t,"sha256_chain_armv8") | tmatch(t,"fill_zero") | tmatch(t,"bswap32_copy")) == 0, "reserved arithmetic name")
  do require((tmatch(t, "read_bytes") | tmatch(t, "write_bytes") | tmatch(t, "buffer") | tmatch(t, "load8") | tmatch(t, "load32") | tmatch(t, "load64") | tmatch(t, "store8") | tmatch(t, "store32") | tmatch(t, "store64") | tmatch(t, "read") | tmatch(t, "write") | tmatch(t, "open") | tmatch(t, "close") | tmatch(t, "exit") | tmatch(t, "read_owned") | tmatch(t, "write_owned") | tmatch(t, "release") | tmatch(t, "buffer_reserve") | tmatch(t, "buffer_push") | tmatch(t, "buffer_get") | tmatch(t, "buffer_clear") | tmatch(t, "syscall6") | tmatch(t, "fork_process")) == 0, "reserved record name")
  let id = load64(state() + 128) + 1
  let r = record_info(id)
@@ -736,6 +736,9 @@ fn function_leaf(f)
 end
 fn mark_call(f, i)
  if (load64(token(i)) == 1) & tmatch(i + 1, "(")
+  if tmatch(i,"buffer") | tmatch(i,"load8") | tmatch(i,"load32") | tmatch(i,"load64") | tmatch(i,"store8") | tmatch(i,"store32") | tmatch(i,"store64") | tmatch(i,"ror32") | tmatch(i,"bswap32") | tmatch(i,"bswap64") | tmatch(i,"sha256_blocks_armv8") | tmatch(i,"all") | tmatch(i,"any") | tmatch(i,"not") | tmatch(i,"sha256_chain_armv8") | tmatch(i,"fill_zero") | tmatch(i,"bswap32_copy")
+   return 0
+  end
   do store64(function_leaf(f), 0)
  end
  return 0
@@ -825,7 +828,7 @@ fn scan_functions_more(f)
    set t = advance()
    do require(load64(token(t)) == 1, "function name required")
    do require(logical_name(t) == 0, "reserved logical name")
- do require(tmatch(t,"ror32") == 0, "reserved rotate name")
+ do require((tmatch(t,"ror32") | tmatch(t,"sha256_blocks_armv8") | tmatch(t,"bswap32") | tmatch(t,"bswap64") | tmatch(t,"sha256_chain_armv8") | tmatch(t,"fill_zero") | tmatch(t,"bswap32_copy")) == 0, "reserved arithmetic name")
    do require((tmatch(t, "read_bytes") | tmatch(t, "write_bytes") | tmatch(t, "read_owned") | tmatch(t, "write_owned") | tmatch(t, "release") | tmatch(t, "buffer_reserve") | tmatch(t, "buffer_push") | tmatch(t, "buffer_get") | tmatch(t, "buffer_clear")) == 0, "reserved IO name")
    do require((tmatch(t,"platform_call") | tmatch(t, "clock_timebase") | tmatch(t, "mapping_store32") | tmatch(t, "mapping_read64") | tmatch(t, "vm_map_owned") | tmatch(t, "vm_unmap_owned") | tmatch(t, "vm_protect_owned") | tmatch(t, "vcpu_set_owned") | tmatch(t, "vcpu_sys_owned") | tmatch(t, "vcpu_read_owned") | tmatch(t, "vcpu_run_owned") | tmatch(t, "vcpu_cancel_owned") | tmatch(t, "vcpu_offset_owned") | tmatch(t, "vcpu_timer_owned") | tmatch(t, "vm_clock_ticks"))==0,"reserved platform name")
    do require(record_index(t) == 0, "function collides with record")
@@ -964,6 +967,11 @@ fn scan_body(f, params)
   end
   do newline()
   end
+ end
+ # Seven caller-saved local registers are available. Larger frames retain
+ # the eight-register callee-saved strategy instead of spilling the eighth hot local.
+ if load64(ftable(f) + 32) > 7
+  do store64(function_leaf(f), 0)
  end
  do store64(ftable(f) + 24, load64(state() + 24))
  return 0
@@ -1848,7 +1856,413 @@ fn platform_bindings()
  end
  return load64(platform_state()+8)
 end
+fn emit_sha256_blocks_armv8()
+ do emit(3019902722)
+ do emit(2906653696)
+ do emit(1319115778)
+ do emit(1319181347)
+ do emit(2906657828)
+ do emit(2906725414)
+ do emit(1847593092)
+ do emit(1847593125)
+ do emit(1847593158)
+ do emit(1847593191)
+ do emit(1035993202)
+ do emit(1320322192)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690148)
+ do emit(1577541828)
+ do emit(1035994226)
+ do emit(1320322224)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690181)
+ do emit(1577345253)
+ do emit(1035995250)
+ do emit(1320322256)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690214)
+ do emit(1577410694)
+ do emit(1035996274)
+ do emit(1320322288)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690119)
+ do emit(1577476263)
+ do emit(1035997298)
+ do emit(1320322192)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690148)
+ do emit(1577541828)
+ do emit(1035998322)
+ do emit(1320322224)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690181)
+ do emit(1577345253)
+ do emit(1035999346)
+ do emit(1320322256)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690214)
+ do emit(1577410694)
+ do emit(1036000370)
+ do emit(1320322288)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690119)
+ do emit(1577476263)
+ do emit(1036001394)
+ do emit(1320322192)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690148)
+ do emit(1577541828)
+ do emit(1036002418)
+ do emit(1320322224)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690181)
+ do emit(1577345253)
+ do emit(1036003442)
+ do emit(1320322256)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690214)
+ do emit(1577410694)
+ do emit(1036004466)
+ do emit(1320322288)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690119)
+ do emit(1577476263)
+ do emit(1036005490)
+ do emit(1320322192)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1036006514)
+ do emit(1320322224)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1036007538)
+ do emit(1320322256)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1036008562)
+ do emit(1320322288)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1319273472)
+ do emit(1319339041)
+ do emit(2432761889)
+ do emit(4043310146)
+ do emit(1426059649)
+ do emit(2902459392)
+ do emit(3531603968)
+ return 0
+end
+fn emit_fill_zero()
+ do emit(3019899265)
+ do emit(1325458432)
+ do emit(4043325503)
+ do emit(1409286307)
+ do emit(1015088128)
+ do emit(3506454561)
+ do emit(4043325503)
+ do emit(1426063266)
+ do emit(3019899009)
+ do emit(939529247)
+ do emit(4043310113)
+ do emit(1426063297)
+ do emit(3531603968)
+ return 0
+end
+fn emit_bswap32_copy()
+ do emit(3019899362)
+ do emit(4043313247)
+ do emit(1409286371)
+ do emit(1019282464)
+ do emit(1847592960)
+ do emit(1015088128)
+ do emit(3506442306)
+ do emit(4043313247)
+ do emit(1426063202)
+ do emit(3019899074)
+ do emit(3091219491)
+ do emit(1522534499)
+ do emit(3087025155)
+ do emit(4043310146)
+ do emit(1426063233)
+ do emit(3531603968)
+ return 0
+end
+fn emit_sha256_chain_armv8()
+ do emit(2852388936)
+ do emit(3019903048)
+ do emit(2852324326)
+ do emit(2852389863)
+ do emit(2852455395)
+ do emit(3531604004)
+ do emit(2906653696)
+ do emit(3019902658)
+ do emit(1319115778)
+ do emit(1319181347)
+ do emit(2906657828)
+ do emit(2906725414)
+ do emit(1847593092)
+ do emit(1847593125)
+ do emit(1847593158)
+ do emit(1847593191)
+ do emit(1035993202)
+ do emit(1320322192)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690148)
+ do emit(1577541828)
+ do emit(1035994226)
+ do emit(1320322224)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690181)
+ do emit(1577345253)
+ do emit(1035995250)
+ do emit(1320322256)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690214)
+ do emit(1577410694)
+ do emit(1035996274)
+ do emit(1320322288)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690119)
+ do emit(1577476263)
+ do emit(1035997298)
+ do emit(1320322192)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690148)
+ do emit(1577541828)
+ do emit(1035998322)
+ do emit(1320322224)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690181)
+ do emit(1577345253)
+ do emit(1035999346)
+ do emit(1320322256)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690214)
+ do emit(1577410694)
+ do emit(1036000370)
+ do emit(1320322288)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690119)
+ do emit(1577476263)
+ do emit(1036001394)
+ do emit(1320322192)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690148)
+ do emit(1577541828)
+ do emit(1036002418)
+ do emit(1320322224)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690181)
+ do emit(1577345253)
+ do emit(1036003442)
+ do emit(1320322256)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690214)
+ do emit(1577410694)
+ do emit(1036004466)
+ do emit(1320322288)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1579690119)
+ do emit(1577476263)
+ do emit(1036005490)
+ do emit(1320322192)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1036006514)
+ do emit(1320322224)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1036007538)
+ do emit(1320322256)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1036008562)
+ do emit(1320322288)
+ do emit(1319115793)
+ do emit(1578123296)
+ do emit(1578127905)
+ do emit(1319273472)
+ do emit(1319339041)
+ do emit(2432761889)
+ do emit(4043310146)
+ do emit(1426059649)
+ do emit(3019899044)
+ do emit(2852520929)
+ do emit(2852586466)
+ do emit(3531603972)
+ do emit(3053449442)
+ do emit(2902459392)
+ do emit(3531603968)
+ return 0
+end
+# Bounded literal sizes only; arguments are still checked and evaluated normally.
+fn small_memory_literal(name)
+ let i = load64(state() + 24)
+ if (load64(state() + 152) == 0) | (i < 3)
+  return 0
+ end
+ if (load64(token(i - 2)) != 2) | (tmatch(i - 3, ",") == 0)
+  return 0
+ end
+ let n = load64(token(i - 2) + 24)
+ let off = 0
+ if tmatch(name,"fill_zero")
+  if n > 256
+   return 0
+  end
+  if n >= 16
+   do emit(1325458432)
+  end
+  while off + 16 <= n
+   do emit(1031798784 | ((off // 16) << 10))
+   set off = off + 16
+  end
+  while off < n
+   do emit(956301343 | (off << 10))
+   set off = off + 1
+  end
+ else
+  if n > 64
+   return 0
+  end
+  while off + 4 <= n
+   do emit(1035993120 | ((off // 4) << 10))
+   do emit(1847592960)
+   do emit(1031798784 | ((off // 4) << 10))
+   set off = off + 4
+  end
+  while off < n
+   do emit(3107979299 | (off << 10))
+   do emit(1522534499)
+   do emit(3103784963 | (off << 10))
+   set off = off + 1
+  end
+ end
+ do imm(0,0)
+ return 1
+end
+# Only fixed-arity raw memory operations; complex expressions retain ordinary evaluation.
+fn direct_memory_arguments(arity)
+ let start = load64(state() + 24)
+ let i = 0
+ let t = 0
+ let kind = 0
+ let slot = 0
+ let f = load64(state() + 32)
+ if load64(state() + 152) == 0
+  return 0
+ end
+ while i < arity
+  set t = start + i * 2
+  set kind = load64(token(t))
+  if (kind != 1) & (kind != 2)
+   return 0
+  end
+  if i + 1 < arity
+   if tmatch(t + 1,",") == 0
+    return 0
+   end
+  else
+   if tmatch(t + 1,")") == 0
+    return 0
+   end
+  end
+  if kind == 1
+   if logical_name(t)
+    return 0
+   end
+   set slot = local_index(t)
+   if load64(local_type(f,slot)) != 0
+    return 0
+   end
+  end
+  set i = i + 1
+ end
+ set i = 0
+ while i < arity
+  set t = start + i * 2
+  if load64(token(t)) == 2
+   do imm(i,load64(token(t) + 24))
+  else
+   do access_local(i,local_index(t),0)
+  end
+  set i = i + 1
+ end
+ do store64(state() + 24,start + arity * 2 - 1)
+ do store64(state() + 136,0)
+ do store64(state() + 232,0)
+ return arity + 1
+end
 fn invoke(name, depth)
+ if tmatch(name,"bswap64")
+  do scalar_expression(1, depth + 1)
+  do expect(")")
+  do emit(3670019072)
+  do store64(state() + 136, 0)
+  return 0
+ end
+ if tmatch(name,"bswap32")
+  do scalar_expression(1, depth + 1)
+  do expect(")")
+  do emit(1522534400)
+  do store64(state() + 136, 0)
+  return 0
+ end
  if tmatch(name,"ror32")
   do scalar_expression(1, depth + 1)
   do push()
@@ -1902,6 +2316,7 @@ fn invoke(name, depth)
   return invoke_byte_io(name, depth)
  end
  let count = 0
+ let direct = 0
  let i = 0
  let size = 0
  let builtin = 0
@@ -1918,19 +2333,54 @@ fn invoke(name, depth)
   do address(0, intern(2, i, load64(token(size) + 24)))
   return 0
  end
- if (tmatch(name, "buffer") | tmatch(name, "fork_process") | tmatch(name, "syscall6") | tmatch(name, "load8") | tmatch(name, "load32") | tmatch(name, "load64") | tmatch(name, "store8") | tmatch(name, "store32") | tmatch(name, "store64") | tmatch(name, "read") | tmatch(name, "write") | tmatch(name, "open") | tmatch(name, "close") | tmatch(name, "exit")) == 0
+ if (tmatch(name, "sha256_chain_armv8") | tmatch(name, "fill_zero") | tmatch(name, "bswap32_copy") | tmatch(name, "sha256_blocks_armv8") | tmatch(name, "buffer") | tmatch(name, "fork_process") | tmatch(name, "syscall6") | tmatch(name, "load8") | tmatch(name, "load32") | tmatch(name, "load64") | tmatch(name, "store8") | tmatch(name, "store32") | tmatch(name, "store64") | tmatch(name, "read") | tmatch(name, "write") | tmatch(name, "open") | tmatch(name, "close") | tmatch(name, "exit")) == 0
   set f = function_index(name) + 1
  end
  if match(")") == 0
-  set count = arguments(depth, f)
+  if tmatch(name,"fill_zero")
+   set direct = direct_memory_arguments(2)
+  end
+  if tmatch(name,"bswap32_copy")
+   set direct = direct_memory_arguments(3)
+  end
+  if direct != 0
+   set count = direct - 1
+  else
+   set count = arguments(depth, f)
+  end
  end
  do store64(state() + 136, 0)
  do expect(")")
  set i = count
+ if direct != 0
+  set i = 0
+ end
  while i != 0
   set i = i - 1
   do emit(4181722080 | i)
   do emit(2432713727)
+ end
+ if tmatch(name, "sha256_chain_armv8")
+  do require(count == 6, "sha256_chain_armv8 arity")
+  return emit_sha256_chain_armv8()
+ end
+ if tmatch(name, "fill_zero")
+  do require(count == 2, "fill_zero arity")
+  if small_memory_literal(name)
+   return 0
+  end
+  return emit_fill_zero()
+ end
+ if tmatch(name, "bswap32_copy")
+  do require(count == 3, "bswap32_copy arity")
+  if small_memory_literal(name)
+   return 0
+  end
+  return emit_bswap32_copy()
+ end
+ if tmatch(name, "sha256_blocks_armv8")
+  do require(count == 4, "sha256_blocks_armv8 arity")
+  return emit_sha256_blocks_armv8()
  end
  if tmatch(name, "fork_process")
   do require(count == 0, "fork_process arity")
@@ -2967,6 +3417,23 @@ fn emit_utf8_failure()
  do imm(16, 1)
  return emit(3556773889)
 end
+# A scalar call-free function with all locals in registers needs no frame.
+fn frame_omittable(f)
+ if (load64(state() + 152) == 0) | (load64(function_leaf(f)) == 0)
+  return 0
+ end
+ if (load64(ftable(f) + 32) > 7) | (load64(cleanup_count(f)) != 0) | (load64(function_result(f)) != 0)
+  return 0
+ end
+ let i = 0
+ while i < load64(ftable(f) + 32)
+  if (load64(local(f,i)) == 0) | (load64(local_type(f,i)) != 0)
+   return 0
+  end
+  set i = i + 1
+ end
+ return 1
+end
 fn generate()
  let f = 0
  let p = 0
@@ -3003,9 +3470,11 @@ fn generate()
    set frame = frame + 64
   end
   do require(frame <= 4095, "frame bound")
-  do emit(2847898621)
-  do emit(3506439167 | (frame << 10))
-  do emit(2432697341)
+  if frame_omittable(f) == 0
+   do emit(2847898621)
+   do emit(3506439167 | (frame << 10))
+   do emit(2432697341)
+  end
   set i = 0
   while i < 8
    if mapped_local(i) >= 19
@@ -3037,9 +3506,11 @@ fn generate()
    end
    set i = i + 1
   end
-  do emit(2432697279)
-  do emit(2432697343 | (frame << 10))
-  do emit(2831252477)
+  if frame_omittable(f) == 0
+   do emit(2432697279)
+   do emit(2432697343 | (frame << 10))
+   do emit(2831252477)
+  end
   do emit(3596551104)
   set f = f + 1
  end
