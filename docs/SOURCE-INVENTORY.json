@@ -25,8 +25,8 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 673633,
-    "Python": 523823,
+    "RiverFlow": 685039,
+    "Python": 550882,
     "JavaScript": 85144,
     "HTML": 30503,
     "CSS": 17035,
@@ -498,12 +498,12 @@
     {
       "path": "native/build/incremental.rf2",
       "language": "RiverFlow",
-      "bytes": 12832
+      "bytes": 14332
     },
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 131648
+      "bytes": 141554
     },
     {
       "path": "native/core.rf2",
@@ -741,6 +741,11 @@
       "bytes": 4101
     },
     {
+      "path": "tests/standalone/compiler_store_verify.py",
+      "language": "Python",
+      "bytes": 5142
+    },
+    {
       "path": "tests/standalone/compiler_verify.py",
       "language": "Python",
       "bytes": 8561
@@ -914,6 +919,11 @@
       "path": "tests/standalone/fixtures/vm-ownership/repeat-release.rf2",
       "language": "RiverFlow",
       "bytes": 506
+    },
+    {
+      "path": "tests/standalone/function_reuse_verify.py",
+      "language": "Python",
+      "bytes": 14271
     },
     {
       "path": "tests/standalone/hex_app_verify.py",
@@ -1184,6 +1194,16 @@
       "path": "tools/benchmark-compiler-dispatch.py",
       "language": "Python",
       "bytes": 3376
+    },
+    {
+      "path": "tools/benchmark-compiler-store.py",
+      "language": "Python",
+      "bytes": 3814
+    },
+    {
+      "path": "tools/benchmark-function-reuse.py",
+      "language": "Python",
+      "bytes": 3832
     },
     {
       "path": "tools/benchmark-incremental.py",
