@@ -48,10 +48,10 @@ The signed default compiler image is 16,631,264 bytes, below the existing 16,777
 
 ## Scope and remaining work
 
-Qualified on one Apple Silicon Mac. The native backend emits Darwin Mach-O and uses the Darwin ABI; a Linux LXC does not make that binary a Linux program. Prime was not changed or used for this work. Linux qualification needs an actual target/backend and its own acceptance cases.
+Qualified on one Apple Silicon Mac. The native backend emits Darwin Mach-O and uses the Darwin ABI; a Linux LXC does not make that binary a Linux program. No Linux test host was used. Linux qualification needs an actual target/backend and its own acceptance cases.
 
 WhatIF's automatic web/backend runners do not cover native compiler frames. This work applies its boundary/invariant/replay discipline using explicit native controllers and actual independent agent review. It is not a built-in WhatIF engine result or external certification.
 
 The first bootstrap comparison rejected compactly spaced assignments in the new compiler source because the maintained reference encoder expects spaced assignments. Source formatting was corrected and the independent check rerun. An early red-team harness assumed a named Mach-O text section; it was corrected to support RF2's actual LC_MAIN entry format. Neither is presented as a passing initial attempt or a compiler-codegen defect.
 
-General heap transfer, richer structured values, concurrency, floating point, standard application libraries and additional targets remain separate work. No thesis, book or PDF was changed.
+General heap transfer, richer structured values, concurrency, floating point, standard application libraries and additional targets remain separate work.
