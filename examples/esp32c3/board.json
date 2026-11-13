@@ -1,0 +1,50 @@
+{
+  "schema": "rf2.embedded.board.v1",
+  "board": "ESP32-C3-DevKitM-1",
+  "target": "esp32c3-rv32im-ram",
+  "profile": "RF2_ESP32C3_V1",
+  "entry": "0x40380000",
+  "stackTop": "0x3FCC0000",
+  "hardwareAttached": false,
+  "physicalQualified": false,
+  "uart0": {
+    "txGPIO": 21,
+    "rxGPIO": 20,
+    "baud": "inherited from ROM loader",
+    "fifoPollLimit": 100000,
+    "registerBase": "0x60000000"
+  },
+  "tmp102": {
+    "address7Bit": "0x48",
+    "addressSelect": "ADD0 tied to ground",
+    "sdaGPIO": 4,
+    "sclGPIO": 5,
+    "logicSupplyVolts": 3.3,
+    "externalPullupsRequired": true,
+    "pinDrive": "open drain, high means release",
+    "busTopology": "single master, no concurrent configuration writer",
+    "supportedMode": "normal signed 12-bit temperature register",
+    "readOnlyRegisters": [0, 1],
+    "registerPointerWrites": true,
+    "configurationOrThresholdWrites": false,
+    "sclPollLimitPerEdge": 1000,
+    "delayTicks": 500,
+    "delayCalibrated": false,
+    "output": "raw wire word and exact four-decimal Celsius conversion; error code if no accepted word"
+  },
+  "startupContract": {
+    "required": "ROM-initialized UART clock, baud and pin route; loader-established memory state",
+    "entryInterrupts": "disabled by RF2 target entry",
+    "watchdogPolicy": "inherits ROM/loader state; application does not disable or service watchdogs",
+    "mainReturn": "entry parks; the main return status is not a host process exit code",
+    "continuousServiceQualified": false
+  },
+  "restrictions": [
+    "No physical flash or board operation performed in this sprint",
+    "GPIO4 and GPIO5 share external JTAG functions; do not connect an active external JTAG driver on these pins",
+    "Do not use board strap pins GPIO2, GPIO8 or GPIO9 for this example bus",
+    "No WiFi, Bluetooth, Arduino library, classic ESP32 Xtensa or motor/heater control is implemented",
+    "Scripted GPIO fixtures are tests, not observed sensor readings",
+    "Physical pin voltage, pullup sizing, rise time, I2C timing and watchdog behavior still need measurement"
+  ]
+}

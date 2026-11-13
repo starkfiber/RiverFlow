@@ -1,0 +1,46 @@
+profile RF2_ESP32C3_V1
+# ROM/RAM-loader entry contract: UART0 clock, baud and default pins already configured.
+# No clock-tree or watchdog reconfiguration. All UART polls are bounded.
+fn uart_byte(value)
+ let tries=100000
+ while tries>0
+  if ((load32(0x6000001C)>>16)&1023)<127
+   do store32(0x60000000,value&255)
+   return 0
+  end
+  set tries=tries-1
+ end
+ return 1
+end
+fn uart_flush()
+ let tries=100000
+ while tries>0
+  if ((load32(0x6000001C)>>16)&1023)==0
+   return 0
+  end
+  set tries=tries-1
+ end
+ return 1
+end
+fn main()
+ let failure=0
+ set failure=failure|uart_byte(82)
+ set failure=failure|uart_byte(70)
+ set failure=failure|uart_byte(50)
+ set failure=failure|uart_byte(32)
+ set failure=failure|uart_byte(69)
+ set failure=failure|uart_byte(83)
+ set failure=failure|uart_byte(80)
+ set failure=failure|uart_byte(51)
+ set failure=failure|uart_byte(50)
+ set failure=failure|uart_byte(67)
+ set failure=failure|uart_byte(51)
+ set failure=failure|uart_byte(32)
+ set failure=failure|uart_byte(85)
+ set failure=failure|uart_byte(65)
+ set failure=failure|uart_byte(82)
+ set failure=failure|uart_byte(84)
+ set failure=failure|uart_byte(10)
+ set failure=failure|uart_flush()
+ return failure
+end

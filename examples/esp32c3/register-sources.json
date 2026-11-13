@@ -1,0 +1,64 @@
+{
+  "version": "esp-idf-v5.5",
+  "sources": [
+    {
+      "file": "reg_base.h",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/soc/esp32c3/register/soc/reg_base.h",
+      "sha256": "0c11cb4190afcc8097608a7e508d6bbc12bb432f7c6c73922537c488963f8056",
+      "usage": "Register/pin semantic reference only; vendor implementations are not linked into the RF2 application."
+    },
+    {
+      "file": "gpio_reg.h",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/soc/esp32c3/register/soc/gpio_reg.h",
+      "sha256": "4b245ea8c457ad56a15f30311e0cfcca59f0600ed53d3e433b1b07e9621dd76c",
+      "usage": "Register/pin semantic reference only; vendor implementations are not linked into the RF2 application."
+    },
+    {
+      "file": "io_mux_reg.h",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/soc/esp32c3/register/soc/io_mux_reg.h",
+      "sha256": "bb45d201fad3f433da44cb7a1fd28511cd5158fcad1d8c5c70048e70c3f4ac6e",
+      "usage": "Register/pin semantic reference only; vendor implementations are not linked into the RF2 application."
+    },
+    {
+      "file": "uart_reg.h",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/soc/esp32c3/register/soc/uart_reg.h",
+      "sha256": "1480098c641576243be92a29feb7280d3e5a916e24f925d5fe4e727d110fbcb2",
+      "usage": "Register/pin semantic reference only; vendor implementations are not linked into the RF2 application."
+    },
+    {
+      "file": "gpio_sig_map.h",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/soc/esp32c3/include/soc/gpio_sig_map.h",
+      "sha256": "88cb507e4cfe8b53e95dd965bcaafb4d25647167bd51cca3b89c065f547296af",
+      "usage": "Register/pin semantic reference only; vendor implementations are not linked into the RF2 application."
+    },
+    {
+      "file": "gpio_ll.h",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/hal/esp32c3/include/hal/gpio_ll.h",
+      "sha256": "f17c47d30e68960a35c06b566580942c098794ae1eec41c55ebfa65e1024478e",
+      "usage": "Register/pin semantic reference only; vendor implementations are not linked into the RF2 application."
+    },
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/tmp102.pdf",
+      "revision": "SBOS397I, June 2024",
+      "usage": "Normal12-bit layout, configuration resolution/extended-mode and serial read protocol"
+    },
+    {
+      "url": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c3/esp32-c3-devkitm-1/user_guide.html",
+      "usage": "DevKitM-1 exposed pins, UART0 GPIO20/21 and GPIO4/5 header pin functions"
+    }
+  ],
+  "constants": {
+    "GPIO_BASE": "0x60004000",
+    "IOMUX_BASE": "0x60009000",
+    "UART0_BASE": "0x60000000",
+    "GPIO4_IOMUX": "0x60009014",
+    "GPIO5_IOMUX": "0x60009018",
+    "GPIO4_MATRIX_OUTPUT": "0x60004564",
+    "GPIO5_MATRIX_OUTPUT": "0x60004568",
+    "GPIO_OUTPUT_SIGNAL": 128,
+    "GPIO_MATRIX_ENABLE_GPIO_REGISTER_BIT": 9,
+    "GPIO_OPEN_DRAIN_BIT": 2,
+    "IOMUX_GPIO_FUNCTION": 1,
+    "IOMUX_INPUT_ENABLE_BIT": 9
+  }
+}
