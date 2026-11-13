@@ -26,8 +26,8 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 740120,
-    "Python": 672580,
+    "RiverFlow": 745568,
+    "Python": 705521,
     "JavaScript": 85144,
     "HTML": 30503,
     "CSS": 17035,
@@ -459,12 +459,17 @@
     {
       "path": "examples/text-search/lib/search.rf2",
       "language": "RiverFlow",
-      "bytes": 1866
+      "bytes": 1868
+    },
+    {
+      "path": "examples/text-search/log-scan.rf2",
+      "language": "RiverFlow",
+      "bytes": 2722
     },
     {
       "path": "examples/text-search/main.rf2",
       "language": "RiverFlow",
-      "bytes": 2538
+      "bytes": 2541
     },
     {
       "path": "examples/unicode-lines/lib/audit.rf2",
@@ -529,7 +534,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 155704
+      "bytes": 158425
     },
     {
       "path": "native/core.rf2",
@@ -729,7 +734,7 @@
     {
       "path": "tests/standalone/arrays_verify.py",
       "language": "Python",
-      "bytes": 7095
+      "bytes": 7442
     },
     {
       "path": "tests/standalone/attendance_verify.py",
@@ -1059,7 +1064,7 @@
     {
       "path": "tests/standalone/multiple_views_verify.py",
       "language": "Python",
-      "bytes": 2808
+      "bytes": 2851
     },
     {
       "path": "tests/standalone/narrowing_verify.py",
@@ -1167,14 +1172,29 @@
       "bytes": 737
     },
     {
+      "path": "tests/standalone/shared_search_apps_verify.py",
+      "language": "Python",
+      "bytes": 7292
+    },
+    {
       "path": "tests/standalone/structured_results_verify.py",
       "language": "Python",
       "bytes": 11695
     },
     {
+      "path": "tests/standalone/structured_storage_redteam_verify.py",
+      "language": "Python",
+      "bytes": 15622
+    },
+    {
+      "path": "tests/standalone/structured_storage_verify.py",
+      "language": "Python",
+      "bytes": 5410
+    },
+    {
       "path": "tests/standalone/text_search_verify.py",
       "language": "Python",
-      "bytes": 7279
+      "bytes": 8085
     },
     {
       "path": "tests/standalone/text_verify.py",
@@ -1485,6 +1505,11 @@
       "path": "tools/package-foundation.py",
       "language": "Python",
       "bytes": 4180
+    },
+    {
+      "path": "tools/package-storage.py",
+      "language": "Python",
+      "bytes": 3421
     },
     {
       "path": "tools/package-trust-candidate.py",

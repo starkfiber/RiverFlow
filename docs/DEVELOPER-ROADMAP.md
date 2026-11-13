@@ -6,13 +6,13 @@ The next milestones are acceptance contracts. They are not a claim that RF2 repl
 | --- | --- | --- |
 | Check before creating artifacts | Run `rf2c --check SOURCE`; receive an honest nearby error or successful validation | Full validation, unchanged-workspace manifests, nonexecution canary and refusal cases |
 | Reuse a native library | Call bounded byte search with caller-owned workspace | Independent output oracle, typed-call checks, boundary/guard-page cases, simple complete CLI |
-| Store useful structured data | Construct larger local arrays without spending one scalar slot per element | Separate payload layout, bounded frames, larger-frame instruction encoding and ABI tests; nested calls, canaries, owner lifetime and negative cases |
+| Store useful structured data | Construct larger local arrays without spending one scalar slot per element | Implemented within explicit 0.32 bounds; see [storage and frame qualification](STRUCTURED-STORAGE-0.32.md). General allocation and ownership transfer remain further work |
 | Build readable application logic | Use standard text/collection/JSON/error interfaces rather than repeating pointer and formatting code | Several applications sharing the same implementations; module/version contracts and meaningful error paths |
 | Deliver an application | Install and operate a package on an explicitly supported platform | Fresh-target build/sign/install/use/cleanup receipts; no hidden developer-runtime requirement |
 | Give an AI dependable tools | Discover and compose bounded capabilities with inspectable failures | Stable schemas, exact permissions, refusal/state tests and actual recorded complete tasks |
 | Demonstrate an adoption advantage | Complete matched application tasks with less effort or cost | Predeclared comparator/task/oracles, repeated attempts, actual usage receipts, defects and human intervention retained |
 
-The first two have scoped development evidence in the 0.31 reports. The remaining rows still require implementation or qualification. A checked source program can fail when run. A small CLI does not supply a framework, database, GUI toolkit, security certification or cross-platform ecosystem.
+The first two have scoped development evidence in the 0.31 reports, and the fixed-array storage row has 0.32 qualification. The remaining rows still require implementation or qualification. A checked source program can fail when run. A small CLI does not supply a framework, database, GUI toolkit, security certification or cross-platform ecosystem.
 
 ## Keep the stack understandable
 
