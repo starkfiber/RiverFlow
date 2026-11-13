@@ -1,0 +1,93 @@
+profile RF2_ESP32C3_V1
+use "lib/time.flow"
+use "lib/watchdog.flow"
+use "lib/uart.flow"
+use "lib/peripheral.flow"
+interrupt fn on_interrupt(cause)
+ return owned_timer_interrupt(cause)
+end
+fn main()
+ let failure=irq_install(on_interrupt)
+ if failure
+  return failure
+ end
+ let watchdog=peripheral_claim(2)
+ if watchdog&0x80000000
+  return watchdog
+ end
+ set failure=owned_watchdog_arm(watchdog,1000)
+ if failure
+  return failure
+ end
+ let timer=peripheral_claim(1)
+ if timer&0x80000000
+  return timer
+ end
+ set failure=owned_timer_start(timer,10000)
+ if failure
+  return failure
+ end
+ set failure=irq_enable()
+ if failure
+  return failure
+ end
+ set failure=serial_byte(73)
+ set failure=failure|serial_hex(reset_cause())
+ set failure=failure|serial_byte(10)
+ if failure
+  return failure
+ end
+ set failure=timer_capture()
+ if failure
+  return failure
+ end
+ let start=timer_us32()
+ let interval=0
+ let total=0
+ while interval<2400
+  # Arithmetic is deliberately live across asynchronous interrupt entry/return.
+  set total=(total*1664525)+1013904223
+  set failure=timer_delay_us(250000,100000)
+  if failure
+   return failure
+  end
+  set failure=irq_replenish()
+  if failure
+   return failure
+  end
+  set failure=owned_watchdog_feed(watchdog)
+  if failure
+   return failure
+  end
+  set interval=interval+1
+ end
+ let saved=irq_save()
+ set failure=timer_capture()
+ if failure
+  return failure
+ end
+ let elapsed=timer_elapsed(timer_us32(),start)
+ let ticks=owned_timer_ticks(timer)
+ if (ticks<60000)|(ticks>62500)
+  return 0x80000601
+ end
+ set failure=peripheral_release(timer)
+ if failure
+  return failure
+ end
+ set failure=peripheral_release(watchdog)
+ if failure
+  return failure
+ end
+ set failure=serial_hex(elapsed)
+ set failure=failure|serial_byte(32)
+ set failure=failure|serial_hex(ticks)
+ set failure=failure|serial_byte(32)
+ set failure=failure|serial_hex(total)
+ set failure=failure|serial_byte(10)
+ set failure=failure|serial_byte(68)
+ set failure=failure|serial_byte(79)
+ set failure=failure|serial_byte(78)
+ set failure=failure|serial_byte(69)
+ return failure|serial_byte(10)
+end
