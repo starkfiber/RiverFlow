@@ -31,10 +31,29 @@ candidate, not a general release for every ESP32 board.
 
 The RAM entry is `0x40380000` with stack top `0x3FCC0000`. Startup disables
 machine interrupts and calls `main`. UART clock, baud and routing are inherited
-from the ROM loader. The examples do not initialize an arbitrary cold UART or
-change watchdog configuration. When `main` returns, entry parks; its status is
-not an OS process exit status. Continuous operation, interrupt handling and
-watchdog service need a further runtime implementation.
+from the ROM loader. The original UART and TMP102 examples do not initialize an
+arbitrary cold UART or change watchdog configuration. When `main` returns, entry
+parks; its status is not an OS process exit status. The newer timed heartbeat
+explicitly configures and services TIMG0 watchdog supervision. Interrupt handling
+and physical continuous-operation qualification remain pending.
+
+## Timers and watchdog supervision
+
+`timed-heartbeat.flow` shares `lib/time.flow`, `lib/watchdog.flow` and
+`lib/uart.flow`. It completes480 quarter-second intervals, feeds the watchdog
+only after a successful interval, checks UART failures and deliberately disarms
+before returning. Two vendor-QEMU runs each completed120 seconds of virtual
+time. This is not a physical or wall-clock endurance measurement.
+
+```sh
+rf2-esp32c3 examples/esp32c3/timed-heartbeat.flow NEW-PREFIX
+```
+
+Use the complete source checkout; the existing0.34 download does not contain
+these new example libraries. Read the [timer/watchdog contract](../../docs/ESP32C3-TIMERS.md)
+for clock assumptions, wrapping timestamps, bounded waits, explicit failure
+codes and emulator protection limitations. No new MCP device authority or
+automatic flashing is introduced.
 
 ## Read-only temperature example
 
