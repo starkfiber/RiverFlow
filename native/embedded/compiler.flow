@@ -1,0 +1,761 @@
+profile RF2_SYSTEM_A64_V1
+# Native RF2 host program. Direct RV32IM encoder and RAM image writer.
+# Trusted MMIO is explicit; this profile is not admitted by bounded MCP.
+fn rv_state()
+ return buffer("rv_state",128)
+end
+fn rv_fn(i)
+ do require(i<64,"embedded function bound64")
+ return buffer("rv_functions",5120)+i*80
+end
+fn rv_local(f,i)
+ do require(i<64,"embedded local bound64")
+ return buffer("rv_locals",98304)+(f*64+i)*24
+end
+fn rv_name_equal(a,b)
+ let x = token(a)
+ let y = token(b)
+ return same(load64(x+8),load64(x+16),load64(y+8),load64(y+16))
+end
+fn rv_identifier()
+ let t = advance()
+ do require(load64(token(t))==1,"embedded identifier required")
+ do require(tmatch(t,"true")==0,"reserved true")
+ do require(tmatch(t,"false")==0,"reserved false")
+ do require(tmatch(t,"fn")==0,"reserved fn")
+ do require(tmatch(t,"end")==0,"reserved end")
+ do require(tmatch(t,"if")==0,"reserved if")
+ do require(tmatch(t,"else")==0,"reserved else")
+ do require(tmatch(t,"while")==0,"reserved while")
+ do require(tmatch(t,"let")==0,"reserved let")
+ do require(tmatch(t,"set")==0,"reserved set")
+ do require(tmatch(t,"return")==0,"reserved return")
+ do require(tmatch(t,"do")==0,"reserved do")
+ return t
+end
+fn rv_intrinsic(t)
+ return tmatch(t,"load8")|tmatch(t,"load32")|tmatch(t,"store8")|tmatch(t,"store32")
+end
+fn rv_lookup_fn(t)
+ let i = 0
+ while i<load64(rv_state()+8)
+  if rv_name_equal(load64(rv_fn(i)),t)
+   return i
+  end
+  set i = i+1
+ end
+ do die("unknown embedded function or effect")
+ return 0
+end
+fn rv_add_local(f,t,scope)
+ let n = load64(rv_fn(f)+40)
+ let i = 0
+ while i<n
+  do require(rv_name_equal(load64(rv_local(f,i)),t)==0,"duplicate embedded local")
+  set i = i+1
+ end
+ let p = rv_local(f,n)
+ do store64(p,t)
+ do store64(p+8,scope)
+ do store64(p+16,1)
+ do store64(rv_fn(f)+40,n+1)
+ return n
+end
+fn rv_lookup_local(t)
+ let f = load64(rv_state())
+ let i = 0
+ while i<load64(rv_fn(f)+40)
+  let p = rv_local(f,i)
+  if rv_name_equal(load64(p),t)
+   do require(load64(p+16),"embedded local outside lifetime")
+   return i
+  end
+  set i = i+1
+ end
+ do die("unknown or uninitialized embedded local")
+ return 0
+end
+fn rv_skip_newlines()
+ while load64(token(load64(state()+24)))==5
+  do advance()
+ end
+ return 0
+end
+fn rv_scan()
+ do expect("profile")
+ do expect("RF2_ESP32C3_V1")
+ do newline()
+ do rv_skip_newlines()
+ let count = 0
+ while load64(token(load64(state()+24)))!=0
+  do expect("fn")
+  let name = rv_identifier()
+  do require(rv_intrinsic(name)==0,"reserved embedded MMIO intrinsic")
+  let i = 0
+  while i<count
+   do require(rv_name_equal(load64(rv_fn(i)),name)==0,"duplicate embedded function")
+   set i = i+1
+  end
+  let f = rv_fn(count)
+  do store64(f,name)
+  do expect("(")
+  let params = 0
+  if match(")")==0
+   let more = 1
+   while more
+    do require(params<4,"embedded parameter bound4")
+    let p = rv_identifier()
+    do rv_add_local(count,p,0)
+    if match(":")
+     do advance()
+     do expect("u32")
+    end
+    set params = params+1
+    if match(",")==0
+     do expect(")")
+     set more = 0
+    else
+     do advance()
+    end
+   end
+  else
+   do advance()
+  end
+  do store64(f+8,params)
+  if match(":")
+   do advance()
+   do expect("u32")
+  end
+  do newline()
+  do store64(f+16,load64(state()+24))
+  let nesting = 1
+  let first = 1
+  while nesting
+   let t = advance()
+   let kind = load64(token(t))
+   do require(kind!=0,"unterminated embedded function")
+   if first
+    if tmatch(t,"if")|tmatch(t,"while")
+     set nesting = nesting+1
+    end
+    if tmatch(t,"end")
+     set nesting = nesting-1
+     if nesting==0
+      do store64(f+24,t)
+     end
+    end
+   end
+   set first = kind==5
+  end
+  do newline()
+  set count = count+1
+  do store64(rv_state()+8,count)
+  do rv_skip_newlines()
+ end
+ do require(count!=0,"embedded functions required")
+ return 0
+end
+fn rv_emit(word)
+ let n = load64(rv_state()+16)
+ do require(n<65024,"embedded code bound65024")
+ do store32(buffer("rv_code",65024)+n,word)
+ do store64(rv_state()+16,n+4)
+ return n
+end
+fn rv_i(op,rd,funct,rs,imm)
+ return op|(rd<<7)|(funct<<12)|(rs<<15)|((imm&4095)<<20)
+end
+fn rv_r(rd,funct,rs1,rs2,high)
+ return 51|(rd<<7)|(funct<<12)|(rs1<<15)|(rs2<<20)|(high<<25)
+end
+fn rv_s(funct,base,value,imm)
+ return 35|((imm&31)<<7)|(funct<<12)|(base<<15)|(value<<20)|(((imm>>5)&127)<<25)
+end
+fn rv_imm(reg,value)
+ do require(value<=4294967295,"embedded immediate exceeds u32")
+ let high = ((value+2048)>>12)&1048575
+ let low = value&4095
+ do rv_emit(55|(reg<<7)|(high<<12))
+ do rv_emit(rv_i(19,reg,0,reg,low))
+ return 0
+end
+fn rv_jword(rd,delta)
+ do require(((delta&1)==0)&((delta<=1048574)|(delta>=18446744073708503040)),"embedded jump range")
+ let u = delta&2097151
+ return 111|(rd<<7)|(((u>>20)&1)<<31)|(((u>>1)&1023)<<21)|(((u>>11)&1)<<20)|(((u>>12)&255)<<12)
+end
+fn rv_jump_to(target,rd)
+ let here = load64(rv_state()+16)
+ return rv_emit(rv_jword(rd,target-here))
+end
+fn rv_patch_jump(site,target,rd)
+ do store32(buffer("rv_code",65024)+site,rv_jword(rd,target-site))
+ return 0
+end
+fn rv_label()
+ let n = load64(rv_state()+24)
+ do require(n<4096,"embedded label bound4096")
+ do store64(rv_state()+24,n+1)
+ return n
+end
+fn rv_mark(label)
+ do store64(buffer("rv_labels",32768)+label*8,load64(rv_state()+16)+1)
+ return 0
+end
+fn rv_fix(label,rd)
+ let n = load64(rv_state()+32)
+ do require(n<8192,"embedded relocation bound8192")
+ let p = buffer("rv_fixups",196608)+n*24
+ do store64(p,load64(rv_state()+16))
+ do store64(p+8,label)
+ do store64(p+16,rd)
+ do store64(rv_state()+32,n+1)
+ return rv_emit(19)
+end
+fn rv_branch_zero(label)
+ # bne a0,zero,+8 skips the full-range JAL when condition is true.
+ do rv_emit(5120|(10<<15)|99)
+ return rv_fix(label,0)
+end
+fn rv_resolve()
+ let i = 0
+ while i<load64(rv_state()+32)
+  let p = buffer("rv_fixups",196608)+i*24
+  let target = load64(buffer("rv_labels",32768)+load64(p+8)*8)
+  do require(target!=0,"unresolved embedded label")
+  do rv_patch_jump(load64(p),target-1,load64(p+16))
+  set i = i+1
+ end
+ return 0
+end
+fn rv_push()
+ let slots = load64(rv_state()+56)+1
+ do require(slots<=32,"embedded expression stack bound512bytes")
+ do store64(rv_state()+56,slots)
+ do rv_emit(rv_i(19,2,0,2,0-16))
+ do rv_emit(rv_s(2,2,10,0))
+ return 0
+end
+fn rv_pop(reg)
+ let slots = load64(rv_state()+56)
+ do require(slots!=0,"internal embedded expression stack underflow")
+ do store64(rv_state()+56,slots-1)
+ do rv_emit(rv_i(3,reg,2,2,0))
+ do rv_emit(rv_i(19,2,0,2,16))
+ return 0
+end
+fn rv_read_local(slot)
+ return rv_emit(rv_i(3,10,2,8,0-12-slot*4))
+end
+fn rv_write_local(slot,reg)
+ return rv_emit(rv_s(2,8,reg,0-12-slot*4))
+end
+fn rv_prec(t)
+ if tmatch(t,"|")
+  return 1
+ end
+ if tmatch(t,"^")
+  return 2
+ end
+ if tmatch(t,"&")
+  return 3
+ end
+ if tmatch(t,"==")|tmatch(t,"!=")
+  return 4
+ end
+ if tmatch(t,"<")|tmatch(t,"<=")|tmatch(t,">")|tmatch(t,">=")
+  return 5
+ end
+ if tmatch(t,"<<")|tmatch(t,">>")
+  return 6
+ end
+ if tmatch(t,"+")|tmatch(t,"-")
+  return 7
+ end
+ if tmatch(t,"*")|tmatch(t,"//")|tmatch(t,"%")
+  return 8
+ end
+ return 0
+end
+fn rv_binary(t)
+ if tmatch(t,"+")
+  return rv_emit(rv_r(10,0,5,10,0))
+ end
+ if tmatch(t,"-")
+  return rv_emit(rv_r(10,0,5,10,32))
+ end
+ if tmatch(t,"*")
+  return rv_emit(rv_r(10,0,5,10,1))
+ end
+ if tmatch(t,"//")
+  return rv_emit(rv_r(10,5,5,10,1))
+ end
+ if tmatch(t,"%")
+  return rv_emit(rv_r(10,7,5,10,1))
+ end
+ if tmatch(t,"&")
+  return rv_emit(rv_r(10,7,5,10,0))
+ end
+ if tmatch(t,"|")
+  return rv_emit(rv_r(10,6,5,10,0))
+ end
+ if tmatch(t,"^")
+  return rv_emit(rv_r(10,4,5,10,0))
+ end
+ if tmatch(t,"<<")
+  return rv_emit(rv_r(10,1,5,10,0))
+ end
+ if tmatch(t,">>")
+  return rv_emit(rv_r(10,5,5,10,0))
+ end
+ if tmatch(t,"==")|tmatch(t,"!=")
+  do rv_emit(rv_r(10,4,5,10,0))
+  if tmatch(t,"==")
+   return rv_emit(rv_i(19,10,3,10,1))
+  end
+  return rv_emit(rv_r(10,3,0,10,0))
+ end
+ if tmatch(t,"<")|tmatch(t,">=")
+  do rv_emit(rv_r(10,3,5,10,0))
+ else
+  do rv_emit(rv_r(10,3,10,5,0))
+ end
+ if tmatch(t,"<=")|tmatch(t,">=")
+  do rv_emit(rv_i(19,10,4,10,1))
+ end
+ return 0
+end
+fn rv_call(t,depth)
+ let count = 0
+ do expect("(")
+ if match(")")==0
+  let more = 1
+  while more
+   do require(count<4,"embedded argument bound4")
+   do rv_expression(1,depth+1)
+   do rv_push()
+   set count = count+1
+   if match(",")==0
+    set more = 0
+   else
+    do advance()
+   end
+  end
+ end
+ do expect(")")
+ let n = count
+ while n
+  set n = n-1
+  do rv_pop(10+n)
+ end
+ if rv_intrinsic(t)
+  if tmatch(t,"load8")|tmatch(t,"load32")
+   do require(count==1,"embedded load arity1")
+   let width = 4
+   if tmatch(t,"load32")
+    set width = 2
+   end
+   do rv_emit(rv_i(3,10,width,10,0))
+  else
+   do require(count==2,"embedded store arity2")
+   let store_width = 0
+   if tmatch(t,"store32")
+    set store_width = 2
+   end
+   do rv_emit(rv_s(store_width,10,11,0))
+   do rv_emit(rv_i(19,10,0,0,0))
+  end
+ else
+  let f = rv_lookup_fn(t)
+  do require(load64(rv_fn(f)+8)==count,"embedded call argument mismatch")
+  let caller = rv_fn(load64(rv_state()))
+  do store64(caller+64,load64(caller+64)|(1<<f))
+  do rv_fix(f,1)
+ end
+ return 0
+end
+fn rv_atom(depth)
+ do require(depth<=16,"embedded expression depth16")
+ if match("(")
+  do advance()
+  do rv_expression(1,depth+1)
+  do expect(")")
+  return 0
+ end
+ if match("-")
+  do advance()
+  do rv_atom(depth+1)
+  return rv_emit(rv_r(10,0,0,10,32))
+ end
+ if match("~")
+  do advance()
+  do rv_atom(depth+1)
+  return rv_emit(rv_i(19,10,4,10,4095))
+ end
+ let t = advance()
+ let kind = load64(token(t))
+ if kind==2
+  return rv_imm(10,load64(token(t)+24))
+ end
+ do require(kind==1,"embedded scalar expression required")
+ if tmatch(t,"true")
+  return rv_imm(10,1)
+ end
+ if tmatch(t,"false")
+  return rv_imm(10,0)
+ end
+ if match("(")
+  return rv_call(t,depth+1)
+ end
+ return rv_read_local(rv_lookup_local(t))
+end
+fn rv_expression(minimum,depth)
+ do require(depth<=16,"embedded expression depth16")
+ do rv_atom(depth)
+ while 1
+  let t = load64(state()+24)
+  let priority = rv_prec(t)
+  if priority<minimum
+   return 0
+  end
+  do advance()
+  do rv_push()
+  do rv_expression(priority+1,depth+1)
+  do rv_pop(5)
+  do rv_binary(t)
+ end
+ return 0
+end
+fn rv_scope_close(depth)
+ let f = load64(rv_state())
+ let i = 0
+ while i<load64(rv_fn(f)+40)
+  let p = rv_local(f,i)
+  if load64(p+8)>=depth
+   do store64(p+16,0)
+  end
+  set i = i+1
+ end
+ return 0
+end
+fn rv_block(depth)
+ do require(depth<=16,"embedded block depth16")
+ let last_return = 0
+ do rv_skip_newlines()
+ while (match("end")==0)&(match("else")==0)
+  if match("return")
+   do advance()
+   do rv_expression(1,1)
+   do rv_fix(load64(rv_state()+48),0)
+   do newline()
+   set last_return = 1
+  else
+   set last_return = 0
+   if match("let")
+    do advance()
+    let name = rv_identifier()
+    if match(":")
+     do advance()
+     do expect("u32")
+    end
+    do expect("=")
+    do rv_expression(1,1)
+    let slot = rv_add_local(load64(rv_state()),name,depth)
+    do rv_write_local(slot,10)
+    do newline()
+   else
+    if match("set")
+     do advance()
+     let target_slot = rv_lookup_local(rv_identifier())
+     do expect("=")
+     do rv_expression(1,1)
+     do rv_write_local(target_slot,10)
+     do newline()
+    else
+     if match("do")
+      do advance()
+      let t = rv_identifier()
+      do rv_call(t,1)
+      do newline()
+     else
+      if match("if")
+       do advance()
+       do rv_expression(1,1)
+       do newline()
+       let otherwise = rv_label()
+       let done = rv_label()
+       do rv_branch_zero(otherwise)
+       do rv_block(depth+1)
+       do rv_scope_close(depth+1)
+       if match("else")
+        do rv_fix(done,0)
+        do rv_mark(otherwise)
+        do advance()
+        do newline()
+        do rv_block(depth+1)
+        do rv_scope_close(depth+1)
+       else
+        do rv_mark(otherwise)
+       end
+       do expect("end")
+       do newline()
+       do rv_mark(done)
+      else
+       if match("while")
+        do advance()
+        let begin = rv_label()
+        let loop_done = rv_label()
+        do rv_mark(begin)
+        do rv_expression(1,1)
+        do newline()
+        do rv_branch_zero(loop_done)
+        do rv_block(depth+1)
+        do rv_scope_close(depth+1)
+        do expect("end")
+        do newline()
+        do rv_fix(begin,0)
+        do rv_mark(loop_done)
+       else
+        do die("unsupported embedded statement or effect")
+       end
+      end
+     end
+    end
+   end
+  end
+  do rv_skip_newlines()
+ end
+ return last_return
+end
+fn rv_generate_function(f)
+ do store64(rv_state(),f)
+ do store64(rv_state()+56,0)
+ do store64(state()+24,load64(rv_fn(f)+16))
+ do rv_mark(f)
+ do store64(rv_fn(f)+32,load64(rv_state()+16))
+ let done = rv_label()
+ do store64(rv_state()+48,done)
+ # Fixed aligned272 frame; s0 references caller SP so temporary pushes are safe.
+ do rv_emit(rv_i(19,2,0,2,0-272))
+ do rv_emit(rv_s(2,2,1,268))
+ do rv_emit(rv_s(2,2,8,264))
+ do rv_emit(rv_i(19,8,0,2,272))
+ let i = 0
+ while i<load64(rv_fn(f)+8)
+  do rv_write_local(i,10+i)
+  set i = i+1
+ end
+ do require(rv_block(0),"embedded function requires final root return")
+ do require(load64(state()+24)==load64(rv_fn(f)+24),"embedded body end mismatch")
+ do require(load64(rv_state()+56)==0,"internal embedded expression stack imbalance")
+ do rv_mark(done)
+ do rv_emit(rv_i(3,1,2,8,0-4))
+ do rv_emit(rv_i(3,5,2,8,0-8))
+ do rv_emit(rv_i(19,2,0,8,0))
+ do rv_emit(rv_i(19,8,0,5,0))
+ do rv_emit(rv_i(103,0,0,1,0))
+ return 0
+end
+fn rv_graph(f,depth)
+ do require(depth<=16,"embedded call depth16")
+ let p = rv_fn(f)
+ do require(load64(p+48)!=1,"embedded recursion refused")
+ if load64(p+48)==2
+  do require(depth+load64(p+56)-1<=16,"embedded call depth16")
+  return load64(p+56)
+ end
+ do store64(p+48,1)
+ let child = 0
+ let longest = 1
+ let edges = load64(p+64)
+ while child<load64(rv_state()+8)
+  if (edges>>child)&1
+   let n = 1+rv_graph(child,depth+1)
+   if n>longest
+    set longest = n
+   end
+  end
+  set child = child+1
+ end
+ do store64(p+48,2)
+ do store64(p+56,longest)
+ return longest
+end
+fn rv_compile()
+ do rv_scan()
+ let f = 0
+ let main_index = 64
+ while f<load64(rv_state()+8)
+  if tmatch(load64(rv_fn(f)),"main")
+   set main_index = f
+  end
+  set f = f+1
+ end
+ do require(main_index!=64,"embedded main required")
+ do require(load64(rv_fn(main_index)+8)==0,"embedded main takes no arguments")
+ # Reserve function label IDs first so forward calls are stable.
+ do store64(rv_state()+24,load64(rv_state()+8))
+ # Bounded bare-metal contract: interrupts disabled, no ISR ABI claimed.
+ do rv_emit(0x30047073)
+ do rv_emit(0x30401073)
+ do rv_imm(2,0x3fcc0000)
+ do rv_emit(rv_i(19,8,0,0,0))
+ do rv_fix(main_index,1)
+ # main return lands at permanent loop; a0 preserves its returned value.
+ do rv_emit(rv_jword(0,0))
+ set f = 0
+ while f<load64(rv_state()+8)
+  do rv_generate_function(f)
+  set f = f+1
+ end
+ set f = 0
+ while f<load64(rv_state()+8)
+  do rv_graph(f,1)
+  set f = f+1
+ end
+ do rv_resolve()
+ return 0
+end
+fn rv_filename(prefix,suffix,which)
+ let n = length(prefix)
+ let m = length(suffix)
+ do require(n+m<1024,"embedded output path bound")
+ let p = buffer("rv_paths",3072)+which*1024
+ do cp(p,prefix,n)
+ do cp(p+n,suffix,m)
+ do store8(p+n+m,0)
+ return p
+end
+fn rv_store16(p,value)
+ do store8(p,value&255)
+ do store8(p+1,(value>>8)&255)
+ return 0
+end
+fn rv_write_elf(fd)
+ let p = buffer("rv_elf_header",4096)
+ do store32(p,0x464c457f)
+ do store8(p+4,1)
+ do store8(p+5,1)
+ do store8(p+6,1)
+ do rv_store16(p+16,2)
+ do rv_store16(p+18,243)
+ do store32(p+20,1)
+ do store32(p+24,0x40380000)
+ do store32(p+28,52)
+ do rv_store16(p+40,52)
+ do rv_store16(p+42,32)
+ do rv_store16(p+44,1)
+ do store32(p+52,1)
+ do store32(p+56,4096)
+ do store32(p+60,0x40380000)
+ do store32(p+64,0x40380000)
+ do store32(p+68,load64(rv_state()+16))
+ do store32(p+72,load64(rv_state()+16))
+ do store32(p+76,5)
+ do store32(p+80,4096)
+ do output(fd,p,4096)
+ do output(fd,buffer("rv_code",65024),load64(rv_state()+16))
+ return 0
+end
+fn rv_write_image(fd)
+ let p = buffer("rv_image",65536)
+ let code = buffer("rv_code",65024)
+ let n = load64(rv_state()+16)
+ do store8(p,233)
+ do store8(p+1,1)
+ do store8(p+2,2)
+ do store8(p+3,32)
+ do store8(p+23,1)
+ do store32(p+4,0x40380000)
+ do store8(p+8,238)
+ do store8(p+12,5)
+ do store8(p+17,255)
+ do store8(p+18,255)
+ do store32(p+24,0x40380000)
+ do store32(p+28,n)
+ do cp(p+32,code,n)
+ let checksum = 239
+ let i = 0
+ while i<n
+  set checksum = checksum^load8(code+i)
+  set i = i+1
+ end
+ let total = (32+n+16)&18446744073709551600
+ do require(total<=65536,"embedded ROM image bound64KiB")
+ do store8(p+total-1,checksum)
+ do output(fd,p,total)
+ do output(fd,sha256_software(p,total),32)
+ return 0
+end
+fn rv_number(fd,n)
+ let p = buffer("rv_number",32)
+ let count = 0
+ while 1
+  do store8(p+count,48+(n-(n//10)*10))
+  set count = count+1
+  set n = n//10
+  if n==0
+   while count
+    set count = count-1
+    do output(fd,p+count,1)
+   end
+   return 0
+  end
+ end
+ return 0
+end
+fn rv_write_map(fd)
+ do output(fd,"RF2_ESP32C3_MAP_V1\n",19)
+ do output(fd,"ENTRY 1077411840\nSTACK 1070333952\n",34)
+ let f = 0
+ while f<load64(rv_state()+8)
+  let t = token(load64(rv_fn(f)))
+  do output(fd,load64(t+8),load64(t+16))
+  do output(fd," ",1)
+  do rv_number(fd,load64(rv_fn(f)+32))
+  do output(fd,"\n",1)
+  set f = f+1
+ end
+ return 0
+end
+fn main(argc,argv)
+ do require(argc==3,"Usage: rf2-esp32c3 source.flow new-output-prefix")
+ let path = load64(argv+8)
+ let prefix = load64(argv+16)
+ do store64(buffer("diagnostic_state",64)+16,path)
+ let source = read_source(path)
+ set source = expand_modules(path,source)
+ do store64(buffer("diagnostic_state",64)+24,load64(module_state()))
+ do store64(buffer("diagnostic_state",64),1)
+ do tokenize_tail(source,load64(state()+8),0,0)
+ do store64(buffer("diagnostic_state",64),2)
+ do rv_compile()
+ do store64(buffer("diagnostic_state",64),0)
+ let elf_path = rv_filename(prefix,".elf",0)
+ let image_path = rv_filename(prefix,".bin",1)
+ let map_path = rv_filename(prefix,".map",2)
+ let elf = open(elf_path,3585,384)
+ do require((elf>>63)==0,"embedded ELF output exists or cannot be created")
+ let image = open(image_path,3585,384)
+ if image>>63
+  do close(elf)
+  do syscall6(10,elf_path,0,0,0,0,0)
+  do die("embedded image output exists or cannot be created")
+ end
+ let map = open(map_path,3585,384)
+ if map>>63
+  do close(elf)
+  do close(image)
+  do syscall6(10,elf_path,0,0,0,0,0)
+  do syscall6(10,image_path,0,0,0,0,0)
+  do die("embedded map output exists or cannot be created")
+ end
+ do rv_write_elf(elf)
+ do rv_write_image(image)
+ do rv_write_map(map)
+ do require(close(elf)==0,"embedded ELF close failure")
+ do require(close(image)==0,"embedded image close failure")
+ do require(close(map)==0,"embedded map close failure")
+ do write(1,"RF2 RV32IM ELF and ESP32-C3 RAM image emitted; board execution is separate.\n",75)
+ return 0
+end
