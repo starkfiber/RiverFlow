@@ -28,19 +28,19 @@ The program and library run natively without Python, Node or npm. The tests use 
 
 ## Library contract
 
-`lib/search.rf2` is the reusable module; `main.rf2` supplies the CLI and I/O. The current RF2 module resolver uses paths relative to the entry source directory and forbids parent traversal. To reuse the module in another project, copy it into that project's `lib/` directory and use `"lib/search.rf2"`; there is no automatic global library path or dependency installer.
+`lib/search.rf2` is the reusable module; `main.rf2` supplies the CLI and I/O. The current RF2 module resolver uses paths relative to the entry source directory and forbids parent traversal. Both `main.rf2` and `log-scan.rf2` are entry files in this project root and import the same physical `lib/search.rf2` file. There are no duplicated library sources or symlinks between these applications. Reuse in an unrelated project still needs an explicit local module; there is no automatic global package path or dependency installer.
 
 `byte_search(data,n,needle,m,overlap,prefix,out)` fills a caller-owned `ByteSearch(status,matches,first)` record. It uses explicit byte lengths rather than NUL termination. The caller supplies readable data and needle ranges, a separate writable output record and a typed `SearchPrefix` workspace. Create one with `let prefix=SearchPrefix()`. Data and needle may overlap each other; the writable output and workspace must be separate from each other and from both input ranges. Raw pointers are trusted; this API cannot validate arbitrary pointer provenance.
 
-Supported budgets are n <= 1,048,576 bytes, m <= 128 bytes, and overlap 0 or 1. A violated budget returns status 1, matches 0 and first=18446744073709551615 before dereferencing either input. A successful call returns status 0. An absent match has matches 0 and the same sentinel; an empty needle has matches=n+1 and first 0. A nonempty match advances by m bytes normally or by one byte with overlap 1.
+Supported budgets are n <= 1,048,576 bytes, m <= 4096 bytes, and overlap 0 or 1. A violated budget returns status 1, matches 0 and first=18446744073709551615 before dereferencing either input. A successful call returns status 0. An absent match has matches 0 and the same sentinel; an empty needle has matches=n+1 and first 0. A nonempty match advances by m bytes normally or by one byte with overlap 1.
 
 The implementation uses the established Knuth–Morris–Pratt prefix algorithm. Prefix construction plus scan takes O(n+m) operations under this contract; this is an algorithmic bound, not a measured claim against other language libraries. It does not invent a new search algorithm. It deliberately avoids the quadratic repeated-prefix failure mode of a naive scan. After eight failed starts, a bounded eight-byte zero-detection scan can skip ranges containing no possible first byte. Every word read remains inside the declared range; scalar KMP still decides actual matches. This is an established byte-search technique, not a novel instruction or hardware claim. The plain KMP comparator is retained in `tests/comparators/text_search_kmp.rf2`.
 
-The caller supplies a bounded 1024-byte `SearchPrefix` array, and RF2 checks each array access. The module contains no hidden shared scratch buffer. Distinct operations need distinct workspaces if their lifetimes overlap. The existing language does not provide threads or transferable allocator ownership, so this interface does not establish concurrency support or whole-language memory safety.
+The caller supplies a bounded 32768-byte `SearchPrefix` array, and RF2 checks each array access. The module contains no hidden shared scratch buffer. Distinct operations need distinct workspaces if their lifetimes overlap. The existing language does not provide threads or transferable allocator ownership, so this interface does not establish concurrency support or whole-language memory safety.
 
 ## Input, output and failures
 
-The CLI accepts up to 1 MiB of input and a 128-byte query. It reads one extra byte to detect excessive input before writing results. It does not perform a file, network, shell, mutation or background-worker operation. stdin/stdout are borrowed and stay open. Full output writes handle short writes; a closed stdout returns a failure.
+The CLI accepts up to 1 MiB of input and a 4096-byte query. It reads one extra byte to detect excessive input before writing results. It does not perform a file, network, shell, mutation or background-worker operation. stdin/stdout are borrowed and stay open. Full output writes handle short writes; a closed stdout returns a failure.
 
 | Exit | Meaning |
 | --- | --- |
@@ -60,4 +60,10 @@ RF2_TEST_COMPILER=/absolute/path/to/rf2c python3 tests/standalone/text_search_ve
 
 The developer controller builds both ordinary and optimized native images. It compares results with Python's independently implemented `bytes.find`, including binary needles, repeated-prefix inputs, empty queries, overlapping matches, multibyte text, size refusals and descriptor failures. Separate native harnesses place inputs directly next to inaccessible guard pages on either side. Passing those cases does not prove validity for arbitrary raw pointers or all executions.
 
-The 128-byte query budget leaves headroom under the current compiler's combined 256-local-slot limit when the caller owns a typed prefix array. Larger structured workspaces need further language implementation; this library does not silently widen those bounds.
+The development 0.32 compiler separates fixed-array payloads from scalar-local metadata. This application owns a 4096-element u64 prefix workspace: 32 KiB of bounded stack payload, rather than 4096 named local slots. The compiler's aggregate array-arena and frame budgets still apply. This is checked fixed storage, not an unlimited heap, ownership transfer or concurrency support.
+
+## A second application using the same library
+
+`log-scan.rf2` reads the same supplied byte stream but applies search independently to LF-delimited lines. It reports total lines, matching lines, total nonoverlapping matches and the first matching line. This is a different application policy over the same `byte_search` implementation, not a duplicate search algorithm. See [the log-scan guide](../log-scan/README.md).
+
+This is source-module reuse: each native executable contains its compiled library code. It is not dynamic shared-object loading or a global package manager. The shared-app controller also changes one library in a disposable project and confirms both applications reflect that change, while canonical source hashes remain fixed.
