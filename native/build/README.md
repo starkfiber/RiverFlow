@@ -7,3 +7,5 @@ The driver snapshots each target's raw transitive source set, computes a content
 The cache key includes the builder-source identity, selected compiler image bytes, optimization option, entry path and length-delimited dependency paths, lengths and SHA-256 values. It never trusts file timestamps. The native compiler is unchanged. Cache and filesystem effects are CLI-only and are not added to bounded MCP.
 
 Read [the full contract and tests](../../docs/INCREMENTAL-BUILDS.md) before use. Cache storage is private, serialized and trusted to its owner. There is no authenticated shared-cache or hostile same-UID writer guarantee.
+
+With a qualified 0.27 compiler, --compact selects the smaller image layout and is bound into the cache key. Build the driver itself with the same optional flag through tools/build-incremental.py. Current default behavior remains compatible. Function-map sidecars are separate developer evidence and are not admitted to the target cache.
