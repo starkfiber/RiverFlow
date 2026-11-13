@@ -30,3 +30,5 @@ Read a controller and its input manifest before running it. Preserve the previou
 ## Compact image and function-change work
 
 benchmark-compact-builds.py compares retained legacy and compact complete build paths. function-impact.py reads compiler-emitted .functions sidecars and reports changed functions plus affected callers; it never reuses machine code. See examples/function-changes and docs/DEVELOPER-EXAMPLES.md. CPU-time counters and smaller files are not energy measurements.
+
+0.28 developer measurements: `benchmark-function-reuse.py` includes identity, validation, unit I/O and output creation in clean/empty/retained function-cache routes. `benchmark-compiler-store.py` compares empty project caches with one explicitly retained compiler store and reports its initial setup separately. Run sequentially on frozen compiler/builder inputs; publish regressions as well as improvements.
