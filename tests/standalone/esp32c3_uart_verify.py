@@ -9,7 +9,12 @@ source=R/'examples/esp32c3/uart-echo.flow';prefix=D/'echo'
 subprocess.run([C,source,prefix],capture_output=True,check=True,timeout=20)
 image=prefix.with_suffix('.bin').read_bytes();flash=D/'flash.bin';flash.write_bytes(image+b'\xff'*(4*1024*1024-len(image)))
 rows=[]
-for value in [0,90,255,None]:
+# Explicit extended qualification boots the same firmware once for every byte.
+# Unix sockets carry raw bytes, so CR/LF, NUL and high-bit values are not terminal
+# translations. The default short control remains useful for development.
+exhaustive=os.environ.get('RF2_UART_ALL_BYTES')=='1'
+values=[*range(256),None] if exhaustive else [0,90,255,None]
+for value in values:
  label='timeout'if value is None else str(value)
  with tempfile.TemporaryDirectory(prefix='rf2-uart-',dir='/tmp')as td:
   endpoint=Path(td)/'serial.sock'
@@ -39,9 +44,12 @@ for value in [0,90,255,None]:
   a0=int(re.search(r'x10/a0\s+([0-9a-f]+)',regs).group(1),16)
   sp=int(re.search(r'x2/sp\s+([0-9a-f]+)',regs).group(1),16)
   pc=int(re.search(r'\bpc\s+([0-9a-f]+)',regs).group(1),16)
+  mie=int(re.search(r'\bmie\s+([0-9a-f]+)',regs).group(1),16)
   assert a0==(0x80000001 if value is None else 0),(label,hex(a0))
   assert sp==0x3fcc0000 and pc==0x40380018,(label,hex(sp),hex(pc))
+  assert mie==0,(label,'machine interrupts unexpectedly enabled',hex(mie))
   (D/(label+'.uart')).write_bytes(raw);(D/(label+'.monitor')).write_bytes(monitor);(D/(label+'.stderr')).write_bytes(stderr)
-  rows.append(dict(case=label,receivedByte=value,expectedReturn=a0,stackRestored=True,returnedToEntryLoop=True,uartSHA256=hashlib.sha256(raw).hexdigest(),passed=True))
-report=dict(schema='rf2.esp32c3.uart.v1',passed=True,compilerSHA256=hashlib.sha256(C.read_bytes()).hexdigest(),qemuSHA256=hashlib.sha256(Q.read_bytes()).hexdigest(),sourceSHA256=hashlib.sha256(source.read_bytes()).hexdigest(),firmwareSHA256=hashlib.sha256(image).hexdigest(),controllerSHA256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),rows=rows,scope='Actual vendor QEMU ROM/SPI boot and UART model with Unix-socket supplied bytes, including 0/90/255 and bounded no-input timeout. No physical board, UART wiring, calibrated baud, sensor or throughput claim.')
+  rows.append(dict(case=label,receivedByte=value,expectedReturn=a0,stackRestored=True,returnedToEntryLoop=True,interruptsDisabled=True,uartSHA256=hashlib.sha256(raw).hexdigest(),passed=True))
+  if exhaustive and len(rows)%32==0:print(json.dumps(dict(progress=len(rows),total=len(values))),flush=True)
+report=dict(schema='rf2.esp32c3.uart.v1',passed=True,allByteValues=exhaustive,compilerSHA256=hashlib.sha256(C.read_bytes()).hexdigest(),qemuSHA256=hashlib.sha256(Q.read_bytes()).hexdigest(),sourceSHA256=hashlib.sha256(source.read_bytes()).hexdigest(),firmwareSHA256=hashlib.sha256(image).hexdigest(),controllerSHA256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),rows=rows,scope='Actual vendor QEMU ROM/SPI boot and UART model with Unix-socket supplied bytes and bounded no-input timeout. Explicit all-byte mode covers 0..255 in separate boots. No physical board, UART wiring, calibrated baud, sensor or throughput claim.')
 (D/'report.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(dict(passed=True,report=str(D/'report.json'),cases=len(rows))))
