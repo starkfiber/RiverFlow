@@ -1,0 +1,63 @@
+module esp32c3_watchdog
+# Trusted ESP32-C3 TIMG0 watchdog, exclusive foreground ownership.
+# Uses explicit 40MHz XTAL / 40000 = 1000 watchdog ticks/sec.
+# RTC watchdog takeover, interrupts, multi-owner supervision are not implemented.
+fn watchdog_arm_ms(timeout)
+ if (timeout<10)|(timeout>60000)
+  return 0x80000201
+ end
+ do store32(0x600C0010,load32(0x600C0010)|8192)
+ do store32(0x6001F064,0x50D83AA1)
+ # Explicitly retire ROM flashboot mode before configuring our stage0 reset.
+ do store32(0x6001F048,0x00400000)
+ do store32(0x6001F04C,0x9C400000)
+ do store32(0x6001F050,timeout)
+ do store32(0x6001F054,0)
+ do store32(0x6001F058,0)
+ do store32(0x6001F05C,0)
+ # EN, STG0 system reset, XTAL, update, 3.2us reset lengths, PROCPU reset.
+ do store32(0x6001F048,0xE07FA000)
+ do store32(0x6001F060,1)
+ do store32(0x6001F064,0)
+ if (load32(0x6001F048)&0xFFE07FFF)!=0xE0202000
+  return 0x80000202
+ end
+ if (load32(0x6001F04C)!=0x9C400000)|(load32(0x6001F050)!=timeout)
+  return 0x80000202
+ end
+ if load32(0x6001F064)!=0
+  return 0x80000202
+ end
+ return 0
+end
+fn watchdog_feed()
+ if (load32(0x6001F048)&0xFFE07FFF)!=0xE0202000
+  return 0x80000203
+ end
+ do store32(0x6001F064,0x50D83AA1)
+ do store32(0x6001F060,1)
+ do store32(0x6001F064,0)
+ return 0
+end
+fn watchdog_disarm()
+ do store32(0x6001F064,0x50D83AA1)
+ # Clear both EN and FLASHBOOT; clearing EN alone is insufficient on hardware.
+ do store32(0x6001F048,0x00400000)
+ do store32(0x6001F064,0)
+ if load32(0x6001F048)&0x80004000
+  return 0x80000202
+ end
+ return 0
+end
+fn reset_cause()
+ return load32(0x60008038)&63
+end
+fn system_reset()
+ # Success does not return. If the reset write has no effect, report failure.
+ do store32(0x60008000,load32(0x60008000)|0x80000000)
+ let tries=100000
+ while tries>0
+  set tries=tries-1
+ end
+ return 0x80000204
+end
