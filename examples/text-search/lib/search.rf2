@@ -1,14 +1,14 @@
 module search
 # Trusted systems API: borrowed readable ranges, caller-owned output record.
 # Byte units only; no decoding, Unicode normalization or locale matching.
-array SearchPrefix(u64,128)
+array SearchPrefix(u64,4096)
 record ByteSearch(status:u64,matches:u64,first:u64)
 fn byte_search(data,n,needle,m,overlap,prefix:SearchPrefix,out:ByteSearch)
  set out.status=0
  set out.matches=0
  set out.first=18446744073709551615
  # Explicit budgets also bound prefix storage and worst-case scan work.
- if (n>1048576)|(m>128)|(overlap>1)
+ if (n>1048576)|(m>4096)|(overlap>1)
   set out.status=1
   return 0
  end
