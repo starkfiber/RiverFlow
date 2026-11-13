@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "optimizedCases": [
+    "callee",
+    "fork",
+    "errno",
+    "six"
+  ],
+  "compilerSHA256": "396ced46694d226bcb3aa8dcf2d2a3a2144306fc797291a8529c6444e380b425",
+  "scope": "Executed eight-argument callee preservation, fork/wait, negative errno and six-argument memory mapping on macOS ARM64; not other-platform ABI qualification."
+}

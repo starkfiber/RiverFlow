@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "nativeValueCases": 200,
+  "boundsFailures": 36,
+  "compileRefusals": 58,
+  "lifetimeCases": 6,
+  "applicationCases": 160,
+  "applicationRefusals": 22,
+  "sideEffectCases": 2,
+  "modes": [
+    "default",
+    "opt"
+  ],
+  "compilerSHA256": "396ced46694d226bcb3aa8dcf2d2a3a2144306fc797291a8529c6444e380b425",
+  "compilerSourceSHA256": "98d1aaa1f74428c4253a6f20fb03b8e8817d0ca09cb7ae4faef9086939e29115",
+  "applicationSourceHashes": {
+    "examples/latency/main.rf2": "196b6797b2670854a2c0efa46ab384e2cf7e994d87b16e1a0a7d0d9124362e69",
+    "examples/latency/lib/samples.rf2": "82f7760184c298195d59d4ae7d04c2c4f708433b3a4cf3d508bdb441fd606e7f",
+    "examples/latency/lib/io.rf2": "3a0567b5e2ccbf4bd85203556465438d24292c571553d876a32b38df8e835b6f"
+  },
+  "scope": "Fixed nominal u64 arrays in trusted systems profile, finite host tests in default/opt. Not growable vectors, whole-program memory safety, concurrency or Core/MCP effect expansion."
+}
