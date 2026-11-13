@@ -1,0 +1,1550 @@
+{
+  "schema": "rf2.function.pack.verification.v1",
+  "passed": true,
+  "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce",
+  "controllerSHA256": "c68154b113a921d32bd47bae66ca4fd4fae2aa6783f9ba3eb562daa8f6af6f78",
+  "cases": [
+    {
+      "case": "empty packed cache",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "warm packed cache",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "warm hit does not rewrite unchanged pack",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "main entry-only edit keeps scalar units",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "one helper body changes one slot",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 1,
+        "ineligible": 2,
+        "validationReused": 1,
+        "fullValidationChecks": 2,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        1,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "changed helper warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        1,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "source reversion rebuilds changed slot",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 1,
+        "ineligible": 2,
+        "validationReused": 1,
+        "fullValidationChecks": 2,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "source reversion warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "pack payload bit flip fallback",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "pack payload bit flip repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "pack header truncation fallback",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "pack header truncation repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "pack payload truncation fallback",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "pack payload truncation repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "pack trailing bytes fallback",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "pack trailing bytes repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "pack magic fallback",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "pack magic repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "pack namespace fallback",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "pack namespace repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "wrong function count rehashed structural refusal",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "wrong function count repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "wrong declared container size rehashed structural refusal",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "wrong declared container size repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "nonzero reserved field rehashed structural refusal",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "nonzero reserved field repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "directory before-payload rehashed structural refusal",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "directory before-payload repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "directory past-end rehashed structural refusal",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "directory past-end repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "directory overflow-length rehashed structural refusal",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "directory overflow-length repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "directory zero-length-nonzero-offset rehashed structural refusal",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "directory zero-length-nonzero-offset repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "directory overlap rehashed structural refusal",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "directory overlap repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "directory wrong-key rehashed structural refusal",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "directory wrong-key repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "unit code size overflow rehashed units",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "unit code size overflow repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "unit epilogue offset overflow rehashed units",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "unit epilogue offset overflow repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "unit fixup offset overflow rehashed units",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "unit fixup offset overflow repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "unit local count mismatch rehashed units",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "unit local count mismatch repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "unit-digest repairs one slot and retains the other",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 1,
+        "ineligible": 2,
+        "validationReused": 1,
+        "fullValidationChecks": 2,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "unit-digest repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "unit-magic repairs one slot and retains the other",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 1,
+        "ineligible": 2,
+        "validationReused": 1,
+        "fullValidationChecks": 2,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "unit-magic repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "oversized container falls back within bound",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "oversized container repaired warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "ineligible changed helper never replays old unit",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 1,
+        "fullValidationChecks": 2,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "ineligible changed helper stays on normal compiler path",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 1,
+        "fullValidationChecks": 2,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "eligible source reversion has valid identity",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "entry final symlink ignored and safely replaced",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "hardlinked entry ignored and safely replaced",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "world-readable entry ignored",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "FIFO entry never blocks and is replaced",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "directory at entry path refuses publication",
+      "outcome": "publication-refused-valid-image-remains",
+      "stderr": "function pack commit failed\n"
+    },
+    {
+      "case": "directory obstruction removed",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "recovered healthy warm pack",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "uncommitted sibling ignored",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "shared root permissions rejected",
+      "outcome": "unsafe-cache-rejected"
+    },
+    {
+      "case": "root final symlink rejected",
+      "outcome": "unsafe-cache-rejected"
+    },
+    {
+      "case": "concurrent directory owner rejected",
+      "outcome": "unsafe-cache-rejected"
+    },
+    {
+      "case": "released lock permits reuse",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "context baseline",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "declaration changes namespace",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "function signature changes namespace",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "function reorder changes namespace",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "optimizer mode namespace",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "legacy image namespace",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "legacy image warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "function maps disable replay",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 0,
+        "ineligible": 4,
+        "validationReused": 0,
+        "fullValidationChecks": 0,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "no eligible helpers needs no container",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 0,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce"
+      },
+      "observation": [
+        0,
+        "",
+        ""
+      ]
+    },
+    {
+      "case": "invalid source does not publish pack",
+      "outcome": "invalid-source-rejected"
+    },
+    {
+      "case": "invalid source does not modify existing pack",
+      "outcome": "invalid-source-rejected"
+    },
+    {
+      "case": "mixed loose and packed options reject",
+      "outcome": "rejected-duplicate-cache-option"
+    }
+  ],
+  "limits": "Finite local ARM64 controls. Clean unsigned image bytes and execution are checked per admitted source. SHA-256 is corruption detection, not protection against malicious same-UID cache writers. Root ancestor trust remains a local precondition."
+}

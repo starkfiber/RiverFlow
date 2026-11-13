@@ -38,3 +38,7 @@ benchmark-compact-builds.py compares retained legacy and compact complete build 
 ## Packed reuse experiment, 0.30
 
 `benchmark-packed-reuse.py` compares an explicitly supplied previous compiler (RF2_OLD_COMPILER) with RF2_TEST_COMPILER clean, retained loose units, empty pack and retained pack. It rotates complete process runs, checks every unsigned image against the previous compiler, and records raw observations. RF2_BENCH_TRIALS defaults to21. Use `tests/standalone/function_pack_verify.py` for adversarial cache controls and RF2_WEB_PACK_TEST=1 with `number_lab_web_verify.py` to execute the packed app through its full HTTP campaign. Do not replace a correctness run with timing.
+
+## Native application comparison, 0.31
+
+`benchmark-text-search.py` takes RF2_SEARCH_BINARY (baseline) and optional RF2_SEARCH_CANDIDATE (candidate). It compiles the retained C libc comparator and runs Python bytes.find as developer comparison routes, with matched supplied inputs and independent JSON oracles. All timings include startup and input/output. Run after correctness qualification, while other owned load jobs are paused. Keep source/build receipts, raw trials and losing cases; do not infer model-token usage or steady-state throughput. RF2_BENCH_TRIALS controls 5..101 rotated trials per route.

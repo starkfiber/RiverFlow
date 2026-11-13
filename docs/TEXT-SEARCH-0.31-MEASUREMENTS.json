@@ -1,0 +1,3814 @@
+{
+  "passed": true,
+  "trials": 31,
+  "summary": [
+    {
+      "task": "short",
+      "medianMs": {
+        "RF2": 1.675666,
+        "C libc": 1.848458,
+        "Python bytes": 17.498292,
+        "RF2 candidate": 1.692584
+      }
+    },
+    {
+      "task": "document-64k",
+      "medianMs": {
+        "RF2": 2.087208,
+        "C libc": 2.187459,
+        "Python bytes": 18.397333,
+        "RF2 candidate": 2.047208
+      }
+    },
+    {
+      "task": "no-match-1m",
+      "medianMs": {
+        "RF2": 8.794917,
+        "C libc": 7.986208,
+        "Python bytes": 24.409584,
+        "RF2 candidate": 7.52
+      }
+    },
+    {
+      "task": "overlap-64k",
+      "medianMs": {
+        "RF2": 2.286292,
+        "C libc": 2.570458,
+        "Python bytes": 33.559208,
+        "RF2 candidate": 2.248166
+      }
+    },
+    {
+      "task": "periodic-1m",
+      "medianMs": {
+        "RF2": 12.464791,
+        "C libc": 9.2615,
+        "Python bytes": 25.09325,
+        "RF2 candidate": 12.409083
+      }
+    }
+  ],
+  "raw": [
+    {
+      "task": "short",
+      "trial": 0,
+      "route": "C libc",
+      "ms": 382.7035
+    },
+    {
+      "task": "short",
+      "trial": 0,
+      "route": "RF2",
+      "ms": 4.985042
+    },
+    {
+      "task": "short",
+      "trial": 0,
+      "route": "Python bytes",
+      "ms": 32.213917
+    },
+    {
+      "task": "short",
+      "trial": 0,
+      "route": "RF2 candidate",
+      "ms": 2.80225
+    },
+    {
+      "task": "short",
+      "trial": 1,
+      "route": "Python bytes",
+      "ms": 21.49
+    },
+    {
+      "task": "short",
+      "trial": 1,
+      "route": "C libc",
+      "ms": 2.470542
+    },
+    {
+      "task": "short",
+      "trial": 1,
+      "route": "RF2",
+      "ms": 2.020541
+    },
+    {
+      "task": "short",
+      "trial": 1,
+      "route": "RF2 candidate",
+      "ms": 1.701292
+    },
+    {
+      "task": "short",
+      "trial": 2,
+      "route": "RF2",
+      "ms": 1.707375
+    },
+    {
+      "task": "short",
+      "trial": 2,
+      "route": "C libc",
+      "ms": 1.718
+    },
+    {
+      "task": "short",
+      "trial": 2,
+      "route": "Python bytes",
+      "ms": 18.3135
+    },
+    {
+      "task": "short",
+      "trial": 2,
+      "route": "RF2 candidate",
+      "ms": 1.718166
+    },
+    {
+      "task": "short",
+      "trial": 3,
+      "route": "Python bytes",
+      "ms": 17.005459
+    },
+    {
+      "task": "short",
+      "trial": 3,
+      "route": "RF2",
+      "ms": 2.00275
+    },
+    {
+      "task": "short",
+      "trial": 3,
+      "route": "C libc",
+      "ms": 1.671625
+    },
+    {
+      "task": "short",
+      "trial": 3,
+      "route": "RF2 candidate",
+      "ms": 1.611
+    },
+    {
+      "task": "short",
+      "trial": 4,
+      "route": "RF2 candidate",
+      "ms": 1.482875
+    },
+    {
+      "task": "short",
+      "trial": 4,
+      "route": "C libc",
+      "ms": 1.618042
+    },
+    {
+      "task": "short",
+      "trial": 4,
+      "route": "Python bytes",
+      "ms": 17.022959
+    },
+    {
+      "task": "short",
+      "trial": 4,
+      "route": "RF2",
+      "ms": 1.833208
+    },
+    {
+      "task": "short",
+      "trial": 5,
+      "route": "Python bytes",
+      "ms": 17.158208
+    },
+    {
+      "task": "short",
+      "trial": 5,
+      "route": "RF2",
+      "ms": 1.778
+    },
+    {
+      "task": "short",
+      "trial": 5,
+      "route": "C libc",
+      "ms": 1.6975
+    },
+    {
+      "task": "short",
+      "trial": 5,
+      "route": "RF2 candidate",
+      "ms": 1.485833
+    },
+    {
+      "task": "short",
+      "trial": 6,
+      "route": "Python bytes",
+      "ms": 19.54825
+    },
+    {
+      "task": "short",
+      "trial": 6,
+      "route": "C libc",
+      "ms": 1.847708
+    },
+    {
+      "task": "short",
+      "trial": 6,
+      "route": "RF2 candidate",
+      "ms": 1.6195
+    },
+    {
+      "task": "short",
+      "trial": 6,
+      "route": "RF2",
+      "ms": 1.5995
+    },
+    {
+      "task": "short",
+      "trial": 7,
+      "route": "Python bytes",
+      "ms": 17.249708
+    },
+    {
+      "task": "short",
+      "trial": 7,
+      "route": "RF2 candidate",
+      "ms": 1.985375
+    },
+    {
+      "task": "short",
+      "trial": 7,
+      "route": "RF2",
+      "ms": 1.537833
+    },
+    {
+      "task": "short",
+      "trial": 7,
+      "route": "C libc",
+      "ms": 1.663667
+    },
+    {
+      "task": "short",
+      "trial": 8,
+      "route": "RF2",
+      "ms": 1.583459
+    },
+    {
+      "task": "short",
+      "trial": 8,
+      "route": "Python bytes",
+      "ms": 17.236625
+    },
+    {
+      "task": "short",
+      "trial": 8,
+      "route": "C libc",
+      "ms": 1.8475
+    },
+    {
+      "task": "short",
+      "trial": 8,
+      "route": "RF2 candidate",
+      "ms": 1.753625
+    },
+    {
+      "task": "short",
+      "trial": 9,
+      "route": "Python bytes",
+      "ms": 16.972791
+    },
+    {
+      "task": "short",
+      "trial": 9,
+      "route": "RF2 candidate",
+      "ms": 2.017375
+    },
+    {
+      "task": "short",
+      "trial": 9,
+      "route": "RF2",
+      "ms": 1.607
+    },
+    {
+      "task": "short",
+      "trial": 9,
+      "route": "C libc",
+      "ms": 1.5635
+    },
+    {
+      "task": "short",
+      "trial": 10,
+      "route": "Python bytes",
+      "ms": 17.074292
+    },
+    {
+      "task": "short",
+      "trial": 10,
+      "route": "C libc",
+      "ms": 1.852
+    },
+    {
+      "task": "short",
+      "trial": 10,
+      "route": "RF2",
+      "ms": 1.656209
+    },
+    {
+      "task": "short",
+      "trial": 10,
+      "route": "RF2 candidate",
+      "ms": 1.590292
+    },
+    {
+      "task": "short",
+      "trial": 11,
+      "route": "Python bytes",
+      "ms": 19.073542
+    },
+    {
+      "task": "short",
+      "trial": 11,
+      "route": "C libc",
+      "ms": 2.001666
+    },
+    {
+      "task": "short",
+      "trial": 11,
+      "route": "RF2",
+      "ms": 1.651042
+    },
+    {
+      "task": "short",
+      "trial": 11,
+      "route": "RF2 candidate",
+      "ms": 1.642583
+    },
+    {
+      "task": "short",
+      "trial": 12,
+      "route": "RF2 candidate",
+      "ms": 1.522209
+    },
+    {
+      "task": "short",
+      "trial": 12,
+      "route": "Python bytes",
+      "ms": 17.133916
+    },
+    {
+      "task": "short",
+      "trial": 12,
+      "route": "C libc",
+      "ms": 1.80475
+    },
+    {
+      "task": "short",
+      "trial": 12,
+      "route": "RF2",
+      "ms": 1.599083
+    },
+    {
+      "task": "short",
+      "trial": 13,
+      "route": "RF2 candidate",
+      "ms": 1.780459
+    },
+    {
+      "task": "short",
+      "trial": 13,
+      "route": "Python bytes",
+      "ms": 17.149333
+    },
+    {
+      "task": "short",
+      "trial": 13,
+      "route": "C libc",
+      "ms": 1.870625
+    },
+    {
+      "task": "short",
+      "trial": 13,
+      "route": "RF2",
+      "ms": 1.710917
+    },
+    {
+      "task": "short",
+      "trial": 14,
+      "route": "RF2",
+      "ms": 1.549125
+    },
+    {
+      "task": "short",
+      "trial": 14,
+      "route": "Python bytes",
+      "ms": 16.912083
+    },
+    {
+      "task": "short",
+      "trial": 14,
+      "route": "RF2 candidate",
+      "ms": 1.737375
+    },
+    {
+      "task": "short",
+      "trial": 14,
+      "route": "C libc",
+      "ms": 1.621875
+    },
+    {
+      "task": "short",
+      "trial": 15,
+      "route": "Python bytes",
+      "ms": 16.901833
+    },
+    {
+      "task": "short",
+      "trial": 15,
+      "route": "C libc",
+      "ms": 1.849708
+    },
+    {
+      "task": "short",
+      "trial": 15,
+      "route": "RF2",
+      "ms": 1.618458
+    },
+    {
+      "task": "short",
+      "trial": 15,
+      "route": "RF2 candidate",
+      "ms": 1.535667
+    },
+    {
+      "task": "short",
+      "trial": 16,
+      "route": "RF2",
+      "ms": 1.580292
+    },
+    {
+      "task": "short",
+      "trial": 16,
+      "route": "Python bytes",
+      "ms": 16.83675
+    },
+    {
+      "task": "short",
+      "trial": 16,
+      "route": "C libc",
+      "ms": 1.936083
+    },
+    {
+      "task": "short",
+      "trial": 16,
+      "route": "RF2 candidate",
+      "ms": 1.888875
+    },
+    {
+      "task": "short",
+      "trial": 17,
+      "route": "C libc",
+      "ms": 1.802792
+    },
+    {
+      "task": "short",
+      "trial": 17,
+      "route": "RF2",
+      "ms": 1.729375
+    },
+    {
+      "task": "short",
+      "trial": 17,
+      "route": "Python bytes",
+      "ms": 19.166875
+    },
+    {
+      "task": "short",
+      "trial": 17,
+      "route": "RF2 candidate",
+      "ms": 2.357208
+    },
+    {
+      "task": "short",
+      "trial": 18,
+      "route": "RF2 candidate",
+      "ms": 1.850583
+    },
+    {
+      "task": "short",
+      "trial": 18,
+      "route": "RF2",
+      "ms": 1.675666
+    },
+    {
+      "task": "short",
+      "trial": 18,
+      "route": "Python bytes",
+      "ms": 18.765542
+    },
+    {
+      "task": "short",
+      "trial": 18,
+      "route": "C libc",
+      "ms": 2.119333
+    },
+    {
+      "task": "short",
+      "trial": 19,
+      "route": "Python bytes",
+      "ms": 18.301292
+    },
+    {
+      "task": "short",
+      "trial": 19,
+      "route": "C libc",
+      "ms": 2.05975
+    },
+    {
+      "task": "short",
+      "trial": 19,
+      "route": "RF2 candidate",
+      "ms": 1.657333
+    },
+    {
+      "task": "short",
+      "trial": 19,
+      "route": "RF2",
+      "ms": 1.60275
+    },
+    {
+      "task": "short",
+      "trial": 20,
+      "route": "RF2",
+      "ms": 1.577084
+    },
+    {
+      "task": "short",
+      "trial": 20,
+      "route": "RF2 candidate",
+      "ms": 1.53225
+    },
+    {
+      "task": "short",
+      "trial": 20,
+      "route": "C libc",
+      "ms": 1.653834
+    },
+    {
+      "task": "short",
+      "trial": 20,
+      "route": "Python bytes",
+      "ms": 17.058458
+    },
+    {
+      "task": "short",
+      "trial": 21,
+      "route": "RF2",
+      "ms": 1.907166
+    },
+    {
+      "task": "short",
+      "trial": 21,
+      "route": "C libc",
+      "ms": 1.863
+    },
+    {
+      "task": "short",
+      "trial": 21,
+      "route": "RF2 candidate",
+      "ms": 1.662416
+    },
+    {
+      "task": "short",
+      "trial": 21,
+      "route": "Python bytes",
+      "ms": 17.393917
+    },
+    {
+      "task": "short",
+      "trial": 22,
+      "route": "C libc",
+      "ms": 1.848458
+    },
+    {
+      "task": "short",
+      "trial": 22,
+      "route": "Python bytes",
+      "ms": 18.293875
+    },
+    {
+      "task": "short",
+      "trial": 22,
+      "route": "RF2",
+      "ms": 1.862042
+    },
+    {
+      "task": "short",
+      "trial": 22,
+      "route": "RF2 candidate",
+      "ms": 1.681
+    },
+    {
+      "task": "short",
+      "trial": 23,
+      "route": "Python bytes",
+      "ms": 17.200833
+    },
+    {
+      "task": "short",
+      "trial": 23,
+      "route": "RF2",
+      "ms": 1.844416
+    },
+    {
+      "task": "short",
+      "trial": 23,
+      "route": "C libc",
+      "ms": 1.576958
+    },
+    {
+      "task": "short",
+      "trial": 23,
+      "route": "RF2 candidate",
+      "ms": 1.619
+    },
+    {
+      "task": "short",
+      "trial": 24,
+      "route": "RF2 candidate",
+      "ms": 1.7765
+    },
+    {
+      "task": "short",
+      "trial": 24,
+      "route": "RF2",
+      "ms": 1.524209
+    },
+    {
+      "task": "short",
+      "trial": 24,
+      "route": "Python bytes",
+      "ms": 18.883
+    },
+    {
+      "task": "short",
+      "trial": 24,
+      "route": "C libc",
+      "ms": 2.064917
+    },
+    {
+      "task": "short",
+      "trial": 25,
+      "route": "RF2 candidate",
+      "ms": 1.608375
+    },
+    {
+      "task": "short",
+      "trial": 25,
+      "route": "Python bytes",
+      "ms": 18.996875
+    },
+    {
+      "task": "short",
+      "trial": 25,
+      "route": "C libc",
+      "ms": 2.042625
+    },
+    {
+      "task": "short",
+      "trial": 25,
+      "route": "RF2",
+      "ms": 1.823833
+    },
+    {
+      "task": "short",
+      "trial": 26,
+      "route": "C libc",
+      "ms": 1.702708
+    },
+    {
+      "task": "short",
+      "trial": 26,
+      "route": "Python bytes",
+      "ms": 18.342542
+    },
+    {
+      "task": "short",
+      "trial": 26,
+      "route": "RF2 candidate",
+      "ms": 2.019
+    },
+    {
+      "task": "short",
+      "trial": 26,
+      "route": "RF2",
+      "ms": 1.77125
+    },
+    {
+      "task": "short",
+      "trial": 27,
+      "route": "RF2 candidate",
+      "ms": 1.692584
+    },
+    {
+      "task": "short",
+      "trial": 27,
+      "route": "Python bytes",
+      "ms": 17.844875
+    },
+    {
+      "task": "short",
+      "trial": 27,
+      "route": "C libc",
+      "ms": 2.194833
+    },
+    {
+      "task": "short",
+      "trial": 27,
+      "route": "RF2",
+      "ms": 1.817916
+    },
+    {
+      "task": "short",
+      "trial": 28,
+      "route": "Python bytes",
+      "ms": 18.741208
+    },
+    {
+      "task": "short",
+      "trial": 28,
+      "route": "C libc",
+      "ms": 2.148
+    },
+    {
+      "task": "short",
+      "trial": 28,
+      "route": "RF2 candidate",
+      "ms": 1.7365
+    },
+    {
+      "task": "short",
+      "trial": 28,
+      "route": "RF2",
+      "ms": 1.56075
+    },
+    {
+      "task": "short",
+      "trial": 29,
+      "route": "C libc",
+      "ms": 1.779625
+    },
+    {
+      "task": "short",
+      "trial": 29,
+      "route": "Python bytes",
+      "ms": 17.935958
+    },
+    {
+      "task": "short",
+      "trial": 29,
+      "route": "RF2 candidate",
+      "ms": 2.055708
+    },
+    {
+      "task": "short",
+      "trial": 29,
+      "route": "RF2",
+      "ms": 1.608125
+    },
+    {
+      "task": "short",
+      "trial": 30,
+      "route": "Python bytes",
+      "ms": 17.498292
+    },
+    {
+      "task": "short",
+      "trial": 30,
+      "route": "C libc",
+      "ms": 2.049958
+    },
+    {
+      "task": "short",
+      "trial": 30,
+      "route": "RF2",
+      "ms": 1.76225
+    },
+    {
+      "task": "short",
+      "trial": 30,
+      "route": "RF2 candidate",
+      "ms": 1.663
+    },
+    {
+      "task": "document-64k",
+      "trial": 0,
+      "route": "C libc",
+      "ms": 1.9885
+    },
+    {
+      "task": "document-64k",
+      "trial": 0,
+      "route": "RF2",
+      "ms": 1.932958
+    },
+    {
+      "task": "document-64k",
+      "trial": 0,
+      "route": "Python bytes",
+      "ms": 18.583083
+    },
+    {
+      "task": "document-64k",
+      "trial": 0,
+      "route": "RF2 candidate",
+      "ms": 2.395709
+    },
+    {
+      "task": "document-64k",
+      "trial": 1,
+      "route": "Python bytes",
+      "ms": 18.941666
+    },
+    {
+      "task": "document-64k",
+      "trial": 1,
+      "route": "C libc",
+      "ms": 2.452
+    },
+    {
+      "task": "document-64k",
+      "trial": 1,
+      "route": "RF2",
+      "ms": 1.989125
+    },
+    {
+      "task": "document-64k",
+      "trial": 1,
+      "route": "RF2 candidate",
+      "ms": 2.047208
+    },
+    {
+      "task": "document-64k",
+      "trial": 2,
+      "route": "RF2",
+      "ms": 2.36375
+    },
+    {
+      "task": "document-64k",
+      "trial": 2,
+      "route": "C libc",
+      "ms": 2.274083
+    },
+    {
+      "task": "document-64k",
+      "trial": 2,
+      "route": "Python bytes",
+      "ms": 18.484458
+    },
+    {
+      "task": "document-64k",
+      "trial": 2,
+      "route": "RF2 candidate",
+      "ms": 2.284875
+    },
+    {
+      "task": "document-64k",
+      "trial": 3,
+      "route": "Python bytes",
+      "ms": 17.948542
+    },
+    {
+      "task": "document-64k",
+      "trial": 3,
+      "route": "RF2",
+      "ms": 2.400666
+    },
+    {
+      "task": "document-64k",
+      "trial": 3,
+      "route": "C libc",
+      "ms": 2.032459
+    },
+    {
+      "task": "document-64k",
+      "trial": 3,
+      "route": "RF2 candidate",
+      "ms": 2.001125
+    },
+    {
+      "task": "document-64k",
+      "trial": 4,
+      "route": "RF2 candidate",
+      "ms": 1.922666
+    },
+    {
+      "task": "document-64k",
+      "trial": 4,
+      "route": "C libc",
+      "ms": 1.873625
+    },
+    {
+      "task": "document-64k",
+      "trial": 4,
+      "route": "Python bytes",
+      "ms": 18.397333
+    },
+    {
+      "task": "document-64k",
+      "trial": 4,
+      "route": "RF2",
+      "ms": 2.243708
+    },
+    {
+      "task": "document-64k",
+      "trial": 5,
+      "route": "Python bytes",
+      "ms": 76.172292
+    },
+    {
+      "task": "document-64k",
+      "trial": 5,
+      "route": "RF2",
+      "ms": 2.349542
+    },
+    {
+      "task": "document-64k",
+      "trial": 5,
+      "route": "C libc",
+      "ms": 2.036417
+    },
+    {
+      "task": "document-64k",
+      "trial": 5,
+      "route": "RF2 candidate",
+      "ms": 2.038375
+    },
+    {
+      "task": "document-64k",
+      "trial": 6,
+      "route": "Python bytes",
+      "ms": 18.075459
+    },
+    {
+      "task": "document-64k",
+      "trial": 6,
+      "route": "C libc",
+      "ms": 2.18225
+    },
+    {
+      "task": "document-64k",
+      "trial": 6,
+      "route": "RF2 candidate",
+      "ms": 2.012791
+    },
+    {
+      "task": "document-64k",
+      "trial": 6,
+      "route": "RF2",
+      "ms": 1.954667
+    },
+    {
+      "task": "document-64k",
+      "trial": 7,
+      "route": "Python bytes",
+      "ms": 18.203
+    },
+    {
+      "task": "document-64k",
+      "trial": 7,
+      "route": "RF2 candidate",
+      "ms": 2.253458
+    },
+    {
+      "task": "document-64k",
+      "trial": 7,
+      "route": "RF2",
+      "ms": 1.989917
+    },
+    {
+      "task": "document-64k",
+      "trial": 7,
+      "route": "C libc",
+      "ms": 1.952083
+    },
+    {
+      "task": "document-64k",
+      "trial": 8,
+      "route": "RF2",
+      "ms": 2.087208
+    },
+    {
+      "task": "document-64k",
+      "trial": 8,
+      "route": "Python bytes",
+      "ms": 18.388042
+    },
+    {
+      "task": "document-64k",
+      "trial": 8,
+      "route": "C libc",
+      "ms": 2.14975
+    },
+    {
+      "task": "document-64k",
+      "trial": 8,
+      "route": "RF2 candidate",
+      "ms": 2.096375
+    },
+    {
+      "task": "document-64k",
+      "trial": 9,
+      "route": "Python bytes",
+      "ms": 18.102833
+    },
+    {
+      "task": "document-64k",
+      "trial": 9,
+      "route": "RF2 candidate",
+      "ms": 2.270916
+    },
+    {
+      "task": "document-64k",
+      "trial": 9,
+      "route": "RF2",
+      "ms": 2.020583
+    },
+    {
+      "task": "document-64k",
+      "trial": 9,
+      "route": "C libc",
+      "ms": 2.602125
+    },
+    {
+      "task": "document-64k",
+      "trial": 10,
+      "route": "Python bytes",
+      "ms": 18.508666
+    },
+    {
+      "task": "document-64k",
+      "trial": 10,
+      "route": "C libc",
+      "ms": 2.216875
+    },
+    {
+      "task": "document-64k",
+      "trial": 10,
+      "route": "RF2",
+      "ms": 2.102625
+    },
+    {
+      "task": "document-64k",
+      "trial": 10,
+      "route": "RF2 candidate",
+      "ms": 1.928042
+    },
+    {
+      "task": "document-64k",
+      "trial": 11,
+      "route": "Python bytes",
+      "ms": 18.265041
+    },
+    {
+      "task": "document-64k",
+      "trial": 11,
+      "route": "C libc",
+      "ms": 2.187459
+    },
+    {
+      "task": "document-64k",
+      "trial": 11,
+      "route": "RF2",
+      "ms": 1.921625
+    },
+    {
+      "task": "document-64k",
+      "trial": 11,
+      "route": "RF2 candidate",
+      "ms": 1.932375
+    },
+    {
+      "task": "document-64k",
+      "trial": 12,
+      "route": "RF2 candidate",
+      "ms": 2.01075
+    },
+    {
+      "task": "document-64k",
+      "trial": 12,
+      "route": "Python bytes",
+      "ms": 18.208292
+    },
+    {
+      "task": "document-64k",
+      "trial": 12,
+      "route": "C libc",
+      "ms": 2.190125
+    },
+    {
+      "task": "document-64k",
+      "trial": 12,
+      "route": "RF2",
+      "ms": 2.042459
+    },
+    {
+      "task": "document-64k",
+      "trial": 13,
+      "route": "RF2 candidate",
+      "ms": 1.960583
+    },
+    {
+      "task": "document-64k",
+      "trial": 13,
+      "route": "Python bytes",
+      "ms": 18.304541
+    },
+    {
+      "task": "document-64k",
+      "trial": 13,
+      "route": "C libc",
+      "ms": 2.400125
+    },
+    {
+      "task": "document-64k",
+      "trial": 13,
+      "route": "RF2",
+      "ms": 2.092084
+    },
+    {
+      "task": "document-64k",
+      "trial": 14,
+      "route": "RF2",
+      "ms": 2.057083
+    },
+    {
+      "task": "document-64k",
+      "trial": 14,
+      "route": "Python bytes",
+      "ms": 18.02825
+    },
+    {
+      "task": "document-64k",
+      "trial": 14,
+      "route": "RF2 candidate",
+      "ms": 2.167875
+    },
+    {
+      "task": "document-64k",
+      "trial": 14,
+      "route": "C libc",
+      "ms": 2.007959
+    },
+    {
+      "task": "document-64k",
+      "trial": 15,
+      "route": "Python bytes",
+      "ms": 18.257959
+    },
+    {
+      "task": "document-64k",
+      "trial": 15,
+      "route": "C libc",
+      "ms": 2.195208
+    },
+    {
+      "task": "document-64k",
+      "trial": 15,
+      "route": "RF2",
+      "ms": 2.064625
+    },
+    {
+      "task": "document-64k",
+      "trial": 15,
+      "route": "RF2 candidate",
+      "ms": 2.05375
+    },
+    {
+      "task": "document-64k",
+      "trial": 16,
+      "route": "RF2",
+      "ms": 2.235166
+    },
+    {
+      "task": "document-64k",
+      "trial": 16,
+      "route": "Python bytes",
+      "ms": 18.584208
+    },
+    {
+      "task": "document-64k",
+      "trial": 16,
+      "route": "C libc",
+      "ms": 2.171416
+    },
+    {
+      "task": "document-64k",
+      "trial": 16,
+      "route": "RF2 candidate",
+      "ms": 1.997792
+    },
+    {
+      "task": "document-64k",
+      "trial": 17,
+      "route": "C libc",
+      "ms": 1.878042
+    },
+    {
+      "task": "document-64k",
+      "trial": 17,
+      "route": "RF2",
+      "ms": 1.942667
+    },
+    {
+      "task": "document-64k",
+      "trial": 17,
+      "route": "Python bytes",
+      "ms": 18.0715
+    },
+    {
+      "task": "document-64k",
+      "trial": 17,
+      "route": "RF2 candidate",
+      "ms": 2.478958
+    },
+    {
+      "task": "document-64k",
+      "trial": 18,
+      "route": "RF2 candidate",
+      "ms": 2.026208
+    },
+    {
+      "task": "document-64k",
+      "trial": 18,
+      "route": "RF2",
+      "ms": 2.00175
+    },
+    {
+      "task": "document-64k",
+      "trial": 18,
+      "route": "Python bytes",
+      "ms": 18.724709
+    },
+    {
+      "task": "document-64k",
+      "trial": 18,
+      "route": "C libc",
+      "ms": 2.304
+    },
+    {
+      "task": "document-64k",
+      "trial": 19,
+      "route": "Python bytes",
+      "ms": 18.718916
+    },
+    {
+      "task": "document-64k",
+      "trial": 19,
+      "route": "C libc",
+      "ms": 2.370042
+    },
+    {
+      "task": "document-64k",
+      "trial": 19,
+      "route": "RF2 candidate",
+      "ms": 2.138292
+    },
+    {
+      "task": "document-64k",
+      "trial": 19,
+      "route": "RF2",
+      "ms": 2.008584
+    },
+    {
+      "task": "document-64k",
+      "trial": 20,
+      "route": "RF2",
+      "ms": 2.027291
+    },
+    {
+      "task": "document-64k",
+      "trial": 20,
+      "route": "RF2 candidate",
+      "ms": 2.0145
+    },
+    {
+      "task": "document-64k",
+      "trial": 20,
+      "route": "C libc",
+      "ms": 1.93125
+    },
+    {
+      "task": "document-64k",
+      "trial": 20,
+      "route": "Python bytes",
+      "ms": 18.350792
+    },
+    {
+      "task": "document-64k",
+      "trial": 21,
+      "route": "RF2",
+      "ms": 2.302542
+    },
+    {
+      "task": "document-64k",
+      "trial": 21,
+      "route": "C libc",
+      "ms": 2.054042
+    },
+    {
+      "task": "document-64k",
+      "trial": 21,
+      "route": "RF2 candidate",
+      "ms": 1.997333
+    },
+    {
+      "task": "document-64k",
+      "trial": 21,
+      "route": "Python bytes",
+      "ms": 18.555459
+    },
+    {
+      "task": "document-64k",
+      "trial": 22,
+      "route": "C libc",
+      "ms": 2.469667
+    },
+    {
+      "task": "document-64k",
+      "trial": 22,
+      "route": "Python bytes",
+      "ms": 18.530334
+    },
+    {
+      "task": "document-64k",
+      "trial": 22,
+      "route": "RF2",
+      "ms": 2.35075
+    },
+    {
+      "task": "document-64k",
+      "trial": 22,
+      "route": "RF2 candidate",
+      "ms": 1.953375
+    },
+    {
+      "task": "document-64k",
+      "trial": 23,
+      "route": "Python bytes",
+      "ms": 18.208666
+    },
+    {
+      "task": "document-64k",
+      "trial": 23,
+      "route": "RF2",
+      "ms": 2.374
+    },
+    {
+      "task": "document-64k",
+      "trial": 23,
+      "route": "C libc",
+      "ms": 2.078542
+    },
+    {
+      "task": "document-64k",
+      "trial": 23,
+      "route": "RF2 candidate",
+      "ms": 2.043958
+    },
+    {
+      "task": "document-64k",
+      "trial": 24,
+      "route": "RF2 candidate",
+      "ms": 2.020875
+    },
+    {
+      "task": "document-64k",
+      "trial": 24,
+      "route": "RF2",
+      "ms": 2.058584
+    },
+    {
+      "task": "document-64k",
+      "trial": 24,
+      "route": "Python bytes",
+      "ms": 18.3265
+    },
+    {
+      "task": "document-64k",
+      "trial": 24,
+      "route": "C libc",
+      "ms": 2.43975
+    },
+    {
+      "task": "document-64k",
+      "trial": 25,
+      "route": "RF2 candidate",
+      "ms": 2.117292
+    },
+    {
+      "task": "document-64k",
+      "trial": 25,
+      "route": "Python bytes",
+      "ms": 18.305208
+    },
+    {
+      "task": "document-64k",
+      "trial": 25,
+      "route": "C libc",
+      "ms": 2.421041
+    },
+    {
+      "task": "document-64k",
+      "trial": 25,
+      "route": "RF2",
+      "ms": 2.182417
+    },
+    {
+      "task": "document-64k",
+      "trial": 26,
+      "route": "C libc",
+      "ms": 1.890084
+    },
+    {
+      "task": "document-64k",
+      "trial": 26,
+      "route": "Python bytes",
+      "ms": 19.545083
+    },
+    {
+      "task": "document-64k",
+      "trial": 26,
+      "route": "RF2 candidate",
+      "ms": 2.491875
+    },
+    {
+      "task": "document-64k",
+      "trial": 26,
+      "route": "RF2",
+      "ms": 2.292
+    },
+    {
+      "task": "document-64k",
+      "trial": 27,
+      "route": "RF2 candidate",
+      "ms": 2.155708
+    },
+    {
+      "task": "document-64k",
+      "trial": 27,
+      "route": "Python bytes",
+      "ms": 19.240792
+    },
+    {
+      "task": "document-64k",
+      "trial": 27,
+      "route": "C libc",
+      "ms": 2.782458
+    },
+    {
+      "task": "document-64k",
+      "trial": 27,
+      "route": "RF2",
+      "ms": 2.693334
+    },
+    {
+      "task": "document-64k",
+      "trial": 28,
+      "route": "Python bytes",
+      "ms": 19.955042
+    },
+    {
+      "task": "document-64k",
+      "trial": 28,
+      "route": "C libc",
+      "ms": 2.612708
+    },
+    {
+      "task": "document-64k",
+      "trial": 28,
+      "route": "RF2 candidate",
+      "ms": 2.277708
+    },
+    {
+      "task": "document-64k",
+      "trial": 28,
+      "route": "RF2",
+      "ms": 2.207625
+    },
+    {
+      "task": "document-64k",
+      "trial": 29,
+      "route": "C libc",
+      "ms": 2.085542
+    },
+    {
+      "task": "document-64k",
+      "trial": 29,
+      "route": "Python bytes",
+      "ms": 20.67175
+    },
+    {
+      "task": "document-64k",
+      "trial": 29,
+      "route": "RF2 candidate",
+      "ms": 2.507833
+    },
+    {
+      "task": "document-64k",
+      "trial": 29,
+      "route": "RF2",
+      "ms": 2.201917
+    },
+    {
+      "task": "document-64k",
+      "trial": 30,
+      "route": "Python bytes",
+      "ms": 20.094625
+    },
+    {
+      "task": "document-64k",
+      "trial": 30,
+      "route": "C libc",
+      "ms": 2.471334
+    },
+    {
+      "task": "document-64k",
+      "trial": 30,
+      "route": "RF2",
+      "ms": 2.013042
+    },
+    {
+      "task": "document-64k",
+      "trial": 30,
+      "route": "RF2 candidate",
+      "ms": 2.359416
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 0,
+      "route": "C libc",
+      "ms": 7.693542
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 0,
+      "route": "RF2",
+      "ms": 9.175875
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 0,
+      "route": "Python bytes",
+      "ms": 25.079542
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 0,
+      "route": "RF2 candidate",
+      "ms": 7.950958
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 1,
+      "route": "Python bytes",
+      "ms": 27.043375
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 1,
+      "route": "C libc",
+      "ms": 8.38825
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 1,
+      "route": "RF2",
+      "ms": 9.208041
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 1,
+      "route": "RF2 candidate",
+      "ms": 8.088083
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 2,
+      "route": "RF2",
+      "ms": 9.021416
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 2,
+      "route": "C libc",
+      "ms": 8.321875
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 2,
+      "route": "Python bytes",
+      "ms": 25.857708
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 2,
+      "route": "RF2 candidate",
+      "ms": 8.000959
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 3,
+      "route": "Python bytes",
+      "ms": 25.673916
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 3,
+      "route": "RF2",
+      "ms": 9.485417
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 3,
+      "route": "C libc",
+      "ms": 8.343375
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 3,
+      "route": "RF2 candidate",
+      "ms": 8.324584
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 4,
+      "route": "RF2 candidate",
+      "ms": 8.271708
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 4,
+      "route": "C libc",
+      "ms": 8.89925
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 4,
+      "route": "Python bytes",
+      "ms": 30.166917
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 4,
+      "route": "RF2",
+      "ms": 9.335584
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 5,
+      "route": "Python bytes",
+      "ms": 24.951625
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 5,
+      "route": "RF2",
+      "ms": 9.139375
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 5,
+      "route": "C libc",
+      "ms": 8.378292
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 5,
+      "route": "RF2 candidate",
+      "ms": 7.869042
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 6,
+      "route": "Python bytes",
+      "ms": 31.134542
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 6,
+      "route": "C libc",
+      "ms": 8.480666
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 6,
+      "route": "RF2 candidate",
+      "ms": 7.756458
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 6,
+      "route": "RF2",
+      "ms": 9.275208
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 7,
+      "route": "Python bytes",
+      "ms": 26.256125
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 7,
+      "route": "RF2 candidate",
+      "ms": 7.732042
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 7,
+      "route": "RF2",
+      "ms": 8.769
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 7,
+      "route": "C libc",
+      "ms": 8.015208
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 8,
+      "route": "RF2",
+      "ms": 8.837292
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 8,
+      "route": "Python bytes",
+      "ms": 23.69225
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 8,
+      "route": "C libc",
+      "ms": 7.869
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 8,
+      "route": "RF2 candidate",
+      "ms": 7.696334
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 9,
+      "route": "Python bytes",
+      "ms": 25.58325
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 9,
+      "route": "RF2 candidate",
+      "ms": 7.716917
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 9,
+      "route": "RF2",
+      "ms": 8.598042
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 9,
+      "route": "C libc",
+      "ms": 7.90125
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 10,
+      "route": "Python bytes",
+      "ms": 23.728291
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 10,
+      "route": "C libc",
+      "ms": 8.412667
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 10,
+      "route": "RF2",
+      "ms": 8.803667
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 10,
+      "route": "RF2 candidate",
+      "ms": 7.60175
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 11,
+      "route": "Python bytes",
+      "ms": 25.390541
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 11,
+      "route": "C libc",
+      "ms": 9.359917
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 11,
+      "route": "RF2",
+      "ms": 8.794917
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 11,
+      "route": "RF2 candidate",
+      "ms": 7.431583
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 12,
+      "route": "RF2 candidate",
+      "ms": 7.415375
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 12,
+      "route": "Python bytes",
+      "ms": 24.043167
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 12,
+      "route": "C libc",
+      "ms": 7.933875
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 12,
+      "route": "RF2",
+      "ms": 9.100208
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 13,
+      "route": "RF2 candidate",
+      "ms": 7.647875
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 13,
+      "route": "Python bytes",
+      "ms": 24.835417
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 13,
+      "route": "C libc",
+      "ms": 7.995833
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 13,
+      "route": "RF2",
+      "ms": 8.868708
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 14,
+      "route": "RF2",
+      "ms": 8.638375
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 14,
+      "route": "Python bytes",
+      "ms": 23.09925
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 14,
+      "route": "RF2 candidate",
+      "ms": 7.68625
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 14,
+      "route": "C libc",
+      "ms": 7.978458
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 15,
+      "route": "Python bytes",
+      "ms": 23.547833
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 15,
+      "route": "C libc",
+      "ms": 7.986208
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 15,
+      "route": "RF2",
+      "ms": 8.681667
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 15,
+      "route": "RF2 candidate",
+      "ms": 7.461791
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 16,
+      "route": "RF2",
+      "ms": 8.657084
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 16,
+      "route": "Python bytes",
+      "ms": 24.067
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 16,
+      "route": "C libc",
+      "ms": 8.0025
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 16,
+      "route": "RF2 candidate",
+      "ms": 7.422875
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 17,
+      "route": "C libc",
+      "ms": 8.16025
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 17,
+      "route": "RF2",
+      "ms": 8.665083
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 17,
+      "route": "Python bytes",
+      "ms": 24.962041
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 17,
+      "route": "RF2 candidate",
+      "ms": 7.611416
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 18,
+      "route": "RF2 candidate",
+      "ms": 7.351167
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 18,
+      "route": "RF2",
+      "ms": 8.27075
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 18,
+      "route": "Python bytes",
+      "ms": 23.508875
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 18,
+      "route": "C libc",
+      "ms": 7.147166
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 19,
+      "route": "Python bytes",
+      "ms": 23.140292
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 19,
+      "route": "C libc",
+      "ms": 7.315917
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 19,
+      "route": "RF2 candidate",
+      "ms": 7.504541
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 19,
+      "route": "RF2",
+      "ms": 7.938291
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 20,
+      "route": "RF2",
+      "ms": 7.844
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 20,
+      "route": "RF2 candidate",
+      "ms": 6.700834
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 20,
+      "route": "C libc",
+      "ms": 7.487542
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 20,
+      "route": "Python bytes",
+      "ms": 23.730959
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 21,
+      "route": "RF2",
+      "ms": 8.76575
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 21,
+      "route": "C libc",
+      "ms": 7.492459
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 21,
+      "route": "RF2 candidate",
+      "ms": 7.3645
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 21,
+      "route": "Python bytes",
+      "ms": 25.422459
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 22,
+      "route": "C libc",
+      "ms": 9.208833
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 22,
+      "route": "Python bytes",
+      "ms": 24.409584
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 22,
+      "route": "RF2",
+      "ms": 8.171375
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 22,
+      "route": "RF2 candidate",
+      "ms": 7.150334
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 23,
+      "route": "Python bytes",
+      "ms": 23.741833
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 23,
+      "route": "RF2",
+      "ms": 8.793917
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 23,
+      "route": "C libc",
+      "ms": 7.799708
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 23,
+      "route": "RF2 candidate",
+      "ms": 7.357542
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 24,
+      "route": "RF2 candidate",
+      "ms": 7.4555
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 24,
+      "route": "RF2",
+      "ms": 9.006458
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 24,
+      "route": "Python bytes",
+      "ms": 24.037166
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 24,
+      "route": "C libc",
+      "ms": 7.85725
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 25,
+      "route": "RF2 candidate",
+      "ms": 7.140208
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 25,
+      "route": "Python bytes",
+      "ms": 25.279708
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 25,
+      "route": "C libc",
+      "ms": 7.868416
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 25,
+      "route": "RF2",
+      "ms": 9.468792
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 26,
+      "route": "C libc",
+      "ms": 8.522333
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 26,
+      "route": "Python bytes",
+      "ms": 23.704584
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 26,
+      "route": "RF2 candidate",
+      "ms": 7.674792
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 26,
+      "route": "RF2",
+      "ms": 8.695417
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 27,
+      "route": "RF2 candidate",
+      "ms": 7.269417
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 27,
+      "route": "Python bytes",
+      "ms": 24.411166
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 27,
+      "route": "C libc",
+      "ms": 7.667625
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 27,
+      "route": "RF2",
+      "ms": 8.557666
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 28,
+      "route": "Python bytes",
+      "ms": 23.982375
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 28,
+      "route": "C libc",
+      "ms": 7.504958
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 28,
+      "route": "RF2 candidate",
+      "ms": 7.145167
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 28,
+      "route": "RF2",
+      "ms": 8.554084
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 29,
+      "route": "C libc",
+      "ms": 7.954375
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 29,
+      "route": "Python bytes",
+      "ms": 24.146958
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 29,
+      "route": "RF2 candidate",
+      "ms": 7.52
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 29,
+      "route": "RF2",
+      "ms": 8.817916
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 30,
+      "route": "Python bytes",
+      "ms": 23.991375
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 30,
+      "route": "C libc",
+      "ms": 8.022583
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 30,
+      "route": "RF2",
+      "ms": 9.107666
+    },
+    {
+      "task": "no-match-1m",
+      "trial": 30,
+      "route": "RF2 candidate",
+      "ms": 7.507375
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 0,
+      "route": "C libc",
+      "ms": 2.137375
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 0,
+      "route": "RF2",
+      "ms": 2.117875
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 0,
+      "route": "Python bytes",
+      "ms": 32.575166
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 0,
+      "route": "RF2 candidate",
+      "ms": 2.443875
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 1,
+      "route": "Python bytes",
+      "ms": 33.765875
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 1,
+      "route": "C libc",
+      "ms": 2.6205
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 1,
+      "route": "RF2",
+      "ms": 2.14975
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 1,
+      "route": "RF2 candidate",
+      "ms": 2.087541
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 2,
+      "route": "RF2",
+      "ms": 2.42225
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 2,
+      "route": "C libc",
+      "ms": 2.138625
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 2,
+      "route": "Python bytes",
+      "ms": 32.264334
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 2,
+      "route": "RF2 candidate",
+      "ms": 2.473417
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 3,
+      "route": "Python bytes",
+      "ms": 32.592208
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 3,
+      "route": "RF2",
+      "ms": 2.628667
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 3,
+      "route": "C libc",
+      "ms": 2.340917
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 3,
+      "route": "RF2 candidate",
+      "ms": 2.25425
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 4,
+      "route": "RF2 candidate",
+      "ms": 2.816709
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 4,
+      "route": "C libc",
+      "ms": 2.350667
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 4,
+      "route": "Python bytes",
+      "ms": 32.456
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 4,
+      "route": "RF2",
+      "ms": 2.470875
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 5,
+      "route": "Python bytes",
+      "ms": 32.377125
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 5,
+      "route": "RF2",
+      "ms": 2.363
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 5,
+      "route": "C libc",
+      "ms": 2.10075
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 5,
+      "route": "RF2 candidate",
+      "ms": 1.981958
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 6,
+      "route": "Python bytes",
+      "ms": 32.956583
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 6,
+      "route": "C libc",
+      "ms": 2.712833
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 6,
+      "route": "RF2 candidate",
+      "ms": 2.248166
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 6,
+      "route": "RF2",
+      "ms": 2.068541
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 7,
+      "route": "Python bytes",
+      "ms": 38.596166
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 7,
+      "route": "RF2 candidate",
+      "ms": 2.698584
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 7,
+      "route": "RF2",
+      "ms": 2.347459
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 7,
+      "route": "C libc",
+      "ms": 2.47225
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 8,
+      "route": "RF2",
+      "ms": 2.305125
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 8,
+      "route": "Python bytes",
+      "ms": 35.735125
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 8,
+      "route": "C libc",
+      "ms": 2.706917
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 8,
+      "route": "RF2 candidate",
+      "ms": 2.497417
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 9,
+      "route": "Python bytes",
+      "ms": 36.894291
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 9,
+      "route": "RF2 candidate",
+      "ms": 2.551292
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 9,
+      "route": "RF2",
+      "ms": 2.275792
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 9,
+      "route": "C libc",
+      "ms": 2.071
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 10,
+      "route": "Python bytes",
+      "ms": 33.563833
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 10,
+      "route": "C libc",
+      "ms": 2.591417
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 10,
+      "route": "RF2",
+      "ms": 2.317417
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 10,
+      "route": "RF2 candidate",
+      "ms": 2.336666
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 11,
+      "route": "Python bytes",
+      "ms": 33.559208
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 11,
+      "route": "C libc",
+      "ms": 2.485625
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 11,
+      "route": "RF2",
+      "ms": 2.302834
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 11,
+      "route": "RF2 candidate",
+      "ms": 2.0855
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 12,
+      "route": "RF2 candidate",
+      "ms": 2.190875
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 12,
+      "route": "Python bytes",
+      "ms": 41.414208
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 12,
+      "route": "C libc",
+      "ms": 2.669417
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 12,
+      "route": "RF2",
+      "ms": 2.206917
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 13,
+      "route": "RF2 candidate",
+      "ms": 2.040875
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 13,
+      "route": "Python bytes",
+      "ms": 33.692209
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 13,
+      "route": "C libc",
+      "ms": 2.758875
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 13,
+      "route": "RF2",
+      "ms": 2.2355
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 14,
+      "route": "RF2",
+      "ms": 6.746667
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 14,
+      "route": "Python bytes",
+      "ms": 40.585083
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 14,
+      "route": "RF2 candidate",
+      "ms": 2.614625
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 14,
+      "route": "C libc",
+      "ms": 2.454292
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 15,
+      "route": "Python bytes",
+      "ms": 37.279042
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 15,
+      "route": "C libc",
+      "ms": 2.783333
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 15,
+      "route": "RF2",
+      "ms": 2.481917
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 15,
+      "route": "RF2 candidate",
+      "ms": 9.799958
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 16,
+      "route": "RF2",
+      "ms": 2.374625
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 16,
+      "route": "Python bytes",
+      "ms": 32.57325
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 16,
+      "route": "C libc",
+      "ms": 2.6775
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 16,
+      "route": "RF2 candidate",
+      "ms": 2.087917
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 17,
+      "route": "C libc",
+      "ms": 2.346458
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 17,
+      "route": "RF2",
+      "ms": 2.243084
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 17,
+      "route": "Python bytes",
+      "ms": 31.754875
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 17,
+      "route": "RF2 candidate",
+      "ms": 2.548792
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 18,
+      "route": "RF2 candidate",
+      "ms": 2.220167
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 18,
+      "route": "RF2",
+      "ms": 2.086458
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 18,
+      "route": "Python bytes",
+      "ms": 34.378958
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 18,
+      "route": "C libc",
+      "ms": 3.462708
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 19,
+      "route": "Python bytes",
+      "ms": 35.050292
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 19,
+      "route": "C libc",
+      "ms": 2.694083
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 19,
+      "route": "RF2 candidate",
+      "ms": 2.117583
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 19,
+      "route": "RF2",
+      "ms": 2.080459
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 20,
+      "route": "RF2",
+      "ms": 2.115708
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 20,
+      "route": "RF2 candidate",
+      "ms": 2.141792
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 20,
+      "route": "C libc",
+      "ms": 2.058334
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 20,
+      "route": "Python bytes",
+      "ms": 33.092042
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 21,
+      "route": "RF2",
+      "ms": 2.903833
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 21,
+      "route": "C libc",
+      "ms": 2.302375
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 21,
+      "route": "RF2 candidate",
+      "ms": 2.117166
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 21,
+      "route": "Python bytes",
+      "ms": 34.243459
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 22,
+      "route": "C libc",
+      "ms": 2.597834
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 22,
+      "route": "Python bytes",
+      "ms": 33.06825
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 22,
+      "route": "RF2",
+      "ms": 2.528125
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 22,
+      "route": "RF2 candidate",
+      "ms": 2.13025
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 23,
+      "route": "Python bytes",
+      "ms": 32.045
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 23,
+      "route": "RF2",
+      "ms": 2.605458
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 23,
+      "route": "C libc",
+      "ms": 3.044458
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 23,
+      "route": "RF2 candidate",
+      "ms": 2.24075
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 24,
+      "route": "RF2 candidate",
+      "ms": 2.215917
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 24,
+      "route": "RF2",
+      "ms": 2.244792
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 24,
+      "route": "Python bytes",
+      "ms": 32.878834
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 24,
+      "route": "C libc",
+      "ms": 2.562709
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 25,
+      "route": "RF2 candidate",
+      "ms": 2.194125
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 25,
+      "route": "Python bytes",
+      "ms": 34.339042
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 25,
+      "route": "C libc",
+      "ms": 2.763083
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 25,
+      "route": "RF2",
+      "ms": 2.286292
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 26,
+      "route": "C libc",
+      "ms": 2.930917
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 26,
+      "route": "Python bytes",
+      "ms": 36.8485
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 26,
+      "route": "RF2 candidate",
+      "ms": 2.592667
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 26,
+      "route": "RF2",
+      "ms": 2.221917
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 27,
+      "route": "RF2 candidate",
+      "ms": 2.5525
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 27,
+      "route": "Python bytes",
+      "ms": 36.1755
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 27,
+      "route": "C libc",
+      "ms": 2.618375
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 27,
+      "route": "RF2",
+      "ms": 2.528833
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 28,
+      "route": "Python bytes",
+      "ms": 32.90775
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 28,
+      "route": "C libc",
+      "ms": 2.546542
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 28,
+      "route": "RF2 candidate",
+      "ms": 2.286167
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 28,
+      "route": "RF2",
+      "ms": 2.0145
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 29,
+      "route": "C libc",
+      "ms": 2.124834
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 29,
+      "route": "Python bytes",
+      "ms": 32.33525
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 29,
+      "route": "RF2 candidate",
+      "ms": 2.770917
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 29,
+      "route": "RF2",
+      "ms": 2.102792
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 30,
+      "route": "Python bytes",
+      "ms": 33.307417
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 30,
+      "route": "C libc",
+      "ms": 2.570458
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 30,
+      "route": "RF2",
+      "ms": 2.143417
+    },
+    {
+      "task": "overlap-64k",
+      "trial": 30,
+      "route": "RF2 candidate",
+      "ms": 2.136167
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 0,
+      "route": "C libc",
+      "ms": 9.110833
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 0,
+      "route": "RF2",
+      "ms": 12.359041
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 0,
+      "route": "Python bytes",
+      "ms": 27.555708
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 0,
+      "route": "RF2 candidate",
+      "ms": 12.322917
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 1,
+      "route": "Python bytes",
+      "ms": 24.492709
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 1,
+      "route": "C libc",
+      "ms": 9.34075
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 1,
+      "route": "RF2",
+      "ms": 12.231458
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 1,
+      "route": "RF2 candidate",
+      "ms": 12.670792
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 2,
+      "route": "RF2",
+      "ms": 12.149542
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 2,
+      "route": "C libc",
+      "ms": 9.493375
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 2,
+      "route": "Python bytes",
+      "ms": 26.033709
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 2,
+      "route": "RF2 candidate",
+      "ms": 12.306959
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 3,
+      "route": "Python bytes",
+      "ms": 24.755708
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 3,
+      "route": "RF2",
+      "ms": 12.3165
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 3,
+      "route": "C libc",
+      "ms": 8.980417
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 3,
+      "route": "RF2 candidate",
+      "ms": 12.345375
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 4,
+      "route": "RF2 candidate",
+      "ms": 12.223417
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 4,
+      "route": "C libc",
+      "ms": 9.361625
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 4,
+      "route": "Python bytes",
+      "ms": 26.245834
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 4,
+      "route": "RF2",
+      "ms": 13.412958
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 5,
+      "route": "Python bytes",
+      "ms": 26.368
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 5,
+      "route": "RF2",
+      "ms": 12.633959
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 5,
+      "route": "C libc",
+      "ms": 8.947917
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 5,
+      "route": "RF2 candidate",
+      "ms": 12.373625
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 6,
+      "route": "Python bytes",
+      "ms": 24.957083
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 6,
+      "route": "C libc",
+      "ms": 9.4295
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 6,
+      "route": "RF2 candidate",
+      "ms": 12.214708
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 6,
+      "route": "RF2",
+      "ms": 12.745917
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 7,
+      "route": "Python bytes",
+      "ms": 24.859625
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 7,
+      "route": "RF2 candidate",
+      "ms": 12.421334
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 7,
+      "route": "RF2",
+      "ms": 12.181167
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 7,
+      "route": "C libc",
+      "ms": 8.981167
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 8,
+      "route": "RF2",
+      "ms": 13.82225
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 8,
+      "route": "Python bytes",
+      "ms": 26.115209
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 8,
+      "route": "C libc",
+      "ms": 10.028958
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 8,
+      "route": "RF2 candidate",
+      "ms": 12.083166
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 9,
+      "route": "Python bytes",
+      "ms": 26.507792
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 9,
+      "route": "RF2 candidate",
+      "ms": 13.105
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 9,
+      "route": "RF2",
+      "ms": 12.524833
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 9,
+      "route": "C libc",
+      "ms": 9.14425
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 10,
+      "route": "Python bytes",
+      "ms": 25.199916
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 10,
+      "route": "C libc",
+      "ms": 9.080625
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 10,
+      "route": "RF2",
+      "ms": 12.152375
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 10,
+      "route": "RF2 candidate",
+      "ms": 12.260125
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 11,
+      "route": "Python bytes",
+      "ms": 24.177458
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 11,
+      "route": "C libc",
+      "ms": 8.854916
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 11,
+      "route": "RF2",
+      "ms": 12.017834
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 11,
+      "route": "RF2 candidate",
+      "ms": 12.245792
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 12,
+      "route": "RF2 candidate",
+      "ms": 12.165667
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 12,
+      "route": "Python bytes",
+      "ms": 24.218667
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 12,
+      "route": "C libc",
+      "ms": 9.09175
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 12,
+      "route": "RF2",
+      "ms": 12.303833
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 13,
+      "route": "RF2 candidate",
+      "ms": 12.461208
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 13,
+      "route": "Python bytes",
+      "ms": 24.592916
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 13,
+      "route": "C libc",
+      "ms": 9.166584
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 13,
+      "route": "RF2",
+      "ms": 12.209541
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 14,
+      "route": "RF2",
+      "ms": 12.528917
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 14,
+      "route": "Python bytes",
+      "ms": 25.809292
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 14,
+      "route": "RF2 candidate",
+      "ms": 12.371125
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 14,
+      "route": "C libc",
+      "ms": 8.9125
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 15,
+      "route": "Python bytes",
+      "ms": 25.021917
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 15,
+      "route": "C libc",
+      "ms": 9.115625
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 15,
+      "route": "RF2",
+      "ms": 12.152667
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 15,
+      "route": "RF2 candidate",
+      "ms": 12.752875
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 16,
+      "route": "RF2",
+      "ms": 13.146791
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 16,
+      "route": "Python bytes",
+      "ms": 26.56325
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 16,
+      "route": "C libc",
+      "ms": 9.410791
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 16,
+      "route": "RF2 candidate",
+      "ms": 12.359333
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 17,
+      "route": "C libc",
+      "ms": 9.069583
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 17,
+      "route": "RF2",
+      "ms": 12.74775
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 17,
+      "route": "Python bytes",
+      "ms": 27.142875
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 17,
+      "route": "RF2 candidate",
+      "ms": 12.562625
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 18,
+      "route": "RF2 candidate",
+      "ms": 12.6545
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 18,
+      "route": "RF2",
+      "ms": 12.464791
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 18,
+      "route": "Python bytes",
+      "ms": 24.861875
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 18,
+      "route": "C libc",
+      "ms": 9.220042
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 19,
+      "route": "Python bytes",
+      "ms": 24.752875
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 19,
+      "route": "C libc",
+      "ms": 9.404416
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 19,
+      "route": "RF2 candidate",
+      "ms": 12.374667
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 19,
+      "route": "RF2",
+      "ms": 12.184667
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 20,
+      "route": "RF2",
+      "ms": 12.811833
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 20,
+      "route": "RF2 candidate",
+      "ms": 12.409083
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 20,
+      "route": "C libc",
+      "ms": 9.030709
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 20,
+      "route": "Python bytes",
+      "ms": 24.757875
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 21,
+      "route": "RF2",
+      "ms": 12.402458
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 21,
+      "route": "C libc",
+      "ms": 8.989166
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 21,
+      "route": "RF2 candidate",
+      "ms": 12.678417
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 21,
+      "route": "Python bytes",
+      "ms": 24.805125
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 22,
+      "route": "C libc",
+      "ms": 12.350125
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 22,
+      "route": "Python bytes",
+      "ms": 25.10475
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 22,
+      "route": "RF2",
+      "ms": 12.681041
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 22,
+      "route": "RF2 candidate",
+      "ms": 12.446333
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 23,
+      "route": "Python bytes",
+      "ms": 25.09325
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 23,
+      "route": "RF2",
+      "ms": 12.36875
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 23,
+      "route": "C libc",
+      "ms": 9.286291
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 23,
+      "route": "RF2 candidate",
+      "ms": 12.374042
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 24,
+      "route": "RF2 candidate",
+      "ms": 12.503333
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 24,
+      "route": "RF2",
+      "ms": 12.368416
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 24,
+      "route": "Python bytes",
+      "ms": 25.040792
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 24,
+      "route": "C libc",
+      "ms": 9.271084
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 25,
+      "route": "RF2 candidate",
+      "ms": 12.331791
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 25,
+      "route": "Python bytes",
+      "ms": 24.826208
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 25,
+      "route": "C libc",
+      "ms": 9.390042
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 25,
+      "route": "RF2",
+      "ms": 12.270208
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 26,
+      "route": "C libc",
+      "ms": 9.2615
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 26,
+      "route": "Python bytes",
+      "ms": 24.909166
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 26,
+      "route": "RF2 candidate",
+      "ms": 12.954125
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 26,
+      "route": "RF2",
+      "ms": 12.527083
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 27,
+      "route": "RF2 candidate",
+      "ms": 12.995667
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 27,
+      "route": "Python bytes",
+      "ms": 26.676458
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 27,
+      "route": "C libc",
+      "ms": 9.681542
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 27,
+      "route": "RF2",
+      "ms": 12.764917
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 28,
+      "route": "Python bytes",
+      "ms": 26.384417
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 28,
+      "route": "C libc",
+      "ms": 9.965209
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 28,
+      "route": "RF2 candidate",
+      "ms": 13.17275
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 28,
+      "route": "RF2",
+      "ms": 12.667708
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 29,
+      "route": "C libc",
+      "ms": 9.567458
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 29,
+      "route": "Python bytes",
+      "ms": 26.588292
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 29,
+      "route": "RF2 candidate",
+      "ms": 12.632666
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 29,
+      "route": "RF2",
+      "ms": 13.134333
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 30,
+      "route": "Python bytes",
+      "ms": 26.035916
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 30,
+      "route": "C libc",
+      "ms": 9.743291
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 30,
+      "route": "RF2",
+      "ms": 14.0435
+    },
+    {
+      "task": "periodic-1m",
+      "trial": 30,
+      "route": "RF2 candidate",
+      "ms": 13.568417
+    }
+  ],
+  "inputs": {
+    "short": {
+      "bytes": 276,
+      "sha256": "9657a675053b0fde5544c52a6f433f0ea9c0e3395a010fdd7d0a543836e5de63",
+      "query": "native",
+      "overlap": false
+    },
+    "document-64k": {
+      "bytes": 65536,
+      "sha256": "454301c4b7f6b4215e09d6f5bc54d290491eba1e93cedfbb28e740cf3578d9c8",
+      "query": "native",
+      "overlap": false
+    },
+    "no-match-1m": {
+      "bytes": 1048576,
+      "sha256": "8f990ba0b577b51cf009ea049368c16bbda1b21e1b93be07a824758bb253c39b",
+      "query": "missing",
+      "overlap": false
+    },
+    "overlap-64k": {
+      "bytes": 65536,
+      "sha256": "bf718b6f653bebc184e1479f1935b8da974d701b893afcf49e701f3e2f9f9c5a",
+      "query": "aaa",
+      "overlap": true
+    },
+    "periodic-1m": {
+      "bytes": 1048576,
+      "sha256": "9bc1b2a288b26af7257a36277ae3816a7d4f16e89c1e7e77d0a5c48bad62b360",
+      "query": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab",
+      "overlap": false
+    }
+  },
+  "binarySHA256": "656ce8c855b0e61cb5be32f8b4dfc19f039cd03d40aae1bf9707583dcc49e71c",
+  "candidateSHA256": "9157dd2b8ab587b3899f281ad15c6bda355fa850f7cc71cbe544cb9c235e31ab",
+  "cSourceSHA256": "917e6ff954f9c6d217416387fe95a0156ac8d1e54fd12262c44f55bfc394829e",
+  "pythonSource": "import sys,json\nb=sys.stdin.buffer.read(1048577)\nif len(b)>1048576:sys.exit(4)\nq=sys.argv[1].encode();start=0;count=0;first=b.find(q)\nif not q:count=len(b)+1\nelse:\n while start<=len(b):\n  i=b.find(q,start)\n  if i<0:break\n  count+=1;start=i+(1 if len(sys.argv)==3 else len(q))\nprint(json.dumps(dict(bytes=len(b),query_bytes=len(q),matches=count,first_byte=None if first<0 else first)))\n",
+  "compilerVersion": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin25.5.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "pythonVersion": "Python 3.9.6\n",
+  "host": "macOS-26.5.1-arm64-arm-64bit",
+  "controllerSHA256": "5c3ccdc9ce6b1c782abfb72e0f6788de0c249681066fe357053be1c7a6abb950",
+  "limits": "One Mac; complete processes including input/output and startup. libc memmem and Python bytes.find are optimized library comparators, not identical implementations. No AI usage, energy, other-host or universal result."
+}

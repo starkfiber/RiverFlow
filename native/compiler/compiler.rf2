@@ -7,7 +7,85 @@ end
 fn die(text)
  do write(2, text, length(text))
  do write(2, "\n", 1)
+ do diagnostic_position()
  do exit(1)
+ return 0
+end
+# Diagnostics are separate from compiler state and inactive outside source checks.
+# Columns count source bytes; expanded module input is labelled honestly.
+fn diagnostic_number(value)
+ let digits = buffer("diagnostic_digits",32)
+ let n = 0
+ while 1
+  do store8(digits+n,48+(value-(value//10)*10))
+  set n = n+1
+  set value = value//10
+  if value==0
+   while n
+    set n = n-1
+    do write(2,digits+n,1)
+   end
+   return 0
+  end
+ end
+ return 0
+end
+fn diagnostic_position()
+ let d = buffer("diagnostic_state",64)
+ let phase = load64(d)
+ if phase==0
+  return 0
+ end
+ let source = load64(state())
+ let size = load64(state()+8)
+ let offset = load64(d+8)
+ if phase==2
+  let cursor = load64(state()+24)
+  if cursor<load64(state()+16)
+   set offset = load32(buffer("token_positions",262144)+cursor*4)
+  else
+   set offset = size
+  end
+ end
+ if offset>size
+  set offset = size
+ end
+ let line = 1
+ let column = 1
+ let i = 0
+ while i<offset
+  if load8(source+i)==10
+   set line = line+1
+   set column = 1
+  else
+   set column = column+1
+  end
+  set i = i+1
+ end
+ if load64(d+24)
+  do write(2,"near expanded-source ",21)
+ else
+  do write(2,"near source ",12)
+ end
+ do diagnostic_number(line)
+ do write(2,":",1)
+ do diagnostic_number(column)
+ do write(2," (line:byte-column; entry ",26)
+ let path = load64(d+16)
+ set i = 0
+ while (i<256)&(load8(path+i)!=0)
+  let c = load8(path+i)
+  if (c<32)|(c>126)
+   do write(2,"?",1)
+  else
+   do write(2,path+i,1)
+  end
+  set i = i+1
+ end
+ if i==256
+  do write(2,"...",3)
+ end
+ do write(2,")\n",2)
  return 0
 end
 fn require(ok, text)
@@ -72,6 +150,7 @@ fn add_token(kind, p, n, value)
  let s = state()
  let i = load64(s + 16)
  let t = token(i)
+ do store32(buffer("token_positions",262144)+i*4,load64(buffer("diagnostic_state",64)+8))
  do store64(t, kind)
  do store64(t + 8, p)
  do store64(t + 16, n)
@@ -178,7 +257,22 @@ fn expect(text)
   do write(2, "expected: ", 10)
   do write(2, text, length(text))
   do write(2, " got: ", 6)
-  do write(2, load64(token(load64(state() + 24)) + 8), load64(token(load64(state() + 24)) + 16))
+  let t = token(load64(state()+24))
+  let p = load64(t+8)
+  let n = load64(t+16)
+  let i = 0
+  while (i<n)&(i<80)
+   let c = load8(p+i)
+   if (c<32)|(c>126)
+    do write(2,"?",1)
+   else
+    do write(2,p+i,1)
+   end
+   set i = i+1
+  end
+  if n>80
+   do write(2,"...",3)
+  end
   do die(" unexpected token")
  end
  return advance()
@@ -200,6 +294,7 @@ fn tokenize_tail(src, n, i, used)
  let h = 0
  let radix = 10
  while i < n
+  do store64(buffer("diagnostic_state",64)+8,i)
   set c = load8(src + i)
   if c == 35
    set i = comment_end(src, n, i)
@@ -240,6 +335,7 @@ fn tokenize_tail(src, n, i, used)
          set j = stop
          while j < i
           set h = hex(load8(src + j))
+          do require(value <= (18446744073709551615-h)//radix, "integer literal exceeds u64")
           set value = value * radix + h
           set j = j + 1
          end
@@ -317,6 +413,7 @@ fn tokenize_tail(src, n, i, used)
    end
   end
  end
+ do store64(buffer("diagnostic_state",64)+8,n)
  if load64(state() + 16) != 0
   if load64(token(load64(state() + 16) - 1)) != 5
    do add_token(5, "\n", 1, 0)
@@ -5184,7 +5281,16 @@ fn main(argc, argv)
  let digest = 0
  let dataoff = 0
  let datasize = 0
- do require((argc>=3)&(argc<=8),"rf2c source new-output [--opt] [--compact] [--functions] [--reuse-cache directory | --reuse-pack directory]")
+ let check_only = 0
+ let source_path = 0
+ if argc>1
+  let first = load64(argv+8)
+  if same(first,length(first),"--check",7)
+   do require(argc==3,"check requires exactly one source path and no options")
+   set check_only = 1
+  end
+ end
+ do require((argc>=3)&(argc<=8),"rf2c --check source | rf2c source new-output [--opt] [--compact] [--functions] [--reuse-cache directory | --reuse-pack directory]")
  let reuse_path = 0
  let option = 3
  while option<argc
@@ -5211,20 +5317,35 @@ fn main(argc, argv)
   end
   set option = option+1
  end
- set src = read_source(load64(argv + 8))
- set src = expand_modules(load64(argv + 8), src)
+ set source_path = load64(argv+8)
+ if check_only
+  set source_path = load64(argv+16)
+ end
+ do store64(buffer("diagnostic_state",64)+16,source_path)
+ set src = read_source(source_path)
+ set src = expand_modules(source_path, src)
+ do store64(buffer("diagnostic_state",64)+24,load64(module_state()))
+ do store64(buffer("diagnostic_state",64),1)
  do tokenize_tail(src, load64(state() + 8), 0, 0)
+ do store64(buffer("diagnostic_state",64),2)
  do scan_functions()
+ do store64(buffer("diagnostic_state",64),0)
  if reuse_path
   do reuse_init(reuse_path)
  end
+ do store64(buffer("diagnostic_state",64),2)
  do generate()
+ do store64(buffer("diagnostic_state",64),0)
  do layout_image_objects()
  set dataoff = (16384 + load64(state() + 56) + 16383) & 18446744073709535232
  set datasize = (load64(state() + 80) + 16383) & 18446744073709535232
  do resolve(dataoff)
  set digest = sha256(src, load64(state() + 8))
  do image_header(dataoff, datasize, digest)
+ if check_only
+  do write(1,"RF2 source checked; no executable written.\n",43)
+  return 0
+ end
  do image(load64(argv + 16), dataoff, datasize)
  do reuse_finish(load64(argv+16))
  if load64(image_options()+16)

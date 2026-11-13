@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "casesPerCompilerMode": 2144,
+  "comparisons": 4288,
+  "preservedLiveRegisters": 7,
+  "negativeCases": 12,
+  "literalSizeComparisons": 648,
+  "zeroCountNullNoOp": true,
+  "independentAssemblerByteMatch": true,
+  "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce",
+  "compilerSourceSHA256": "31af429df972fef17db52a180d086811065a5c752df60e903f8203f0d0aa853b",
+  "controllerSHA256": "03f22808b588877613910b80fc55a8c21f1af26eef23a7285c3cf6c9f57ad917",
+  "scope": "Valid raw ranges, byte counts0..4096, word counts0..1024, unaligned/disjoint/exact-in-place copy, full region canaries. Partial overlap outside copy contract. No bounds/ownership proof or new Core/MCP effect."
+}

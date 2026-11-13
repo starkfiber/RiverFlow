@@ -1,0 +1,53 @@
+{
+  "schema": "rf2.development.bundle.v1",
+  "version": "0.31.0-dev",
+  "host": "macOS-26.5.1-arm64-arm-64bit",
+  "target": "macos-arm64",
+  "runtimeContract": "0.17.0 nine bounded tools",
+  "compilerSourceSHA256": "31af429df972fef17db52a180d086811065a5c752df60e903f8203f0d0aa853b",
+  "packagerSHA256": "d5bd8c30d4f1a44a7a5959f1dabc6c634581b86aae2df7e0562273e88385377b",
+  "nativeSmokePassed": true,
+  "files": {
+    "LICENSE": {
+      "sha256": "439e5b1ea79a6a0a2007acf65173490db2462b238b9805abab0ee820838b23e8",
+      "bytes": 1087
+    },
+    "README.txt": {
+      "sha256": "25d0f32eaf520e8ce4bea0ba5d7c8350ef2b4f7a533e115f03bab59dca14739e",
+      "bytes": 1267
+    },
+    "examples/hello.rf2": {
+      "sha256": "9dd9eed03fd52904d81176116aed87b250fb98d0a49ca026ca2661e07491d166",
+      "bytes": 69
+    },
+    "examples/text-search/README.md": {
+      "sha256": "d4c2c4b127e8d299286f11a5628ba1684c215e56f82f4ec82ae463c4b6d5ae97",
+      "bytes": 6025
+    },
+    "examples/text-search/lib/search.rf2": {
+      "sha256": "f19d632bcac50c4ee16a447a1f572de03a280ce932840141ebbc4cb5b6388e7c",
+      "bytes": 1866
+    },
+    "examples/text-search/main.rf2": {
+      "sha256": "f80d52553a13124bfbc76199fd93f01fec44cae5be927736fa13856cf7662f54",
+      "bytes": 2538
+    },
+    "rf2": {
+      "sha256": "5a8ae6a7586b7dc432b43da5f771758bab7fc73fc2d612814fb6cc7c51fd5efd",
+      "bytes": 231664
+    },
+    "rf2c": {
+      "sha256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce",
+      "bytes": 280928
+    },
+    "source/compiler.rf2": {
+      "sha256": "31af429df972fef17db52a180d086811065a5c752df60e903f8203f0d0aa853b",
+      "bytes": 155704
+    },
+    "text-search": {
+      "sha256": "9157dd2b8ab587b3899f281ad15c6bda355fa850f7cc71cbe544cb9c235e31ab",
+      "bytes": 67520
+    }
+  },
+  "limits": "Development Apple Silicon Mac bundle; ad-hoc signed, not notarized. No universal language, security, portability, AI usage or speed guarantee."
+}

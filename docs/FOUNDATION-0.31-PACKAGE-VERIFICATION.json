@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "extractedFilesVerified": 10,
+  "freshExtractedNativeCheck": true,
+  "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce",
+  "zipSHA256": "ac5e9c99dd4916a77901f7bbd200b88dda362d499e87ba9c7aa4db45b9c633f2",
+  "scope": "Lossless SHA readback after native ditto extraction; copied executable with developer runtimes absent. Same Mac, not an independent host, notarization, quarantine bypass or all-platform test."
+}

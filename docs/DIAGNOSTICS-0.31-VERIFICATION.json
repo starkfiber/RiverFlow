@@ -1,0 +1,257 @@
+{
+  "passed": true,
+  "schema": "rf2.compiler.diagnostics.verification.v1",
+  "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce",
+  "baselineSHA256": "0b40827bc0d4e498bb9c3b15b9d38fe3d0e961ee834b7a335760cd0a17568bfb",
+  "controllerSHA256": "ed81532b16d8d9c92bc9115158ab374e1ff171f36e99f57d09e408ac6cf179ee",
+  "cases": [
+    {
+      "case": "unknown-local",
+      "refused": true,
+      "stderr": "unknown local\nnear source 3:15 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/diagnostics/verify-1794563902238231000/unknown-local.rf2)\n"
+    },
+    {
+      "case": "unknown-function",
+      "refused": true,
+      "stderr": "unknown function\nnear source 3:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/diagnostics/verify-1794563902238231000/unknown-function.rf2)\n"
+    },
+    {
+      "case": "missing-end",
+      "refused": true,
+      "stderr": "missing end\nnear source 4:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/diagnostics/verify-1794563902238231000/missing-end.rf2)\n"
+    },
+    {
+      "case": "no-newline-eof",
+      "refused": true,
+      "stderr": "missing end\nnear source 3:10 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/diagnostics/verify-1794563902238231000/no-newline-eof.rf2)\n"
+    },
+    {
+      "case": "bad-parameter",
+      "refused": true,
+      "stderr": "expected: ) got: argv unexpected token\nnear source 2:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/diagnostics/verify-1794563902238231000/bad-parameter.rf2)\n"
+    },
+    {
+      "case": "unclosed-string",
+      "refused": true,
+      "stderr": "raw control in string\nnear source 3:8 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/diagnostics/verify-1794563902238231000/unclosed-string.rf2)\n"
+    },
+    {
+      "case": "eof-string",
+      "refused": true,
+      "stderr": "unterminated string\nnear source 3:8 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/diagnostics/verify-1794563902238231000/eof-string.rf2)\n"
+    },
+    {
+      "case": "unsupported-escape",
+      "refused": true,
+      "stderr": "unsupported string escape\nnear source 3:8 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/diagnostics/verify-1794563902238231000/unsupported-escape.rf2)\n"
+    },
+    {
+      "case": "empty-hex",
+      "refused": true,
+      "stderr": "empty number\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/diagnostics/verify-1794563902238231000/empty-hex.rf2)\n"
+    },
+    {
+      "case": "duplicate-local",
+      "refused": true,
+      "stderr": "duplicate local\nnear source 4:2 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/diagnostics/verify-1794563902238231000/duplicate-local.rf2)\n"
+    },
+    {
+      "case": "raw-non-ascii",
+      "refused": true,
+      "stderr": "expected expression\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/diagnostics/verify-1794563902238231000/raw-non-ascii.rf2)\n"
+    },
+    {
+      "case": "overflow-0",
+      "refused": true,
+      "stderr": "integer literal exceeds u64\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/diagnostics/verify-1794563902238231000/overflow-0.rf2)\n"
+    },
+    {
+      "case": "overflow-1",
+      "refused": true,
+      "stderr": "integer literal exceeds u64\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/diagnostics/verify-1794563902238231000/overflow-1.rf2)\n"
+    },
+    {
+      "case": "overflow-2",
+      "refused": true,
+      "stderr": "integer literal exceeds u64\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/diagnostics/verify-1794563902238231000/overflow-2.rf2)\n"
+    },
+    {
+      "case": "overflow-3",
+      "refused": true,
+      "stderr": "integer literal exceeds u64\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/diagnostics/verify-1794563902238231000/overflow-3.rf2)\n"
+    },
+    {
+      "case": "overflow-4",
+      "refused": true,
+      "stderr": "integer literal exceeds u64\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/diagnostics/verify-1794563902238231000/overflow-4.rf2)\n"
+    },
+    {
+      "case": "overflow-5",
+      "refused": true,
+      "stderr": "integer literal exceeds u64\nnear source 3:10 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/diagnostics/verify-1794563902238231000/overflow-5.rf2)\n"
+    },
+    {
+      "case": "bounded-token",
+      "refused": true,
+      "stderrBytes": 257,
+      "boundedSanitized": true
+    },
+    {
+      "case": "escaped-control",
+      "refused": true,
+      "stderrBytes": 177,
+      "boundedSanitized": true
+    },
+    {
+      "case": "nul-control",
+      "refused": true,
+      "stderrBytes": 173,
+      "boundedSanitized": true
+    },
+    {
+      "case": "tab-control",
+      "refused": true,
+      "stderrBytes": 173,
+      "boundedSanitized": true
+    },
+    {
+      "case": "missing-cache",
+      "refused": true,
+      "stderr": "function cache requires existing private directory\n"
+    },
+    {
+      "case": "missing-input",
+      "refused": true,
+      "stderr": "source open failed\n"
+    },
+    {
+      "case": "imported-error",
+      "refused": true,
+      "stderr": "unknown local\nnear expanded-source 3:15 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/diagnostics/verify-1794563902238231000/imports.rf2)\n"
+    },
+    {
+      "case": "maximum",
+      "flags": [],
+      "unsignedByteMatch": true,
+      "exit": 255
+    },
+    {
+      "case": "maximum",
+      "flags": [
+        "--opt"
+      ],
+      "unsignedByteMatch": true,
+      "exit": 255
+    },
+    {
+      "case": "maximum",
+      "flags": [
+        "--opt",
+        "--compact"
+      ],
+      "unsignedByteMatch": true,
+      "exit": 255
+    },
+    {
+      "case": "hex-maximum",
+      "flags": [],
+      "unsignedByteMatch": true,
+      "exit": 255
+    },
+    {
+      "case": "hex-maximum",
+      "flags": [
+        "--opt"
+      ],
+      "unsignedByteMatch": true,
+      "exit": 255
+    },
+    {
+      "case": "hex-maximum",
+      "flags": [
+        "--opt",
+        "--compact"
+      ],
+      "unsignedByteMatch": true,
+      "exit": 255
+    },
+    {
+      "case": "signed-minimum",
+      "flags": [],
+      "unsignedByteMatch": true,
+      "exit": 0
+    },
+    {
+      "case": "signed-minimum",
+      "flags": [
+        "--opt"
+      ],
+      "unsignedByteMatch": true,
+      "exit": 0
+    },
+    {
+      "case": "signed-minimum",
+      "flags": [
+        "--opt",
+        "--compact"
+      ],
+      "unsignedByteMatch": true,
+      "exit": 0
+    },
+    {
+      "case": "runtime-wrap",
+      "flags": [],
+      "unsignedByteMatch": true,
+      "exit": 0
+    },
+    {
+      "case": "runtime-wrap",
+      "flags": [
+        "--opt"
+      ],
+      "unsignedByteMatch": true,
+      "exit": 0
+    },
+    {
+      "case": "runtime-wrap",
+      "flags": [
+        "--opt",
+        "--compact"
+      ],
+      "unsignedByteMatch": true,
+      "exit": 0
+    },
+    {
+      "case": "decoded-string",
+      "flags": [],
+      "unsignedByteMatch": true,
+      "exit": 10
+    },
+    {
+      "case": "decoded-string",
+      "flags": [
+        "--opt"
+      ],
+      "unsignedByteMatch": true,
+      "exit": 10
+    },
+    {
+      "case": "decoded-string",
+      "flags": [
+        "--opt",
+        "--compact"
+      ],
+      "unsignedByteMatch": true,
+      "exit": 10
+    },
+    {
+      "case": "valid-imports",
+      "unsignedByteMatch": true
+    },
+    {
+      "case": "valid-crlf",
+      "unsignedByteMatch": true
+    }
+  ],
+  "limits": "Finite native Apple Silicon tests. Diagnostic position means lexical token start or current parser cursor, not always the exact offending identifier. Imported source is explicitly expanded; original module provenance is not mapped. Columns count bytes, not display characters. Valid program byte equality does not establish language or platform completeness."
+}

@@ -1,0 +1,1918 @@
+{
+  "passed": true,
+  "schema": "rf2.foundation.redteam.v1",
+  "compilerSHA256": "efadcce4b3f3d2bd313d98b8bad445f86eac2fe98e2a3301b63bfbb679860bce",
+  "controllerSHA256": "9cb8ffbe237ab45dbb7efb2508956536d885a4c9e3cad476df0a68d54ab65a4c",
+  "cases": [
+    {
+      "case": "missing-end",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "missing end\nnear source 4:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/missing-end.rf2)\n"
+    },
+    {
+      "case": "unknown-variable",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "unknown local\nnear source 3:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/unknown-variable.rf2)\n"
+    },
+    {
+      "case": "embedded-nul",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "expected: fn got: ? unexpected token\nnear source 5:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/embedded-nul.rf2)\n"
+    },
+    {
+      "case": "invalid-byte",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "expected expression\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/invalid-byte.rf2)\n"
+    },
+    {
+      "case": "unterminated-string",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "raw control in string\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/unterminated-string.rf2)\n"
+    },
+    {
+      "case": "duplicate-main",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "duplicate function\nnear source 5:8 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/duplicate-main.rf2)\n"
+    },
+    {
+      "case": "return-missing-expression",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "expected expression\nnear source 3:8 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/return-missing-expression.rf2)\n"
+    },
+    {
+      "case": "unknown-call",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "unknown function\nnear source 3:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/unknown-call.rf2)\n"
+    },
+    {
+      "case": "uninitialized-local",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "local used before initialization or outside scope\nnear source 3:8 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/uninitialized-local.rf2)\n"
+    },
+    {
+      "case": "missing-close-parenthesis",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "expected: ) got: ? unexpected token\nnear source 3:13 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/missing-close-parenthesis.rf2)\n"
+    },
+    {
+      "case": "chained-comparison",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "comparison chains unsupported\nnear source 3:12 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/chained-comparison.rf2)\n"
+    },
+    {
+      "case": "empty-hex",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "empty number\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/empty-hex.rf2)\n"
+    },
+    {
+      "case": "raw-control-string-0",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "raw control in string\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/raw-control-string-0.rf2)\n"
+    },
+    {
+      "case": "raw-control-string-1",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "raw control in string\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/raw-control-string-1.rf2)\n"
+    },
+    {
+      "case": "raw-control-string-8",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "raw control in string\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/raw-control-string-8.rf2)\n"
+    },
+    {
+      "case": "raw-control-string-9",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "raw control in string\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/raw-control-string-9.rf2)\n"
+    },
+    {
+      "case": "raw-control-string-10",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "raw control in string\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/raw-control-string-10.rf2)\n"
+    },
+    {
+      "case": "raw-control-string-13",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "raw control in string\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/raw-control-string-13.rf2)\n"
+    },
+    {
+      "case": "raw-control-string-27",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "raw control in string\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/raw-control-string-27.rf2)\n"
+    },
+    {
+      "case": "raw-control-string-31",
+      "accepted": false,
+      "exit": 1,
+      "stderr": "raw control in string\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/raw-control-string-31.rf2)\n"
+    },
+    {
+      "case": "terminal-control-diagnostic-sanitized-and-bounded",
+      "stderrBytes": 178,
+      "stderr": "expected: fn got: ? unexpected token\nnear source 5:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/terminal-control.rf2)\n"
+    },
+    {
+      "case": "terminal-bell-diagnostic-sanitized-and-bounded",
+      "stderrBytes": 175,
+      "stderr": "expected: fn got: ? unexpected token\nnear source 5:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/terminal-bell.rf2)\n"
+    },
+    {
+      "case": "oversized-error-token-diagnostic-sanitized-and-bounded",
+      "stderrBytes": 270,
+      "stderr": "expected: profile got: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx... unexpected token\nnear source 1:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/oversized-error-token.rf2)\n"
+    },
+    {
+      "case": "arithmetic-0",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-1",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-2",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-3",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-4",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-5",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-6",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-7",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-8",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-9",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-10",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-11",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-12",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-13",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-14",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-15",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-16",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-17",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-18",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-19",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-20",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-21",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-22",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-23",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-24",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-25",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-26",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-27",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-28",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-29",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-30",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-31",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-32",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-33",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-34",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-35",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-36",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-37",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-38",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-39",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-40",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-41",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-42",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-43",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-44",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-45",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-46",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-47",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-48",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-49",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-50",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-51",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-52",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-53",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-54",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-55",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-56",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-57",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-58",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-59",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-60",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-61",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-62",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "arithmetic-63",
+      "accepted": true,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "case": "invalid-source-preserves-committed-pack",
+      "refused": true,
+      "packHashes": {
+        "9c7c573ada797e35e94aba110d1a5c6da16d473dd007028f24908faf4968b872.pack": "33de4957c67476c747bc61806d08a7796c320b82a39f96a8886739a44f26bce0"
+      }
+    },
+    {
+      "case": "import-error-is-labelled-expanded-source",
+      "stderr": "unknown local\nnear expanded-source 3:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/modules/main.rf2)\n"
+    },
+    {
+      "case": "output-refusal-preserves-existing-and-no-stale-location",
+      "stderr": "output open failed; existing paths are never overwritten\n"
+    },
+    {
+      "case": "out-of-u64-literal-policy",
+      "compilerExit": 1,
+      "stderr": "integer literal exceeds u64\nnear source 3:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-031/redteam-1794564035074870000/literal-overflow-observation.rf2)\n",
+      "classification": "observed rejection"
+    },
+    {
+      "case": "text-library-page-boundaries",
+      "validCases": 90,
+      "invalidBudgetCases": 3,
+      "modes": [
+        "plain",
+        "optimized"
+      ],
+      "librarySHA256": "f19d632bcac50c4ee16a447a1f572de03a280ce932840141ebbc4cb5b6388e7c"
+    },
+    {
+      "case": "text-search-independent-byte-oracle",
+      "cases": 119,
+      "rows": [
+        {
+          "queryHex": "",
+          "bytes": 0,
+          "overlap": false,
+          "expected": {
+            "bytes": 0,
+            "query_bytes": 0,
+            "matches": 1,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "",
+          "bytes": 0,
+          "overlap": true,
+          "expected": {
+            "bytes": 0,
+            "query_bytes": 0,
+            "matches": 1,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "",
+          "bytes": 3,
+          "overlap": false,
+          "expected": {
+            "bytes": 3,
+            "query_bytes": 0,
+            "matches": 4,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "",
+          "bytes": 3,
+          "overlap": true,
+          "expected": {
+            "bytes": 3,
+            "query_bytes": 0,
+            "matches": 4,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "6161",
+          "bytes": 5,
+          "overlap": false,
+          "expected": {
+            "bytes": 5,
+            "query_bytes": 2,
+            "matches": 2,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "6161",
+          "bytes": 5,
+          "overlap": true,
+          "expected": {
+            "bytes": 5,
+            "query_bytes": 2,
+            "matches": 4,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "616261",
+          "bytes": 7,
+          "overlap": false,
+          "expected": {
+            "bytes": 7,
+            "query_bytes": 3,
+            "matches": 2,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "616261",
+          "bytes": 7,
+          "overlap": true,
+          "expected": {
+            "bytes": 7,
+            "query_bytes": 3,
+            "matches": 3,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "78",
+          "bytes": 5,
+          "overlap": false,
+          "expected": {
+            "bytes": 5,
+            "query_bytes": 1,
+            "matches": 2,
+            "first_byte": 1
+          }
+        },
+        {
+          "queryHex": "78",
+          "bytes": 5,
+          "overlap": true,
+          "expected": {
+            "bytes": 5,
+            "query_bytes": 1,
+            "matches": 2,
+            "first_byte": 1
+          }
+        },
+        {
+          "queryHex": "e0aea4e0aeaee0aebfe0aeb4e0af8d",
+          "bytes": 31,
+          "overlap": false,
+          "expected": {
+            "bytes": 31,
+            "query_bytes": 15,
+            "matches": 2,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "e0aea4e0aeaee0aebfe0aeb4e0af8d",
+          "bytes": 31,
+          "overlap": true,
+          "expected": {
+            "bytes": 31,
+            "query_bytes": 15,
+            "matches": 2,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "c3a9",
+          "bytes": 9,
+          "overlap": false,
+          "expected": {
+            "bytes": 9,
+            "query_bytes": 2,
+            "matches": 2,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "c3a9",
+          "bytes": 9,
+          "overlap": true,
+          "expected": {
+            "bytes": 9,
+            "query_bytes": 2,
+            "matches": 2,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "7a",
+          "bytes": 256,
+          "overlap": false,
+          "expected": {
+            "bytes": 256,
+            "query_bytes": 1,
+            "matches": 1,
+            "first_byte": 122
+          }
+        },
+        {
+          "queryHex": "7a",
+          "bytes": 256,
+          "overlap": true,
+          "expected": {
+            "bytes": 256,
+            "query_bytes": 1,
+            "matches": 1,
+            "first_byte": 122
+          }
+        },
+        {
+          "queryHex": "656e64",
+          "bytes": 4098,
+          "overlap": false,
+          "expected": {
+            "bytes": 4098,
+            "query_bytes": 3,
+            "matches": 1,
+            "first_byte": 4095
+          }
+        },
+        {
+          "queryHex": "656e64",
+          "bytes": 4098,
+          "overlap": true,
+          "expected": {
+            "bytes": 4098,
+            "query_bytes": 3,
+            "matches": 1,
+            "first_byte": 4095
+          }
+        },
+        {
+          "queryHex": "656e64",
+          "bytes": 65538,
+          "overlap": false,
+          "expected": {
+            "bytes": 65538,
+            "query_bytes": 3,
+            "matches": 1,
+            "first_byte": 65535
+          }
+        },
+        {
+          "queryHex": "656e64",
+          "bytes": 65538,
+          "overlap": true,
+          "expected": {
+            "bytes": 65538,
+            "query_bytes": 3,
+            "matches": 1,
+            "first_byte": 65535
+          }
+        },
+        {
+          "queryHex": "",
+          "bytes": 1083,
+          "overlap": false,
+          "expected": {
+            "bytes": 1083,
+            "query_bytes": 0,
+            "matches": 1084,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "61616158",
+          "bytes": 1031,
+          "overlap": true,
+          "expected": {
+            "bytes": 1031,
+            "query_bytes": 4,
+            "matches": 2,
+            "first_byte": 432
+          }
+        },
+        {
+          "queryHex": "6261615862586161",
+          "bytes": 1163,
+          "overlap": false,
+          "expected": {
+            "bytes": 1163,
+            "query_bytes": 8,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "625858",
+          "bytes": 136,
+          "overlap": true,
+          "expected": {
+            "bytes": 136,
+            "query_bytes": 3,
+            "matches": 1,
+            "first_byte": 88
+          }
+        },
+        {
+          "queryHex": "615861",
+          "bytes": 817,
+          "overlap": false,
+          "expected": {
+            "bytes": 817,
+            "query_bytes": 3,
+            "matches": 4,
+            "first_byte": 55
+          }
+        },
+        {
+          "queryHex": "58626161615861",
+          "bytes": 271,
+          "overlap": true,
+          "expected": {
+            "bytes": 271,
+            "query_bytes": 7,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "61585861615861",
+          "bytes": 1191,
+          "overlap": false,
+          "expected": {
+            "bytes": 1191,
+            "query_bytes": 7,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "62",
+          "bytes": 824,
+          "overlap": true,
+          "expected": {
+            "bytes": 824,
+            "query_bytes": 1,
+            "matches": 165,
+            "first_byte": 6
+          }
+        },
+        {
+          "queryHex": "",
+          "bytes": 1417,
+          "overlap": false,
+          "expected": {
+            "bytes": 1417,
+            "query_bytes": 0,
+            "matches": 1418,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "5858",
+          "bytes": 1510,
+          "overlap": true,
+          "expected": {
+            "bytes": 1510,
+            "query_bytes": 2,
+            "matches": 62,
+            "first_byte": 12
+          }
+        },
+        {
+          "queryHex": "615858",
+          "bytes": 954,
+          "overlap": false,
+          "expected": {
+            "bytes": 954,
+            "query_bytes": 3,
+            "matches": 7,
+            "first_byte": 104
+          }
+        },
+        {
+          "queryHex": "58586258586258",
+          "bytes": 1977,
+          "overlap": true,
+          "expected": {
+            "bytes": 1977,
+            "query_bytes": 7,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "585861586162",
+          "bytes": 90,
+          "overlap": false,
+          "expected": {
+            "bytes": 90,
+            "query_bytes": 6,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "6161615862615861",
+          "bytes": 1119,
+          "overlap": true,
+          "expected": {
+            "bytes": 1119,
+            "query_bytes": 8,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "62626162",
+          "bytes": 1319,
+          "overlap": false,
+          "expected": {
+            "bytes": 1319,
+            "query_bytes": 4,
+            "matches": 1,
+            "first_byte": 1153
+          }
+        },
+        {
+          "queryHex": "61585858",
+          "bytes": 395,
+          "overlap": true,
+          "expected": {
+            "bytes": 395,
+            "query_bytes": 4,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "",
+          "bytes": 4,
+          "overlap": false,
+          "expected": {
+            "bytes": 4,
+            "query_bytes": 0,
+            "matches": 5,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "62625862",
+          "bytes": 896,
+          "overlap": true,
+          "expected": {
+            "bytes": 896,
+            "query_bytes": 4,
+            "matches": 1,
+            "first_byte": 825
+          }
+        },
+        {
+          "queryHex": "615861",
+          "bytes": 130,
+          "overlap": false,
+          "expected": {
+            "bytes": 130,
+            "query_bytes": 3,
+            "matches": 2,
+            "first_byte": 22
+          }
+        },
+        {
+          "queryHex": "",
+          "bytes": 1092,
+          "overlap": true,
+          "expected": {
+            "bytes": 1092,
+            "query_bytes": 0,
+            "matches": 1093,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "626261",
+          "bytes": 777,
+          "overlap": false,
+          "expected": {
+            "bytes": 777,
+            "query_bytes": 3,
+            "matches": 6,
+            "first_byte": 136
+          }
+        },
+        {
+          "queryHex": "6261",
+          "bytes": 1402,
+          "overlap": true,
+          "expected": {
+            "bytes": 1402,
+            "query_bytes": 2,
+            "matches": 48,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "625861",
+          "bytes": 337,
+          "overlap": false,
+          "expected": {
+            "bytes": 337,
+            "query_bytes": 3,
+            "matches": 1,
+            "first_byte": 42
+          }
+        },
+        {
+          "queryHex": "6262616161616162",
+          "bytes": 808,
+          "overlap": true,
+          "expected": {
+            "bytes": 808,
+            "query_bytes": 8,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "6162",
+          "bytes": 156,
+          "overlap": false,
+          "expected": {
+            "bytes": 156,
+            "query_bytes": 2,
+            "matches": 6,
+            "first_byte": 22
+          }
+        },
+        {
+          "queryHex": "626158625862",
+          "bytes": 1144,
+          "overlap": true,
+          "expected": {
+            "bytes": 1144,
+            "query_bytes": 6,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "62",
+          "bytes": 1795,
+          "overlap": false,
+          "expected": {
+            "bytes": 1795,
+            "query_bytes": 1,
+            "matches": 352,
+            "first_byte": 12
+          }
+        },
+        {
+          "queryHex": "58626261",
+          "bytes": 245,
+          "overlap": true,
+          "expected": {
+            "bytes": 245,
+            "query_bytes": 4,
+            "matches": 1,
+            "first_byte": 36
+          }
+        },
+        {
+          "queryHex": "",
+          "bytes": 1679,
+          "overlap": false,
+          "expected": {
+            "bytes": 1679,
+            "query_bytes": 0,
+            "matches": 1680,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "586261586161",
+          "bytes": 1667,
+          "overlap": true,
+          "expected": {
+            "bytes": 1667,
+            "query_bytes": 6,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "625862615858",
+          "bytes": 921,
+          "overlap": false,
+          "expected": {
+            "bytes": 921,
+            "query_bytes": 6,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "5861625861586258",
+          "bytes": 655,
+          "overlap": true,
+          "expected": {
+            "bytes": 655,
+            "query_bytes": 8,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "6161616262615862",
+          "bytes": 669,
+          "overlap": false,
+          "expected": {
+            "bytes": 669,
+            "query_bytes": 8,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "58585861",
+          "bytes": 931,
+          "overlap": true,
+          "expected": {
+            "bytes": 931,
+            "query_bytes": 4,
+            "matches": 1,
+            "first_byte": 613
+          }
+        },
+        {
+          "queryHex": "61616261",
+          "bytes": 1709,
+          "overlap": false,
+          "expected": {
+            "bytes": 1709,
+            "query_bytes": 4,
+            "matches": 1,
+            "first_byte": 206
+          }
+        },
+        {
+          "queryHex": "5861626258",
+          "bytes": 1360,
+          "overlap": true,
+          "expected": {
+            "bytes": 1360,
+            "query_bytes": 5,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "62",
+          "bytes": 732,
+          "overlap": false,
+          "expected": {
+            "bytes": 732,
+            "query_bytes": 1,
+            "matches": 166,
+            "first_byte": 2
+          }
+        },
+        {
+          "queryHex": "62615858616258",
+          "bytes": 549,
+          "overlap": true,
+          "expected": {
+            "bytes": 549,
+            "query_bytes": 7,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "",
+          "bytes": 1138,
+          "overlap": false,
+          "expected": {
+            "bytes": 1138,
+            "query_bytes": 0,
+            "matches": 1139,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "",
+          "bytes": 1880,
+          "overlap": true,
+          "expected": {
+            "bytes": 1880,
+            "query_bytes": 0,
+            "matches": 1881,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "6261615861",
+          "bytes": 97,
+          "overlap": false,
+          "expected": {
+            "bytes": 97,
+            "query_bytes": 5,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "6162",
+          "bytes": 1351,
+          "overlap": true,
+          "expected": {
+            "bytes": 1351,
+            "query_bytes": 2,
+            "matches": 56,
+            "first_byte": 5
+          }
+        },
+        {
+          "queryHex": "6262625858586258",
+          "bytes": 836,
+          "overlap": false,
+          "expected": {
+            "bytes": 836,
+            "query_bytes": 8,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "58625862",
+          "bytes": 1330,
+          "overlap": true,
+          "expected": {
+            "bytes": 1330,
+            "query_bytes": 4,
+            "matches": 2,
+            "first_byte": 1146
+          }
+        },
+        {
+          "queryHex": "62",
+          "bytes": 1428,
+          "overlap": false,
+          "expected": {
+            "bytes": 1428,
+            "query_bytes": 1,
+            "matches": 256,
+            "first_byte": 6
+          }
+        },
+        {
+          "queryHex": "62",
+          "bytes": 898,
+          "overlap": true,
+          "expected": {
+            "bytes": 898,
+            "query_bytes": 1,
+            "matches": 175,
+            "first_byte": 7
+          }
+        },
+        {
+          "queryHex": "5858586161615861",
+          "bytes": 1920,
+          "overlap": false,
+          "expected": {
+            "bytes": 1920,
+            "query_bytes": 8,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "58585862626158",
+          "bytes": 870,
+          "overlap": true,
+          "expected": {
+            "bytes": 870,
+            "query_bytes": 7,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "6158615862615858",
+          "bytes": 1639,
+          "overlap": false,
+          "expected": {
+            "bytes": 1639,
+            "query_bytes": 8,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "6162",
+          "bytes": 544,
+          "overlap": true,
+          "expected": {
+            "bytes": 544,
+            "query_bytes": 2,
+            "matches": 21,
+            "first_byte": 4
+          }
+        },
+        {
+          "queryHex": "586162",
+          "bytes": 2017,
+          "overlap": false,
+          "expected": {
+            "bytes": 2017,
+            "query_bytes": 3,
+            "matches": 23,
+            "first_byte": 23
+          }
+        },
+        {
+          "queryHex": "6162",
+          "bytes": 319,
+          "overlap": true,
+          "expected": {
+            "bytes": 319,
+            "query_bytes": 2,
+            "matches": 16,
+            "first_byte": 8
+          }
+        },
+        {
+          "queryHex": "",
+          "bytes": 942,
+          "overlap": false,
+          "expected": {
+            "bytes": 942,
+            "query_bytes": 0,
+            "matches": 943,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "61615858626158",
+          "bytes": 902,
+          "overlap": true,
+          "expected": {
+            "bytes": 902,
+            "query_bytes": 7,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "5861",
+          "bytes": 68,
+          "overlap": false,
+          "expected": {
+            "bytes": 68,
+            "query_bytes": 2,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "6262",
+          "bytes": 97,
+          "overlap": true,
+          "expected": {
+            "bytes": 97,
+            "query_bytes": 2,
+            "matches": 5,
+            "first_byte": 49
+          }
+        },
+        {
+          "queryHex": "6258616162",
+          "bytes": 481,
+          "overlap": false,
+          "expected": {
+            "bytes": 481,
+            "query_bytes": 5,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "61",
+          "bytes": 1983,
+          "overlap": true,
+          "expected": {
+            "bytes": 1983,
+            "query_bytes": 1,
+            "matches": 397,
+            "first_byte": 1
+          }
+        },
+        {
+          "queryHex": "58625862",
+          "bytes": 1291,
+          "overlap": false,
+          "expected": {
+            "bytes": 1291,
+            "query_bytes": 4,
+            "matches": 3,
+            "first_byte": 987
+          }
+        },
+        {
+          "queryHex": "61586258",
+          "bytes": 304,
+          "overlap": true,
+          "expected": {
+            "bytes": 304,
+            "query_bytes": 4,
+            "matches": 1,
+            "first_byte": 73
+          }
+        },
+        {
+          "queryHex": "616261586161",
+          "bytes": 1922,
+          "overlap": false,
+          "expected": {
+            "bytes": 1922,
+            "query_bytes": 6,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "62616162616158",
+          "bytes": 528,
+          "overlap": true,
+          "expected": {
+            "bytes": 528,
+            "query_bytes": 7,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "6261616262586261",
+          "bytes": 1273,
+          "overlap": false,
+          "expected": {
+            "bytes": 1273,
+            "query_bytes": 8,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "6158625858615862",
+          "bytes": 1364,
+          "overlap": true,
+          "expected": {
+            "bytes": 1364,
+            "query_bytes": 8,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "",
+          "bytes": 862,
+          "overlap": false,
+          "expected": {
+            "bytes": 862,
+            "query_bytes": 0,
+            "matches": 863,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "61616258615861",
+          "bytes": 157,
+          "overlap": true,
+          "expected": {
+            "bytes": 157,
+            "query_bytes": 7,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "",
+          "bytes": 1195,
+          "overlap": false,
+          "expected": {
+            "bytes": 1195,
+            "query_bytes": 0,
+            "matches": 1196,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "586258",
+          "bytes": 306,
+          "overlap": true,
+          "expected": {
+            "bytes": 306,
+            "query_bytes": 3,
+            "matches": 4,
+            "first_byte": 50
+          }
+        },
+        {
+          "queryHex": "61",
+          "bytes": 1839,
+          "overlap": false,
+          "expected": {
+            "bytes": 1839,
+            "query_bytes": 1,
+            "matches": 363,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "62586262",
+          "bytes": 314,
+          "overlap": true,
+          "expected": {
+            "bytes": 314,
+            "query_bytes": 4,
+            "matches": 1,
+            "first_byte": 233
+          }
+        },
+        {
+          "queryHex": "5861",
+          "bytes": 819,
+          "overlap": false,
+          "expected": {
+            "bytes": 819,
+            "query_bytes": 2,
+            "matches": 25,
+            "first_byte": 20
+          }
+        },
+        {
+          "queryHex": "62",
+          "bytes": 10,
+          "overlap": true,
+          "expected": {
+            "bytes": 10,
+            "query_bytes": 1,
+            "matches": 1,
+            "first_byte": 2
+          }
+        },
+        {
+          "queryHex": "6262",
+          "bytes": 762,
+          "overlap": false,
+          "expected": {
+            "bytes": 762,
+            "query_bytes": 2,
+            "matches": 26,
+            "first_byte": 9
+          }
+        },
+        {
+          "queryHex": "5862",
+          "bytes": 1716,
+          "overlap": true,
+          "expected": {
+            "bytes": 1716,
+            "query_bytes": 2,
+            "matches": 62,
+            "first_byte": 42
+          }
+        },
+        {
+          "queryHex": "58",
+          "bytes": 512,
+          "overlap": false,
+          "expected": {
+            "bytes": 512,
+            "query_bytes": 1,
+            "matches": 100,
+            "first_byte": 11
+          }
+        },
+        {
+          "queryHex": "",
+          "bytes": 462,
+          "overlap": true,
+          "expected": {
+            "bytes": 462,
+            "query_bytes": 0,
+            "matches": 463,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "6158586262",
+          "bytes": 433,
+          "overlap": false,
+          "expected": {
+            "bytes": 433,
+            "query_bytes": 5,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "6262586158",
+          "bytes": 619,
+          "overlap": true,
+          "expected": {
+            "bytes": 619,
+            "query_bytes": 5,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "58625861625858",
+          "bytes": 651,
+          "overlap": false,
+          "expected": {
+            "bytes": 651,
+            "query_bytes": 7,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "616258",
+          "bytes": 813,
+          "overlap": true,
+          "expected": {
+            "bytes": 813,
+            "query_bytes": 3,
+            "matches": 5,
+            "first_byte": 68
+          }
+        },
+        {
+          "queryHex": "",
+          "bytes": 706,
+          "overlap": false,
+          "expected": {
+            "bytes": 706,
+            "query_bytes": 0,
+            "matches": 707,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "5862626261585858",
+          "bytes": 411,
+          "overlap": true,
+          "expected": {
+            "bytes": 411,
+            "query_bytes": 8,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "62626161616258",
+          "bytes": 379,
+          "overlap": false,
+          "expected": {
+            "bytes": 379,
+            "query_bytes": 7,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "61625861",
+          "bytes": 1166,
+          "overlap": true,
+          "expected": {
+            "bytes": 1166,
+            "query_bytes": 4,
+            "matches": 3,
+            "first_byte": 104
+          }
+        },
+        {
+          "queryHex": "6162",
+          "bytes": 1660,
+          "overlap": false,
+          "expected": {
+            "bytes": 1660,
+            "query_bytes": 2,
+            "matches": 70,
+            "first_byte": 75
+          }
+        },
+        {
+          "queryHex": "6262586161",
+          "bytes": 1931,
+          "overlap": true,
+          "expected": {
+            "bytes": 1931,
+            "query_bytes": 5,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "5861",
+          "bytes": 998,
+          "overlap": false,
+          "expected": {
+            "bytes": 998,
+            "query_bytes": 2,
+            "matches": 41,
+            "first_byte": 20
+          }
+        },
+        {
+          "queryHex": "58586262586258",
+          "bytes": 852,
+          "overlap": true,
+          "expected": {
+            "bytes": 852,
+            "query_bytes": 7,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "58626261585862",
+          "bytes": 588,
+          "overlap": false,
+          "expected": {
+            "bytes": 588,
+            "query_bytes": 7,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "62585858",
+          "bytes": 444,
+          "overlap": true,
+          "expected": {
+            "bytes": 444,
+            "query_bytes": 4,
+            "matches": 2,
+            "first_byte": 5
+          }
+        },
+        {
+          "queryHex": "6158616262",
+          "bytes": 1574,
+          "overlap": false,
+          "expected": {
+            "bytes": 1574,
+            "query_bytes": 5,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "615858626161",
+          "bytes": 399,
+          "overlap": true,
+          "expected": {
+            "bytes": 399,
+            "query_bytes": 6,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "",
+          "bytes": 1495,
+          "overlap": false,
+          "expected": {
+            "bytes": 1495,
+            "query_bytes": 0,
+            "matches": 1496,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "62616261586262",
+          "bytes": 205,
+          "overlap": true,
+          "expected": {
+            "bytes": 205,
+            "query_bytes": 7,
+            "matches": 0,
+            "first_byte": null
+          }
+        },
+        {
+          "queryHex": "",
+          "bytes": 1990,
+          "overlap": false,
+          "expected": {
+            "bytes": 1990,
+            "query_bytes": 0,
+            "matches": 1991,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "6261",
+          "bytes": 1203,
+          "overlap": true,
+          "expected": {
+            "bytes": 1203,
+            "query_bytes": 2,
+            "matches": 42,
+            "first_byte": 4
+          }
+        },
+        {
+          "queryHex": "7a",
+          "bytes": 1048576,
+          "overlap": false,
+          "expected": {
+            "bytes": 1048576,
+            "query_bytes": 1,
+            "matches": 1,
+            "first_byte": 1048575
+          }
+        },
+        {
+          "queryHex": "6161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161",
+          "bytes": 4096,
+          "overlap": true,
+          "expected": {
+            "bytes": 4096,
+            "query_bytes": 128,
+            "matches": 3969,
+            "first_byte": 0
+          }
+        },
+        {
+          "queryHex": "6161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616162",
+          "bytes": 4097,
+          "overlap": false,
+          "expected": {
+            "bytes": 4097,
+            "query_bytes": 128,
+            "matches": 1,
+            "first_byte": 3969
+          }
+        }
+      ],
+      "overboundRefused": true,
+      "longQueryRefused": true,
+      "unknownFlagRefused": true,
+      "executableSHA256": "9157dd2b8ab587b3899f281ad15c6bda355fa850f7cc71cbe544cb9c235e31ab"
+    },
+    {
+      "case": "check-only-valid-runtime-effects-not-executed-and-no-artifacts",
+      "manifestUnchanged": true,
+      "stdout": "RF2 source checked; no executable written.\n"
+    },
+    {
+      "case": "check-only-checks-unused-helper",
+      "refused": true,
+      "manifestUnchanged": true
+    },
+    {
+      "case": "missing-source",
+      "refused": true,
+      "manifestUnchanged": true
+    },
+    {
+      "case": "unknown-check-option",
+      "refused": true,
+      "manifestUnchanged": true
+    },
+    {
+      "case": "check-output-forbidden",
+      "refused": true,
+      "manifestUnchanged": true
+    },
+    {
+      "case": "check-cache-forbidden",
+      "refused": true,
+      "manifestUnchanged": true
+    },
+    {
+      "case": "check-opt-forbidden",
+      "refused": true,
+      "manifestUnchanged": true
+    },
+    {
+      "case": "unknown-build-option",
+      "refused": true,
+      "manifestUnchanged": true
+    }
+  ],
+  "scope": "Finite local malformed-source, actual native execution and cache-preservation probes. Optional app uses independent Python byte-search oracle. No remote traffic, universal security, coverage completeness or speed claim."
+}
