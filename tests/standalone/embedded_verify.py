@@ -82,6 +82,7 @@ def disassemble_word(word,pc):
   return {1:'csrrw',2:'csrrs',3:'csrrc',5:'csrrwi',6:'csrrsi',7:'csrrci'}[f3]+' '+reg(rd)+','+hex(word>>20)+','+(str(r1)if f3>=5 else reg(r1))
  if word==0x00000073:return 'ecall'
  if word==0x00100073:return 'ebreak'
+ if word==0x30200073:return 'mret'
  if op==0x0f and f3==0:return 'fence '+''.join(x for mask,x in [(8,'i'),(4,'o'),(2,'r'),(1,'w')]if(word>>24)&mask)+','+''.join(x for mask,x in [(8,'i'),(4,'o'),(2,'r'),(1,'w')]if(word>>20)&mask)
  raise AssertionError(('unknown emitted instruction',pc,hex(word)))
 
