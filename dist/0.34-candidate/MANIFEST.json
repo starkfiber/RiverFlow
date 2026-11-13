@@ -1,0 +1,114 @@
+{
+  "version": "0.34.0-dev",
+  "compilerHost": "macos-arm64",
+  "firmwareTarget": "esp32c3-rv32im-ram",
+  "runtimeContract": "0.17 nine bounded tools",
+  "physicalHardwareTested": false,
+  "packagerSHA256": "b3662f7d6b0f814e948e19fd31008df14399a9fb7907978015b3a4f5190f6661",
+  "files": {
+    "LICENSE": {
+      "bytes": 1087,
+      "sha256": "439e5b1ea79a6a0a2007acf65173490db2462b238b9805abab0ee820838b23e8"
+    },
+    "README.txt": {
+      "bytes": 1321,
+      "sha256": "46301ec930f857ffa597d320704369fb69efb63086771670a6eafe5ca4e35afe"
+    },
+    "examples/esp32c3/README.md": {
+      "bytes": 7669,
+      "sha256": "74c24f7548db68c461643bb12d4ebdafe8f24ba2334bf8d993676441102536ed"
+    },
+    "examples/esp32c3/board.json": {
+      "bytes": 2073,
+      "sha256": "ea9ce779e4c0571341b4c49f4cc7fc7585c77dc39600a3a3d8fa64dce72ac7d6"
+    },
+    "examples/esp32c3/register-sources.json": {
+      "bytes": 3116,
+      "sha256": "de8a81778e387562e1c3cdb1e3718d943b9fe9c2dda8ccbb0e6dadf158378748"
+    },
+    "examples/esp32c3/tests/model-hooks.flow": {
+      "bytes": 1483,
+      "sha256": "025ea6ddac132252ae7280ea7a7c9149289be3e383e7f9c9d596915a473ef634"
+    },
+    "examples/esp32c3/tests/model-main.flow": {
+      "bytes": 1437,
+      "sha256": "69f511709f7ee1d9903bd7f1b3d193cae4bc8def2aba7fcc5f3c393752bfcd4b"
+    },
+    "examples/esp32c3/tests/verify_protocol.py": {
+      "bytes": 9833,
+      "sha256": "0a2ea9ee48109c1f0cf42b15260841a0c13d4fc0863c9442185e99806b02e35a"
+    },
+    "examples/esp32c3/tests/verify_protocol_rv32.py": {
+      "bytes": 7808,
+      "sha256": "3131ce3ad268c2251c6e0a9bebe5acade822cb8490c74f13f242ceeaee007b2f"
+    },
+    "examples/esp32c3/tmp102.flow": {
+      "bytes": 6243,
+      "sha256": "19dd66516deb46fe17b1ae8599f303486c9273db816aaf4ef0b25b7c4c76e333"
+    },
+    "examples/esp32c3/uart-echo.flow": {
+      "bytes": 1017,
+      "sha256": "b646ba90c180769bf23eee9b2781e21f1fd2e0762b87a3991a75dbc796c2a91c"
+    },
+    "examples/esp32c3/uart-smoke.flow": {
+      "bytes": 1191,
+      "sha256": "d35ad4d5b5e93ffe77186479dbe907e6b76107d48635cae0249fb2989c796614"
+    },
+    "firmware/tmp102.bin": {
+      "bytes": 8000,
+      "sha256": "366f532c2d9fbe56f609f9ea742733426365ac40b1d55f9b144ffcf4f270d15b"
+    },
+    "firmware/tmp102.elf": {
+      "bytes": 12016,
+      "sha256": "553280721c2192e257bfb5fab0701bdd557b5d4fee5c43d693ca41f8a3ca7cfa"
+    },
+    "firmware/tmp102.map": {
+      "bytes": 351,
+      "sha256": "ab23dcd4b0f3393225b8f6552feee8783d9675fae417a2d9894c33fe99719651"
+    },
+    "firmware/uart-echo.bin": {
+      "bytes": 1568,
+      "sha256": "3146d3f8cffb3a3eb581466f4aaffbe03e74cefb98531791c5b21f6ca717863e"
+    },
+    "firmware/uart-echo.elf": {
+      "bytes": 5584,
+      "sha256": "adcb5605fbe893450d3287ff1ee1d17d5d91021a6448159d10b56f1668b27570"
+    },
+    "firmware/uart-echo.map": {
+      "bytes": 87,
+      "sha256": "ec4b839513137361eb77ff15e4b73810b9425e20fa9c22a0aff565a10b66aed4"
+    },
+    "firmware/uart-smoke.bin": {
+      "bytes": 1776,
+      "sha256": "1869ebd3c66605bbb31dc62a6ebf71a3bf83f7cad37040950211b5af0b8cec4f"
+    },
+    "firmware/uart-smoke.elf": {
+      "bytes": 5796,
+      "sha256": "7490d16f8ffb0eabfb4edf942fac4d93256fd3b14cacfabbdc5b0689f8ccba51"
+    },
+    "firmware/uart-smoke.map": {
+      "bytes": 90,
+      "sha256": "4aaff6d3907fff30e0efe833e062755ce3210697b4591c7569b17ce9b17f21db"
+    },
+    "rf2": {
+      "bytes": 231680,
+      "sha256": "df714d688e5b96577abb294a192432ed2f57f07c080ab23e32eee46cf94b0b89"
+    },
+    "rf2-esp32c3": {
+      "bytes": 133184,
+      "sha256": "4da23828e1ffdec7e361412e2eed54605ff902ec0ab78c9a38d28d6807524f02"
+    },
+    "rf2c": {
+      "bytes": 363008,
+      "sha256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37"
+    },
+    "source/backend.flow": {
+      "bytes": 18602,
+      "sha256": "2b501d4b7a0a5cd4efc7df9ee6192dde3bf474ae1e89d66ebf567accf5384225"
+    },
+    "source/embedded-compiler.rf2": {
+      "bytes": 39009,
+      "sha256": "1caec8192be1658b9e905bec833887375459795b4321a8fb9f74dfef3040434b"
+    }
+  }
+}
