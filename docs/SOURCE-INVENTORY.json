@@ -25,8 +25,8 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 654068,
-    "Python": 483555,
+    "RiverFlow": 654244,
+    "Python": 491032,
     "JavaScript": 85144,
     "HTML": 30503,
     "CSS": 17035,
@@ -493,7 +493,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 125134
+      "bytes": 125310
     },
     {
       "path": "native/core.rf2",
@@ -719,6 +719,11 @@
       "path": "tests/standalone/compiler_bounds_verify.py",
       "language": "Python",
       "bytes": 1391
+    },
+    {
+      "path": "tests/standalone/compiler_dispatch_verify.py",
+      "language": "Python",
+      "bytes": 4101
     },
     {
       "path": "tests/standalone/compiler_verify.py",
@@ -1149,6 +1154,11 @@
       "path": "tools/benchmark-checksum-files.py",
       "language": "Python",
       "bytes": 5489
+    },
+    {
+      "path": "tools/benchmark-compiler-dispatch.py",
+      "language": "Python",
+      "bytes": 3376
     },
     {
       "path": "tools/benchmark-mcp.py",
