@@ -1,0 +1,117 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/search.rf2"
+fn search_write(fd,p,n)
+ let done=0
+ while done<n
+  let wrote=write(fd,p+done,n-done)
+  if (wrote>>63)|(wrote==0)
+   return 0
+  end
+  set done=done+wrote
+ end
+ return 1
+end
+fn search_length(p,limit)
+ let n=0
+ while n<limit
+  if load8(p+n)==0
+   return n
+  end
+  set n=n+1
+ end
+ return limit
+end
+fn search_number(n)
+ let digits=buffer("search_digits",24)
+ let i=24
+ if n==0
+  return search_write(1,"0",1)
+ end
+ while n
+  set i=i-1
+  do store8(digits+i,48+n-(n//10)*10)
+  set n=n//10
+ end
+ return search_write(1,digits+i,24-i)
+end
+fn search_help(fd)
+ let text="Usage: text-search QUERY [--overlap]\nReads at most 1 MiB from stdin; reports exact byte matches as JSON.\nEmpty QUERY matches every byte boundary. Use --overlap to count overlapping matches.\n"
+ return search_write(fd,text,search_length(text,512))
+end
+fn main(argc,argv)
+ if (argc<2)|(argc>3)
+  do search_help(2)
+  return 2
+ end
+ let query=load64(argv+8)
+ let m=search_length(query,129)
+ if (argc==2)&(m==6)
+  if (load8(query)==45)&(load8(query+1)==45)&(load8(query+2)==104)&(load8(query+3)==101)&(load8(query+4)==108)&(load8(query+5)==112)
+   if search_help(1)==0
+    return 5
+   end
+   return 0
+  end
+ end
+ let overlap=0
+ if argc==3
+  let flag=load64(argv+16)
+  if search_length(flag,11)!=9
+   do search_help(2)
+   return 2
+  end
+  let wanted="--overlap"
+  let i=0
+  while i<9
+   if load8(flag+i)!=load8(wanted+i)
+    do search_help(2)
+    return 2
+   end
+   set i=i+1
+  end
+  set overlap=1
+ end
+ if m>128
+  do search_write(2,"Query exceeds 128 bytes\n",24)
+  return 2
+ end
+ # stdin and stdout are borrowed; this application does not close them.
+ let input=buffer("search_input",1048577)
+ let n=0
+ let got=1
+ while got!=0
+  set got=read(0,input+n,1048577-n)
+  if got>>63
+   do search_write(2,"Input read failed\n",18)
+   return 3
+  end
+  set n=n+got
+  if n>1048576
+   do search_write(2,"Input exceeds 1 MiB\n",20)
+   return 4
+  end
+ end
+ let out=ByteSearch(0,0,0)
+ let prefix=SearchPrefix()
+ do byte_search(input,n,query,m,overlap,prefix,out)
+ if out.status
+  return 2
+ end
+ let ok=search_write(1,"{\"bytes\":",9)
+ set ok=ok&search_number(n)
+ set ok=ok&search_write(1,",\"query_bytes\":",15)
+ set ok=ok&search_number(m)
+ set ok=ok&search_write(1,",\"matches\":",11)
+ set ok=ok&search_number(out.matches)
+ set ok=ok&search_write(1,",\"first_byte\":",14)
+ if out.matches
+  set ok=ok&search_number(out.first)
+ else
+  set ok=ok&search_write(1,"null",4)
+ end
+ set ok=ok&search_write(1,"}\n",2)
+ if ok==0
+  return 5
+ end
+ return 0
+end
