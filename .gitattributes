@@ -12,3 +12,6 @@ examples/evidence-contract/lib/json_transport.rf2 linguist-generated=true
 # Published browser laboratory copies are generated from examples/browser-lab.
 docs/lab/** linguist-generated=true
 site/lab/** linguist-generated=true
+
+# Explicitly generated standard-round teaching source.
+examples/sha40/rounds.rf2 linguist-generated=true

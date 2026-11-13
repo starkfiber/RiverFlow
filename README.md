@@ -60,7 +60,7 @@ The program exits successfully. The build creates a new directory and signs the 
 
 **Stable package: 0.17.** Bounded Core computation, local modules, records, checked arrays, UTF-8 scalar views, typed outcomes, owned files, bounded growing bytes and nine defined MCP tools.
 
-**Development source: 0.28 reuse candidate.** Adds [opt-in scalar-function reuse](docs/FUNCTION-REUSE-0.28.md) and [explicit compiler stores](docs/COMPILER-STORE-0.28.md) to compact images and dependency-aware whole-target reuse, alongside native SHA instructions, guarded optimizations, guest ownership experiments and a bounded WebAssembly backend. Development source and frozen candidate bundles are separate from the stable download. See the [engineering history](docs/RESEARCH-HISTORY.md) for each implementation and its executed tests.
+**Development source: 0.29 checked-reuse candidate.** Adds [lower-overhead linear-function reuse and working learning apps](docs/FUNCTION-REUSE-0.29.md) plus [explicit compiler stores](docs/COMPILER-STORE-0.28.md) to compact images and dependency-aware whole-target reuse, alongside native SHA instructions, guarded optimizations, guest ownership experiments and a bounded WebAssembly backend. Development source and frozen candidate bundles are separate from the stable download. See the [engineering history](docs/RESEARCH-HISTORY.md) for each implementation and its executed tests.
 
 MCP does not grant arbitrary filesystem, network or systems-code execution. AI intelligence comes from the connected host. There is no embedded model or automatic proof of correctness.
 
@@ -86,3 +86,9 @@ Bring a complete program, an expected result and a reproducible failure. Keep a 
 Read [CONTRIBUTING.md](CONTRIBUTING.md), then choose a bounded task from the [roadmap](docs/RF2-FULL-STACK-DIRECTION.md). New targets, concurrency, richer allocation and library compatibility need real implementations and target-specific tests.
 
 [MIT licence](LICENSE) · [Release history and experiments](docs/RESEARCH-HISTORY.md) · [External review brief](docs/EXTERNAL-REVIEW-BRIEF.md)
+
+## Try a native learning app
+
+[Number Lab](examples/number-lab-web/) makes binary switches, hex, ASCII and logic gates interactive. Its server and calculations compile from RF2; the browser renders ordinary HTML/CSS. See the separate [CLI game](examples/number-lab/) and [measured development results](docs/FUNCTION-REUSE-0.29.md).
+
+![Number Lab running from native RF2](docs/assets/number-lab-0.29.jpg)
