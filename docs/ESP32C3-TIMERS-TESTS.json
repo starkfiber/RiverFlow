@@ -1,0 +1,639 @@
+{
+  "schema": "rf2.esp32c3.time-watchdog.v1",
+  "passed": true,
+  "productCases": 27,
+  "emulatorLimitations": 1,
+  "rows": [
+    {
+      "name": "timer-delay-shift6",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 6,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 0,
+      "sourceSHA256": "5b0b7e63f320621b5d5bed60bf7d228a8d28ad3ef89e2fb54d0757711a8b275c",
+      "firmwareSHA256": "b231d1920c20202584efc02b04ca271b675f33786e662bdd59013d41e58a4dec",
+      "uartSHA256": "6d41bd6bd441360557e7bb56640656480490c90cf41cace134eb1d9c336dfa61",
+      "registers": {
+        "a0": 0,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "timer-delay-shift10",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 0,
+      "sourceSHA256": "5b0b7e63f320621b5d5bed60bf7d228a8d28ad3ef89e2fb54d0757711a8b275c",
+      "firmwareSHA256": "b231d1920c20202584efc02b04ca271b675f33786e662bdd59013d41e58a4dec",
+      "uartSHA256": "0c2ff81264f963e70ace884ddd2153fee47b5cc2a1ce356bcb924c35f1448b38",
+      "registers": {
+        "a0": 0,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "wrapping-microseconds",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 0,
+      "sourceSHA256": "e4539dd77eef14f4a67d5875485461e3452c03a5f2e2de79e635314d18d21bff",
+      "firmwareSHA256": "816b5c3de6d415805e20f83af10b2053bb4d151b43c0b550d1b6e24c98bb3876",
+      "uartSHA256": "ba4c92359f9fdb3d8befaf75875b7fd1b190d99bd830fc31e238dde922cb8b3f",
+      "registers": {
+        "a0": 0,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "frozen-clock-and-recovery",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 0,
+      "sourceSHA256": "2cec0acffab603309ca5c2c800d563136a47c0977f3f4129c203ce4575502408",
+      "firmwareSHA256": "b1865f857490d54b4622733a5e5610c323e8d53a9ef29503f4a7a0a16b2ce07b",
+      "uartSHA256": "3d8891dc87b791bda331045796e008b05ccace96f64d63aacdfedc1079fecfd9",
+      "registers": {
+        "a0": 0,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "refuse-delay-2147483648-16",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 2147483907,
+      "sourceSHA256": "afbe3aa794db5d3df0d217a2cb9d7b6741179e8d5767c15f397842e8269d0bdd",
+      "firmwareSHA256": "22cdd74b314f8fe4df31a0c815f0376661c16404e02f9b2beee8fe8b62512b62",
+      "uartSHA256": "2ffc0b345adad63553663f3d560b4de867fdf237f76475315812b189cbd55995",
+      "registers": {
+        "a0": 2147483907,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "refuse-delay-4294967295-16",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 2147483907,
+      "sourceSHA256": "2eefdf4f1b1c206b6fc4a57a0ba3b6d179b213da917d8f362a82f17aa4dab0c7",
+      "firmwareSHA256": "40d78a64b0fe7e7069cdd0e108189ed5d34c00911f956a3db1092b24ecd69f50",
+      "uartSHA256": "2ffc0b345adad63553663f3d560b4de867fdf237f76475315812b189cbd55995",
+      "registers": {
+        "a0": 2147483907,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "refuse-delay-1-0",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 2147483907,
+      "sourceSHA256": "3924fe75606084222142e81f69da93967eaa49242392d8978278f5d15e62e734",
+      "firmwareSHA256": "eecf295a447efa348f8b253a911b848651e215e4c2f37def370101becf8d2c75",
+      "uartSHA256": "2ffc0b345adad63553663f3d560b4de867fdf237f76475315812b189cbd55995",
+      "registers": {
+        "a0": 2147483907,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "zero-delay",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 0,
+      "sourceSHA256": "753a1bd9db2a9e0c213ba206825375dbc4098e518a9ae1d17f24bd9fd1062708",
+      "firmwareSHA256": "7f1a00bce20a9d2ed9cdd73228cef08000b91dbe0e071313c1e49cfdec898738",
+      "uartSHA256": "eec6a7e4a8b124bfa0e3f10244d489373d68155f82119cd46a26eec661a6e16c",
+      "registers": {
+        "a0": 0,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "deadline-wrap-math",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 0,
+      "sourceSHA256": "b496863958a46dffccc74a678b980d3a7afe18d153a652283f7f7a066d5ff6ba",
+      "firmwareSHA256": "eab23fba00dd260e06bed0ca4ecf4a0ba4e8ef7b4e393101ee9cb6f9211927b9",
+      "uartSHA256": "ebc953d3625cabc67042ec86970891dba469b9f7f27640bd654e1e01f6a36d96",
+      "registers": {
+        "a0": 0,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "refuse-watchdog-0",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 0,
+      "sourceSHA256": "f4209221a83dc935f2552cc20b6bb9ecc763223794685b1aba14bedb107b83ea",
+      "firmwareSHA256": "75c8398515b75fca611be0641a4f2368ad34dbd9d64324649382102fe4de94a6",
+      "uartSHA256": "b3369bd1b5991de232540f77dfe254de467563abc33cd628a21ef9b46c418879",
+      "registers": {
+        "a0": 0,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "refuse-watchdog-9",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 0,
+      "sourceSHA256": "ae3314ef591e7b6b90a800c05537357ae2d4ac61ac99e61cf60d4b32b522c90d",
+      "firmwareSHA256": "39ac8998cb8cac7dde6b1ce3d797daac55336f2c9e85edc4697894726a1b1443",
+      "uartSHA256": "b3369bd1b5991de232540f77dfe254de467563abc33cd628a21ef9b46c418879",
+      "registers": {
+        "a0": 0,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "refuse-watchdog-60001",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 0,
+      "sourceSHA256": "5594d5012ce72deefcb44297a75a5842a7e1ea1b1054a2e55e096c5070d8ca4e",
+      "firmwareSHA256": "fa6a45c145d70641d089e8bf24b0b8eb962050f28a2e6247d1e6d99fdd641287",
+      "uartSHA256": "b3369bd1b5991de232540f77dfe254de467563abc33cd628a21ef9b46c418879",
+      "registers": {
+        "a0": 0,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "refuse-watchdog-4294967295",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 0,
+      "sourceSHA256": "44c55f4e1084e0df3f252bf8de99470da52667edb1bf9567341557d20d708d5a",
+      "firmwareSHA256": "43f5857087b943e7421390d7f318e952246ab2c4c7e0f89aeefb46fc6e2b261e",
+      "uartSHA256": "b3369bd1b5991de232540f77dfe254de467563abc33cd628a21ef9b46c418879",
+      "registers": {
+        "a0": 0,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "feed-disarmed",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 2147484163,
+      "sourceSHA256": "47070ecf5160cdf20cf0679c1afd67036a545765b69682d6581d64bcb6bd3691",
+      "firmwareSHA256": "14be8f818dbf4701f7dbe4b9e929cc1a0081ac25127edd8ac384f07d3075c524",
+      "uartSHA256": "ef24cb53331bc6e129b61ec29f2b9f91a7dbfa0eb5dca89a0ae5df991f9a8227",
+      "registers": {
+        "a0": 2147484163,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "disarm-survives-expiry",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 0,
+      "sourceSHA256": "5a1f0c0c97fe0d2ea524475471e8f93d78f00500e3525b2f598c9f34e6c0d2d6",
+      "firmwareSHA256": "ae62fc5123a1252b9789e07fc090cb90642d0b8064bb48dae816d02dd094ca9a",
+      "uartSHA256": "fc601373321a846fad50069680e23e7d8bf3aff7e0854e8ebea71d1173949dfe",
+      "registers": {
+        "a0": 0,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "protected-config-write",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 0,
+      "sourceSHA256": "c08f80f314dd0c2c4c0860f85d807ca7d2566f5227d27c573e59e81ab18c5697",
+      "firmwareSHA256": "adba1186882eb4e60c8c1c7b1afcbb2271d2d042154f523043524f7cbd44bd22",
+      "uartSHA256": "03e0b1898bb5c54c8ef5fcc9441b57cbdde4ee55cebae8fe857afd17896ac77e",
+      "registers": {
+        "a0": 0,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "unfed-reset",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1,
+        7,
+        7
+      ],
+      "expectedReturn": null,
+      "sourceSHA256": "311096737c26828edf794500ac22541efcd7aa83d38155b6a78ac893e87469c4",
+      "firmwareSHA256": "f785663f16e98b1217537bf27a4c6d3e1fe40ea864a9bf4113e7c2482d01f0a6",
+      "uartSHA256": "de063fd5da28fc8667d3716856a2dc7b9ad8b18ff48cc60e239d9197937ed8ca",
+      "registers": {
+        "a0": 80,
+        "sp": 1070458224,
+        "pc": 1074055442,
+        "mie": 3822
+      }
+    },
+    {
+      "name": "unfed-reset-deadline",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1,
+        7,
+        7
+      ],
+      "expectedReturn": null,
+      "sourceSHA256": "a9a67910d913ddcb3f4b0f4b09c0b9717237fd0987d4bc1a05ced32f7d1bafa8",
+      "firmwareSHA256": "483e65bac150b741b6f3b32dbd53b9c4fe166ec7222e29a0abea108800b7f10e",
+      "uartSHA256": "64c22b55168f7d8f341af34e849d7afccac9cb585989acebcf45b49c459e4140",
+      "registers": {
+        "a0": 0,
+        "sp": 1070458608,
+        "pc": 1074039396,
+        "mie": 3822
+      }
+    },
+    {
+      "name": "rearm-shorter-reset",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1,
+        7,
+        7
+      ],
+      "expectedReturn": null,
+      "sourceSHA256": "3a81a651a4e4d9fd90d536b905f1f67e2feeb94a172e1221a76a030406468e8f",
+      "firmwareSHA256": "9b0c257b1f74ac69f199657970fdb250cdb6b83ede3601e78da9c972855342c9",
+      "uartSHA256": "1db1edacd2ea1f2cf35a0cb5c0c0f40197bb354ded5796004c07d1c4fd94a8a1",
+      "registers": {
+        "a0": 80,
+        "sp": 1070458224,
+        "pc": 1074055442,
+        "mie": 3822
+      }
+    },
+    {
+      "name": "invalid-rearm-keeps-supervision",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1,
+        7,
+        7
+      ],
+      "expectedReturn": null,
+      "sourceSHA256": "5ccd8a7ba84e469ed11afc76c5e1eda4ef37e46cc7faf7d83aa2c6035562498f",
+      "firmwareSHA256": "79be5bc8b8d37181414c2984600ab52499be6efe11472e677b9278d3b9f5ef1d",
+      "uartSHA256": "be57be55bf502edd4fbfa8b1d7efdb77937577d3acddf0615de2efd1fe6577ac",
+      "registers": {
+        "a0": 1006632992,
+        "sp": 1070458208,
+        "pc": 1074045286,
+        "mie": 3822
+      }
+    },
+    {
+      "name": "software-reset",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1,
+        3,
+        3
+      ],
+      "expectedReturn": null,
+      "sourceSHA256": "114ffd067d432dc451966d7ee7d23f5b9e764ba3dcc1da3e5cb3ba2ed2269193",
+      "firmwareSHA256": "f597f2b4499f1c1878403a2663f104b6bd0f3e348b26b6148e921411c58da126",
+      "uartSHA256": "92670e021891ca059491c684592439a32d1d2557a4591461bf80ed1ba1472694",
+      "registers": {
+        "a0": 0,
+        "sp": 1070458288,
+        "pc": 1074053344,
+        "mie": 3822
+      }
+    },
+    {
+      "name": "snapshot-never-ready",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": true,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 0,
+      "sourceSHA256": "70c037ed2a9cc308dd8fbc8991988214243eb9b440579ee659db66c0750a2a17",
+      "firmwareSHA256": "02c40836c48d38e2659e0e6cd79582dcb7d6f9c64f14bf68c8851c588d1faf27",
+      "uartSHA256": "963a5b10d59c2b33c343acc2c249468f91a94e70d3eb74ff1284be91e0f81ed7",
+      "registers": {
+        "a0": 0,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "reset-write-ignored",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": true,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 2147484164,
+      "sourceSHA256": "ed24f6adc122d51cbb6322f424b7383196e7652d9147f90736b3b113c8e56aa4",
+      "firmwareSHA256": "69745e758e225297ddfbb588447a9478ed91347f41731df180775b89112216ac",
+      "uartSHA256": "19bae02e4ba95c510093f0e30266bed798aacff8a38a20743f058cc2c506eeed",
+      "registers": {
+        "a0": 2147484164,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "watchdog-readback-failure",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": true,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 2147484162,
+      "sourceSHA256": "c550ce4481117911cd5fb47d85dc5b8d314999e909e591147a651340f5d42969",
+      "firmwareSHA256": "a03ac9ba1805d4897bd64254e5609cf0bed347c9661549021132c6beb4a90df5",
+      "uartSHA256": "1a443315067a4dfca72a85d6a548b8cee088ccb1f5806b03b3b97ed0b707b38e",
+      "registers": {
+        "a0": 2147484162,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "uart-full-is-bounded",
+      "passed": true,
+      "observationComplete": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": true,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 2147484417,
+      "sourceSHA256": "8b6acbbe896aab72a0025c37812332ddcb7bc23af24519c7bfefdce1e7905309",
+      "firmwareSHA256": "b1a3bb3a7086f68e41ef3461f17a5d412410f30a916504869f81bcad33a18bcc",
+      "uartSHA256": "c2c04a0bd62f8ae7fd052bd1b36e79ba3fe0790ad29e49d64b3b5184da909030",
+      "registers": {
+        "a0": 2147484417,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "qemu-locked-stage-register-gap",
+      "passed": false,
+      "observationComplete": true,
+      "knownEmulatorLimitation": true,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "resetCauses": [
+        1
+      ],
+      "expectedReturn": 1,
+      "sourceSHA256": "b178176bcf2bc0a2bb7778c7d55aea2727d2d07d866e2479be28ca65180124a9",
+      "firmwareSHA256": "f9a47cb6f23a6d6c5a1a51e6d6b6eeddc705741c11ff7a1b96a198ab5e91264a",
+      "uartSHA256": "52c7f11abd3212910caf318c59804e8dc427d33e8a4edc82c49ff5429e434dd4",
+      "registers": {
+        "a0": 1,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "heartbeat-120-virtual-seconds-shift6",
+      "passed": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 6,
+      "virtualElapsedMicroseconds": 120011900,
+      "completedIntervals": 480,
+      "watchdogFeeds": 480,
+      "sourceSHA256": "8a9679a08c632e57100afb6dfa36b6ab46efb7861b341c070f69ae601458e983",
+      "firmwareSHA256": "be2c7acac20780765de94a767747f15f124589017593ba20ae90f86c1bb0b806",
+      "uartSHA256": "8c6b37de7ae6e380b32f3fa08ba5954282c7ebfb451aa06e7e8a1fa15cfebea4",
+      "registers": {
+        "a0": 0,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    },
+    {
+      "name": "heartbeat-120-virtual-seconds-shift10",
+      "passed": true,
+      "knownEmulatorLimitation": false,
+      "faultHooks": false,
+      "physicalHardware": false,
+      "shift": 10,
+      "virtualElapsedMicroseconds": 120179177,
+      "completedIntervals": 480,
+      "watchdogFeeds": 480,
+      "sourceSHA256": "8a9679a08c632e57100afb6dfa36b6ab46efb7861b341c070f69ae601458e983",
+      "firmwareSHA256": "be2c7acac20780765de94a767747f15f124589017593ba20ae90f86c1bb0b806",
+      "uartSHA256": "9c343327085c6b6d9b68614139896987784a1d28c37ac8816af4a2d5d1da66ad",
+      "registers": {
+        "a0": 0,
+        "sp": 1070333952,
+        "pc": 1077411864,
+        "mie": 0
+      }
+    }
+  ],
+  "compilerSHA256": "4da23828e1ffdec7e361412e2eed54605ff902ec0ab78c9a38d28d6807524f02",
+  "qemuSHA256": "3e38982c1ea3e750edfc8c910a0fd44727fe07d9c666b84d18d2b7985ac58246",
+  "controllerSHA256": "2bfaad939a0d9a48bc093d551bdaeaa0b17611bcbc23c4af66875ba70748e693",
+  "libraries": {
+    "time": "91bfc8abf31ebd26ce967bbd815f3b606c552a6d90b953ee67929e0aa208068a",
+    "watchdog": "f54a3fd3db6fcca08f2ba156dacee9f72f7f96ccb53facb103ee7e19840567a4",
+    "uart": "5be60a7918c94cb44b60c3fe925822cbe98008d19971eff3a92fa5d406eac1d8"
+  },
+  "scope": "Vendor QEMU ROM/SPI/SYSTIMER/TIMG/UART execution, plus explicitly hooked latch/reset/readback/UART-full failure paths. Virtual durations are not wall-clock speed or physical timing. RTC watchdog not modeled. QEMU permits a locked stage-register write contrary to hardware protection contract; retained as a known emulator gap."
+}

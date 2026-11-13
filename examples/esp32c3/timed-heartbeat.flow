@@ -1,0 +1,58 @@
+profile RF2_ESP32C3_V1
+use "lib/time.flow"
+use "lib/watchdog.flow"
+use "lib/uart.flow"
+fn main()
+ let failure=watchdog_arm_ms(1000)
+ if failure
+  return failure
+ end
+ set failure=timer_init()
+ if failure
+  return failure
+ end
+ # H then reset reason. Each completed interval is an explicit progress event.
+ set failure=serial_byte(72)
+ set failure=failure|serial_hex(reset_cause())
+ set failure=failure|serial_byte(10)
+ if failure
+  return failure
+ end
+ let start=timer_us32()
+ let interval=0
+ while interval<480
+  set failure=timer_delay_us(250000,100000)
+  if failure
+   # Deliberately leave watchdog armed if progress cannot be established.
+   return failure
+  end
+  set failure=watchdog_feed()
+  if failure
+   return failure
+  end
+  set interval=interval+1
+  if (interval&15)==0
+   set failure=serial_byte(46)
+   if failure
+    return failure
+   end
+  end
+ end
+ set failure=timer_capture()
+ if failure
+  return failure
+ end
+ let elapsed=timer_elapsed(timer_us32(),start)
+ set failure=watchdog_disarm()
+ if failure
+  return failure
+ end
+ set failure=serial_byte(10)
+ set failure=failure|serial_hex(elapsed)
+ set failure=failure|serial_byte(10)
+ set failure=failure|serial_byte(68)
+ set failure=failure|serial_byte(79)
+ set failure=failure|serial_byte(78)
+ set failure=failure|serial_byte(69)
+ return failure|serial_byte(10)
+end

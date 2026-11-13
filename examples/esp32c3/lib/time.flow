@@ -1,0 +1,60 @@
+module esp32c3_time
+# RF2 ESP32-C3 SYSTIMER unit0, exclusive foreground owner, no ISR support.
+# 40MHz XTAL / 2.5 => 16 ticks/us. Clock/source qualification is target-specific.
+# Snapshots return status separately: no timestamp bit is reserved for errors.
+fn timer_init()
+ do store32(0x600C0010,load32(0x600C0010)|0x20000000)
+ do store32(0x60023000,(load32(0x60023000)|0xC0000000)&0xE7FFFFFF)
+ if (load32(0x60023000)&0xC0000000)!=0xC0000000
+  return 0x80000101
+ end
+ return timer_capture()
+end
+fn timer_capture()
+ # Clear prior VALUE_VALID and request a fresh, coherent high/low snapshot.
+ do store32(0x60023004,0x60000000)
+ let tries=64
+ while tries>0
+  if load32(0x60023004)&0x20000000
+   return 0
+  end
+  set tries=tries-1
+ end
+ return 0x80000101
+end
+fn timer_us32()
+ # Read only after successful capture; both halves belong to that snapshot.
+ return (load32(0x60023040)<<28)|(load32(0x60023044)>>4)
+end
+fn timer_elapsed(now,start)
+ return now-start
+end
+fn timer_due(now,deadline)
+ # Caller keeps timestamps within one half of the wrapping u32 time range.
+ return (now-deadline)<0x80000000
+end
+fn timer_delay_us(duration,poll_budget)
+ if (duration>0x7FFFFFFF)|(poll_budget==0)
+  return 0x80000103
+ end
+ if duration==0
+  return 0
+ end
+ let status=timer_capture()
+ if status
+  return status
+ end
+ let start=timer_us32()
+ while poll_budget>0
+  set status=timer_capture()
+  if status
+   return status
+  end
+  if timer_elapsed(timer_us32(),start)>=duration
+   return 0
+  end
+  set poll_budget=poll_budget-1
+ end
+ # Independent iteration bound prevents a stopped clock causing an infinite wait.
+ return 0x80000102
+end

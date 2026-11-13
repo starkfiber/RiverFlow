@@ -1,0 +1,175 @@
+{
+  "scope": "Selected static source references; no third-party code execution or physical validation",
+  "sources": [
+    {
+      "file": "systimer_reg.h",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/soc/esp32c3/register/soc/systimer_reg.h",
+      "sha256": "9d9a026f16155d390e51ad769a5665eaba746be816c1d71d0fec5e958bcf410e"
+    },
+    {
+      "file": "systimer_ll.h",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/hal/esp32c3/include/hal/systimer_ll.h",
+      "sha256": "e0fd39547b5b9f6ba2998cac0a9d3aead684e41b630b5c1fa4cb1d1ebe71a702"
+    },
+    {
+      "file": "timer_group_reg.h",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/soc/esp32c3/register/soc/timer_group_reg.h",
+      "sha256": "b69fedc31cdbddf5a56989dc8698efdeedf80fe6d888e903d9ddda9349cf87a4"
+    },
+    {
+      "file": "mwdt_ll.h",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/hal/esp32c3/include/hal/mwdt_ll.h",
+      "sha256": "f4918dfe58d9673230724878ac47205ed9d5b6ea54810e9f591ff504417539f8"
+    },
+    {
+      "file": "rtc_cntl_reg.h",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/soc/esp32c3/register/soc/rtc_cntl_reg.h",
+      "sha256": "460cc763065caf1ce6a9fe443c4bc31d0a17028bc2537b5e1ee2e35f258fa546"
+    },
+    {
+      "file": "reg_base.h",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/soc/esp32c3/register/soc/reg_base.h",
+      "sha256": "0c11cb4190afcc8097608a7e508d6bbc12bb432f7c6c73922537c488963f8056"
+    },
+    {
+      "file": "qemu-esp32c3_systimer.c",
+      "url": "https://raw.githubusercontent.com/espressif/qemu/40edccac415693c5130f91c01d84176ae6008566/hw/timer/esp32c3_systimer.c",
+      "sha256": "6f47915ee122adf663243d16902435fccb091bf142356944217b82d8fadda5b8"
+    },
+    {
+      "file": "qemu-esp32c3_timg.c",
+      "url": "https://raw.githubusercontent.com/espressif/qemu/40edccac415693c5130f91c01d84176ae6008566/hw/timer/esp32c3_timg.c",
+      "sha256": "2a55de442b919f63877673fb2c254a3796aad15cd6303e531fdd5b82c6b5eab4"
+    },
+    {
+      "file": "qemu-esp32c3_rtc_cntl.c",
+      "url": "https://raw.githubusercontent.com/espressif/qemu/40edccac415693c5130f91c01d84176ae6008566/hw/misc/esp32c3_rtc_cntl.c",
+      "sha256": "3e8f80499b29ac0256586086f095d49cb124266a9770735b44d76a6e2a0e5325"
+    },
+    {
+      "file": "qemu-esp32c3_systimer.h",
+      "url": "https://raw.githubusercontent.com/espressif/qemu/40edccac415693c5130f91c01d84176ae6008566/include/hw/timer/esp32c3_systimer.h",
+      "sha256": "5991312bf937c0f022f4be7041dd77d68a48ef331d5365d6fe14c4626665c062"
+    },
+    {
+      "file": "qemu-esp32c3_timg.h",
+      "url": "https://raw.githubusercontent.com/espressif/qemu/40edccac415693c5130f91c01d84176ae6008566/include/hw/timer/esp32c3_timg.h",
+      "sha256": "9e9a6034f288ad9af6d06479de8d9beb4673ea382f6cc7cf070ca1b7bf403286"
+    },
+    {
+      "file": "qemu-esp32c3.c",
+      "url": "https://raw.githubusercontent.com/espressif/qemu/40edccac415693c5130f91c01d84176ae6008566/hw/riscv/esp32c3.c",
+      "sha256": "77cac6c5da7b39334586b56ba50282fc9f2766e8270686aaf23f96c9745c14f8"
+    },
+    {
+      "repo": "hardware-mcp/arduino-mcp-server",
+      "commit": "c020098a05b0d259320df2756fde09e7ca6fecc0",
+      "path": "README.md",
+      "file": "hardware-mcp__arduino-mcp-server/README.md",
+      "url": "https://raw.githubusercontent.com/hardware-mcp/arduino-mcp-server/c020098a05b0d259320df2756fde09e7ca6fecc0/README.md",
+      "sha256": "6b685d29d637f9f4a6347a1217b184babcb639248ea3861aefe7d7ab87c99260"
+    },
+    {
+      "repo": "hardware-mcp/arduino-mcp-server",
+      "commit": "c020098a05b0d259320df2756fde09e7ca6fecc0",
+      "path": "src/boardReference.ts",
+      "file": "hardware-mcp__arduino-mcp-server/src/boardReference.ts",
+      "url": "https://raw.githubusercontent.com/hardware-mcp/arduino-mcp-server/c020098a05b0d259320df2756fde09e7ca6fecc0/src/boardReference.ts",
+      "sha256": "3ee485b49b6cfe0d40b3c23cf5ed044d3ff22959d68e8a57b6e069f108d4e90a"
+    },
+    {
+      "repo": "hardware-mcp/arduino-mcp-server",
+      "commit": "c020098a05b0d259320df2756fde09e7ca6fecc0",
+      "path": "src/serialSessions.ts",
+      "file": "hardware-mcp__arduino-mcp-server/src/serialSessions.ts",
+      "url": "https://raw.githubusercontent.com/hardware-mcp/arduino-mcp-server/c020098a05b0d259320df2756fde09e7ca6fecc0/src/serialSessions.ts",
+      "sha256": "337ac5a5086d47907da51d065be559e854df261e02e8f94038b26c8ea092f345"
+    },
+    {
+      "repo": "amahpour/arduino-mcp-server-simple",
+      "commit": "fa3170d3f67c6a3915c4fe56221d992d923a1e13",
+      "path": "README.md",
+      "file": "amahpour__arduino-mcp-server-simple/README.md",
+      "url": "https://raw.githubusercontent.com/amahpour/arduino-mcp-server-simple/fa3170d3f67c6a3915c4fe56221d992d923a1e13/README.md",
+      "sha256": "d1bb5726ef2e49228b5ac1ca58e491eda2114ef143e2fc94eb7ccb6a60319892"
+    },
+    {
+      "repo": "niradler/arduino-mcp",
+      "commit": "dae94d3bfb5aac20942af785d504b74b5395884f",
+      "path": "README.md",
+      "file": "niradler__arduino-mcp/README.md",
+      "url": "https://raw.githubusercontent.com/niradler/arduino-mcp/dae94d3bfb5aac20942af785d504b74b5395884f/README.md",
+      "sha256": "f02ede87d943eb69b3093510075b2a503f8c9c5d488f2e7e70895933d4abc08a"
+    },
+    {
+      "repo": "niradler/arduino-mcp",
+      "commit": "dae94d3bfb5aac20942af785d504b74b5395884f",
+      "path": "arduino_mcp/cli_wrapper.py",
+      "file": "niradler__arduino-mcp/arduino_mcp/cli_wrapper.py",
+      "url": "https://raw.githubusercontent.com/niradler/arduino-mcp/dae94d3bfb5aac20942af785d504b74b5395884f/arduino_mcp/cli_wrapper.py",
+      "sha256": "d4ada6cdd823913a072b0ec0e6b7d7364d13aeef8c23f7de6dbfe08daac57f18"
+    },
+    {
+      "repo": "niradler/arduino-mcp",
+      "commit": "dae94d3bfb5aac20942af785d504b74b5395884f",
+      "path": "arduino_mcp/serial_manager.py",
+      "file": "niradler__arduino-mcp/arduino_mcp/serial_manager.py",
+      "url": "https://raw.githubusercontent.com/niradler/arduino-mcp/dae94d3bfb5aac20942af785d504b74b5395884f/arduino_mcp/serial_manager.py",
+      "sha256": "1931b6c49435f734782a7d6155d6e2d0e3b47fd98c7c459458e7511cf955d112"
+    },
+    {
+      "repo": "niradler/arduino-mcp",
+      "commit": "dae94d3bfb5aac20942af785d504b74b5395884f",
+      "path": "arduino_mcp/server.py",
+      "file": "niradler__arduino-mcp/arduino_mcp/server.py",
+      "url": "https://raw.githubusercontent.com/niradler/arduino-mcp/dae94d3bfb5aac20942af785d504b74b5395884f/arduino_mcp/server.py",
+      "sha256": "910f33bf84b7f54bece911be4663a76e1c6c21685ff39562723aba41685c449d"
+    },
+    {
+      "repo": "espressif/arduino-esp32",
+      "commit": "3ed7b779f2b4c797b3512f3fc10a7a978a78fb18",
+      "path": "cores/esp32/esp32-hal-timer.c",
+      "file": "espressif__arduino-esp32/cores/esp32/esp32-hal-timer.c",
+      "url": "https://raw.githubusercontent.com/espressif/arduino-esp32/3ed7b779f2b4c797b3512f3fc10a7a978a78fb18/cores/esp32/esp32-hal-timer.c",
+      "sha256": "51e295dad45f8e3872e2fdc1d44ab169c50bf34d77dff6bd805fb55bde5e256e"
+    },
+    {
+      "file": "qemu-esp_timg.c",
+      "url": "https://raw.githubusercontent.com/espressif/qemu/40edccac415693c5130f91c01d84176ae6008566/hw/timer/esp_timg.c",
+      "sha256": "7003cdc57bf17a80615106bede8291241d6c2b164d46d2836ae20fd76d26e2b0"
+    },
+    {
+      "file": "qemu-esp_timg.h",
+      "url": "https://raw.githubusercontent.com/espressif/qemu/40edccac415693c5130f91c01d84176ae6008566/include/hw/timer/esp_timg.h",
+      "sha256": "8d415c04fac0be34278de2bd1fcb97f7f5804f9c00465a8ec1764ffbb353df41"
+    },
+    {
+      "file": "qemu-esp_systimer.c",
+      "url": "https://raw.githubusercontent.com/espressif/qemu/40edccac415693c5130f91c01d84176ae6008566/hw/timer/esp_systimer.c",
+      "sha256": "f653119f127f212b8e2e976f4fc3216ef1c88ad01c0e96ec1a2fb642e9f39892"
+    },
+    {
+      "file": "qemu-esp_systimer.h",
+      "url": "https://raw.githubusercontent.com/espressif/qemu/40edccac415693c5130f91c01d84176ae6008566/include/hw/timer/esp_systimer.h",
+      "sha256": "1b30c21987d8968d762811541f5bf605b103d80a062b542358f25a0d1b1cad50"
+    },
+    {
+      "file": "system_reg.h",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/soc/esp32c3/register/soc/system_reg.h",
+      "sha256": "373e66719f0c0b762eac103d40d5862b96d2ac6ff1678eb09da8b77505867ce0"
+    },
+    {
+      "file": "systimer_hal.c",
+      "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/hal/systimer_hal.c",
+      "sha256": "7b04fc829596c330b729d5a3df1001475ba53865aa5fd9cf807e959de1bcf66f"
+    },
+    {
+      "repo": "amahpour/arduino-mcp-server-simple",
+      "commit": "fa3170d3f67c6a3915c4fe56221d992d923a1e13",
+      "path": "arduino_mcp_tool/__init__.py",
+      "file": "amahpour__arduino-mcp-server-simple/arduino_mcp_tool/__init__.py",
+      "url": "https://raw.githubusercontent.com/amahpour/arduino-mcp-server-simple/fa3170d3f67c6a3915c4fe56221d992d923a1e13/arduino_mcp_tool/__init__.py",
+      "sha256": "2944292d56844dbec7e39c0271809f45c5893d1cf8301428063642a75d2abd73"
+    }
+  ]
+}

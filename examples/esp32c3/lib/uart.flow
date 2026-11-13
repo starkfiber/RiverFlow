@@ -1,0 +1,29 @@
+module esp32c3_uart
+# UART0 uses ROM-inherited clock, baud and pin routing. Bounded foreground TX.
+fn serial_byte(value)
+ let tries=100000
+ while tries>0
+  if ((load32(0x6000001C)>>16)&1023)<127
+   do store32(0x60000000,value&255)
+   return 0
+  end
+  set tries=tries-1
+ end
+ return 0x80000301
+end
+fn serial_hex(value)
+ let shift=28
+ let digits=0
+ let failure=0
+ while digits<8
+  let nibble=(value>>shift)&15
+  if nibble<10
+   set failure=failure|serial_byte(48+nibble)
+  else
+   set failure=failure|serial_byte(55+nibble)
+  end
+  set shift=shift-4
+  set digits=digits+1
+ end
+ return failure
+end
