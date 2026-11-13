@@ -1,0 +1,94 @@
+profile RF2_SYSTEM_A64_V1
+use "evidence-contract/lib/sha256.rf2"
+# Trusted CLI. Hash a regular readable input up to 1 MiB; never write the input.
+# stdout is the computed digest plus newline. Exit 0: success/match, 1: mismatch, 2: error.
+fn hex_value(c)
+ if all(c >= 48,c <= 57)
+  return c-48
+ end
+ if all(c >= 97,c <= 102)
+  return c-87
+ end
+ if all(c >= 65,c <= 70)
+  return c-55
+ end
+ return 256
+end
+fn main(argc,argv)
+ if all(argc != 2,argc != 3)
+  return 2
+ end
+ let expected=buffer("checksum_expected",32)
+ let i=0
+ let wanted=0
+ if argc==3
+  set wanted=load64(argv+16)
+  while i<64
+   if hex_value(load8(wanted+i))>15
+    return 2
+   end
+   set i=i+1
+  end
+  if load8(wanted+64)!=0
+   return 2
+  end
+  set i=0
+  while i<32
+   do store8(expected+i,hex_value(load8(wanted+i*2))*16+hex_value(load8(wanted+i*2+1)))
+   set i=i+1
+  end
+ end
+ let data=buffer("checksum_input",1048577)
+ let fd=open(load64(argv+8),260,0)
+ if fd>>63
+  return 2
+ end
+ let stat=buffer("checksum_stat",144)
+ if syscall6(339,fd,stat,0,0,0,0)!=0
+  do close(fd)
+  return 2
+ end
+ if (load32(stat+4)&61440)!=32768
+  do close(fd)
+  return 2
+ end
+ let count=0
+ let got=1
+ while got!=0
+  set got=read(fd,data+count,1048577-count)
+  if got>>63
+   do close(fd)
+   return 2
+  end
+  set count=count+got
+  if count>1048576
+   do close(fd)
+   return 2
+  end
+ end
+ if close(fd)>>63
+  return 2
+ end
+ let digest=sha256(data,count)
+ let text=buffer("checksum_text",65)
+ let alphabet="0123456789abcdef"
+ let different=0
+ set i=0
+ while i<32
+  let value=load8(digest+i)
+  do store8(text+i*2,load8(alphabet+(value>>4)))
+  do store8(text+i*2+1,load8(alphabet+(value&15)))
+  if argc==3
+   set different=different | (value ^ load8(expected+i))
+  end
+  set i=i+1
+ end
+ do store8(text+64,10)
+ if write(1,text,65)!=65
+  return 2
+ end
+ if different!=0
+  return 1
+ end
+ return 0
+end
