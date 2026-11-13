@@ -5281,7 +5281,16 @@ fn main(argc, argv)
  let digest = 0
  let dataoff = 0
  let datasize = 0
- do require((argc>=3)&(argc<=8),"rf2c source new-output [--opt] [--compact] [--functions] [--reuse-cache directory | --reuse-pack directory]")
+ let check_only = 0
+ let source_path = 0
+ if argc>1
+  let first = load64(argv+8)
+  if same(first,length(first),"--check",7)
+   do require(argc==3,"check requires exactly one source path and no options")
+   set check_only = 1
+  end
+ end
+ do require((argc>=3)&(argc<=8),"rf2c --check source | rf2c source new-output [--opt] [--compact] [--functions] [--reuse-cache directory | --reuse-pack directory]")
  let reuse_path = 0
  let option = 3
  while option<argc
@@ -5308,9 +5317,13 @@ fn main(argc, argv)
   end
   set option = option+1
  end
- do store64(buffer("diagnostic_state",64)+16,load64(argv+8))
- set src = read_source(load64(argv + 8))
- set src = expand_modules(load64(argv + 8), src)
+ set source_path = load64(argv+8)
+ if check_only
+  set source_path = load64(argv+16)
+ end
+ do store64(buffer("diagnostic_state",64)+16,source_path)
+ set src = read_source(source_path)
+ set src = expand_modules(source_path, src)
  do store64(buffer("diagnostic_state",64)+24,load64(module_state()))
  do store64(buffer("diagnostic_state",64),1)
  do tokenize_tail(src, load64(state() + 8), 0, 0)
@@ -5329,6 +5342,10 @@ fn main(argc, argv)
  do resolve(dataoff)
  set digest = sha256(src, load64(state() + 8))
  do image_header(dataoff, datasize, digest)
+ if check_only
+  do write(1,"RF2 source checked; no executable written.\n",43)
+  return 0
+ end
  do image(load64(argv + 16), dataoff, datasize)
  do reuse_finish(load64(argv+16))
  if load64(image_options()+16)
