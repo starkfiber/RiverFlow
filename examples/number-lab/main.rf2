@@ -1,0 +1,369 @@
+profile RF2_SYSTEM_A64_V1
+# Number Lab owns no files or connections. stdin/stdout are borrowed descriptors.
+# Every command is parsed as bounded data, never as source code or a shell command.
+record Words(count:u64,a:u64,an:u64,b:u64,bn:u64,c:u64,cn:u64)
+record Input(size:u64,eof:u64,overflow:u64,error:u64)
+record Game(quiz:u64,answer:u64,found:u64)
+fn text_size(p)
+ let n = 0
+ while load8(p+n)!=0
+  set n = n+1
+ end
+ return n
+end
+fn say(p)
+ let n = text_size(p)
+ let done = 0
+ let amount = 0
+ while done<n
+  set amount = write(1,p+done,n-done)
+  if (amount>>63)|(amount==0)
+   do store64(buffer("number_lab_output_error",8),1)
+   return 1
+  end
+  set done = done+amount
+ end
+ return 0
+end
+fn number(value)
+ let digits = buffer("number_lab_digits",4)
+ let n = 0
+ while 1
+  do store8(digits+n,48+(value-value//10*10))
+  set n = n+1
+  set value = value//10
+  if value==0
+   while n!=0
+    set n = n-1
+    let one = buffer("number_lab_one_text",2)
+    do store8(one,load8(digits+n))
+    do say(one)
+   end
+   return 0
+  end
+ end
+ return 0
+end
+fn equal(p,n,text,size)
+ if n!=size
+  return 0
+ end
+ let i = 0
+ while i<n
+  if load8(p+i)!=load8(text+i)
+   return 0
+  end
+  set i = i+1
+ end
+ return 1
+end
+fn space(c)
+ return (c==32)|(c==9)
+end
+fn words(p,n,out:Words)
+ set out.count = 0
+ let i = 0
+ let start = 0
+ while i<n
+  if space(load8(p+i))
+   set i = i+1
+  else
+   set start = i
+   while (i<n)&(space(load8(p+i))==0)
+    set i = i+1
+   end
+   set out.count = out.count+1
+   if out.count==1
+    set out.a = p+start
+    set out.an = i-start
+   else
+    if out.count==2
+     set out.b = p+start
+     set out.bn = i-start
+    else
+     if out.count==3
+      set out.c = p+start
+      set out.cn = i-start
+     else
+      return 0
+     end
+    end
+   end
+  end
+ end
+ return 1
+end
+fn byte_number(p,n)
+ if (n==0)|(n>3)
+  return 256
+ end
+ let i = 0
+ let value = 0
+ let c = 0
+ while i<n
+  set c = load8(p+i)
+  if (c<48)|(c>57)
+   return 256
+  end
+  set value = value*10+c-48
+  if value>255
+   return 256
+  end
+  set i = i+1
+ end
+ return value
+end
+fn read_line(line,input:Input)
+ set input.size = 0
+ set input.eof = 0
+ set input.overflow = 0
+ set input.error = 0
+ let one = buffer("number_lab_input_byte",1)
+ let count = 0
+ let c = 0
+ let total = 0
+ while total<4096
+  set count = read(0,one,1)
+  if count>>63
+   set input.error = 1
+   return 0
+  end
+  if count==0
+   set input.eof = 1
+   if input.size>63
+    set input.overflow = 1
+   end
+   return 0
+  end
+  set total = total+1
+  set c = load8(one)
+  if c==10
+   if input.size!=0
+    if load8(line+input.size-1)==13
+     set input.size = input.size-1
+    end
+   end
+   if input.size>63
+    set input.overflow = 1
+   end
+   return 0
+  end
+  if input.size<64
+   do store8(line+input.size,c)
+   set input.size = input.size+1
+  else
+   set input.overflow = 1
+  end
+ end
+ set input.error = 2
+ return 0
+end
+fn show(value)
+ let bits = buffer("number_lab_bits",9)
+ let hex = buffer("number_lab_hex",3)
+ let alphabet = "0123456789ABCDEF"
+ let i = 0
+ while i<8
+  do store8(bits+i,48+((value>>(7-i))&1))
+  set i = i+1
+ end
+ do store8(hex,load8(alphabet+(value>>4)))
+ do store8(hex+1,load8(alphabet+(value&15)))
+ do say("Decimal: ")
+ do number(value)
+ do say("  Binary: ")
+ do say(bits)
+ do say("  Hex: ")
+ do say(hex)
+ do say("  ASCII: ")
+ if (value>=32)&(value<=126)
+  let character = buffer("number_lab_character",2)
+  do store8(character,value)
+  do say("'")
+  do say(character)
+  do say("'")
+ else
+  if value<128
+   do say("control byte")
+  else
+   do say("outside ASCII")
+  end
+ end
+ do say("\n")
+ return 0
+end
+fn help()
+ do say("A byte is a number from 0 to 255. Its eight bits are tiny yes/no switches.\n")
+ do say("show 65       See decimal, binary, hex and ASCII together.\n")
+ do say("and 12 10     Keep a bit only when both numbers have it.\n")
+ do say("or 12 10      Keep a bit when either number has it.\n")
+ do say("xor 12 10     Keep a bit when the two numbers differ.\n")
+ do say("not 12        Flip all eight bits.\n")
+ do say("quiz 1 0      Try an AND-gate question with bits 0 or 1.\n")
+ do say("answer 0      Answer the latest question. Try again if needed.\n")
+ do say("guess 100     Find the secret byte. I will say higher or lower.\n")
+ do say("reset         Start the guessing game again.\n")
+ do say("help          Show this guide.\nquit          Finish.\n")
+ return 0
+end
+fn invalid()
+ do say("Try a command from help. Use decimal numbers from 0 to 255.\n")
+ return 0
+end
+fn command(w:Words,game:Game)
+ let a = 256
+ let b = 256
+ if w.count==0
+  return 0
+ end
+ if w.count==1
+  if equal(w.a,w.an,"help",4)
+   do help()
+   return 0
+  end
+  if equal(w.a,w.an,"quit",4)
+   return 1
+  end
+  if equal(w.a,w.an,"reset",5)
+   set game.found = 0
+   set game.quiz = 0
+   do say("New game! Guess a byte from 0 to 255.\n")
+   return 0
+  end
+ end
+ if w.count>=2
+  set a = byte_number(w.b,w.bn)
+ end
+ if w.count==3
+  set b = byte_number(w.c,w.cn)
+ end
+ if w.count==2
+  if a<=255
+   if equal(w.a,w.an,"show",4)
+    do show(a)
+    return 0
+   end
+   if equal(w.a,w.an,"not",3)
+    do say("NOT flips each of the eight bits.\n")
+    do show(a^255)
+    return 0
+   end
+   if equal(w.a,w.an,"guess",5)
+    if game.found
+     do say("You already found it! Type reset for another round.\n")
+    else
+     if a==42
+      set game.found = 1
+      do say("You found it! Here is the secret byte:\n")
+      do show(a)
+     else
+      if a<42
+       do say("Higher. Try a bigger byte.\n")
+      else
+       do say("Lower. Try a smaller byte.\n")
+      end
+     end
+    end
+    return 0
+   end
+   if equal(w.a,w.an,"answer",6)
+    if game.quiz==0
+     do say("Start a question first, for example: quiz 1 0\n")
+    else
+     if a>1
+      do say("A gate answer is one bit: 0 or 1.\n")
+     else
+      if a==game.answer
+       set game.quiz = 0
+       do say("Correct! AND is 1 only when both inputs are 1.\n")
+      else
+       do say("Not quite. AND needs two 1 inputs. Try answer again.\n")
+      end
+     end
+    end
+    return 0
+   end
+  end
+ end
+ if (w.count==3)&(a<=255)&(b<=255)
+  if equal(w.a,w.an,"and",3)
+   do say("AND keeps shared 1 bits.\n")
+   do show(a&b)
+   return 0
+  end
+  if equal(w.a,w.an,"or",2)
+   do say("OR keeps either 1 bit.\n")
+   do show(a|b)
+   return 0
+  end
+  if equal(w.a,w.an,"xor",3)
+   do say("XOR keeps different bits.\n")
+   do show(a^b)
+   return 0
+  end
+  if equal(w.a,w.an,"quiz",4)
+   if (a<=1)&(b<=1)
+    set game.quiz = 1
+    set game.answer = a&b
+    do say("AND gate: ")
+    do number(a)
+    do say(" AND ")
+    do number(b)
+    do say(" = ? Type answer 0 or answer 1.\n")
+   else
+    do say("Quiz inputs are single bits: use only 0 or 1.\n")
+   end
+   return 0
+  end
+ end
+ return invalid()
+end
+fn main(argc,argv)
+ if argc!=1
+  do write(2,"Number Lab reads commands from stdin; no arguments are accepted.\n",65)
+  return 1
+ end
+ let line = buffer("number_lab_line",64)
+ let input = Input(0,0,0,0)
+ let parsed = Words(0,0,0,0,0,0,0)
+ let game = Game(0,0,0)
+ let rounds = 0
+ do say("Number Lab\nPlay with bytes, bits and logic. Type help to begin.\n")
+ while rounds<1024
+  do say("> ")
+  if load64(buffer("number_lab_output_error",8))
+   return 1
+  end
+  do read_line(line,input)
+  if input.error==1
+   do write(2,"Input could not be read.\n",25)
+   return 1
+  end
+  if input.error==2
+   do say("That line is too long. Session ended safely.\n")
+   return 2
+  end
+  if input.overflow
+   do say("That line is too long. Keep commands under 64 characters.\n")
+  else
+   if words(line,input.size,parsed)
+    if command(parsed,game)
+     do say("See you next time!\n")
+     return load64(buffer("number_lab_output_error",8))
+    end
+   else
+    do invalid()
+   end
+  end
+  if load64(buffer("number_lab_output_error",8))
+   return 1
+  end
+  if input.eof
+   do say("See you next time!\n")
+   return load64(buffer("number_lab_output_error",8))
+  end
+  set rounds = rounds+1
+ end
+ do say("Session limit reached. Start Number Lab again to keep learning.\n")
+ return 2
+end
