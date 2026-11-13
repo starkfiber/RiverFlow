@@ -45,7 +45,7 @@ fn main(argc,argv)
  let mode=load64(input+24)
  let data=input+32
  let needle=data
- if (n<=1048576)&(m<=128)
+ if (n<=1048576)&(m<=4096)
   if used!=32+n+m
    return 2
   end
@@ -54,7 +54,7 @@ fn main(argc,argv)
  let a=0
  let b=0
  if mode
-  if (n>16384)|(m>128)
+  if (n>16384)|(m>4096)
    return 2
   end
   set a=syscall6(197,0,49152,0,4098,18446744073709551615,0)
@@ -103,6 +103,8 @@ fn main(argc,argv)
 end
 ''')
 api_cases=[(b'',b'',0),(b'',b'x',1),(b'aaaaa',b'aa',0),(b'aaaaa',b'aa',1),(b'abc',b'abc',0),(b'abc',b'abcd',1),(bytes(range(256)),b'\0',0),(b'\xff\0\xff\0',b'\xff\0',1),('தமிழ் தமிழ்'.encode(),'மிழ்'.encode(),0),(b'a'*1048576,b'a'*127+b'b',1),(b'a'*1048576,b'a'*128,1),(b'a'*1048576,b'',0)]
+api_cases += [(b'a'*1048576,b'a'*511+b'b',1),(b'a'*1048576,b'a'*512,1),(b'abc'*8192,b'abc'*170+b'a',0)]
+api_cases += [(b'a'*1048576,b'a'*4095+b'b',1),(b'a'*1048576,b'a'*4096,1),(b'a'*4095+b'b',b'a'*4095+b'b',0)]
 for i in range(180):
  n=rng.randrange(0,900);m=rng.randrange(0,32);alphabet=[0,1,97,98,99,255] if i%2 else list(range(256));data=bytes(rng.choice(alphabet)for _ in range(n));needle=bytes(rng.choice(alphabet)for _ in range(m));api_cases.append((data,needle,i%2))
 images=[]
@@ -112,10 +114,10 @@ for opt in [False,True]:
   q=run([api],struct.pack('<4Q',len(data),len(needle),overlap,0)+data+needle);count,first=expected(data,needle,overlap);assert q.returncode==0 and q.stdout==struct.pack('<3Q',0,count,first),(opt,i,q.returncode,q.stdout,q.stderr)
   ROWS.append(dict(case='binary API oracle',optimized=opt,sample=i,bytes=len(data),needleBytes=len(needle),overlap=overlap))
  for mode in [1,2]:
-  for data,needle,overlap in api_cases[:9]+[(b'a'*16384,b'a'*127+b'b',1),(b'x'*128,b'x'*128,1)]:
+  for data,needle,overlap in api_cases[:9]+[(b'a'*16384,b'a'*127+b'b',1),(b'x'*128,b'x'*128,1),(b'x'*512,b'x'*512,1),(b'a'*16384,b'a'*511+b'b',1),(b'x'*4096,b'x'*4096,1),(b'a'*16384,b'a'*4095+b'b',1)]:
    q=run([api],struct.pack('<4Q',len(data),len(needle),overlap,mode)+data+needle);count,first=expected(data,needle,overlap);assert q.returncode==0 and q.stdout==struct.pack('<3Q',0,count,first),(opt,mode,q.returncode)
    ROWS.append(dict(case='guarded range',optimized=opt,mode=mode,bytes=len(data),needleBytes=len(needle)))
- for n,m,overlap in [(1048577,0,0),(0,129,0),(0,0,2),(2**64-1,2**64-1,0)]:
+ for n,m,overlap in [(1048577,0,0),(0,4097,0),(0,0,2),(2**64-1,2**64-1,0)]:
   q=run([api],struct.pack('<4Q',n,m,overlap,0));assert q.returncode==0 and q.stdout==struct.pack('<3Q',1,0,2**64-1),(opt,n,m,q.returncode,q.stdout)
   ROWS.append(dict(case='API bounds reject before read',optimized=opt,n=n,m=m,overlap=overlap))
  queries=['','a','aa','ana','தமிழ்','é','\n','--help','--overlap','x'*128]
@@ -127,7 +129,11 @@ for opt in [False,True]:
   answer=dict(bytes=len(data),query_bytes=len(query.encode()),matches=count,first_byte=first if count else None)
   assert q.returncode==0 and not q.stderr and json.loads(q.stdout)==answer,(opt,i,q.returncode,q.stdout,q.stderr,answer)
   ROWS.append(dict(case='CLI JSON oracle',optimized=opt,sample=i))
- for args,data,code in [([],b'',2),(['x','bad'],b'',2),(['x','--overlap','extra'],b'',2),(['x'*129],b'',2),(['x'],b'a'*1048577,4)]:
+ for query,data in [('a'*512,b'a'*2048),('a'*511+'b',b'a'*16384),('a'*256+'b',b'a'*256+b'b'),('a'*4096,b'a'*8192),('a'*4095+'b',b'a'*16384)]:
+  q=run([app,query,'--overlap'],data);count,first=expected(data,query.encode(),1)
+  assert q.returncode==0 and json.loads(q.stdout)==dict(bytes=len(data),query_bytes=len(query.encode()),matches=count,first_byte=first if count else None)
+  ROWS.append(dict(case='extended CLI query oracle',optimized=opt,queryBytes=len(query),bytes=len(data)))
+ for args,data,code in [([],b'',2),(['x','bad'],b'',2),(['x','--overlap','extra'],b'',2),(['x'*4097],b'',2),(['x'],b'a'*1048577,4)]:
   q=run([app,*args],data);assert q.returncode==code and q.stdout==b'',(opt,args[:1],q.returncode,q.stdout)
   ROWS.append(dict(case='CLI refusal',optimized=opt,expectedExit=code))
  assert run([app,'x'],preexec_fn=lambda:os.close(0)).returncode==3

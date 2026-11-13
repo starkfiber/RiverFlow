@@ -14,7 +14,7 @@ def build(src,path,opt=False,good=True):
 def run(path,args=()):return subprocess.run([path,*map(str,args)],capture_output=True,timeout=5)
 base='profile RF2_SYSTEM_A64_V1\narray Values(u64, 8)\n'
 negatives=[
- 'array Empty(u64, 0)\n','array Huge(u64, 256)\n','array Leading(u64, 08)\n','array Hex(u64, 0x8)\n','array Wrap(u64, 18446744073709551617)\n','array X(u32, 8)\n','array X(u64, n)\n','array X(u64, 8, 9)\n','array Values(u64, 8)\n','record Values(x:u64)\n','array u64(u64, 8)\n']
+ 'array Empty(u64, 0)\n','array Huge(u64, 4097)\n','array Leading(u64, 08)\n','array Hex(u64, 0x8)\n','array Wrap(u64, 18446744073709551617)\n','array X(u32, 8)\n','array X(u64, n)\n','array X(u64, 8, 9)\n','array Values(u64, 8)\n','record Values(x:u64)\n','array u64(u64, 8)\n']
 invalid_bodies=['let a=Values(1)\n','let a=Values()\nset a=Values()\n','let a=Values()\nlet b=a\n','let a=Values()\nreturn a\n','let a=Values()\ndo write(1,a,8)\n','let a=Values()\nreturn a+1\n','let a=Values()\nset a.length=1\n','let a=Values()\nreturn a.missing\n','let a=Values()\nreturn a[0][0]\n','let a=Values()\nreturn a[a]\n','let a=Values()\nset a[0]=a\n','return a[0]\nlet a=Values()\n','set a[0]=1\nlet a=Values()\n','if argc\nlet a=Values()\nend\n','let x=0\nreturn x[0]\n','let a=Values()\nlet b=Other()\ndo accept(b)\n','let a=Values()\ndo raw(a)\n']
 with tempfile.TemporaryDirectory(prefix='rf2-arrays-')as tmp:
  d=Path(tmp);rng=random.Random(202611122)
@@ -68,7 +68,7 @@ fn main(argc,argv)
  return (recurse(30)!=465)|(a[0]!=9)|(b[0]!=0)
 end
 ''';path=d/f'life{opt}';build(src,path,opt);assert run(path).returncode==0;report['lifetimeCases']+=1
-  # A complete 255-word allocation fits a no-parameter function. Main's args take two slots.
+  # Historical 255-word allocation remains valid; payload is now separate from scalar slots.
   src='profile RF2_SYSTEM_A64_V1\narray Big(u64,255)\nfn big()\nlet a=Big()\nset a[254]=77\nreturn a[254]\nend\nfn main(argc,argv)\nreturn big()!=77\nend\n';path=d/f'big{opt}';build(src,path,opt);assert run(path).returncode==0;report['lifetimeCases']+=1
   # On a failing write, RHS side effects must not execute.
   src=base+io+'''fn effect()
@@ -85,7 +85,9 @@ end
    src=base+decl+'fn main(argc,argv)\nreturn 0\nend\n';build(src,d/f'decl-{j}-{opt}',opt,False);report['compileRefusals']+=1
   for j,body in enumerate(invalid_bodies):
    src=base+'array Other(u64,8)\nfn accept(a:Values)\nreturn a[0]\nend\nfn raw(p)\nreturn p\nend\nfn main(argc,argv)\n'+body+'return 0\nend\n';build(src,d/f'refuse-{j}-{opt}',opt,False);report['compileRefusals']+=1
-  src=base+'array Big(u64,255)\nfn main(argc,argv)\nlet a=Big()\nreturn 0\nend\n';build(src,d/f'frame-{opt}',opt,False);report['compileRefusals']+=1
+  src=base+'array Big(u64,255)\nfn main(argc,argv)\nlet a=Big()\nreturn 0\nend\n';path=d/f'frame-{opt}';build(src,path,opt);assert run(path).returncode==0;report['lifetimeCases']+=1
+  # Named scalar slots remain bounded even though array payload no longer consumes them.
+  src=base+'fn main(argc,argv)\n'+''.join('let scalar'+str(i)+'=0\n'for i in range(255))+'return 0\nend\n';build(src,d/f'scalar-slots-{opt}',opt,False);report['compileRefusals']+=1
   # Import graph and real latency app. File contents, rather than a synthetic wrapper, are compiled.
   app=d/f'latency-{opt}';p=subprocess.run([C,R/'examples/latency/main.rf2',app]+(['--opt']if opt else[]),capture_output=True);assert p.returncode==0,p.stderr;subprocess.run(['/usr/bin/codesign','-s','-',app],check=True,capture_output=True)
   for j in range(80):
@@ -93,4 +95,4 @@ end
   for args in [[],[''],['-1'],['1.5'],['12x'],['4294967296'],['00000000000'],['1']*129,['1\n'],[' 1'],['1e2']]:
    p=run(app,args);assert p.returncode==1 and not p.stdout and p.stderr,(args,p.returncode,p.stdout);report['applicationRefusals']+=1
 report.update(passed=True,compilerSHA256=hashlib.sha256(C.read_bytes()).hexdigest(),compilerSourceSHA256=hashlib.sha256((R/'native/compiler/compiler.rf2').read_bytes()).hexdigest(),applicationSourceHashes={str(p.relative_to(R)):hashlib.sha256(p.read_bytes()).hexdigest()for p in(R/'examples/latency').rglob('*.rf2')},scope='Fixed nominal u64 arrays in trusted systems profile, finite host tests in default/opt. Not growable vectors, whole-program memory safety, concurrency or Core/MCP effect expansion.')
-(R/'docs/ARRAYS-VERIFICATION.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
+Path(os.environ.get('RF2_TEST_REPORT',str(R/'docs/ARRAYS-VERIFICATION.json'))).write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
