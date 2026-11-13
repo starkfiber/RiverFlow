@@ -2,7 +2,7 @@
 name: rf2
 description: Check and execute RiverFlow Core/compact programs, lower checked kernels, use the versioned attendance exporter, and develop native compiler evidence.
 ---
-# RiverFlow RF²: stable 0.17 and development 0.33
+# RiverFlow RF²: stable 0.17 and development 0.34
 
 Use rf2_status first. Read docs/NATIVE-CORE.md and docs/STANDALONE.md for current profiles/effects. Nine native tools exist: rf2_status, rf2_check, rf2_run, rf2_lower, attendance_export, invoice_total, invoice_prepare, invoice_apply and invoice_release. Users require no Node/npm/Python/C++ runtime. The host provides AI intelligence; the executable has no embedded model.
 
@@ -203,3 +203,9 @@ Read docs/STRUCTURED-STORAGE-0.32.md. Fixed-array payloads use a distinct per-fu
 Read docs/HEAP-COLLECTIONS-0.33.md and examples/collection-tools/README.md. `collection Name(Result,limit)` owns a bounded relocating u64 heap, max65536 elements. Recoverable reserve/push/get/set/clear and release require exhaustive scalar-result handling. Failed growth preserves active data and retains a speculative map when old retirement fails; next growth retries pending retirement. Release can partially succeed and lose active data while retaining pending ownership. Successful release disarms at runtime; failure retains a retryable binding. Ordinary cleanup preserves primary errors, otherwise reports65536+errno. Kernel refusal may retain mapping until process exit. Checked root-scope local move consumes its source; typed mutable borrowed parameters cannot move/release/escape. No owner returns, exclusive alias proof, threads or arbitrary raw-pointer safety.
 
 Compiler-owned helpers lower through RF2, reserve the __rf2heap prefix by actual source origin and count against source/token/function/type budgets. `.flow` native entries/imports share .rf2 path guards; filename is not a CPU target. Two supplied numeric apps use one parser/heapsort library,1MiB stdin/65536 values, checked u64 summary and integer JSON caveat. Existing nine bounded MCP tools unchanged; trusted systems compilation remains CLI-only. No new speed/token claim. ESP32/Arduino/printer firmware remains unimplemented; read docs/EMBEDDED-DIRECTION.md and require actual backend/ABI/boot/HAL/board tests. Native Mac tests do not prove embedded support.
+
+## ESP32-C3 development0.34
+
+Read docs/ESP32C3-0.34.md and examples/esp32c3/README.md. Separate native `rf2-esp32c3 SOURCE NEW-PREFIX` emits RV32IM code with explicit Zicsr startup, ELF32 and SHA-256 checked chip5 ROM RAM images. Host is still macOS ARM64. Embedded profile RF2_ESP32C3_V1 uses wrapping u32 scalars, unsigned comparisons, RV32 division/shift rules, bounded acyclic calls/frames and trusted raw MMIO. It is not the full Mac systems profile or a memory-safety sandbox. No external assembler/linker/Python/Node at compiler runtime; development oracles are separate.
+
+Actual Espressif QEMU ROM/SPI boot and UART TX/RX controls pass. TMP102 host/RV32 bus models use scripted inputs; no physical sensor temperature is claimed. Board contract inherits ROM UART setup; timing, watchdog, electrical validation and physical operation remain pending. No automatic flash is invoked. Existing nine bounded MCP tools do not accept embedded MMIO source or gain compile/flash/device authority. Other ESP32 variants, x86, Linux applications, Arduino/Pico, Secure Boot, OTA, interrupts and complete libraries remain unimplemented. Never relabel emulator/model output as hardware or infer a serial device identity from its mere presence.
