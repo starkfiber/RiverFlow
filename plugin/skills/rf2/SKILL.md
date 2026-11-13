@@ -2,7 +2,7 @@
 name: rf2
 description: Check and execute RiverFlow Core/compact programs, lower checked kernels, use the versioned attendance exporter, and develop native compiler evidence.
 ---
-# RiverFlow RF²: stable 0.17 and development 0.18
+# RiverFlow RF²: stable 0.17 and development 0.33
 
 Use rf2_status first. Read docs/NATIVE-CORE.md and docs/STANDALONE.md for current profiles/effects. Nine native tools exist: rf2_status, rf2_check, rf2_run, rf2_lower, attendance_export, invoice_total, invoice_prepare, invoice_apply and invoice_release. Users require no Node/npm/Python/C++ runtime. The host provides AI intelligence; the executable has no embedded model.
 
@@ -197,3 +197,9 @@ Read docs/DIAGNOSTICS-0.31.md and examples/text-search/README.md. Native compile
 ## Structured array storage, development 0.32
 
 Read docs/STRUCTURED-STORAGE-0.32.md. Fixed-array payloads use a distinct per-function frame arena; u64 declarations up to4096 elements, u8 up to32768 bytes, aggregate49152 bytes. Named/record/resource scalar metadata remains256 slots. Emitter frame reservation is bounded65536 bytes, with aligned4KiB allocation/touch steps and legal high addresses/saves; current constructible combined maxima are51200 bytes,51264 with applicable saves. This is not arbitrary-recursion safety or a general heap. Arrays remain excluded from scalar function reuse. Shared text-search/log-scan use one canonical source module with caller-owned32KiB prefix storage; query4096/input1MiB budgets and exact-byte semantics. Nine bounded MCP tools/0.17runtime contract remain unchanged. Qualification is Apple Silicon Mac, not Linux/LXC or cross-platform support.
+
+## Owned heap collections, development 0.33
+
+Read docs/HEAP-COLLECTIONS-0.33.md and examples/collection-tools/README.md. `collection Name(Result,limit)` owns a bounded relocating u64 heap, max65536 elements. Recoverable reserve/push/get/set/clear and release require exhaustive scalar-result handling. Failed growth preserves active data and retains a speculative map when old retirement fails; next growth retries pending retirement. Release can partially succeed and lose active data while retaining pending ownership. Successful release disarms at runtime; failure retains a retryable binding. Ordinary cleanup preserves primary errors, otherwise reports65536+errno. Kernel refusal may retain mapping until process exit. Checked root-scope local move consumes its source; typed mutable borrowed parameters cannot move/release/escape. No owner returns, exclusive alias proof, threads or arbitrary raw-pointer safety.
+
+Compiler-owned helpers lower through RF2, reserve the __rf2heap prefix by actual source origin and count against source/token/function/type budgets. `.flow` native entries/imports share .rf2 path guards; filename is not a CPU target. Two supplied numeric apps use one parser/heapsort library,1MiB stdin/65536 values, checked u64 summary and integer JSON caveat. Existing nine bounded MCP tools unchanged; trusted systems compilation remains CLI-only. No new speed/token claim. ESP32/Arduino/printer firmware remains unimplemented; read docs/EMBEDDED-DIRECTION.md and require actual backend/ABI/boot/HAL/board tests. Native Mac tests do not prove embedded support.
