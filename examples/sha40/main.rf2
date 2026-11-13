@@ -1,0 +1,61 @@
+profile RF2_SYSTEM_A64_V1
+use "rounds.rf2"
+# Exact40byte stdin contract. The stream is borrowed; no file/network access.
+fn read_be(p)
+ let value=0
+ let i=0
+ while i<8
+  set value=(value<<8)|load8(p+i)
+  set i=i+1
+ end
+ return value
+end
+fn put_be(p,value)
+ let i=0
+ while i<8
+  do store8(p+i,value>>(56-i*8))
+  set i=i+1
+ end
+ return 0
+end
+fn main(argc,argv)
+ if argc!=1
+  return 2
+ end
+ let input=buffer("sha40_input",41)
+ let used=0
+ let got=1
+ while got!=0
+  set got=read(0,input+used,41-used)
+  if got>>63
+   return 3
+  end
+  set used=used+got
+  if used>40
+   return 4
+  end
+ end
+ if used!=40
+  return 4
+ end
+ let a=read_be(input)
+ let b=read_be(input+8)
+ let c=read_be(input+16)
+ let d=read_be(input+24)
+ let e=read_be(input+32)
+ let output=buffer("sha40_output",32)
+ do put_be(output,sha40_0(a,b,c,d,e))
+ do put_be(output+8,sha40_1(a,b,c,d,e))
+ do put_be(output+16,sha40_2(a,b,c,d,e))
+ do put_be(output+24,sha40_3(a,b,c,d,e))
+ let done=0
+ let amount=0
+ while done<32
+  set amount=write(1,output+done,32-done)
+  if (amount>>63)|(amount==0)
+   return 5
+  end
+  set done=done+amount
+ end
+ return 0
+end
