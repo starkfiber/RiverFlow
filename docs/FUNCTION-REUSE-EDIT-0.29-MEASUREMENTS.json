@@ -1,0 +1,504 @@
+{
+  "passed": true,
+  "schema": "rf2.partial.edit.measurements.v1",
+  "trials": 21,
+  "medianMs": {
+    "clean": 44.404875,
+    "reuse": 7.717584
+  },
+  "cleanOverReuseRatio": 5.753727461858529,
+  "pairedCandidateMinusCleanMedianMs": -30.534082999999995,
+  "bootstrap95Ms": [
+    -32.021041,
+    -28.072333
+  ],
+  "raw": [
+    {
+      "trial": 0,
+      "route": "clean",
+      "ms": 30.342666,
+      "sourceSHA256": "218349a064325bdcda2d0077ff46daefb5c9272405c0489c4ef400d2c38b0e3e",
+      "reuse": null
+    },
+    {
+      "trial": 0,
+      "route": "reuse",
+      "ms": 5.890292,
+      "sourceSHA256": "218349a064325bdcda2d0077ff46daefb5c9272405c0489c4ef400d2c38b0e3e",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 1,
+      "route": "clean",
+      "ms": 35.072583,
+      "sourceSHA256": "a83539910d1a6ae3ceeb856d7045b8bf3f76b5020f9bcca8194d8bfbfdd6f7db",
+      "reuse": null
+    },
+    {
+      "trial": 1,
+      "route": "reuse",
+      "ms": 7.00025,
+      "sourceSHA256": "a83539910d1a6ae3ceeb856d7045b8bf3f76b5020f9bcca8194d8bfbfdd6f7db",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 2,
+      "route": "reuse",
+      "ms": 12.898084,
+      "sourceSHA256": "64d266c52686456286ace2ac304aa8d3f9d394a21e73762a0e59ee0d488cafaa",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 2,
+      "route": "clean",
+      "ms": 44.919125,
+      "sourceSHA256": "64d266c52686456286ace2ac304aa8d3f9d394a21e73762a0e59ee0d488cafaa",
+      "reuse": null
+    },
+    {
+      "trial": 3,
+      "route": "clean",
+      "ms": 50.884875,
+      "sourceSHA256": "1d407ae0e6cc9c6825c3bad8cbcf81d78a6ed2ac04f595242faaf4c61db906e4",
+      "reuse": null
+    },
+    {
+      "trial": 3,
+      "route": "reuse",
+      "ms": 7.717584,
+      "sourceSHA256": "1d407ae0e6cc9c6825c3bad8cbcf81d78a6ed2ac04f595242faaf4c61db906e4",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 4,
+      "route": "reuse",
+      "ms": 13.696542,
+      "sourceSHA256": "509a04aa2d79b35e7b145b565c1731d7adfe1a69dca3a21d53e3f091167e6cb2",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 4,
+      "route": "clean",
+      "ms": 45.293459,
+      "sourceSHA256": "509a04aa2d79b35e7b145b565c1731d7adfe1a69dca3a21d53e3f091167e6cb2",
+      "reuse": null
+    },
+    {
+      "trial": 5,
+      "route": "clean",
+      "ms": 42.311834,
+      "sourceSHA256": "9ab05d852bee8b701f32e629f1d656a4d175fed15c6737b09df36114dbb0bd96",
+      "reuse": null
+    },
+    {
+      "trial": 5,
+      "route": "reuse",
+      "ms": 7.149291,
+      "sourceSHA256": "9ab05d852bee8b701f32e629f1d656a4d175fed15c6737b09df36114dbb0bd96",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 6,
+      "route": "clean",
+      "ms": 32.557875,
+      "sourceSHA256": "a388844c54b9382889bf8225884aba413d0af60e2d4e38ad3dd5eb58e782578c",
+      "reuse": null
+    },
+    {
+      "trial": 6,
+      "route": "reuse",
+      "ms": 6.56875,
+      "sourceSHA256": "a388844c54b9382889bf8225884aba413d0af60e2d4e38ad3dd5eb58e782578c",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 7,
+      "route": "clean",
+      "ms": 31.469709,
+      "sourceSHA256": "4b5c45c079e48a237a1ded36e0dc3e8cb302bc58f0ec5c2befea19cf5fdae9f3",
+      "reuse": null
+    },
+    {
+      "trial": 7,
+      "route": "reuse",
+      "ms": 6.238708,
+      "sourceSHA256": "4b5c45c079e48a237a1ded36e0dc3e8cb302bc58f0ec5c2befea19cf5fdae9f3",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 8,
+      "route": "reuse",
+      "ms": 9.200959,
+      "sourceSHA256": "e8365ea9b919f3830de879dab9ac7ca5881ea7d7b7ebf6f3c55a19ddf362771c",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 8,
+      "route": "clean",
+      "ms": 38.130666,
+      "sourceSHA256": "e8365ea9b919f3830de879dab9ac7ca5881ea7d7b7ebf6f3c55a19ddf362771c",
+      "reuse": null
+    },
+    {
+      "trial": 9,
+      "route": "reuse",
+      "ms": 14.575708,
+      "sourceSHA256": "1d138d9a856fa0a7571ed72f52b09ec46ebe613217b174ef5eac6736fecec151",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 9,
+      "route": "clean",
+      "ms": 46.243208,
+      "sourceSHA256": "1d138d9a856fa0a7571ed72f52b09ec46ebe613217b174ef5eac6736fecec151",
+      "reuse": null
+    },
+    {
+      "trial": 10,
+      "route": "clean",
+      "ms": 51.682083,
+      "sourceSHA256": "829c903e5248374b9cbf8a3fc4314439c08748a56fc064997c68b6be23f47ca7",
+      "reuse": null
+    },
+    {
+      "trial": 10,
+      "route": "reuse",
+      "ms": 7.475625,
+      "sourceSHA256": "829c903e5248374b9cbf8a3fc4314439c08748a56fc064997c68b6be23f47ca7",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 11,
+      "route": "clean",
+      "ms": 52.824625,
+      "sourceSHA256": "508f755b7026a38cba4f8d8be4248182ca736e3874971cbac5369b8a6377440a",
+      "reuse": null
+    },
+    {
+      "trial": 11,
+      "route": "reuse",
+      "ms": 7.501292,
+      "sourceSHA256": "508f755b7026a38cba4f8d8be4248182ca736e3874971cbac5369b8a6377440a",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 12,
+      "route": "reuse",
+      "ms": 13.382375,
+      "sourceSHA256": "0aa5eefae71e9ff8a4d34f22ac22582ec68a0d41c4d46c6923523b896e1e19f4",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 12,
+      "route": "clean",
+      "ms": 46.126,
+      "sourceSHA256": "0aa5eefae71e9ff8a4d34f22ac22582ec68a0d41c4d46c6923523b896e1e19f4",
+      "reuse": null
+    },
+    {
+      "trial": 13,
+      "route": "clean",
+      "ms": 53.483458,
+      "sourceSHA256": "2e423c55ccc31eeb3cf25c92513b0da8c7ecad94b212f99bb33dc1dc956b59cc",
+      "reuse": null
+    },
+    {
+      "trial": 13,
+      "route": "reuse",
+      "ms": 7.352084,
+      "sourceSHA256": "2e423c55ccc31eeb3cf25c92513b0da8c7ecad94b212f99bb33dc1dc956b59cc",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 14,
+      "route": "reuse",
+      "ms": 13.528917,
+      "sourceSHA256": "25cb9ca00343bb1b567d44f9eb1e6124ebe013f7c90037d1f63a4df90419f0da",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 14,
+      "route": "clean",
+      "ms": 45.122334,
+      "sourceSHA256": "25cb9ca00343bb1b567d44f9eb1e6124ebe013f7c90037d1f63a4df90419f0da",
+      "reuse": null
+    },
+    {
+      "trial": 15,
+      "route": "reuse",
+      "ms": 14.493625,
+      "sourceSHA256": "4baee1175b448b1d5c2c2564632ec27cd672f36ed77d2254d57932c499ed7946",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 15,
+      "route": "clean",
+      "ms": 44.811667,
+      "sourceSHA256": "4baee1175b448b1d5c2c2564632ec27cd672f36ed77d2254d57932c499ed7946",
+      "reuse": null
+    },
+    {
+      "trial": 16,
+      "route": "reuse",
+      "ms": 10.88875,
+      "sourceSHA256": "8c78c72c594187d9aafbc978c31f2a2c7406a7dff5ae481ea86374481e3e1829",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 16,
+      "route": "clean",
+      "ms": 31.23425,
+      "sourceSHA256": "8c78c72c594187d9aafbc978c31f2a2c7406a7dff5ae481ea86374481e3e1829",
+      "reuse": null
+    },
+    {
+      "trial": 17,
+      "route": "clean",
+      "ms": 36.550833,
+      "sourceSHA256": "aa667853bd14958c81b81d09aeef9180da3b70b3ebfd4e110fe5d517b504906b",
+      "reuse": null
+    },
+    {
+      "trial": 17,
+      "route": "reuse",
+      "ms": 6.904625,
+      "sourceSHA256": "aa667853bd14958c81b81d09aeef9180da3b70b3ebfd4e110fe5d517b504906b",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 18,
+      "route": "reuse",
+      "ms": 10.385875,
+      "sourceSHA256": "8ef97e11290f5aff16a8cfae46547d6e4eaeb7f72f71fa757acce7dd91d2f59f",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 18,
+      "route": "clean",
+      "ms": 32.558,
+      "sourceSHA256": "8ef97e11290f5aff16a8cfae46547d6e4eaeb7f72f71fa757acce7dd91d2f59f",
+      "reuse": null
+    },
+    {
+      "trial": 19,
+      "route": "reuse",
+      "ms": 6.575666,
+      "sourceSHA256": "dfb6bb107ac998dbcfd106ccca3f7f7c17102f299014b50fa529f34a6c9a085e",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 19,
+      "route": "clean",
+      "ms": 32.058292,
+      "sourceSHA256": "dfb6bb107ac998dbcfd106ccca3f7f7c17102f299014b50fa529f34a6c9a085e",
+      "reuse": null
+    },
+    {
+      "trial": 20,
+      "route": "reuse",
+      "ms": 13.870792,
+      "sourceSHA256": "3076e70ad5070013df3ead7bbbe6b7e07c4ea661a1acb272f6424d5cf8ebde2a",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "trial": 20,
+      "route": "clean",
+      "ms": 44.404875,
+      "sourceSHA256": "3076e70ad5070013df3ead7bbbe6b7e07c4ea661a1acb272f6424d5cf8ebde2a",
+      "reuse": null
+    }
+  ],
+  "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414",
+  "controllerSHA256": "a7571c0c90dd09f14f7564021a2241372a93429668da307c68e582b303ec2657",
+  "kernelSourceSHA256": "17db18d27ca9c8880c2763715eb8eb7bb0a29ef94b85317cbe319ede3da6b416",
+  "limits": "One Mac warm filesystem, complete compiler processes/output creation. Each trial changes actual entry-function code while preserving kernel source; exact clean bytes and complete hashlib digest/error behavior checked outside timer. Not application execution, AI usage or universal performance."
+}

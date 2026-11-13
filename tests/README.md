@@ -22,3 +22,5 @@ Fixtures and old comparators preserve their original semantics. Do not update ex
 For compact images, use compact_image_verify.py with RF2_TEST_COMPILER. To rerun incremental scenarios in compact mode, set RF2_INCREMENTAL_COMPACT=1 and choose compilers that support --compact. The diagnostic function-map tests remain distinct from executable image and MCP acceptance tests.
 
 0.28: `standalone/function_reuse_verify.py` compares opt-in function reuse with clean images and execution; `standalone/compiler_store_verify.py` checks explicit private stores and retained-inode behavior. Both require explicit RF2_TEST_COMPILER and the store suite also RF2_BUILD_BIN. Existing cache, compact-image, compiler and native MCP gates remain required.
+
+0.29: `compiler_hash_verify.py` checks hardware/fallback digests and reference encoding; `function_reuse_extended_verify.py` checks linear readiness/memoized admission; NumberLab CLI/HTTP controllers and `sha40_verify.py` execute real apps with independent result oracles. Native reports belong to new artifact paths, not historical verification files.

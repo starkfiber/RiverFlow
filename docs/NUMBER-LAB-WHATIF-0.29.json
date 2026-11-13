@@ -1,0 +1,78 @@
+{
+  "method": "Connected WhatIF bounded GET runner and independent hash verification;32GETs,4inflight,16home200 and16unknown404,0errors.",
+  "summary": {
+    "version": "1.0.0",
+    "routes": [
+      {
+        "path": "/",
+        "requests": 16,
+        "failures": 0,
+        "errorRate": 0,
+        "p50Ms": 0.588916003704071,
+        "p95Ms": 4.921584002673626,
+        "p99Ms": 4.921584002673626,
+        "maxMs": 4.921584002673626,
+        "timeouts": 0,
+        "connectionErrors": 0,
+        "statusCounts": {
+          "200": 16
+        },
+        "passed": true,
+        "evidenceIds": [],
+        "sampleWarning": "Small sample; tail latency and error estimates are unstable."
+      },
+      {
+        "path": "/not-here",
+        "requests": 16,
+        "failures": 0,
+        "errorRate": 0,
+        "p50Ms": 0.6099999994039536,
+        "p95Ms": 3.527666002511978,
+        "p99Ms": 3.527666002511978,
+        "maxMs": 3.527666002511978,
+        "timeouts": 0,
+        "connectionErrors": 0,
+        "statusCounts": {
+          "404": 16
+        },
+        "passed": true,
+        "evidenceIds": [],
+        "sampleWarning": "Small sample; tail latency and error estimates are unstable."
+      }
+    ],
+    "schemaVersion": 1,
+    "status": "completed",
+    "proofLevel": "bounded-loopback-integration",
+    "planSha256": "fc7bee72bfdc1273489143296f90387cc480186aed1e8cb197433161b0c37bc6",
+    "requestedPopulation": {
+      "users": 1,
+      "kind": "concurrent"
+    },
+    "workload": {
+      "status": "illustrative-model",
+      "targetRps": 0.06666666666666667,
+      "concurrentSessions": 1,
+      "formula": "concurrent users \u00d7 requests/session \u00f7 seconds/session"
+    },
+    "requests": 32,
+    "requestBudget": 32,
+    "budgetComplete": true,
+    "elapsedMs": 21.309583000838757,
+    "p95Ms": 4.748208001255989,
+    "errorRate": 0,
+    "smokeSloPassed": true,
+    "capacityVerdict": "NOT_ESTABLISHED",
+    "securityVerdict": "NOT_ESTABLISHED",
+    "limitations": [
+      "Latency ends at response headers; body correctness and browser behavior are not tested.",
+      "No redirects followed; no authentication, active exploits or distributed load executed.",
+      "Small-sample SLO result does not establish capacity at requested population.",
+      "Header observations and source heuristics are review leads, not confirmed exploitable vulnerabilities."
+    ]
+  },
+  "verification": {
+    "verified": true,
+    "files": 7
+  },
+  "limits": "Header latency only; not browser/body correctness, security certification, user capacity or a distributed load result."
+}

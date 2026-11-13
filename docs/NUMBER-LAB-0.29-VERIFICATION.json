@@ -1,0 +1,283 @@
+{
+  "passed": true,
+  "schema": "rf2.number.lab.verification.v1",
+  "cases": 51,
+  "conversionValues": 256,
+  "complementValues": 256,
+  "binaryGateValues": 288,
+  "quizInputPairs": 4,
+  "rows": [
+    {
+      "case": "all 256 byte conversions",
+      "exit": 0,
+      "stdoutSHA256": "a768d8e76530bb9f8e44f9e781699928674588bf518f0118dab401fb52cd511d"
+    },
+    {
+      "case": "all 256 byte complements",
+      "exit": 0,
+      "stdoutSHA256": "440774691be7b84229e1ffa18a870e504aa71c54825b3a986bbaac2e8487a705"
+    },
+    {
+      "case": "288 independently computed binary gates",
+      "exit": 0,
+      "stdoutSHA256": "395029caad3da51a56a015a06be10943519ca485f362838465d2983e60979e1b"
+    },
+    {
+      "case": "quiz truth table 0/0",
+      "exit": 0,
+      "stdoutSHA256": "2c0edf5b7bed58da57bd70cd9d6f4aae4f9dab910503355de1ae73f63715bfa5"
+    },
+    {
+      "case": "quiz truth table 0/1",
+      "exit": 0,
+      "stdoutSHA256": "9b425ba283c791e8dac1cb33891225783d2ac68f3a2185bde4b386e78ab898b5"
+    },
+    {
+      "case": "quiz truth table 1/0",
+      "exit": 0,
+      "stdoutSHA256": "7c4af1eaaf9ab59566f7d853d9e56db0c9a5e898442a7da07c9560a96eacf9d9"
+    },
+    {
+      "case": "quiz truth table 1/1",
+      "exit": 0,
+      "stdoutSHA256": "1468f26f8001262da634aba3a5ab8d9930fffff9820d3b8825c3886734f582b5"
+    },
+    {
+      "case": "guess feedback, win and reset",
+      "exit": 0,
+      "stdoutSHA256": "3413527eb85bd59ee3e10dc2a39665cc355b35e0f1522c6e5fea57fef45caf95"
+    },
+    {
+      "case": "invalid command recovery 0",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 1",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 2",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 3",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 4",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 5",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 6",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 7",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 8",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 9",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 10",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 11",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 12",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 13",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 14",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 15",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 16",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 17",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 18",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 19",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 20",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 21",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 22",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 23",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 24",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid command recovery 25",
+      "exit": 0,
+      "stdoutSHA256": "94c1cd2f457d65a14e71d1342c4b02e3b9cfc0d5a4f78b1482aeb058aec6fd6b"
+    },
+    {
+      "case": "invalid quiz preserves pending question",
+      "exit": 0,
+      "stdoutSHA256": "bdde901fe7eed04ca079dc50c918f217c7223b3406b8f9bdecf46018210a04e0"
+    },
+    {
+      "case": "ASCII whitespace and leading decimal zeros",
+      "exit": 0,
+      "stdoutSHA256": "f36b084702f2b9fced7914d8f89eeb4e2c9f43dc24b464794e9ee6cb64692f35"
+    },
+    {
+      "case": "63-byte line",
+      "exit": 0,
+      "stdoutSHA256": "7d06ef621407fd1a1e753877090cebe92a1b063665d5eea44e3942a90d6f2514"
+    },
+    {
+      "case": "63-byte CRLF line",
+      "exit": 0,
+      "stdoutSHA256": "7d06ef621407fd1a1e753877090cebe92a1b063665d5eea44e3942a90d6f2514"
+    },
+    {
+      "case": "64-byte line recovery",
+      "exit": 0,
+      "stdoutSHA256": "8fa0d213dc77238d9123597dc4adb0747f18e768b4fba84f8034993c7aa13f9f"
+    },
+    {
+      "case": "4095-byte line drain recovery",
+      "exit": 0,
+      "stdoutSHA256": "8fa0d213dc77238d9123597dc4adb0747f18e768b4fba84f8034993c7aa13f9f"
+    },
+    {
+      "case": "4096-byte nonnewline line ends session",
+      "exit": 2,
+      "stdoutSHA256": "1abc51203cc9a27f77a3dfdad510777710f4efaa7958976e3c18b8cf6b1c4603"
+    },
+    {
+      "case": "empty EOF",
+      "exit": 0,
+      "stdoutSHA256": "c01a6ddb3cb8c9a2bc92036269ac0f165827a1989bd3e17409ea8e8dac60d8c0"
+    },
+    {
+      "case": "final partial command EOF",
+      "exit": 0,
+      "stdoutSHA256": "10bfaebc8531bf70c704c691986481a0931efcbd7053392e3cc3f792ce640cae"
+    },
+    {
+      "case": "oversized partial EOF",
+      "exit": 0,
+      "stdoutSHA256": "3d3d5eef2659d67b06969ee0645e9aca156c86ac94b7c41bc47e29f065b49a1d"
+    },
+    {
+      "case": "session line limit",
+      "exit": 2,
+      "stdoutSHA256": "20b75f945133c03de10efec5ef0524c38708d9c2936c4213eeeda7d9987e9f79"
+    },
+    {
+      "case": "help and exit",
+      "exit": 0,
+      "stdoutSHA256": "84862b743f971ffc148a61237850fd3361ec2a1dad1f9f27f59a5cef29601127"
+    },
+    {
+      "case": "default/optimized and legacy/compact execution match",
+      "variants": 4
+    },
+    {
+      "case": "unexpected arguments refuse",
+      "exit": 1
+    },
+    {
+      "case": "stdin read error reported",
+      "exit": 1
+    },
+    {
+      "case": "function cache first clean bytes and execution match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 12,
+        "validationReused": 0,
+        "fullValidationChecks": 9,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "case": "function cache warm clean bytes and execution match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 12,
+        "validationReused": 1,
+        "fullValidationChecks": 8,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    }
+  ],
+  "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414",
+  "sourceSHA256": "737086e8fec58e1cee54f9681f720aedd10e5b1bf343d4bc26fe33cd2918937b",
+  "controllerSHA256": "028be78c03e047805e57d9eccd8cc46cffd3f771eb272ad9999e878f24702477",
+  "limits": "Local macOS ARM64 native CLI application. No graphical toolkit, education field study, cross-platform, network, hardware-acceleration, energy or token-saving claim."
+}

@@ -3650,7 +3650,7 @@ end
 fn rotate(v, n)
  return ((v >> n) | (v << (32 - n))) & 4294967295
 end
-fn sha256(src, n)
+fn sha256_software(src, n)
  let k = buffer("sha_k", 256)
  let hstate = buffer("sha_h", 32)
  let w = buffer("sha_w", 256)
@@ -3824,6 +3824,147 @@ fn sha256(src, n)
  end
  return digest
 end
+# Guarded SHA instructions accelerate compiler/cache identity hashing.
+# Shared scratch follows the existing compiler's single-threaded lifetime.
+fn sha256_initialize()
+ let k = buffer("sha_k",256)
+ do store32(k + 0, 1116352408)
+ do store32(k + 4, 1899447441)
+ do store32(k + 8, 3049323471)
+ do store32(k + 12, 3921009573)
+ do store32(k + 16, 961987163)
+ do store32(k + 20, 1508970993)
+ do store32(k + 24, 2453635748)
+ do store32(k + 28, 2870763221)
+ do store32(k + 32, 3624381080)
+ do store32(k + 36, 310598401)
+ do store32(k + 40, 607225278)
+ do store32(k + 44, 1426881987)
+ do store32(k + 48, 1925078388)
+ do store32(k + 52, 2162078206)
+ do store32(k + 56, 2614888103)
+ do store32(k + 60, 3248222580)
+ do store32(k + 64, 3835390401)
+ do store32(k + 68, 4022224774)
+ do store32(k + 72, 264347078)
+ do store32(k + 76, 604807628)
+ do store32(k + 80, 770255983)
+ do store32(k + 84, 1249150122)
+ do store32(k + 88, 1555081692)
+ do store32(k + 92, 1996064986)
+ do store32(k + 96, 2554220882)
+ do store32(k + 100, 2821834349)
+ do store32(k + 104, 2952996808)
+ do store32(k + 108, 3210313671)
+ do store32(k + 112, 3336571891)
+ do store32(k + 116, 3584528711)
+ do store32(k + 120, 113926993)
+ do store32(k + 124, 338241895)
+ do store32(k + 128, 666307205)
+ do store32(k + 132, 773529912)
+ do store32(k + 136, 1294757372)
+ do store32(k + 140, 1396182291)
+ do store32(k + 144, 1695183700)
+ do store32(k + 148, 1986661051)
+ do store32(k + 152, 2177026350)
+ do store32(k + 156, 2456956037)
+ do store32(k + 160, 2730485921)
+ do store32(k + 164, 2820302411)
+ do store32(k + 168, 3259730800)
+ do store32(k + 172, 3345764771)
+ do store32(k + 176, 3516065817)
+ do store32(k + 180, 3600352804)
+ do store32(k + 184, 4094571909)
+ do store32(k + 188, 275423344)
+ do store32(k + 192, 430227734)
+ do store32(k + 196, 506948616)
+ do store32(k + 200, 659060556)
+ do store32(k + 204, 883997877)
+ do store32(k + 208, 958139571)
+ do store32(k + 212, 1322822218)
+ do store32(k + 216, 1537002063)
+ do store32(k + 220, 1747873779)
+ do store32(k + 224, 1955562222)
+ do store32(k + 228, 2024104815)
+ do store32(k + 232, 2227730452)
+ do store32(k + 236, 2361852424)
+ do store32(k + 240, 2428436474)
+ do store32(k + 244, 2756734187)
+ do store32(k + 248, 3204031479)
+ do store32(k + 252, 3329325298)
+ do store64(buffer("sha_feature",16),3)
+ return 0
+end
+fn sha256_arm_available()
+ let flag = buffer("sha_feature",16)
+ if load64(flag) == 0
+  do store64(flag+8,4)
+  let answer = buffer("sha_feature_answer",8)
+  do store64(answer,0)
+  let rc = syscall6(274,"hw.optional.arm.FEAT_SHA256",27,answer,flag+8,0,0)
+  if (rc == 0) & (load64(flag+8) == 4) & (load32(answer) == 1)
+   do store64(flag,1)
+  else
+   do store64(flag,2)
+  end
+ end
+ return (load64(flag) == 1) | (load64(flag) == 3)
+end
+fn sha256_accelerated(src,n)
+ let hstate = buffer("sha_h",32)
+ let digest = buffer("sha_digest",32)
+ let tail = buffer("sha_tail",128)
+ let remaining = n & 63
+ let i = 0
+ let j = 0
+ let value = 0
+ do store32(hstate+0,1779033703)
+ do store32(hstate+4,3144134277)
+ do store32(hstate+8,1013904242)
+ do store32(hstate+12,2773480762)
+ do store32(hstate+16,1359893119)
+ do store32(hstate+20,2600822924)
+ do store32(hstate+24,528734635)
+ do store32(hstate+28,1541459225)
+ while i < 128
+  do store8(tail+i,0)
+  set i = i+1
+ end
+ set i = 0
+ while i < remaining
+  do store8(tail+i,load8(src+(n//64)*64+i))
+  set i = i+1
+ end
+ do store8(tail+remaining,128)
+ set i = 0
+ while i < 8
+  do store8(tail+(1+(remaining>=56))*64-1-i,(n*8)>>(i*8))
+  set i = i+1
+ end
+ do sha256_blocks_armv8(hstate,src,n//64,buffer("sha_k",256))
+ do sha256_blocks_armv8(hstate,tail,1+(remaining>=56),buffer("sha_k",256))
+ set i = 0
+ while i < 8
+  set value = load32(hstate+i*4)
+  set j = 0
+  while j < 4
+   do store8(digest+i*4+j,value>>(24-j*8))
+   set j = j+1
+  end
+  set i = i+1
+ end
+ return digest
+end
+fn sha256(src,n)
+ if load64(buffer("sha_feature",16)) != 3
+  if sha256_arm_available() == 0
+   return sha256_software(src,n)
+  end
+  do sha256_initialize()
+ end
+ return sha256_accelerated(src,n)
+end
+
 fn header()
  return buffer("header", 16384)
 end
@@ -4369,20 +4510,20 @@ fn map_token_digest(start,stop)
  end
  return sha256(buffer("map_tokens",2097152),used)
 end
+# Function bodies are source-ordered; walk the declaration context in one pass.
 fn map_context_digest()
  let t = 0
  let f = 0
  let used = 0
  let skipped = 0
  while t<load64(state()+16)
-  set f = 0
   set skipped = 0
-  while f<load64(state()+40)
+  if f<load64(state()+40)
    if t==load64(ftable(f)+16)
     set t = load64(ftable(f)+24)
+    set f = f+1
     set skipped = 1
    end
-   set f = f+1
   end
   if skipped==0
    set used = map_token_append(used,t)
@@ -4532,6 +4673,19 @@ fn reuse_init(path)
 end
 # Parse the same precedence/comparison rules without generating instructions.
 # Only own scalar parameters and numeric literals are admitted as atoms.
+fn reuse_ready(slot)
+ return buffer("reuse_readiness",2048)+slot*8
+end
+fn reuse_local_slot(f,tok)
+ let slot = 0
+ while slot<load64(ftable(f)+32)
+  if name_equal(load64(local(f,slot)),tok)
+   return slot+1
+  end
+  set slot = slot+1
+ end
+ return 0
+end
 fn reuse_expression(f,minimum,depth)
  if depth>=64
   return 0
@@ -4563,13 +4717,11 @@ fn reuse_expression(f,minimum,depth)
     if load64(token(i))!=1
      return 0
     end
-    while slot<load64(ftable(f)+8)
-     if name_equal(load64(local(f,slot)),i)
-      set found = 1
-     end
-     set slot = slot+1
+    set slot = reuse_local_slot(f,i)
+    if slot==0
+     return 0
     end
-    if found==0
+    if load64(reuse_ready(slot-1))==0
      return 0
     end
     do advance()
@@ -4592,28 +4744,83 @@ fn reuse_expression(f,minimum,depth)
  end
  return 1
 end
+# Linear scalar declarations/assignments and one final return, without effects.
+# Always rescan declarations/types. A matching unit can reuse prior body validation.
+fn reuse_shape(f)
+ let p = ftable(f)
+ let i = 0
+ if tmatch(load64(p),"main")|(load64(function_result(f))!=0)|(load64(cleanup_count(f))!=0)
+  return 0
+ end
+ while i<load64(p+32)
+  if load64(local_type(f,i))!=0
+   return 0
+  end
+  set i = i+1
+ end
+ return 1
+end
 fn reuse_eligible(f)
  let p = ftable(f)
  let i = 0
  let saved = load64(state()+24)
  let ok = 0
+ let slot = 0
+ let declaring = 0
+ let valid = 1
  if tmatch(load64(p),"main")|(load64(function_result(f))!=0)|(load64(cleanup_count(f))!=0)
   return 0
  end
- if load64(p+32)!=load64(p+8)
-  return 0
- end
- while i<load64(p+8)
+ while i<load64(p+32)
   if load64(local_type(f,i))!=0
    return 0
   end
+  do store64(reuse_ready(i),i<load64(p+8))
   set i = i+1
  end
  do store64(state()+24,load64(p+16))
  while load64(token(load64(state()+24)))==5
   do advance()
  end
- if match("return")
+ while (match("let")|match("set"))&valid
+  set declaring = match("let")
+  do advance()
+  set slot = reuse_local_slot(f,load64(state()+24))
+  if (slot==0)|(load64(token(load64(state()+24)))!=1)
+   set valid = 0
+  else
+   set slot = slot-1
+   if declaring
+    if load64(reuse_ready(slot))|(slot<load64(p+8))
+     set valid = 0
+    end
+   else
+    if load64(reuse_ready(slot))==0
+     set valid = 0
+    end
+   end
+   do advance()
+   if match("=")==0
+    set valid = 0
+   else
+    do advance()
+    if reuse_expression(f,1,0)==0
+     set valid = 0
+    else
+     if load64(token(load64(state()+24)))!=5
+      set valid = 0
+     else
+      do store64(reuse_ready(slot),1)
+      do advance()
+      while load64(token(load64(state()+24)))==5
+       do advance()
+      end
+     end
+    end
+   end
+  end
+ end
+ if valid&match("return")
   do advance()
   if reuse_expression(f,1,0)
    if load64(token(load64(state()+24)))==5
@@ -4636,6 +4843,23 @@ fn reuse_eligible(f)
  do store64(state()+24,saved)
  return ok
 end
+# Hash the immutable expanded-source span directly, avoiding token reserialization.
+# Comments/whitespace within a body conservatively invalidate its unit.
+fn reuse_body_digest(f)
+ let name = load64(ftable(f))
+ let stop = load64(ftable(f)+24)
+ do require((name>=1)&(stop>=2),"function source token bounds")
+ let begin_token = name-1
+ let end_token = stop-2
+ do require((load64(token(begin_token))==1)&tmatch(begin_token,"fn"),"function source start")
+ do require((load64(token(end_token))==1)&tmatch(end_token,"end"),"function source end")
+ let begin = load64(token(begin_token)+8)
+ let finish = load64(token(end_token)+8)+3
+ let source = load64(state())
+ let limit = source+load64(state()+8)
+ do require((begin>=source)&(begin<=limit)&(finish>=begin)&(finish<=limit),"function source span bounds")
+ return sha256(begin,finish-begin)
+end
 fn reuse_name(key)
  let out = buffer("reuse_name",96)
  let alphabet = "0123456789abcdef"
@@ -4652,7 +4876,7 @@ fn reuse_try(f)
  if load64(reuse_state())==0
   return 0
  end
- if load64(image_options()+16)| (reuse_eligible(f)==0)
+ if load64(image_options()+16)| (reuse_shape(f)==0)
   do store64(reuse_state()+24,load64(reuse_state()+24)+1)
   return 0
  end
@@ -4661,26 +4885,26 @@ fn reuse_try(f)
  do cp(key,reuse_state()+32,64)
  do store64(key+64,load64(state()+152))
  do store64(key+72,load64(image_options()))
- do cp(key+80,map_token_digest(load64(ftable(f))-1,load64(ftable(f)+24)),32)
+ do cp(key+80,reuse_body_digest(f),32)
  do cp(unit+8,sha256(key,112),32)
- do store64(unit,1)
+ do store64(unit,0)
  let fd = syscall6(463,load64(reuse_state())-1,reuse_name(unit+8),0x1000104,0,0,0)
- let entry = buffer("reuse_entry",65633)
+ let entry = buffer("reuse_entry",65641)
  let n = -1
  if (fd>>63)==0
-  set n = reuse_read(fd,entry,65632)
+  set n = reuse_read(fd,entry,65640)
  end
- if n>=96
-  if n<=65632
+ if n>=104
+  if n<=65640
    let bytes = load64(entry+72)
    let epilogue = load64(entry+80)
    let fixup = load64(entry+88)
-   if (bytes+96==n)&(bytes>0)&((bytes&3)==0)&(bytes<=65536)&(epilogue<bytes)&(fixup<bytes)&(((fixup|epilogue)&3)==0)
-    if same(entry,8,"RF2FN001",8)&same(entry+8,32,unit+8,32)
-     if same(entry+40,32,sha256(entry+72,bytes+24),32)&(load32(entry+96+fixup)==335544320)&(load32(entry+96+bytes-4)==3596551104)
+   if (bytes+104==n)&(bytes>0)&((bytes&3)==0)&(bytes<=65536)&(epilogue<bytes)&(fixup<bytes)&(((fixup|epilogue)&3)==0)
+    if same(entry,8,"RF2FN002",8)&same(entry+8,32,unit+8,32)
+     if same(entry+40,32,sha256(entry+72,bytes+32),32)&(load64(entry+96)==load64(ftable(f)+32))&(load32(entry+104+fixup)==335544320)&(load32(entry+104+bytes-4)==3596551104)
       let start = load64(state()+56)
       do require(start+bytes<=1048576,"code bound")
-      do cp(buffer("code",1048576)+start,entry+96,bytes)
+      do cp(buffer("code",1048576)+start,entry+104,bytes)
       let exit_label = next_label()
       do store64(state()+88,exit_label)
       do store64(buffer("labels",524288)+exit_label*8,start+epilogue)
@@ -4690,6 +4914,12 @@ fn reuse_try(f)
       do store64(state()+24,load64(ftable(f)+24))
       do store64(state()+136,0)
       do store64(state()+232,0)
+      let slot = 0
+      while slot<load64(ftable(f)+32)
+       do store64(local_ready(f,slot),1)
+       do store64(local_scope(f,slot),0)
+       set slot = slot+1
+      end
       do store64(unit,2)
       do store64(reuse_state()+8,load64(reuse_state()+8)+1)
       return 1
@@ -4698,6 +4928,13 @@ fn reuse_try(f)
    end
   end
  end
+ # A miss never inherits the old unit's admission verdict.
+ do store64(reuse_state()+96,load64(reuse_state()+96)+1)
+ if reuse_eligible(f)==0
+  do store64(reuse_state()+24,load64(reuse_state()+24)+1)
+  return 0
+ end
+ do store64(unit,1)
  do store64(reuse_state()+16,load64(reuse_state()+16)+1)
  return 0
 end
@@ -4733,7 +4970,7 @@ fn reuse_finish(path)
  let root = load64(reuse_state())-1
  let f = 0
  let unit = 0
- let entry = buffer("reuse_entry",65633)
+ let entry = buffer("reuse_entry",65641)
  let name = buffer("reuse_publish_name",128)
  let fd = 0
  let n = 0
@@ -4741,20 +4978,21 @@ fn reuse_finish(path)
   set unit = reuse_unit(f)
   if load64(unit)==3
    set n = load64(unit+48)
-   do cp(entry,"RF2FN001",8)
+   do cp(entry,"RF2FN002",8)
    do cp(entry+8,unit+8,32)
-   do cp(entry+96,buffer("reuse_pending",1048576)+load64(unit+40),n)
+   do cp(entry+104,buffer("reuse_pending",1048576)+load64(unit+40),n)
    do store64(entry+72,n)
    do store64(entry+80,load64(unit+56))
    do store64(entry+88,load64(unit+64))
-   do cp(entry+40,sha256(entry+72,n+24),32)
+   do store64(entry+96,load64(ftable(f)+32))
+   do cp(entry+40,sha256(entry+72,n+32),32)
    do cp(name,reuse_name(unit+8),67)
    do cp(name+67,".tmp",5)
    # A held private-directory lock excludes cooperative competing writers.
    do syscall6(472,root,name,0,0,0,0)
    set fd = syscall6(463,root,name,0x1000b01,384,0,0)
    do require((fd>>63)==0,"function unit temporary create failed")
-   do output(fd,entry,n+96)
+   do output(fd,entry,n+104)
    do require(close(fd)==0,"function unit close failed")
    do require(syscall6(465,root,name,root,reuse_name(unit+8),0,0)==0,"function unit commit failed")
   end
@@ -4773,6 +5011,11 @@ fn reuse_finish(path)
  do map_number(fd,load64(reuse_state()+16))
  do output(fd,",\"ineligible\":",14)
  do map_number(fd,load64(reuse_state()+24))
+ do output(fd,",\"validationReused\":",20)
+ do map_number(fd,load64(reuse_state()+8))
+ do output(fd,",\"fullValidationChecks\":",24)
+ do map_number(fd,load64(reuse_state()+96))
+ do output(fd,",\"unitFormat\":\"RF2FN002\"",24)
  do output(fd,",\"compilerSHA256\":\"",19)
  do map_hex(fd,reuse_state()+32,32)
  do output(fd,"\"}\n",3)

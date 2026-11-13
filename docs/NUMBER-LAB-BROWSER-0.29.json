@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "method": "Actual Chrome actions through CUA on native RF2 loopback app; mobile viewport emulation, not phone hardware.",
+  "cases": [
+    "Toggle bit2 changed65 to67, hex43 and ASCII C",
+    "12 XOR10 computed6",
+    "Wrong answer1 to1AND0 retained question and score0",
+    "KeyboardEnter on answer0 completed question and score1",
+    "390px viewport had scrollWidth390 and eight72x68.74px bit buttons",
+    "Desktop screenshot captured after restoring viewport"
+  ],
+  "retainedFailure": "Initial browser POST exactOrigin refusal reproduced; numeric diagnostic16. ReferrerPolicy changed to same-origin; strict Origin validation retained.117 HTTP controls reran.",
+  "source": "examples/number-lab-web/main.rf2",
+  "scope": "No classroom study, universal accessibility audit or native widget toolkit claim."
+}

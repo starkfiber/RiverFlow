@@ -1,0 +1,658 @@
+{
+  "passed": true,
+  "schema": "rf2.number.lab.web.verification.v1",
+  "cases": 117,
+  "rows": [
+    {
+      "case": "self-contained initial page and defensive headers"
+    },
+    {
+      "case": "GET refresh is read-only"
+    },
+    {
+      "case": "same-origin GET remains read-only"
+    },
+    {
+      "case": "computed byte and safe HTML character",
+      "value": 0
+    },
+    {
+      "case": "computed byte and safe HTML character",
+      "value": 1
+    },
+    {
+      "case": "computed byte and safe HTML character",
+      "value": 31
+    },
+    {
+      "case": "computed byte and safe HTML character",
+      "value": 32
+    },
+    {
+      "case": "computed byte and safe HTML character",
+      "value": 34
+    },
+    {
+      "case": "computed byte and safe HTML character",
+      "value": 38
+    },
+    {
+      "case": "computed byte and safe HTML character",
+      "value": 39
+    },
+    {
+      "case": "computed byte and safe HTML character",
+      "value": 60
+    },
+    {
+      "case": "computed byte and safe HTML character",
+      "value": 62
+    },
+    {
+      "case": "computed byte and safe HTML character",
+      "value": 65
+    },
+    {
+      "case": "computed byte and safe HTML character",
+      "value": 127
+    },
+    {
+      "case": "computed byte and safe HTML character",
+      "value": 128
+    },
+    {
+      "case": "computed byte and safe HTML character",
+      "value": 255
+    },
+    {
+      "case": "rendered bit toggle posts computed value"
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "and",
+      "a": 169,
+      "b": 18,
+      "result": 0
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "and",
+      "a": 57,
+      "b": 154,
+      "result": 24
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "and",
+      "a": 37,
+      "b": 187,
+      "result": 33
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "and",
+      "a": 170,
+      "b": 234,
+      "result": 170
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "and",
+      "a": 187,
+      "b": 250,
+      "result": 186
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "and",
+      "a": 176,
+      "b": 211,
+      "result": 144
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "and",
+      "a": 241,
+      "b": 83,
+      "result": 81
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "and",
+      "a": 172,
+      "b": 222,
+      "result": 140
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "and",
+      "a": 252,
+      "b": 60,
+      "result": 60
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "and",
+      "a": 10,
+      "b": 36,
+      "result": 0
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "and",
+      "a": 94,
+      "b": 22,
+      "result": 22
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "and",
+      "a": 33,
+      "b": 90,
+      "result": 0
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "or",
+      "a": 69,
+      "b": 255,
+      "result": 255
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "or",
+      "a": 62,
+      "b": 21,
+      "result": 63
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "or",
+      "a": 248,
+      "b": 230,
+      "result": 254
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "or",
+      "a": 63,
+      "b": 11,
+      "result": 63
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "or",
+      "a": 109,
+      "b": 92,
+      "result": 125
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "or",
+      "a": 207,
+      "b": 202,
+      "result": 207
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "or",
+      "a": 223,
+      "b": 6,
+      "result": 223
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "or",
+      "a": 29,
+      "b": 52,
+      "result": 61
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "or",
+      "a": 49,
+      "b": 17,
+      "result": 49
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "or",
+      "a": 178,
+      "b": 150,
+      "result": 182
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "or",
+      "a": 153,
+      "b": 200,
+      "result": 217
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "or",
+      "a": 159,
+      "b": 63,
+      "result": 191
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "xor",
+      "a": 183,
+      "b": 20,
+      "result": 163
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "xor",
+      "a": 135,
+      "b": 43,
+      "result": 172
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "xor",
+      "a": 150,
+      "b": 228,
+      "result": 114
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "xor",
+      "a": 172,
+      "b": 84,
+      "result": 248
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "xor",
+      "a": 246,
+      "b": 136,
+      "result": 126
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "xor",
+      "a": 20,
+      "b": 169,
+      "result": 189
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "xor",
+      "a": 29,
+      "b": 132,
+      "result": 153
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "xor",
+      "a": 27,
+      "b": 50,
+      "result": 41
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "xor",
+      "a": 226,
+      "b": 109,
+      "result": 143
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "xor",
+      "a": 44,
+      "b": 142,
+      "result": 162
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "xor",
+      "a": 249,
+      "b": 74,
+      "result": 179
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "xor",
+      "a": 77,
+      "b": 150,
+      "result": 219
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "not",
+      "a": 11,
+      "b": 175,
+      "result": 244
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "not",
+      "a": 140,
+      "b": 113,
+      "result": 115
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "not",
+      "a": 10,
+      "b": 237,
+      "result": 245
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "not",
+      "a": 175,
+      "b": 50,
+      "result": 80
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "not",
+      "a": 179,
+      "b": 163,
+      "result": 76
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "not",
+      "a": 51,
+      "b": 149,
+      "result": 204
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "not",
+      "a": 25,
+      "b": 50,
+      "result": 230
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "not",
+      "a": 10,
+      "b": 132,
+      "result": 245
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "not",
+      "a": 72,
+      "b": 231,
+      "result": 183
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "not",
+      "a": 8,
+      "b": 48,
+      "result": 247
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "not",
+      "a": 17,
+      "b": 195,
+      "result": 238
+    },
+    {
+      "case": "independent gate calculation",
+      "operation": "not",
+      "a": 106,
+      "b": 246,
+      "result": 149
+    },
+    {
+      "case": "quiz wrong-answer recovery and correct score",
+      "a": 0,
+      "b": 0
+    },
+    {
+      "case": "quiz wrong-answer recovery and correct score",
+      "a": 0,
+      "b": 1
+    },
+    {
+      "case": "quiz wrong-answer recovery and correct score",
+      "a": 1,
+      "b": 0
+    },
+    {
+      "case": "quiz wrong-answer recovery and correct score",
+      "a": 1,
+      "b": 1
+    },
+    {
+      "case": "invalid form preserves state",
+      "form": {
+        "action": "show",
+        "value": "256"
+      }
+    },
+    {
+      "case": "invalid form preserves state",
+      "form": {
+        "action": "show",
+        "value": "-1"
+      }
+    },
+    {
+      "case": "invalid form preserves state",
+      "form": {
+        "action": "show",
+        "value": "1.0"
+      }
+    },
+    {
+      "case": "invalid form preserves state",
+      "form": {
+        "action": "show",
+        "value": "1e2"
+      }
+    },
+    {
+      "case": "invalid form preserves state",
+      "form": {
+        "action": "show",
+        "value": "<script>"
+      }
+    },
+    {
+      "case": "invalid form preserves state",
+      "form": {
+        "action": "gate",
+        "a": "1",
+        "b": "2",
+        "op": "wat"
+      }
+    },
+    {
+      "case": "invalid form preserves state",
+      "form": {
+        "action": "quiz",
+        "a": "2",
+        "b": "0"
+      }
+    },
+    {
+      "case": "invalid form preserves state",
+      "form": {
+        "action": "answer",
+        "value": "2"
+      }
+    },
+    {
+      "case": "invalid form preserves state",
+      "form": {
+        "action": "answer",
+        "value": "0"
+      }
+    },
+    {
+      "case": "invalid form preserves state",
+      "form": {
+        "action": "show",
+        "value": "65",
+        "extra": "1"
+      }
+    },
+    {
+      "case": "invalid form preserves state",
+      "form": {
+        "action": "show"
+      }
+    },
+    {
+      "case": "invalid form preserves state",
+      "form": {
+        "action": "wat",
+        "value": "0"
+      }
+    },
+    {
+      "case": "duplicate or malformed fields preserve state",
+      "suffix": "&value"
+    },
+    {
+      "case": "duplicate or malformed fields preserve state",
+      "suffix": "&%76alue"
+    },
+    {
+      "case": "duplicate or malformed fields preserve state",
+      "suffix": "&token"
+    },
+    {
+      "case": "duplicate or malformed fields preserve state",
+      "suffix": "&bogus"
+    },
+    {
+      "case": "duplicate or malformed fields preserve state",
+      "suffix": "&"
+    },
+    {
+      "case": "duplicate or malformed fields preserve state",
+      "suffix": "&x"
+    },
+    {
+      "case": "incorrect capability token refuses"
+    },
+    {
+      "case": "incorrect capability token refuses"
+    },
+    {
+      "case": "incorrect capability token refuses"
+    },
+    {
+      "case": "null Origin remains denied after browser-policy correction"
+    },
+    {
+      "case": "stale revision refuses"
+    },
+    {
+      "case": "wrong Host"
+    },
+    {
+      "case": "missing Host"
+    },
+    {
+      "case": "duplicate Host"
+    },
+    {
+      "case": "method refusal"
+    },
+    {
+      "case": "HTTP version refusal"
+    },
+    {
+      "case": "binary path refusal"
+    },
+    {
+      "case": "transfer encoding refusal"
+    },
+    {
+      "case": "expect refusal"
+    },
+    {
+      "case": "GET body refusal"
+    },
+    {
+      "case": "pipeline refusal"
+    },
+    {
+      "case": "oversized headers"
+    },
+    {
+      "case": "duplicate length"
+    },
+    {
+      "case": "duplicate origin"
+    },
+    {
+      "case": "wrong origin"
+    },
+    {
+      "case": "missing origin"
+    },
+    {
+      "case": "oversized body"
+    },
+    {
+      "case": "unknown and query routes refuse"
+    },
+    {
+      "case": "idle preconnections permit active GET"
+    },
+    {
+      "case": "partial header deadline and recovery",
+      "observedSeconds": 2.000287416
+    },
+    {
+      "case": "partial body deadline and recovery",
+      "observedSeconds": 2.0003185830000003
+    },
+    {
+      "case": "drip header cannot extend absolute deadline",
+      "observedSeconds": 2.000527084
+    },
+    {
+      "case": "invalid quit token preserves service"
+    },
+    {
+      "case": "accepted quit closes listener and cleanly exits"
+    },
+    {
+      "case": "native graphical app first function-reuse clean bytes",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 24,
+        "validationReused": 0,
+        "fullValidationChecks": 20,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "case": "native graphical app warm function-reuse clean bytes",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 24,
+        "validationReused": 1,
+        "fullValidationChecks": 19,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    }
+  ],
+  "sourceSHA256": "9777343d154e484d6f3d1f9c96a0f74478f971cf9e9db0beb45a038a75caa3f6",
+  "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414",
+  "controllerSHA256": "71a857b58590f617cae383c6289da1385d2e7bdd211399620a471578aff9145d",
+  "executableSHA256": "ad842591fb15e68952fea89530922802c7d99db391509fad10fba292432d31b6",
+  "cleanupVerified": true,
+  "target": "macos-arm64",
+  "scope": "Actual RF2 native private loopback HTTP and computed learning-game state. Browser rendering is not validated by this HTTP controller. No public hosting, external educational, platform, hardware, energy or token result."
+}

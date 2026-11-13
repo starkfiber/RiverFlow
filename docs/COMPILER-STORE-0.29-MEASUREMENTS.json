@@ -1,0 +1,1376 @@
+{
+  "passed": true,
+  "schema": "rf2.compiler.store.measurements.v1",
+  "trialsPerVariant": 21,
+  "summary": [
+    {
+      "task": "checksum",
+      "medianMs": {
+        "previous empty project": 111.849041,
+        "new empty project": 112.620458,
+        "new empty project retained compiler": 11.373542
+      },
+      "previousOverRetainedRatio": 9.834143224687612,
+      "newDefaultOverRetainedRatio": 9.901968797407175
+    },
+    {
+      "task": "runtime",
+      "medianMs": {
+        "previous empty project": 133.365791,
+        "new empty project": 132.127166,
+        "new empty project retained compiler": 23.900625
+      },
+      "previousOverRetainedRatio": 5.580012698412698,
+      "newDefaultOverRetainedRatio": 5.528188739834208
+    },
+    {
+      "task": "compiler",
+      "medianMs": {
+        "previous empty project": 134.827542,
+        "new empty project": 136.031625,
+        "new empty project retained compiler": 27.141916
+      },
+      "previousOverRetainedRatio": 4.967502736358037,
+      "newDefaultOverRetainedRatio": 5.011865227200615
+    }
+  ],
+  "raw": [
+    {
+      "task": "checksum",
+      "trial": 0,
+      "variant": "previous empty project",
+      "ms": 112.816709,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 0,
+      "variant": "new empty project",
+      "ms": 129.741875,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 0,
+      "variant": "new empty project retained compiler",
+      "ms": 11.243125,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 1,
+      "variant": "previous empty project",
+      "ms": 109.285417,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 1,
+      "variant": "new empty project",
+      "ms": 149.882,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 1,
+      "variant": "new empty project retained compiler",
+      "ms": 13.290125,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 2,
+      "variant": "new empty project retained compiler",
+      "ms": 9.636958,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 2,
+      "variant": "previous empty project",
+      "ms": 132.236459,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 2,
+      "variant": "new empty project",
+      "ms": 105.57075,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 3,
+      "variant": "previous empty project",
+      "ms": 107.196916,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 3,
+      "variant": "new empty project",
+      "ms": 107.73875,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 3,
+      "variant": "new empty project retained compiler",
+      "ms": 11.680875,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 4,
+      "variant": "new empty project",
+      "ms": 109.178083,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 4,
+      "variant": "new empty project retained compiler",
+      "ms": 15.795,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 4,
+      "variant": "previous empty project",
+      "ms": 116.260833,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 5,
+      "variant": "previous empty project",
+      "ms": 114.337333,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 5,
+      "variant": "new empty project",
+      "ms": 112.756333,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 5,
+      "variant": "new empty project retained compiler",
+      "ms": 11.05275,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 6,
+      "variant": "new empty project retained compiler",
+      "ms": 8.525042,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 6,
+      "variant": "previous empty project",
+      "ms": 110.191125,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 6,
+      "variant": "new empty project",
+      "ms": 113.707417,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 7,
+      "variant": "new empty project",
+      "ms": 113.593125,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 7,
+      "variant": "previous empty project",
+      "ms": 111.849041,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 7,
+      "variant": "new empty project retained compiler",
+      "ms": 13.29675,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 8,
+      "variant": "new empty project retained compiler",
+      "ms": 9.423875,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 8,
+      "variant": "previous empty project",
+      "ms": 115.920667,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 8,
+      "variant": "new empty project",
+      "ms": 113.888542,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 9,
+      "variant": "previous empty project",
+      "ms": 108.270833,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 9,
+      "variant": "new empty project retained compiler",
+      "ms": 9.86675,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 9,
+      "variant": "new empty project",
+      "ms": 111.295792,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 10,
+      "variant": "new empty project",
+      "ms": 117.456084,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 10,
+      "variant": "previous empty project",
+      "ms": 110.306666,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 10,
+      "variant": "new empty project retained compiler",
+      "ms": 8.192583,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 11,
+      "variant": "new empty project retained compiler",
+      "ms": 7.209792,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 11,
+      "variant": "new empty project",
+      "ms": 109.523459,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 11,
+      "variant": "previous empty project",
+      "ms": 114.010333,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 12,
+      "variant": "new empty project",
+      "ms": 112.620458,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 12,
+      "variant": "new empty project retained compiler",
+      "ms": 13.978083,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 12,
+      "variant": "previous empty project",
+      "ms": 113.137541,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 13,
+      "variant": "new empty project retained compiler",
+      "ms": 12.790625,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 13,
+      "variant": "new empty project",
+      "ms": 122.476041,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 13,
+      "variant": "previous empty project",
+      "ms": 168.660292,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 14,
+      "variant": "new empty project",
+      "ms": 112.673791,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 14,
+      "variant": "new empty project retained compiler",
+      "ms": 11.373542,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 14,
+      "variant": "previous empty project",
+      "ms": 109.342083,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 15,
+      "variant": "new empty project",
+      "ms": 109.695459,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 15,
+      "variant": "new empty project retained compiler",
+      "ms": 12.149083,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 15,
+      "variant": "previous empty project",
+      "ms": 110.759834,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 16,
+      "variant": "new empty project retained compiler",
+      "ms": 12.094916,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 16,
+      "variant": "new empty project",
+      "ms": 111.416167,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 16,
+      "variant": "previous empty project",
+      "ms": 115.45625,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 17,
+      "variant": "new empty project retained compiler",
+      "ms": 13.22675,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 17,
+      "variant": "new empty project",
+      "ms": 110.706958,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 17,
+      "variant": "previous empty project",
+      "ms": 113.107792,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 18,
+      "variant": "previous empty project",
+      "ms": 107.578583,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 18,
+      "variant": "new empty project retained compiler",
+      "ms": 11.576375,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 18,
+      "variant": "new empty project",
+      "ms": 112.303,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 19,
+      "variant": "new empty project retained compiler",
+      "ms": 10.950875,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 19,
+      "variant": "previous empty project",
+      "ms": 103.701916,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 19,
+      "variant": "new empty project",
+      "ms": 106.2465,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 20,
+      "variant": "new empty project retained compiler",
+      "ms": 8.02675,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 20,
+      "variant": "previous empty project",
+      "ms": 111.390333,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "checksum",
+      "trial": 20,
+      "variant": "new empty project",
+      "ms": 123.233334,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "runtime",
+      "trial": 0,
+      "variant": "previous empty project",
+      "ms": 133.582416,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 0,
+      "variant": "new empty project",
+      "ms": 129.922625,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 0,
+      "variant": "new empty project retained compiler",
+      "ms": 24.1205,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 1,
+      "variant": "previous empty project",
+      "ms": 128.212542,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 1,
+      "variant": "new empty project",
+      "ms": 132.921917,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 1,
+      "variant": "new empty project retained compiler",
+      "ms": 24.490208,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 2,
+      "variant": "new empty project retained compiler",
+      "ms": 22.248083,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 2,
+      "variant": "previous empty project",
+      "ms": 133.365791,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 2,
+      "variant": "new empty project",
+      "ms": 125.663334,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 3,
+      "variant": "previous empty project",
+      "ms": 131.73725,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 3,
+      "variant": "new empty project",
+      "ms": 130.403833,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 3,
+      "variant": "new empty project retained compiler",
+      "ms": 23.608875,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 4,
+      "variant": "new empty project",
+      "ms": 126.622167,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 4,
+      "variant": "new empty project retained compiler",
+      "ms": 23.218042,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 4,
+      "variant": "previous empty project",
+      "ms": 133.348875,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 5,
+      "variant": "previous empty project",
+      "ms": 131.192042,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 5,
+      "variant": "new empty project",
+      "ms": 133.372,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 5,
+      "variant": "new empty project retained compiler",
+      "ms": 23.900625,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 6,
+      "variant": "new empty project retained compiler",
+      "ms": 21.508417,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 6,
+      "variant": "previous empty project",
+      "ms": 134.846,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 6,
+      "variant": "new empty project",
+      "ms": 134.0595,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 7,
+      "variant": "new empty project",
+      "ms": 130.907375,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 7,
+      "variant": "previous empty project",
+      "ms": 135.998209,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 7,
+      "variant": "new empty project retained compiler",
+      "ms": 24.111417,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 8,
+      "variant": "new empty project retained compiler",
+      "ms": 21.775292,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 8,
+      "variant": "previous empty project",
+      "ms": 140.308667,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 8,
+      "variant": "new empty project",
+      "ms": 201.060583,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 9,
+      "variant": "previous empty project",
+      "ms": 140.252542,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 9,
+      "variant": "new empty project retained compiler",
+      "ms": 25.648959,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 9,
+      "variant": "new empty project",
+      "ms": 136.01475,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 10,
+      "variant": "new empty project",
+      "ms": 132.046792,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 10,
+      "variant": "previous empty project",
+      "ms": 132.16625,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 10,
+      "variant": "new empty project retained compiler",
+      "ms": 24.44325,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 11,
+      "variant": "new empty project retained compiler",
+      "ms": 21.598667,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 11,
+      "variant": "new empty project",
+      "ms": 138.853708,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 11,
+      "variant": "previous empty project",
+      "ms": 131.506417,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 12,
+      "variant": "new empty project",
+      "ms": 132.127166,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 12,
+      "variant": "new empty project retained compiler",
+      "ms": 24.114334,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 12,
+      "variant": "previous empty project",
+      "ms": 138.883083,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 13,
+      "variant": "new empty project retained compiler",
+      "ms": 24.29325,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 13,
+      "variant": "new empty project",
+      "ms": 129.812583,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 13,
+      "variant": "previous empty project",
+      "ms": 184.441333,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 14,
+      "variant": "new empty project",
+      "ms": 147.385417,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 14,
+      "variant": "new empty project retained compiler",
+      "ms": 21.917,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 14,
+      "variant": "previous empty project",
+      "ms": 133.126834,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 15,
+      "variant": "new empty project",
+      "ms": 134.075709,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 15,
+      "variant": "new empty project retained compiler",
+      "ms": 23.6705,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 15,
+      "variant": "previous empty project",
+      "ms": 134.566791,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 16,
+      "variant": "new empty project retained compiler",
+      "ms": 23.548833,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 16,
+      "variant": "new empty project",
+      "ms": 135.826333,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 16,
+      "variant": "previous empty project",
+      "ms": 139.893583,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 17,
+      "variant": "new empty project retained compiler",
+      "ms": 24.834458,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 17,
+      "variant": "new empty project",
+      "ms": 138.365875,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 17,
+      "variant": "previous empty project",
+      "ms": 133.262,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 18,
+      "variant": "previous empty project",
+      "ms": 128.384334,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 18,
+      "variant": "new empty project retained compiler",
+      "ms": 24.659458,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 18,
+      "variant": "new empty project",
+      "ms": 125.391667,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 19,
+      "variant": "new empty project retained compiler",
+      "ms": 23.701583,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 19,
+      "variant": "previous empty project",
+      "ms": 124.646916,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 19,
+      "variant": "new empty project",
+      "ms": 122.707292,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 20,
+      "variant": "new empty project retained compiler",
+      "ms": 24.642541,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 20,
+      "variant": "previous empty project",
+      "ms": 135.344041,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "runtime",
+      "trial": 20,
+      "variant": "new empty project",
+      "ms": 128.555792,
+      "unsignedSHA256": "d8c63e047494d70a4f52acc2a3634c8cd89a0479c2d3ce1fad0e3392e6eec7ff"
+    },
+    {
+      "task": "compiler",
+      "trial": 0,
+      "variant": "previous empty project",
+      "ms": 139.414792,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 0,
+      "variant": "new empty project",
+      "ms": 133.522625,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 0,
+      "variant": "new empty project retained compiler",
+      "ms": 26.343,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 1,
+      "variant": "previous empty project",
+      "ms": 131.863666,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 1,
+      "variant": "new empty project",
+      "ms": 131.373917,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 1,
+      "variant": "new empty project retained compiler",
+      "ms": 27.853834,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 2,
+      "variant": "new empty project retained compiler",
+      "ms": 25.73125,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 2,
+      "variant": "previous empty project",
+      "ms": 134.588334,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 2,
+      "variant": "new empty project",
+      "ms": 130.708583,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 3,
+      "variant": "previous empty project",
+      "ms": 132.930584,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 3,
+      "variant": "new empty project",
+      "ms": 133.148041,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 3,
+      "variant": "new empty project retained compiler",
+      "ms": 27.651083,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 4,
+      "variant": "new empty project",
+      "ms": 135.120667,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 4,
+      "variant": "new empty project retained compiler",
+      "ms": 25.004333,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 4,
+      "variant": "previous empty project",
+      "ms": 130.054084,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 5,
+      "variant": "previous empty project",
+      "ms": 168.331875,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 5,
+      "variant": "new empty project",
+      "ms": 151.29825,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 5,
+      "variant": "new empty project retained compiler",
+      "ms": 28.664375,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 6,
+      "variant": "new empty project retained compiler",
+      "ms": 25.078834,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 6,
+      "variant": "previous empty project",
+      "ms": 142.231458,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 6,
+      "variant": "new empty project",
+      "ms": 136.9495,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 7,
+      "variant": "new empty project",
+      "ms": 259.280916,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 7,
+      "variant": "previous empty project",
+      "ms": 138.184458,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 7,
+      "variant": "new empty project retained compiler",
+      "ms": 27.395709,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 8,
+      "variant": "new empty project retained compiler",
+      "ms": 24.697625,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 8,
+      "variant": "previous empty project",
+      "ms": 136.064083,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 8,
+      "variant": "new empty project",
+      "ms": 131.163959,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 9,
+      "variant": "previous empty project",
+      "ms": 134.827542,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 9,
+      "variant": "new empty project retained compiler",
+      "ms": 27.473292,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 9,
+      "variant": "new empty project",
+      "ms": 139.528167,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 10,
+      "variant": "new empty project",
+      "ms": 135.255792,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 10,
+      "variant": "previous empty project",
+      "ms": 133.432292,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 10,
+      "variant": "new empty project retained compiler",
+      "ms": 27.141916,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 11,
+      "variant": "new empty project retained compiler",
+      "ms": 24.637625,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 11,
+      "variant": "new empty project",
+      "ms": 136.652542,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 11,
+      "variant": "previous empty project",
+      "ms": 134.905334,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 12,
+      "variant": "new empty project",
+      "ms": 137.548292,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 12,
+      "variant": "new empty project retained compiler",
+      "ms": 27.452458,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 12,
+      "variant": "previous empty project",
+      "ms": 133.84475,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 13,
+      "variant": "new empty project retained compiler",
+      "ms": 26.736125,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 13,
+      "variant": "new empty project",
+      "ms": 140.837625,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 13,
+      "variant": "previous empty project",
+      "ms": 135.014417,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 14,
+      "variant": "new empty project",
+      "ms": 134.074791,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 14,
+      "variant": "new empty project retained compiler",
+      "ms": 31.08325,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 14,
+      "variant": "previous empty project",
+      "ms": 132.616291,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 15,
+      "variant": "new empty project",
+      "ms": 134.6825,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 15,
+      "variant": "new empty project retained compiler",
+      "ms": 27.180625,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 15,
+      "variant": "previous empty project",
+      "ms": 132.344542,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 16,
+      "variant": "new empty project retained compiler",
+      "ms": 26.894375,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 16,
+      "variant": "new empty project",
+      "ms": 136.031625,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 16,
+      "variant": "previous empty project",
+      "ms": 136.53125,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 17,
+      "variant": "new empty project retained compiler",
+      "ms": 35.879709,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 17,
+      "variant": "new empty project",
+      "ms": 136.430958,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 17,
+      "variant": "previous empty project",
+      "ms": 135.53575,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 18,
+      "variant": "previous empty project",
+      "ms": 142.531792,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 18,
+      "variant": "new empty project retained compiler",
+      "ms": 28.02325,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 18,
+      "variant": "new empty project",
+      "ms": 140.160417,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 19,
+      "variant": "new empty project retained compiler",
+      "ms": 27.023583,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 19,
+      "variant": "previous empty project",
+      "ms": 126.565958,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 19,
+      "variant": "new empty project",
+      "ms": 132.787375,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 20,
+      "variant": "new empty project retained compiler",
+      "ms": 26.724667,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 20,
+      "variant": "previous empty project",
+      "ms": 132.725125,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    },
+    {
+      "task": "compiler",
+      "trial": 20,
+      "variant": "new empty project",
+      "ms": 138.353875,
+      "unsignedSHA256": "9f9a1b49f12ce9550efa5325ba24f9d8097a4129657c521181daecf96c4cce19"
+    }
+  ],
+  "firstStoreSetupMs": 765.964541,
+  "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414",
+  "builderSHA256": {
+    "/Users/ik/Projects/RiverFlow/output/incremental-027-coldfix/rf2-build": "2ad82ff8928ed18ae3549a169fec2dae7287cdda1a8684d3fdb78fce503023f5",
+    "/Users/ik/Projects/RiverFlow/output/incremental-029-qualified/rf2-build": "1e02dfb8e13f9fff6a370f082f8544a28e10b57152e351d71664e0eaf733e289"
+  },
+  "sourceSHA256": {
+    "checksum": "eece12a50f10e080472a1db27c2b32ad7b028914f68558ff75147d9af9445721",
+    "runtime": "4e82981a64f598ad4debb0aafa062c86af92eb7cdca83c7bedd42428068f2813",
+    "compiler": "2a0d0a5719fe4d9b0c1be62c528add74d77c95a1af2411f0d7ad87d41d07093a"
+  },
+  "controllerSHA256": "5c2432b4fdb561823f4c1e7577392f159dfdc9e78d4a148c2781c316e05a3c62",
+  "host": "macOS-26.5.1-arm64-arm-64bit",
+  "limits": "One host warm filesystem. Every timed target cache starts empty. Retained-store variant reuses a checked compiler inode after separately reported one-time store setup; this is not a faster first-ever compiler launch. Complete build/publication time, no application-runtime, energy, token or cross-platform claim."
+}

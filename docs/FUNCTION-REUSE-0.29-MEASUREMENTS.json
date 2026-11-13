@@ -1,0 +1,3893 @@
+{
+  "passed": true,
+  "schema": "rf2.function.reuse.measurements.v1",
+  "trialsPerVariant": 21,
+  "summary": [
+    {
+      "task": "small-example",
+      "medianMs": {
+        "direct clean": 1.799667,
+        "empty unit cache": 2.234917,
+        "retained unit cache": 2.030917
+      },
+      "cleanOverRetainedRatio": 0.8861351793303222
+    },
+    {
+      "task": "file-checksum",
+      "medianMs": {
+        "direct clean": 2.629291,
+        "empty unit cache": 2.965625,
+        "retained unit cache": 2.889
+      },
+      "cleanOverRetainedRatio": 0.91010418830045
+    },
+    {
+      "task": "sha40",
+      "medianMs": {
+        "direct clean": 30.434542,
+        "empty unit cache": 51.519583,
+        "retained unit cache": 6.172834
+      },
+      "cleanOverRetainedRatio": 4.930400201916981
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "medianMs": {
+        "direct clean": 4.948,
+        "empty unit cache": 15.940459,
+        "retained unit cache": 4.748417
+      },
+      "cleanOverRetainedRatio": 1.0420314812283757
+    }
+  ],
+  "raw": [
+    {
+      "task": "small-example",
+      "trial": 0,
+      "variant": "retained unit cache",
+      "ms": 2.403625,
+      "observedChildCpuMs": 1.5659999999999996,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 0,
+      "variant": "empty unit cache",
+      "ms": 2.339458,
+      "observedChildCpuMs": 1.6449999999999998,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 0,
+      "variant": "direct clean",
+      "ms": 1.799667,
+      "observedChildCpuMs": 1.1050000000000009,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 1,
+      "variant": "empty unit cache",
+      "ms": 2.569875,
+      "observedChildCpuMs": 1.670999999999999,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 1,
+      "variant": "retained unit cache",
+      "ms": 2.019292,
+      "observedChildCpuMs": 1.3410000000000002,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 1,
+      "variant": "direct clean",
+      "ms": 1.92225,
+      "observedChildCpuMs": 1.2259999999999998,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 2,
+      "variant": "retained unit cache",
+      "ms": 2.409333,
+      "observedChildCpuMs": 1.554999999999999,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 2,
+      "variant": "empty unit cache",
+      "ms": 2.620667,
+      "observedChildCpuMs": 1.739000000000001,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 2,
+      "variant": "direct clean",
+      "ms": 1.804167,
+      "observedChildCpuMs": 1.1210000000000004,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 3,
+      "variant": "empty unit cache",
+      "ms": 2.258916,
+      "observedChildCpuMs": 1.562000000000001,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 3,
+      "variant": "retained unit cache",
+      "ms": 2.133375,
+      "observedChildCpuMs": 1.4470000000000003,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 3,
+      "variant": "direct clean",
+      "ms": 1.707709,
+      "observedChildCpuMs": 1.0509999999999964,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 4,
+      "variant": "empty unit cache",
+      "ms": 2.392666,
+      "observedChildCpuMs": 1.6210000000000044,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 4,
+      "variant": "retained unit cache",
+      "ms": 2.125083,
+      "observedChildCpuMs": 1.400999999999996,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 4,
+      "variant": "direct clean",
+      "ms": 1.710375,
+      "observedChildCpuMs": 1.051,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 5,
+      "variant": "retained unit cache",
+      "ms": 2.030625,
+      "observedChildCpuMs": 1.4030000000000014,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 5,
+      "variant": "empty unit cache",
+      "ms": 2.062083,
+      "observedChildCpuMs": 1.4300000000000006,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 5,
+      "variant": "direct clean",
+      "ms": 1.831375,
+      "observedChildCpuMs": 1.0549999999999968,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 6,
+      "variant": "retained unit cache",
+      "ms": 2.110166,
+      "observedChildCpuMs": 1.3909999999999998,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 6,
+      "variant": "empty unit cache",
+      "ms": 2.068208,
+      "observedChildCpuMs": 1.464,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 6,
+      "variant": "direct clean",
+      "ms": 1.821,
+      "observedChildCpuMs": 1.2030000000000027,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 7,
+      "variant": "direct clean",
+      "ms": 1.759542,
+      "observedChildCpuMs": 1.0420000000000011,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 7,
+      "variant": "retained unit cache",
+      "ms": 2.081583,
+      "observedChildCpuMs": 1.2679999999999982,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 7,
+      "variant": "empty unit cache",
+      "ms": 2.185334,
+      "observedChildCpuMs": 1.3999999999999986,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 8,
+      "variant": "retained unit cache",
+      "ms": 1.961791,
+      "observedChildCpuMs": 1.2640000000000011,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 8,
+      "variant": "direct clean",
+      "ms": 1.864709,
+      "observedChildCpuMs": 1.0420000000000011,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 8,
+      "variant": "empty unit cache",
+      "ms": 2.377459,
+      "observedChildCpuMs": 1.673000000000001,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 9,
+      "variant": "retained unit cache",
+      "ms": 2.037625,
+      "observedChildCpuMs": 1.2840000000000005,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 9,
+      "variant": "direct clean",
+      "ms": 1.790333,
+      "observedChildCpuMs": 1.0239999999999971,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 9,
+      "variant": "empty unit cache",
+      "ms": 2.139958,
+      "observedChildCpuMs": 1.473000000000002,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 10,
+      "variant": "retained unit cache",
+      "ms": 2.0165,
+      "observedChildCpuMs": 1.2589999999999963,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 10,
+      "variant": "empty unit cache",
+      "ms": 2.109291,
+      "observedChildCpuMs": 1.4009999999999994,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 10,
+      "variant": "direct clean",
+      "ms": 1.695542,
+      "observedChildCpuMs": 1.1290000000000049,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 11,
+      "variant": "retained unit cache",
+      "ms": 1.982459,
+      "observedChildCpuMs": 1.2899999999999996,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 11,
+      "variant": "empty unit cache",
+      "ms": 2.171917,
+      "observedChildCpuMs": 1.4399999999999968,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 11,
+      "variant": "direct clean",
+      "ms": 1.684833,
+      "observedChildCpuMs": 0.9969999999999979,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 12,
+      "variant": "direct clean",
+      "ms": 1.94925,
+      "observedChildCpuMs": 1.0500000000000091,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 12,
+      "variant": "empty unit cache",
+      "ms": 2.171917,
+      "observedChildCpuMs": 1.4179999999999957,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 12,
+      "variant": "retained unit cache",
+      "ms": 2.030917,
+      "observedChildCpuMs": 1.243999999999995,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 13,
+      "variant": "direct clean",
+      "ms": 1.750292,
+      "observedChildCpuMs": 0.9840000000000058,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 13,
+      "variant": "empty unit cache",
+      "ms": 2.139375,
+      "observedChildCpuMs": 1.4329999999999967,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 13,
+      "variant": "retained unit cache",
+      "ms": 2.091833,
+      "observedChildCpuMs": 1.3750000000000013,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 14,
+      "variant": "empty unit cache",
+      "ms": 2.242375,
+      "observedChildCpuMs": 1.3819999999999943,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 14,
+      "variant": "retained unit cache",
+      "ms": 2.018208,
+      "observedChildCpuMs": 1.2620000000000062,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 14,
+      "variant": "direct clean",
+      "ms": 1.687125,
+      "observedChildCpuMs": 0.9600000000000025,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 15,
+      "variant": "retained unit cache",
+      "ms": 2.072125,
+      "observedChildCpuMs": 1.2609999999999844,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 15,
+      "variant": "direct clean",
+      "ms": 1.837833,
+      "observedChildCpuMs": 1.0630000000000084,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 15,
+      "variant": "empty unit cache",
+      "ms": 2.234917,
+      "observedChildCpuMs": 1.365000000000005,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 16,
+      "variant": "retained unit cache",
+      "ms": 1.902333,
+      "observedChildCpuMs": 1.245999999999997,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 16,
+      "variant": "direct clean",
+      "ms": 1.827292,
+      "observedChildCpuMs": 0.9800000000000086,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 16,
+      "variant": "empty unit cache",
+      "ms": 2.134917,
+      "observedChildCpuMs": 1.36399999999999,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 17,
+      "variant": "retained unit cache",
+      "ms": 2.014417,
+      "observedChildCpuMs": 1.3360000000000039,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 17,
+      "variant": "empty unit cache",
+      "ms": 2.150541,
+      "observedChildCpuMs": 1.369999999999996,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 17,
+      "variant": "direct clean",
+      "ms": 2.015583,
+      "observedChildCpuMs": 1.1230000000000129,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 18,
+      "variant": "direct clean",
+      "ms": 1.783583,
+      "observedChildCpuMs": 1.0039999999999771,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 18,
+      "variant": "empty unit cache",
+      "ms": 2.317042,
+      "observedChildCpuMs": 1.5330000000000066,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 18,
+      "variant": "retained unit cache",
+      "ms": 2.213,
+      "observedChildCpuMs": 1.354999999999995,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 19,
+      "variant": "empty unit cache",
+      "ms": 2.400875,
+      "observedChildCpuMs": 1.4380000000000086,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 19,
+      "variant": "direct clean",
+      "ms": 2.000291,
+      "observedChildCpuMs": 1.1160000000000059,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 19,
+      "variant": "retained unit cache",
+      "ms": 2.003959,
+      "observedChildCpuMs": 1.250000000000001,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 20,
+      "variant": "empty unit cache",
+      "ms": 2.345583,
+      "observedChildCpuMs": 1.4069999999999916,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 20,
+      "variant": "direct clean",
+      "ms": 1.779042,
+      "observedChildCpuMs": 1.008999999999996,
+      "reuse": null,
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "small-example",
+      "trial": 20,
+      "variant": "retained unit cache",
+      "ms": 1.94,
+      "observedChildCpuMs": 1.2640000000000151,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "74bb6f495435b4b67d746118148f07b5490d86cc63e0afd9b52640ae5bc92e8a"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 0,
+      "variant": "retained unit cache",
+      "ms": 2.930709,
+      "observedChildCpuMs": 2.1660000000000013,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 0,
+      "variant": "empty unit cache",
+      "ms": 2.965625,
+      "observedChildCpuMs": 2.1589999999999945,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 0,
+      "variant": "direct clean",
+      "ms": 2.685833,
+      "observedChildCpuMs": 1.8769999999999898,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 1,
+      "variant": "empty unit cache",
+      "ms": 3.081375,
+      "observedChildCpuMs": 2.0940000000000127,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 1,
+      "variant": "retained unit cache",
+      "ms": 2.798375,
+      "observedChildCpuMs": 2.0699999999999887,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 1,
+      "variant": "direct clean",
+      "ms": 2.542958,
+      "observedChildCpuMs": 1.7830000000000068,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 2,
+      "variant": "retained unit cache",
+      "ms": 2.905708,
+      "observedChildCpuMs": 2.0060000000000078,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 2,
+      "variant": "empty unit cache",
+      "ms": 2.97375,
+      "observedChildCpuMs": 2.1809999999999885,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 2,
+      "variant": "direct clean",
+      "ms": 2.526834,
+      "observedChildCpuMs": 1.7900000000000138,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 3,
+      "variant": "empty unit cache",
+      "ms": 2.753833,
+      "observedChildCpuMs": 2.139000000000002,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 3,
+      "variant": "retained unit cache",
+      "ms": 2.889,
+      "observedChildCpuMs": 2.0359999999999823,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 3,
+      "variant": "direct clean",
+      "ms": 2.677209,
+      "observedChildCpuMs": 1.807000000000003,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 4,
+      "variant": "empty unit cache",
+      "ms": 2.689417,
+      "observedChildCpuMs": 2.046000000000006,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 4,
+      "variant": "retained unit cache",
+      "ms": 2.719916,
+      "observedChildCpuMs": 2.008999999999997,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 4,
+      "variant": "direct clean",
+      "ms": 2.593417,
+      "observedChildCpuMs": 1.7809999999999908,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 5,
+      "variant": "retained unit cache",
+      "ms": 2.748667,
+      "observedChildCpuMs": 2.1130000000000178,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 5,
+      "variant": "empty unit cache",
+      "ms": 2.850375,
+      "observedChildCpuMs": 2.1589999999999945,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 5,
+      "variant": "direct clean",
+      "ms": 2.663292,
+      "observedChildCpuMs": 1.8519999999999925,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 6,
+      "variant": "retained unit cache",
+      "ms": 2.996709,
+      "observedChildCpuMs": 2.248,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 6,
+      "variant": "empty unit cache",
+      "ms": 2.871458,
+      "observedChildCpuMs": 2.138000000000001,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 6,
+      "variant": "direct clean",
+      "ms": 2.510458,
+      "observedChildCpuMs": 1.7930000000000168,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 7,
+      "variant": "direct clean",
+      "ms": 2.703791,
+      "observedChildCpuMs": 1.8469999999999875,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 7,
+      "variant": "retained unit cache",
+      "ms": 2.730792,
+      "observedChildCpuMs": 1.9710000000000005,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 7,
+      "variant": "empty unit cache",
+      "ms": 2.906709,
+      "observedChildCpuMs": 2.0989999999999895,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 8,
+      "variant": "retained unit cache",
+      "ms": 3.024,
+      "observedChildCpuMs": 2.142000000000005,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 8,
+      "variant": "direct clean",
+      "ms": 2.848083,
+      "observedChildCpuMs": 1.9549999999999845,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 8,
+      "variant": "empty unit cache",
+      "ms": 2.999417,
+      "observedChildCpuMs": 2.139000000000002,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 9,
+      "variant": "retained unit cache",
+      "ms": 2.939666,
+      "observedChildCpuMs": 2.1800000000000153,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 9,
+      "variant": "direct clean",
+      "ms": 2.629291,
+      "observedChildCpuMs": 1.823000000000019,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 9,
+      "variant": "empty unit cache",
+      "ms": 3.308417,
+      "observedChildCpuMs": 2.1499999999999853,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 10,
+      "variant": "retained unit cache",
+      "ms": 2.924458,
+      "observedChildCpuMs": 2.0160000000000178,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 10,
+      "variant": "empty unit cache",
+      "ms": 3.107042,
+      "observedChildCpuMs": 2.212999999999965,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 10,
+      "variant": "direct clean",
+      "ms": 2.703292,
+      "observedChildCpuMs": 1.8580000000000263,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 11,
+      "variant": "retained unit cache",
+      "ms": 2.768875,
+      "observedChildCpuMs": 2.0519999999999983,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 11,
+      "variant": "empty unit cache",
+      "ms": 2.926209,
+      "observedChildCpuMs": 2.108999999999972,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 11,
+      "variant": "direct clean",
+      "ms": 2.787208,
+      "observedChildCpuMs": 1.8420000000000103,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 12,
+      "variant": "direct clean",
+      "ms": 2.633375,
+      "observedChildCpuMs": 1.816000000000012,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 12,
+      "variant": "empty unit cache",
+      "ms": 3.000417,
+      "observedChildCpuMs": 2.165,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 12,
+      "variant": "retained unit cache",
+      "ms": 3.031625,
+      "observedChildCpuMs": 2.118999999999982,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 13,
+      "variant": "direct clean",
+      "ms": 2.753458,
+      "observedChildCpuMs": 1.8560000000000243,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 13,
+      "variant": "empty unit cache",
+      "ms": 2.847375,
+      "observedChildCpuMs": 2.1509999999999865,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 13,
+      "variant": "retained unit cache",
+      "ms": 2.936875,
+      "observedChildCpuMs": 2.0739999999999927,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 14,
+      "variant": "empty unit cache",
+      "ms": 3.121291,
+      "observedChildCpuMs": 2.233000000000013,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 14,
+      "variant": "retained unit cache",
+      "ms": 2.765667,
+      "observedChildCpuMs": 2.048999999999995,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 14,
+      "variant": "direct clean",
+      "ms": 2.575958,
+      "observedChildCpuMs": 1.9460000000000033,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 15,
+      "variant": "retained unit cache",
+      "ms": 2.899417,
+      "observedChildCpuMs": 2.0499999999999963,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 15,
+      "variant": "direct clean",
+      "ms": 2.654958,
+      "observedChildCpuMs": 1.8059999999999743,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 15,
+      "variant": "empty unit cache",
+      "ms": 2.963958,
+      "observedChildCpuMs": 2.1310000000000215,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 16,
+      "variant": "retained unit cache",
+      "ms": 2.863917,
+      "observedChildCpuMs": 2.1020000000000207,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 16,
+      "variant": "direct clean",
+      "ms": 2.534833,
+      "observedChildCpuMs": 1.8069999999999753,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 16,
+      "variant": "empty unit cache",
+      "ms": 2.926333,
+      "observedChildCpuMs": 2.151000000000014,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 17,
+      "variant": "retained unit cache",
+      "ms": 2.762916,
+      "observedChildCpuMs": 2.0670000000000135,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 17,
+      "variant": "empty unit cache",
+      "ms": 2.991833,
+      "observedChildCpuMs": 2.1859999999999657,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 17,
+      "variant": "direct clean",
+      "ms": 2.597166,
+      "observedChildCpuMs": 1.8040000000000278,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 18,
+      "variant": "direct clean",
+      "ms": 2.517833,
+      "observedChildCpuMs": 1.784999999999981,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 18,
+      "variant": "empty unit cache",
+      "ms": 3.235041,
+      "observedChildCpuMs": 2.2889999999999855,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 18,
+      "variant": "retained unit cache",
+      "ms": 2.809625,
+      "observedChildCpuMs": 2.050000000000024,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 19,
+      "variant": "empty unit cache",
+      "ms": 2.9465,
+      "observedChildCpuMs": 2.1629999999999985,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 19,
+      "variant": "direct clean",
+      "ms": 2.59075,
+      "observedChildCpuMs": 1.825000000000021,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 19,
+      "variant": "retained unit cache",
+      "ms": 2.791625,
+      "observedChildCpuMs": 2.0679999999999588,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 20,
+      "variant": "empty unit cache",
+      "ms": 3.391584,
+      "observedChildCpuMs": 2.3320000000000007,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 20,
+      "variant": "direct clean",
+      "ms": 2.403083,
+      "observedChildCpuMs": 1.7410000000000203,
+      "reuse": null,
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "file-checksum",
+      "trial": 20,
+      "variant": "retained unit cache",
+      "ms": 2.981375,
+      "observedChildCpuMs": 2.1319999999999952,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 7,
+        "validationReused": 1,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "70ea5cb87df56e8935033326e892a8e1ffa91b6f9fda55b3dd54f2c4cfacbb1e"
+    },
+    {
+      "task": "sha40",
+      "trial": 0,
+      "variant": "retained unit cache",
+      "ms": 5.835875,
+      "observedChildCpuMs": 5.081999999999976,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 0,
+      "variant": "empty unit cache",
+      "ms": 50.9925,
+      "observedChildCpuMs": 50.207,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 0,
+      "variant": "direct clean",
+      "ms": 30.639458,
+      "observedChildCpuMs": 29.378000000000014,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 1,
+      "variant": "empty unit cache",
+      "ms": 51.513875,
+      "observedChildCpuMs": 50.337999999999994,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 1,
+      "variant": "retained unit cache",
+      "ms": 6.25875,
+      "observedChildCpuMs": 5.20799999999999,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 1,
+      "variant": "direct clean",
+      "ms": 30.070792,
+      "observedChildCpuMs": 29.22900000000006,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 2,
+      "variant": "retained unit cache",
+      "ms": 6.04,
+      "observedChildCpuMs": 4.968999999999946,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 2,
+      "variant": "empty unit cache",
+      "ms": 51.650667,
+      "observedChildCpuMs": 50.48400000000003,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 2,
+      "variant": "direct clean",
+      "ms": 31.178167,
+      "observedChildCpuMs": 29.971999999999998,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 3,
+      "variant": "empty unit cache",
+      "ms": 53.112708,
+      "observedChildCpuMs": 51.78300000000002,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 3,
+      "variant": "retained unit cache",
+      "ms": 6.791666,
+      "observedChildCpuMs": 5.628999999999884,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 3,
+      "variant": "direct clean",
+      "ms": 31.346958,
+      "observedChildCpuMs": 30.096000000000124,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 4,
+      "variant": "empty unit cache",
+      "ms": 51.918167,
+      "observedChildCpuMs": 50.90499999999998,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 4,
+      "variant": "retained unit cache",
+      "ms": 6.155791,
+      "observedChildCpuMs": 5.159999999999942,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 4,
+      "variant": "direct clean",
+      "ms": 30.464333,
+      "observedChildCpuMs": 29.28199999999992,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 5,
+      "variant": "retained unit cache",
+      "ms": 5.807041,
+      "observedChildCpuMs": 4.966000000000026,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 5,
+      "variant": "empty unit cache",
+      "ms": 51.692917,
+      "observedChildCpuMs": 50.679000000000144,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 5,
+      "variant": "direct clean",
+      "ms": 30.300875,
+      "observedChildCpuMs": 29.383999999999855,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 6,
+      "variant": "retained unit cache",
+      "ms": 6.128667,
+      "observedChildCpuMs": 5.1320000000001365,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 6,
+      "variant": "empty unit cache",
+      "ms": 51.5495,
+      "observedChildCpuMs": 50.4039999999999,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 6,
+      "variant": "direct clean",
+      "ms": 30.415875,
+      "observedChildCpuMs": 29.482000000000006,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 7,
+      "variant": "direct clean",
+      "ms": 30.549416,
+      "observedChildCpuMs": 29.468999999999966,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 7,
+      "variant": "retained unit cache",
+      "ms": 6.189375,
+      "observedChildCpuMs": 5.249000000000059,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 7,
+      "variant": "empty unit cache",
+      "ms": 51.088792,
+      "observedChildCpuMs": 50.19399999999996,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 8,
+      "variant": "retained unit cache",
+      "ms": 7.660666,
+      "observedChildCpuMs": 5.357000000000056,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 8,
+      "variant": "direct clean",
+      "ms": 29.920417,
+      "observedChildCpuMs": 29.099000000000096,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 8,
+      "variant": "empty unit cache",
+      "ms": 51.489209,
+      "observedChildCpuMs": 50.466999999999814,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 9,
+      "variant": "retained unit cache",
+      "ms": 6.289042,
+      "observedChildCpuMs": 5.222999999999978,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 9,
+      "variant": "direct clean",
+      "ms": 30.285,
+      "observedChildCpuMs": 29.23700000000018,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 9,
+      "variant": "empty unit cache",
+      "ms": 51.515375,
+      "observedChildCpuMs": 50.60500000000001,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 10,
+      "variant": "retained unit cache",
+      "ms": 6.031042,
+      "observedChildCpuMs": 5.104999999999915,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 10,
+      "variant": "empty unit cache",
+      "ms": 51.257166,
+      "observedChildCpuMs": 50.176,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 10,
+      "variant": "direct clean",
+      "ms": 30.366,
+      "observedChildCpuMs": 29.42100000000014,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 11,
+      "variant": "retained unit cache",
+      "ms": 5.989792,
+      "observedChildCpuMs": 5.09499999999985,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 11,
+      "variant": "empty unit cache",
+      "ms": 51.1205,
+      "observedChildCpuMs": 50.218000000000096,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 11,
+      "variant": "direct clean",
+      "ms": 30.345667,
+      "observedChildCpuMs": 29.42099999999992,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 12,
+      "variant": "direct clean",
+      "ms": 30.251958,
+      "observedChildCpuMs": 29.323999999999906,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 12,
+      "variant": "empty unit cache",
+      "ms": 51.623166,
+      "observedChildCpuMs": 50.47300000000021,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 12,
+      "variant": "retained unit cache",
+      "ms": 6.318459,
+      "observedChildCpuMs": 5.236000000000018,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 13,
+      "variant": "direct clean",
+      "ms": 30.807667,
+      "observedChildCpuMs": 29.641999999999946,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 13,
+      "variant": "empty unit cache",
+      "ms": 52.301375,
+      "observedChildCpuMs": 51.064,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 13,
+      "variant": "retained unit cache",
+      "ms": 6.1925,
+      "observedChildCpuMs": 5.182999999999938,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 14,
+      "variant": "empty unit cache",
+      "ms": 51.46975,
+      "observedChildCpuMs": 50.55699999999996,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 14,
+      "variant": "retained unit cache",
+      "ms": 6.007792,
+      "observedChildCpuMs": 5.183999999999855,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 14,
+      "variant": "direct clean",
+      "ms": 30.761041,
+      "observedChildCpuMs": 29.776000000000025,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 15,
+      "variant": "retained unit cache",
+      "ms": 6.495416,
+      "observedChildCpuMs": 5.473000000000283,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 15,
+      "variant": "direct clean",
+      "ms": 30.434542,
+      "observedChildCpuMs": 29.828999999999883,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 15,
+      "variant": "empty unit cache",
+      "ms": 51.4565,
+      "observedChildCpuMs": 50.488000000000085,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 16,
+      "variant": "retained unit cache",
+      "ms": 6.098291,
+      "observedChildCpuMs": 5.152000000000045,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 16,
+      "variant": "direct clean",
+      "ms": 30.448792,
+      "observedChildCpuMs": 29.334999999999887,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 16,
+      "variant": "empty unit cache",
+      "ms": 51.932417,
+      "observedChildCpuMs": 50.696000000000076,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 17,
+      "variant": "retained unit cache",
+      "ms": 6.195125,
+      "observedChildCpuMs": 5.202999999999847,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 17,
+      "variant": "empty unit cache",
+      "ms": 51.371792,
+      "observedChildCpuMs": 50.336999999999854,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 17,
+      "variant": "direct clean",
+      "ms": 30.660625,
+      "observedChildCpuMs": 29.642000000000166,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 18,
+      "variant": "direct clean",
+      "ms": 31.650209,
+      "observedChildCpuMs": 30.18199999999993,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 18,
+      "variant": "empty unit cache",
+      "ms": 52.215167,
+      "observedChildCpuMs": 51.16199999999993,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 18,
+      "variant": "retained unit cache",
+      "ms": 6.172834,
+      "observedChildCpuMs": 5.191000000000168,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 19,
+      "variant": "empty unit cache",
+      "ms": 51.519583,
+      "observedChildCpuMs": 50.49900000000007,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 19,
+      "variant": "direct clean",
+      "ms": 30.376167,
+      "observedChildCpuMs": 29.40600000000004,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 19,
+      "variant": "retained unit cache",
+      "ms": 6.21,
+      "observedChildCpuMs": 5.260000000000042,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 20,
+      "variant": "empty unit cache",
+      "ms": 52.328542,
+      "observedChildCpuMs": 51.00499999999997,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 20,
+      "variant": "direct clean",
+      "ms": 30.426458,
+      "observedChildCpuMs": 29.475999999999836,
+      "reuse": null,
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "sha40",
+      "trial": 20,
+      "variant": "retained unit cache",
+      "ms": 6.000833,
+      "observedChildCpuMs": 5.10900000000003,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 4,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 4,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "a00c5da5048ededa767df7a4bc08e3292e23135d0414c9b5bf1db137b9822a25"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 0,
+      "variant": "retained unit cache",
+      "ms": 4.836208,
+      "observedChildCpuMs": 3.750999999999838,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 0,
+      "variant": "empty unit cache",
+      "ms": 15.926,
+      "observedChildCpuMs": 14.994000000000174,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 0,
+      "variant": "direct clean",
+      "ms": 5.079084,
+      "observedChildCpuMs": 4.208999999999907,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 1,
+      "variant": "empty unit cache",
+      "ms": 16.333792,
+      "observedChildCpuMs": 15.56000000000024,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 1,
+      "variant": "retained unit cache",
+      "ms": 5.101917,
+      "observedChildCpuMs": 4.020000000000135,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 1,
+      "variant": "direct clean",
+      "ms": 6.157125,
+      "observedChildCpuMs": 4.274999999999807,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 2,
+      "variant": "retained unit cache",
+      "ms": 4.464625,
+      "observedChildCpuMs": 3.6410000000000053,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 2,
+      "variant": "empty unit cache",
+      "ms": 16.771333,
+      "observedChildCpuMs": 14.955000000000052,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 2,
+      "variant": "direct clean",
+      "ms": 5.245333,
+      "observedChildCpuMs": 4.277999999999782,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 3,
+      "variant": "empty unit cache",
+      "ms": 16.393875,
+      "observedChildCpuMs": 14.78500000000027,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 3,
+      "variant": "retained unit cache",
+      "ms": 4.728375,
+      "observedChildCpuMs": 3.814999999999902,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 3,
+      "variant": "direct clean",
+      "ms": 4.804167,
+      "observedChildCpuMs": 4.0239999999998055,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 4,
+      "variant": "empty unit cache",
+      "ms": 15.268042,
+      "observedChildCpuMs": 14.217000000000368,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 4,
+      "variant": "retained unit cache",
+      "ms": 4.886959,
+      "observedChildCpuMs": 3.8999999999997925,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 4,
+      "variant": "direct clean",
+      "ms": 4.853167,
+      "observedChildCpuMs": 4.0719999999998535,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 5,
+      "variant": "retained unit cache",
+      "ms": 4.241,
+      "observedChildCpuMs": 3.4760000000000346,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 5,
+      "variant": "empty unit cache",
+      "ms": 15.553583,
+      "observedChildCpuMs": 14.674999999999994,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 5,
+      "variant": "direct clean",
+      "ms": 5.099625,
+      "observedChildCpuMs": 4.251000000000005,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 6,
+      "variant": "retained unit cache",
+      "ms": 4.95975,
+      "observedChildCpuMs": 4.086000000000034,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 6,
+      "variant": "empty unit cache",
+      "ms": 16.275334,
+      "observedChildCpuMs": 15.394999999999825,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 6,
+      "variant": "direct clean",
+      "ms": 4.9355,
+      "observedChildCpuMs": 4.145000000000287,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 7,
+      "variant": "direct clean",
+      "ms": 4.686583,
+      "observedChildCpuMs": 3.946000000000005,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 7,
+      "variant": "retained unit cache",
+      "ms": 4.748417,
+      "observedChildCpuMs": 3.7400000000000766,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 7,
+      "variant": "empty unit cache",
+      "ms": 15.530083,
+      "observedChildCpuMs": 14.784999999999826,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 8,
+      "variant": "retained unit cache",
+      "ms": 4.85225,
+      "observedChildCpuMs": 3.9959999999998885,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 8,
+      "variant": "direct clean",
+      "ms": 4.996292,
+      "observedChildCpuMs": 4.072999999999993,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 8,
+      "variant": "empty unit cache",
+      "ms": 15.972375,
+      "observedChildCpuMs": 15.15500000000003,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 9,
+      "variant": "retained unit cache",
+      "ms": 4.734458,
+      "observedChildCpuMs": 3.8720000000003196,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 9,
+      "variant": "direct clean",
+      "ms": 4.828291,
+      "observedChildCpuMs": 4.0129999999996,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 9,
+      "variant": "empty unit cache",
+      "ms": 15.724375,
+      "observedChildCpuMs": 14.955000000000052,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 10,
+      "variant": "retained unit cache",
+      "ms": 14.376792,
+      "observedChildCpuMs": 4.551000000000194,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 10,
+      "variant": "empty unit cache",
+      "ms": 16.189208,
+      "observedChildCpuMs": 14.816999999999858,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 10,
+      "variant": "direct clean",
+      "ms": 5.155459,
+      "observedChildCpuMs": 4.249000000000169,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 11,
+      "variant": "retained unit cache",
+      "ms": 4.6375,
+      "observedChildCpuMs": 3.7959999999999106,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 11,
+      "variant": "empty unit cache",
+      "ms": 16.372125,
+      "observedChildCpuMs": 15.357999999999983,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 11,
+      "variant": "direct clean",
+      "ms": 5.13975,
+      "observedChildCpuMs": 4.288000000000292,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 12,
+      "variant": "direct clean",
+      "ms": 4.95175,
+      "observedChildCpuMs": 4.121999999999737,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 12,
+      "variant": "empty unit cache",
+      "ms": 15.756417,
+      "observedChildCpuMs": 14.939000000000036,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 12,
+      "variant": "retained unit cache",
+      "ms": 4.744333,
+      "observedChildCpuMs": 3.959000000000046,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 13,
+      "variant": "direct clean",
+      "ms": 4.906291,
+      "observedChildCpuMs": 3.9929999999999133,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 13,
+      "variant": "empty unit cache",
+      "ms": 16.260542,
+      "observedChildCpuMs": 15.423999999999882,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 13,
+      "variant": "retained unit cache",
+      "ms": 4.871458,
+      "observedChildCpuMs": 3.978000000000037,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 14,
+      "variant": "empty unit cache",
+      "ms": 15.671958,
+      "observedChildCpuMs": 14.84400000000008,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 14,
+      "variant": "retained unit cache",
+      "ms": 4.913291,
+      "observedChildCpuMs": 4.035000000000011,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 14,
+      "variant": "direct clean",
+      "ms": 4.862667,
+      "observedChildCpuMs": 3.9349999999997998,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 15,
+      "variant": "retained unit cache",
+      "ms": 4.223459,
+      "observedChildCpuMs": 3.4810000000002894,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 15,
+      "variant": "direct clean",
+      "ms": 4.948,
+      "observedChildCpuMs": 4.042000000000101,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 15,
+      "variant": "empty unit cache",
+      "ms": 15.267041,
+      "observedChildCpuMs": 14.498999999999818,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 16,
+      "variant": "retained unit cache",
+      "ms": 4.829375,
+      "observedChildCpuMs": 3.8759999999999906,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 16,
+      "variant": "direct clean",
+      "ms": 4.724834,
+      "observedChildCpuMs": 3.994000000000053,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 16,
+      "variant": "empty unit cache",
+      "ms": 16.089541,
+      "observedChildCpuMs": 15.047999999999728,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 17,
+      "variant": "retained unit cache",
+      "ms": 4.888542,
+      "observedChildCpuMs": 4.095000000000404,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 17,
+      "variant": "empty unit cache",
+      "ms": 15.235333,
+      "observedChildCpuMs": 14.459,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 17,
+      "variant": "direct clean",
+      "ms": 4.923042,
+      "observedChildCpuMs": 4.110999999999532,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 18,
+      "variant": "direct clean",
+      "ms": 4.906958,
+      "observedChildCpuMs": 4.02300000000011,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 18,
+      "variant": "empty unit cache",
+      "ms": 15.851042,
+      "observedChildCpuMs": 14.562000000000186,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 18,
+      "variant": "retained unit cache",
+      "ms": 4.549,
+      "observedChildCpuMs": 3.757999999999928,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 19,
+      "variant": "empty unit cache",
+      "ms": 16.067208,
+      "observedChildCpuMs": 15.266000000000002,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 19,
+      "variant": "direct clean",
+      "ms": 5.059125,
+      "observedChildCpuMs": 4.1880000000000805,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 19,
+      "variant": "retained unit cache",
+      "ms": 4.704666,
+      "observedChildCpuMs": 3.8960000000001216,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 20,
+      "variant": "empty unit cache",
+      "ms": 15.940459,
+      "observedChildCpuMs": 15.121999999999858,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 20,
+      "variant": "direct clean",
+      "ms": 5.105958,
+      "observedChildCpuMs": 4.168000000000394,
+      "reuse": null,
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "trial": 20,
+      "variant": "retained unit cache",
+      "ms": 4.628208,
+      "observedChildCpuMs": 3.610999999999809,
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 96,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 96,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "unsignedSHA256": "cea4feee4fca806851d07922fe4fbd9626ac6845842cf7e8b19f6dcfa2f76c41"
+    }
+  ],
+  "firstCacheSetups": [
+    {
+      "task": "small-example",
+      "ms": 2.756625,
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "task": "file-checksum",
+      "ms": 2.789375,
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 7,
+        "validationReused": 0,
+        "fullValidationChecks": 7,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "task": "sha40",
+      "ms": 51.063834,
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 4,
+        "ineligible": 3,
+        "validationReused": 0,
+        "fullValidationChecks": 6,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "ms": 16.159167,
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 96,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 96,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    }
+  ],
+  "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414",
+  "controllerSHA256": "209bbd1b930a40cba1b5cbdaeb11b567fbb7925bdcc99bda2d5210460f5ca14a",
+  "sources": {
+    "small-example": "8c28fef2904c5f80b2bee379a14eac35641f03c61002d3b6e66278d7c720e91f",
+    "file-checksum": "eece12a50f10e080472a1db27c2b32ad7b028914f68558ff75147d9af9445721",
+    "sha40": "218349a064325bdcda2d0077ff46daefb5c9272405c0489c4ef400d2c38b0e3e",
+    "numeric-helper-fixture": "2534c7c970f02dff005181ee03691630b61ad00c0a6e5b7004161a4e6ebeddde"
+  },
+  "host": "macOS-26.5.1-arm64-arm-64bit",
+  "limits": "One host warm filesystem, complete compiler processes including actual executable hashing, semantic whitelist validation, file I/O and new output creation. Same compiler/options/sources and byte oracle for each task. The numeric-helper case is an explicit generated benchmark fixture, not field work. Retained unit cache initialized separately. No application execution, energy, billed model-token or universal performance claim."
+}

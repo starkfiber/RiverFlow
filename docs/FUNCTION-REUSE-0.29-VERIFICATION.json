@@ -1,0 +1,1250 @@
+{
+  "schema": "rf2.function.reuse.verification.v1",
+  "passed": true,
+  "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414",
+  "controllerSHA256": "5a425e4635f64db8cf626352d26d0855b8b7e4ca8c084ac337d899a351362dca",
+  "cases": [
+    {
+      "case": "cold scalar functions",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "warm scalar functions",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "function maps coexist with reuse request",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 0,
+        "ineligible": 4,
+        "validationReused": 0,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "ordinary reuse remains available after function maps",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "spoofed argv0 does not change actual compiler identity",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      }
+    },
+    {
+      "case": "comment and blank line edit",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 1,
+        "ineligible": 2,
+        "validationReused": 1,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "changed scalar body",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 1,
+        "ineligible": 2,
+        "validationReused": 1,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 1,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "source reversion",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "function order changes",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "remove unreferenced function",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "add unreferenced scalar function",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 3,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 4,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "change function signature and caller",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "record declaration context",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "array declaration context",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "optimizer mode separation",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "legacy image mode separation",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "warm legacy image",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "unknown local must reject after warm cache",
+      "outcome": "rejected-invalid-source"
+    },
+    {
+      "case": "unknown callee must reject after warm cache",
+      "outcome": "rejected-invalid-source"
+    },
+    {
+      "case": "typed parameter misuse must reject after warm cache",
+      "outcome": "rejected-invalid-source"
+    },
+    {
+      "case": "missing function end must reject",
+      "outcome": "rejected-invalid-source"
+    },
+    {
+      "case": "branching leaf clean fallback",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 1,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "loop leaf clean fallback",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 1,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "shared object registration fallback",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "shared object size change",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "shared object size conflict refuses",
+      "outcome": "rejected-invalid-source"
+    },
+    {
+      "case": "source literals require object effect replay or fallback",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 3,
+        "validationReused": 1,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 1,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "transitive module cold",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "transitive module warm",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 1,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "same-size same-mtime transitive body change",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 2,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 1,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "invalid transitive body after warm cache rejects",
+      "outcome": "rejected-invalid-source"
+    },
+    {
+      "case": "addition-wrap cold",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "addition-wrap warm",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 1,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "subtraction-wrap cold",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "subtraction-wrap warm",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 1,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "multiply-wrap cold",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "multiply-wrap warm",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 1,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "integer-division cold",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "integer-division warm",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 1,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "bit-mask cold",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "bit-mask warm",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 1,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "bit-or cold",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "bit-or warm",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 1,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "bit-xor cold",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "bit-xor warm",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 1,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "left-shift cold",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "left-shift warm",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 1,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "right-shift cold",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "right-shift warm",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 1,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "unsigned-comparison cold",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "unsigned-comparison warm",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 1,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "parenthesized-expression cold",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 1,
+        "validationReused": 0,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "parenthesized-expression warm",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 1,
+        "validationReused": 1,
+        "fullValidationChecks": 0,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "prepare corruption controls",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "function payload corruption",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "function payload corruption repaired warm reuse",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "wrong entry key",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "wrong entry key repaired warm reuse",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "wrong entry magic",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "wrong entry magic repaired warm reuse",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "declared code size bound",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "declared code size bound repaired warm reuse",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "exit target bound",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "exit target bound repaired warm reuse",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "in-bounds exit metadata corruption",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "in-bounds exit metadata corruption repaired warm reuse",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "relocation offset bound",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "relocation offset bound repaired warm reuse",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "truncated unit header",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "truncated unit header repaired warm reuse",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "truncated unit payload",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 3,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "truncated unit payload repaired warm reuse",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "incomplete sibling temporary ignored",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "same compiler bytes at another path",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "changed compiler byte identity",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 2,
+        "ineligible": 2,
+        "compilerSHA256": "0bc5c8d20bd86d09bfeb764c6b0d85125612b704648149e10d98405e54ade81e"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "original compiler identity remains reusable",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "shared-permission cache refuses",
+      "outcome": "rejected-unsafe-cache"
+    },
+    {
+      "case": "cache root final symlink refuses",
+      "outcome": "rejected-unsafe-cache"
+    },
+    {
+      "case": "concurrent cache owner refuses",
+      "outcome": "rejected-unsafe-cache"
+    },
+    {
+      "case": "lock release permits healthy reuse",
+      "outcome": "clean-byte-and-execution-match",
+      "reuse": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 2,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 2,
+        "fullValidationChecks": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "f2d533a153b8538ee5d09d33f77f6d361de002e5d9bdb1c648e4f8d93f2e0414"
+      },
+      "exit": 0,
+      "stdoutHex": "",
+      "stderrHex": ""
+    },
+    {
+      "case": "invalid source never publishes units",
+      "outcome": "rejected-invalid-source"
+    }
+  ],
+  "limits": "Finite local ARM64 native compiler controls; no shared untrusted cache or universal language compatibility proof."
+}

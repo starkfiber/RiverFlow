@@ -1,0 +1,44 @@
+{
+  "sourceReportSHA256": "903f0800942e22c4e79eae9f236a5fb630793c895b7d30c8bdddbae7b1386e61",
+  "seed": 290716,
+  "bootstrapResamples": 10000,
+  "method": "Paired trial-index differences; percentile bootstrap interval for median candidate-minus-clean time, exploratory one-host evidence.",
+  "rows": [
+    {
+      "task": "small-example",
+      "pairedWarmMinusCleanMedianMs": 0.28916600000000003,
+      "bootstrap95Ms": [
+        0.16095799999999993,
+        0.331083
+      ],
+      "trials": 21
+    },
+    {
+      "task": "file-checksum",
+      "pairedWarmMinusCleanMedianMs": 0.2211660000000002,
+      "bootstrap95Ms": [
+        0.18341699999999994,
+        0.29179200000000005
+      ],
+      "trials": 21
+    },
+    {
+      "task": "sha40",
+      "pairedWarmMinusCleanMedianMs": -24.355874999999997,
+      "bootstrap95Ms": [
+        -24.493834,
+        -24.287208
+      ],
+      "trials": 21
+    },
+    {
+      "task": "numeric-helper-fixture",
+      "pairedWarmMinusCleanMedianMs": -0.14404200000000067,
+      "bootstrap95Ms": [
+        -0.357958,
+        -0.03449999999999953
+      ],
+      "trials": 21
+    }
+  ]
+}
