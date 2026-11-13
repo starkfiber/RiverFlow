@@ -1,0 +1,972 @@
+profile RF2_SYSTEM_A64_V1
+# Private local browser application. RF2 renders HTML and computes all results.
+# No browser script, external asset, source evaluation or caller-chosen file path.
+record Lab(value:u64,a:u64,b:u64,op:u64,result:u64,quiz:u64,qa:u64,qb:u64,message:u64,revision:u64,correct:u64)
+fn xor_byte(a,b)
+ return a^b
+end
+fn globals()
+ return buffer("number_web_state",128)
+end
+fn size(p)
+ let n = 0
+ while load8(p+n)!=0
+  set n = n+1
+ end
+ return n
+end
+fn copy(dst,src,n)
+ let i = 0
+ while i<n
+  do store8(dst+i,load8(src+i))
+  set i = i+1
+ end
+ return n
+end
+fn same(p,n,text)
+ let i = 0
+ if n!=size(text)
+  return 0
+ end
+ while i<n
+  if load8(p+i)!=load8(text+i)
+   return 0
+  end
+  set i = i+1
+ end
+ return 1
+end
+fn key(p,n,text)
+ let i = 0
+ let c = 0
+ if n!=size(text)
+  return 0
+ end
+ while i<n
+  set c = load8(p+i)
+  if (c>=65)&(c<=90)
+   set c = c+32
+  end
+  if c!=load8(text+i)
+   return 0
+  end
+  set i = i+1
+ end
+ return 1
+end
+fn find(p,n,text,count)
+ let i = 0
+ let j = 0
+ while i+count<=n
+  set j = 0
+  while (j<count)&(load8(p+i+j)==load8(text+j))
+   set j = j+1
+  end
+  if j==count
+   return i+1
+  end
+  set i = i+1
+ end
+ return 0
+end
+fn reset_output()
+ do store64(globals()+80,0)
+ do store64(globals()+88,0)
+ return 0
+end
+fn text(p)
+ let n = size(p)
+ let used = load64(globals()+80)
+ if used+n>=32768
+  do store64(globals()+88,1)
+  return 0
+ end
+ do copy(buffer("number_web_output",32768)+used,p,n)
+ do store64(globals()+80,used+n)
+ return 0
+end
+fn decimal(value)
+ let digits = buffer("number_web_digits",32)
+ let n = 0
+ let one = buffer("number_web_one",2)
+ while 1
+  do store8(digits+n,48+value-value//10*10)
+  set n = n+1
+  set value = value//10
+  if value==0
+   while n!=0
+    set n = n-1
+    do store8(one,load8(digits+n))
+    do text(one)
+   end
+   return 0
+  end
+ end
+ return 0
+end
+fn unsigned(p,n,max)
+ if (n==0)|(n>10)
+  return -1
+ end
+ let i = 0
+ let value = 0
+ let c = 0
+ while i<n
+  set c = load8(p+i)
+  if (c<48)|(c>57)
+   return -1
+  end
+  set value = value*10+c-48
+  if value>max
+   return -1
+  end
+  set i = i+1
+ end
+ return value
+end
+fn elapsed(start)
+ return (vm_clock_ticks()-start)*load32(buffer("number_web_timebase",8))//load32(buffer("number_web_timebase",8)+4)
+end
+fn wait_ready(fd,event,start)
+ let poll = buffer("number_web_io_poll",8)
+ let remaining = 0
+ let rc = 0
+ let age = elapsed(start)
+ while age<2000000000
+  set remaining = (2000000000-age)//1000000
+  if remaining==0
+   set remaining = 1
+  end
+  do store32(poll,fd)
+  do store32(poll+4,event)
+  set rc = syscall6(230,poll,1,remaining,0,0,0)
+  if rc>>63
+   return 0
+  end
+  if rc!=0
+   if (load32(poll+4)>>16)&event
+    return 1
+   end
+   return 0
+  end
+  set age = elapsed(start)
+ end
+ return 0
+end
+fn receive(fd,p,n,start)
+ let got = 0
+ while wait_ready(fd,1,start)
+  set got = read(fd,p,n)
+  if (got>>63)==0
+   return got
+  end
+  # EINTR/EAGAIN remain bounded by the same monotonic deadline.
+ end
+ return 0
+end
+fn send(fd,p,n,start)
+ let done = 0
+ let got = 0
+ while done<n
+  if wait_ready(fd,4,start)==0
+   return 0
+  end
+  set got = write(fd,p+done,n-done)
+  if (got==0)|(got>>63)
+   return 0
+  end
+  set done = done+got
+ end
+ return 1
+end
+fn respond(fd,status,redirect)
+ let n = load64(globals()+80)
+ do copy(buffer("number_web_body",32768),buffer("number_web_output",32768),n)
+ do reset_output()
+ do text("HTTP/1.1 ")
+ do text(status)
+ do text("\r\nConnection: close\r\nCache-Control: no-store\r\nX-Content-Type-Options: nosniff\r\nReferrer-Policy: same-origin\r\nCross-Origin-Resource-Policy: same-origin\r\nContent-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; form-action 'self'; frame-ancestors 'none'; base-uri 'none'\r\nContent-Type: text/html; charset=utf-8\r\n")
+ if redirect
+  do text("Location: /\r\n")
+ end
+ do text("Content-Length: ")
+ do decimal(n)
+ do text("\r\n\r\n")
+ let start = vm_clock_ticks()
+ if send(fd,buffer("number_web_output",32768),load64(globals()+80),start)==0
+  return 0
+ end
+ return send(fd,buffer("number_web_body",32768),n,start)
+end
+fn bad(fd,status)
+ do reset_output()
+ do text("<!doctype html><html lang=en><meta charset=utf-8><title>Request refused</title><h1>Request refused</h1><p>The game did not change.</p><p><a href=/>Return to Number Lab and try again.</a></p></html>")
+ return respond(fd,status,0)
+end
+fn hidden(lab:Lab)
+ do text("<input type=hidden name=token value=\"")
+ do text(buffer("number_web_token",33))
+ do text("\"><input type=hidden name=rev value=\"")
+ do decimal(lab.revision)
+ return text("\">")
+end
+fn page(lab:Lab)
+ let i = 0
+ let weight = 128
+ let value = 0
+ let one = buffer("number_web_character",2)
+ let alphabet = "0123456789ABCDEF"
+ do reset_output()
+ do text("<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content=\"width=device-width,initial-scale=1\"><title>Number Lab · RiverFlow</title><style>")
+ do text("*{box-sizing:border-box}body{margin:0;background:#f7f7f1;color:#172c3a;font:16px/1.55 system-ui,-apple-system,sans-serif}button,input,select{font:inherit}button{cursor:pointer}button,input,select{min-height:44px;border-radius:12px;border:1px solid #b9c9d1;padding:10px 14px}input,select{background:white;color:#172c3a;max-width:100%}button{background:#176fbe;color:white;border-color:#176fbe;font-weight:650}button:hover{background:#125a9a}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #e87b3a;outline-offset:3px}header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 5vw;border-bottom:1px solid #dce5e7}.brand{font-weight:750;font-size:22px;letter-spacing:-.6px}.brand b{color:#176fbe;margin-right:10px}.local{font-size:12px;color:#48705d;border:1px solid #b8d6c0;background:#edf7ed;border-radius:100px;padding:6px 10px}main{max-width:1080px;margin:auto;padding:40px 24px 60px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:1.8px;color:#5e7480;font-weight:700}h1{font-size:clamp(34px,6vw,64px);line-height:1.05;letter-spacing:-2.6px;max-width:700px;margin:14px 0 18px}h2{font-size:22px;letter-spacing:-.5px;margin:0 0 10px}.intro{color:#5d707a;max-width:630px}.layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr);gap:22px;margin-top:30px}.card{background:white;border:1px solid #dce5e7;border-radius:24px;padding:26px;box-shadow:0 10px 30px #172c3a05}.explore{grid-row:span 2}.hero-number{font-size:88px;line-height:1;font-weight:750;letter-spacing:-5px;margin:22px 0}.subtle{font-size:13px;color:#607780}.bits{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px;margin:24px 0}.bits form{margin:0;min-width:0}.bit{width:100%;padding:12px 0;border-radius:14px;background:#eef2f5;color:#506b7b;border-color:#dbe5ec;font-size:21px}.bit.on{background:#176fbe;color:white;border-color:#176fbe}.bit small{display:block;font-size:10px;font-weight:500;opacity:.8;margin-top:4px}.bit:hover{background:#d6e6f4;color:#173f63}.bit.on:hover{background:#125a9a;color:white}.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}.tile{background:#f5f8fa;padding:15px;border-radius:14px}.tile strong{display:block;font:700 24px/1.4 ui-monospace,monospace}.field{display:block;font-size:13px;font-weight:650;margin:14px 0 6px}.row{display:flex;align-items:end;gap:9px;flex-wrap:wrap}.row label{flex:1;min-width:80px}.row input,.row select{width:100%}.gate-answer{font-size:20px;font-weight:700;margin:20px 0 0;color:#176fbe}.notice{margin-top:24px;padding:15px 18px;border:1px solid #b8d6c0;background:#edf7ed;border-radius:14px;color:#285f43}.notice.try{background:#fff2e5;border-color:#f0d2ad;color:#805329}.quizline{font:700 28px/1.5 ui-monospace,monospace;letter-spacing:-1px;margin:15px 0}.quiet{background:white;color:#476575;border-color:#cbd8df}.quiet:hover{background:#edf3f7}.footer{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-top:24px;font-size:12px;color:#607780}footer form{margin:0}@media(max-width:780px){.layout{grid-template-columns:1fr}.explore{grid-row:auto}.hero-number{font-size:72px}.card{padding:22px}main{padding:28px 16px 44px}h1{letter-spacing:-1.6px}}@media(max-width:500px){.bits{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(max-width:400px){.local{display:none}.bits{gap:8px}.bit{font-size:17px;border-radius:9px}.bit small{font-size:8px}.pair{gap:8px}.tile{padding:12px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}")
+ do text("</style></head><body><header><div class=brand><b>RF²</b>Number Lab</div><span class=local>Private local playground</span></header><main><p class=eyebrow>Small switches / curious minds</p><h1>Tiny bits.<br>Big ideas.</h1><p class=intro>A byte is eight little switches. Turn them on and off, build a number, then try a logic puzzle. Every answer is calculated here in RiverFlow.</p>")
+ if lab.message
+  if lab.message==5
+   do text("<p class=\"notice try\" role=status>Not quite. AND needs two 1 inputs. Have another try.</p>")
+  else
+   do text("<p class=notice role=status>")
+   if lab.message==4
+    do text("You got it! AND is 1 only when both inputs are 1.")
+   else
+    if lab.message==3
+     do text("Your new question is ready. Think about the two switches.")
+    else
+     do text("Nice exploration. The number and its eight switches now agree.")
+    end
+   end
+   do text("</p>")
+  end
+ end
+ do text("<div class=layout><section class=\"card explore\" aria-labelledby=byte-heading><h2 id=byte-heading>Your byte</h2><span class=subtle>Decimal number</span><div class=hero-number id=decimal>")
+ do decimal(lab.value)
+ do text("</div><div class=bits aria-label=\"Eight clickable binary switches\">")
+ while i<8
+  set value = (lab.value>>(7-i))&1
+  do text("<form action=/play method=post>")
+  do hidden(lab)
+  do text("<input type=hidden name=action value=show><input type=hidden name=value value=\"")
+  do decimal(xor_byte(lab.value,weight))
+  do text("\"><button class=\"bit")
+  if value
+   do text(" on")
+  end
+  do text("\" aria-label=\"Toggle bit ")
+  do decimal(weight)
+  do text("\" aria-pressed=\"")
+  if value
+   do text("true")
+  else
+   do text("false")
+  end
+  do text("\">")
+  do decimal(value)
+  do text("<small>")
+  do decimal(weight)
+  do text("</small></button></form>")
+  set weight = weight>>1
+  set i = i+1
+ end
+ do text("</div><p class=subtle>Each switch adds the number underneath it. Blue means on.</p><div class=pair><div class=tile><span class=subtle>Hexadecimal</span><strong id=hex>")
+ do store8(one,load8(alphabet+(lab.value>>4)))
+ do text(one)
+ do store8(one,load8(alphabet+(lab.value&15)))
+ do text(one)
+ do text("</strong></div><div class=tile><span class=subtle>ASCII character</span><strong id=ascii>")
+ if (lab.value>=32)&(lab.value<=126)
+  if lab.value==38
+   do text("&amp;")
+  else
+   if lab.value==60
+    do text("&lt;")
+   else
+    if lab.value==62
+     do text("&gt;")
+    else
+     if lab.value==34
+      do text("&quot;")
+     else
+      if lab.value==39
+       do text("&#39;")
+      else
+       if lab.value==32
+        do text("space")
+       else
+        do store8(one,lab.value)
+        do text(one)
+       end
+      end
+     end
+    end
+   end
+  end
+ else
+  if lab.value<128
+   do text("control")
+  else
+   do text("not ASCII")
+  end
+ end
+ do text("</strong></div></div><form action=/play method=post>")
+ do hidden(lab)
+ do text("<input type=hidden name=action value=show><label class=field for=byte-value>Or choose any byte from 0 to 255</label><div class=row><input id=byte-value name=value type=number min=0 max=255 step=1 required value=\"")
+ do decimal(lab.value)
+ do text("\"><button>Explore</button></div></form></section><section class=card aria-labelledby=gate-heading><h2 id=gate-heading>Build a gate</h2><p class=subtle>AND keeps shared bits. OR keeps either. XOR keeps different bits. NOT flips the first byte.</p><form action=/play method=post>")
+ do hidden(lab)
+ do text("<input type=hidden name=action value=gate><div class=row><label><span class=field>First byte</span><input name=a type=number min=0 max=255 step=1 required value=\"")
+ do decimal(lab.a)
+ do text("\"></label><label><span class=field>Gate</span><select name=op aria-label=Gate>")
+ set i = 1
+ while i<=4
+  do text("<option value=\"")
+  if i==1
+   do text("and")
+  else
+   if i==2
+    do text("or")
+   else
+    if i==3
+     do text("xor")
+    else
+     do text("not")
+    end
+   end
+  end
+  do text("\"")
+  if lab.op==i
+   do text(" selected")
+  end
+  do text(">")
+  if i==1
+   do text("AND")
+  else
+   if i==2
+    do text("OR")
+   else
+    if i==3
+     do text("XOR")
+    else
+     do text("NOT")
+    end
+   end
+  end
+  do text("</option>")
+  set i = i+1
+ end
+ do text("</select></label><label><span class=field>Second byte</span><input name=b type=number min=0 max=255 step=1 required value=\"")
+ do decimal(lab.b)
+ do text("\"></label></div><p class=subtle>For NOT, the second byte is ignored.</p><button>Try gate</button></form><p class=gate-answer>Result: <output id=gate-result>")
+ do decimal(lab.result)
+ do text("</output></p></section><section class=card aria-labelledby=quiz-heading><h2 id=quiz-heading>A tiny challenge</h2>")
+ if lab.quiz
+  do text("<p class=quizline>")
+  do decimal(lab.qa)
+  do text(" AND ")
+  do decimal(lab.qb)
+  do text(" = ?</p><form action=/play method=post>")
+  do hidden(lab)
+  do text("<input type=hidden name=action value=answer><div class=row><button name=value value=0>Answer 0</button><button name=value value=1>Answer 1</button></div></form>")
+ else
+  do text("<p class=subtle>Choose two single bits, then predict their AND result.</p>")
+ end
+ do text("<form action=/play method=post>")
+ do hidden(lab)
+ do text("<input type=hidden name=action value=quiz><div class=row><label><span class=field>First bit</span><input name=a type=number min=0 max=1 step=1 required value=1></label><label><span class=field>Second bit</span><input name=b type=number min=0 max=1 step=1 required value=0></label></div><p><button class=quiet>New question</button></p></form><p class=subtle>Questions solved: <output id=score>")
+ do decimal(lab.correct)
+ do text("</output></p></section></div><footer class=footer><span>Runs on this Mac. Nothing is uploaded. This learning game stores nothing after it closes.</span><form action=/quit method=post>")
+ do hidden(lab)
+ do text("<button class=quiet>Close playground</button></form></footer></main></body></html>")
+ return load64(globals()+88)==0
+end
+fn hex_digit(c)
+ if (c>=48)&(c<=57)
+  return c-48
+ end
+ if (c>=65)&(c<=70)
+  return c-55
+ end
+ if (c>=97)&(c<=102)
+  return c-87
+ end
+ return 256
+end
+fn decode(p,n,out,max)
+ let i = 0
+ let used = 0
+ let c = 0
+ let a = 0
+ let b = 0
+ while i<n
+  if used>=max
+   return -1
+  end
+  set c = load8(p+i)
+  if c==43
+   set c = 32
+  else
+   if c==37
+    if i+2>=n
+     return -1
+    end
+    set a = hex_digit(load8(p+i+1))
+    set b = hex_digit(load8(p+i+2))
+    if (a>15)|(b>15)
+     return -1
+    end
+    set c = a*16+b
+    set i = i+2
+   end
+  end
+  if (c<32)|(c>126)
+   return -1
+  end
+  do store8(out+used,c)
+  set used = used+1
+  set i = i+1
+ end
+ do store8(out+used,0)
+ return used
+end
+fn form(p,n,lab:Lab,quit)
+ let pos = 0
+ let end = 0
+ let sep = 0
+ let kn = 0
+ let vn = 0
+ let flags = 0
+ let bit = 0
+ let action = 0
+ let operation = 0
+ let value = 0
+ let a = 0
+ let b = 0
+ let revision = 0
+ let token_ok = 0
+ let k = buffer("number_web_form_key",17)
+ let v = buffer("number_web_form_value",65)
+ if (n==0)|(n>256)
+  return 0
+ end
+ while pos<n
+  set end = pos
+  while (end<n)&(load8(p+end)!=38)
+   set end = end+1
+  end
+  set sep = pos
+  while (sep<end)&(load8(p+sep)!=61)
+   set sep = sep+1
+  end
+  if sep==end
+   return 0
+  end
+  set kn = decode(p+pos,sep-pos,k,16)
+  set vn = decode(p+sep+1,end-sep-1,v,64)
+  if (kn>>63)|(vn>>63)
+   return 0
+  end
+  set bit = 0
+  if same(k,kn,"token")
+   set bit = 1
+   set token_ok = same(v,vn,buffer("number_web_token",33))
+  end
+  if same(k,kn,"rev")
+   set bit = 2
+   set revision = unsigned(v,vn,4096)
+   if revision>>63
+    return 0
+   end
+  end
+  if same(k,kn,"action")
+   set bit = 4
+   if same(v,vn,"show")
+    set action = 1
+   else
+    if same(v,vn,"gate")
+     set action = 2
+    else
+     if same(v,vn,"quiz")
+      set action = 3
+     else
+      if same(v,vn,"answer")
+       set action = 4
+      else
+       return 0
+      end
+     end
+    end
+   end
+  end
+  if same(k,kn,"value")
+   set bit = 8
+   set value = unsigned(v,vn,255)
+   if value>>63
+    return 0
+   end
+  end
+  if same(k,kn,"a")
+   set bit = 16
+   set a = unsigned(v,vn,255)
+   if a>>63
+    return 0
+   end
+  end
+  if same(k,kn,"b")
+   set bit = 32
+   set b = unsigned(v,vn,255)
+   if b>>63
+    return 0
+   end
+  end
+  if same(k,kn,"op")
+   set bit = 64
+   if same(v,vn,"and")
+    set operation = 1
+   else
+    if same(v,vn,"or")
+     set operation = 2
+    else
+     if same(v,vn,"xor")
+      set operation = 3
+     else
+      if same(v,vn,"not")
+       set operation = 4
+      else
+       return 0
+      end
+     end
+    end
+   end
+  end
+  if (bit==0)|((flags&bit)!=0)
+   return 0
+  end
+  set flags = flags|bit
+  if end+1==n
+   return 0
+  end
+  set pos = end+1
+ end
+ if (flags&3)!=3
+  return 0
+ end
+ if token_ok==0
+  return 2
+ end
+ if revision!=lab.revision
+  return 3
+ end
+ if quit
+  if flags!=3
+   return 0
+  end
+  return 1
+ end
+ if ((action==1)|(action==4))&(flags!=15)
+  return 0
+ end
+ if (action==2)&(flags!=119)
+  return 0
+ end
+ if (action==3)&(flags!=55)
+  return 0
+ end
+ if action==0
+  return 0
+ end
+ if action==1
+  set lab.value = value
+  set lab.message = 1
+ end
+ if action==2
+  set lab.a = a
+  set lab.b = b
+  set lab.op = operation
+  if operation==1
+   set lab.result = a&b
+  end
+  if operation==2
+   set lab.result = a|b
+  end
+  if operation==3
+   set lab.result = xor_byte(a,b)
+  end
+  if operation==4
+   set lab.result = xor_byte(a,255)
+  end
+  set lab.value = lab.result
+  set lab.message = 2
+ end
+ if action==3
+  if (a>1)|(b>1)
+   return 0
+  end
+  set lab.quiz = 1
+  set lab.qa = a
+  set lab.qb = b
+  set lab.message = 3
+ end
+ if action==4
+  if (value>1)|(lab.quiz==0)
+   return 0
+  end
+  if value==(lab.qa&lab.qb)
+   set lab.correct = lab.correct+1
+   set lab.quiz = 0
+   set lab.message = 4
+  else
+   set lab.message = 5
+  end
+ end
+ set lab.revision = lab.revision+1
+ return 1
+end
+fn request(fd)
+ let data = buffer("number_web_request",4353)
+ let n = 0
+ let got = 0
+ let end = 0
+ let first = 0
+ let sep = 0
+ let space = 0
+ let pos = 0
+ let line = 0
+ let colon = 0
+ let value = 0
+ let length = 0
+ let host = 0
+ let origin = 0
+ let length_seen = 0
+ let type_seen = 0
+ let total = 0
+ let body = 0
+ let i = 0
+ let c = 0
+ let start = vm_clock_ticks()
+ do store64(globals()+8,0)
+ do store64(globals()+16,0)
+ do store64(globals()+24,0)
+ do store64(globals()+32,0)
+ while (end==0)&(n<4096)
+  set got = receive(fd,data+n,4096-n,start)
+  if got==0
+   return 0
+  end
+  set n = n+got
+  do store64(globals()+32,n)
+  set end = find(data,n,"\r\n\r\n",4)
+ end
+ if end==0
+  return 0
+ end
+ set body = end+3
+ set first = find(data,body,"\r\n",2)
+ if (first==0)|(first>256)
+  return 0
+ end
+ set sep = find(data,first-1," ",1)
+ if sep==0
+  return 0
+ end
+ if same(data,sep-1,"GET")
+  do store64(globals()+8,1)
+ else
+  if same(data,sep-1,"POST")
+   do store64(globals()+8,2)
+  else
+   return 0
+  end
+ end
+ set space = find(data+sep,first-sep-1," ",1)
+ if (space==0)|(space>31)
+  return 0
+ end
+ set i = 0
+ while i<space-1
+  set c = load8(data+sep+i)
+  if (c<33)|(c>126)
+   return 0
+  end
+  set i = i+1
+ end
+ do copy(buffer("number_web_target",32),data+sep,space-1)
+ do store8(buffer("number_web_target",32)+space-1,0)
+ if same(data+sep+space,first-1-sep-space,"HTTP/1.1")==0
+  return 0
+ end
+ set pos = first+1
+ while pos<end-1
+  set line = find(data+pos,body-pos,"\r\n",2)
+  if (line==0)|(line>1024)
+   return 0
+  end
+  set line = line-1
+  set colon = find(data+pos,line,":",1)
+  if (colon==0)|(colon==1)
+   return 0
+  end
+  set i = 0
+  while i<colon-1
+   set c = load8(data+pos+i)
+   if ((c<65)|(c>90))&((c<97)|(c>122))&((c<48)|(c>57))&(c!=45)
+    return 0
+   end
+   set i = i+1
+  end
+  set value = pos+colon
+  set length = line-colon
+  while (length>0)&((load8(data+value)==32)|(load8(data+value)==9))
+   set value = value+1
+   set length = length-1
+  end
+  set i = 0
+  while i<length
+   set c = load8(data+value+i)
+   if ((c<32)&(c!=9))|(c>126)
+    return 0
+   end
+   set i = i+1
+  end
+  if key(data+pos,colon-1,"host")
+   if host
+    return 0
+   end
+   set host = 1
+   if same(data+value,length,buffer("number_web_host",64))==0
+    return 0
+   end
+  end
+  if key(data+pos,colon-1,"origin")
+   if origin
+    return 0
+   end
+   set origin = 1
+   if same(data+value,length,buffer("number_web_url",96))==0
+    return 0
+   end
+  end
+  if key(data+pos,colon-1,"content-length")
+   if length_seen
+    return 0
+   end
+   set length_seen = 1
+   set total = unsigned(data+value,length,256)
+   if total>>63
+    return 0
+   end
+  end
+  if key(data+pos,colon-1,"content-type")
+   if type_seen
+    return 0
+   end
+   set type_seen = 1
+   if same(data+value,length,"application/x-www-form-urlencoded")==0
+    return 0
+   end
+  end
+  if key(data+pos,colon-1,"transfer-encoding")|key(data+pos,colon-1,"expect")
+   return 0
+  end
+  set pos = pos+line+2
+ end
+ if host==0
+  return 0
+ end
+ if load64(globals()+8)==2
+  if (origin==0)|(length_seen==0)|(type_seen==0)
+   return 0
+  end
+ else
+  if (total!=0)|type_seen
+   return 0
+  end
+ end
+ if n>body+total
+  return 0
+ end
+ while n<body+total
+  set got = receive(fd,data+n,body+total-n,start)
+  if got==0
+   return 0
+  end
+  set n = n+got
+ end
+ do store64(globals()+16,data+body)
+ do store64(globals()+24,total)
+ return 1
+end
+fn handle(fd,lab:Lab)
+ let target = buffer("number_web_target",32)
+ let method = load64(globals()+8)
+ let result = 0
+ if method==1
+  if same(target,size(target),"/")
+   if page(lab)==0
+    return bad(fd,"500 Internal Server Error")
+   end
+   return respond(fd,"200 OK",0)
+  end
+  return bad(fd,"404 Not Found")
+ end
+ if same(target,size(target),"/play")|same(target,size(target),"/quit")
+  set result = form(load64(globals()+16),load64(globals()+24),lab,same(target,size(target),"/quit"))
+  if result==2
+   return bad(fd,"403 Forbidden")
+  end
+  if result==3
+   return bad(fd,"409 Conflict")
+  end
+  if result==0
+   return bad(fd,"400 Bad Request")
+  end
+  do reset_output()
+  if same(target,size(target),"/quit")
+   do store64(globals()+40,1)
+   do text("<!doctype html><html lang=en><meta charset=utf-8><title>Number Lab closed</title><h1>See you next time!</h1><p>The private playground is closed.</p></html>")
+   return respond(fd,"200 OK",0)
+  end
+  return respond(fd,"303 See Other",1)
+ end
+ return bad(fd,"404 Not Found")
+end
+fn main(argc,argv)
+ if argc!=1
+  return 1
+ end
+ if clock_timebase(buffer("number_web_timebase",8))!=0
+  return 1
+ end
+ if (load32(buffer("number_web_timebase",8))==0)|(load32(buffer("number_web_timebase",8)+4)==0)
+  return 1
+ end
+ let server = syscall6(97,2,1,0,0,0,0)
+ if server>>63
+  return 1
+ end
+ let address = buffer("number_web_address",16)
+ let address_size = buffer("number_web_address_size",4)
+ do store8(address,16)
+ do store8(address+1,2)
+ do store8(address+4,127)
+ do store8(address+7,1)
+ if syscall6(104,server,address,16,0,0,0)!=0
+  do close(server)
+  return 1
+ end
+ do store32(address_size,16)
+ if syscall6(32,server,address,address_size,0,0,0)!=0
+  do close(server)
+  return 1
+ end
+ if syscall6(106,server,8,0,0,0,0)!=0
+  do close(server)
+  return 1
+ end
+ let lab = Lab(65,12,10,1,8,0,1,0,0,0,0)
+ set lab.result = lab.a&lab.b
+ let nonce = buffer("number_web_nonce",16)
+ let fd = open("/dev/urandom",0,0)
+ if fd>>63
+  do close(server)
+  return 1
+ end
+ let i = 0
+ let got = 0
+ while i<16
+  set got = read(fd,nonce+i,16-i)
+  if (got==0)|(got>>63)
+   do close(fd)
+   do close(server)
+   return 1
+  end
+  set i = i+got
+ end
+ do close(fd)
+ let alphabet = "0123456789abcdef"
+ set i = 0
+ while i<16
+  do store8(buffer("number_web_token",33)+i*2,load8(alphabet+(load8(nonce+i)>>4)))
+  do store8(buffer("number_web_token",33)+i*2+1,load8(alphabet+(load8(nonce+i)&15)))
+  set i = i+1
+ end
+ do reset_output()
+ do text("127.0.0.1:")
+ do decimal(load8(address+2)*256+load8(address+3))
+ do copy(buffer("number_web_host",64),buffer("number_web_output",32768),load64(globals()+80))
+ do reset_output()
+ do text("http://")
+ do text(buffer("number_web_host",64))
+ do copy(buffer("number_web_url",96),buffer("number_web_output",32768),load64(globals()+80))
+ do write(1,buffer("number_web_url",96),size(buffer("number_web_url",96)))
+ do write(1,"/\n",2)
+ let poll = buffer("number_web_poll",72)
+ do store32(poll,server)
+ do store32(poll+4,1)
+ set i = 1
+ while i<9
+  do store32(poll+i*8,4294967295)
+  do store32(poll+i*8+4,1)
+  set i = i+1
+ end
+ let option = buffer("number_web_socket_option",8)
+ let client = 0
+ let requests = 0
+ let flags = 0
+ while (load64(globals()+40)==0)&(requests<4096)
+  set got = syscall6(230,poll,9,1000,0,0,0)
+  if got>>63
+   do store64(globals()+40,1)
+  else
+   set i = 1
+   while (i<9)&(load64(globals()+40)==0)&(requests<4096)
+    set client = load32(poll+i*8)
+    if (client!=4294967295)&((load32(poll+i*8+4)>>16)!=0)
+     if request(client)
+      do handle(client,lab)
+     else
+      if load64(globals()+32)!=0
+       do bad(client,"400 Bad Request")
+      end
+     end
+     do close(client)
+     do store32(poll+i*8,4294967295)
+     set requests = requests+1
+    end
+    set i = i+1
+   end
+   if ((load32(poll+4)>>16)!=0)&(load64(globals()+40)==0)
+    set client = syscall6(30,server,0,0,0,0,0)
+    if (client>>63)==0
+     set flags = syscall6(92,client,3,0,0,0,0)
+     if (flags>>63)==0
+      if syscall6(92,client,4,flags|4,0,0,0)==0
+       do store32(option,1)
+       do syscall6(105,client,65535,4130,option,4,0)
+       set i = 1
+       while (i<8)&(load32(poll+i*8)!=4294967295)
+        set i = i+1
+       end
+       if load32(poll+i*8)!=4294967295
+        do close(load32(poll+i*8))
+       end
+       do store32(poll+i*8,client)
+       do store32(poll+i*8+4,1)
+      else
+       do close(client)
+      end
+     else
+      do close(client)
+     end
+    end
+   end
+  end
+ end
+ set i = 1
+ while i<9
+  set client = load32(poll+i*8)
+  if client!=4294967295
+   do close(client)
+  end
+  set i = i+1
+ end
+ do close(server)
+ return 0
+end
