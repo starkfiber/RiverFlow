@@ -3521,6 +3521,9 @@ fn generate()
  let main = 18446744073709551615
  let save_offset = 0
  let reg = 0
+ let reuse_fixups = 0
+ let reuse_labels = 0
+ let reuse_objects = 0
  while f < load64(state() + 40)
   if tmatch(load64(ftable(f)), "main")
    set main = f
@@ -3544,6 +3547,10 @@ fn generate()
   do store64(state() + 24, load64(p + 16))
   do store64(function_code(f),load64(state()+56))
   do label(load64(p + 40))
+  if reuse_try(f)==0
+  set reuse_fixups = load64(state()+64)
+  set reuse_labels = load64(state()+48)
+  set reuse_objects = load64(state()+72)
   set frame = (load64(p + 32) * 8 + 15) & 18446744073709551600
   set save_offset = frame
   if (load64(state() + 152) != 0) & (load64(function_leaf(f)) == 0)
@@ -3592,6 +3599,8 @@ fn generate()
    do emit(2831252477)
   end
   do emit(3596551104)
+  do reuse_capture(f,reuse_fixups,reuse_labels,reuse_objects)
+  end
   do store64(function_code(f)+8,load64(state()+56)-load64(function_code(f)))
   set f = f + 1
  end
@@ -4456,15 +4465,336 @@ fn write_function_map(path)
  do require(close(fd)==0,"function map close failed")
  return 0
 end
+# Trusted private cache, deliberately limited to scalar single-expression helpers.
+fn reuse_state()
+ return buffer("reuse_state",128)
+end
+fn reuse_unit(f)
+ return buffer("reuse_units",32768)+f*128
+end
+fn reuse_read(fd,p,max)
+ let stat = buffer("reuse_stat",144)
+ let n = 0
+ let got = 0
+ if syscall6(339,fd,stat,0,0,0,0)!=0
+  do close(fd)
+  return -1
+ end
+ if ((load32(stat+4)&61440)!=32768)|(load64(stat+96)>max)
+  do close(fd)
+  return -1
+ end
+ if (load32(stat+16)!=syscall6(24,0,0,0,0,0,0))|((load32(stat+4)&511)!=384)|((load32(stat+4)>>16)!=1)
+  do close(fd)
+  return -1
+ end
+ while n<=max
+  set got = read(fd,p+n,max+1-n)
+  if got>>63
+   do close(fd)
+   return -1
+  end
+  if got==0
+   do close(fd)
+   return n
+  end
+  set n = n+got
+ end
+ do close(fd)
+ return -1
+end
+fn reuse_init(path)
+ let root = open(path,0x1100104,0)
+ do require((root>>63)==0,"function cache requires existing private directory")
+ let stat = buffer("reuse_stat",144)
+ do require(syscall6(339,root,stat,0,0,0,0)==0,"function cache stat failed")
+ do require((load32(stat+4)&61440)==16384,"function cache requires directory")
+ do require(load32(stat+16)==syscall6(24,0,0,0,0,0,0),"function cache owner mismatch")
+ do require((load32(stat+4)&63)==0,"function cache permissions must exclude group and other")
+ do require(syscall6(131,root,6,0,0,0,0)==0,"function cache busy")
+ # Kernel-reported process path avoids trusting caller-selected argv[0].
+ let self = buffer("reuse_compiler_path",1024)
+ let path_size = syscall6(336,2,syscall6(20,0,0,0,0,0,0),11,0,self,1024)
+ do require(((path_size>>63)==0)&(load8(self)==47)&(load8(self+1023)==0),"compiler process path unavailable")
+ let fd = open(self,0x1000104,0)
+ do require((fd>>63)==0,"compiler process file unavailable")
+ do require(syscall6(339,fd,stat,0,0,0,0)==0,"compiler identity stat failed")
+ let n = load64(stat+96)
+ do require(((load32(stat+4)&61440)==32768)&(n>0)&(n<=67108864),"compiler identity size bound")
+ let ptr = syscall6(197,0,n,1,2,fd,0)
+ do require(ptr!=18446744073709551615,"compiler identity mapping failed")
+ do cp(reuse_state()+32,sha256(ptr,n),32)
+ do require(syscall6(73,ptr,n,0,0,0,0)==0,"compiler identity unmap failed")
+ do require(close(fd)==0,"compiler identity close failed")
+ do store64(reuse_state(),root+1)
+ do cp(reuse_state()+64,map_context_digest(),32)
+ return 0
+end
+# Parse the same precedence/comparison rules without generating instructions.
+# Only own scalar parameters and numeric literals are admitted as atoms.
+fn reuse_expression(f,minimum,depth)
+ if depth>=64
+  return 0
+ end
+ let i = load64(state()+24)
+ let slot = 0
+ let found = 0
+ let comparison = 0
+ let precedence_value = 0
+ if match("-")|match("~")
+  do advance()
+  if reuse_expression(f,8,depth+1)==0
+   return 0
+  end
+ else
+  if match("(")
+   do advance()
+   if reuse_expression(f,1,depth+1)==0
+    return 0
+   end
+   if match(")")==0
+    return 0
+   end
+   do advance()
+  else
+   if load64(token(i))==2
+    do advance()
+   else
+    if load64(token(i))!=1
+     return 0
+    end
+    while slot<load64(ftable(f)+8)
+     if name_equal(load64(local(f,slot)),i)
+      set found = 1
+     end
+     set slot = slot+1
+    end
+    if found==0
+     return 0
+    end
+    do advance()
+   end
+  end
+ end
+ set precedence_value = precedence(load64(state()+24))
+ while (precedence_value!=0)&(precedence_value>=minimum)
+  if precedence_value==1
+   if comparison
+    return 0
+   end
+   set comparison = 1
+  end
+  do advance()
+  if reuse_expression(f,precedence_value+1,depth+1)==0
+   return 0
+  end
+  set precedence_value = precedence(load64(state()+24))
+ end
+ return 1
+end
+fn reuse_eligible(f)
+ let p = ftable(f)
+ let i = 0
+ let saved = load64(state()+24)
+ let ok = 0
+ if tmatch(load64(p),"main")|(load64(function_result(f))!=0)|(load64(cleanup_count(f))!=0)
+  return 0
+ end
+ if load64(p+32)!=load64(p+8)
+  return 0
+ end
+ while i<load64(p+8)
+  if load64(local_type(f,i))!=0
+   return 0
+  end
+  set i = i+1
+ end
+ do store64(state()+24,load64(p+16))
+ while load64(token(load64(state()+24)))==5
+  do advance()
+ end
+ if match("return")
+  do advance()
+  if reuse_expression(f,1,0)
+   if load64(token(load64(state()+24)))==5
+    do advance()
+    while load64(token(load64(state()+24)))==5
+     do advance()
+    end
+    if match("end")
+     do advance()
+     if load64(token(load64(state()+24)))==5
+      do advance()
+      if load64(state()+24)==load64(p+24)
+       set ok = 1
+      end
+     end
+    end
+   end
+  end
+ end
+ do store64(state()+24,saved)
+ return ok
+end
+fn reuse_name(key)
+ let out = buffer("reuse_name",96)
+ let alphabet = "0123456789abcdef"
+ let i = 0
+ while i<32
+  do store8(out+i*2,load8(alphabet+(load8(key+i)>>4)))
+  do store8(out+i*2+1,load8(alphabet+(load8(key+i)&15)))
+  set i = i+1
+ end
+ do cp(out+64,".fn",4)
+ return out
+end
+fn reuse_try(f)
+ if load64(reuse_state())==0
+  return 0
+ end
+ if load64(image_options()+16)| (reuse_eligible(f)==0)
+  do store64(reuse_state()+24,load64(reuse_state()+24)+1)
+  return 0
+ end
+ let unit = reuse_unit(f)
+ let key = buffer("reuse_key",112)
+ do cp(key,reuse_state()+32,64)
+ do store64(key+64,load64(state()+152))
+ do store64(key+72,load64(image_options()))
+ do cp(key+80,map_token_digest(load64(ftable(f))-1,load64(ftable(f)+24)),32)
+ do cp(unit+8,sha256(key,112),32)
+ do store64(unit,1)
+ let fd = syscall6(463,load64(reuse_state())-1,reuse_name(unit+8),0x1000104,0,0,0)
+ let entry = buffer("reuse_entry",65633)
+ let n = -1
+ if (fd>>63)==0
+  set n = reuse_read(fd,entry,65632)
+ end
+ if n>=96
+  if n<=65632
+   let bytes = load64(entry+72)
+   let epilogue = load64(entry+80)
+   let fixup = load64(entry+88)
+   if (bytes+96==n)&(bytes>0)&((bytes&3)==0)&(bytes<=65536)&(epilogue<bytes)&(fixup<bytes)&(((fixup|epilogue)&3)==0)
+    if same(entry,8,"RF2FN001",8)&same(entry+8,32,unit+8,32)
+     if same(entry+40,32,sha256(entry+72,bytes+24),32)&(load32(entry+96+fixup)==335544320)&(load32(entry+96+bytes-4)==3596551104)
+      let start = load64(state()+56)
+      do require(start+bytes<=1048576,"code bound")
+      do cp(buffer("code",1048576)+start,entry+96,bytes)
+      let exit_label = next_label()
+      do store64(state()+88,exit_label)
+      do store64(buffer("labels",524288)+exit_label*8,start+epilogue)
+      do store64(state()+56,start+fixup)
+      do fix(1,exit_label)
+      do store64(state()+56,start+bytes)
+      do store64(state()+24,load64(ftable(f)+24))
+      do store64(state()+136,0)
+      do store64(state()+232,0)
+      do store64(unit,2)
+      do store64(reuse_state()+8,load64(reuse_state()+8)+1)
+      return 1
+     end
+    end
+   end
+  end
+ end
+ do store64(reuse_state()+16,load64(reuse_state()+16)+1)
+ return 0
+end
+fn reuse_capture(f,fixup_start,label_start,objects)
+ let unit = reuse_unit(f)
+ if load64(unit)!=1
+  return 0
+ end
+ let start = load64(function_code(f))
+ let n = load64(state()+56)-start
+ let fixup = buffer("fixups",1048576)+fixup_start*24
+ let exit_label = load64(state()+88)
+ if (n>65536)|(n==0)|(load64(state()+64)!=fixup_start+1)|(load64(state()+48)!=label_start+1)|(load64(state()+72)!=objects)
+  do store64(unit,0)
+  return 0
+ end
+ if (load64(fixup+8)!=1)|(load64(fixup+16)!=exit_label)
+  do store64(unit,0)
+  return 0
+ end
+ do store64(unit+40,start)
+ do store64(unit+48,n)
+ do store64(unit+56,load64(buffer("labels",524288)+exit_label*8)-start)
+ do store64(unit+64,load64(fixup)-start)
+ do cp(buffer("reuse_pending",1048576)+start,buffer("code",1048576)+start,n)
+ do store64(unit,3)
+ return 0
+end
+fn reuse_finish(path)
+ if load64(reuse_state())==0
+  return 0
+ end
+ let root = load64(reuse_state())-1
+ let f = 0
+ let unit = 0
+ let entry = buffer("reuse_entry",65633)
+ let name = buffer("reuse_publish_name",128)
+ let fd = 0
+ let n = 0
+ while f<load64(state()+40)
+  set unit = reuse_unit(f)
+  if load64(unit)==3
+   set n = load64(unit+48)
+   do cp(entry,"RF2FN001",8)
+   do cp(entry+8,unit+8,32)
+   do cp(entry+96,buffer("reuse_pending",1048576)+load64(unit+40),n)
+   do store64(entry+72,n)
+   do store64(entry+80,load64(unit+56))
+   do store64(entry+88,load64(unit+64))
+   do cp(entry+40,sha256(entry+72,n+24),32)
+   do cp(name,reuse_name(unit+8),67)
+   do cp(name+67,".tmp",5)
+   # A held private-directory lock excludes cooperative competing writers.
+   do syscall6(472,root,name,0,0,0,0)
+   set fd = syscall6(463,root,name,0x1000b01,384,0,0)
+   do require((fd>>63)==0,"function unit temporary create failed")
+   do output(fd,entry,n+96)
+   do require(close(fd)==0,"function unit close failed")
+   do require(syscall6(465,root,name,root,reuse_name(unit+8),0,0)==0,"function unit commit failed")
+  end
+  set f = f+1
+ end
+ set n = length(path)
+ do require(n+12<1024,"reuse report path bound")
+ let report_path = buffer("reuse_report_path",1024)
+ do cp(report_path,path,n)
+ do cp(report_path+n,".reuse.json",12)
+ set fd = open(report_path,3585,384)
+ do require((fd>>63)==0,"reuse report exists or cannot be created")
+ do output(fd,"{\"schema\":\"rf2.function.reuse.v1\",\"reused\":",43)
+ do map_number(fd,load64(reuse_state()+8))
+ do output(fd,",\"compiled\":",12)
+ do map_number(fd,load64(reuse_state()+16))
+ do output(fd,",\"ineligible\":",14)
+ do map_number(fd,load64(reuse_state()+24))
+ do output(fd,",\"compilerSHA256\":\"",19)
+ do map_hex(fd,reuse_state()+32,32)
+ do output(fd,"\"}\n",3)
+ do require(close(fd)==0,"reuse report close failed")
+ do close(root)
+ return 0
+end
 fn main(argc, argv)
  let src = 0
  let digest = 0
  let dataoff = 0
  let datasize = 0
- do require((argc>=3)&(argc<=6),"rf2c source new-output [--opt] [--compact] [--functions]")
+ do require((argc>=3)&(argc<=8),"rf2c source new-output [--opt] [--compact] [--functions] [--reuse-cache directory]")
+ let reuse_path = 0
  let option = 3
  while option<argc
   let text = load64(argv+option*8)
+  if same(text,length(text),"--reuse-cache",13)
+   do require((reuse_path==0)&(option+1<argc),"function cache option requires one directory")
+   set option = option+1
+   set reuse_path = load64(argv+option*8)
+  else
   if same(text,length(text),"--opt",5)
    do require(load64(state()+152)==0,"duplicate compiler option")
    do store64(state()+152,1)
@@ -4478,12 +4808,16 @@ fn main(argc, argv)
     do store64(image_options(),1)
    end
   end
+  end
   set option = option+1
  end
  set src = read_source(load64(argv + 8))
  set src = expand_modules(load64(argv + 8), src)
  do tokenize_tail(src, load64(state() + 8), 0, 0)
  do scan_functions()
+ if reuse_path
+  do reuse_init(reuse_path)
+ end
  do generate()
  do layout_image_objects()
  set dataoff = (16384 + load64(state() + 56) + 16383) & 18446744073709535232
@@ -4492,6 +4826,7 @@ fn main(argc, argv)
  set digest = sha256(src, load64(state() + 8))
  do image_header(dataoff, datasize, digest)
  do image(load64(argv + 16), dataoff, datasize)
+ do reuse_finish(load64(argv+16))
  if load64(image_options()+16)
   do write_function_map(load64(argv+16))
  end
