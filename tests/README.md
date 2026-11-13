@@ -28,3 +28,7 @@ For compact images, use compact_image_verify.py with RF2_TEST_COMPILER. To rerun
 ## Heap ownership and `.flow` applications, development0.33
 
 `heap_collection_verify.py` checks bounded allocation/data/moves; `heap_ownership_redteam_verify.py` independently challenges native lifetimes, reentrant borrows, private helper refusal and injected syscall failures. `collection_apps_verify.py` checks both real numeric apps against independent integer/JSON oracles. `flow_modules_verify.py` checks mixed .flow/.rf2 imports and refuses unsupported targets. Set RF2_TEST_COMPILER explicitly. See [contract and exact final receipts](../docs/HEAP-COLLECTIONS-0.33.md); no embedded hardware, universal memory-safety or speed result is established.
+
+## ESP32-C3 development0.34
+
+`embedded_verify.py` independently qualifies generated RV32 instructions/images, actual vendor-QEMU ROM boot, arithmetic/call frames and refusals. `esp32c3_uart_verify.py` executes UART TX/RX and timeout cases. The board example's host and RV32 controllers keep scripted sensor-bus responses separate from real sensor acquisition. See [exact contracts, commands and evidence](../docs/ESP32C3-0.34.md). A different CPU/emulator is not physical hardware qualification.

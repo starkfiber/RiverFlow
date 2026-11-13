@@ -1,0 +1,8 @@
+{
+  "metadataURL": "https://raw.githubusercontent.com/espressif/esp-idf/v6.1/tools/tools.json",
+  "metadataSHA256": "039337e5ee2511f97d112aedb98125945625a4dd9ffb67e0cbb094edcdd298b2",
+  "version": "esp_develop_9.2.2_20260417",
+  "sha256": "67bff66ff7158f272ce167fc211c0f8f4c1a79b6f6174350678a6d5035644b30",
+  "size": 3763728,
+  "url": "https://github.com/espressif/qemu/releases/download/esp-develop-9.2.2-20260417/qemu-riscv32-softmmu-esp_develop_9.2.2_20260417-aarch64-apple-darwin.tar.xz"
+}

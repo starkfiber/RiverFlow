@@ -1,0 +1,72 @@
+{
+  "schema": "rf2.esp32c3.qualification.v1",
+  "passed": true,
+  "host": "macos-arm64",
+  "target": "ESP32-C3 RV32IM+Zicsr startup; ROM-loaded RAM subset",
+  "compilerSHA256": "4da23828e1ffdec7e361412e2eed54605ff902ec0ab78c9a38d28d6807524f02",
+  "backendSourceSHA256": "2b501d4b7a0a5cd4efc7df9ee6192dde3bf474ae1e89d66ebf567accf5384225",
+  "macCompilerUnchangedSHA256": "3d2e7d65cc545c116b9c75aaabb10b0906f5b3cb7cdf9a3c29fa5c3ab51665d7",
+  "independentInstructionWords": 16147,
+  "independentEmulatorPrograms": 4,
+  "arithmeticAssertions": 176,
+  "compileRefusals": 22,
+  "outputRefusals": 4,
+  "uartTxRxCases": 4,
+  "hostProtocolModelCases": 464,
+  "rv32ProtocolModelCases": 4,
+  "physicalHardwareTested": false,
+  "physicalTemperatureMeasured": false,
+  "sdkPassed": true,
+  "sdkLogSHA256": "51fb0de0a559c41801b288b774d07bb92643abd124614262a0634f11a11e2966",
+  "receipts": [
+    {
+      "file": "ESP32C3-0.34-BOARD.json",
+      "sha256": "d0d27c59a05255b296caecb8413367d2fca25df2d08581b2183fad0771acd85c"
+    },
+    {
+      "file": "ESP32C3-0.34-BUILD-REPEAT.json",
+      "sha256": "47982cb390a8633d967835f55bbf86b7c7ae3c17746cd27a1eddf739191d2580"
+    },
+    {
+      "file": "ESP32C3-0.34-ENGINE.json",
+      "sha256": "29632ff619a9c4921130c60a2ee4351781ae5f674aeb5f5c98fd3d1c5092c6b0"
+    },
+    {
+      "file": "ESP32C3-0.34-MCP.json",
+      "sha256": "fdf2eeef26f20d3ef7a2b8a7c7fb2d4563c6fdc933447b62d3f7136562a3a883"
+    },
+    {
+      "file": "ESP32C3-0.34-ORACLES.json",
+      "sha256": "75e894b841bf34ab7565f0979dbfc0c96bca79512e4af20f7c6c27604813baf2"
+    },
+    {
+      "file": "ESP32C3-0.34-PROTOCOL.json",
+      "sha256": "a21f9a555429c4baccef9eb41788cb99afda397138812f23b74bff623828b546"
+    },
+    {
+      "file": "ESP32C3-0.34-QEMU.json",
+      "sha256": "90e9c156cdfe5240bedb28218054f82c748a1c989a9390169364eb1b71fc17b1"
+    },
+    {
+      "file": "ESP32C3-0.34-REVIEW.json",
+      "sha256": "8784d22f9d411a379fa507e37bc0819cc46aa56634a77216f314844322fda2a4"
+    },
+    {
+      "file": "ESP32C3-0.34-REVIEW.md",
+      "sha256": "810cd76b26e134795d1d9cb1e992abad127b59d91de0e45086f6c536ae006085"
+    },
+    {
+      "file": "ESP32C3-0.34-RV32-MODEL.json",
+      "sha256": "89bd77558281ea28a01983d527530d9023e956f69fda2deef8e8c6ac694340b0"
+    },
+    {
+      "file": "ESP32C3-0.34-UART.json",
+      "sha256": "882ab526e864a2184fd39b69e3ce2065b1aa36786fd6d5ffb80662a503338002"
+    },
+    {
+      "file": "ESP32C3-0.34-PACKAGE.json",
+      "sha256": "17129a3a7e482dfa76adfc4c07485be28118eeb574ec2eddccd205863cad988c"
+    }
+  ],
+  "scope": "Local native/compiler checks, actual vendor QEMU ROM/SPI/UART, and explicitly scripted sensor-bus models. No physical boot, sensor, electrical timing, production, throughput, energy or AI-token claim."
+}

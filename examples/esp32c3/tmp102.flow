@@ -1,0 +1,315 @@
+profile RF2_ESP32C3_V1
+# Read-only TMP102 query, 7-bit address 0x48 (ADD0 tied GND), normal 12-bit mode.
+# Open-drain SDA GPIO4/SCL GPIO5. External 3.3 V pullups required; no active high drive.
+# Delay-loop ticks are NOT calibrated microseconds. Physical bus timing is unqualified.
+fn bus_delay()
+ let tick=0
+ while tick<500
+  set tick=tick+1
+ end
+ return 0
+end
+fn bus_sda(high)
+ if high
+  do store32(0x60004008,16)
+ else
+  do store32(0x6000400C,16)
+ end
+ return 0
+end
+fn bus_scl(high)
+ if high
+  do store32(0x60004008,32)
+ else
+  do store32(0x6000400C,32)
+ end
+ return 0
+end
+fn bus_read_sda()
+ return (load32(0x6000403C)>>4)&1
+end
+fn bus_read_scl()
+ return (load32(0x6000403C)>>5)&1
+end
+fn bus_setup()
+ # Release both outputs before enabling open-drain drivers.
+ do store32(0x60004008,48)
+ do store32(0x60004084,load32(0x60004084)|4)
+ do store32(0x60004088,load32(0x60004088)|4)
+ # GPIO matrix output 128; output enable follows GPIO_ENABLE, not a peripheral.
+ do store32(0x60004564,640)
+ do store32(0x60004568,640)
+ # Preserve unrelated IOMUX fields; select GPIO function 1, enable input,
+ # disable internal pull-down/up. The external pullups define bus rise time.
+ do store32(0x60009014,(load32(0x60009014)&0xFFFF8C7F)|0x1200)
+ do store32(0x60009018,(load32(0x60009018)&0xFFFF8C7F)|0x1200)
+ do store32(0x60004024,48)
+ return 0
+end
+fn bus_wait_scl()
+ let tries=1000
+ while tries>0
+  if bus_read_scl()
+   return 0
+  end
+  set tries=tries-1
+ end
+ return 0x80000002
+end
+fn bus_release()
+ do bus_sda(1)
+ do bus_scl(1)
+ return 0
+end
+fn bus_start()
+ do bus_release()
+ let status=bus_wait_scl()
+ if status
+  return status
+ end
+ if bus_read_sda()==0
+  return 0x80000003
+ end
+ do bus_delay()
+ do bus_sda(0)
+ do bus_delay()
+ do bus_scl(0)
+ return 0
+end
+fn bus_stop()
+ do bus_scl(0)
+ do bus_sda(0)
+ do bus_delay()
+ do bus_scl(1)
+ let status=bus_wait_scl()
+ do bus_delay()
+ do bus_sda(1)
+ do bus_delay()
+ if status
+  return status
+ end
+ if bus_read_sda()==0
+  return 0x80000003
+ end
+ return 0
+end
+fn bus_write(value)
+ if value>255
+  do bus_release()
+  return 0x80000004
+ end
+ let bit=8
+ while bit>0
+  set bit=bit-1
+  do bus_sda((value>>bit)&1)
+  do bus_delay()
+  do bus_scl(1)
+  let status=bus_wait_scl()
+  if status
+   do bus_release()
+   return status
+  end
+  do bus_delay()
+  do bus_scl(0)
+ end
+ # Slave ACK: master releases SDA for the ninth clock.
+ do bus_sda(1)
+ do bus_delay()
+ do bus_scl(1)
+ let ack_status=bus_wait_scl()
+ if ack_status
+  do bus_release()
+  return ack_status
+ end
+ do bus_delay()
+ let nack=bus_read_sda()
+ do bus_scl(0)
+ if nack
+  do bus_release()
+  return 0x80000001
+ end
+ return 0
+end
+fn bus_read(ack)
+ if ack>1
+  do bus_release()
+  return 0x80000004
+ end
+ do bus_sda(1)
+ let value=0
+ let bit=0
+ while bit<8
+  do bus_delay()
+  do bus_scl(1)
+  let status=bus_wait_scl()
+  if status
+   do bus_release()
+   return status
+  end
+  do bus_delay()
+  set value=(value<<1)|bus_read_sda()
+  do bus_scl(0)
+  set bit=bit+1
+ end
+ # ACK low for another byte, NACK high on the last byte.
+ do bus_sda(1-ack)
+ do bus_delay()
+ do bus_scl(1)
+ let ack_status=bus_wait_scl()
+ if ack_status
+  do bus_release()
+  return ack_status
+ end
+ do bus_delay()
+ do bus_scl(0)
+ do bus_sda(1)
+ return value
+end
+fn tmp102_register(reg)
+ if reg>1
+  do bus_release()
+  return 0x80000004
+ end
+ let status=bus_start()
+ if status
+  do bus_release()
+  return status
+ end
+ set status=bus_write(0x90)
+ if status==0
+  set status=bus_write(reg)
+ end
+ if status==0
+  set status=bus_start()
+ end
+ if status==0
+  set status=bus_write(0x91)
+ end
+ let high=0
+ let low=0
+ if status==0
+  set high=bus_read(1)
+  if high&0x80000000
+   set status=high
+  end
+ end
+ if status==0
+  set low=bus_read(0)
+  if low&0x80000000
+   set status=low
+  end
+ end
+ let stopped=bus_stop()
+ if status
+  return status
+ end
+ if stopped
+  return stopped
+ end
+ return (high<<8)|low
+end
+fn tmp102_validate(config,raw)
+ if (config>65535)|(raw>65535)
+  return 0x80000004
+ end
+ # Only normal 12-bit mode; check immutable resolution bits and reserved low bits.
+ if (config&0x6000)!=0x6000
+  return 0x80000006
+ end
+ if config&0x10
+  return 0x80000006
+ end
+ if config&15
+  return 0x80000005
+ end
+ if raw&15
+  return 0x80000005
+ end
+ return raw
+end
+fn tmp102_read()
+ let config=tmp102_register(1)
+ if config&0x80000000
+  return config
+ end
+ let raw=tmp102_register(0)
+ if raw&0x80000000
+  return raw
+ end
+ return tmp102_validate(config,raw)
+end
+fn uart_byte(value)
+ let tries=100000
+ while tries>0
+  if ((load32(0x6000001C)>>16)&1023)<127
+   do store32(0x60000000,value&255)
+   return 0
+  end
+  set tries=tries-1
+ end
+ return 1
+end
+fn uart_hex(value)
+ let shift=28
+ let digits=0
+ let failure=0
+ while digits<8
+  let nibble=(value>>shift)&15
+  if nibble<10
+   set failure=failure|uart_byte(48+nibble)
+  else
+   set failure=failure|uart_byte(55+nibble)
+  end
+  set shift=shift-4
+  set digits=digits+1
+ end
+ return failure
+end
+fn uart_temperature(raw)
+ # Exact normal-mode conversion: one raw code step is 625/10000 Celsius.
+ let code=raw>>4
+ let magnitude=code
+ let failure=0
+ if code&2048
+  set failure=uart_byte(45)
+  set magnitude=4096-code
+ end
+ let whole=magnitude//16
+ if whole>=100
+  set failure=failure|uart_byte(48+whole//100)
+ end
+ if whole>=10
+  set failure=failure|uart_byte(48+(whole//10)-(whole//100)*10)
+ end
+ set failure=failure|uart_byte(48+whole-(whole//10)*10)
+ set failure=failure|uart_byte(46)
+ let fraction=(magnitude&15)*625
+ set failure=failure|uart_byte(48+fraction//1000)
+ set failure=failure|uart_byte(48+(fraction//100)-(fraction//1000)*10)
+ set failure=failure|uart_byte(48+(fraction//10)-(fraction//100)*10)
+ set failure=failure|uart_byte(48+fraction-(fraction//10)*10)
+ set failure=failure|uart_byte(67)
+ return failure
+end
+fn main()
+ do bus_setup()
+ let result=tmp102_read()
+ let failure=uart_byte(84)
+ set failure=failure|uart_byte(77)
+ set failure=failure|uart_byte(80)
+ set failure=failure|uart_byte(49)
+ set failure=failure|uart_byte(48)
+ set failure=failure|uart_byte(50)
+ set failure=failure|uart_byte(32)
+ set failure=failure|uart_hex(result)
+ if (result&0x80000000)==0
+  set failure=failure|uart_byte(32)
+  set failure=failure|uart_temperature(result)
+ end
+ set failure=failure|uart_byte(10)
+ do bus_release()
+ if result&0x80000000
+  return result
+ end
+ return failure
+end

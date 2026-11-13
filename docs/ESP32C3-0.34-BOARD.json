@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "compilerSHA256": "4da23828e1ffdec7e361412e2eed54605ff902ec0ab78c9a38d28d6807524f02",
+  "rows": [
+    {
+      "app": "uart-smoke",
+      "firmwareSHA256": "1869ebd3c66605bbb31dc62a6ebf71a3bf83f7cad37040950211b5af0b8cec4f",
+      "uart": "ESP-ROM:esp32c3-api1-20210207\r\nBuild:Feb  7 2021\r\nrst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)\r\nSPIWP:0xee\r\nmode:DIO, clock div:2\r\nload:0x40380000,len:0x6a4\r\nentry 0x40380000\r\nRF2 ESP32C3 UART\n",
+      "mainReturn": 0,
+      "stackRestored": true,
+      "returnedToEntryLoop": true,
+      "scope": "Actual QEMU ROM/UART execution; TMP102 has no attached target and reports modeled-GPIO clock timeout, not a temperature reading."
+    },
+    {
+      "app": "tmp102",
+      "firmwareSHA256": "366f532c2d9fbe56f609f9ea742733426365ac40b1d55f9b144ffcf4f270d15b",
+      "uart": "ESP-ROM:esp32c3-api1-20210207\r\nBuild:Feb  7 2021\r\nrst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)\r\nSPIWP:0xee\r\nmode:DIO, clock div:2\r\nload:0x40380000,len:0x1ef0\r\nentry 0x40380000\r\nTMP102 80000002\n",
+      "mainReturn": 2147483650,
+      "stackRestored": true,
+      "returnedToEntryLoop": true,
+      "scope": "Actual QEMU ROM/UART execution; TMP102 has no attached target and reports modeled-GPIO clock timeout, not a temperature reading."
+    }
+  ],
+  "physicalBoardExecuted": false
+}

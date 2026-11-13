@@ -1,0 +1,64 @@
+# Test-only host main: write the driver's result, model counters and line trace.
+fn main(argc,argv)
+ let input=model_input()
+ let n=0
+ while n<2048
+  let got=read(0,input+n,2048-n)
+  if got>>63
+   return 2
+  end
+  if got==0
+   set n=2048
+  else
+   set n=n+got
+  end
+ end
+ let state=model_state()
+ do store64(state+24,1)
+ do store64(state+32,1)
+ let mode=load64(input+24)
+ let result=0
+ if mode==1
+  set result=tmp102_read()
+ else
+  if mode==2
+   set result=bus_write(load64(input+32))
+  else
+   if mode==3
+    set result=tmp102_validate(load64(input+32),load64(input+40))
+   else
+    if mode==4
+     set result=tmp102_register(load64(input+32))
+    else
+     if mode==5
+      set result=bus_read(load64(input+32))
+     else
+      set result=board_main()
+     end
+    end
+   end
+  end
+ end
+ let output=buffer("tmp102_model_output",72)
+ do store64(output,result)
+ do store64(output+8,load64(state))
+ do store64(output+16,load64(state+8))
+ do store64(output+24,load64(state+16))
+ do store64(output+32,load64(state+24))
+ do store64(output+40,load64(state+32))
+ do store64(output+48,load64(state+40))
+ do store64(output+56,load64(state+48))
+ do store64(output+64,load64(state+56))
+ if write(1,output,72)!=72
+  return 3
+ end
+ let count=load64(state+16)*8
+ if write(1,model_events(),count)!=count
+  return 3
+ end
+ let uart_count=load64(state+56)
+ if write(1,buffer("tmp102_uart_model",512),uart_count)!=uart_count
+  return 3
+ end
+ return 0
+end

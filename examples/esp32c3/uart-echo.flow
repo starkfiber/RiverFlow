@@ -1,0 +1,47 @@
+profile RF2_ESP32C3_V1
+# UART0 under the ROM-load contract. Bounded polling, byte input/output only.
+fn uart_put(value)
+ let tries=100000
+ while tries>0
+  if ((load32(0x6000001C)>>16)&1023)<127
+   do store32(0x60000000,value&255)
+   return 0
+  end
+  set tries=tries-1
+ end
+ return 0x80000002
+end
+fn uart_get(tries)
+ while tries>0
+  if (load32(0x6000001C)&1023)>0
+   return load32(0x60000000)&255
+  end
+  set tries=tries-1
+ end
+ return 0x80000001
+end
+fn main()
+ let failure=uart_put(82)
+ set failure=failure|uart_put(69)
+ set failure=failure|uart_put(65)
+ set failure=failure|uart_put(68)
+ set failure=failure|uart_put(89)
+ set failure=failure|uart_put(10)
+ if failure
+  return failure
+ end
+ let value=uart_get(1000000)
+ if value&0x80000000
+  do uart_put(69)
+  do uart_put(82)
+  do uart_put(82)
+  do uart_put(10)
+  return value
+ end
+ set failure=uart_put(82)
+ set failure=failure|uart_put(88)
+ set failure=failure|uart_put(32)
+ set failure=failure|uart_put(value)
+ set failure=failure|uart_put(10)
+ return failure
+end

@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "scope": "Same qualified native host compiler builds same assembledRF2 source in separate fresh directories; byteidentical signedhost binaries. Not crosscompiler selfhosting or independent compiler correctness proof.",
+  "first": "artifacts/sprint-034/engine-build-v6/rf2-esp32c3",
+  "second": "artifacts/sprint-034/engine-build-v6-repeat/rf2-esp32c3",
+  "SHA256": "4da23828e1ffdec7e361412e2eed54605ff902ec0ab78c9a38d28d6807524f02"
+}

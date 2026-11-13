@@ -1,0 +1,4662 @@
+{
+  "schema": "rf2.tmp102.scripted.protocol.v1",
+  "passed": true,
+  "cases": 464,
+  "rows": [
+    {
+      "name": "valid wire word 0x0",
+      "optimized": false,
+      "result": "0x0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "valid wire word 0x10",
+      "optimized": false,
+      "result": "0x10",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "valid wire word 0x1900",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "valid wire word 0xf600",
+      "optimized": false,
+      "result": "0xf600",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "valid wire word 0x7ff0",
+      "optimized": false,
+      "result": "0x7ff0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "valid wire word 0x8000",
+      "optimized": false,
+      "result": "0x8000",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "valid wire word 0xfff0",
+      "optimized": false,
+      "result": "0xfff0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "NACK 0 write address",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 3,
+      "sclReads": 11,
+      "lineEvents": 37,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "NACK 0 register pointer",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 4,
+      "sclReads": 20,
+      "lineEvents": 64,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "NACK 0 read address",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 6,
+      "sclReads": 30,
+      "lineEvents": 95,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "NACK 1 write address",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "NACK 1 register pointer",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 26,
+      "sclReads": 68,
+      "lineEvents": 199,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "NACK 1 read address",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 28,
+      "sclReads": 78,
+      "lineEvents": 230,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "SDA stuck before start 0",
+      "optimized": false,
+      "result": "0x80000003",
+      "sdaReads": 1,
+      "sclReads": 1,
+      "lineEvents": 4,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "SDA stuck before repeated start 0",
+      "optimized": false,
+      "result": "0x80000003",
+      "sdaReads": 5,
+      "sclReads": 21,
+      "lineEvents": 64,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "SDA stuck before start 1",
+      "optimized": false,
+      "result": "0x80000003",
+      "sdaReads": 23,
+      "sclReads": 49,
+      "lineEvents": 139,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "SDA stuck before repeated start 1",
+      "optimized": false,
+      "result": "0x80000003",
+      "sdaReads": 27,
+      "sclReads": 69,
+      "lineEvents": 199,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 1",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 0,
+      "sclReads": 1000,
+      "lineEvents": 4,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 2",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 1,
+      "sclReads": 2001,
+      "lineEvents": 12,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 3",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 1,
+      "sclReads": 2002,
+      "lineEvents": 15,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 4",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 1,
+      "sclReads": 2003,
+      "lineEvents": 18,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 5",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 1,
+      "sclReads": 2004,
+      "lineEvents": 21,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 6",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 1,
+      "sclReads": 2005,
+      "lineEvents": 24,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 7",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 1,
+      "sclReads": 2006,
+      "lineEvents": 27,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 8",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 1,
+      "sclReads": 2007,
+      "lineEvents": 30,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 9",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 1,
+      "sclReads": 2008,
+      "lineEvents": 33,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 10",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 1,
+      "sclReads": 2009,
+      "lineEvents": 36,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 11",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 2,
+      "sclReads": 2010,
+      "lineEvents": 39,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 12",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 2,
+      "sclReads": 2011,
+      "lineEvents": 42,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 13",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 2,
+      "sclReads": 2012,
+      "lineEvents": 45,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 14",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 2,
+      "sclReads": 2013,
+      "lineEvents": 48,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 15",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 2,
+      "sclReads": 2014,
+      "lineEvents": 51,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 16",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 2,
+      "sclReads": 2015,
+      "lineEvents": 54,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 17",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 2,
+      "sclReads": 2016,
+      "lineEvents": 57,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 18",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 2,
+      "sclReads": 2017,
+      "lineEvents": 60,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 19",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 2,
+      "sclReads": 2018,
+      "lineEvents": 63,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 20",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 3,
+      "sclReads": 2019,
+      "lineEvents": 64,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 21",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 4,
+      "sclReads": 2020,
+      "lineEvents": 70,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 22",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 4,
+      "sclReads": 2021,
+      "lineEvents": 73,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 23",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 4,
+      "sclReads": 2022,
+      "lineEvents": 76,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 24",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 4,
+      "sclReads": 2023,
+      "lineEvents": 79,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 25",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 4,
+      "sclReads": 2024,
+      "lineEvents": 82,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 26",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 4,
+      "sclReads": 2025,
+      "lineEvents": 85,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 27",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 4,
+      "sclReads": 2026,
+      "lineEvents": 88,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 28",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 4,
+      "sclReads": 2027,
+      "lineEvents": 91,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 29",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 4,
+      "sclReads": 2028,
+      "lineEvents": 94,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 30",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 5,
+      "sclReads": 2029,
+      "lineEvents": 97,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 31",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 6,
+      "sclReads": 2030,
+      "lineEvents": 99,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 32",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 7,
+      "sclReads": 2031,
+      "lineEvents": 101,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 33",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 8,
+      "sclReads": 2032,
+      "lineEvents": 103,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 34",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 9,
+      "sclReads": 2033,
+      "lineEvents": 105,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 35",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 10,
+      "sclReads": 2034,
+      "lineEvents": 107,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 36",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 11,
+      "sclReads": 2035,
+      "lineEvents": 109,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 37",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 12,
+      "sclReads": 2036,
+      "lineEvents": 111,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 38",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 13,
+      "sclReads": 2037,
+      "lineEvents": 114,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 39",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 13,
+      "sclReads": 2038,
+      "lineEvents": 118,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 40",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 14,
+      "sclReads": 2039,
+      "lineEvents": 120,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 41",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 15,
+      "sclReads": 2040,
+      "lineEvents": 122,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 42",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 16,
+      "sclReads": 2041,
+      "lineEvents": 124,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 43",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 17,
+      "sclReads": 2042,
+      "lineEvents": 126,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 44",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 18,
+      "sclReads": 2043,
+      "lineEvents": 128,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 45",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 19,
+      "sclReads": 2044,
+      "lineEvents": 130,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 46",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 20,
+      "sclReads": 2045,
+      "lineEvents": 132,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 47",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 21,
+      "sclReads": 2046,
+      "lineEvents": 135,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 48",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 21,
+      "sclReads": 1047,
+      "lineEvents": 135,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 49",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 22,
+      "sclReads": 1048,
+      "lineEvents": 139,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 50",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 23,
+      "sclReads": 2049,
+      "lineEvents": 147,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 51",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 23,
+      "sclReads": 2050,
+      "lineEvents": 150,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 52",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 23,
+      "sclReads": 2051,
+      "lineEvents": 153,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 53",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 23,
+      "sclReads": 2052,
+      "lineEvents": 156,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 54",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 23,
+      "sclReads": 2053,
+      "lineEvents": 159,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 55",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 23,
+      "sclReads": 2054,
+      "lineEvents": 162,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 56",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 23,
+      "sclReads": 2055,
+      "lineEvents": 165,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 57",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 23,
+      "sclReads": 2056,
+      "lineEvents": 168,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 58",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 23,
+      "sclReads": 2057,
+      "lineEvents": 171,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 59",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 24,
+      "sclReads": 2058,
+      "lineEvents": 174,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 60",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 24,
+      "sclReads": 2059,
+      "lineEvents": 177,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 61",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 24,
+      "sclReads": 2060,
+      "lineEvents": 180,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 62",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 24,
+      "sclReads": 2061,
+      "lineEvents": 183,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 63",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 24,
+      "sclReads": 2062,
+      "lineEvents": 186,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 64",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 24,
+      "sclReads": 2063,
+      "lineEvents": 189,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 65",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 24,
+      "sclReads": 2064,
+      "lineEvents": 192,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 66",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 24,
+      "sclReads": 2065,
+      "lineEvents": 195,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 67",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 24,
+      "sclReads": 2066,
+      "lineEvents": 198,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 68",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 25,
+      "sclReads": 2067,
+      "lineEvents": 199,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 69",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 26,
+      "sclReads": 2068,
+      "lineEvents": 205,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 70",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 26,
+      "sclReads": 2069,
+      "lineEvents": 208,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 71",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 26,
+      "sclReads": 2070,
+      "lineEvents": 211,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 72",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 26,
+      "sclReads": 2071,
+      "lineEvents": 214,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 73",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 26,
+      "sclReads": 2072,
+      "lineEvents": 217,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 74",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 26,
+      "sclReads": 2073,
+      "lineEvents": 220,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 75",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 26,
+      "sclReads": 2074,
+      "lineEvents": 223,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 76",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 26,
+      "sclReads": 2075,
+      "lineEvents": 226,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 77",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 26,
+      "sclReads": 2076,
+      "lineEvents": 229,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 78",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 27,
+      "sclReads": 2077,
+      "lineEvents": 232,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 79",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 28,
+      "sclReads": 2078,
+      "lineEvents": 234,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 80",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 29,
+      "sclReads": 2079,
+      "lineEvents": 236,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 81",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 30,
+      "sclReads": 2080,
+      "lineEvents": 238,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 82",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 31,
+      "sclReads": 2081,
+      "lineEvents": 240,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 83",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 32,
+      "sclReads": 2082,
+      "lineEvents": 242,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 84",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 33,
+      "sclReads": 2083,
+      "lineEvents": 244,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 85",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 34,
+      "sclReads": 2084,
+      "lineEvents": 246,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 86",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 35,
+      "sclReads": 2085,
+      "lineEvents": 249,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 87",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 35,
+      "sclReads": 2086,
+      "lineEvents": 253,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 88",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 36,
+      "sclReads": 2087,
+      "lineEvents": 255,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 89",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 37,
+      "sclReads": 2088,
+      "lineEvents": 257,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 90",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 38,
+      "sclReads": 2089,
+      "lineEvents": 259,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 91",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 39,
+      "sclReads": 2090,
+      "lineEvents": 261,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 92",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 40,
+      "sclReads": 2091,
+      "lineEvents": 263,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 93",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 41,
+      "sclReads": 2092,
+      "lineEvents": 265,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 94",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 42,
+      "sclReads": 2093,
+      "lineEvents": 267,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 95",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 43,
+      "sclReads": 2094,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 96",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 43,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (1, 1)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 97,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (1, 99)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 195,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (1, 999)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (2, 1)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 97,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (2, 99)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 195,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (2, 999)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (10, 1)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 97,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (10, 99)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 195,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (10, 999)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (20, 1)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 97,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (20, 99)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 195,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (20, 999)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (48, 1)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 97,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (48, 99)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 195,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (48, 999)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (49, 1)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 97,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (49, 99)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 195,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (49, 999)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (70, 1)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 97,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (70, 99)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 195,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (70, 999)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (95, 1)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 97,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (95, 99)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 195,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (95, 999)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (96, 1)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 97,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (96, 99)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 195,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (96, 999)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 0",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 3,
+      "sclReads": 11,
+      "lineEvents": 37,
+      "scriptExhaustions": 3,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 1",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 3,
+      "sclReads": 11,
+      "lineEvents": 37,
+      "scriptExhaustions": 2,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 2",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 4,
+      "sclReads": 20,
+      "lineEvents": 64,
+      "scriptExhaustions": 2,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 3",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 6,
+      "sclReads": 30,
+      "lineEvents": 95,
+      "scriptExhaustions": 3,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 4",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 6,
+      "sclReads": 30,
+      "lineEvents": 95,
+      "scriptExhaustions": 2,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 5",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 20,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 6",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 19,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 7",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 18,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 8",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 17,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 9",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 16,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 10",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 15,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 11",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 14,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 12",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 13,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 13",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 12,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 14",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 11,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 15",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 10,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 16",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 9,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 17",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 8,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 18",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 7,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 19",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 6,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 20",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 5,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 21",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 4,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 22",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 3,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 23",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 2,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 24",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 26,
+      "sclReads": 68,
+      "lineEvents": 199,
+      "scriptExhaustions": 2,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 25",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 28,
+      "sclReads": 78,
+      "lineEvents": 230,
+      "scriptExhaustions": 3,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 26",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 28,
+      "sclReads": 78,
+      "lineEvents": 230,
+      "scriptExhaustions": 2,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 27",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 17,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 28",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 16,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 29",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 15,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 30",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 14,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 31",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 13,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 32",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 12,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 33",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 11,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 34",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 10,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 35",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 9,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 36",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 8,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 37",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 7,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 38",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 6,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 39",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 5,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 40",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 4,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 41",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 3,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 42",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 2,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 43",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 1,
+      "uart": ""
+    },
+    {
+      "name": "malformed temperature bits 0x1",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "malformed temperature bits 0x1901",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "malformed temperature bits 0xffff",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "malformed reserved config 0x60a1",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "malformed reserved config 0x60af",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "unsupported config 0x0",
+      "optimized": false,
+      "result": "0x80000006",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "unsupported config 0x20a0",
+      "optimized": false,
+      "result": "0x80000006",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "unsupported config 0x40a0",
+      "optimized": false,
+      "result": "0x80000006",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "unsupported config 0x60b0",
+      "optimized": false,
+      "result": "0x80000006",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "STOP observes stuck SDA",
+      "optimized": false,
+      "result": "0x80000003",
+      "sdaReads": 22,
+      "sclReads": 48,
+      "lineEvents": 135,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "primary NACK survives STOP failure",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 3,
+      "sclReads": 11,
+      "lineEvents": 37,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "write value refuses 256",
+      "optimized": false,
+      "result": "0x80000004",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 2,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "write value refuses 4294967295",
+      "optimized": false,
+      "result": "0x80000004",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 2,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "read ACK argument refuses 2",
+      "optimized": false,
+      "result": "0x80000004",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 2,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "read ACK argument refuses 4294967295",
+      "optimized": false,
+      "result": "0x80000004",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 2,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "register argument refuses 2",
+      "optimized": false,
+      "result": "0x80000004",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 2,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "register argument refuses 4294967295",
+      "optimized": false,
+      "result": "0x80000004",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 2,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "pure validation (24736, 6400)",
+      "optimized": false,
+      "result": "0x1900",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 0,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "pure validation (65536, 0)",
+      "optimized": false,
+      "result": "0x80000004",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 0,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "pure validation (24736, 65536)",
+      "optimized": false,
+      "result": "0x80000004",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 0,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "pure validation (24736, 65520)",
+      "optimized": false,
+      "result": "0xfff0",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 0,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "pure validation (24752, 0)",
+      "optimized": false,
+      "result": "0x80000006",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 0,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "pure validation (24737, 0)",
+      "optimized": false,
+      "result": "0x80000005",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 0,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "transmitted byte 0x0",
+      "optimized": false,
+      "result": "0x0",
+      "sdaReads": 1,
+      "sclReads": 9,
+      "lineEvents": 27,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "transmitted byte 0x1",
+      "optimized": false,
+      "result": "0x0",
+      "sdaReads": 1,
+      "sclReads": 9,
+      "lineEvents": 27,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "transmitted byte 0x48",
+      "optimized": false,
+      "result": "0x0",
+      "sdaReads": 1,
+      "sclReads": 9,
+      "lineEvents": 27,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "transmitted byte 0x90",
+      "optimized": false,
+      "result": "0x0",
+      "sdaReads": 1,
+      "sclReads": 9,
+      "lineEvents": 27,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "transmitted byte 0x91",
+      "optimized": false,
+      "result": "0x0",
+      "sdaReads": 1,
+      "sclReads": 9,
+      "lineEvents": 27,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "transmitted byte 0xff",
+      "optimized": false,
+      "result": "0x0",
+      "sdaReads": 1,
+      "sclReads": 9,
+      "lineEvents": 27,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "received byte/ACK (0, 0)",
+      "optimized": false,
+      "result": "0x0",
+      "sdaReads": 8,
+      "sclReads": 9,
+      "lineEvents": 21,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "received byte/ACK (1, 0)",
+      "optimized": false,
+      "result": "0x1",
+      "sdaReads": 8,
+      "sclReads": 9,
+      "lineEvents": 21,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "received byte/ACK (128, 0)",
+      "optimized": false,
+      "result": "0x80",
+      "sdaReads": 8,
+      "sclReads": 9,
+      "lineEvents": 21,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "received byte/ACK (255, 0)",
+      "optimized": false,
+      "result": "0xff",
+      "sdaReads": 8,
+      "sclReads": 9,
+      "lineEvents": 21,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "received byte/ACK (0, 1)",
+      "optimized": false,
+      "result": "0x0",
+      "sdaReads": 8,
+      "sclReads": 9,
+      "lineEvents": 21,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "received byte/ACK (1, 1)",
+      "optimized": false,
+      "result": "0x1",
+      "sdaReads": 8,
+      "sclReads": 9,
+      "lineEvents": 21,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "received byte/ACK (128, 1)",
+      "optimized": false,
+      "result": "0x80",
+      "sdaReads": 8,
+      "sclReads": 9,
+      "lineEvents": 21,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "received byte/ACK (255, 1)",
+      "optimized": false,
+      "result": "0xff",
+      "sdaReads": 8,
+      "sclReads": 9,
+      "lineEvents": 21,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "board main exact Celsius 0x0",
+      "optimized": false,
+      "result": "0x0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 272,
+      "scriptExhaustions": 0,
+      "uart": "TMP102 00000000 0.0000C\n"
+    },
+    {
+      "name": "board main exact Celsius 0x10",
+      "optimized": false,
+      "result": "0x0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 272,
+      "scriptExhaustions": 0,
+      "uart": "TMP102 00000010 0.0625C\n"
+    },
+    {
+      "name": "board main exact Celsius 0x1900",
+      "optimized": false,
+      "result": "0x0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 272,
+      "scriptExhaustions": 0,
+      "uart": "TMP102 00001900 25.0000C\n"
+    },
+    {
+      "name": "board main exact Celsius 0xf600",
+      "optimized": false,
+      "result": "0x0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 272,
+      "scriptExhaustions": 0,
+      "uart": "TMP102 0000F600 -10.0000C\n"
+    },
+    {
+      "name": "board main exact Celsius 0x7ff0",
+      "optimized": false,
+      "result": "0x0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 272,
+      "scriptExhaustions": 0,
+      "uart": "TMP102 00007FF0 127.9375C\n"
+    },
+    {
+      "name": "board main exact Celsius 0x8000",
+      "optimized": false,
+      "result": "0x0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 272,
+      "scriptExhaustions": 0,
+      "uart": "TMP102 00008000 -128.0000C\n"
+    },
+    {
+      "name": "board main exact Celsius 0xfff0",
+      "optimized": false,
+      "result": "0x0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 272,
+      "scriptExhaustions": 0,
+      "uart": "TMP102 0000FFF0 -0.0625C\n"
+    },
+    {
+      "name": "board main preserves sensor NACK",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 3,
+      "sclReads": 11,
+      "lineEvents": 39,
+      "scriptExhaustions": 0,
+      "uart": "TMP102 80000001\n"
+    },
+    {
+      "name": "board main preserves sensor timeout",
+      "optimized": false,
+      "result": "0x80000002",
+      "sdaReads": 0,
+      "sclReads": 1000,
+      "lineEvents": 6,
+      "scriptExhaustions": 0,
+      "uart": "TMP102 80000002\n"
+    },
+    {
+      "name": "board main UART failure after valid sensor",
+      "optimized": false,
+      "result": "0x1",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 272,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "board main sensor failure beats UART failure",
+      "optimized": false,
+      "result": "0x80000001",
+      "sdaReads": 3,
+      "sclReads": 11,
+      "lineEvents": 39,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "valid wire word 0x0",
+      "optimized": true,
+      "result": "0x0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "valid wire word 0x10",
+      "optimized": true,
+      "result": "0x10",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "valid wire word 0x1900",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "valid wire word 0xf600",
+      "optimized": true,
+      "result": "0xf600",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "valid wire word 0x7ff0",
+      "optimized": true,
+      "result": "0x7ff0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "valid wire word 0x8000",
+      "optimized": true,
+      "result": "0x8000",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "valid wire word 0xfff0",
+      "optimized": true,
+      "result": "0xfff0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "NACK 0 write address",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 3,
+      "sclReads": 11,
+      "lineEvents": 37,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "NACK 0 register pointer",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 4,
+      "sclReads": 20,
+      "lineEvents": 64,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "NACK 0 read address",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 6,
+      "sclReads": 30,
+      "lineEvents": 95,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "NACK 1 write address",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "NACK 1 register pointer",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 26,
+      "sclReads": 68,
+      "lineEvents": 199,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "NACK 1 read address",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 28,
+      "sclReads": 78,
+      "lineEvents": 230,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "SDA stuck before start 0",
+      "optimized": true,
+      "result": "0x80000003",
+      "sdaReads": 1,
+      "sclReads": 1,
+      "lineEvents": 4,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "SDA stuck before repeated start 0",
+      "optimized": true,
+      "result": "0x80000003",
+      "sdaReads": 5,
+      "sclReads": 21,
+      "lineEvents": 64,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "SDA stuck before start 1",
+      "optimized": true,
+      "result": "0x80000003",
+      "sdaReads": 23,
+      "sclReads": 49,
+      "lineEvents": 139,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "SDA stuck before repeated start 1",
+      "optimized": true,
+      "result": "0x80000003",
+      "sdaReads": 27,
+      "sclReads": 69,
+      "lineEvents": 199,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 1",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 0,
+      "sclReads": 1000,
+      "lineEvents": 4,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 2",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 1,
+      "sclReads": 2001,
+      "lineEvents": 12,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 3",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 1,
+      "sclReads": 2002,
+      "lineEvents": 15,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 4",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 1,
+      "sclReads": 2003,
+      "lineEvents": 18,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 5",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 1,
+      "sclReads": 2004,
+      "lineEvents": 21,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 6",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 1,
+      "sclReads": 2005,
+      "lineEvents": 24,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 7",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 1,
+      "sclReads": 2006,
+      "lineEvents": 27,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 8",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 1,
+      "sclReads": 2007,
+      "lineEvents": 30,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 9",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 1,
+      "sclReads": 2008,
+      "lineEvents": 33,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 10",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 1,
+      "sclReads": 2009,
+      "lineEvents": 36,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 11",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 2,
+      "sclReads": 2010,
+      "lineEvents": 39,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 12",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 2,
+      "sclReads": 2011,
+      "lineEvents": 42,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 13",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 2,
+      "sclReads": 2012,
+      "lineEvents": 45,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 14",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 2,
+      "sclReads": 2013,
+      "lineEvents": 48,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 15",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 2,
+      "sclReads": 2014,
+      "lineEvents": 51,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 16",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 2,
+      "sclReads": 2015,
+      "lineEvents": 54,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 17",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 2,
+      "sclReads": 2016,
+      "lineEvents": 57,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 18",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 2,
+      "sclReads": 2017,
+      "lineEvents": 60,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 19",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 2,
+      "sclReads": 2018,
+      "lineEvents": 63,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 20",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 3,
+      "sclReads": 2019,
+      "lineEvents": 64,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 21",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 4,
+      "sclReads": 2020,
+      "lineEvents": 70,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 22",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 4,
+      "sclReads": 2021,
+      "lineEvents": 73,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 23",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 4,
+      "sclReads": 2022,
+      "lineEvents": 76,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 24",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 4,
+      "sclReads": 2023,
+      "lineEvents": 79,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 25",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 4,
+      "sclReads": 2024,
+      "lineEvents": 82,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 26",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 4,
+      "sclReads": 2025,
+      "lineEvents": 85,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 27",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 4,
+      "sclReads": 2026,
+      "lineEvents": 88,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 28",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 4,
+      "sclReads": 2027,
+      "lineEvents": 91,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 29",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 4,
+      "sclReads": 2028,
+      "lineEvents": 94,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 30",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 5,
+      "sclReads": 2029,
+      "lineEvents": 97,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 31",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 6,
+      "sclReads": 2030,
+      "lineEvents": 99,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 32",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 7,
+      "sclReads": 2031,
+      "lineEvents": 101,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 33",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 8,
+      "sclReads": 2032,
+      "lineEvents": 103,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 34",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 9,
+      "sclReads": 2033,
+      "lineEvents": 105,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 35",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 10,
+      "sclReads": 2034,
+      "lineEvents": 107,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 36",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 11,
+      "sclReads": 2035,
+      "lineEvents": 109,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 37",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 12,
+      "sclReads": 2036,
+      "lineEvents": 111,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 38",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 13,
+      "sclReads": 2037,
+      "lineEvents": 114,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 39",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 13,
+      "sclReads": 2038,
+      "lineEvents": 118,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 40",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 14,
+      "sclReads": 2039,
+      "lineEvents": 120,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 41",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 15,
+      "sclReads": 2040,
+      "lineEvents": 122,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 42",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 16,
+      "sclReads": 2041,
+      "lineEvents": 124,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 43",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 17,
+      "sclReads": 2042,
+      "lineEvents": 126,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 44",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 18,
+      "sclReads": 2043,
+      "lineEvents": 128,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 45",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 19,
+      "sclReads": 2044,
+      "lineEvents": 130,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 46",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 20,
+      "sclReads": 2045,
+      "lineEvents": 132,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 47",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 21,
+      "sclReads": 2046,
+      "lineEvents": 135,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 48",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 21,
+      "sclReads": 1047,
+      "lineEvents": 135,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 49",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 22,
+      "sclReads": 1048,
+      "lineEvents": 139,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 50",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 23,
+      "sclReads": 2049,
+      "lineEvents": 147,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 51",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 23,
+      "sclReads": 2050,
+      "lineEvents": 150,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 52",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 23,
+      "sclReads": 2051,
+      "lineEvents": 153,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 53",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 23,
+      "sclReads": 2052,
+      "lineEvents": 156,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 54",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 23,
+      "sclReads": 2053,
+      "lineEvents": 159,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 55",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 23,
+      "sclReads": 2054,
+      "lineEvents": 162,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 56",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 23,
+      "sclReads": 2055,
+      "lineEvents": 165,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 57",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 23,
+      "sclReads": 2056,
+      "lineEvents": 168,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 58",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 23,
+      "sclReads": 2057,
+      "lineEvents": 171,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 59",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 24,
+      "sclReads": 2058,
+      "lineEvents": 174,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 60",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 24,
+      "sclReads": 2059,
+      "lineEvents": 177,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 61",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 24,
+      "sclReads": 2060,
+      "lineEvents": 180,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 62",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 24,
+      "sclReads": 2061,
+      "lineEvents": 183,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 63",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 24,
+      "sclReads": 2062,
+      "lineEvents": 186,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 64",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 24,
+      "sclReads": 2063,
+      "lineEvents": 189,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 65",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 24,
+      "sclReads": 2064,
+      "lineEvents": 192,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 66",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 24,
+      "sclReads": 2065,
+      "lineEvents": 195,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 67",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 24,
+      "sclReads": 2066,
+      "lineEvents": 198,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 68",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 25,
+      "sclReads": 2067,
+      "lineEvents": 199,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 69",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 26,
+      "sclReads": 2068,
+      "lineEvents": 205,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 70",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 26,
+      "sclReads": 2069,
+      "lineEvents": 208,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 71",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 26,
+      "sclReads": 2070,
+      "lineEvents": 211,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 72",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 26,
+      "sclReads": 2071,
+      "lineEvents": 214,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 73",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 26,
+      "sclReads": 2072,
+      "lineEvents": 217,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 74",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 26,
+      "sclReads": 2073,
+      "lineEvents": 220,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 75",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 26,
+      "sclReads": 2074,
+      "lineEvents": 223,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 76",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 26,
+      "sclReads": 2075,
+      "lineEvents": 226,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 77",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 26,
+      "sclReads": 2076,
+      "lineEvents": 229,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 78",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 27,
+      "sclReads": 2077,
+      "lineEvents": 232,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 79",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 28,
+      "sclReads": 2078,
+      "lineEvents": 234,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 80",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 29,
+      "sclReads": 2079,
+      "lineEvents": 236,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 81",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 30,
+      "sclReads": 2080,
+      "lineEvents": 238,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 82",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 31,
+      "sclReads": 2081,
+      "lineEvents": 240,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 83",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 32,
+      "sclReads": 2082,
+      "lineEvents": 242,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 84",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 33,
+      "sclReads": 2083,
+      "lineEvents": 244,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 85",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 34,
+      "sclReads": 2084,
+      "lineEvents": 246,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 86",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 35,
+      "sclReads": 2085,
+      "lineEvents": 249,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 87",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 35,
+      "sclReads": 2086,
+      "lineEvents": 253,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 88",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 36,
+      "sclReads": 2087,
+      "lineEvents": 255,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 89",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 37,
+      "sclReads": 2088,
+      "lineEvents": 257,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 90",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 38,
+      "sclReads": 2089,
+      "lineEvents": 259,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 91",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 39,
+      "sclReads": 2090,
+      "lineEvents": 261,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 92",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 40,
+      "sclReads": 2091,
+      "lineEvents": 263,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 93",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 41,
+      "sclReads": 2092,
+      "lineEvents": 265,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 94",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 42,
+      "sclReads": 2093,
+      "lineEvents": 267,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 95",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 43,
+      "sclReads": 2094,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "permanent clock fault at poll 96",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 43,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (1, 1)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 97,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (1, 99)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 195,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (1, 999)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (2, 1)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 97,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (2, 99)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 195,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (2, 999)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (10, 1)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 97,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (10, 99)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 195,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (10, 999)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (20, 1)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 97,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (20, 99)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 195,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (20, 999)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (48, 1)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 97,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (48, 99)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 195,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (48, 999)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (49, 1)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 97,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (49, 99)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 195,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (49, 999)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (70, 1)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 97,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (70, 99)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 195,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (70, 999)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (95, 1)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 97,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (95, 99)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 195,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (95, 999)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (96, 1)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 97,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (96, 99)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 195,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "recoverable clock stretch (96, 999)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 1095,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 0",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 3,
+      "sclReads": 11,
+      "lineEvents": 37,
+      "scriptExhaustions": 3,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 1",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 3,
+      "sclReads": 11,
+      "lineEvents": 37,
+      "scriptExhaustions": 2,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 2",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 4,
+      "sclReads": 20,
+      "lineEvents": 64,
+      "scriptExhaustions": 2,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 3",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 6,
+      "sclReads": 30,
+      "lineEvents": 95,
+      "scriptExhaustions": 3,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 4",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 6,
+      "sclReads": 30,
+      "lineEvents": 95,
+      "scriptExhaustions": 2,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 5",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 20,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 6",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 19,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 7",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 18,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 8",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 17,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 9",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 16,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 10",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 15,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 11",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 14,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 12",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 13,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 13",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 12,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 14",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 11,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 15",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 10,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 16",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 9,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 17",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 8,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 18",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 7,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 19",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 6,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 20",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 5,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 21",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 4,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 22",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 3,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 23",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 25,
+      "sclReads": 59,
+      "lineEvents": 172,
+      "scriptExhaustions": 2,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 24",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 26,
+      "sclReads": 68,
+      "lineEvents": 199,
+      "scriptExhaustions": 2,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 25",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 28,
+      "sclReads": 78,
+      "lineEvents": 230,
+      "scriptExhaustions": 3,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 26",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 28,
+      "sclReads": 78,
+      "lineEvents": 230,
+      "scriptExhaustions": 2,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 27",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 17,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 28",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 16,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 29",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 15,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 30",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 14,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 31",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 13,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 32",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 12,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 33",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 11,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 34",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 10,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 35",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 9,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 36",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 8,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 37",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 7,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 38",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 6,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 39",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 5,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 40",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 4,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 41",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 3,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 42",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 2,
+      "uart": ""
+    },
+    {
+      "name": "truncated scripted SDA stream 43",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 1,
+      "uart": ""
+    },
+    {
+      "name": "malformed temperature bits 0x1",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "malformed temperature bits 0x1901",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "malformed temperature bits 0xffff",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "malformed reserved config 0x60a1",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "malformed reserved config 0x60af",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "unsupported config 0x0",
+      "optimized": true,
+      "result": "0x80000006",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "unsupported config 0x20a0",
+      "optimized": true,
+      "result": "0x80000006",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "unsupported config 0x40a0",
+      "optimized": true,
+      "result": "0x80000006",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "unsupported config 0x60b0",
+      "optimized": true,
+      "result": "0x80000006",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 270,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "STOP observes stuck SDA",
+      "optimized": true,
+      "result": "0x80000003",
+      "sdaReads": 22,
+      "sclReads": 48,
+      "lineEvents": 135,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "primary NACK survives STOP failure",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 3,
+      "sclReads": 11,
+      "lineEvents": 37,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "write value refuses 256",
+      "optimized": true,
+      "result": "0x80000004",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 2,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "write value refuses 4294967295",
+      "optimized": true,
+      "result": "0x80000004",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 2,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "read ACK argument refuses 2",
+      "optimized": true,
+      "result": "0x80000004",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 2,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "read ACK argument refuses 4294967295",
+      "optimized": true,
+      "result": "0x80000004",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 2,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "register argument refuses 2",
+      "optimized": true,
+      "result": "0x80000004",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 2,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "register argument refuses 4294967295",
+      "optimized": true,
+      "result": "0x80000004",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 2,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "pure validation (24736, 6400)",
+      "optimized": true,
+      "result": "0x1900",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 0,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "pure validation (65536, 0)",
+      "optimized": true,
+      "result": "0x80000004",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 0,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "pure validation (24736, 65536)",
+      "optimized": true,
+      "result": "0x80000004",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 0,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "pure validation (24736, 65520)",
+      "optimized": true,
+      "result": "0xfff0",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 0,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "pure validation (24752, 0)",
+      "optimized": true,
+      "result": "0x80000006",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 0,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "pure validation (24737, 0)",
+      "optimized": true,
+      "result": "0x80000005",
+      "sdaReads": 0,
+      "sclReads": 0,
+      "lineEvents": 0,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "transmitted byte 0x0",
+      "optimized": true,
+      "result": "0x0",
+      "sdaReads": 1,
+      "sclReads": 9,
+      "lineEvents": 27,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "transmitted byte 0x1",
+      "optimized": true,
+      "result": "0x0",
+      "sdaReads": 1,
+      "sclReads": 9,
+      "lineEvents": 27,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "transmitted byte 0x48",
+      "optimized": true,
+      "result": "0x0",
+      "sdaReads": 1,
+      "sclReads": 9,
+      "lineEvents": 27,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "transmitted byte 0x90",
+      "optimized": true,
+      "result": "0x0",
+      "sdaReads": 1,
+      "sclReads": 9,
+      "lineEvents": 27,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "transmitted byte 0x91",
+      "optimized": true,
+      "result": "0x0",
+      "sdaReads": 1,
+      "sclReads": 9,
+      "lineEvents": 27,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "transmitted byte 0xff",
+      "optimized": true,
+      "result": "0x0",
+      "sdaReads": 1,
+      "sclReads": 9,
+      "lineEvents": 27,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "received byte/ACK (0, 0)",
+      "optimized": true,
+      "result": "0x0",
+      "sdaReads": 8,
+      "sclReads": 9,
+      "lineEvents": 21,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "received byte/ACK (1, 0)",
+      "optimized": true,
+      "result": "0x1",
+      "sdaReads": 8,
+      "sclReads": 9,
+      "lineEvents": 21,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "received byte/ACK (128, 0)",
+      "optimized": true,
+      "result": "0x80",
+      "sdaReads": 8,
+      "sclReads": 9,
+      "lineEvents": 21,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "received byte/ACK (255, 0)",
+      "optimized": true,
+      "result": "0xff",
+      "sdaReads": 8,
+      "sclReads": 9,
+      "lineEvents": 21,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "received byte/ACK (0, 1)",
+      "optimized": true,
+      "result": "0x0",
+      "sdaReads": 8,
+      "sclReads": 9,
+      "lineEvents": 21,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "received byte/ACK (1, 1)",
+      "optimized": true,
+      "result": "0x1",
+      "sdaReads": 8,
+      "sclReads": 9,
+      "lineEvents": 21,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "received byte/ACK (128, 1)",
+      "optimized": true,
+      "result": "0x80",
+      "sdaReads": 8,
+      "sclReads": 9,
+      "lineEvents": 21,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "received byte/ACK (255, 1)",
+      "optimized": true,
+      "result": "0xff",
+      "sdaReads": 8,
+      "sclReads": 9,
+      "lineEvents": 21,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "board main exact Celsius 0x0",
+      "optimized": true,
+      "result": "0x0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 272,
+      "scriptExhaustions": 0,
+      "uart": "TMP102 00000000 0.0000C\n"
+    },
+    {
+      "name": "board main exact Celsius 0x10",
+      "optimized": true,
+      "result": "0x0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 272,
+      "scriptExhaustions": 0,
+      "uart": "TMP102 00000010 0.0625C\n"
+    },
+    {
+      "name": "board main exact Celsius 0x1900",
+      "optimized": true,
+      "result": "0x0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 272,
+      "scriptExhaustions": 0,
+      "uart": "TMP102 00001900 25.0000C\n"
+    },
+    {
+      "name": "board main exact Celsius 0xf600",
+      "optimized": true,
+      "result": "0x0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 272,
+      "scriptExhaustions": 0,
+      "uart": "TMP102 0000F600 -10.0000C\n"
+    },
+    {
+      "name": "board main exact Celsius 0x7ff0",
+      "optimized": true,
+      "result": "0x0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 272,
+      "scriptExhaustions": 0,
+      "uart": "TMP102 00007FF0 127.9375C\n"
+    },
+    {
+      "name": "board main exact Celsius 0x8000",
+      "optimized": true,
+      "result": "0x0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 272,
+      "scriptExhaustions": 0,
+      "uart": "TMP102 00008000 -128.0000C\n"
+    },
+    {
+      "name": "board main exact Celsius 0xfff0",
+      "optimized": true,
+      "result": "0x0",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 272,
+      "scriptExhaustions": 0,
+      "uart": "TMP102 0000FFF0 -0.0625C\n"
+    },
+    {
+      "name": "board main preserves sensor NACK",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 3,
+      "sclReads": 11,
+      "lineEvents": 39,
+      "scriptExhaustions": 0,
+      "uart": "TMP102 80000001\n"
+    },
+    {
+      "name": "board main preserves sensor timeout",
+      "optimized": true,
+      "result": "0x80000002",
+      "sdaReads": 0,
+      "sclReads": 1000,
+      "lineEvents": 6,
+      "scriptExhaustions": 0,
+      "uart": "TMP102 80000002\n"
+    },
+    {
+      "name": "board main UART failure after valid sensor",
+      "optimized": true,
+      "result": "0x1",
+      "sdaReads": 44,
+      "sclReads": 96,
+      "lineEvents": 272,
+      "scriptExhaustions": 0,
+      "uart": ""
+    },
+    {
+      "name": "board main sensor failure beats UART failure",
+      "optimized": true,
+      "result": "0x80000001",
+      "sdaReads": 3,
+      "sclReads": 11,
+      "lineEvents": 39,
+      "scriptExhaustions": 0,
+      "uart": ""
+    }
+  ],
+  "images": [
+    {
+      "path": "artifacts/sprint-034/tmp102-model-1794594548788753000/model-default",
+      "sha256": "40f0fc61bf059b835099054eaac54a90db55b4f23934fff5b553eeb37d0c6d48"
+    },
+    {
+      "path": "artifacts/sprint-034/tmp102-model-1794594548788753000/model-opt",
+      "sha256": "56d06307936417b639a00c5c5d89758e688a07a117c3ac3b0f12f400136c1b19"
+    }
+  ],
+  "compilerSHA256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37",
+  "driverSHA256": "19dd66516deb46fe17b1ae8599f303486c9273db816aaf4ef0b25b7c4c76e333",
+  "extractedProtocolSHA256": "802af68661775b0ff3845d4da778b9de1aca0ef110d3883bdf7b861f1d0d2565",
+  "controllerSHA256": "0a2ea9ee48109c1f0cf42b15260841a0c13d4fc0863c9442185e99806b02e35a",
+  "scope": "Actual unchanged protocol functions compiled and run on Apple Silicon with substituted GPIO fixtures. No physical TMP102, calibrated I2C timing, ESP32 backend execution or temperature observation is established. Truncated fixture streams return high and record exhaustion; physical SDA disconnection cannot in general be distinguished from a legitimate all-high sample without additional protocol/device checks."
+}
