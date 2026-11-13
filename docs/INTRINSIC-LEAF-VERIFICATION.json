@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "programModes": 40,
+  "semanticComparisons": 5120,
+  "callerLocalsPreserved": 8,
+  "calleeScalarLocalsRange": [
+    1,
+    10
+  ],
+  "nestedActualCallsTested": true,
+  "compilerSHA256": "4804b311d1e51639c15b1b10b93577ccc87c9ed26345fcc1a22e8d902faa48fb",
+  "compilerSourceSHA256": "8d7eea882adda54794a1c8f5ad2234240b217e034e0b71e2925e6c78a7890819",
+  "scope": "Finite local ABI/call-classification checks; default/optimized register and spill boundaries. Not a complete ABI proof."
+}

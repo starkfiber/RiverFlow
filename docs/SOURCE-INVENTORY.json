@@ -25,13 +25,14 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "Python": 439813,
-    "RiverFlow": 383224,
+    "RiverFlow": 654068,
+    "Python": 483555,
     "JavaScript": 85144,
     "HTML": 30503,
     "CSS": 17035,
-    "Shell": 2683,
-    "C": 390
+    "Assembly": 6795,
+    "C": 2898,
+    "Shell": 2683
   },
   "files": [
     {
@@ -277,7 +278,7 @@
     {
       "path": "examples/evidence-contract/lib/sha256.rf2",
       "language": "RiverFlow",
-      "bytes": 5203
+      "bytes": 9050
     },
     {
       "path": "examples/evidence-contract/lib/verifier.rf2",
@@ -303,6 +304,11 @@
       "path": "examples/evidence-contract/verify.rf2",
       "language": "RiverFlow",
       "bytes": 213
+    },
+    {
+      "path": "examples/file-checksum.rf2",
+      "language": "RiverFlow",
+      "bytes": 1832
     },
     {
       "path": "examples/file-kind/main.rf2",
@@ -487,7 +493,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 114271
+      "bytes": 125134
     },
     {
       "path": "native/core.rf2",
@@ -630,6 +636,31 @@
       "bytes": 7469
     },
     {
+      "path": "tests/fixtures/compiler-0.23-reference.rf2",
+      "language": "RiverFlow",
+      "bytes": 117109
+    },
+    {
+      "path": "tests/fixtures/compiler-0.24-reference.rf2",
+      "language": "RiverFlow",
+      "bytes": 118048
+    },
+    {
+      "path": "tests/fixtures/sha-0.23-reference.rf2",
+      "language": "RiverFlow",
+      "bytes": 9356
+    },
+    {
+      "path": "tests/fixtures/sha-0.24-reference.rf2",
+      "language": "RiverFlow",
+      "bytes": 9789
+    },
+    {
+      "path": "tests/fixtures/sha256_direct_armv8.c",
+      "language": "C",
+      "bytes": 2508
+    },
+    {
       "path": "tests/language.test.mjs",
       "language": "JavaScript",
       "bytes": 3110
@@ -668,6 +699,11 @@
       "path": "tests/standalone/browser_worker_verify.mjs",
       "language": "JavaScript",
       "bytes": 3154
+    },
+    {
+      "path": "tests/standalone/bswap32_copy.s",
+      "language": "Assembly",
+      "bytes": 340
     },
     {
       "path": "tests/standalone/buffer_audit_verify.py",
@@ -738,6 +774,11 @@
       "path": "tests/standalone/editor_verify.py",
       "language": "Python",
       "bytes": 8563
+    },
+    {
+      "path": "tests/standalone/fill_zero.s",
+      "language": "Assembly",
+      "bytes": 291
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/abi-payload.rf2",
@@ -870,6 +911,11 @@
       "bytes": 2671
     },
     {
+      "path": "tests/standalone/intrinsic_leaf_verify.py",
+      "language": "Python",
+      "bytes": 2764
+    },
+    {
       "path": "tests/standalone/invoice_reference.mjs",
       "language": "JavaScript",
       "bytes": 2829
@@ -893,6 +939,11 @@
       "path": "tests/standalone/mapping_fault_injection.py",
       "language": "Python",
       "bytes": 2639
+    },
+    {
+      "path": "tests/standalone/memory_intrinsics_verify.py",
+      "language": "Python",
+      "bytes": 6257
     },
     {
       "path": "tests/standalone/module_bounds_verify.py",
@@ -968,6 +1019,36 @@
       "path": "tests/standalone/sdk.mjs",
       "language": "JavaScript",
       "bytes": 3822
+    },
+    {
+      "path": "tests/standalone/sha256_blocks_armv8.s",
+      "language": "Assembly",
+      "bytes": 3024
+    },
+    {
+      "path": "tests/standalone/sha256_chain_armv8.s",
+      "language": "Assembly",
+      "bytes": 3140
+    },
+    {
+      "path": "tests/standalone/sha_acceleration_verify.py",
+      "language": "Python",
+      "bytes": 5837
+    },
+    {
+      "path": "tests/standalone/sha_chain_verify.py",
+      "language": "Python",
+      "bytes": 4097
+    },
+    {
+      "path": "tests/standalone/sha_preparation_verify.py",
+      "language": "Python",
+      "bytes": 6017
+    },
+    {
+      "path": "tests/standalone/sha_reference.py",
+      "language": "Python",
+      "bytes": 737
     },
     {
       "path": "tests/standalone/structured_results_verify.py",
@@ -1065,6 +1146,11 @@
       "bytes": 3254
     },
     {
+      "path": "tools/benchmark-checksum-files.py",
+      "language": "Python",
+      "bytes": 5489
+    },
+    {
       "path": "tools/benchmark-mcp.py",
       "language": "Python",
       "bytes": 3482
@@ -1080,9 +1166,19 @@
       "bytes": 9957
     },
     {
+      "path": "tools/benchmark-sha-acceleration.py",
+      "language": "Python",
+      "bytes": 5358
+    },
+    {
       "path": "tools/benchmark-sha-rotate.py",
       "language": "Python",
       "bytes": 3589
+    },
+    {
+      "path": "tools/benchmark-sha-steady.py",
+      "language": "Python",
+      "bytes": 7186
     },
     {
       "path": "tools/benchmark.mjs",

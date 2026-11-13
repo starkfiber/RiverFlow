@@ -1,0 +1,44 @@
+{
+  "scope": "Exploratory paired-median bootstrap over21 local trials, not independent hosts or a guarantee. Raw measurements unchanged.",
+  "steadyDirectC": [
+    {
+      "bytesPerHash": 0,
+      "candidateMinusDirectCPairedMedianMs": 0.05279166666666668,
+      "bootstrap95Ms": [
+        0.04983333333333334,
+        0.05837500000000001
+      ]
+    },
+    {
+      "bytesPerHash": 64,
+      "candidateMinusDirectCPairedMedianMs": 0.03612499999999996,
+      "bootstrap95Ms": [
+        0.030708333333333226,
+        0.04429166666666662
+      ]
+    },
+    {
+      "bytesPerHash": 4096,
+      "candidateMinusDirectCPairedMedianMs": -0.001291666666666913,
+      "bootstrap95Ms": [
+        -0.034791666666667,
+        0.046499999999999986
+      ]
+    },
+    {
+      "bytesPerHash": 32768,
+      "candidateMinusDirectCPairedMedianMs": -0.09329166666666566,
+      "bootstrap95Ms": [
+        -0.3100000000000023,
+        0.03808333333332925
+      ]
+    }
+  ],
+  "filesAgainstPrevious": {
+    "pairedMedianMs": 0.40462400000000365,
+    "bootstrap95Ms": [
+      -0.01895799999999781,
+      0.7552090000000007
+    ]
+  }
+}

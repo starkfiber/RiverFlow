@@ -1,0 +1,16 @@
+{
+  "unrolledSoftware": {
+    "report": "artifacts/sha-next/bench-1794538239662994000/report.json",
+    "outcome": "Rejected: no batch improvement against RF2 0.22."
+  },
+  "controllerPathCorrection": {
+    "report": "artifacts/sha-next/bench-1794538392455403000/report.json",
+    "outcome": "Excluded: candidate label said SHA2 but controller still selected unrolled source. Corrected before actual hardware measurements; source hashes reveal the mismatch."
+  },
+  "constantPinned": {
+    "report": "artifacts/sha-next/qualified-bench-1794538599833839000/report.json",
+    "outcome": "Rejected: no clear benefit; added SIMD preservation complexity."
+  },
+  "final": "SHA-ACCELERATION-MEASUREMENTS.json",
+  "limits": "Experiments are local records, not independent replication. No discarded result is used as the final performance claim."
+}

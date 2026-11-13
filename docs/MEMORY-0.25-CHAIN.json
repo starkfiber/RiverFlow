@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "comparisons": 672,
+  "negativeCases": 5,
+  "independentAssemblerByteMatch": true,
+  "zeroSpanNullNoOp": true,
+  "compilerSHA256": "b7c3bae1ad5b291266f82ff500c3bf34ac14762fe637cf06582c8eeb216d7b57",
+  "compilerSourceSHA256": "9e0cbd99e1307f958a27825ec5b7ad957a5a75071498f18c38e302321e3ee8d2",
+  "scope": "Finite arbitrary initial states/constants, every split for0..5blocks, offsets0..15, disjoint spans and canaries in both compiler modes. Valid nonoverlapping raw ranges required; no general memory or crypto proof."
+}

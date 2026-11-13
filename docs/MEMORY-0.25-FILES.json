@@ -1,0 +1,4101 @@
+{
+  "passed": true,
+  "host": "macOS-26.5.1-arm64-arm-64bit",
+  "trials": 21,
+  "corpus": [
+    {
+      "source": "README.md",
+      "snapshot": "artifacts/sha-memory/files-1794542243456135000/0-README.md",
+      "bytes": 12206,
+      "sha256": "1cb38f0ad609618900cdfdd466da3bd005d845aa224b2c0c2483c58263c701c1"
+    },
+    {
+      "source": "native/compiler/compiler.rf2",
+      "snapshot": "artifacts/sha-memory/files-1794542243456135000/1-compiler.rf2",
+      "bytes": 125134,
+      "sha256": "9e0cbd99e1307f958a27825ec5b7ad957a5a75071498f18c38e302321e3ee8d2"
+    },
+    {
+      "source": "examples/file-checksum.rf2",
+      "snapshot": "artifacts/sha-memory/files-1794542243456135000/2-file-checksum.rf2",
+      "bytes": 1832,
+      "sha256": "eece12a50f10e080472a1db27c2b32ad7b028914f68558ff75147d9af9445721"
+    },
+    {
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "snapshot": "artifacts/sha-memory/files-1794542243456135000/3-auth.rf2",
+      "bytes": 3126,
+      "sha256": "653d4c47abe18c62d0265383e5157557fafaeed8080fb6f99e22bdc25a62cf27"
+    },
+    {
+      "source": "docs/BYTE-REFERENCE.md",
+      "snapshot": "artifacts/sha-memory/files-1794542243456135000/4-BYTE-REFERENCE.md",
+      "bytes": 8648,
+      "sha256": "96eae3051f3931399473e93b55b386ed9e6dffb2f9bfcfbdf73555385452e68d"
+    },
+    {
+      "source": "book/RiverFlow-First-Edition.md",
+      "snapshot": "artifacts/sha-memory/files-1794542243456135000/5-RiverFlow-First-Edition.md",
+      "bytes": 165427,
+      "sha256": "165848b5fd163fbf107b57e2b0c9bf267c5b0de99159703e0129196b0d5c453e"
+    },
+    {
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "snapshot": "artifacts/sha-memory/files-1794542243456135000/6-SHA-PREPARATION-MEASUREMENTS.json",
+      "bytes": 112707,
+      "sha256": "557e06aa1cbcb535fca5778c16244a95db15e6599e4495990ee086966daa3eeb"
+    },
+    {
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "snapshot": "artifacts/sha-memory/files-1794542243456135000/7-sha256_direct_armv8.c",
+      "bytes": 2508,
+      "sha256": "94ac3b2af5317f2a1140a1148bf6cb42fdbe27642647c58a57458811578fd5d1"
+    },
+    {
+      "source": "site/assets/rf2-capabilities.svg",
+      "snapshot": "artifacts/sha-memory/files-1794542243456135000/8-rf2-capabilities.svg",
+      "bytes": 3428,
+      "sha256": "6433f8bf7c6d56dd45f4d1d5df6b2bb1db2413d2151cccc7b086531c9bfc32c9"
+    },
+    {
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "snapshot": "artifacts/sha-memory/files-1794542243456135000/9-chain.o",
+      "bytes": 888,
+      "sha256": "f77fc57a06c4082a956696838ab98df30706e211f86d40fd0a85da58423b80d5"
+    }
+  ],
+  "corpusBytes": 435904,
+  "warmups": [
+    {
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "checked": true
+    },
+    {
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "checked": true
+    },
+    {
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "checked": true
+    },
+    {
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "checked": true
+    },
+    {
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "checked": true
+    },
+    {
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "checked": true
+    },
+    {
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "checked": true
+    },
+    {
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "checked": true
+    },
+    {
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "checked": true
+    },
+    {
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "checked": true
+    },
+    {
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "checked": true
+    },
+    {
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "checked": true
+    },
+    {
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "checked": true
+    },
+    {
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "checked": true
+    },
+    {
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "checked": true
+    },
+    {
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "checked": true
+    },
+    {
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "checked": true
+    },
+    {
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "checked": true
+    },
+    {
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "checked": true
+    },
+    {
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "checked": true
+    },
+    {
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "checked": true
+    },
+    {
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "checked": true
+    },
+    {
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "checked": true
+    },
+    {
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "checked": true
+    },
+    {
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "checked": true
+    },
+    {
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "checked": true
+    },
+    {
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "checked": true
+    },
+    {
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "checked": true
+    },
+    {
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "checked": true
+    },
+    {
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "checked": true
+    }
+  ],
+  "medianCorpusMs": {
+    "RF2 0.24": 15.739418,
+    "RF2 memory candidate": 16.155835,
+    "Clang/direct ARM SHA2": 16.479207
+  },
+  "minCorpusMs": {
+    "RF2 0.24": 15.373541000000001,
+    "RF2 memory candidate": 15.312251,
+    "Clang/direct ARM SHA2": 15.320748
+  },
+  "maxCorpusMs": {
+    "RF2 0.24": 18.780543,
+    "RF2 memory candidate": 17.694374,
+    "Clang/direct ARM SHA2": 18.397627000000004
+  },
+  "candidateMinusDirectCPairedMedianMs": -0.325330000000001,
+  "candidateMinusDirectCBootstrap95Ms": [
+    -0.6422919999999976,
+    0.26074799999999776
+  ],
+  "raw": [
+    {
+      "trial": 0,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.993292
+    },
+    {
+      "trial": 0,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 2.039583
+    },
+    {
+      "trial": 0,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 2.024542
+    },
+    {
+      "trial": 0,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.864542
+    },
+    {
+      "trial": 0,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.935459
+    },
+    {
+      "trial": 0,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.838
+    },
+    {
+      "trial": 0,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.759042
+    },
+    {
+      "trial": 0,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.700792
+    },
+    {
+      "trial": 0,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.650625
+    },
+    {
+      "trial": 0,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.59175
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.764583
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.553375
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.605625
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.592208
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.770292
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.675125
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.65475
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.897417
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.879875
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.852667
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.740625
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.552417
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.620542
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.547334
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.638042
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.535667
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.422
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.487708
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.531875
+    },
+    {
+      "trial": 0,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.5255
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.56425
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.582667
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.488667
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.489375
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.535834
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.756292
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.481542
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.687833
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.549792
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.525667
+    },
+    {
+      "trial": 1,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.5705
+    },
+    {
+      "trial": 1,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.516209
+    },
+    {
+      "trial": 1,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.51575
+    },
+    {
+      "trial": 1,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.58
+    },
+    {
+      "trial": 1,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.558291
+    },
+    {
+      "trial": 1,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.544042
+    },
+    {
+      "trial": 1,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.479541
+    },
+    {
+      "trial": 1,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.580375
+    },
+    {
+      "trial": 1,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.484209
+    },
+    {
+      "trial": 1,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.563792
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.548958
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.498291
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.537542
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.569875
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.565417
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.521291
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.955542
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.7005
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.777417
+    },
+    {
+      "trial": 1,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.783666
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.867584
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.574375
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.613958
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.525167
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.418167
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.448792
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.74475
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.519625
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.513959
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.425958
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.44
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.471333
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.452667
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.344667
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.392916
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.532709
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.46675
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.613
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.839042
+    },
+    {
+      "trial": 2,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.873875
+    },
+    {
+      "trial": 2,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.675292
+    },
+    {
+      "trial": 2,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.762
+    },
+    {
+      "trial": 2,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.767375
+    },
+    {
+      "trial": 2,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.545958
+    },
+    {
+      "trial": 2,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.6355
+    },
+    {
+      "trial": 2,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.579792
+    },
+    {
+      "trial": 2,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.628959
+    },
+    {
+      "trial": 2,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.772708
+    },
+    {
+      "trial": 2,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.634291
+    },
+    {
+      "trial": 2,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.608166
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.473042
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.587917
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.630334
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.489667
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.489333
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.498375
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.489583
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.576708
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.568125
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.509167
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.800583
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.698708
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.612666
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.562084
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.513875
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.444875
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.503458
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.552625
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.655708
+    },
+    {
+      "trial": 3,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.498667
+    },
+    {
+      "trial": 3,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.485125
+    },
+    {
+      "trial": 3,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.615875
+    },
+    {
+      "trial": 3,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.589458
+    },
+    {
+      "trial": 3,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.502
+    },
+    {
+      "trial": 3,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.540833
+    },
+    {
+      "trial": 3,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.440041
+    },
+    {
+      "trial": 3,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.553125
+    },
+    {
+      "trial": 3,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.566084
+    },
+    {
+      "trial": 3,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.518292
+    },
+    {
+      "trial": 3,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.741916
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.606917
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.834792
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.968125
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.4975
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.530084
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.578417
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.63825
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.479
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.518333
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.444
+    },
+    {
+      "trial": 4,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.543542
+    },
+    {
+      "trial": 4,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.637958
+    },
+    {
+      "trial": 4,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.567375
+    },
+    {
+      "trial": 4,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.512541
+    },
+    {
+      "trial": 4,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.515708
+    },
+    {
+      "trial": 4,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.473208
+    },
+    {
+      "trial": 4,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.467
+    },
+    {
+      "trial": 4,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.545041
+    },
+    {
+      "trial": 4,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.497625
+    },
+    {
+      "trial": 4,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.56075
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.568208
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.726292
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.726375
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.684792
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.614417
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.594292
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.526
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.693416
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.491917
+    },
+    {
+      "trial": 4,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.488667
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.585
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.725917
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.525375
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.559583
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.655833
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.561375
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.508209
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.535209
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.468917
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.523042
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.580833
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.58525
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.683042
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.781166
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.700709
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.656958
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.508834
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.559625
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.525917
+    },
+    {
+      "trial": 5,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.508791
+    },
+    {
+      "trial": 5,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.637584
+    },
+    {
+      "trial": 5,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.672042
+    },
+    {
+      "trial": 5,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.575583
+    },
+    {
+      "trial": 5,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.562333
+    },
+    {
+      "trial": 5,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.513542
+    },
+    {
+      "trial": 5,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.571959
+    },
+    {
+      "trial": 5,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.5885
+    },
+    {
+      "trial": 5,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.556708
+    },
+    {
+      "trial": 5,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.540292
+    },
+    {
+      "trial": 5,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.611834
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.469916
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.737792
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 2.056958
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.947708
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.898042
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.740458
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.836292
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.723875
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.723208
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.560125
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.45925
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.59975
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.579792
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.586625
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.550541
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.583709
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.582708
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.53075
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.481875
+    },
+    {
+      "trial": 6,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.538875
+    },
+    {
+      "trial": 6,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.554875
+    },
+    {
+      "trial": 6,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.597166
+    },
+    {
+      "trial": 6,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.625958
+    },
+    {
+      "trial": 6,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.64875
+    },
+    {
+      "trial": 6,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.862333
+    },
+    {
+      "trial": 6,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.8035
+    },
+    {
+      "trial": 6,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.61125
+    },
+    {
+      "trial": 6,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.667875
+    },
+    {
+      "trial": 6,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.684625
+    },
+    {
+      "trial": 6,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.60075
+    },
+    {
+      "trial": 7,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.598333
+    },
+    {
+      "trial": 7,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.655708
+    },
+    {
+      "trial": 7,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.613792
+    },
+    {
+      "trial": 7,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.530583
+    },
+    {
+      "trial": 7,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.594
+    },
+    {
+      "trial": 7,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.540459
+    },
+    {
+      "trial": 7,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.503167
+    },
+    {
+      "trial": 7,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.557375
+    },
+    {
+      "trial": 7,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.479208
+    },
+    {
+      "trial": 7,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.549917
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.506375
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 2.253209
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.89675
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.633958
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.637375
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.858916
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.766083
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.619375
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.614583
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.616083
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.524958
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.645959
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.577875
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.585916
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.522209
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.523167
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.572125
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.68175
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.551334
+    },
+    {
+      "trial": 7,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.554125
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.557
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.533959
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.575167
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.770375
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.993542
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.791625
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.596875
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.538917
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.763709
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.545333
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.557875
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.508916
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.535375
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.594458
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.579292
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.615375
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.57075
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.573875
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.557209
+    },
+    {
+      "trial": 8,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.465
+    },
+    {
+      "trial": 8,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.572291
+    },
+    {
+      "trial": 8,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.601625
+    },
+    {
+      "trial": 8,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.671333
+    },
+    {
+      "trial": 8,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.86325
+    },
+    {
+      "trial": 8,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.685834
+    },
+    {
+      "trial": 8,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.832708
+    },
+    {
+      "trial": 8,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.764625
+    },
+    {
+      "trial": 8,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.696
+    },
+    {
+      "trial": 8,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.70475
+    },
+    {
+      "trial": 8,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.653084
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.663125
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.524333
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.5085
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.84025
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.678458
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 2.200542
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.737375
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.610291
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.664416
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.523667
+    },
+    {
+      "trial": 9,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.720583
+    },
+    {
+      "trial": 9,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.606875
+    },
+    {
+      "trial": 9,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.669916
+    },
+    {
+      "trial": 9,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 2.022792
+    },
+    {
+      "trial": 9,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.864875
+    },
+    {
+      "trial": 9,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.976083
+    },
+    {
+      "trial": 9,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.73675
+    },
+    {
+      "trial": 9,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.643167
+    },
+    {
+      "trial": 9,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.738708
+    },
+    {
+      "trial": 9,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.6135
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.539625
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.596791
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.610708
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.669459
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.581875
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.495333
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.5295
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.507084
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.493875
+    },
+    {
+      "trial": 9,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.449958
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.502667
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.551917
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.537042
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.569583
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.822375
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.778084
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.705917
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.611125
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.67575
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.559792
+    },
+    {
+      "trial": 10,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.659416
+    },
+    {
+      "trial": 10,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.779791
+    },
+    {
+      "trial": 10,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.560375
+    },
+    {
+      "trial": 10,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.63075
+    },
+    {
+      "trial": 10,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.554583
+    },
+    {
+      "trial": 10,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.523916
+    },
+    {
+      "trial": 10,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.554625
+    },
+    {
+      "trial": 10,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.514542
+    },
+    {
+      "trial": 10,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.728084
+    },
+    {
+      "trial": 10,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.584209
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.5115
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.477792
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.537416
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.675209
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.870417
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.621875
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 2.039459
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.579875
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.694875
+    },
+    {
+      "trial": 10,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.75175
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.604708
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.561125
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.617709
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.745
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.533
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.4395
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.623709
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.57775
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.537833
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.448791
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.534792
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.476208
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.573542
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.630084
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.68875
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.620709
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.769417
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.684541
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.650459
+    },
+    {
+      "trial": 11,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.527333
+    },
+    {
+      "trial": 11,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.656
+    },
+    {
+      "trial": 11,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.556792
+    },
+    {
+      "trial": 11,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.653084
+    },
+    {
+      "trial": 11,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.628916
+    },
+    {
+      "trial": 11,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.700208
+    },
+    {
+      "trial": 11,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.673458
+    },
+    {
+      "trial": 11,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.672708
+    },
+    {
+      "trial": 11,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.623916
+    },
+    {
+      "trial": 11,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.64825
+    },
+    {
+      "trial": 11,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.665875
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.71775
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.569375
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.511708
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.513
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.696666
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.638458
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.57025
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.812417
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.786333
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.590416
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.704958
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.546
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.583625
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.589625
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.6635
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.504167
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.536917
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.46575
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.614834
+    },
+    {
+      "trial": 12,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.516666
+    },
+    {
+      "trial": 12,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.593542
+    },
+    {
+      "trial": 12,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.623833
+    },
+    {
+      "trial": 12,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.538917
+    },
+    {
+      "trial": 12,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.558167
+    },
+    {
+      "trial": 12,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.85675
+    },
+    {
+      "trial": 12,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.758083
+    },
+    {
+      "trial": 12,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.716375
+    },
+    {
+      "trial": 12,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.996542
+    },
+    {
+      "trial": 12,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.596292
+    },
+    {
+      "trial": 12,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.624167
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.65675
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.713416
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.499833
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.477208
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.593875
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.593958
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.522458
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.440292
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.663833
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.602667
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.36825
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.490041
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.397708
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.468083
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.467625
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.552375
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.615416
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.571167
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.681917
+    },
+    {
+      "trial": 13,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.760959
+    },
+    {
+      "trial": 13,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.793
+    },
+    {
+      "trial": 13,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.709292
+    },
+    {
+      "trial": 13,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.738416
+    },
+    {
+      "trial": 13,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.623083
+    },
+    {
+      "trial": 13,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.627542
+    },
+    {
+      "trial": 13,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.625917
+    },
+    {
+      "trial": 13,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.663416
+    },
+    {
+      "trial": 13,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.475292
+    },
+    {
+      "trial": 13,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.981
+    },
+    {
+      "trial": 13,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.681917
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.656334
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.498375
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.523083
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.485667
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.532042
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.663958
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.853958
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.624375
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.791375
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.963958
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.795375
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.621791
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.757458
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.599208
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.608542
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.69575
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.605625
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.5245
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.492833
+    },
+    {
+      "trial": 14,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.484042
+    },
+    {
+      "trial": 14,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.581709
+    },
+    {
+      "trial": 14,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.52625
+    },
+    {
+      "trial": 14,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.62525
+    },
+    {
+      "trial": 14,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.508917
+    },
+    {
+      "trial": 14,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.568625
+    },
+    {
+      "trial": 14,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.751791
+    },
+    {
+      "trial": 14,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.691625
+    },
+    {
+      "trial": 14,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.74425
+    },
+    {
+      "trial": 14,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.897916
+    },
+    {
+      "trial": 14,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.617709
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.543708
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.472334
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.614208
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.562709
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.419125
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.4685
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.720667
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.822083
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.559875
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.578958
+    },
+    {
+      "trial": 15,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.609208
+    },
+    {
+      "trial": 15,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.657292
+    },
+    {
+      "trial": 15,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.733541
+    },
+    {
+      "trial": 15,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.733416
+    },
+    {
+      "trial": 15,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.624209
+    },
+    {
+      "trial": 15,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.565542
+    },
+    {
+      "trial": 15,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.916708
+    },
+    {
+      "trial": 15,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.801208
+    },
+    {
+      "trial": 15,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.675209
+    },
+    {
+      "trial": 15,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.807208
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.7215
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.627667
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.676666
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.6325
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.536208
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.541333
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.669375
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.616709
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.698125
+    },
+    {
+      "trial": 15,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.446708
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.496792
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.524083
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.524417
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.569833
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.468583
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.521625
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.60425
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.814
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.49225
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.756333
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.736584
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.603625
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.69575
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.691125
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.658958
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.494792
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.622667
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.665666
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.539042
+    },
+    {
+      "trial": 16,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.568792
+    },
+    {
+      "trial": 16,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.583916
+    },
+    {
+      "trial": 16,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.606167
+    },
+    {
+      "trial": 16,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.660834
+    },
+    {
+      "trial": 16,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.564834
+    },
+    {
+      "trial": 16,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.535208
+    },
+    {
+      "trial": 16,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.523333
+    },
+    {
+      "trial": 16,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.588833
+    },
+    {
+      "trial": 16,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.736416
+    },
+    {
+      "trial": 16,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.610334
+    },
+    {
+      "trial": 16,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.889208
+    },
+    {
+      "trial": 17,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.73475
+    },
+    {
+      "trial": 17,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.697417
+    },
+    {
+      "trial": 17,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.600875
+    },
+    {
+      "trial": 17,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.69325
+    },
+    {
+      "trial": 17,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.682292
+    },
+    {
+      "trial": 17,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.619042
+    },
+    {
+      "trial": 17,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.59
+    },
+    {
+      "trial": 17,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.630875
+    },
+    {
+      "trial": 17,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.572583
+    },
+    {
+      "trial": 17,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.512666
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 3.019
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 2.061542
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.642334
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.597792
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.757209
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.57825
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.696208
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.783
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.701625
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.943583
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.702375
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.692792
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.659833
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.654
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.627416
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.592833
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.597625
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.542583
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.481541
+    },
+    {
+      "trial": 17,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.47875
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.499125
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.598208
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.566709
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.435709
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.505084
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.501334
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.552833
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.660084
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.817542
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.86425
+    },
+    {
+      "trial": 18,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.760625
+    },
+    {
+      "trial": 18,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.741583
+    },
+    {
+      "trial": 18,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.6645
+    },
+    {
+      "trial": 18,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.69
+    },
+    {
+      "trial": 18,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.554334
+    },
+    {
+      "trial": 18,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.635125
+    },
+    {
+      "trial": 18,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.525667
+    },
+    {
+      "trial": 18,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.636166
+    },
+    {
+      "trial": 18,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.560166
+    },
+    {
+      "trial": 18,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.558042
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.647792
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.609083
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.542041
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.495625
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.478833
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.480375
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.499833
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.709833
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.785333
+    },
+    {
+      "trial": 18,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.688625
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.802041
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.813083
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.613958
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.651208
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.5035
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.625167
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.487375
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.693208
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.597
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.4315
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.490875
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.492958
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.555625
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.49675
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.468
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.520084
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.508083
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.581042
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.847292
+    },
+    {
+      "trial": 19,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.604916
+    },
+    {
+      "trial": 19,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.714375
+    },
+    {
+      "trial": 19,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.875875
+    },
+    {
+      "trial": 19,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.658708
+    },
+    {
+      "trial": 19,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.601625
+    },
+    {
+      "trial": 19,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.648042
+    },
+    {
+      "trial": 19,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.687709
+    },
+    {
+      "trial": 19,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.562458
+    },
+    {
+      "trial": 19,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.738208
+    },
+    {
+      "trial": 19,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.771292
+    },
+    {
+      "trial": 19,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.811625
+    },
+    {
+      "trial": 20,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.718125
+    },
+    {
+      "trial": 20,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "README.md",
+      "ms": 1.534042
+    },
+    {
+      "trial": 20,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.566167
+    },
+    {
+      "trial": 20,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.504667
+    },
+    {
+      "trial": 20,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.528833
+    },
+    {
+      "trial": 20,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.571959
+    },
+    {
+      "trial": 20,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.643125
+    },
+    {
+      "trial": 20,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.606625
+    },
+    {
+      "trial": 20,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.716042
+    },
+    {
+      "trial": 20,
+      "variant": "Clang/direct ARM SHA2",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.602792
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 memory candidate",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.850916
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 memory candidate",
+      "source": "README.md",
+      "ms": 1.644
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 memory candidate",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.593417
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 memory candidate",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.737125
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 memory candidate",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.569792
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 memory candidate",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.607208
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 memory candidate",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.437042
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 memory candidate",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.650042
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 memory candidate",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.643667
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 memory candidate",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.689833
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 0.24",
+      "source": "docs/SHA-PREPARATION-MEASUREMENTS.json",
+      "ms": 1.642208
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 0.24",
+      "source": "README.md",
+      "ms": 1.483083
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 0.24",
+      "source": "examples/evidence-contract/lib/auth.rf2",
+      "ms": 1.595417
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 0.24",
+      "source": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "ms": 1.529625
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 0.24",
+      "source": "tests/fixtures/sha256_direct_armv8.c",
+      "ms": 1.441625
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 0.24",
+      "source": "docs/BYTE-REFERENCE.md",
+      "ms": 1.57925
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 0.24",
+      "source": "examples/file-checksum.rf2",
+      "ms": 1.487083
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 0.24",
+      "source": "site/assets/rf2-capabilities.svg",
+      "ms": 1.540917
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 0.24",
+      "source": "native/compiler/compiler.rf2",
+      "ms": 1.603833
+    },
+    {
+      "trial": 20,
+      "variant": "RF2 0.24",
+      "source": "book/RiverFlow-First-Edition.md",
+      "ms": 1.764792
+    }
+  ],
+  "compilerSHA256": "b7c3bae1ad5b291266f82ff500c3bf34ac14762fe637cf06582c8eeb216d7b57",
+  "compilerSourceSHA256": "9e0cbd99e1307f958a27825ec5b7ad957a5a75071498f18c38e302321e3ee8d2",
+  "shaSourceSHA256": "b79e7217db169985a5b2262ad4e4c5a550dc7741a60aaff816176a7324a0ffb5",
+  "controllerSHA256": "fdee41676fc9ca4960184b3f4efc2b331679ff9c72d545a8ba3b11bc01674d37",
+  "artifacts": [
+    {
+      "path": "artifacts/sha-memory/files-1794542243456135000/chain.o",
+      "sha256": "f77fc57a06c4082a956696838ab98df30706e211f86d40fd0a85da58423b80d5"
+    },
+    {
+      "path": "artifacts/sha-memory/files-1794542243456135000/1-compiler.rf2",
+      "sha256": "9e0cbd99e1307f958a27825ec5b7ad957a5a75071498f18c38e302321e3ee8d2"
+    },
+    {
+      "path": "artifacts/sha-memory/files-1794542243456135000/6-SHA-PREPARATION-MEASUREMENTS.json",
+      "sha256": "557e06aa1cbcb535fca5778c16244a95db15e6599e4495990ee086966daa3eeb"
+    },
+    {
+      "path": "artifacts/sha-memory/files-1794542243456135000/5-RiverFlow-First-Edition.md",
+      "sha256": "165848b5fd163fbf107b57e2b0c9bf267c5b0de99159703e0129196b0d5c453e"
+    },
+    {
+      "path": "artifacts/sha-memory/files-1794542243456135000/direct",
+      "sha256": "0efd58a993cd94f58b682ff0b8a0f235d2a282dd163976ba79a5b51cafdae11b"
+    },
+    {
+      "path": "artifacts/sha-memory/files-1794542243456135000/old-compiler",
+      "sha256": "e7bad9aea3ae8b6e3746f07e83d3d90df6a99d390b8df5f88877ef7390df9614"
+    },
+    {
+      "path": "artifacts/sha-memory/files-1794542243456135000/new.rf2",
+      "sha256": "73bd7084d10b61b5327ab007c346dcc1ceb60a8a86d8c210f8faf4dc97082ee2"
+    },
+    {
+      "path": "artifacts/sha-memory/files-1794542243456135000/9-chain.o",
+      "sha256": "f77fc57a06c4082a956696838ab98df30706e211f86d40fd0a85da58423b80d5"
+    },
+    {
+      "path": "artifacts/sha-memory/files-1794542243456135000/direct.c",
+      "sha256": "0ea7459611c847116a0015845d801b5e035ab83dd180d63e1bcb501c71b73fb9"
+    },
+    {
+      "path": "artifacts/sha-memory/files-1794542243456135000/4-BYTE-REFERENCE.md",
+      "sha256": "96eae3051f3931399473e93b55b386ed9e6dffb2f9bfcfbdf73555385452e68d"
+    },
+    {
+      "path": "artifacts/sha-memory/files-1794542243456135000/7-sha256_direct_armv8.c",
+      "sha256": "94ac3b2af5317f2a1140a1148bf6cb42fdbe27642647c58a57458811578fd5d1"
+    },
+    {
+      "path": "artifacts/sha-memory/files-1794542243456135000/2-file-checksum.rf2",
+      "sha256": "eece12a50f10e080472a1db27c2b32ad7b028914f68558ff75147d9af9445721"
+    },
+    {
+      "path": "artifacts/sha-memory/files-1794542243456135000/old",
+      "sha256": "9a5c58b897ad1205fb6ed1539d579e059a99f5b61b0ab2a942f05eefd45c514a"
+    },
+    {
+      "path": "artifacts/sha-memory/files-1794542243456135000/old.rf2",
+      "sha256": "2d951f35e86f61f565fe6542c8855269253b524fbc7483bb48c8e3b27628e795"
+    },
+    {
+      "path": "artifacts/sha-memory/files-1794542243456135000/new",
+      "sha256": "3a2968a8fb1261fdcef5b5ae36cc9c09ae2f9a5c365e50f98346d8f54b57d7e7"
+    },
+    {
+      "path": "artifacts/sha-memory/files-1794542243456135000/8-rf2-capabilities.svg",
+      "sha256": "6433f8bf7c6d56dd45f4d1d5df6b2bb1db2413d2151cccc7b086531c9bfc32c9"
+    },
+    {
+      "path": "artifacts/sha-memory/files-1794542243456135000/0-README.md",
+      "sha256": "1cb38f0ad609618900cdfdd466da3bd005d845aa224b2c0c2483c58263c701c1"
+    },
+    {
+      "path": "artifacts/sha-memory/files-1794542243456135000/3-auth.rf2",
+      "sha256": "653d4c47abe18c62d0265383e5157557fafaeed8080fb6f99e22bdc25a62cf27"
+    }
+  ],
+  "scope": "Ten actual project file/artifact snapshots. One CLI process per input, produce-digest mode. Includes startup, open/type-check/read/close, hashing and output capture; warm OS cache after correctness warmup. No cold-disk or field deployment claim. Different executable/load/I/O implementations remain confounders. No universal speed claim."
+}

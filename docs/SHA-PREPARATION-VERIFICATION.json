@@ -1,0 +1,728 @@
+{
+  "passed": true,
+  "directCFullDigestCases": 150,
+  "primitiveCasesPerMode": 2070,
+  "primitiveComparisons": 8280,
+  "reusedStateDigests": 144,
+  "negativeCases": 8,
+  "appChecks": 126,
+  "appCases": [
+    {
+      "opt": false,
+      "bytes": 0,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 0,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 0,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 0,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": false,
+      "bytes": 1,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 1,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 1,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 1,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": false,
+      "bytes": 55,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 55,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 55,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 55,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": false,
+      "bytes": 56,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 56,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 56,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 56,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": false,
+      "bytes": 63,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 63,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 63,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 63,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": false,
+      "bytes": 64,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 64,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 64,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 64,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": false,
+      "bytes": 65,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 65,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 65,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 65,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": false,
+      "bytes": 127,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 127,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 127,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 127,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": false,
+      "bytes": 128,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 128,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 128,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 128,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": false,
+      "bytes": 129,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 129,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 129,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 129,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": false,
+      "bytes": 4096,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 4096,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 4096,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 4096,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": false,
+      "bytes": 32768,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 32768,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 32768,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 32768,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": false,
+      "bytes": 1048576,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 1048576,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 1048576,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": false,
+      "bytes": 1048576,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": false,
+      "rejected": true
+    },
+    {
+      "opt": false,
+      "rejected": true
+    },
+    {
+      "opt": false,
+      "rejected": true
+    },
+    {
+      "opt": false,
+      "rejected": true
+    },
+    {
+      "opt": false,
+      "rejected": true
+    },
+    {
+      "opt": false,
+      "rejected": true
+    },
+    {
+      "opt": false,
+      "rejected": true
+    },
+    {
+      "opt": false,
+      "rejected": true
+    },
+    {
+      "opt": false,
+      "rejected": true
+    },
+    {
+      "opt": false,
+      "rejected": true
+    },
+    {
+      "opt": false,
+      "oversizeRefused": true
+    },
+    {
+      "opt": true,
+      "bytes": 0,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 0,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 0,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 0,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": true,
+      "bytes": 1,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 1,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 1,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 1,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": true,
+      "bytes": 55,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 55,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 55,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 55,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": true,
+      "bytes": 56,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 56,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 56,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 56,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": true,
+      "bytes": 63,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 63,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 63,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 63,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": true,
+      "bytes": 64,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 64,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 64,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 64,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": true,
+      "bytes": 65,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 65,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 65,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 65,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": true,
+      "bytes": 127,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 127,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 127,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 127,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": true,
+      "bytes": 128,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 128,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 128,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 128,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": true,
+      "bytes": 129,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 129,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 129,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 129,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": true,
+      "bytes": 4096,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 4096,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 4096,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 4096,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": true,
+      "bytes": 32768,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 32768,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 32768,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 32768,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": true,
+      "bytes": 1048576,
+      "mode": "produce",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 1048576,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 1048576,
+      "mode": "verify",
+      "exit": 0
+    },
+    {
+      "opt": true,
+      "bytes": 1048576,
+      "mode": "verify",
+      "exit": 1
+    },
+    {
+      "opt": true,
+      "rejected": true
+    },
+    {
+      "opt": true,
+      "rejected": true
+    },
+    {
+      "opt": true,
+      "rejected": true
+    },
+    {
+      "opt": true,
+      "rejected": true
+    },
+    {
+      "opt": true,
+      "rejected": true
+    },
+    {
+      "opt": true,
+      "rejected": true
+    },
+    {
+      "opt": true,
+      "rejected": true
+    },
+    {
+      "opt": true,
+      "rejected": true
+    },
+    {
+      "opt": true,
+      "rejected": true
+    },
+    {
+      "opt": true,
+      "rejected": true
+    },
+    {
+      "opt": true,
+      "oversizeRefused": true
+    }
+  ],
+  "compilerSHA256": "4804b311d1e51639c15b1b10b93577ccc87c9ed26345fcc1a22e8d902faa48fb",
+  "compilerSourceSHA256": "8d7eea882adda54794a1c8f5ad2234240b217e034e0b71e2925e6c78a7890819",
+  "shaSourceSHA256": "d2010147a7e8f7f5c6f7387430dd54f8facee84f529c261ea02be806a02ceb3b",
+  "appSourceSHA256": "eece12a50f10e080472a1db27c2b32ad7b028914f68558ff75147d9af9445721",
+  "scope": "Finite local default/optimized byte-swap, changing-message reuse and file-integrity CLI checks. No thread-safety, authenticated origin or general memory safety."
+}

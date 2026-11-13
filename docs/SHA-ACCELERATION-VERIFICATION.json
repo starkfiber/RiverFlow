@@ -1,0 +1,4518 @@
+{
+  "passed": true,
+  "shaChecks": 900,
+  "shaCases": [
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 0
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 1
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 2
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 3
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 4
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 5
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 6
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 7
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 8
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 9
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 10
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 11
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 12
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 13
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 14
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 15
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 16
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 17
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 18
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 19
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 20
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 21
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 22
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 23
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 24
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 25
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 26
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 27
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 28
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 29
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 30
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 31
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 32
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 33
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 34
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 35
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 36
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 37
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 38
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 39
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 40
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 41
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 42
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 43
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 44
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 45
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 46
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 47
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 48
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 49
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 50
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 51
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 52
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 53
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 54
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 55
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 56
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 57
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 58
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 59
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 60
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 61
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 62
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 63
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 64
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 65
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 66
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 67
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 68
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 69
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 70
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 71
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 72
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 73
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 74
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 75
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 76
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 77
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 78
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 79
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 80
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 81
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 82
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 83
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 84
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 85
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 86
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 87
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 88
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 89
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 90
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 91
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 92
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 93
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 94
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 95
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 96
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 97
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 98
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 99
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 100
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 101
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 102
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 103
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 104
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 105
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 106
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 107
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 108
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 109
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 110
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 111
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 112
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 113
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 114
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 115
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 116
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 117
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 118
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 119
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 120
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 121
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 122
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 123
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 124
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 125
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 126
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 127
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 128
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 129
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 130
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 131
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 132
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 133
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 134
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 135
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 136
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 137
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 138
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 139
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 255
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 256
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 511
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 512
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 513
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 1024
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 4096
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 32768
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 65536
+    },
+    {
+      "mode": "auto",
+      "opt": false,
+      "bytes": 1048576
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 0
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 1
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 2
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 3
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 4
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 5
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 6
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 7
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 8
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 9
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 10
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 11
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 12
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 13
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 14
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 15
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 16
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 17
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 18
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 19
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 20
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 21
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 22
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 23
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 24
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 25
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 26
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 27
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 28
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 29
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 30
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 31
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 32
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 33
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 34
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 35
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 36
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 37
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 38
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 39
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 40
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 41
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 42
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 43
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 44
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 45
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 46
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 47
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 48
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 49
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 50
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 51
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 52
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 53
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 54
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 55
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 56
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 57
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 58
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 59
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 60
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 61
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 62
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 63
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 64
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 65
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 66
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 67
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 68
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 69
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 70
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 71
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 72
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 73
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 74
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 75
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 76
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 77
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 78
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 79
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 80
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 81
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 82
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 83
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 84
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 85
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 86
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 87
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 88
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 89
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 90
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 91
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 92
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 93
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 94
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 95
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 96
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 97
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 98
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 99
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 100
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 101
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 102
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 103
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 104
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 105
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 106
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 107
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 108
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 109
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 110
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 111
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 112
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 113
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 114
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 115
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 116
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 117
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 118
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 119
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 120
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 121
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 122
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 123
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 124
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 125
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 126
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 127
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 128
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 129
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 130
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 131
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 132
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 133
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 134
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 135
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 136
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 137
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 138
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 139
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 255
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 256
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 511
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 512
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 513
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 1024
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 4096
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 32768
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 65536
+    },
+    {
+      "mode": "auto",
+      "opt": true,
+      "bytes": 1048576
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 0
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 1
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 2
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 3
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 4
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 5
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 6
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 7
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 8
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 9
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 10
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 11
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 12
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 13
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 14
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 15
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 16
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 17
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 18
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 19
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 20
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 21
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 22
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 23
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 24
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 25
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 26
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 27
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 28
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 29
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 30
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 31
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 32
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 33
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 34
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 35
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 36
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 37
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 38
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 39
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 40
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 41
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 42
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 43
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 44
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 45
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 46
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 47
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 48
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 49
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 50
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 51
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 52
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 53
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 54
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 55
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 56
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 57
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 58
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 59
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 60
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 61
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 62
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 63
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 64
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 65
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 66
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 67
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 68
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 69
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 70
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 71
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 72
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 73
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 74
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 75
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 76
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 77
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 78
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 79
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 80
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 81
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 82
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 83
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 84
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 85
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 86
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 87
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 88
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 89
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 90
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 91
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 92
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 93
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 94
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 95
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 96
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 97
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 98
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 99
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 100
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 101
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 102
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 103
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 104
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 105
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 106
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 107
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 108
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 109
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 110
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 111
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 112
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 113
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 114
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 115
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 116
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 117
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 118
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 119
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 120
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 121
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 122
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 123
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 124
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 125
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 126
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 127
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 128
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 129
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 130
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 131
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 132
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 133
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 134
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 135
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 136
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 137
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 138
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 139
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 255
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 256
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 511
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 512
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 513
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 1024
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 4096
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 32768
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 65536
+    },
+    {
+      "mode": "software",
+      "opt": false,
+      "bytes": 1048576
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 0
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 1
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 2
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 3
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 4
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 5
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 6
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 7
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 8
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 9
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 10
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 11
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 12
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 13
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 14
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 15
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 16
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 17
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 18
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 19
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 20
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 21
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 22
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 23
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 24
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 25
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 26
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 27
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 28
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 29
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 30
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 31
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 32
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 33
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 34
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 35
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 36
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 37
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 38
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 39
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 40
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 41
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 42
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 43
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 44
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 45
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 46
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 47
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 48
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 49
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 50
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 51
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 52
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 53
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 54
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 55
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 56
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 57
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 58
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 59
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 60
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 61
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 62
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 63
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 64
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 65
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 66
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 67
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 68
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 69
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 70
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 71
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 72
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 73
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 74
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 75
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 76
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 77
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 78
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 79
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 80
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 81
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 82
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 83
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 84
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 85
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 86
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 87
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 88
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 89
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 90
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 91
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 92
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 93
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 94
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 95
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 96
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 97
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 98
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 99
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 100
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 101
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 102
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 103
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 104
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 105
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 106
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 107
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 108
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 109
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 110
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 111
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 112
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 113
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 114
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 115
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 116
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 117
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 118
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 119
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 120
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 121
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 122
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 123
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 124
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 125
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 126
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 127
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 128
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 129
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 130
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 131
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 132
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 133
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 134
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 135
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 136
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 137
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 138
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 139
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 255
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 256
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 511
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 512
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 513
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 1024
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 4096
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 32768
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 65536
+    },
+    {
+      "mode": "software",
+      "opt": true,
+      "bytes": 1048576
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 0
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 1
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 2
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 3
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 4
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 5
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 6
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 7
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 8
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 9
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 10
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 11
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 12
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 13
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 14
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 15
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 16
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 17
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 18
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 19
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 20
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 21
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 22
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 23
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 24
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 25
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 26
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 27
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 28
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 29
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 30
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 31
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 32
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 33
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 34
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 35
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 36
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 37
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 38
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 39
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 40
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 41
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 42
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 43
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 44
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 45
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 46
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 47
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 48
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 49
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 50
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 51
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 52
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 53
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 54
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 55
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 56
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 57
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 58
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 59
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 60
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 61
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 62
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 63
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 64
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 65
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 66
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 67
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 68
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 69
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 70
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 71
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 72
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 73
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 74
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 75
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 76
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 77
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 78
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 79
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 80
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 81
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 82
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 83
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 84
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 85
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 86
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 87
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 88
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 89
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 90
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 91
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 92
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 93
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 94
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 95
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 96
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 97
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 98
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 99
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 100
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 101
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 102
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 103
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 104
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 105
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 106
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 107
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 108
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 109
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 110
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 111
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 112
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 113
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 114
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 115
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 116
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 117
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 118
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 119
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 120
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 121
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 122
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 123
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 124
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 125
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 126
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 127
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 128
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 129
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 130
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 131
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 132
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 133
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 134
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 135
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 136
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 137
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 138
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 139
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 255
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 256
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 511
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 512
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 513
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 1024
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 4096
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 32768
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 65536
+    },
+    {
+      "mode": "query-failure",
+      "opt": false,
+      "bytes": 1048576
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 0
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 1
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 2
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 3
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 4
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 5
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 6
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 7
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 8
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 9
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 10
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 11
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 12
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 13
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 14
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 15
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 16
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 17
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 18
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 19
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 20
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 21
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 22
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 23
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 24
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 25
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 26
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 27
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 28
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 29
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 30
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 31
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 32
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 33
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 34
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 35
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 36
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 37
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 38
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 39
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 40
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 41
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 42
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 43
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 44
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 45
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 46
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 47
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 48
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 49
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 50
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 51
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 52
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 53
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 54
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 55
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 56
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 57
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 58
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 59
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 60
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 61
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 62
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 63
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 64
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 65
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 66
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 67
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 68
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 69
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 70
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 71
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 72
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 73
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 74
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 75
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 76
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 77
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 78
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 79
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 80
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 81
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 82
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 83
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 84
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 85
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 86
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 87
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 88
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 89
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 90
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 91
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 92
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 93
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 94
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 95
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 96
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 97
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 98
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 99
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 100
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 101
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 102
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 103
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 104
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 105
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 106
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 107
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 108
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 109
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 110
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 111
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 112
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 113
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 114
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 115
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 116
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 117
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 118
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 119
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 120
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 121
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 122
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 123
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 124
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 125
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 126
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 127
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 128
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 129
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 130
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 131
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 132
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 133
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 134
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 135
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 136
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 137
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 138
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 139
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 255
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 256
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 511
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 512
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 513
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 1024
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 4096
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 32768
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 65536
+    },
+    {
+      "mode": "query-failure",
+      "opt": true,
+      "bytes": 1048576
+    }
+  ],
+  "arbitraryCompressionCases": 192,
+  "negativeCases": 6,
+  "assemblyOracleByteMatch": true,
+  "featureProbe": {
+    "available": true,
+    "zeroBlockNullNoOp": true
+  },
+  "compilerSHA256": "84c759971768670bc151ac9270757aa69764a89ab18000ed3e78a8e5e35f6f1d",
+  "compilerSourceSHA256": "6b143f3b3be49ff085382a2245d49686cdf5ee7df44ce598ea2a57bbcb9d289a",
+  "shaSourceSHA256": "070bcbb338f3275c3ded51dc5122acffa7757bb12334e7c5eb19ff353cf5de51",
+  "controllerSHA256": "03ecdb8489968398eff747151092157cb2d6c220fa15f74d84259241155af8f3",
+  "limits": "Finite local checks, trusted raw pointers. ARM FEAT_SHA256 required for direct intrinsic; library queries Darwin and falls back on absent/failed query. Not crypto certification, reentrancy or memory safety."
+}
