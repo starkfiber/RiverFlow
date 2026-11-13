@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="240" viewBox="0 0 1120 240" role="img" aria-labelledby="title desc">
+<title id="title">A small RF2 development loop</title><desc id="desc">Write an explicit task, validate and compile the program, run it with supplied input, inspect its results and improve it using tests. This is a workflow diagram, not a live execution trace.</desc>
+<style>text{font-family:system-ui,sans-serif;fill:#dcecf4}.heading{font-size:23px;font-weight:650}.step{font-size:17px;font-weight:650}.hint{font-size:13px;fill:#adbfcd}.pulse{animation:pulse 3s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}@media(prefers-reduced-motion:reduce){.pulse{animation:none}}</style>
+<rect width="1120" height="240" rx="24" fill="#10212f"/>
+<text x="32" y="41" class="heading">A useful task. A visible result. A testable change.</text>
+<path d="M75 105 H1030" stroke="#477184" stroke-width="3"/>
+<g fill="#183747" stroke="#4bcbd0" stroke-width="2"><rect x="30" y="72" width="190" height="100" rx="14"/><rect x="247" y="72" width="190" height="100" rx="14"/><rect x="464" y="72" width="190" height="100" rx="14"/><rect x="681" y="72" width="190" height="100" rx="14"/><rect x="898" y="72" width="190" height="100" rx="14"/></g>
+<g class="step"><text x="48" y="106">1 · Write</text><text x="265" y="106">2 · Compile</text><text x="482" y="106">3 · Run</text><text x="699" y="106">4 · Inspect</text><text x="916" y="106">5 · Improve</text></g>
+<g class="hint"><text x="48" y="136">Inputs, limits, failures</text><text x="265" y="136">Read errors; fix source</text><text x="482" y="136">Supply real input</text><text x="699" y="136">Compare expected output</text><text x="916" y="136">Keep a regression test</text><text x="32" y="213">Workflow guide · Native execution requires a qualified compiler and target · Diagram is not a live trace</text></g>
+<g class="pulse" fill="#9be5c5"><circle cx="233" cy="105" r="5"/><circle cx="450" cy="105" r="5"/><circle cx="667" cy="105" r="5"/><circle cx="884" cy="105" r="5"/></g>
+</svg>
