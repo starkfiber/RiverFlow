@@ -2,6 +2,10 @@
 
 This sprint connects compiler reliability to a reusable native application. It does not establish general Python/C compatibility, universal speed, usability, AI productivity or security certification.
 
+## Try the development bundle
+
+The separate [Apple Silicon Mac candidate](../dist/0.31-candidate/README.md) includes the native compiler, bounded MCP runtime, text-search tool, source and worked examples. It passed an explicit package smoke and a fresh native zip extraction with per-file SHA verification. The binaries are ad-hoc signed, not Apple-notarized; use normal OS security review. Stable downloads remain unchanged. [Extraction receipt](FOUNDATION-0.31-PACKAGE-VERIFICATION.json) and [runtime checks](FOUNDATION-0.31-RUNTIME-VERIFICATION.json).
+
 ## Delivered mechanisms
 
 1. Native `rf2c --check SOURCE` validates through code generation/relocation without executing the program or publishing artifacts. Nearby line/byte-column diagnostics, with honest expanded-source labels for imports. Out-of-range integer literals refuse. Error token previews are bounded and sanitize terminal control bytes. See [diagnostic contract and 41 controls](DIAGNOSTICS-0.31.md).
@@ -41,6 +45,10 @@ The compiler, library and independent adversarial reviews used three actual agen
 ## Check-only cost
 
 A separate 31-trial comparison uses default code generation/layout throughout, without opt or compact. Median final compile/check costs were 3.970/3.838ms for the small example, 7.499/6.449ms for checksum and 73.155/72.330ms for SHA40. The preserved 0.30 compile medians were 4.001,7.541 and 75.822ms respectively. This compares complete default-mode operations; checking avoids publication but still performs code generation. It is not an application execution speedup or a comparison with optimized/compact compilation. [Raw measurements](CHECK-ONLY-0.31-MEASUREMENTS.json).
+
+## Time-bounded randomized compiler campaign
+
+The final compiler completed [1,032 randomized scalar programs](FOUNDATION-0.31-STRESS-VERIFICATION.json) before the planned deadline. Each compared clean, cold-pack, retained-pack and changed-entry images with clean builds, then executed three variants against an independent unsigned 64-bit arithmetic oracle. That is 5,160 compiler builds and 3,096 actual program executions. Both optimized and ordinary code generation were exercised. No mismatch occurred in this final campaign. The configured maximum 4,000 programs was not reached; the report records `deadline-complete` and `budgetComplete:false`. This is finite one-host scalar/reuse coverage, not a proof for all RF2 programs or all supported features.
 
 ## Failures retained and limits discovered
 
