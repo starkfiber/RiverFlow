@@ -1,0 +1,90 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "first project cache creates compiler snapshot",
+      "outcome": "miss"
+    },
+    {
+      "case": "second project cache reuses identical checked compiler inode",
+      "outcome": "miss"
+    },
+    {
+      "case": "same project target hits with shared store",
+      "outcome": "hit"
+    },
+    {
+      "case": "different valid store preserves image",
+      "outcome": "hit"
+    },
+    {
+      "case": "default compiler store remains target cache",
+      "outcome": "miss"
+    },
+    {
+      "case": "same store/cache inode shares the existing lock",
+      "outcome": "hit"
+    },
+    {
+      "case": "same inode with dot path shares existing lock",
+      "outcome": "hit"
+    },
+    {
+      "case": "same store/cache inode supports a forced compiler execution",
+      "outcome": "miss"
+    },
+    {
+      "case": "shared-permission store refuses",
+      "outcome": "refused"
+    },
+    {
+      "case": "store final symlink refuses",
+      "outcome": "refused"
+    },
+    {
+      "case": "non-directory store refuses without blocking",
+      "outcome": "refused"
+    },
+    {
+      "case": "concurrent store lock refuses",
+      "outcome": "refused"
+    },
+    {
+      "case": "store lock release allows recovery",
+      "outcome": "miss"
+    },
+    {
+      "case": "corrupt compiler store repairs before execution",
+      "outcome": "miss"
+    },
+    {
+      "case": "compiler permission mismatch repairs",
+      "outcome": "miss"
+    },
+    {
+      "case": "compiler snapshot symlink replaced without following",
+      "outcome": "miss"
+    },
+    {
+      "case": "compiler snapshot hardlink is replaced privately",
+      "outcome": "miss"
+    },
+    {
+      "case": "missing compiler store argument refuses",
+      "outcome": "refused"
+    },
+    {
+      "case": "duplicate compiler store option refuses",
+      "outcome": "refused"
+    },
+    {
+      "case": "unknown option after store refuses",
+      "outcome": "refused"
+    }
+  ],
+  "count": 20,
+  "sourceSHA256": "eec7038f15b9691c7dc45f4e60a8ddfa807d7d3ab8463f670dc9f079815297bb",
+  "builderSHA256": "2b650a4082efcad1636645b1b67737d6c0c9d766aa19642e9eed9fd35a59bc7e",
+  "compilerSHA256": "0eb134c78750e634251158bd5403ff7834332fef9d53d508733ea67c1da29184",
+  "scope": "One host native compiler store integration; cache outputs match fresh clean bytes, immutable compiler inode reuse observed. UID mismatch code is present but a foreign-UID directory was not created. No shared hostile-user cache or crash-power guarantee."
+}
