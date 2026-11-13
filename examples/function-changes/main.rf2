@@ -1,0 +1,14 @@
+profile RF2_SYSTEM_A64_V1
+# Edit leaf, then compare compiler-emitted function maps.
+fn leaf(x)
+ return x+1
+end
+fn caller(x)
+ return leaf(x)
+end
+fn separate(x)
+ return x*3
+end
+fn main(argc,argv)
+ return caller(3)!=4
+end
