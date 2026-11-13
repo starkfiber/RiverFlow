@@ -1,151 +1,86 @@
 # RF² RiverFlow
 
-### Readable programs. Explicit effects. Native tools.
+### Readable source. Native programs. Bounded AI tools.
 
 Created by **Ilangkhumanan Thirunavokkarasu** · Published by **SFE** · **MIT licence**
 
-[Download](https://github.com/starkfiber/RiverFlow/releases/latest) · [Read the book](https://starkfiber.github.io/RiverFlow/book/) · [Language capability map](docs/CAPABILITY-MAP.md) · [Byte and ASCII reference](docs/BYTE-REFERENCE.md) · [MCP skill](plugin/skills/rf2/SKILL.md)
+[Download](https://github.com/starkfiber/RiverFlow/releases/latest) · [Start here](docs/START-HERE.md) · [Codebase map](docs/CODEBASE.md) · [Read the book](https://starkfiber.github.io/RiverFlow/book/) · [MCP](plugin/skills/rf2/SKILL.md)
 
-![A luminous RiverFlow landscape](site/assets/riverflow-hero.png)
+![RiverFlow](site/assets/riverflow-hero.png)
 
-RiverFlow turns readable source into useful native programs. Its compiler emits ARM64 machine code directly. The compiler, runtime and application controllers are written in RF2. An AI host can work through the bounded MCP interface; intelligence is supplied by the host, with deterministic language rules around what runs.
+RiverFlow is a programming language with a compiler written in RiverFlow. It emits ARM64 machine code directly for Apple Silicon macOS. Native programs run without a Node, npm, Python or C++ runtime. An AI host can use the bounded MCP interface to check and run supported computations.
 
-**The direction:** one understandable language for application and systems work. Each capability ships with its input contract, failure behavior, target limits and executed evidence.
+The goal is one readable language for application and systems work, with explicit effects and recoverable failures. The current implementation is a foundation for that goal. Its [capability map](docs/CAPABILITY-MAP.md) states what works and what remains missing.
 
-## Native memory research update: 0.25 source candidate
+## Start in five minutes
 
-Bulk zeroing, vector byte conversion, two-span SHA chaining and guarded scalar frame omission are implemented and tested. In the measured 64-byte repeated-hash task, median time fell from 1.103 to 0.666 ms; specialised ARM C took 0.627 ms. The whole project-file workload did not show a reliable improvement. One Mac, finite tests, stable downloads unchanged.
-
-[Implementation, measurements and limitations](docs/NATIVE-MEMORY-0.25.md). The book includes the new research chapter. These changes use established ARM instructions and compiler techniques; they do not claim new physics or universal language superiority.
-
-## Research direction: make results challengeable
-
-The [Evidence Contract candidate](docs/EVIDENCE-CONTRACT.md) combines five tested mechanisms in a native RF2 application: permission and work checks, atomic byte transformations, independent execution, source-bound SHA-256 receipts and self-contained replay capsules. [Further tests and measured overhead](docs/CONTRACT-REPLAY-RESEARCH.md) retain shared-defect and unsigned-receipt negative controls. It is a research candidate built with 0.17, separate from the released package. These mechanisms have [established prior art](docs/FIVE-HYPOTHESES-REVIEW.md); their integration is the experiment.
-
-The [ten-language source audit](docs/TOP-TEN-LANGUAGE-AUDIT.md) compares RF2 with selected implementations from Python through C, SQL and Go, with assembly as a separate low-level reference. It includes an A–Z acceptance ledger and marks missing capabilities explicitly. Popularity and shorter spelling do not prove correctness, speed or adoption.
-
-
-## Earlier 0.24 preparation measurements
-
-General byte-swap instructions, safer call-preservation selection and a native file-checksum utility. In-process 20,000 x64-byte hashing improves from **6.06 ms to 1.09 ms**. CommonCrypto measures3.42ms; a direct specialised C implementation remains faster at0.62ms. These warm-loop measurements exclude startup and initialization. [Scope, tests, failures and all comparisons](docs/SHA-PREPARATION.md).
-
-
-## Earlier 0.23 SHA measurements
-
-Direct ARM SHA2 lowering reduces the matched 50-hash task from **35.59 ms to 2.56 ms**. The 2,000-hash task measures **22.72 ms RF2**, **22.46 ms C/CommonCrypto**, and **33.29 ms Python/hashlib**. RF2 retains the software fallback. These are local task measurements, not a universal speed claim or stable release. [Tests, method and remaining gap](docs/SHA-ACCELERATION.md).
-
-## Earlier 0.22 measurements: native rotate
-
-A direct32-bit rotation primitive reduces the selected50-hash SHA batch median from56.98to35.35ms in21matched trials. Library baselines remain faster. This is a source candidate; stable downloads are unchanged. SFE connector authentication was verified before publication. [Evidence and limits](docs/ROTATE32-0.22.md).
-
-## 0.21 development: owned mappings and authenticated guest entry
-
-RF2 now owns guest mapping lifetimes and authenticates a fixed boot contract with shared-key HMAC. The final local suite passed 34 guest runs, 77 refusals, 23 mapping scenarios in both compiler modes and six controlled fault substitutions. A stronger test found an older HVC #0 counterexample; the current profile requires HVC #1. [Contract and limits](docs/BOOT-CONTRACT-0.21.md).
-
-RF2 is not a complete Python/C/assembly replacement or universally faster. Fresh task, HTTP and MCP measurements retain both wins and losses, including the slower RF2 repeated-hash path. [Benchmark tables and raw reports](docs/BENCHMARKS-0.21.md) · [Capability gaps](docs/CAPABILITY-MAP.md).
-
-## 0.20 development: owned VMs and bounded guest images
-
-RF2 now checks VM/vCPU ownership, validates a small guest-image format and enforces a virtual-timer time slice for admitted looping guests. The final local suite passed 136 guest executions, 31 image refusals, 52 branch-admission checks and 14 ownership scenarios in both compiler modes. MCP authority is unchanged. [Implementation, clock correction and limits](docs/VM-OWNERSHIP-0.20.md) · [Run the native image loader](examples/vm-runner/README.md).
-
-## 0.19 foundation: direct guest control and portable computation
-
-RF2 now emits explicit Hypervisor framework bindings and runs its own bounded VMM program without QEMU. Forty local guest runs cover arithmetic, permission faults, cleanup and same-process VM reacquisition. Apple supplies hardware virtualization; Linux boot and devices remain future work.
-
-The native RF2 WebAssembly encoder passed 588 differential cases across generic and optimized modes. A guarded sum specialization reduced its selected local WASM medians by 63–66%; the simpler JavaScript baseline remained slightly faster for 64 words. [Evidence, losses and next gates](docs/FOUNDATION-0.19.md) · [Try the browser lab](https://starkfiber.github.io/RiverFlow/lab/) · [Cloud candidate and free-service boundaries](docs/FREE-CLOUD-0.19.md).
-
-The browser uses compiled WASM when available and labels its limited JavaScript fallback. Android 4.1 device compatibility and Cloudflare deployment are not claimed. Existing MCP authority is unchanged.
-
-## Frozen 0.18 development candidate
-
-A separate native verifier, HMAC-authenticated receipts and three bounded contract MCP tools are working. The eligible XOR/reversal path has matched before/after measurements; complete authenticated MCP timings are recorded separately. [Trust model, setup and measured evidence](docs/TRUST-0.18.md).
-
-Shared-key authentication is not a public signature or proof of uncompromised hardware. The separate algorithm catches the tested two-path defect; a shared three-path defect still escapes. Stable downloads remain 0.17. The separate [0.18 native candidate bundle](dist/0.18-candidate/) contains the trust service, verifier, compiler, website and VM controller, with a pinned checksum. It is ad-hoc signed, not notarized.
-
-## Now running: one website, three execution paths
-
-A native RF2 server, host Python control and Python inside a real HVF Linux guest serve the same page and checked computation. RF2's VM controller launches QEMU; QEMU supplies virtualization. The two local 3,600-response comparisons and their confounders are [fully recorded](docs/STACK-LAB-0.18.md). A second hosted ARM Mac also exposed and verified a fix for the compiler's macOS 15 loader metadata. The exact candidate archive passed local and hosted checks; stable downloads remain 0.17.
-
-## Start with something real
-
-The Apple Silicon Mac package contains ready-to-run tools. Users need no Node, npm, Python or C++ runtime.
+Download and unpack the latest Apple Silicon Mac release, then run these commands from its directory:
 
 ```sh
 ./rf2 status
-./rf2-buffer-audit document.bin
-./rf2-file-kind document.bin
-./rf2-hex document.bin
-printf 'Hello world\n' | ./rf2-unicode-lines
 ./rf2 run examples/compact/sum.rf2 '[1,2,3]'
+./rf2 mcp
 ```
 
-The document auditor handles UTF-8 rows, reports malformed input and continues with later valid text. It distinguishes byte counts from Unicode scalar counts. The compact sum returns `6`.
+The sum returns `6`. The last command starts the native MCP service over standard input and output. Follow [the host setup guide](docs/START-HERE.md#connect-an-ai-host) to connect it to an AI application.
 
-| Build or use | What works | Open the example |
-| --- | --- | --- |
-| Larger byte collections | Bounded growing byte vectors and small report records returned by value | [Buffered audit](examples/buffer-audit/), [storage/results](docs/STORAGE-RESULTS.md) |
-| Owned file applications | Noncopyable file owners, typed I/O and visible cleanup errors | [Hex inspector](examples/hex/), [ownership contract](docs/RESOURCE-OWNERSHIP.md) |
-| Text and byte processing | Checked arrays, strict UTF-8 views, scalar indexing and recoverable row validation | [Unicode auditor](examples/unicode-lines/) |
-| Reusable native programs | Local modules, nominal records, functions and explicit file I/O | [Workload analyser](examples/workload/) |
-| Checked computation | Bounded u32 Core, scalar helpers and explicit checked/wrapping arithmetic | [Core contract](docs/NATIVE-CORE.md) |
-| Document applications | File revisions, exact integer totals, direct PDF output and graphical forms | [RiverFlow Studio](docs/GRAPHICAL-EDITOR.md) |
-| AI tool integration | Nine native MCP tools with defined effects and prepared-plan lifecycle | [MCP interface](plugin/skills/rf2/SKILL.md) |
-
-## Read it, compile it, inspect it
+To compile your own trusted systems program:
 
 ```rf2
 profile RF2_SYSTEM_A64_V1
 fn main(argc,argv)
- let ascii_a=0x41
- return ascii_a!=65
+ let answer=20+22
+ return answer!=42
 end
 ```
 
+Save it as `program.rf2`. From a source checkout with a qualified native compiler:
+
 ```sh
-./tools/build-program.sh ./rf2c program.rf2 program-build --opt
+./tools/build-program.sh /absolute/path/to/rf2c program.rf2 program-build --opt
 ./program-build/program
 ```
 
-This complete systems program exits `0` when the byte values agree. The build script creates a new directory and applies normal macOS signing; it does not execute the result. [Hex, ASCII and byte order](docs/BYTE-REFERENCE.md) explain the representation. [The capability map](docs/CAPABILITY-MAP.md) separates released features from the wider roadmap.
+The program exits successfully. The build creates a new directory and signs the executable for local macOS execution. It never silently installs a toolchain.
 
-![Two explicit execution routes through RiverFlow](site/assets/rf2-capabilities.svg)
+## Choose your path
 
-## Connect an AI host
+| You want to… | Start here |
+| --- | --- |
+| Learn the syntax | [Language and byte guide](docs/START-HERE.md#learn-the-language), [book](https://starkfiber.github.io/RiverFlow/book/) |
+| Write a native file or text tool | [Examples](examples/), [ownership](docs/RESOURCE-OWNERSHIP.md), [text and bytes](docs/TEXT-BYTES.md) |
+| Connect an AI assistant | [Native MCP setup](docs/START-HERE.md#connect-an-ai-host), [tool contracts](plugin/skills/rf2/SKILL.md) |
+| Work on the compiler | [Compiler map](native/compiler/README.md), [contribution guide](CONTRIBUTING.md) |
+| Test a performance claim | [Measurement guide](tools/README.md), [latest compiler experiment](docs/COMPILER-DISPATCH.md) |
+| Understand platform and library gaps | [Capability map](docs/CAPABILITY-MAP.md), [full-stack direction](docs/RF2-FULL-STACK-DIRECTION.md) |
 
-```sh
-./rf2 mcp
-```
+## What is available
 
-Native tools: `rf2_status`, `rf2_check`, `rf2_run`, `rf2_lower`, `attendance_export`, `invoice_total`, `invoice_prepare`, `invoice_apply`, `invoice_release`.
+**Stable package: 0.17.** Bounded Core computation, local modules, records, checked arrays, UTF-8 scalar views, typed outcomes, owned files, bounded growing bytes and nine defined MCP tools.
 
-MCP accepts bounded computation and defined application inputs. It does not expose arbitrary file paths, network access or systems-code execution. Lowering returns source; compiling a trusted program is an explicit developer action. The plugin launches an existing native binary and never silently builds, downloads or falls back to Node.
+**Development source: 0.25 plus compiler cleanup.** Includes native SHA instructions, guarded optimizations, guest ownership experiments and a bounded WebAssembly backend. Development source and frozen candidate bundles are separate from the stable download. See the [engineering history](docs/RESEARCH-HISTORY.md) for each implementation and its executed tests.
 
-## Evidence stays beside the code
+MCP does not grant arbitrary filesystem, network or systems-code execution. AI intelligence comes from the connected host. There is no embedded model or automatic proof of correctness.
 
-**0.17 adds growable byte vectors and record-valued results.** A native buffered audit loads a file, inspects retained bytes and returns a four-field report by value. Growth is bounded within a declared virtual reservation, and cleanup/error behavior remains explicit. [Storage/result contract](docs/STORAGE-RESULTS.md) · [Release receipt](docs/RELEASE-0.17-VERIFICATION.json).
+## Inside the repository
 
-The [second opinion and roadmap](docs/SECOND-OPINION-ROADMAP.md) compares pinned primary CPython, OpenJDK and LLVM sources by layer. The [external AI review brief](docs/EXTERNAL-REVIEW-BRIEF.md) is ready to copy into another reviewer, with reproducible acceptance gates and no blanket parity claims.
+| Directory | Purpose |
+| --- | --- |
+| [`native/`](native/) | RF2 compiler, runtime and native application code |
+| [`examples/`](examples/) | Complete programs and capability demonstrations |
+| [`tests/`](tests/README.md) | Native acceptance tests, independent oracles and regressions |
+| [`plugin/`](plugin/) | Native MCP launchers and host skill |
+| [`tools/`](tools/README.md) | Explicit build, measurement and publishing tools |
+| [`docs/`](docs/CODEBASE.md) | Contracts, current guides and retained evidence |
+| [`bootstrap/`](bootstrap/), [`src/`](src/) | Historical seed and JavaScript reference implementation |
+| [`site/`](site/), [`book/`](book/) | Website and book sources |
 
-Independent storage, result and app probes sit beside compiler/runtime/MCP qualification. Earlier failures remain recorded. The historical WhatIF 0.15 HTTP check is separate from current compiler semantics. The updated book explains the design and remaining limits.
+Existing paths stay compatible. Developer test and publishing tools use other languages; those are distinct from native user runtime dependencies. [Full map and build flow](docs/CODEBASE.md) · [Source inventory](docs/SOURCE-INVENTORY.json).
 
-Performance is workload-specific. Some guarded reductions remove repeated work; other workloads remain slower than mature compilers. Encoded interface counts are not billed model usage. [Measurement method and limits](docs/LANGUAGE-MEASUREMENTS.md).
+## Make an improvement we can verify
 
-## Build the next foundation
+Bring a complete program, an expected result and a reproducible failure. Keep a baseline, test refusal paths and report mixed results. Some RF2 optimizations remove repeated work; others still trail specialised C or general-purpose libraries. There is no universal speed or model-token claim.
 
-```sh
-./rf2c native/compiler/compiler.rf2 next-rf2c
-/usr/bin/codesign -s - --force next-rf2c
-./tools/build-runtime.sh ./next-rf2c next-runtime
-```
+Read [CONTRIBUTING.md](CONTRIBUTING.md), then choose a bounded task from the [roadmap](docs/RF2-FULL-STACK-DIRECTION.md). New targets, concurrency, richer allocation and library compatibility need real implementations and target-specific tests.
 
-The native rebuild uses RF2 plus OS file/signing utilities. Python, JavaScript, C references and publishing tools remain development dependencies. Current native qualification is Apple Silicon macOS. Android, iOS, web, x86, boot, concurrency and optical/GPU integration need separate implementations and target tests. RF2 does not yet replace every mature language ecosystem.
-
-Bring a small complete program, a precise expected result and a reproducible failure. Contributions should preserve the original oracle and report both improvements and remaining gaps.
-
-## Repository source inventory
-
-This counts native RF2 source, developer oracles, tests and website tools. It does not describe what users must install to run a native RF2 program. Generated copies are excluded with their derivation retained.
-
-![Current repository source inventory](docs/SOURCE-INVENTORY.svg)
-
-[Inventory method and exact file list](docs/SOURCE-INVENTORY.json) · [Full-stack direction](docs/RF2-FULL-STACK-DIRECTION.md) · [Source inventory](docs/SOURCE-INVENTORY.json) · [MIT licence](LICENSE)
+[MIT licence](LICENSE) · [Release history and experiments](docs/RESEARCH-HISTORY.md) · [External review brief](docs/EXTERNAL-REVIEW-BRIEF.md)
