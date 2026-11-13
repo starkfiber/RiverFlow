@@ -3510,6 +3510,9 @@ fn frame_omittable(f)
  end
  return 1
 end
+fn function_code(f)
+ return buffer("function_code_ranges",4096)+f*16
+end
 fn generate()
  let f = 0
  let p = 0
@@ -3539,6 +3542,7 @@ fn generate()
   do store64(state() + 200, 0)
   do store64(state() + 224, 0)
   do store64(state() + 24, load64(p + 16))
+  do store64(function_code(f),load64(state()+56))
   do label(load64(p + 40))
   set frame = (load64(p + 32) * 8 + 15) & 18446744073709551600
   set save_offset = frame
@@ -3588,6 +3592,7 @@ fn generate()
    do emit(2831252477)
   end
   do emit(3596551104)
+  do store64(function_code(f)+8,load64(state()+56)-load64(function_code(f)))
   set f = f + 1
  end
  do emit_utf8_decoder()
@@ -3854,12 +3859,52 @@ fn segment(name, vm, size, off, file_size, prot)
  do append32(0)
  return 0
 end
+# Optional file/VM separation. Strings and binding slots precede zero-filled buffers.
+fn image_options()
+ return buffer("image_options",24)
+end
+fn layout_image_objects()
+ if load64(image_options())==0
+  return 0
+ end
+ let kind = 1
+ let i = 0
+ let offset = 0
+ let obj = 0
+ while kind<=3
+  # Pass1: initialized strings; pass2: linker binding slots; pass3: buffer reservations.
+  set i = 0
+  while i<load64(state()+72)
+   set obj = object(i)
+   if ((kind==1)&(load64(obj)==1)) | ((kind==2)&(load64(obj)==3)) | ((kind==3)&(load64(obj)==2))
+    set offset = (offset+7)&18446744073709551608
+    do store64(obj+24,offset)
+    set offset = offset+load64(obj+16)
+    do require(offset<134217728,"compact data size bound")
+   end
+   set i = i+1
+  end
+  if kind==2
+   do store64(image_options()+8,(offset+16383)&18446744073709535232)
+  end
+  set kind = kind+1
+ end
+ do store64(state()+80,offset)
+ return 0
+end
+fn image_file_data_size(datasize)
+ if load64(image_options())
+  return load64(image_options()+8)
+ end
+ return datasize
+end
 fn image_header(dataoff, datasize, digest)
  let base = 4294967296
  let text = 0
  let string_size = 0
  let commands_end = 0
  let binds = platform_bindings()
+ let filedata = image_file_data_size(datasize)
  let total_commands = 10
  if load64(platform_state())!=0
   set total_commands = 11
@@ -3874,7 +3919,7 @@ fn image_header(dataoff, datasize, digest)
  do append32(0)
  do segment("__PAGEZERO", 0, base, 0, 0, 0)
  do segment("__TEXT", base, dataoff, 0, dataoff, 5)
- do segment("__DATA", base + dataoff, datasize, dataoff, datasize, 3)
+ do segment("__DATA", base + dataoff, datasize, dataoff, filedata, 3)
  do append32(2147483688)
  do append32(24)
  do append64(16384)
@@ -3911,13 +3956,13 @@ fn image_header(dataoff, datasize, digest)
   do append_bytes("/System/Library/Frameworks/Hypervisor.framework/Versions/A/Hypervisor",70)
   do header_zero(18)
  end
- do segment("__LINKEDIT",base+dataoff+datasize,(binds+16383)&18446744073709535232,dataoff+datasize,binds,1)
+ do segment("__LINKEDIT",base+dataoff+datasize,(binds+16383)&18446744073709535232,dataoff+filedata,binds,1)
  # Explicit empty fixup metadata avoids macOS15 dyld legacy relocation fallback.
  do append32(2147483682)
  do append32(48)
  do header_zero(8)
  if binds!=0
-  do append32(dataoff+datasize)
+  do append32(dataoff+filedata)
  else
   do append32(0)
  end
@@ -3962,6 +4007,31 @@ fn image(path, dataoff, datasize)
  do output(fd, header(), 16384)
  do output(fd, buffer("code", 1048576), load64(state() + 56))
  do zeros(fd, dataoff - 16384 - load64(state() + 56))
+ if load64(image_options())
+  # Object IDs stay stable for fixups; physical order is independent of intern order.
+  let kind = 1
+  while kind<=2
+   set i = 0
+   while i<load64(state()+72)
+    set obj = object(i)
+    if ((kind==1)&(load64(obj)==1)) | ((kind==2)&(load64(obj)==3))
+     do zeros(fd,load64(obj+24)-cursor)
+     set n = load64(obj+16)
+     if kind==1
+      set t = token(load64(obj+8))
+      do output(fd,load64(t+8),n-1)
+      do zeros(fd,1)
+     else
+      do zeros(fd,n)
+     end
+     set cursor = load64(obj+24)+n
+    end
+    set i = i+1
+   end
+   set kind = kind+1
+  end
+  do zeros(fd,image_file_data_size(datasize)-cursor)
+ else
  while i < load64(state() + 72)
   set obj = object(i)
   do zeros(fd, load64(obj + 24) - cursor)
@@ -3977,6 +4047,7 @@ fn image(path, dataoff, datasize)
   set i = i + 1
  end
  do zeros(fd, datasize - cursor)
+ end
  do output(fd,buffer("platform_bind",16384),load64(platform_state()+8))
  do require(close(fd) == 0, "output close failed")
  return 0
@@ -4232,30 +4303,198 @@ fn expand_modules(path, src)
  do store64(state() + 8, load64(module_state() + 24))
  return load64(state())
 end
+# Function change evidence only: never admit these records as cached machine code.
+fn map_number(fd,value)
+ let digits = buffer("map_digits",32)
+ let n = 0
+ let p = 0
+ while 1
+  do store8(digits+n,48+(value-(value//10)*10))
+  set n = n+1
+  set value = value//10
+  if value==0
+   set p = n
+   while p!=0
+    set p = p-1
+    do output(fd,digits+p,1)
+   end
+   return 0
+  end
+ end
+ return 0
+end
+fn map_hex(fd,p,n)
+ let i = 0
+ let alphabet = "0123456789abcdef"
+ let pair = buffer("map_hex",2)
+ while i<n
+  do store8(pair,load8(alphabet+(load8(p+i)>>4)))
+  do store8(pair+1,load8(alphabet+(load8(p+i)&15)))
+  do output(fd,pair,2)
+  set i = i+1
+ end
+ return 0
+end
+fn map_token_append(used,t)
+ let ptr = token(t)
+ let n = load64(ptr+16)
+ let out = buffer("map_tokens",2097152)
+ do require(used+24+n<=2097152,"function map token bound")
+ do store64(out+used,load64(ptr))
+ do store64(out+used+8,n)
+ do store64(out+used+16,load64(ptr+24))
+ do cp(out+used+24,load64(ptr+8),n)
+ return used+24+n
+end
+fn map_token_digest(start,stop)
+ let used = 0
+ let previous = 18446744073709551615
+ let kind = 0
+ while start<stop
+  set kind = load64(token(start))
+  if (kind!=5)|(previous!=5)
+   set used = map_token_append(used,start)
+  end
+  set previous = kind
+  set start = start+1
+ end
+ return sha256(buffer("map_tokens",2097152),used)
+end
+fn map_context_digest()
+ let t = 0
+ let f = 0
+ let used = 0
+ let skipped = 0
+ while t<load64(state()+16)
+  set f = 0
+  set skipped = 0
+  while f<load64(state()+40)
+   if t==load64(ftable(f)+16)
+    set t = load64(ftable(f)+24)
+    set skipped = 1
+   end
+   set f = f+1
+  end
+  if skipped==0
+   set used = map_token_append(used,t)
+   set t = t+1
+  end
+ end
+ return sha256(buffer("map_tokens",2097152),used)
+end
+fn write_function_map(path)
+ let n = length(path)
+ do require(n+11<1024,"function map path bound")
+ let name = buffer("map_path",1024)
+ do cp(name,path,n)
+ do cp(name+n,".functions",11)
+ let fd = open(name,3585,384)
+ do require(fd<9223372036854775808,"function map output exists or cannot be created")
+ do output(fd,"RF2_FUNCTION_MAP_V1\n",20)
+ do map_number(fd,load64(state()+152))
+ do output(fd," ",1)
+ do map_number(fd,load64(image_options()))
+ do output(fd," ",1)
+ do map_hex(fd,map_context_digest(),32)
+ do output(fd,"\n",1)
+ let f = 0
+ let t = 0
+ let i = 0
+ let fixup = 0
+ let target = 0
+ let found = 0
+ let g = 0
+ let start = 0
+ let size = 0
+ while f<load64(state()+40)
+  set t = load64(ftable(f))
+  set start = load64(function_code(f))
+  set size = load64(function_code(f)+8)
+  do output(fd,"F ",2)
+  do output(fd,load64(token(t)+8),load64(token(t)+16))
+  do output(fd," ",1)
+  do map_number(fd,start)
+  do output(fd," ",1)
+  do map_number(fd,size)
+  do output(fd," ",1)
+  do map_hex(fd,map_token_digest(t-1,load64(ftable(f)+24)),32)
+  do output(fd,"\n",1)
+  set i = 0
+  while i<load64(state()+64)
+   set fixup = buffer("fixups",1048576)+i*24
+   if (load64(fixup)>=start)&(load64(fixup)<start+size)
+    do output(fd,"R ",2)
+    do map_number(fd,load64(fixup)-start)
+    do output(fd," ",1)
+    do map_number(fd,load64(fixup+8))
+    do output(fd," ",1)
+    do map_number(fd,load64(fixup+16))
+    do output(fd,"\n",1)
+    # Direct call dependencies use checked symbol names rather than positional IDs.
+    if (load64(fixup+8)==1)&((load32(buffer("code",1048576)+load64(fixup))>>26)==37)
+     set target = load64(fixup+16)
+     set g = 0
+     set found = 0
+     while g<load64(state()+40)
+      if load64(ftable(g)+40)==target
+       set found = 1
+       set t = load64(ftable(g))
+       do output(fd,"C ",2)
+       do output(fd,load64(token(t)+8),load64(token(t)+16))
+       do output(fd,"\n",1)
+      end
+      set g = g+1
+     end
+     do require(found,"function map unresolved direct call")
+    end
+   end
+   set i = i+1
+  end
+  set f = f+1
+ end
+ do output(fd,"END\n",4)
+ do require(close(fd)==0,"function map close failed")
+ return 0
+end
 fn main(argc, argv)
  let src = 0
  let digest = 0
  let dataoff = 0
  let datasize = 0
- if (argc != 3) & (argc != 4)
-  do write(2, "rf2c source.rf2 new-output [--opt]\n", 35)
-  return 1
- end
- if argc == 4
-  do require(same(load64(argv + 24), length(load64(argv + 24)), "--opt", 5), "unknown compiler option")
-  do store64(state() + 152, 1)
+ do require((argc>=3)&(argc<=6),"rf2c source new-output [--opt] [--compact] [--functions]")
+ let option = 3
+ while option<argc
+  let text = load64(argv+option*8)
+  if same(text,length(text),"--opt",5)
+   do require(load64(state()+152)==0,"duplicate compiler option")
+   do store64(state()+152,1)
+  else
+   if same(text,length(text),"--functions",11)
+    do require(load64(image_options()+16)==0,"duplicate compiler option")
+    do store64(image_options()+16,1)
+   else
+    do require(same(text,length(text),"--compact",9),"unknown compiler option")
+    do require(load64(image_options())==0,"duplicate compiler option")
+    do store64(image_options(),1)
+   end
+  end
+  set option = option+1
  end
  set src = read_source(load64(argv + 8))
  set src = expand_modules(load64(argv + 8), src)
  do tokenize_tail(src, load64(state() + 8), 0, 0)
  do scan_functions()
  do generate()
+ do layout_image_objects()
  set dataoff = (16384 + load64(state() + 56) + 16383) & 18446744073709535232
  set datasize = (load64(state() + 80) + 16383) & 18446744073709535232
  do resolve(dataoff)
  set digest = sha256(src, load64(state() + 8))
  do image_header(dataoff, datasize, digest)
  do image(load64(argv + 16), dataoff, datasize)
+ if load64(image_options()+16)
+  do write_function_map(load64(argv+16))
+ end
  if load64(state() + 160) != 0
   do write(2, "RF2 opt: guarded periodic sum reduction applied\n", 48)
  end
