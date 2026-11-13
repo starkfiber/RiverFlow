@@ -35,6 +35,36 @@ class Compiler:
   self.emit((0xf9000000 if store else 0xf9400000)|((off//8)<<10)|(29<<5)|r)
  def push(self):self.emit(0xd10043ff);self.emit(0xf90003e0)
  def pop1(self):self.emit(0xf94003e1);self.emit(0x910043ff)
+ def sha256_blocks_armv8(self):
+  # Inline AArch64 SHA-256 block compression. x0 state, x1 blocks, x2 count,
+  # x3 round constants. v0/v1 working state, v2/v3 saved state,
+  # v4..v7 message schedule ring, v16 round input, v17 saved ABCD, v18 K.
+  # Instruction fields follow Arm's SHA256H/H2/SU0/SU1 encodings.
+  empty=self.fresh();loop=self.fresh()
+  branch=len(self.words);self.emit(0xb4000002)
+  self.emit(0xad400400) # ldp q0,q1,[x0]
+  self.label(loop)
+  self.emit(0x4ea01c02);self.emit(0x4ea11c23) # mov v2,v0; mov v3,v1
+  self.emit(0xad401424);self.emit(0xad411c26) # ldp q4..q7,[x1]
+  for reg in range(4,8):self.emit(0x6e200800|(reg<<5)|reg) # rev32 vN.16b
+  for group in range(16):
+   current=4+group%4
+   self.emit(0x3dc00072|(group<<10)) # ldr q18,[x3,#group*16]
+   self.emit(0x4ea08400|(18<<16)|(current<<5)|16) # add v16.4s,vN,v18
+   self.emit(0x4ea01c11) # mov v17.16b,v0.16b
+   self.emit(0x5e004000|(16<<16)|(1<<5)) # sha256h q0,q1,v16.4s
+   self.emit(0x5e005000|(16<<16)|(17<<5)|1) # sha256h2 q1,q17,v16.4s
+   if group<12:
+    following=4+(group+1)%4;second=4+(group+2)%4;third=4+(group+3)%4
+    self.emit(0x5e282800|(following<<5)|current) # sha256su0
+    self.emit(0x5e006000|(third<<16)|(second<<5)|current) # sha256su1
+  self.emit(0x4ea08400|(2<<16)) # add v0.4s,v0,v2
+  self.emit(0x4ea08400|(3<<16)|(1<<5)|1) # add v1.4s,v1,v3
+  self.emit(0x91010021);self.emit(0xf1000442) # add x1,#64; subs x2,#1
+  self.jump(loop,1)
+  self.emit(0xad000400) # stp q0,q1,[x0]
+  self.label(empty);self.words[branch]|=((self.labels[empty]//4-branch)&0x7ffff)<<5
+  self.imm(0,0)
  def expr(self,node):
   if isinstance(node,str):node=ast.parse(node,mode='eval').body
   if isinstance(node,ast.Constant):
@@ -63,11 +93,12 @@ class Compiler:
    if name=='buffer':
     if len(node.args)!=2:raise ValueError('buffer arity')
     key=ast.literal_eval(node.args[0]);size=ast.literal_eval(node.args[1]);self.address(0,self.obj('buf:'+key,size=size));return
-   expected={'load8':1,'load32':1,'load64':1,'store8':2,'store32':2,'store64':2,'read':3,'write':3,'open':3,'close':1,'exit':1,'syscall6':7,'fork_process':0}.get(name)
+   expected={'load8':1,'load32':1,'load64':1,'store8':2,'store32':2,'store64':2,'read':3,'write':3,'open':3,'close':1,'exit':1,'syscall6':7,'fork_process':0,'sha256_blocks_armv8':4}.get(name)
    if expected is not None and len(node.args)!=expected:raise ValueError('Builtin arity')
    for a in node.args:self.expr(a);self.push()
    for i in range(len(node.args)-1,-1,-1):self.emit(0xf94003e0|i);self.emit(0x910043ff)
-   if name=='fork_process':
+   if name=='sha256_blocks_armv8':self.sha256_blocks_armv8()
+   elif name=='fork_process':
     self.imm(16,2);self.emit(0xd4001001);success=self.fresh();done=self.fresh();self.jump(success,3);self.emit(0xcb0003e0);self.jump(done);self.label(success);self.emit(0xf100003f);self.emit(0x9a8013e0);self.label(done)
    elif name=='syscall6':
     self.mov(16,0)
