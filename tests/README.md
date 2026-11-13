@@ -18,3 +18,5 @@ Set RF2_TEST_COMPILER to an existing native candidate for applicable standalone 
 Both compiler modes matter. A refusing test needs a valid nearby control so an unrelated parser error cannot masquerade as the desired safety check. Retain full output and exact source/binary identities locally; publish only reviewed non-secret receipts.
 
 Fixtures and old comparators preserve their original semantics. Do not update expected output just to make a failing candidate pass. No whole-language proof or independent academic approval follows from a green suite.
+
+For compact images, use compact_image_verify.py with RF2_TEST_COMPILER. To rerun incremental scenarios in compact mode, set RF2_INCREMENTAL_COMPACT=1 and choose compilers that support --compact. The diagnostic function-map tests remain distinct from executable image and MCP acceptance tests.
