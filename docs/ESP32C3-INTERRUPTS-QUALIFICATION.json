@@ -1,0 +1,128 @@
+{
+  "schema": "rf2.esp32c3.interrupt.qualification.v1",
+  "physicalHardwareTested": false,
+  "compilerBuild": {
+    "schema": "rf2.esp32c3.builder.v1",
+    "hostCompilerSHA256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37",
+    "canonicalBackendSHA256": "e5dc87101938e702c626b851efc0e233dbf7b757125b4e45cc0be7b90a9bb3dd",
+    "extractedHostSourceSHA256": "3d2e7d65cc545c116b9c75aaabb10b0906f5b3cb7cdf9a3c29fa5c3ab51665d7",
+    "extractedFunctions": [
+      "state",
+      "die",
+      "diagnostic_number",
+      "diagnostic_position",
+      "require",
+      "length",
+      "same",
+      "cp",
+      "digit",
+      "letter",
+      "token",
+      "add_token",
+      "tmatch",
+      "match",
+      "advance",
+      "expect",
+      "newline",
+      "tokenize_tail",
+      "comment_end",
+      "identifier_end",
+      "hex",
+      "number_end",
+      "read_source",
+      "module_state",
+      "module_info",
+      "module_path",
+      "line_end",
+      "line_trim",
+      "line_starts",
+      "module_path_check",
+      "module_load",
+      "module_append",
+      "module_walk",
+      "expand_modules",
+      "output",
+      "rotate",
+      "sha256_software"
+    ],
+    "profileAdaptation": "Exact module entry profile RF2_ESP32C3_V1 replaces Mac profile in derived frontend only.",
+    "derivedSourceSHA256": "cf11467e1f8d69291f4eaf2c7da4ad3a4be4fa3c6cfb959c78264786995b339d",
+    "executableSHA256": "a1a864b993bcb308c9ce11b86bfc936599438d02ba72e49dace70edad67325ed",
+    "buildScriptSHA256": "bd5efa34341823dcb10646b750366184e03f0dff111af4a894d29468d2fe2f11",
+    "host": "macos-arm64",
+    "target": "esp32c3 RV32IM RAM image; no board tested by build",
+    "runtime": "Native RF2 executable; no Node/npm/Python/assembler/linker at runtime."
+  },
+  "interrupt": {
+    "path": "artifacts/sprint-036/irq-verify-1794604075273822000/report.json",
+    "sha256": "3161e255962702e6649ee52215978bac7adf394536f63a5988b887cba9fcddbe",
+    "passed": true,
+    "controls": 30,
+    "compilerSHA256": "a1a864b993bcb308c9ce11b86bfc936599438d02ba72e49dace70edad67325ed",
+    "controllerSHA256": "c231eb617db66065a6dccbf296cb492cd0b54db67ef69a02cd7e2933409cfe35"
+  },
+  "compilerRegression": {
+    "path": "artifacts/sprint-034/review/embedded-1794603751733917000/report.json",
+    "sha256": "e60a75f3cd332e38a9dffc4d2b1cd2e5b6dfdacfe9b6fcf93bde82614d5d2dd3",
+    "passed": true,
+    "controls": 34,
+    "compilerSHA256": "a1a864b993bcb308c9ce11b86bfc936599438d02ba72e49dace70edad67325ed",
+    "controllerSHA256": "b2a6f11ed0f68a379f181bcac3ffa4472707aaf2fbcae63bf6c712bbe07cb728"
+  },
+  "timerRegression": {
+    "path": "artifacts/sprint-035/time-verify-1794603876433915000/report.json",
+    "sha256": "d733d361b469b106113ace1dd6436928dc6726dd39a428b5e0fb64c0b8c2d2ab",
+    "passed": true,
+    "controls": 27,
+    "compilerSHA256": "a1a864b993bcb308c9ce11b86bfc936599438d02ba72e49dace70edad67325ed",
+    "controllerSHA256": "2bfaad939a0d9a48bc093d551bdaeaa0b17611bcbc23c4af66875ba70748e693",
+    "retainedEmulatorProtectionFailures": 1
+  },
+  "uartRegression": {
+    "path": "artifacts/sprint-034/uart-verify-1794603876439907000/report.json",
+    "sha256": "3269cee9261e486b80f2502f2d145c8adf05f11dfb2d769afde57ee1fa409dc8",
+    "passed": true,
+    "controls": 257,
+    "compilerSHA256": "a1a864b993bcb308c9ce11b86bfc936599438d02ba72e49dace70edad67325ed",
+    "controllerSHA256": "fa78673655aff3f97daeb0a2e17fb7089ed8b055e423334c80770280e0fe72cc"
+  },
+  "sensorRegression": {
+    "path": "artifacts/sprint-034/tmp102-rv32-model-1794603876429077000/report.json",
+    "sha256": "5c3c28e19e696ee9d51fb5727b3f1f487f3ccde6e0be12ff2ff575f02bbbb760",
+    "passed": true,
+    "controls": 20,
+    "compilerSHA256": "a1a864b993bcb308c9ce11b86bfc936599438d02ba72e49dace70edad67325ed",
+    "controllerSHA256": "53b137c381d159876f895045ad632de086e93a224a03bc17face7f88b38849a4"
+  },
+  "mcp": {
+    "path": "artifacts/sprint-036/mcp/mcp.json",
+    "sha256": "b53f9fc7b5f75497c52b4968b55c5997a237416813ef6290b2b9c69dc7190755",
+    "report": {
+      "passed": true,
+      "tools": 9,
+      "statusResponded": true,
+      "rawEmbeddedSourceRejected": true,
+      "interruptSourceRejected": true,
+      "followingBoundedSum": 6,
+      "runtimeSHA256": "df714d688e5b96577abb294a192432ed2f57f07c080ab23e32eee46cf94b0b89",
+      "controllerSHA256": "028ef7fd0f4508474d869e5ed7f94b980fb76435b50f7e274574f8d6c9c7a0b1",
+      "scope": "Direct native MCP JSON-RPC exchanges, no Node runtime used. Existing nine-tool contract unchanged; no raw compile/flash/MMIO capability. No new SDK-pass claim."
+    }
+  },
+  "package": {
+    "path": "artifacts/sprint-036/PACKAGE-VERIFICATION.json",
+    "sha256": "dcc798a2e108f01892d837a17ba77486149a062922a31b5d3b00c6223d51548d",
+    "report": {
+      "passed": true,
+      "manifestFiles": 38,
+      "threeNativeSignatures": true,
+      "nativeMacExtractionPreservesExecuteModes": true,
+      "compilerRebuiltWithRF2Only": true,
+      "sameBasenameSignedCompilerBytesMatch": true,
+      "fiveFirmwareImagesRebuiltIdentically": true,
+      "zipSHA256": "a07f2f7ac7e4895171b7c6a178c9c6817427e76379bf2c6a26e9da40213d0f1d",
+      "controllerSHA256": "693d361ba25d2c3d5236ac5c1e5dfab1aaa0c9c99d9069076a850e5e83963d2a",
+      "scope": "Fresh native Mac package extraction and rebuild, no physical device operation. Prior Python ZipFile extraction did not restore executable modes; native ditto checks actual archive metadata."
+    }
+  }
+}

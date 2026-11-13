@@ -1,0 +1,783 @@
+{
+  "schema": "rf2.esp32c3.interrupt-ownership.v1",
+  "passed": true,
+  "cases": 30,
+  "rows": [
+    {
+      "name": "interrupt-delivery-and-release",
+      "passed": true,
+      "sourceSHA256": "7bdb0fcf6ee58bed8eaebd0b867d0de444985e10a04e9576c1b81aebbd10d4cf",
+      "firmwareSHA256": "b277ee448b59cd2dbd0f6839e7b50176eb3d9148579f177b7408787889bb8676",
+      "encodingWords": 3455,
+      "binaryFaultInjection": false,
+      "testHook": false,
+      "state": {
+        "pc": 1077411864,
+        "sp": 1070333952,
+        "a0": 0,
+        "mie": 2048,
+        "mstatus": 128,
+        "mscratch": 1070268416,
+        "runtime": [
+          44,
+          0,
+          2147483649,
+          1077413284,
+          0,
+          1380332105,
+          20,
+          0
+        ],
+        "leases": [
+          1380332112,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "uartSHA256": "d33033a9ab302c705cfe9c6b7700c98e9a79a868b3f16c6ecc849088a825a478"
+    },
+    {
+      "name": "restore-disabled-state",
+      "passed": true,
+      "sourceSHA256": "80d779b885868b56ea8bc2a444635f455e97b956d3fb81404c6af9d36d131fa1",
+      "firmwareSHA256": "d3f6ec62328ef084e60c5132e352e0349a3357f438d4821d1249a8aa696b3dbe",
+      "encodingWords": 3533,
+      "binaryFaultInjection": false,
+      "testHook": false,
+      "state": {
+        "pc": 1077411864,
+        "sp": 1070333952,
+        "a0": 0,
+        "mie": 2048,
+        "mstatus": 128,
+        "mscratch": 1070268416,
+        "runtime": [
+          53,
+          0,
+          2147483649,
+          1077414288,
+          0,
+          1380332105,
+          11,
+          0
+        ],
+        "leases": [
+          1380332112,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "uartSHA256": "ce2f475f93ce7824f27c84ab39145fa5fdde9d9e9137d4b951e26e2d314de30e"
+    },
+    {
+      "name": "duplicate-install-preserves-owner",
+      "passed": true,
+      "sourceSHA256": "9e389d8136508f71fe1804e8358a751b8d4236ff244d543f1292392b4c1ad8e2",
+      "firmwareSHA256": "f2a02b9143a62c7139c6f7786713ba4b3e785462a1c5ddb6c3a443e2b7d358ef",
+      "encodingWords": 3409,
+      "binaryFaultInjection": false,
+      "testHook": false,
+      "state": {
+        "pc": 1077411864,
+        "sp": 1070333952,
+        "a0": 0,
+        "mie": 0,
+        "mstatus": 0,
+        "mscratch": 1070268416,
+        "runtime": [
+          64,
+          0,
+          0,
+          0,
+          0,
+          1380332105,
+          0,
+          0
+        ],
+        "leases": [
+          1380332112,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "uartSHA256": "8a84a572a5e3991a5432b7bb5fdf409438133b5714af1fef92c129d81e72fdc8"
+    },
+    {
+      "name": "register-preservation",
+      "passed": true,
+      "sourceSHA256": "caa94a5eb4cc76ba69af7b19b1acdc5f8d49f7e43f329caf9d5a4aa2a980e7e8",
+      "firmwareSHA256": "b0471ba7524b159bc7b79d858ebe10dcd06c0c2ec522da03dd3972834d0e1be5",
+      "encodingWords": 5530,
+      "binaryFaultInjection": true,
+      "testHook": false,
+      "state": {
+        "pc": 1077411864,
+        "sp": 1070333952,
+        "a0": 0,
+        "mie": 2048,
+        "mstatus": 128,
+        "mscratch": 1070268416,
+        "runtime": [
+          51,
+          0,
+          2147483649,
+          1077424764,
+          0,
+          1380332105,
+          13,
+          0
+        ],
+        "leases": [
+          1380332112,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "uartSHA256": "7fab2a9fb2231a8480bfd5204df5a3c8eb9f9f304dfa0fa92bd4c3ceb57eea5e"
+    },
+    {
+      "name": "storm-budget-fails-closed",
+      "passed": true,
+      "sourceSHA256": "9a62d3acd2c1e522ab3957a22b90c9a959f615c21923c438a22a6c61c5da84a9",
+      "firmwareSHA256": "70776c48d467aa9ff6798d7065c3eaece531e5ba20da3176efdf50cafb21b4a0",
+      "encodingWords": 3389,
+      "binaryFaultInjection": false,
+      "testHook": false,
+      "state": {
+        "pc": 1077412660,
+        "sp": 1070268272,
+        "a0": 2147484676,
+        "mie": 0,
+        "mstatus": 6272,
+        "mscratch": 0,
+        "runtime": [
+          0,
+          2147484676,
+          2147483649,
+          1077424848,
+          0,
+          1380332105,
+          64,
+          0
+        ],
+        "leases": [
+          1380332112,
+          1,
+          0,
+          0,
+          257,
+          0
+        ]
+      },
+      "uartSHA256": "b6d969ad1fa96f996383a2a172052fb11e5ce26e099a981ea173c5bcd7e7be03"
+    },
+    {
+      "name": "foreground-starvation-budget",
+      "passed": true,
+      "sourceSHA256": "bebbfd25e152ff3f9d0010832e68d9683b76eb9d48060a32638e6e4cd1bb9d4b",
+      "firmwareSHA256": "8aa94b04a10218babf0968a253c2f79268346321be5ff8ce5d6fe674a8b8c7a4",
+      "encodingWords": 3393,
+      "binaryFaultInjection": false,
+      "testHook": false,
+      "state": {
+        "pc": 1077412660,
+        "sp": 1070268272,
+        "a0": 2147484676,
+        "mie": 0,
+        "mstatus": 6272,
+        "mscratch": 0,
+        "runtime": [
+          0,
+          2147484676,
+          2147483649,
+          1077424864,
+          0,
+          1380332105,
+          64,
+          0
+        ],
+        "leases": [
+          1380332112,
+          1,
+          0,
+          0,
+          257,
+          0
+        ]
+      },
+      "uartSHA256": "44c9b5381384c0c6ef29519f12b4328c86786de472ea2a2c772f980cc79f37a6"
+    },
+    {
+      "name": "unexpected-cpu-line",
+      "passed": true,
+      "sourceSHA256": "2ed3414127e8d374e2586a7005a079dd4325598020b7646b8d514d3eefd802bc",
+      "firmwareSHA256": "d56b16599c720c36109772641d14250a22db5f8e5c67addadabd52e0154a02fe",
+      "encodingWords": 3435,
+      "binaryFaultInjection": false,
+      "testHook": false,
+      "state": {
+        "pc": 1077412660,
+        "sp": 1070268272,
+        "a0": 2147484675,
+        "mie": 0,
+        "mstatus": 6272,
+        "mscratch": 0,
+        "runtime": [
+          64,
+          2147484675,
+          2147483650,
+          1077425024,
+          0,
+          1380332105,
+          0,
+          0
+        ],
+        "leases": [
+          1380332112,
+          1,
+          0,
+          0,
+          257,
+          0
+        ]
+      },
+      "uartSHA256": "ef1b0729e97455ff61c30047c10050fbe2d403d553ce661dac33d193567387fe"
+    },
+    {
+      "name": "handler-error-fails-closed",
+      "passed": true,
+      "sourceSHA256": "61469e2796b15636c5da0f9e6c3834e395c9070c020e44d2beb89441ed3bbe13",
+      "firmwareSHA256": "d73dffa117ab2a4b011ce61a27cc5369b547acda8e6608c82ee547f868f7d715",
+      "encodingWords": 3389,
+      "binaryFaultInjection": false,
+      "testHook": false,
+      "state": {
+        "pc": 1077412660,
+        "sp": 1070268272,
+        "a0": 42,
+        "mie": 0,
+        "mstatus": 6272,
+        "mscratch": 0,
+        "runtime": [
+          63,
+          42,
+          2147483649,
+          1077424848,
+          0,
+          1380332105,
+          1,
+          1
+        ],
+        "leases": [
+          1380332112,
+          1,
+          0,
+          0,
+          257,
+          0
+        ]
+      },
+      "uartSHA256": "b6d969ad1fa96f996383a2a172052fb11e5ce26e099a981ea173c5bcd7e7be03"
+    },
+    {
+      "name": "nested-synchronous-fault",
+      "passed": true,
+      "sourceSHA256": "864a9acbae4df2abdf0282b95f1e349b05b565a45dd0e46468589ecb8de96c39",
+      "firmwareSHA256": "c897e90bca1f961caec4917d7e4edc09772e5cb1d41c43f663028a6cf4211044",
+      "encodingWords": 3400,
+      "binaryFaultInjection": true,
+      "testHook": false,
+      "state": {
+        "pc": 1077412660,
+        "sp": 0,
+        "a0": 2147484677,
+        "mie": 0,
+        "mstatus": 6144,
+        "mscratch": 1070268000,
+        "runtime": [
+          63,
+          2147484677,
+          3,
+          1077424380,
+          1077424380,
+          1380332105,
+          1,
+          1
+        ],
+        "leases": [
+          1380332112,
+          1,
+          0,
+          0,
+          257,
+          0
+        ]
+      },
+      "uartSHA256": "0068030387e81e8badeced4b9a21ec80df31428f7abd1cc8fa8e49bc750edfdd"
+    },
+    {
+      "name": "storm-watchdog-reset",
+      "passed": true,
+      "sourceSHA256": "3bbabfd29c8056616012ddc029d0f9ad6de7c6e9676a9718092b80c1e2be306a",
+      "firmwareSHA256": "a754a1f4d515b5968a492128d0bfc9dca308f3f57cd33f40e2b96125f31f8f3e",
+      "encodingWords": 3396,
+      "binaryFaultInjection": false,
+      "testHook": false,
+      "state": {
+        "pc": 1077412660,
+        "sp": 1070268272,
+        "a0": 2147484676,
+        "mie": 0,
+        "mstatus": 6272,
+        "mscratch": 0,
+        "runtime": [
+          0,
+          2147484676,
+          2147483649,
+          1077424872,
+          0,
+          1380332105,
+          64,
+          0
+        ],
+        "leases": [
+          1380332112,
+          1,
+          0,
+          0,
+          257,
+          0
+        ],
+        "resetCauses": [
+          1,
+          7,
+          7
+        ]
+      },
+      "uartSHA256": "413caddd529000b223c50fccc0bd8c03abde313074281aead3e0ee88ff250e0c"
+    },
+    {
+      "name": "duplicate-and-stale-leases",
+      "passed": true,
+      "sourceSHA256": "6daac97ce2f9d080a5cbdc0178ef40aea51a36d158d53a41bd279c0fbd38c154",
+      "firmwareSHA256": "2b2f6fe1fdb9f95c665f474228e723999d62e3bda19128dd5d8bcd721d823eb3",
+      "encodingWords": 3438,
+      "binaryFaultInjection": false,
+      "testHook": false,
+      "state": {
+        "pc": 1077411864,
+        "sp": 1070333952,
+        "a0": 0,
+        "mie": 0,
+        "mstatus": 0,
+        "mscratch": 1070268416,
+        "runtime": [
+          64,
+          0,
+          0,
+          0,
+          0,
+          1380332105,
+          0,
+          0
+        ],
+        "leases": [
+          1380332112,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "uartSHA256": "56335dc06f77a0122a964c152dcd6b2b62be3942558c7c9c563e2fd986def848"
+    },
+    {
+      "name": "invalid-lease-arguments",
+      "passed": true,
+      "sourceSHA256": "3e47fdb8c542bed57e53581e1e79b390ec4ccb8374cb762ed47011beb5440b00",
+      "firmwareSHA256": "758bf21ab3f839138f707f2a885891937a96feb67119a27f75b6d4cbffa915c3",
+      "encodingWords": 3370,
+      "binaryFaultInjection": false,
+      "testHook": false,
+      "state": {
+        "pc": 1077411864,
+        "sp": 1070333952,
+        "a0": 0,
+        "mie": 0,
+        "mstatus": 0,
+        "mscratch": 1070268416,
+        "runtime": [
+          64,
+          0,
+          0,
+          0,
+          0,
+          1380332105,
+          0,
+          0
+        ],
+        "leases": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "uartSHA256": "0e0fa4d977c3203b2096f11121793d02b80eaa710bf9a11130c70bf343d83c3c"
+    },
+    {
+      "name": "generation-exhaustion-no-wrap",
+      "passed": true,
+      "sourceSHA256": "e002a670bd20ce3809e145f3fcc07bf7c137ae703c20dcdeaf2f70f52dadb0f6",
+      "firmwareSHA256": "eee6169449637b2656a1e97143149fd15dfdf623dce694f39ad52623b053a08f",
+      "encodingWords": 3359,
+      "binaryFaultInjection": false,
+      "testHook": false,
+      "state": {
+        "pc": 1077411864,
+        "sp": 1070333952,
+        "a0": 0,
+        "mie": 0,
+        "mstatus": 0,
+        "mscratch": 1070268416,
+        "runtime": [
+          64,
+          0,
+          0,
+          0,
+          0,
+          1380332105,
+          0,
+          0
+        ],
+        "leases": [
+          1380332112,
+          0,
+          8388607,
+          0,
+          0,
+          0
+        ]
+      },
+      "uartSHA256": "416034fe853c80ea1b74b81fb49a3e0c04e1634474450218c34a0e184e932213"
+    },
+    {
+      "name": "release-failure-retains-lease",
+      "passed": true,
+      "sourceSHA256": "91e37792471e8ffba948d62d2ea5f12f5fae181702e41e4ff5ca407b255817b6",
+      "firmwareSHA256": "257b0711914b51bba6557e2b9d5683ca193536243584d7a83fb18e7eadf6da22",
+      "encodingWords": 3470,
+      "binaryFaultInjection": false,
+      "testHook": true,
+      "state": {
+        "pc": 1077411864,
+        "sp": 1070333952,
+        "a0": 0,
+        "mie": 0,
+        "mstatus": 0,
+        "mscratch": 1070268416,
+        "runtime": [
+          64,
+          0,
+          0,
+          0,
+          0,
+          1380332105,
+          0,
+          0
+        ],
+        "leases": [
+          1380332112,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "uartSHA256": "5b93219fcaed9e206ba67ca978f3f3a1251272316eea923f0790f1da554166cd"
+    },
+    {
+      "name": "ownership-without-dispatcher",
+      "passed": true,
+      "sourceSHA256": "860d5736952afd1800679bc4e20a4019fc287361ad3a4d27f1b157752d8a284b",
+      "firmwareSHA256": "6ad25e5f425b5dcdcdc5c5b2fa516b8cf817df2a2363669613cb4e3871288c81",
+      "encodingWords": 3101,
+      "binaryFaultInjection": false,
+      "testHook": false,
+      "state": {
+        "pc": 1077411864,
+        "sp": 1070333952,
+        "a0": 0,
+        "mie": 0,
+        "mstatus": 0,
+        "mscratch": 0,
+        "runtime": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "leases": [
+          1380332112,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "uartSHA256": "1fd778edc08ccc7c59dff5fead69c993a6c2274ca731ea3e104b279f4fe813bb"
+    },
+    {
+      "name": "enable-before-install-refused",
+      "passed": true,
+      "sourceSHA256": "3dce1c1d52cc081995075209a67a3a1e7f9ecf2b82330b67a6926e287c76af98",
+      "firmwareSHA256": "48d56977630fe0f0b6bb23c4cee59af869746210a312ea76850cfa6071d84491",
+      "encodingWords": 3356,
+      "binaryFaultInjection": false,
+      "testHook": false,
+      "state": {
+        "pc": 1077411864,
+        "sp": 1070333952,
+        "a0": 0,
+        "mie": 0,
+        "mstatus": 0,
+        "mscratch": 1070268416,
+        "runtime": [
+          64,
+          0,
+          0,
+          0,
+          0,
+          1380332105,
+          0,
+          0
+        ],
+        "leases": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "uartSHA256": "ba63449c4e0b5e2621ddd93e097b4e872badfa4cd3637dd89e18f859de3e89f0"
+    },
+    {
+      "name": "owned-watchdog-lifecycle",
+      "passed": true,
+      "sourceSHA256": "cbbecdc68105c62b491a6b95e4e9b2085e165fad42ff31259ff67d59b26c94f6",
+      "firmwareSHA256": "85ba4d57dbb838590361d46d6a00d98fcf345ff6a8be07f66cf2dd2b068227e7",
+      "encodingWords": 3403,
+      "binaryFaultInjection": false,
+      "testHook": false,
+      "state": {
+        "pc": 1077411864,
+        "sp": 1070333952,
+        "a0": 0,
+        "mie": 0,
+        "mstatus": 0,
+        "mscratch": 1070268416,
+        "runtime": [
+          64,
+          0,
+          0,
+          0,
+          0,
+          1380332105,
+          0,
+          0
+        ],
+        "leases": [
+          1380332112,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "uartSHA256": "b606cc4ec1a82a4369ab6cdeb777f00425b949b9d836f19b8b0f82840793f843"
+    },
+    {
+      "name": "handler-loop",
+      "passed": true,
+      "kind": "source refusal",
+      "stderr": "interrupt path contains loop or interrupt control\nnear source 10:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-036/irq-verify-1794604075273822000/handler-loop/bad.flow)\n",
+      "sourceSHA256": "924bb9339e2c5e8c3fc0f01a169e3b998fbe8081aae34c5d3a7fa6178275137b"
+    },
+    {
+      "name": "handler-enable",
+      "passed": true,
+      "kind": "source refusal",
+      "stderr": "interrupt path contains loop or interrupt control\nnear source 9:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-036/irq-verify-1794604075273822000/handler-enable/bad.flow)\n",
+      "sourceSHA256": "65f8d8cd6c234604e5cb281cb4512d5d9851932d5c1c0671688d3aba1199904b"
+    },
+    {
+      "name": "handler-restore",
+      "passed": true,
+      "kind": "source refusal",
+      "stderr": "interrupt path contains loop or interrupt control\nnear source 9:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-036/irq-verify-1794604075273822000/handler-restore/bad.flow)\n",
+      "sourceSHA256": "a2bb4be0706baa22b6bdda89e20ddcdcd5fc646b67e9b8d948e588fb03ff1203"
+    },
+    {
+      "name": "handler-replenish",
+      "passed": true,
+      "kind": "source refusal",
+      "stderr": "interrupt path contains loop or interrupt control\nnear source 9:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-036/irq-verify-1794604075273822000/handler-replenish/bad.flow)\n",
+      "sourceSHA256": "e622f4f7fcf5300f370d7f7f3e9da6c63ef16056204eff07db008c8ef65b7a88"
+    },
+    {
+      "name": "ordinary-handler-call",
+      "passed": true,
+      "kind": "source refusal",
+      "stderr": "interrupt handler cannot be called as ordinary function\nnear source 7:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-036/irq-verify-1794604075273822000/ordinary-handler-call/bad.flow)\n",
+      "sourceSHA256": "6b29301d52a307e5fdb954a37d16cc9606ff938898ddf42573ca691e67186a98"
+    },
+    {
+      "name": "wrong-handler-arity",
+      "passed": true,
+      "kind": "source refusal",
+      "stderr": "interrupt handler requires one cause parameter\nnear source 2:24 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-036/irq-verify-1794604075273822000/wrong-handler-arity/bad.flow)\n",
+      "sourceSHA256": "0bb871e4ac33b6b0c6b03e3d467bc424a6cfb00744089498348a131f35396a48"
+    },
+    {
+      "name": "two-dispatchers",
+      "passed": true,
+      "kind": "source refusal",
+      "stderr": "one interrupt dispatcher supported\nnear source 9:28 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-036/irq-verify-1794604075273822000/two-dispatchers/bad.flow)\n",
+      "sourceSHA256": "7b6ed93b9f5b12cb619d8791753c4190c89a2e4702dd3dd4864578342bf1c43f"
+    },
+    {
+      "name": "missing-install",
+      "passed": true,
+      "kind": "source refusal",
+      "stderr": "interrupt declaration requires irq_install\nnear source 8:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-036/irq-verify-1794604075273822000/missing-install/bad.flow)\n",
+      "sourceSHA256": "817e371fdbecd5d9c0f0b8bdbc382a42ae3e402f30cf15f199ce8c19bb835a8c"
+    },
+    {
+      "name": "non-handler-install",
+      "passed": true,
+      "kind": "source refusal",
+      "stderr": "irq_install requires declared interrupt handler\nnear source 6:26 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-036/irq-verify-1794604075273822000/non-handler-install/bad.flow)\n",
+      "sourceSHA256": "a27c75d8cb560ef17d1a78aa1d5af5d20a5a242db1d92eb9d49079f9a5d8549a"
+    },
+    {
+      "name": "indirect-blocking-handler",
+      "passed": true,
+      "kind": "source refusal",
+      "stderr": "interrupt path contains loop or interrupt control\nnear source 13:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-036/irq-verify-1794604075273822000/indirect-blocking-handler/bad.flow)\n",
+      "sourceSHA256": "920df16ffae3a826c4314343f4b1923338763df76e51cba2d7c5a48185476ee4"
+    },
+    {
+      "name": "handler-lease-release",
+      "passed": true,
+      "kind": "source refusal",
+      "stderr": "interrupt path contains loop or interrupt control\nnear expanded-source 292:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-036/irq-verify-1794604075273822000/handler-lease-release/bad.flow)\n",
+      "sourceSHA256": "98fc3159ed234c03eda0bd2b71f202bdff3d6bc071cb98430471c3acd58b71e8"
+    },
+    {
+      "name": "long-irq-8",
+      "passed": true,
+      "virtualMicroseconds": 600437180,
+      "interrupts": 60068,
+      "foregroundArithmetic": 992375520,
+      "encodingWords": 3689,
+      "sourceSHA256": "3e8ecd21fd4aaf17149c8d2d59d56b777a9a04e78286b9cfd5dc5ade7caa7f46",
+      "firmwareSHA256": "9abacde5f6954ead917cf6a4f03b86127904c444e1619cd8fe37dcf9ec56ccba",
+      "state": {
+        "pc": 1077411864,
+        "sp": 1070333952,
+        "a0": 0,
+        "mie": 2048,
+        "mstatus": 128,
+        "mscratch": 1070268416,
+        "runtime": [
+          64,
+          0,
+          2147483649,
+          1077414124,
+          0,
+          1380332105,
+          60068,
+          0
+        ],
+        "leases": [
+          1380332112,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "long-irq-10",
+      "passed": true,
+      "virtualMicroseconds": 601747697,
+      "interrupts": 60176,
+      "foregroundArithmetic": 992375520,
+      "encodingWords": 3689,
+      "sourceSHA256": "3e8ecd21fd4aaf17149c8d2d59d56b777a9a04e78286b9cfd5dc5ade7caa7f46",
+      "firmwareSHA256": "9abacde5f6954ead917cf6a4f03b86127904c444e1619cd8fe37dcf9ec56ccba",
+      "state": {
+        "pc": 1077411864,
+        "sp": 1070333952,
+        "a0": 0,
+        "mie": 2048,
+        "mstatus": 128,
+        "mscratch": 1070268416,
+        "runtime": [
+          64,
+          0,
+          2147483649,
+          1077413284,
+          0,
+          1380332105,
+          60176,
+          0
+        ],
+        "leases": [
+          1380332112,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "compilerSHA256": "a1a864b993bcb308c9ce11b86bfc936599438d02ba72e49dace70edad67325ed",
+  "qemuSHA256": "3e38982c1ea3e750edfc8c910a0fd44727fe07d9c666b84d18d2b7985ac58246",
+  "controllerSHA256": "c231eb617db66065a6dccbf296cb492cd0b54db67ef69a02cd7e2933409cfe35",
+  "encodingOracleSHA256": "b2a6f11ed0f68a379f181bcac3ffa4472707aaf2fbcae63bf6c712bbe07cb728",
+  "sources": {
+    "native/embedded/compiler.flow": "e5dc87101938e702c626b851efc0e233dbf7b757125b4e45cc0be7b90a9bb3dd",
+    "examples/esp32c3/interrupt-heartbeat.flow": "3e8ecd21fd4aaf17149c8d2d59d56b777a9a04e78286b9cfd5dc5ade7caa7f46",
+    "examples/esp32c3/lib/peripheral.flow": "658927d78aba0d699c069a0fe3e4f32af54350bd7ba1221d6a8389159333482d"
+  },
+  "scope": "Actual vendor QEMU interrupts/reset and GNU encoding checks; register probe and nested exception use explicit binary fixture injection, release readback uses a test hook. Checked boot-local leases are not a sandbox against trusted raw MMIO. No physical board/timing, nested asynchronous ISR, FPU, RTOS or performance claim."
+}
