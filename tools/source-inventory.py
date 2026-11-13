@@ -3,7 +3,7 @@ from pathlib import Path
 import subprocess,json,collections,html
 R=Path(__file__).resolve().parents[1]
 paths=subprocess.check_output(['git','ls-files','--cached','--others','--exclude-standard'],cwd=R,text=True).splitlines()
-generated={'examples/evidence-contract/lib/json_transport.rf2','docs/book/index.html','site/book/index.html','native/attendance-kernel.rf2','native/invoice-kernel.rf2'}
+generated={'examples/sha40/rounds.rf2','examples/evidence-contract/lib/json_transport.rf2','docs/book/index.html','site/book/index.html','native/attendance-kernel.rf2','native/invoice-kernel.rf2'}
 languages={'.rf2':'RiverFlow','.flow':'RiverFlow','.py':'Python','.mjs':'JavaScript','.js':'JavaScript','.html':'HTML','.css':'CSS','.sh':'Shell','.c':'C','.h':'C/C++ headers','.cpp':'C++','.s':'Assembly','.S':'Assembly','.rs':'Rust'}
 totals=collections.Counter();files=[]
 for name in sorted(set(paths)):

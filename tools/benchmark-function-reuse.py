@@ -7,7 +7,7 @@ D=R/'artifacts/function-reuse'/('bench-'+str(time.time_ns()));D.mkdir(parents=Tr
 N=int(os.environ.get('RF2_BENCH_TRIALS','21'));assert 5<=N<=101
 fixture=D/'numeric-helpers.rf2'
 fixture.write_text('profile RF2_SYSTEM_A64_V1\n'+''.join('fn helper'+str(i)+'(x)\n return '+ ' + '.join(['x']+list(map(str,range(1,97))))+'\nend\n' for i in range(96))+'fn main(argc,argv)\n return helper0(1)!=4657\nend\n')
-tasks=[('small-example',R/'examples/function-changes/main.rf2'),('file-checksum',R/'examples/file-checksum.rf2'),('numeric-helper-fixture',fixture)]
+tasks=[('small-example',R/'examples/function-changes/main.rf2'),('file-checksum',R/'examples/file-checksum.rf2'),('sha40',R/'examples/sha40/main.rf2'),('numeric-helper-fixture',fixture)]
 rows=[];setup=[];variants=['direct clean','empty unit cache','retained unit cache']
 def run(args):return subprocess.run([str(x)for x in args],capture_output=True,timeout=60,env={'PATH':'/nonexistent'})
 for name,source in tasks:
