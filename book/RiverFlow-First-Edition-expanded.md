@@ -1339,6 +1339,40 @@ A Cloudflare Worker candidate wraps the same module in a small platform handler.
 
 The next useful steps are typed VM owners, cancellation, guest-image contracts and explicit virtual devices. A Linux boot claim must wait for those implementations. Broader WASM programs, original legacy browsers and cloud deployment also need their own tests. The source, failed controls, measurements and limits are recorded in docs/FOUNDATION-0.19.md.
 
+# 35. Own the guest, bound the run
+
+A VM is more than an identifier. It owns state that must remain valid while a vCPU runs, and its resources must be released in an order the platform accepts. The next RF2 development phase makes that relationship visible to the compiler.
+
+```rf2
+result IO(u64,u64)
+resource Machine(IO,vm)
+resource CPU(IO,vcpu)
+
+fn work():IO
+ own machine=Machine()
+ own cpu=CPU(machine)
+ return ok(0)
+end
+```
+
+The declarations create function-local owners. Returning from work destroys the CPU before the machine. Copying either owner, returning it as a value or passing it to a raw scalar call is refused. Explicitly releasing the machine while its CPU remains live is also refused. A CPU operation returns an IO result that must be handled. These rules are useful precisely because an ordinary numeric identifier would not carry them.
+
+Cleanup is observable. If the function succeeds but cleanup fails, its result becomes an error. If the function already failed, its primary error remains. Tests deliberately destroy a VM through the raw platform interface before its owner returns. The compiler cannot prevent that trusted escape, but the later cleanup reports the inconsistency. This distinction matters: the new owners are not a claim that every raw systems program is memory safe. Fatal traps, signals and manually managed mapping buffers remain outside their guarantee.
+
+The guest is now loaded from an explicit file instead of being written as three constants by the VMM. A small RF2G020 header states code length, entry, ISA and reserved fields. The loader takes a private snapshot, checks the exact length and validates every instruction before acquiring a VM. Code is limited to four KiB. Code and data have separate guest permissions.
+
+This image language admits a no-operation, one addition, a store through the host's fixed data pointer, an explicit exit and direct branches that remain inside the image. It rejects system-register writes and arbitrary memory operations. It is a real bounded loader, but it is not an ELF or Linux boot loader. An admitted branch may loop forever, so loading a file creates a new obligation: the host must regain control.
+
+The first timer implementation exposed a mistake. An architectural CPU counter was used as if it shared the hypervisor timer's clock origin. On this Mac it did not. A loop intended to run for ten milliseconds exited immediately. Prompt return looked encouraging until the elapsed ticks contradicted the intended behaviour. That executable and its failed observation remain part of the record.
+
+The corrected runner uses mach_absolute_time and its platform timebase conversion, matching the documented virtual-timer domain. It programs the deadline, unmasks the timer exit and enters the guest. A looping admitted image then returns with the platform's virtual-timer reason. The admitted instructions cannot disable that timer. Explicit cancellation before entry uses hv_vcpus_exit and returns without executing the guest. A controller timeout remains outside the program as a failing-test guard; killing a stalled process would not count as successful cancellation.
+
+The final local suite passed 136 guest executions, including 36 timer exits. It rejected 31 unsupported or malformed files, compared 52 branch encodings with an independent range rule and checked 14 ownership scenarios in both compiler modes. The timer cases requested one to fifty milliseconds using two loops and three repetitions at each duration. Observed in-run intervals ranged from about 1.0003 to 50.0020 milliseconds. These are observations from one Mac, not a universal latency bound or language-speed comparison. Host scheduling can delay a return.
+
+The frozen 0.19 executable agreed with the new runner on three arithmetic cases, including maximum u32 inputs. The old raw VMM, native compiler, Core SDK, WASM and separate authenticated MCP suites still passed. The previous hosted run remains a 0.19 result; this extension has local evidence. No MCP tool acquires the ability to execute raw guest images.
+
+The next boundary is ownership of mapped memory itself, followed by a specified boot contract and independently tested interrupt and device models. Wider guest instructions require a fresh cancellation analysis. A signed-image format would add a different property again: provenance. The present result supports the smaller statement that a checked owner and admitted image can share an observable, platform-enforced time slice.
+
 # Appendix A. Commands and interfaces
 
 Native standalone, no Node or npm required:

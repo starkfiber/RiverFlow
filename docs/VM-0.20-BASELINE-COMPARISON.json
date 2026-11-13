@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "baseline019SHA256": "0f624a9727edc5e400e643f06d0b28fd3fafed4507a78a8ac59fa8ad99594929",
+  "candidateSHA256": "0501fddc7082edbe6752ed5b09bb85d6d0d379649518ddac6075c9309270e2e8",
+  "cases": [
+    {
+      "a": 0,
+      "b": 0,
+      "baseline019Value": 0,
+      "candidateValue": 0,
+      "dataMatch": true
+    },
+    {
+      "a": 19,
+      "b": 23,
+      "baseline019Value": 42,
+      "candidateValue": 42,
+      "dataMatch": true
+    },
+    {
+      "a": 4294967295,
+      "b": 4294967295,
+      "baseline019Value": 8589934590,
+      "candidateValue": 8589934590,
+      "dataMatch": true
+    }
+  ],
+  "plainCompilerRunnerArithmeticAndTimerPassed": true,
+  "timingComparison": null,
+  "limits": "Equivalent arithmetic receipts only; no speed claim. Candidate has loader/timer/ownership work absent from the original.",
+  "unentitledRunnerRejected": true,
+  "unentitledApiError": 4209590279,
+  "cliRefusals": 6,
+  "sameInstructionRepeatedRelease": [
+    {
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "optimized": true,
+      "passed": true
+    }
+  ]
+}

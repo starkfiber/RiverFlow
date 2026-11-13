@@ -25,8 +25,8 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "Python": 394569,
-    "RiverFlow": 352366,
+    "Python": 404345,
+    "RiverFlow": 366157,
     "JavaScript": 85144,
     "HTML": 30503,
     "CSS": 17035,
@@ -450,6 +450,11 @@
       "bytes": 1065
     },
     {
+      "path": "examples/vm-runner/main.rf2",
+      "language": "RiverFlow",
+      "bytes": 5223
+    },
+    {
       "path": "examples/workload/lib/csv.rf2",
       "language": "RiverFlow",
       "bytes": 2211
@@ -477,7 +482,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 98317
+      "bytes": 106379
     },
     {
       "path": "native/core.rf2",
@@ -835,6 +840,11 @@
       "bytes": 275
     },
     {
+      "path": "tests/standalone/fixtures/vm-ownership/repeat-release.rf2",
+      "language": "RiverFlow",
+      "bytes": 506
+    },
+    {
       "path": "tests/standalone/hex_app_verify.py",
       "language": "Python",
       "bytes": 5266
@@ -1010,6 +1020,11 @@
       "bytes": 9791
     },
     {
+      "path": "tests/standalone/vm_ownership_verify.py",
+      "language": "Python",
+      "bytes": 8387
+    },
+    {
       "path": "tests/standalone/wasm_measure.mjs",
       "language": "JavaScript",
       "bytes": 3014
@@ -1088,6 +1103,11 @@
       "path": "tools/build-trust.py",
       "language": "Python",
       "bytes": 1723
+    },
+    {
+      "path": "tools/build-vm-runner.py",
+      "language": "Python",
+      "bytes": 1389
     },
     {
       "path": "tools/build-wasm.py",

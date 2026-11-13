@@ -1,7 +1,7 @@
 {
   "name": "rf2",
-  "version": "0.19.0-dev",
-  "description": "Native RF2 tools, bounded MCP, direct VMM research and Core WebAssembly compilation",
+  "version": "0.20.0-dev",
+  "description": "Native RF2 tools and bounded MCP; typed VM ownership and admitted guest image research",
   "author": {
     "name": "Ilangkhumanan Thirunavokkarasu",
     "url": "https://github.com/starkfiber"

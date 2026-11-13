@@ -18,6 +18,10 @@ The [Evidence Contract candidate](docs/EVIDENCE-CONTRACT.md) combines five teste
 
 The [ten-language source audit](docs/TOP-TEN-LANGUAGE-AUDIT.md) compares RF2 with selected implementations from Python through C, SQL and Go, with assembly as a separate low-level reference. It includes an A–Z acceptance ledger and marks missing capabilities explicitly. Popularity and shorter spelling do not prove correctness, speed or adoption.
 
+## 0.20 development: owned VMs and bounded guest images
+
+RF2 now checks VM/vCPU ownership, validates a small guest-image format and enforces a virtual-timer time slice for admitted looping guests. The final local suite passed 136 guest executions, 31 image refusals, 52 branch-admission checks and 14 ownership scenarios in both compiler modes. MCP authority is unchanged. [Implementation, clock correction and limits](docs/VM-OWNERSHIP-0.20.md) · [Run the native image loader](examples/vm-runner/README.md).
+
 ## 0.19 foundation: direct guest control and portable computation
 
 RF2 now emits explicit Hypervisor framework bindings and runs its own bounded VMM program without QEMU. Forty local guest runs cover arithmetic, permission faults, cleanup and same-process VM reacquisition. Apple supplies hardware virtualization; Linux boot and devices remain future work.

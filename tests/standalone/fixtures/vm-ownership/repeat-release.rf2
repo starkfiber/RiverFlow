@@ -1,0 +1,36 @@
+profile RF2_SYSTEM_A64_V1
+result IO(u64,u64)
+resource Machine(IO,vm)
+resource CPU(IO,vcpu)
+fn work():IO
+ own m=Machine()
+ own c=CPU(m)
+ let i=0
+ let refusals=0
+ while i<2
+  handle release(c)
+  ok value
+  err cause
+   if cause!=9
+    return err(cause)
+   end
+   set refusals=refusals+1
+  end
+  set i=i+1
+ end
+ handle release(m)
+ ok value2
+ err cause2
+  return err(cause2)
+ end
+ return ok(refusals)
+end
+fn main(argc,argv)
+ handle work()
+ ok count
+  return count!=1
+ err cause
+  return 98
+ end
+ return 99
+end

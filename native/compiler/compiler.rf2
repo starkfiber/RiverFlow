@@ -418,6 +418,7 @@ fn scan_record()
  do advance()
  let t = advance()
  do require(load64(token(t)) == 1, "record name required")
+ do require((tmatch(t, "vm_map_owned") | tmatch(t, "vm_unmap_owned") | tmatch(t, "vm_protect_owned") | tmatch(t, "vcpu_set_owned") | tmatch(t, "vcpu_sys_owned") | tmatch(t, "vcpu_read_owned") | tmatch(t, "vcpu_run_owned") | tmatch(t, "vcpu_cancel_owned") | tmatch(t, "vcpu_offset_owned") | tmatch(t, "vcpu_timer_owned") | tmatch(t, "vm_clock_ticks") | tmatch(t, "clock_timebase")) == 0, "reserved platform name")
  do require(record_index(t) == 0, "duplicate record")
  do require(logical_name(t) == 0, "reserved logical name")
  do require((tmatch(t, "read_bytes") | tmatch(t, "write_bytes") | tmatch(t, "buffer") | tmatch(t, "load8") | tmatch(t, "load32") | tmatch(t, "load64") | tmatch(t, "store8") | tmatch(t, "store32") | tmatch(t, "store64") | tmatch(t, "read") | tmatch(t, "write") | tmatch(t, "open") | tmatch(t, "close") | tmatch(t, "exit") | tmatch(t, "read_owned") | tmatch(t, "write_owned") | tmatch(t, "release") | tmatch(t, "buffer_reserve") | tmatch(t, "buffer_push") | tmatch(t, "buffer_get") | tmatch(t, "buffer_clear") | tmatch(t, "syscall6") | tmatch(t, "fork_process")) == 0, "reserved record name")
@@ -474,9 +475,22 @@ fn scan_record()
   do require(field != 0, "resource result type required")
   do require(load64(record_info(field) + 144) == 3, "resource requires result type")
   do require(load64(record_info(field) + 152) == 0, "resource requires scalar IO result")
+  let resource_kind = 6
+  if match(",")
+   do advance()
+   if match("vm")
+    set resource_kind = 8
+   else
+    do expect("vcpu")
+    set resource_kind = 9
+   end
+   if resource_kind == 8
+    do advance()
+   end
+  end
   do expect(")")
-  do store64(r + 8, 2)
-  do store64(r + 144, 6)
+  do store64(r + 8, 2 + (resource_kind == 9) * 2)
+  do store64(r + 144, resource_kind)
   do store64(r + 152, field)
   do store64(state() + 128, id)
   return newline()
@@ -542,7 +556,7 @@ fn construct_record(target, depth)
  do require(depth == 0, "record declarations must be function-level")
  let f = load64(state() + 32)
  let id = load64(local_type(f, target))
- do require((load64(record_info(id) + 144) != 6) & (load64(record_info(id) + 144) != 7), "resource requires own declaration")
+ do require((load64(record_info(id) + 144) != 6) & (load64(record_info(id) + 144) != 7) & (load64(record_info(id) + 144) < 8), "resource requires own declaration")
  do require(load64(record_info(id) + 144) != 3, "result values require handle")
  if load64(record_info(id) + 144) >= 4
   return construct_view(target, depth)
@@ -806,7 +820,7 @@ fn scan_functions_more(f)
    do require(load64(token(t)) == 1, "function name required")
    do require(logical_name(t) == 0, "reserved logical name")
    do require((tmatch(t, "read_bytes") | tmatch(t, "write_bytes") | tmatch(t, "read_owned") | tmatch(t, "write_owned") | tmatch(t, "release") | tmatch(t, "buffer_reserve") | tmatch(t, "buffer_push") | tmatch(t, "buffer_get") | tmatch(t, "buffer_clear")) == 0, "reserved IO name")
-   do require(tmatch(t,"platform_call")==0,"reserved platform name")
+   do require((tmatch(t,"platform_call") | tmatch(t, "clock_timebase") | tmatch(t, "vm_map_owned") | tmatch(t, "vm_unmap_owned") | tmatch(t, "vm_protect_owned") | tmatch(t, "vcpu_set_owned") | tmatch(t, "vcpu_sys_owned") | tmatch(t, "vcpu_read_owned") | tmatch(t, "vcpu_run_owned") | tmatch(t, "vcpu_cancel_owned") | tmatch(t, "vcpu_offset_owned") | tmatch(t, "vcpu_timer_owned") | tmatch(t, "vm_clock_ticks"))==0,"reserved platform name")
    do require(record_index(t) == 0, "function collides with record")
    set other = 0
    while other < f
@@ -924,7 +938,7 @@ fn scan_body(f, params)
    end
    if match("own")
     do require((id != 0) & tmatch(i + 4, "("), "own requires resource constructor")
-    do require((load64(record_info(id) + 144) == 6) | (load64(record_info(id) + 144) == 7), "own requires resource type")
+    do require((load64(record_info(id) + 144) == 6) | (load64(record_info(id) + 144) == 7) | (load64(record_info(id) + 144) == 8) | (load64(record_info(id) + 144) == 9), "own requires resource type")
     set count = load64(cleanup_count(f))
     do require(count < 16, "resource cleanup count bound")
     do store64(cleanup_slot(f, count), slot + 1)
@@ -1224,9 +1238,12 @@ fn construct_owner(depth)
  let slot = find_local(advance())
  let id = load64(local_type(f, slot))
  do require(id != 0, "resource type required")
- do require((load64(record_info(id) + 144) == 6) | (load64(record_info(id) + 144) == 7), "resource type required")
+ do require((load64(record_info(id) + 144) == 6) | (load64(record_info(id) + 144) == 7) | (load64(record_info(id) + 144) == 8) | (load64(record_info(id) + 144) == 9), "resource type required")
  do require(load64(function_result(f)) == load64(record_info(id) + 152), "owner function result type mismatch")
  do expect("=")
+ if load64(record_info(id) + 144) >= 8
+  return construct_vm_owner(f, slot, id)
+ end
  if load64(record_info(id) + 144) == 7
   do construct_vector(f, slot, id)
   do store64(local_ready(f, slot), 1)
@@ -1267,6 +1284,10 @@ fn invoke_owned(name, depth)
  let slot = local_index(advance())
  let id = load64(local_type(f, slot))
  do require(id != 0, "owned resource required")
+ if load64(record_info(id) + 144) >= 8
+  do require(tmatch(name, "release"), "VM owner operation required")
+  return invoke_vm_owner(name, depth, f, slot, id)
+ end
  do require((load64(record_info(id) + 144) == 6) | ((load64(record_info(id) + 144) == 7) & tmatch(name, "release")), "owned file required")
  let bad = next_label()
  let done = next_label()
@@ -1512,7 +1533,7 @@ fn expression(minimum, depth)
        do require(load64(local_ready(load64(state() + 32), slot)) != 0, "record used before initialization")
       end
       if id != 0
-       do require(load64(record_info(id) + 144) != 6, "owner cannot be used as a value")
+       do require((load64(record_info(id) + 144) != 6) & (load64(record_info(id) + 144) < 8), "owner cannot be used as a value")
        if load64(record_info(id) + 144) == 7
         do require(match("[") | match("."), "vector owner cannot be used as a value")
        end
@@ -1720,10 +1741,10 @@ fn platform_arity(t)
  if tmatch(t,"hv_vm_map")
   return 5
  end
- if tmatch(t,"hv_vm_unmap") | tmatch(t,"hv_vcpus_exit")
+ if tmatch(t,"hv_vm_unmap") | tmatch(t,"hv_vcpus_exit") | tmatch(t,"hv_vcpu_set_vtimer_mask") | tmatch(t,"hv_vcpu_set_vtimer_offset")
   return 3
  end
- if tmatch(t,"hv_vm_protect") | tmatch(t,"hv_vcpu_create") | tmatch(t,"hv_vcpu_set_reg") | tmatch(t,"hv_vcpu_get_reg")
+ if tmatch(t,"hv_vm_protect") | tmatch(t,"hv_vcpu_create") | tmatch(t,"hv_vcpu_set_reg") | tmatch(t,"hv_vcpu_get_reg") | tmatch(t,"hv_vcpu_set_sys_reg")
   return 4
  end
  return 0
@@ -1741,6 +1762,7 @@ fn platform_object(t)
  let obj = intern(3,t,8)
  do store64(platform_import(n),t)
  do store64(platform_import(n)+8,obj)
+ do store64(platform_import(n)+16,2)
  do store64(platform_state(),n+1)
  return obj
 end
@@ -1795,7 +1817,7 @@ fn platform_bindings()
  let raw = 0
  while i<load64(platform_state())
   set t = token(load64(platform_import(i)))
-  do bind_byte(18)
+  do bind_byte(16 | load64(platform_import(i)+16))
   do bind_byte(64)
   do bind_byte(95)
   set j = 0
@@ -1817,6 +1839,28 @@ fn platform_bindings()
  return load64(platform_state()+8)
 end
 fn invoke(name, depth)
+ if tmatch(name, "clock_timebase")
+  do require(load64(state() + 200) == 0, "calls forbidden while view is live")
+  do scalar_expression(1, depth + 1)
+  do expect(")")
+  do emit_clock_api("mach_timebase_info")
+  do store64(state() + 136, 0)
+  return 0
+ end
+ if tmatch(name, "vm_map_owned") | tmatch(name, "vm_unmap_owned") | tmatch(name, "vm_protect_owned") | tmatch(name, "vcpu_set_owned") | tmatch(name, "vcpu_sys_owned") | tmatch(name, "vcpu_read_owned") | tmatch(name, "vcpu_run_owned") | tmatch(name, "vcpu_cancel_owned") | tmatch(name, "vcpu_offset_owned") | tmatch(name, "vcpu_timer_owned") | tmatch(name, "vm_clock_ticks") | tmatch(name, "clock_timebase")
+  do require(load64(state() + 200) == 0, "calls forbidden while view is live")
+  if tmatch(name, "vm_clock_ticks")
+   do expect(")")
+   do emit_clock_api("mach_absolute_time")
+   do store64(state() + 136, 0)
+   return 0
+  end
+  let owner_function = load64(state() + 32)
+  let slot = local_index(advance())
+  let id = load64(local_type(owner_function, slot))
+  do require(id != 0, "VM owner required")
+  return invoke_vm_owner(name, depth, owner_function, slot, id)
+ end
  if tmatch(name,"platform_call")
   do require(load64(state()+200)==0,"calls forbidden while view is live")
   return invoke_platform(depth)
@@ -2752,15 +2796,25 @@ fn emit_cleanup(f)
   do imm(0, 0)
   do access_local(0, slot, 1)
   do access_local(0, slot + 1, 0)
-  if load64(cleanup_owned(f, n)) == 2
-   do imm(1, load64(cleanup_span(f, n)))
-   do imm(16, 73)
+  if load64(cleanup_owned(f, n)) >= 3
+   if load64(cleanup_owned(f, n)) == 3
+    do emit_vm_api("hv_vm_destroy")
+   else
+    do emit_vm_api("hv_vcpu_destroy")
+   end
+   do emit(4043309087)
+   do jump(skip, 0)
   else
-   do imm(16, 6)
-  end
-  do emit(3556773889)
-  if load64(cleanup_owned(f, n))
+   if load64(cleanup_owned(f, n)) == 2
+    do imm(1, load64(cleanup_span(f, n)))
+    do imm(16, 73)
+   else
+    do imm(16, 6)
+   end
+   do emit(3556773889)
    do jump(skip, 3)
+  end
+  if load64(cleanup_owned(f, n))
    do emit(4181721088 | (31 << 5) | 2)
    do emit(4043309087 | (2 << 5))
    do jump(skip, 1)
@@ -3788,5 +3842,193 @@ fn invoke_vector(name, depth)
  do vector_error(34, done)
  do label(done)
  do store64(state() + 136, load64(record_info(id) + 152))
+ return 0
+end
+
+# VM owners are noncopyable function-local resources; parent relations are static.
+fn emit_vm_api(symbol)
+ let t = add_token(3, symbol, length(symbol), 0)
+ do address(16, platform_object(t))
+ do emit(4181721616)
+ do emit(3594453504)
+ do emit(3544186880 | (31 << 10))
+ return 0
+end
+fn local_pointer(r, slot)
+ return emit(2432696320 | ((slot * 8) << 10) | (29 << 5) | r)
+end
+fn construct_vm_owner(f, slot, id)
+ let kind = load64(record_info(id) + 144)
+ let parent = 0
+ let good = next_label()
+ do require(record_index(advance()) == id, "resource constructor mismatch")
+ do expect("(")
+ if kind == 8
+  do expect(")")
+  do imm(0, 0)
+  do emit_vm_api("hv_vm_create")
+ else
+  set parent = local_index(advance())
+  do require(load64(record_info(load64(local_type(f, parent))) + 144) == 8, "vCPU requires live VM owner")
+  do expect(")")
+  do store64(cleanup_span(f, load64(state() + 224)), parent + 1)
+  do local_pointer(0, slot + 2)
+  do local_pointer(1, slot + 3)
+  do imm(2, 0)
+  do emit_vm_api("hv_vcpu_create")
+ end
+ do emit(4043309087)
+ do jump(good, 0)
+ do emit(2852127713)
+ do imm(0, 1)
+ do jump(load64(state() + 88), 16)
+ do label(good)
+ do imm(0, 1)
+ do access_local(0, slot + 1, 1)
+ do store64(local_ready(f, slot), 1)
+ do store64(local_scope(f, slot), 0)
+ do require(load64(cleanup_slot(f, load64(state() + 224))) == slot + 1, "VM cleanup registration order")
+ do store64(state() + 224, load64(state() + 224) + 1)
+ return newline()
+end
+fn invoke_vm_owner(name, depth, f, slot, id)
+ let kind = load64(record_info(id) + 144)
+ let symbol = ""
+ let count = 0
+ let good = next_label()
+ let bad = next_label()
+ let done = next_label()
+ let n = 0
+ let child = 0
+ do require((kind == 8) | (kind == 9), "typed VM or vCPU owner required")
+ if tmatch(name, "release")
+  do expect(")")
+  if kind == 8
+   while n < load64(cleanup_count(f))
+    if (load64(cleanup_owned(f, n)) == 4) & (load64(cleanup_span(f, n)) == slot + 1)
+     set child = load64(cleanup_slot(f, n)) - 1
+     do require(load64(local_ready(f, child)) == 0, "release vCPU before parent VM")
+    end
+    set n = n + 1
+   end
+   set symbol = "hv_vm_destroy"
+  else
+   set symbol = "hv_vcpu_destroy"
+  end
+  do store64(local_ready(f, slot), 0)
+ else
+  if tmatch(name, "vm_map_owned") | tmatch(name, "vm_unmap_owned") | tmatch(name, "vm_protect_owned")
+   do require(kind == 8, "mapping requires VM owner")
+   set symbol = "hv_vm_map"
+   set count = 4
+   if tmatch(name, "vm_unmap_owned")
+    set symbol = "hv_vm_unmap"
+    set count = 2
+   end
+   if tmatch(name, "vm_protect_owned")
+    set symbol = "hv_vm_protect"
+    set count = 3
+   end
+  else
+   do require(kind == 9, "operation requires vCPU owner")
+   set symbol = "hv_vcpu_run"
+   if tmatch(name, "vcpu_set_owned") | tmatch(name, "vcpu_sys_owned")
+    set count = 2
+    set symbol = "hv_vcpu_set_reg"
+    if tmatch(name, "vcpu_sys_owned")
+     set symbol = "hv_vcpu_set_sys_reg"
+    end
+   end
+   if tmatch(name, "vcpu_read_owned")
+    set count = 1
+    set symbol = "hv_vcpu_get_reg"
+   end
+   if tmatch(name, "vcpu_offset_owned")
+    set count = 1
+    set symbol = "hv_vcpu_set_vtimer_offset"
+   end
+   if tmatch(name, "vcpu_timer_owned")
+    set count = 1
+    set symbol = "hv_vcpu_set_vtimer_mask"
+   end
+   if tmatch(name, "vcpu_cancel_owned")
+    set symbol = "hv_vcpus_exit"
+   end
+  end
+  while n < count
+   do expect(",")
+   do scalar_expression(1, depth + 1)
+   do push()
+   set n = n + 1
+  end
+  do expect(")")
+ end
+ # Guard repeated releases/acquisitions executed through loops at runtime.
+ do access_local(0, slot + 1, 0)
+ do emit(4043309087)
+ do jump(bad, 0)
+ if tmatch(name, "release")
+  do imm(0, 0)
+  do access_local(0, slot + 1, 1)
+ end
+ set n = count
+ while n != 0
+  set n = n - 1
+  let reg = n + (kind == 9)
+  do emit(4181722080 | reg)
+  do emit(2432713727)
+ end
+ if kind == 9
+  do access_local(0, slot + 2, 0)
+ end
+ if tmatch(name, "vcpu_read_owned")
+  do local_pointer(2, slot + 4)
+ end
+ if tmatch(name, "vcpu_cancel_owned")
+  do local_pointer(0, slot + 2)
+  do imm(1, 1)
+ end
+ do emit_vm_api(symbol)
+ do emit(4043309087)
+ do jump(good, 0)
+ do emit(2852127713)
+ do imm(0, 1)
+ do jump(done, 16)
+ do label(good)
+ do imm(1, 0)
+ if tmatch(name, "vcpu_read_owned")
+  do access_local(1, slot + 4, 0)
+ end
+ if tmatch(name, "vcpu_run_owned")
+  do access_local(1, slot + 3, 0)
+  do emit(3107979264 | (1 << 5) | 1)
+ end
+ do imm(0, 0)
+ do jump(done, 16)
+ do label(bad)
+ # Any pushed arguments must be discarded on a runtime-consumed owner path.
+ if count != 0
+  do emit(2432697343 | ((count * 16) << 10))
+ end
+ do imm(0, 1)
+ do imm(1, 9)
+ do label(done)
+ do store64(state() + 136, load64(record_info(id) + 152))
+ return 0
+end
+
+fn emit_clock_api(symbol)
+ let t = add_token(3, symbol, length(symbol), 0)
+ let obj = platform_object(t)
+ let i = 0
+ while i < load64(platform_state())
+  if load64(platform_import(i) + 8) == obj
+   do store64(platform_import(i) + 16, 1)
+  end
+  set i = i + 1
+ end
+ do address(16, obj)
+ do emit(4181721616)
+ do emit(3594453504)
  return 0
 end

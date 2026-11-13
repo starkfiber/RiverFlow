@@ -1,0 +1,17 @@
+# Native bounded guest-image runner (0.20 development)
+
+`rf2-vm-runner guest.rf2g milliseconds left right cancel`
+
+The native executable takes a private, validated image snapshot before creating a VM. Milliseconds must be canonical decimal 1..1000; left/right are u32 and cancel is 0 or 1. It needs Apple's explicit hypervisor entitlement. No Node, npm, Python, C/C++ runtime or QEMU is involved in execution. Developer builders/tests remain separate dependencies.
+
+The RF2G020 image is little endian: six u64 header fields (48 bytes), followed by the declared code bytes. Header fields are magic `RF2G020\0`, code length, entry byte offset, ISA=1 (the admitted ARM64 subset), flags=0 and reserved=0. Code is 4..4096 bytes, a multiple of four; entry must be aligned and within code. Exact file length is required. The loader refuses links and uses nonblocking input so a FIFO cannot hang acquisition. Images are bounded snapshots, not authenticated or signed guest packages.
+
+Every instruction must be one of: NOP; ADD X0,X0,X1; STR X0,[X2]; HVC #0; or immediate B with its destination inside the image. All instructions, including unreachable ones, are validated. The host supplies X2 as the only writable guest data page. Images cannot write system registers, disable their timer, change X2, execute arbitrary memory instructions or leave their code region. Conditional branches, stack operations, Linux/ELF, interrupts and virtual devices are not supported.
+
+`resource Machine(IO,vm)` and `resource CPU(IO,vcpu)` declare compiler-managed, nominal, function-local owners. `own cpu=CPU(machine)` requires a live parent. Owners cannot be copied, returned, rebound, passed to helpers or used as scalar/raw arguments. Ordinary returns run reverse-order cleanup. A parent cannot be explicitly released before its live child. Cleanup failure changes a successful IO result to an error; an existing primary error is preserved. Raw systems operations, fatal traps and signals remain outside that guarantee. Mapping buffers are manually owned by this trusted application; this is not a general borrow checker or memory-safety proof.
+
+The runner configures Apple's virtual timer in the documented mach_absolute_time clock domain. `vm_clock_ticks()` and `clock_timebase(pointer)` provide that clock and its conversion ratio. The host programs CNTV_CVAL/CNTV_CTL, unmasks the virtual-timer exit and calls hv_vcpu_run. A looping admitted image returns reason 2 (virtual timer), rather than being killed by a process timeout. cancel=1 requests hv_vcpus_exit before entry and returns reason 0. This is a bounded time slice for the admitted subset, not an arbitrary guest cancellation service or hard real-time upper bound: host scheduling can delay delivery.
+
+The stdout receipt is ten u64 values: exit reason, X0, first data word, run ticks, programmed budget ticks, converted ticks/second, status, reserved, loaded file bytes and entry offset. API errors and compiler-owned cleanup errors are explicit. Exit 90 rejects CLI arguments. Program exit 1 reports a loader/API/cleanup error in the tuple. Successful cleanup is checked by acquiring another VM in the same process before exit.
+
+Build explicitly with `python3 tools/build-vm-runner.py new-directory`, using RF2_BOOTSTRAP_COMPILER for a specific native compiler. Run `python3 tests/standalone/vm_ownership_verify.py` as a development controller. Keep the exact 0.18 archive and stable releases unchanged. No Core or MCP hardware authority is added.
