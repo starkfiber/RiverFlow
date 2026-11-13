@@ -1,0 +1,458 @@
+# Trusted local target-level incremental builder; no new MCP effects.
+# This source is composed explicitly with the canonical module expander and SHA library.
+fn failed(v)
+ return v >> 63
+end
+fn checked_stat(fd, stat)
+ if syscall6(339,fd,stat,0,0,0,0)!=0
+  return 0
+ end
+ return (load32(stat+4)&61440)==32768
+end
+fn read_file_fd(fd,p,max)
+ let stat=buffer("build_stat",144)
+ if checked_stat(fd,stat)==0
+  do close(fd)
+  return -1
+ end
+ if load64(stat+96)>max
+  do close(fd)
+  return -1
+ end
+ let n=0
+ let got=1
+ while got!=0
+  set got=read(fd,p+n,max+1-n)
+  if failed(got)
+   do close(fd)
+   return -1
+  end
+  set n=n+got
+  if n>max
+   do close(fd)
+   return -1
+  end
+ end
+ if close(fd)!=0
+  return -1
+ end
+ return n
+end
+fn read_regular(path,p,max)
+ let fd=open(path,0x1000104,0)
+ if failed(fd)
+  return -1
+ end
+ return read_file_fd(fd,p,max)
+end
+fn read_at(dir,path,p,max)
+ let fd=syscall6(463,dir,path,0x1000104,0,0,0)
+ if failed(fd)
+  return -1
+ end
+ return read_file_fd(fd,p,max)
+end
+fn read_source(path)
+ let p=buffer("source",524289)
+ let n=read_regular(path,p,524288)
+ do require(failed(n)==0,"source must be a readable regular file within bound")
+ do store64(state(),p)
+ do store64(state()+8,n)
+ return p
+end
+# Same entry-relative module graph and bounds as the canonical compiler; safer file admission.
+fn module_load(name,n)
+ do module_path_check(name,n)
+ let ms=module_state()
+ let count=load64(ms)
+ let root=load64(ms+16)
+ let i=0
+ while i<count
+  if same(module_path(i),length(module_path(i)),name,n)
+   return i
+  end
+  set i=i+1
+ end
+ do require(count<32,"module count bound")
+ let path=module_path(count)
+ do cp(path,name,n)
+ do store8(path+n,0)
+ let full=buffer("module_full_path",1024)
+ do require(root+n<1024,"module full path bound")
+ do cp(full,buffer("module_root",1024),root)
+ do cp(full+root,name,n)
+ do store8(full+root+n,0)
+ let used=load64(ms+8)
+ let p=buffer("module_sources",524289)
+ let amount=read_regular(full,p+used,524288-used)
+ do require(failed(amount)==0,"module must be a readable regular file within bound")
+ do store64(module_info(count),p+used)
+ do store64(module_info(count)+8,amount)
+ do store64(ms,count+1)
+ do store64(ms+8,used+amount)
+ return count
+end
+fn append_text(dst,at,text)
+ let n=length(text)
+ do require(at+n<1024,"build path bound")
+ do cp(dst+at,text,n)
+ do store8(dst+at+n,0)
+ return at+n
+end
+fn decimal(dst,value)
+ let digits=buffer("number_digits",32)
+ let n=0
+ let more=1
+ while more
+  do store8(digits+n,48+(value-value//10*10))
+  set n=n+1
+  set value=value//10
+  if value==0
+   set more=0
+  end
+ end
+ let i=0
+ while i<n
+  do store8(dst+i,load8(digits+n-i-1))
+  set i=i+1
+ end
+ do store8(dst+n,0)
+ return n
+end
+fn hex_digest(dst,digest)
+ let i=0
+ let alphabet="0123456789abcdef"
+ while i<32
+  let v=load8(digest+i)
+  do store8(dst+i*2,load8(alphabet+(v>>4)))
+  do store8(dst+i*2+1,load8(alphabet+(v&15)))
+  set i=i+1
+ end
+ do store8(dst+64,0)
+ return 0
+end
+fn write_all(fd,p,n)
+ let done=0
+ let amount=0
+ while done<n
+  set amount=write(fd,p+done,n-done)
+  if any(failed(amount),amount==0)
+   return 0
+  end
+  set done=done+amount
+ end
+ return 1
+end
+fn create_at(dir,name,p,n,mode,durable)
+ let fd=syscall6(463,dir,name,0x1000b01,mode,0,0)
+ if failed(fd)
+  return 0
+ end
+ let ok=write_all(fd,p,n)
+ # Private input snapshots need visibility to the child, not crash durability.
+ if durable
+  if syscall6(95,fd,0,0,0,0,0)!=0
+   set ok=0
+  end
+ end
+ if close(fd)!=0
+  set ok=0
+ end
+ return ok
+end
+# Persist one verified compiler image per byte identity, rather than copying an executable per miss.
+# Cache access is serialized; same-UID malicious writers remain outside this local trust model.
+fn compiler_snapshot(root,compiler,n,digest,pid)
+ let name=buffer("compiler_cache_name",1024)
+ do hex_digest(name,digest)
+ do append_text(name,64,".compiler")
+ let scratch=buffer("cache_entry",16777297)+80
+ let got=read_at(root,name,scratch,16777216)
+ let valid=0
+ if got==n
+  let stat=buffer("build_stat",144)
+  if all((load32(stat+4)&511)==448,(load32(stat+4)>>16)==1)
+   if same(sha256(scratch,got),32,digest,32)
+    set valid=1
+   end
+  end
+ end
+ if valid==0
+  let temp=buffer("compiler_cache_temp",1024)
+  let at=append_text(temp,0,name)
+  set at=append_text(temp,at,".")
+  set at=at+decimal(temp+at,pid)
+  do append_text(temp,at,".tmp")
+  do require(create_at(root,temp,compiler,n,448,1),"compiler cache snapshot failed")
+  do require(syscall6(465,root,temp,root,name,0,0)==0,"compiler cache commit failed")
+ end
+ return name
+end
+fn make_parents(dir,path)
+ let part=buffer("build_parent",1024)
+ let i=0
+ while load8(path+i)!=0
+  if load8(path+i)==47
+   do cp(part,path,i)
+   do store8(part+i,0)
+   # Existing parents were created in this private work directory by this process.
+   do syscall6(475,dir,part,448,0,0,0)
+  end
+  set i=i+1
+ end
+ return 0
+end
+fn cleanup_work(root,work,name)
+ let i=0
+ while i<load64(module_state())
+  do syscall6(472,work,module_path(i),0,0,0,0)
+  set i=i+1
+ end
+ do syscall6(472,work,"compiler",0,0,0,0)
+ do syscall6(472,work,"image",0,0,0,0)
+ set i=0
+ let j=0
+ let path=0
+ let part=buffer("build_parent",1024)
+ while i<load64(module_state())
+  set path=module_path(i)
+  set j=length(path)
+  while j!=0
+   set j=j-1
+   if load8(path+j)==47
+    do cp(part,path,j)
+    do store8(part+j,0)
+    do syscall6(472,work,part,128,0,0,0)
+   end
+  end
+  set i=i+1
+ end
+ do close(work)
+ do syscall6(472,root,name,128,0,0,0)
+ return 0
+end
+fn publish_output(path,p,n,pid)
+ let parent=buffer("output_parent",1024)
+ let size=length(path)
+ do require(size<1000,"output path bound")
+ let base=0
+ let i=0
+ while i<size
+  if load8(path+i)==47
+   set base=i+1
+  end
+  set i=i+1
+ end
+ do require(base<size,"output basename required")
+ if base==0
+  do cp(parent,".",2)
+ else
+  do cp(parent,path,base)
+  do store8(parent+base,0)
+ end
+ let dir=open(parent,0x1100104,0)
+ if failed(dir)
+  return 0
+ end
+ let temp=buffer("output_temp",1024)
+ let at=append_text(temp,0,".rf2-output-")
+ do decimal(temp+at,pid)
+ # Reserve the temp before writing; never unlink a temp this invocation did not create.
+ let fd=syscall6(463,dir,temp,0x1000b01,448,0,0)
+ if failed(fd)
+  do close(dir)
+  return 0
+ end
+ let ok=write_all(fd,p,n)
+ if syscall6(95,fd,0,0,0,0,0)!=0
+  set ok=0
+ end
+ if close(fd)!=0
+  set ok=0
+ end
+ if ok
+  # linkat publishes atomically and refuses an existing destination, including symlinks.
+  if syscall6(471,dir,temp,dir,path+base,0,0)!=0
+   set ok=0
+  end
+ end
+ do syscall6(472,dir,temp,0,0,0,0)
+ do close(dir)
+ return ok
+end
+fn main(argc,argv)
+ if any(argc<5,argc>7)
+  do write(2,"usage: rf2-build compiler source new-output private-cache [--opt] [--clean]\n",76)
+  return 2
+ end
+ let opt=0
+ let clean=0
+ let i=5
+ while i<argc
+  let arg=load64(argv+i*8)
+  if same(arg,length(arg),"--opt",5)
+   do require(opt==0,"duplicate option")
+   set opt=1
+  else
+   do require(same(arg,length(arg),"--clean",7),"unknown build option")
+   do require(clean==0,"duplicate option")
+   set clean=1
+  end
+  set i=i+1
+ end
+ let root=open(load64(argv+32),0x1100104,0)
+ do require(failed(root)==0,"cache must be an existing private directory")
+ let stat=buffer("cache_root_stat",144)
+ do require(syscall6(339,root,stat,0,0,0,0)==0,"cache stat failed")
+ do require(load32(stat+16)==syscall6(24,0,0,0,0,0,0),"cache owner mismatch")
+ do require((load32(stat+4)&63)==0,"cache permissions must exclude group and other")
+ do require(syscall6(131,root,6,0,0,0,0)==0,"cache busy; retry after active builder exits")
+ let compiler=buffer("compiler_snapshot",16777217)
+ let compiler_n=read_regular(load64(argv+8),compiler,16777216)
+ do require(failed(compiler_n)==0,"compiler must be a regular file within 16 MiB")
+ let key_data=buffer("build_key_data",16384)
+ do cp(key_data,builder_identity(),64)
+ do cp(key_data+64,sha256(compiler,compiler_n),32)
+ do store64(key_data+96,opt)
+ let srcpath=load64(argv+16)
+ let path_n=length(srcpath)
+ do require(path_n<1024,"source path bound")
+ do store64(key_data+104,path_n)
+ do cp(key_data+112,srcpath,path_n)
+ let used=112+path_n
+ let src=read_source(srcpath)
+ do expand_modules(srcpath,src)
+ if load64(module_state())==0
+  # No imports: still retain the exact root snapshot in the dependency set.
+  let base=0
+  set i=0
+  while i<path_n
+   if load8(srcpath+i)==47
+    set base=i+1
+   end
+   set i=i+1
+  end
+  do require(path_n-base<241,"entry basename bound")
+  do cp(module_path(0),srcpath+base,path_n-base)
+  do store8(module_path(0)+path_n-base,0)
+  do store64(module_info(0),src)
+  do store64(module_info(0)+8,load64(state()+8))
+  do store64(module_state(),1)
+ end
+ do store64(key_data+used,load64(module_state()))
+ set used=used+8
+ set i=0
+ while i<load64(module_state())
+  let dependency_name=module_path(i)
+  let n=length(dependency_name)
+  do require(used+n+48<16384,"build key bound")
+  do store64(key_data+used,n)
+  do cp(key_data+used+8,dependency_name,n)
+  do store64(key_data+used+8+n,load64(module_info(i)+8))
+  do cp(key_data+used+16+n,sha256(load64(module_info(i)),load64(module_info(i)+8)),32)
+  set used=used+n+48
+  set i=i+1
+ end
+ let key=buffer("build_key",32)
+ do cp(key,sha256(key_data,used),32)
+ let name=buffer("cache_name",1024)
+ do hex_digest(name,key)
+ do append_text(name,64,".entry")
+ let entry=buffer("cache_entry",16777297)
+ let count=0
+ let hit=0
+ let repaired=0
+ if clean==0
+  set count=read_at(root,name,entry,16777296)
+  if failed(count)==0
+   set repaired=1
+   if count>=80
+    if all(same(entry,8,"RF2INC01",8),same(entry+8,32,key,32))
+     if all(load64(entry+40)==count-80,count>80)
+      if same(entry+48,32,sha256(entry+80,count-80),32)
+       set hit=1
+       set repaired=0
+      end
+     end
+    end
+   end
+  end
+ end
+ let pid=syscall6(20,0,0,0,0,0,0)
+ if hit==0
+  let executable=compiler_snapshot(root,compiler,compiler_n,key_data+64,pid)
+  let executable_path=buffer("compiler_exec_path",1024)
+  do append_text(executable_path,append_text(executable_path,0,"../"),executable)
+  let workname=buffer("work_name",1024)
+  let at=append_text(workname,0,".rf2-work-")
+  do decimal(workname+at,pid)
+  do require(syscall6(475,root,workname,448,0,0,0)==0,"work directory exists or cannot be created")
+  let work=syscall6(463,root,workname,0x1100104,0,0,0)
+  do require(failed(work)==0,"work directory open failed")
+  set i=0
+  while i<load64(module_state())
+   do make_parents(work,module_path(i))
+   do require(create_at(work,module_path(i),load64(module_info(i)),load64(module_info(i)+8),384,0),"source snapshot failed")
+   set i=i+1
+  end
+  let child=fork_process()
+  if child==0
+   if syscall6(13,work,0,0,0,0,0)!=0
+    do exit(126)
+   end
+   do syscall6(90,2,1,0,0,0,0)
+   let args=buffer("compiler_argv",40)
+   do store64(args,executable_path)
+   do store64(args+8,module_path(0))
+   do store64(args+16,"image")
+   if opt
+    do store64(args+24,"--opt")
+   end
+   let env=buffer("compiler_env",24)
+   do store64(env,"PATH=/nonexistent")
+   do store64(env+8,"LC_ALL=C")
+   do syscall6(59,executable_path,args,env,0,0,0)
+   do exit(127)
+  end
+  let status=buffer("compiler_status",8)
+  if any(failed(child),syscall6(7,child,status,0,0,0,0)!=child)
+   do cleanup_work(root,work,workname)
+   do die("compiler wait failed")
+  end
+  if load32(status)!=0
+   do cleanup_work(root,work,workname)
+   do die("compiler rejected snapshot; no cache result published")
+  end
+  set count=read_at(work,"image",entry+80,16777216)
+  do cleanup_work(root,work,workname)
+  do require(all(failed(count)==0,count>0),"compiler output unreadable or exceeds 16 MiB")
+  do cp(entry,"RF2INC01",8)
+  do cp(entry+8,key,32)
+  do store64(entry+40,count)
+  do cp(entry+48,sha256(entry+80,count),32)
+  set count=count+80
+  let tmp=buffer("cache_temp",1024)
+  set at=append_text(tmp,0,name)
+  set at=append_text(tmp,at,".")
+  set at=at+decimal(tmp+at,pid)
+  do append_text(tmp,at,".tmp")
+  do require(create_at(root,tmp,entry,count,384,1),"cache temp write failed")
+  do require(syscall6(465,root,tmp,root,name,0,0)==0,"cache atomic commit failed")
+ end
+ do require(publish_output(load64(argv+24),entry+80,count-80,pid),"output publish failed; existing destinations are never overwritten")
+ do close(root)
+ do write(1,"{\"cache\":\"",10)
+ if hit
+  do write(1,"hit",3)
+ else
+  do write(1,"miss",4)
+ end
+ do write(1,"\",\"key\":\"",9)
+ do write(1,name,64)
+ do write(1,"\",\"dependencies\":",17)
+ let number=buffer("number_output",32)
+ do write(1,number,decimal(number,load64(module_state())))
+ do write(1,"}",1)
+ do write(1,"\n",1)
+ return 0
+end
