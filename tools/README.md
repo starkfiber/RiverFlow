@@ -26,3 +26,7 @@ Read a controller and its input manifest before running it. Preserve the previou
 ## Documentation and packaging
 
 `source-inventory.py` records source bytes without pretending GitHub Linguist recognizes RF2. `build-book.py` generates the book and website mirror when requested. `package-trust-candidate.py` and qualification tools apply only to their explicitly versioned package. They do not publish a stable release automatically.
+
+## Compact image and function-change work
+
+benchmark-compact-builds.py compares retained legacy and compact complete build paths. function-impact.py reads compiler-emitted .functions sidecars and reports changed functions plus affected callers; it never reuses machine code. See examples/function-changes and docs/DEVELOPER-EXAMPLES.md. CPU-time counters and smaller files are not energy measurements.

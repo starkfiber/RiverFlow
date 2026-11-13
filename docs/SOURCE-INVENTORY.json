@@ -25,8 +25,8 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 666676,
-    "Python": 508925,
+    "RiverFlow": 673633,
+    "Python": 523823,
     "JavaScript": 85144,
     "HTML": 30503,
     "CSS": 17035,
@@ -316,6 +316,11 @@
       "bytes": 2062
     },
     {
+      "path": "examples/function-changes/main.rf2",
+      "language": "RiverFlow",
+      "bytes": 219
+    },
+    {
       "path": "examples/hex/lib/hex.rf2",
       "language": "RiverFlow",
       "bytes": 1977
@@ -493,12 +498,12 @@
     {
       "path": "native/build/incremental.rf2",
       "language": "RiverFlow",
-      "bytes": 12432
+      "bytes": 12832
     },
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 125310
+      "bytes": 131648
     },
     {
       "path": "native/core.rf2",
@@ -721,6 +726,11 @@
       "bytes": 7905
     },
     {
+      "path": "tests/standalone/compact_image_verify.py",
+      "language": "Python",
+      "bytes": 6828
+    },
+    {
       "path": "tests/standalone/compiler_bounds_verify.py",
       "language": "Python",
       "bytes": 1391
@@ -918,7 +928,7 @@
     {
       "path": "tests/standalone/incremental_verify.py",
       "language": "Python",
-      "bytes": 11893
+      "bytes": 12014
     },
     {
       "path": "tests/standalone/instruction_verify.py",
@@ -1166,6 +1176,11 @@
       "bytes": 5489
     },
     {
+      "path": "tools/benchmark-compact-builds.py",
+      "language": "Python",
+      "bytes": 4905
+    },
+    {
       "path": "tools/benchmark-compiler-dispatch.py",
       "language": "Python",
       "bytes": 3376
@@ -1243,7 +1258,7 @@
     {
       "path": "tools/build-incremental.py",
       "language": "Python",
-      "bytes": 2165
+      "bytes": 2365
     },
     {
       "path": "tools/build-program.sh",
@@ -1284,6 +1299,11 @@
       "path": "tools/check-book-examples.mjs",
       "language": "JavaScript",
       "bytes": 858
+    },
+    {
+      "path": "tools/function-impact.py",
+      "language": "Python",
+      "bytes": 2844
     },
     {
       "path": "tools/macho-empty-dyld.py",

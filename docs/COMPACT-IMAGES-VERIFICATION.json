@@ -1,0 +1,269 @@
+{
+  "passed": true,
+  "executionCases": 44,
+  "cases": [
+    {
+      "program": "zero-tail",
+      "opt": false,
+      "compact": false,
+      "unsignedBytes": 8437760
+    },
+    {
+      "program": "zero-tail",
+      "opt": false,
+      "compact": true,
+      "unsignedBytes": 49152
+    },
+    {
+      "program": "zero-tail",
+      "opt": true,
+      "compact": false,
+      "unsignedBytes": 8437760
+    },
+    {
+      "program": "zero-tail",
+      "opt": true,
+      "compact": true,
+      "unsignedBytes": 49152
+    },
+    {
+      "program": "shared-buffer",
+      "opt": false,
+      "compact": false,
+      "unsignedBytes": 49152
+    },
+    {
+      "program": "shared-buffer",
+      "opt": false,
+      "compact": true,
+      "unsignedBytes": 32768
+    },
+    {
+      "program": "shared-buffer",
+      "opt": true,
+      "compact": false,
+      "unsignedBytes": 49152
+    },
+    {
+      "program": "shared-buffer",
+      "opt": true,
+      "compact": true,
+      "unsignedBytes": 32768
+    },
+    {
+      "program": "call-branch",
+      "opt": false,
+      "compact": false,
+      "unsignedBytes": 32768
+    },
+    {
+      "program": "call-branch",
+      "opt": false,
+      "compact": true,
+      "unsignedBytes": 32768
+    },
+    {
+      "program": "call-branch",
+      "opt": true,
+      "compact": false,
+      "unsignedBytes": 32768
+    },
+    {
+      "program": "call-branch",
+      "opt": true,
+      "compact": true,
+      "unsignedBytes": 32768
+    },
+    {
+      "program": "clock-binding",
+      "opt": false,
+      "compact": false,
+      "unsignedBytes": 49205
+    },
+    {
+      "program": "clock-binding",
+      "opt": false,
+      "compact": true,
+      "unsignedBytes": 49205
+    },
+    {
+      "program": "clock-binding",
+      "opt": true,
+      "compact": false,
+      "unsignedBytes": 49205
+    },
+    {
+      "program": "clock-binding",
+      "opt": true,
+      "compact": true,
+      "unsignedBytes": 49205
+    },
+    {
+      "program": "typed-array",
+      "opt": false,
+      "compact": false,
+      "unsignedBytes": 32768
+    },
+    {
+      "program": "typed-array",
+      "opt": false,
+      "compact": true,
+      "unsignedBytes": 32768
+    },
+    {
+      "program": "typed-array",
+      "opt": true,
+      "compact": false,
+      "unsignedBytes": 32768
+    },
+    {
+      "program": "typed-array",
+      "opt": true,
+      "compact": true,
+      "unsignedBytes": 32768
+    },
+    {
+      "program": "checksum",
+      "opt": false,
+      "bytes": 0
+    },
+    {
+      "program": "checksum",
+      "opt": false,
+      "bytes": 1
+    },
+    {
+      "program": "checksum",
+      "opt": false,
+      "bytes": 55
+    },
+    {
+      "program": "checksum",
+      "opt": false,
+      "bytes": 56
+    },
+    {
+      "program": "checksum",
+      "opt": false,
+      "bytes": 63
+    },
+    {
+      "program": "checksum",
+      "opt": false,
+      "bytes": 64
+    },
+    {
+      "program": "checksum",
+      "opt": false,
+      "bytes": 65
+    },
+    {
+      "program": "checksum",
+      "opt": false,
+      "bytes": 127
+    },
+    {
+      "program": "checksum",
+      "opt": false,
+      "bytes": 128
+    },
+    {
+      "program": "checksum",
+      "opt": false,
+      "bytes": 129
+    },
+    {
+      "program": "checksum",
+      "opt": false,
+      "bytes": 4096
+    },
+    {
+      "program": "checksum",
+      "opt": false,
+      "bytes": 65536
+    },
+    {
+      "program": "checksum",
+      "opt": true,
+      "bytes": 0
+    },
+    {
+      "program": "checksum",
+      "opt": true,
+      "bytes": 1
+    },
+    {
+      "program": "checksum",
+      "opt": true,
+      "bytes": 55
+    },
+    {
+      "program": "checksum",
+      "opt": true,
+      "bytes": 56
+    },
+    {
+      "program": "checksum",
+      "opt": true,
+      "bytes": 63
+    },
+    {
+      "program": "checksum",
+      "opt": true,
+      "bytes": 64
+    },
+    {
+      "program": "checksum",
+      "opt": true,
+      "bytes": 65
+    },
+    {
+      "program": "checksum",
+      "opt": true,
+      "bytes": 127
+    },
+    {
+      "program": "checksum",
+      "opt": true,
+      "bytes": 128
+    },
+    {
+      "program": "checksum",
+      "opt": true,
+      "bytes": 129
+    },
+    {
+      "program": "checksum",
+      "opt": true,
+      "bytes": 4096
+    },
+    {
+      "program": "checksum",
+      "opt": true,
+      "bytes": 65536
+    }
+  ],
+  "functionChangeEvidence": {
+    "schema": "rf2.function.change.evidence.v1",
+    "changedFunctions": [
+      "leaf"
+    ],
+    "requiresRevalidation": [
+      "caller",
+      "leaf",
+      "main"
+    ],
+    "unchangedCandidates": [
+      "separate"
+    ],
+    "globalContextChanged": false,
+    "machineCodeReused": false,
+    "limits": "Diagnostic change propagation only. No object/semantic cache admission. Positional relocation targets are not stable linker identities; complete object/type/ABI replay remains required. Compiler identity must be retained separately."
+  },
+  "malformedMapRefusals": 4,
+  "reorderedDataBoundRefused": true,
+  "compactSelfGenerationUnsignedEqual": true,
+  "compilerSHA256": "7a6dbd499a415d50f0da6f17d0d99672b42c9254f9d43a50f571fc207075b10c",
+  "sourceSHA256": "9ec02166c493eebe0ba13112acb9bb3b23a78548d61a7980bd054b9b470b47a5",
+  "limits": "One Darwin ARM64 host; map is diagnostic and machineCodeReused is false. No energy or universal performance claim."
+}

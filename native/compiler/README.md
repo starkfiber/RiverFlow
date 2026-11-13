@@ -21,3 +21,7 @@ The catalogue flags have separate meanings: reserved arithmetic name, inline lea
 Compile this source with the prior qualified native compiler, sign the result, then compile it again. Fixed-point output and independent reference agreement are required. `tests/standalone/compiler_verify.py` also builds and checks the native runtime and official MCP tools. Run semantic ABI, memory and digest checks after intrinsic changes.
 
 No broad argument-register lowering is enabled by the catalogue refactor. The failed earlier experiment stays excluded. Raw pointer operations retain caller obligations; an inline operation is not automatically memory-safe.
+
+## Optional image and change-evidence modes
+
+--compact separates initialized file bytes from zero-filled VM reservations. Default output retains the prior format. --functions writes a bounded diagnostic sidecar with token fingerprints, code ranges, relocation records and direct-call edges. These are not relocatable objects or reusable function bodies. Read docs/COMPACT-IMAGES-0.27.md and use the clean-build and native loader gates.

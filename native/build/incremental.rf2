@@ -183,7 +183,9 @@ fn compiler_snapshot(root,compiler,n,digest,pid)
   set at=append_text(temp,at,".")
   set at=at+decimal(temp+at,pid)
   do append_text(temp,at,".tmp")
-  do require(create_at(root,temp,compiler,n,448,1),"compiler cache snapshot failed")
+  # Reconstructible executable snapshot: close before rename; validate bytes on every reuse.
+  # Target cache entries and published outputs keep their existing durable writes.
+  do require(create_at(root,temp,compiler,n,448,0),"compiler cache snapshot failed")
   do require(syscall6(465,root,temp,root,name,0,0)==0,"compiler cache commit failed")
  end
  return name
@@ -281,12 +283,13 @@ fn publish_output(path,p,n,pid)
  return ok
 end
 fn main(argc,argv)
- if any(argc<5,argc>7)
-  do write(2,"usage: rf2-build compiler source new-output private-cache [--opt] [--clean]\n",76)
+ if any(argc<5,argc>8)
+  do write(2,"usage: rf2-build compiler source new-output private-cache [--opt] [--clean] [--compact]\n",88)
   return 2
  end
  let opt=0
  let clean=0
+ let compact=0
  let i=5
  while i<argc
   let arg=load64(argv+i*8)
@@ -294,9 +297,14 @@ fn main(argc,argv)
    do require(opt==0,"duplicate option")
    set opt=1
   else
-   do require(same(arg,length(arg),"--clean",7),"unknown build option")
-   do require(clean==0,"duplicate option")
-   set clean=1
+   if same(arg,length(arg),"--compact",9)
+    do require(compact==0,"duplicate option")
+    set compact=1
+   else
+    do require(same(arg,length(arg),"--clean",7),"unknown build option")
+    do require(clean==0,"duplicate option")
+    set clean=1
+   end
   end
   set i=i+1
  end
@@ -313,7 +321,7 @@ fn main(argc,argv)
  let key_data=buffer("build_key_data",16384)
  do cp(key_data,builder_identity(),64)
  do cp(key_data+64,sha256(compiler,compiler_n),32)
- do store64(key_data+96,opt)
+ do store64(key_data+96,opt|compact*2)
  let srcpath=load64(argv+16)
  let path_n=length(srcpath)
  do require(path_n<1024,"source path bound")
@@ -401,12 +409,15 @@ fn main(argc,argv)
     do exit(126)
    end
    do syscall6(90,2,1,0,0,0,0)
-   let args=buffer("compiler_argv",40)
+   let args=buffer("compiler_argv",48)
    do store64(args,executable_path)
    do store64(args+8,module_path(0))
    do store64(args+16,"image")
    if opt
     do store64(args+24,"--opt")
+   end
+   if compact
+    do store64(args+24+opt*8,"--compact")
    end
    let env=buffer("compiler_env",24)
    do store64(env,"PATH=/nonexistent")
