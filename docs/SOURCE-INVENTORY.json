@@ -26,8 +26,8 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 763153,
-    "Python": 746813,
+    "RiverFlow": 793126,
+    "Python": 790894,
     "JavaScript": 85144,
     "HTML": 30503,
     "CSS": 17035,
@@ -255,6 +255,41 @@
       "path": "examples/compact/sum.rf2",
       "language": "RiverFlow",
       "bytes": 25
+    },
+    {
+      "path": "examples/esp32c3/tests/model-hooks.flow",
+      "language": "RiverFlow",
+      "bytes": 1483
+    },
+    {
+      "path": "examples/esp32c3/tests/model-main.flow",
+      "language": "RiverFlow",
+      "bytes": 1437
+    },
+    {
+      "path": "examples/esp32c3/tests/verify_protocol.py",
+      "language": "Python",
+      "bytes": 9833
+    },
+    {
+      "path": "examples/esp32c3/tests/verify_protocol_rv32.py",
+      "language": "Python",
+      "bytes": 7808
+    },
+    {
+      "path": "examples/esp32c3/tmp102.flow",
+      "language": "RiverFlow",
+      "bytes": 6243
+    },
+    {
+      "path": "examples/esp32c3/uart-echo.flow",
+      "language": "RiverFlow",
+      "bytes": 1017
+    },
+    {
+      "path": "examples/esp32c3/uart-smoke.flow",
+      "language": "RiverFlow",
+      "bytes": 1191
     },
     {
       "path": "examples/evidence-contract/guest.rf2",
@@ -565,6 +600,11 @@
       "path": "native/editor.rf2",
       "language": "RiverFlow",
       "bytes": 31838
+    },
+    {
+      "path": "native/embedded/compiler.flow",
+      "language": "RiverFlow",
+      "bytes": 18602
     },
     {
       "path": "native/fingerprint.rf2",
@@ -880,6 +920,16 @@
       "path": "tests/standalone/editor_verify.py",
       "language": "Python",
       "bytes": 8563
+    },
+    {
+      "path": "tests/standalone/embedded_verify.py",
+      "language": "Python",
+      "bytes": 16918
+    },
+    {
+      "path": "tests/standalone/esp32c3_uart_verify.py",
+      "language": "Python",
+      "bytes": 3678
     },
     {
       "path": "tests/standalone/fill_zero.s",
@@ -1437,6 +1487,11 @@
       "bytes": 586
     },
     {
+      "path": "tools/build-embedded.py",
+      "language": "Python",
+      "bytes": 2534
+    },
+    {
       "path": "tools/build-foundation.py",
       "language": "Python",
       "bytes": 1378
@@ -1540,6 +1595,11 @@
       "path": "tools/measure-studio.py",
       "language": "Python",
       "bytes": 6374
+    },
+    {
+      "path": "tools/package-embedded.py",
+      "language": "Python",
+      "bytes": 3310
     },
     {
       "path": "tools/package-foundation.py",

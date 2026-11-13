@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "zipSHA256": "02b79e80ae199ad1f00a5def5027f815272617354c666e098d60d505e1a5ea7d",
+  "files": 26,
+  "nativeCompilerRebuiltFromRF2Source": true,
+  "sameBasenameSignedRebuildBytesMatch": true,
+  "threeFirmwareImagesRebuiltAndMatched": true,
+  "nativeSignaturesVerified": true,
+  "physicalHardwareTested": false,
+  "initialComparisonCorrection": "macOS default ad-hoc signature identifier includes output basename. A different-name rebuild had different signed bytes; retained it, rebuilt under same basename and obtained exact identity. Not a compiler code defect.",
+  "scope": "Same-Mac fresh extraction; native RF2 rebuild with PATH absent, no Python/Node/assembler/linker in compiler execution."
+}

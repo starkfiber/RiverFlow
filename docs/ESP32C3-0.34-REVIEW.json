@@ -1,0 +1,314 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "case": "uart-smoke",
+      "kind": "compiled and independently encoded",
+      "sourceSHA256": "ccb3eb0ee9d4dca2dc4c3a301601337fd92eb26329ededaf6daef7b775b421fa",
+      "elfSHA256": "0fa4378b0bb9d194a356eb0b784990b0e19d123e153c07221b91e1974ada135d",
+      "imageSHA256": "e3f64e87c4e65746b0946cd71b19d703a39ea5730d3b6ea607ef8f2f52f975bc",
+      "image": {
+        "chipID": 5,
+        "segments": 1,
+        "loadAddress": 1077411840,
+        "payloadBytes": 804,
+        "checksum": 8,
+        "paddingBytes": 11,
+        "hashAppended": true
+      },
+      "encoding": {
+        "words": 201,
+        "oracle": "official Espressif GNU assembler, RV32IM+Zicsr/ILP32/no relax",
+        "sourceSHA256": "cf95af1f2d566d9da892b47641035c509d8b217146eb6ff076d4bd5e4614526a",
+        "objectSHA256": "33668df906fa670b3de759f933b131987e40b3956b98e803f8c8d21d14a4c7b5",
+        "matched": true
+      }
+    },
+    {
+      "returnedPC": "0x40380018",
+      "restoredSP": "0x3fcc0000",
+      "returnedA0": 0,
+      "interruptsEnabled": false,
+      "case": "001-uart-smoke",
+      "kind": "actual Espressif QEMU ESP32-C3 execution",
+      "token": "RF2_OK:smoke",
+      "flashSHA256": "dd05296225f5fadd8dcb618f0d7f200e77f51d20c1683c18dea6740a6872df5d",
+      "logSHA256": "8f5119f6ea30198051a8b0af280fae7fbfb08991ab297c1e8ad831fbb6bf6ccb",
+      "monitorSHA256": "a5ae26e3a2b71f9e4a8f117d02a4b4fc57ad783628fe565fea7d741a159b9d96",
+      "qemuSHA256": "3e38982c1ea3e750edfc8c910a0fd44727fe07d9c666b84d18d2b7985ac58246",
+      "hardware": false
+    },
+    {
+      "case": "numeric-corpus",
+      "kind": "compiled and independently encoded",
+      "sourceSHA256": "3d0fc15cf8a66fe578bb612a2c4a01369ad63abc1e05e3d031a06329d2815877",
+      "elfSHA256": "6e5774f35df2e6b889ccf7b5e52bab04ba96836c51ef859818e8362bed2fa0a4",
+      "imageSHA256": "bbd8a1608efa6638efaef22955d7883b86dc53464b97ca32e769f0afce0d4c53",
+      "image": {
+        "chipID": 5,
+        "segments": 1,
+        "loadAddress": 1077411840,
+        "payloadBytes": 24972,
+        "checksum": 181,
+        "paddingBytes": 3,
+        "hashAppended": true
+      },
+      "encoding": {
+        "words": 6243,
+        "oracle": "official Espressif GNU assembler, RV32IM+Zicsr/ILP32/no relax",
+        "sourceSHA256": "4b3c926efae6d64698886db3ba46837bff01fb8923b97b5ac6d23a2ddde9a594",
+        "objectSHA256": "b33296d347473b44ba62bf185a2632fd40ff286395b988a2cf1ff049764610ba",
+        "matched": true
+      }
+    },
+    {
+      "returnedPC": "0x40380018",
+      "restoredSP": "0x3fcc0000",
+      "returnedA0": 0,
+      "interruptsEnabled": false,
+      "case": "002-numeric-corpus",
+      "kind": "actual Espressif QEMU ESP32-C3 execution",
+      "token": "RF2_OK:numeric",
+      "flashSHA256": "011b8d877da5ef051a846f3ddaffbc449e387facdf7c47f879e9192870dc5c28",
+      "logSHA256": "efbb7d3edc4875bd833202a34183200a8dfdaf36ac5cd18a0c79f204c6261c0d",
+      "monitorSHA256": "d323bca0f83f00134025744055398cb7426962e85f4cdb9cd3f00f606427482e",
+      "qemuSHA256": "3e38982c1ea3e750edfc8c910a0fd44727fe07d9c666b84d18d2b7985ac58246",
+      "hardware": false,
+      "assertions": 176
+    },
+    {
+      "case": "control-memory-calls",
+      "kind": "compiled and independently encoded",
+      "sourceSHA256": "f4580d7d1ff7361c533071ebcb6e68eca76bb39cfee4b9acd5c2ac367ebc555e",
+      "elfSHA256": "e0f546e58df095d23a742629a67499d83c46fc7aa0b56c0af79a78deb2128808",
+      "imageSHA256": "f638c5bb1ea141a465f775290abe05cfad41342742995fb71834123f698cc267",
+      "image": {
+        "chipID": 5,
+        "segments": 1,
+        "loadAddress": 1077411840,
+        "payloadBytes": 6504,
+        "checksum": 144,
+        "paddingBytes": 7,
+        "hashAppended": true
+      },
+      "encoding": {
+        "words": 1626,
+        "oracle": "official Espressif GNU assembler, RV32IM+Zicsr/ILP32/no relax",
+        "sourceSHA256": "fb2d91fb53b526efc05e56dcbd12cead33991d0b60d129d84f52e6772ec729ee",
+        "objectSHA256": "d1c505a953f5af88cc4b7637819d1f1250d601188220292492d074cafe3cbab6",
+        "matched": true
+      }
+    },
+    {
+      "returnedPC": "0x40380018",
+      "restoredSP": "0x3fcc0000",
+      "returnedA0": 0,
+      "interruptsEnabled": false,
+      "case": "003-control-memory-calls",
+      "kind": "actual Espressif QEMU ESP32-C3 execution",
+      "token": "RF2_OK:control",
+      "flashSHA256": "eded49335b9133ae03476a9053ba91dd8c087a34054f68dc9d7eeb90340d2d40",
+      "logSHA256": "280467e6b78367e0cb247cf78625bed3f420a62ae3315da172781a7638ebcd19",
+      "monitorSHA256": "d50aaf5a89f14cfe6f13b6ff5900f7c6981f457033934e827491d52b8e9107a8",
+      "qemuSHA256": "3e38982c1ea3e750edfc8c910a0fd44727fe07d9c666b84d18d2b7985ac58246",
+      "hardware": false
+    },
+    {
+      "case": "full-call-frames",
+      "kind": "compiled and independently encoded",
+      "sourceSHA256": "50a67b1c80494159e86fbace0a4f0eeafe66a54a3de633ea2e987f070e1e9602",
+      "elfSHA256": "5b5efb40e26bbf68138c59a7e1328f30db788c4d830041bec3e6ef316e2d6b13",
+      "imageSHA256": "8a5b5d0ba077f99dea1074098841453565d26e079388ad0aa666bcd644c07505",
+      "image": {
+        "chipID": 5,
+        "segments": 1,
+        "loadAddress": 1077411840,
+        "payloadBytes": 32308,
+        "checksum": 116,
+        "paddingBytes": 11,
+        "hashAppended": true
+      },
+      "encoding": {
+        "words": 8077,
+        "oracle": "official Espressif GNU assembler, RV32IM+Zicsr/ILP32/no relax",
+        "sourceSHA256": "3a70314879d77c8317dff28160f09b94165cab469d4d683adefea0578841cfcc",
+        "objectSHA256": "7079916a7c8f04b5052daa647c4453327a84f194b16848a46027c02790b2fe61",
+        "matched": true
+      }
+    },
+    {
+      "returnedPC": "0x40380018",
+      "restoredSP": "0x3fcc0000",
+      "returnedA0": 0,
+      "interruptsEnabled": false,
+      "case": "004-full-call-frames",
+      "kind": "actual Espressif QEMU ESP32-C3 execution",
+      "token": "RF2_OK:frames",
+      "flashSHA256": "9cbd2fe411569c127289ef0deafbbd0539f69e37f74f4d7e49159ef2eec87753",
+      "logSHA256": "36fe8ba1dfa804659df4be64e1a672cfbf13e7c58ef14bd73047cfe789922875",
+      "monitorSHA256": "662b8c41d9c7143134b283c32617a4ab4776def75fb83557c40b7e1b1df9ef29",
+      "qemuSHA256": "3e38982c1ea3e750edfc8c910a0fd44727fe07d9c666b84d18d2b7985ac58246",
+      "hardware": false
+    },
+    {
+      "case": "wrong-profile",
+      "kind": "source refusal",
+      "sourceSHA256": "d01ff69d8a72d9fe91cc3b618f8a1776413990d73337f3926612e2449482a7f6",
+      "stderr": "expected: RF2_ESP32C3_V1 got: RF2_SYSTEM_A64_V1 unexpected token\nnear source 1:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/005-wrong-profile.flow)\n"
+    },
+    {
+      "case": "decimal-overflow",
+      "kind": "source refusal",
+      "sourceSHA256": "ec4b3e75946e71605fd8068aecfb037dfa0e1f177b6524def14ff5d85387322a",
+      "stderr": "embedded immediate exceeds u32\nnear source 3:19 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/006-decimal-overflow.flow)\n"
+    },
+    {
+      "case": "hex-overflow",
+      "kind": "source refusal",
+      "sourceSHA256": "fa0b537db7a8bda10ef45531607d76d233e80f29ba1d0009b87e472f91d24eda",
+      "stderr": "embedded immediate exceeds u32\nnear source 3:20 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/007-hex-overflow.flow)\n"
+    },
+    {
+      "case": "unknown-call",
+      "kind": "source refusal",
+      "sourceSHA256": "3ddb5e6902e473f387d95da0bc682f861c566efad96c2f06cd66f08fa73dbc12",
+      "stderr": "unknown embedded function or effect\nnear source 3:19 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/008-unknown-call.flow)\n"
+    },
+    {
+      "case": "direct-recursion",
+      "kind": "source refusal",
+      "sourceSHA256": "624796a2cf036501a580143aa192ef4e43493194998758894948b9b76b4af517",
+      "stderr": "embedded recursion refused\nnear source 4:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/009-direct-recursion.flow)\n"
+    },
+    {
+      "case": "mutual-recursion",
+      "kind": "source refusal",
+      "sourceSHA256": "0490db34fce082630fdd6ba9854715407042fd9de86d1f0ef2b2889b97d50d20",
+      "stderr": "embedded recursion refused\nnear source 10:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/010-mutual-recursion.flow)\n"
+    },
+    {
+      "case": "duplicate-function",
+      "kind": "source refusal",
+      "sourceSHA256": "f98530f6e3d36b634d0f65e553cdc0933ce31bbec8e9a3d3a0f6347f2e5d60e6",
+      "stderr": "duplicate embedded function\nnear source 5:7 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/011-duplicate-function.flow)\n"
+    },
+    {
+      "case": "wrong-call-arity",
+      "kind": "source refusal",
+      "sourceSHA256": "ea8d5939549a134ccd2252b4166fb9c7c6c4709991db6b1cb3c79dc846084a81",
+      "stderr": "embedded call argument mismatch\nnear source 6:13 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/012-wrong-call-arity.flow)\n"
+    },
+    {
+      "case": "too-many-parameters",
+      "kind": "source refusal",
+      "sourceSHA256": "d9e2307ff9900149d9485de5a262eb2e982f9081a7247092394fec31302532cf",
+      "stderr": "embedded parameter bound4\nnear source 2:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/013-too-many-parameters.flow)\n"
+    },
+    {
+      "case": "unknown-local",
+      "kind": "source refusal",
+      "sourceSHA256": "a9c45fc5a087e59925addeb13eb7f23a6eca7d91d2672d3381ba75290b4fcfae",
+      "stderr": "unknown or uninitialized embedded local\nnear source 3:15 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/014-unknown-local.flow)\n"
+    },
+    {
+      "case": "host-syscall",
+      "kind": "source refusal",
+      "sourceSHA256": "44efa46fb2495c09b35bd96f956196d07529cdc333ed7c90e5223f6f2e33c068",
+      "stderr": "embedded argument bound4\nnear source 3:26 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/015-host-syscall.flow)\n"
+    },
+    {
+      "case": "float-not-admitted",
+      "kind": "source refusal",
+      "sourceSHA256": "ede084fef4b966e5f9f077202f69165e7707e7780af22cf83c86a1f8ac07e710",
+      "stderr": "expected newline\nnear source 3:10 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/016-float-not-admitted.flow)\n"
+    },
+    {
+      "case": "string-not-admitted",
+      "kind": "source refusal",
+      "sourceSHA256": "4f8e16d0b626856b1dcca29e9ddec621134c066fba65bd412a0bad5ec63c7665",
+      "stderr": "embedded scalar expression required\nnear source 3:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/017-string-not-admitted.flow)\n"
+    },
+    {
+      "case": "too-many-locals",
+      "kind": "source refusal",
+      "sourceSHA256": "f681bb25fc6bd66ce3b11979845aed2a3f69ab6c63a7d8f6ce546eb7a7641e91",
+      "stderr": "embedded local bound64\nnear source 67:12 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/018-too-many-locals.flow)\n"
+    },
+    {
+      "case": "lifetime-after-branch",
+      "kind": "source refusal",
+      "sourceSHA256": "f2dc9ba9ffd6381e2f9c348a958f8f759455989f772c77f0a2377b2db6e296de",
+      "stderr": "embedded local outside lifetime\nnear source 6:15 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/019-lifetime-after-branch.flow)\n"
+    },
+    {
+      "case": "self-initialization",
+      "kind": "source refusal",
+      "sourceSHA256": "a2207097d019e06e9bb17e60e4975960e8dd57374200e2043a2d6e8ce31b6f6d",
+      "stderr": "unknown or uninitialized embedded local\nnear source 3:17 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/020-self-initialization.flow)\n"
+    },
+    {
+      "case": "reserved-mmio-redefinition",
+      "kind": "source refusal",
+      "sourceSHA256": "a2562c1aa920773116eeb1b2b3faad05037cdc691c33b682644f1a6f92d4ae57",
+      "stderr": "reserved embedded MMIO intrinsic\nnear source 2:10 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/021-reserved-mmio-redefinition.flow)\n"
+    },
+    {
+      "case": "missing-main",
+      "kind": "source refusal",
+      "sourceSHA256": "41eb01bb27c3a3aebd4cf18b5b753786c349180ae356bca8c3208a33493c7b9b",
+      "stderr": "embedded main required\nnear source 5:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/022-missing-main.flow)\n"
+    },
+    {
+      "case": "main-parameters",
+      "kind": "source refusal",
+      "sourceSHA256": "3b78752eed096ae01e30a6ad86d7e1f2e7c358914548a2e0b615e5dd3784ae74",
+      "stderr": "embedded main takes no arguments\nnear source 5:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/023-main-parameters.flow)\n"
+    },
+    {
+      "case": "missing-root-return",
+      "kind": "source refusal",
+      "sourceSHA256": "7811f12088a9b6904bdabb577874f8da454edf2e65baf4811610915f95bcea67",
+      "stderr": "embedded function requires final root return\nnear source 6:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/024-missing-root-return.flow)\n"
+    },
+    {
+      "case": "unsupported-host-effect",
+      "kind": "source refusal",
+      "sourceSHA256": "274be49639ec444258d961eda8c075552a1ee42fa9c007c36c11825e9d4c998d",
+      "stderr": "unknown embedded function or effect\nnear source 3:20 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/025-unsupported-host-effect.flow)\n"
+    },
+    {
+      "case": "call-depth17",
+      "kind": "source refusal",
+      "sourceSHA256": "1a87cadfa257c298c49e556afa69e78401c53146eda447694a7d7be667235994",
+      "stderr": "embedded call depth16\nnear source 52:1 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-034/review/embedded-1794594264509524000/026-call-depth17.flow)\n"
+    },
+    {
+      "case": "existing-output.elf",
+      "kind": "publication refusal",
+      "preserved": true,
+      "noPartialOutputs": true
+    },
+    {
+      "case": "existing-output.bin",
+      "kind": "publication refusal",
+      "preserved": true,
+      "noPartialOutputs": true
+    },
+    {
+      "case": "existing-output.map",
+      "kind": "publication refusal",
+      "preserved": true,
+      "noPartialOutputs": true
+    },
+    {
+      "case": "existing-symlink-image",
+      "kind": "publication refusal",
+      "targetPreserved": true,
+      "noPartialOutputs": true
+    }
+  ],
+  "compilerSHA256": "4da23828e1ffdec7e361412e2eed54605ff902ec0ab78c9a38d28d6807524f02",
+  "compilerUnchanged": true,
+  "controllerSHA256": "0c495d1358bc3421ef847c04d8589f5d91bc318ecb2332dc75e0cef5f30d0e97",
+  "scope": "Finite native RF2 cross-compilation plus independent GNU assembler and Espressif QEMU execution. No physical-board, Arduino, Xtensa, RF, power or speed claim."
+}

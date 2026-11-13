@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "runtimeSHA256": "df714d688e5b96577abb294a192432ed2f57f07c080ab23e32eee46cf94b0b89",
+  "tools": [
+    "rf2_status",
+    "rf2_check",
+    "rf2_run",
+    "rf2_lower",
+    "attendance_export",
+    "invoice_total",
+    "invoice_prepare",
+    "invoice_apply",
+    "invoice_release"
+  ],
+  "initializationNotificationEnforced": true,
+  "embeddedRawSourceRejected": true,
+  "followingBoundedComputationPassed": true,
+  "controllerCorrection": "Initial manual probe omitted initialized notification; server correctly refused. Corrected probe supplies the required handshake.",
+  "scope": "Actual native MCP exchanges; no new raw-MMIO/flash/compiler authority"
+}

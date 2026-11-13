@@ -4,6 +4,10 @@ RiverFlow is an implemented language with a native compiler, useful applications
 
 The long-term direction is one readable language across application and systems work. Each additional target needs its own implementation, contract and executed tests.
 
+## Development 0.34: ESP32-C3 subset
+
+[A native cross-compiler](ESP32C3-0.34.md) now emits RV32 machine code, ELF32 and ROM-loaded RAM images. Vendor QEMU boot/UART and explicitly scripted TMP102 bus controls pass. The compiler host remains Apple Silicon macOS; physical board and sensor validation are pending. This is a bounded u32 embedded profile, not complete Mac-language, Arduino, x86 or Linux parity.
+
 ## Development 0.33: owned u64 collections
 
 [Relocating heap collections](HEAP-COLLECTIONS-0.33.md) support recoverable growth/access, checked local moves and typed mutable borrows, with explicit retirement retry and partial-release rules. Two `.flow` apps share parsing/sorting libraries and handle up to65536 values. No owner returns, concurrency or general raw-pointer safety is established. [Embedded firmware](EMBEDDED-DIRECTION.md) remains a proposed target, not current support.

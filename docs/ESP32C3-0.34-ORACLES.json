@@ -1,0 +1,20 @@
+{
+  "schema": "rf2.embedded.independent.oracles.v1",
+  "report": "artifacts/sprint-034/review/embedded-1794594264509524000/report.json",
+  "reportSHA256": "8784d22f9d411a379fa507e37bc0819cc46aa56634a77216f314844322fda2a4",
+  "toolchainURL": "https://github.com/espressif/crosstool-NG/releases/download/esp-15.2.0_20251204/riscv32-esp-elf-15.2.0_20251204-aarch64-apple-darwin.tar.xz",
+  "archiveSHA256": "0869d1083532c631808543dd802885f02dbe1bb3bd640be0dee827e82ded768d",
+  "downloadedBytes": 389672664,
+  "binaries": {
+    "riscv32-esp-elf-as": "03528011502282f4f15b90f401235fcdde8ef1c3abd8be17014d04151c560729",
+    "riscv32-esp-elf-as-xespv2p2": "be4413baaddcb9577cee72c8b91a601b425d4e0d5b83434c814513f17a23d76f",
+    "riscv32-esp-elf-ld": "d515cfbf27c17960fd83f266d64fcccc510678074dc37e2e60ba60f9eec1c708",
+    "riscv32-esp-elf-objcopy": "221db729339e67396f5ab04fb145e2dff9c8c05e9cf849efedbab156048781c1",
+    "riscv32-esp-elf-objdump": "65d3f2639ca6da4786b5bf15888e8ffb843b4c0202105d946708b0b6852edede",
+    "riscv32-esp-elf-objdump-xespv2p2": "3780509a8f29ed9bbd6fe1ca52a6d6db55eecbd58f9958e06b18396698464f4e",
+    "riscv32-esp-elf-readelf": "32434ec7a21e671d61179b150dea2ba338376441b65893b0099064d2836dce2d"
+  },
+  "GNUVersion": "GNU assembler (crosstool-NG esp-15.2.0_20251204) 2.45",
+  "reference": "https://docs.espressif.com/projects/esptool/en/latest/esp32c3/advanced-topics/firmware-image-format.html",
+  "limitations": "Verified archive and selectively extracted developer oracle tools locally. No global tool install; no toolchain/compiler redistribution or licensing claim."
+}

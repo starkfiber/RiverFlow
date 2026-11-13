@@ -27,3 +27,7 @@ Compare outputs and failure behaviour first. Measure complete tasks separately f
 ## Development 0.33 checkpoint
 
 Owned u64 heap growth, local moves, typed mutable borrows and two shared-library `.flow` applications are [implemented and qualified within explicit bounds](HEAP-COLLECTIONS-0.33.md). Cleanup failures, pending retirement and partial release remain part of the public contract. Next allocation work: structured element types, maps and ownership transfer across function boundaries with independent failure tests. An [ESP32-C3 target](EMBEDDED-DIRECTION.md) is proposed and unimplemented. Neither host collections nor a new filename extension supply firmware support.
+
+## Development0.34 embedded checkpoint
+
+The proposed ESP32-C3 path now has a native RF2 cross-compiler, generated ROM-loaded RAM images, actual vendor-QEMU boot/UART TX/RX and bounded scripted sensor-driver controls. [Evidence and limits](ESP32C3-0.34.md). Next decisive gate is an identified physical C3 board/TMP102, reference temperatures, electrical/bus timing and reset/watchdog qualification. No physical availability was inferred from a Bluetooth/debug serial port. Broader target/language support remains separate work.

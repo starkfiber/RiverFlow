@@ -2,9 +2,9 @@
 
 ## Current executable scope
 
-A source extension does not select a CPU or operating system. The native compiler reads the supplied source text and profile; a `.flow` file can contain a supported native RF2 program. The qualified systems backend emits ARM64 Mach-O for Apple Silicon macOS. It does not emit ESP32 firmware, Arduino board images or printer MCU binaries today.
+Development0.34 adds a separate native RF2-written ESP32-C3 cross-compiler. It emits RV32/ELF32 and a direct-ROM-load RAM image; actual Espressif QEMU ROM/SPI/UART and scripted sensor-bus controls pass. [Exact scope and evidence](ESP32C3-0.34.md). No physical board/sensor has been tested. The compiler host remains Apple Silicon macOS. The existing Mac systems compiler and stable bounded MCP runtime retain their contracts.
 
-The new collection-tool applications use `.flow` entries with the existing native profile. They are host applications, not firmware or a serial-device integration. No board was flashed or physical actuator operated.
+The .flow extension does not choose a target. x86, Linux applications, arbitrary ESP32 variants, Arduino and Pico support require their own implementations and qualification. The 0.33 collection apps remain Mac host applications, not physical sensor integrations.
 
 ## Target-specific work
 
@@ -14,12 +14,12 @@ Arduino support needs a board/platform definition, build recipes and the corresp
 
 Printer firmware adds time-critical queues, peripheral behaviour and fault handling. Klipper's primary [MCU command documentation](https://www.klipper3d.org/MCU_Commands.html) describes scheduled stepper activity and sensor bounds/shutdown behaviour. RF2 is not presently qualified to replace such firmware. Host-side file or data tools are a distinct use case from driving a real machine.
 
-## Proposed first target: ESP32-C3, not implemented
+## ESP32-C3 development implementation and remaining gates
 
-1. Specify a bounded32-bit embedded profile: arithmetic/overflow, pointer widths, static memory, stack, interrupt/effect restrictions and allocation policy.
-2. Implement and independently check RV32 instruction selection and calling convention, then emit usable relocatable/object or executable artifacts. A host Mach-O renamed.bin is not firmware.
+1. The bounded32-bit development profile now exists; extend and qualify its arithmetic/overflow, pointer widths, static memory, stack, interrupt/effect restrictions and allocation policy.
+2. Direct RV32 instruction selection, calling convention, ELF32 and ROM-image generation now have independent instruction and emulator evidence. Extend their scope deliberately. A host Mach-O renamed.bin is not firmware.
 3. Define linker layout, startup/reset contract, runtime support and the exact vendor SDK boundary. An optional C/SDK bridge must be labelled a bridge, not an RF2 native backend.
-4. Run pure-computation equivalence and failure tests on a suitable emulator; retain ELF/disassembly/toolchain identities. Emulation does not prove GPIO, timing, radio or physical energy behaviour.
+4. Pure-computation, failure and UART emulator tests now run; retain ELF/disassembly/toolchain identities and expand coverage as implementation grows. Emulation does not prove GPIO, timing, radio or physical energy behaviour.
 5. Build an actual board image and qualify UART/read-only sensor behaviour on identified hardware. Record build, flash, boot, reset and observed outputs before support claims.
 6. Add peripherals and interrupts individually. Printer motor/heater deployment requires actual timing, limits, watchdog and fault/recovery acceptance on the identified machine.
 

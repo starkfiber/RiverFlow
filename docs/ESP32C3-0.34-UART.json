@@ -1,0 +1,48 @@
+{
+  "schema": "rf2.esp32c3.uart.v1",
+  "passed": true,
+  "compilerSHA256": "4da23828e1ffdec7e361412e2eed54605ff902ec0ab78c9a38d28d6807524f02",
+  "qemuSHA256": "3e38982c1ea3e750edfc8c910a0fd44727fe07d9c666b84d18d2b7985ac58246",
+  "sourceSHA256": "b646ba90c180769bf23eee9b2781e21f1fd2e0762b87a3991a75dbc796c2a91c",
+  "firmwareSHA256": "3146d3f8cffb3a3eb581466f4aaffbe03e74cefb98531791c5b21f6ca717863e",
+  "controllerSHA256": "c5421b726944ea43ee9b905ef288f3a446f33fbeac4f8f27f2db1558f4795ebd",
+  "rows": [
+    {
+      "case": "0",
+      "receivedByte": 0,
+      "expectedReturn": 0,
+      "stackRestored": true,
+      "returnedToEntryLoop": true,
+      "uartSHA256": "879f7adcf7e90a0c21ac4c2ecfeaa4a8cdeb064ded11417984ebfd98c038b58c",
+      "passed": true
+    },
+    {
+      "case": "90",
+      "receivedByte": 90,
+      "expectedReturn": 0,
+      "stackRestored": true,
+      "returnedToEntryLoop": true,
+      "uartSHA256": "632ab5fe476875c5dc154bae6da66f271246f4b1be142b18cdaa7310e3312707",
+      "passed": true
+    },
+    {
+      "case": "255",
+      "receivedByte": 255,
+      "expectedReturn": 0,
+      "stackRestored": true,
+      "returnedToEntryLoop": true,
+      "uartSHA256": "dac725384e40ca51604e39795fadc973149a84e3188bf0856754dd739b92dc16",
+      "passed": true
+    },
+    {
+      "case": "timeout",
+      "receivedByte": null,
+      "expectedReturn": 2147483649,
+      "stackRestored": true,
+      "returnedToEntryLoop": true,
+      "uartSHA256": "48c6bd2db702773e9536d48d64e2286b1223e1ed6b5a623d7aed1579e3347989",
+      "passed": true
+    }
+  ],
+  "scope": "Actual vendor QEMU ROM/SPI boot and UART model with Unix-socket supplied bytes, including 0/90/255 and bounded no-input timeout. No physical board, UART wiring, calibrated baud, sensor or throughput claim."
+}
