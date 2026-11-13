@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "schema": "rf2.heap.package.v1",
+  "zipSHA256": "77f5006c8e43f8a57c8557d5b2ea605fb390de8743b40edcc04432f765ae202c",
+  "zipBytes": 142266,
+  "manifestFilesVerified": [
+    "LICENSE",
+    "README.txt",
+    "examples/collection-tools/README.md",
+    "examples/collection-tools/lib/numbers.rf2",
+    "examples/collection-tools/lib/output.rf2",
+    "examples/collection-tools/telemetry-summary.flow",
+    "examples/collection-tools/value-frequency.flow",
+    "rf2",
+    "rf2c",
+    "source/compiler.rf2",
+    "telemetry-summary",
+    "value-frequency"
+  ],
+  "freshExtractedSignatures": true,
+  "appsExecuted": true,
+  "sourceAppRecompiled": true,
+  "malformedInputRefused": true,
+  "scope": "Same-Mac fresh extraction; no notarization or separate-host/embedded claim"
+}

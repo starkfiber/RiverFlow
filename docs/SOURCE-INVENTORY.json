@@ -26,8 +26,8 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 745568,
-    "Python": 705521,
+    "RiverFlow": 763153,
+    "Python": 746813,
     "JavaScript": 85144,
     "HTML": 30503,
     "CSS": 17035,
@@ -190,6 +190,26 @@
       "path": "examples/cloudflare-worker/worker.mjs",
       "language": "JavaScript",
       "bytes": 120
+    },
+    {
+      "path": "examples/collection-tools/lib/numbers.rf2",
+      "language": "RiverFlow",
+      "bytes": 3840
+    },
+    {
+      "path": "examples/collection-tools/lib/output.rf2",
+      "language": "RiverFlow",
+      "bytes": 856
+    },
+    {
+      "path": "examples/collection-tools/telemetry-summary.flow",
+      "language": "RiverFlow",
+      "bytes": 1515
+    },
+    {
+      "path": "examples/collection-tools/value-frequency.flow",
+      "language": "RiverFlow",
+      "bytes": 2032
     },
     {
       "path": "examples/compact/bits-checked.rf2",
@@ -534,7 +554,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 158425
+      "bytes": 167767
     },
     {
       "path": "native/core.rf2",
@@ -772,6 +792,11 @@
       "bytes": 7905
     },
     {
+      "path": "tests/standalone/collection_apps_verify.py",
+      "language": "Python",
+      "bytes": 6101
+    },
+    {
       "path": "tests/standalone/compact_image_verify.py",
       "language": "Python",
       "bytes": 6828
@@ -977,6 +1002,11 @@
       "bytes": 506
     },
     {
+      "path": "tests/standalone/flow_modules_verify.py",
+      "language": "Python",
+      "bytes": 2981
+    },
+    {
       "path": "tests/standalone/foundation_redteam_verify.py",
       "language": "Python",
       "bytes": 13783
@@ -995,6 +1025,16 @@
       "path": "tests/standalone/function_reuse_verify.py",
       "language": "Python",
       "bytes": 14271
+    },
+    {
+      "path": "tests/standalone/heap_collection_verify.py",
+      "language": "Python",
+      "bytes": 6261
+    },
+    {
+      "path": "tests/standalone/heap_ownership_redteam_verify.py",
+      "language": "Python",
+      "bytes": 22210
     },
     {
       "path": "tests/standalone/hex_app_verify.py",
@@ -1505,6 +1545,11 @@
       "path": "tools/package-foundation.py",
       "language": "Python",
       "bytes": 4180
+    },
+    {
+      "path": "tools/package-heap.py",
+      "language": "Python",
+      "bytes": 3739
     },
     {
       "path": "tools/package-storage.py",

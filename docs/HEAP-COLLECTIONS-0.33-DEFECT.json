@@ -1,0 +1,22 @@
+{
+  "reproduced": true,
+  "compilerSHA256": "5e532844ec481483b9c92c8bd2ea1a1c6ec4f56149a50029175689055ef1b845",
+  "expectedCause": 65548,
+  "actualCause": 65539,
+  "incorrectOpcode": "aa000400",
+  "assemblerVerifiedCorrectOpcode": "aa0103e0",
+  "receipt": {
+    "kind": "permanent canonical syscall-result injection",
+    "function": "__rf2heap_drop",
+    "number": 73,
+    "site": 0,
+    "offset": 19692,
+    "original": "011000d443000054e00300cb",
+    "replacement": "600180921f2003d51f2003d5",
+    "sourceSHA256": "092e7f265c5a55461177ae06dce2634373e20ca103d73853d3cc1d4e8cbdd55a",
+    "patchedSHA256": "e299a82bba76de704b43eea51dc32eef58b2fa97321d79a7e2eaf1a240839775",
+    "limits": "Injected owned-test syscall wrapper result, not actual OOM; BL used only in framed runtime functions"
+  },
+  "source": "/Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794578859977895000/001-cleanup-debug-default.rf2",
+  "scope": "Controlled native unmap failure, not actual kernel OOM"
+}

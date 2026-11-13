@@ -1,0 +1,764 @@
+{
+  "passed": true,
+  "schema": "rf2.heap.ownership.redteam.v1",
+  "cases": 78,
+  "rows": [
+    {
+      "case": "empty",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "0e509b6d0416985fabf5854fed2b062d15a357d1f8c301cc8c1de2c04385dfb1",
+      "binarySHA256": "bfc2aff0885950bcda38f933ba0ef19ed9f5ab2a9142231c02cde94067e44f53"
+    },
+    {
+      "case": "multiple-growth-u64-oracle",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "24aa0c65d9d83b718d5aad61bac5de9a097381ee83fb6e81a7b93541f51f44b6",
+      "binarySHA256": "ca778d88dcacad4d44608f2ab2e27b6484fd458e8343fe9b71698b3dd65a139a"
+    },
+    {
+      "case": "move-populated-owner",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "6b1b2c7b9628a1a4081574b1f593e41afa74ee0697b5148ab0e9c6f7b1f772c8",
+      "binarySHA256": "38d259395c0ac64b8c26630a214caf4425956fff02daa7e5a8a403230ba71c59"
+    },
+    {
+      "case": "move-empty-owner",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "73d4e509d2c8674dc1318cfe43d46b1acbced2c331b38b1de49a11231240cb1c",
+      "binarySHA256": "d8fc809f7eeb29ac60a21073f444ba37622adaa5456d47adcef5d10b413627ec"
+    },
+    {
+      "case": "reserve-preserves-data-no-shrink",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "79fba4795da0920cf130b2dd88ddfbaa2797e4196f449f62c5a50405401795c5",
+      "binarySHA256": "5b8754e7673162a8fbab414cabb4a956439bdbe29e5e00ccaa2a3cf61e27957a"
+    },
+    {
+      "case": "bad-request-22-collection_reserve",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "8bf6162f129fac63b4a6ca8b8642e86779262128b4c2a849295d0b197493f609",
+      "binarySHA256": "7ee12358f3e15f3a2d9b7d536c77c7964ef96498cb8bc0470653b37be719dd54"
+    },
+    {
+      "case": "bad-request-34-collection_get",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "8ab5efb3112836f45bd9729b4516b6329e831945a63ea48afaccddd519ecfc35",
+      "binarySHA256": "878ce91ad075cc53c7e498a8dd15a74d0419529397050fe438a7457e093ae8a2"
+    },
+    {
+      "case": "bad-request-34-collection_set",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "4c473fc003538efeba620cd2eedf92c0878adc158e8a5e1456b3a900ee97f9ad",
+      "binarySHA256": "d955a010d39b6946b793cdac64b3e27439bf607d87a9b2a9026d1b89b5de96f9"
+    },
+    {
+      "case": "maximum-push-does-not-commit",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "dc86a407772fc3754137898a7b8365a5bd4a0a4b9a35095fe7594b8a13863ae9",
+      "binarySHA256": "152a23513df99228dadca983615e74a8d508cba7eaa91470f0ebaff96943aa7b"
+    },
+    {
+      "case": "clear-preserves-capacity-not-old-length",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "44dd0727dd9cd98a04e03debee651b5e9fc10cabe6730df9de5df9af26801987",
+      "binarySHA256": "ada5dadd4efcc87026be1eaec38e84aaa0778deb39f04686ef06f9cb4ec1ddfe"
+    },
+    {
+      "case": "borrow-helper-mutation",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "4e0d7efc9865d9e7c8ee5489561e40bce2c04eacc4949ae80d458a98665136e2",
+      "binarySHA256": "d79e01826fe654f41dd3977896833a1e8d88c30a2fc6533660241e50988eecae"
+    },
+    {
+      "case": "reentrant-push-reloads-grown-cleared-descriptor",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "3d59d360de127498309e23b85570d27345352448df0c9d6a1819e12ee2a7031d",
+      "binarySHA256": "1d8207f42a8c0e61ba77482dec099098dfcf1605a8f44ed1ff134190a261d6d5"
+    },
+    {
+      "case": "reentrant-set-reloads-grown-descriptor",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "9f9b931ee2e1048975e4f32d8d85c82b51325f6f60e13632a87420812d154888",
+      "binarySHA256": "c102caaea61736aeca7c699ff8784ed3b5b5b584c1ff10b3437ed1c70ce09284"
+    },
+    {
+      "case": "two-sequential-borrows-may-alias",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "503f67d2904e0d1e564e30ac270ceb16ac9c5ee6657ca8d20d722ff05028d795",
+      "binarySHA256": "12cf2b44ce0b7430c1aee0a5e084db090a63069411736796a2063ef80411175b"
+    },
+    {
+      "case": "successful-release-disarms-all-operations",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "e8eeb23f2cb8683290bca644c36ade5deb64f622e5511bcd3fbc8d247bd461ae",
+      "binarySHA256": "86039f47f5521f8eac46d6740a0a789d60603581e3db6a0a71f159de71ff3c7f"
+    },
+    {
+      "case": "released-loop-property-controlled-trap",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 2,
+      "sourceSHA256": "917a0c85835f16355cf74f86c5fd3e98d425331f6607743293c9bfde6f144151",
+      "binarySHA256": "87785d8c8a3ed96e91ef1756fb6e0fe21b2581ab2e36429d04be261334a64a3b"
+    },
+    {
+      "case": "actual-relocation-and-retirement-mprotect",
+      "optimized": false,
+      "outcome": "executed instrumented own binary",
+      "instrumentation": {
+        "kind": "test-only descriptor pointer probe",
+        "offset": 16396,
+        "original": "fd7bbfa9ff4300d1",
+        "replacement": "000440f9c0035fd6",
+        "independentAssemblerMatches": true,
+        "sourceSHA256": "fdc1d0557ca0e3c2d0cb63f09446f31915582991e2d39f8bd754f49ed608f42a",
+        "patchedSHA256": "b065a940cf8b853e95f8d0436139dc036f9d770abaacc2723241137f08968158"
+      }
+    },
+    {
+      "case": "actual-automatic-cleanup-after-move",
+      "optimized": false,
+      "outcome": "in-process retired mapping after callee return",
+      "instrumentation": {
+        "kind": "test-only descriptor pointer probe",
+        "offset": 16396,
+        "original": "fd7bbfa9ff4300d1",
+        "replacement": "000440f9c0035fd6",
+        "independentAssemblerMatches": true,
+        "sourceSHA256": "9b6fa4ab067bef90f526c784e715a8e8b1950324e9866732a0bb3f894d67f5b6",
+        "patchedSHA256": "abfd31e4110091fe65d29beed007a5ca20394ea224e4cef04312d9658df7673f"
+      }
+    },
+    {
+      "case": "injected-initial-mmap-state-and-retry",
+      "optimized": false,
+      "outcome": "executed injected own binary",
+      "fault": {
+        "kind": "one-shot canonical syscall-result injection",
+        "function": "__rf2heap_grow",
+        "number": 197,
+        "site": 0,
+        "offset": 18984,
+        "original": "011000d443000054e00300cb",
+        "replacement": "79fdff971f2003d51f2003d5",
+        "sourceSHA256": "0dede7fa3626a5a4c5ed68b55b8534e68c97439cbf72863cf727d917c9f90a11",
+        "patchedSHA256": "1cbdca8dba179a2c92fcc80820b888bb547ad0de0822984ec71d48b715736472",
+        "limits": "Injected owned-test syscall wrapper result, not actual OOM; BL used only in framed runtime functions"
+      }
+    },
+    {
+      "case": "injected-old-retire-preserves-active-pending-retry",
+      "optimized": false,
+      "outcome": "executed injected own binary",
+      "fault": {
+        "kind": "one-shot canonical syscall-result injection",
+        "function": "__rf2heap_grow",
+        "number": 73,
+        "site": 1,
+        "offset": 20004,
+        "original": "011000d443000054e00300cb",
+        "replacement": "7afcff971f2003d51f2003d5",
+        "sourceSHA256": "6cc4bfa8334578cef00381a93760d3cb37d0fb62b0f29449535183eff02f47d9",
+        "patchedSHA256": "9df65541b520b2a9fcd098fb7e820d1e45a0ca9cff273c7644a086a059ac96f4",
+        "limits": "Injected owned-test syscall wrapper result, not actual OOM; BL used only in framed runtime functions"
+      }
+    },
+    {
+      "case": "injected-release-failure-ownership-and-retry",
+      "optimized": false,
+      "outcome": "executed injected own binary",
+      "fault": {
+        "kind": "one-shot canonical syscall-result injection",
+        "function": "__rf2heap_drop",
+        "number": 73,
+        "site": 0,
+        "offset": 20600,
+        "original": "011000d443000054e00300cb",
+        "replacement": "e5fbff971f2003d51f2003d5",
+        "sourceSHA256": "123466f8549e47c10266c9e5fa8da11c64fcf2c7e3e0c877746a6df23481045b",
+        "patchedSHA256": "0dc945c08aa070d1d65ad8bf8d8d70ee804428e04bf9cf675d530ac055255910",
+        "limits": "Injected owned-test syscall wrapper result, not actual OOM; BL used only in framed runtime functions"
+      }
+    },
+    {
+      "case": "injected-pending-cleanup-failure-and-retry",
+      "optimized": false,
+      "outcome": "active data retained across two errors",
+      "faults": [
+        {
+          "kind": "one-shot canonical syscall-result injection",
+          "function": "__rf2heap_grow",
+          "number": 73,
+          "site": 1,
+          "offset": 20548,
+          "original": "011000d443000054e00300cb",
+          "replacement": "f2fbff971f2003d51f2003d5",
+          "sourceSHA256": "7bab505cc50aebc3a2e0200c4e9b948cda80568304e38cff20bc91614768091f",
+          "patchedSHA256": "ab591585e0572f3984fb6580abff1b12d67cc68722591c26d2f81978487d3ce0",
+          "limits": "Injected owned-test syscall wrapper result, not actual OOM; BL used only in framed runtime functions"
+        },
+        {
+          "kind": "one-shot canonical syscall-result injection",
+          "function": "__rf2heap_pending",
+          "number": 73,
+          "site": 0,
+          "offset": 18936,
+          "original": "011000d443000054e00300cb",
+          "replacement": "e1fdff971f2003d51f2003d5",
+          "sourceSHA256": "ab591585e0572f3984fb6580abff1b12d67cc68722591c26d2f81978487d3ce0",
+          "patchedSHA256": "d63b1a61ff5e2248390b0e1418d1bbcb30b9eb3066f161449214284559ce8332",
+          "limits": "Injected owned-test syscall wrapper result, not actual OOM; BL used only in framed runtime functions"
+        }
+      ]
+    },
+    {
+      "case": "injected-cleanup-reports-secondary",
+      "optimized": false,
+      "outcome": "executed injected own binary",
+      "fault": {
+        "kind": "permanent canonical syscall-result injection",
+        "function": "__rf2heap_drop",
+        "number": 73,
+        "site": 0,
+        "offset": 19592,
+        "original": "011000d443000054e00300cb",
+        "replacement": "600180921f2003d51f2003d5",
+        "sourceSHA256": "4e643bc70838ef5d6eda12a620548ca97443d83f0860ba606d1196b5b5545b02",
+        "patchedSHA256": "1838743a93d26c58e50a787be587e4c83bd831c9d5b7f616b97f8885e5fbe860",
+        "limits": "Injected owned-test syscall wrapper result, not actual OOM; BL used only in framed runtime functions"
+      }
+    },
+    {
+      "case": "injected-cleanup-preserves-primary",
+      "optimized": false,
+      "outcome": "executed injected own binary",
+      "fault": {
+        "kind": "permanent canonical syscall-result injection",
+        "function": "__rf2heap_drop",
+        "number": 73,
+        "site": 0,
+        "offset": 19588,
+        "original": "011000d443000054e00300cb",
+        "replacement": "600180921f2003d51f2003d5",
+        "sourceSHA256": "cf7641adc814fcfd57672c42e80dbbd5c6f56f3ee4c7e94701b30fbf0b4d311d",
+        "patchedSHA256": "ca66ba4aebf818b02f54970cf65a995d4608b43b2dd56b4acada211216cc4955",
+        "limits": "Injected owned-test syscall wrapper result, not actual OOM; BL used only in framed runtime functions"
+      }
+    },
+    {
+      "case": "private-helper-forgery",
+      "optimized": false,
+      "outcome": "refused",
+      "sourceSHA256": "6bc44e6ce4c3fee6b425b3955fc4dbfa2d7bd85d8b31360b7e28242ccdeb898f",
+      "stderr": "reserved compiler collection helper\nnear source 4:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/025-private-helper-forgery-default.rf2)\n"
+    },
+    {
+      "case": "private-helper-call",
+      "optimized": false,
+      "outcome": "refused",
+      "sourceSHA256": "0f42fc9140a7cb823106d920ac460f40314ab884b4063f8c54c8e91ab3d71690",
+      "stderr": "reserved compiler collection helper\nnear source 6:18 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/026-private-helper-call-default.rf2)\n"
+    },
+    {
+      "case": "private-type-forgery",
+      "optimized": false,
+      "outcome": "refused",
+      "sourceSHA256": "7b63c0224e8ddb4871d8257fd9051c8c45297ee92d7afd4f43998c56dfb7a369",
+      "stderr": "reserved compiler collection helper\nnear source 4:20 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/027-private-type-forgery-default.rf2)\n"
+    },
+    {
+      "case": "owner-copy",
+      "optimized": false,
+      "outcome": "refused",
+      "sourceSHA256": "3e302c009bc7a33b6482c224f7f10ab8cb85671b9dae96f2c8c5529d8556493d",
+      "stderr": "scalar expression required\nnear source 6:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/028-owner-copy-default.rf2)\n"
+    },
+    {
+      "case": "owner-rebind",
+      "optimized": false,
+      "outcome": "refused",
+      "sourceSHA256": "73503f9a77c20b2424b145e2789091d047c41785e7c5ca639391f2eb4d182c04",
+      "stderr": "record rebinding refused\nnear source 6:8 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/029-owner-rebind-default.rf2)\n"
+    },
+    {
+      "case": "move-twice",
+      "optimized": false,
+      "outcome": "refused",
+      "sourceSHA256": "39d606664c2605b1c295905dd1a86b47626f9b1a42e0f833ef7b8d95e3e874ca",
+      "stderr": "local used before initialization or outside scope\nnear source 7:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/030-move-twice-default.rf2)\n"
+    },
+    {
+      "case": "source-property-after-move",
+      "optimized": false,
+      "outcome": "refused",
+      "sourceSHA256": "b4e85138362ed053a220ed3c3f6fd70da27432ffe6c4f4f1b45176e513965e1b",
+      "stderr": "local used before initialization or outside scope\nnear source 7:13 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/031-source-property-after-move-default.rf2)\n"
+    },
+    {
+      "case": "source-operation-after-move",
+      "optimized": false,
+      "outcome": "refused",
+      "sourceSHA256": "9bd4d708e60bbe2914917ab6f945044c8be862399147ce3a0ff58e4f589e5b94",
+      "stderr": "local used before initialization or outside scope\nnear source 7:26 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/032-source-operation-after-move-default.rf2)\n"
+    },
+    {
+      "case": "raw-owner-pointer",
+      "optimized": false,
+      "outcome": "refused",
+      "sourceSHA256": "bc3444120be54e51df41de64456f57c8d47fc03fff9f250a9eb79a2c13eb4ca9",
+      "stderr": "record passed to raw intrinsic\nnear source 6:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/033-raw-owner-pointer-default.rf2)\n"
+    },
+    {
+      "case": "owner-result-escape",
+      "optimized": false,
+      "outcome": "refused",
+      "sourceSHA256": "d59692f614908f9f409b746d16b97b0ea0201a1eb7d8b7d87e7dd0dfc711e623",
+      "stderr": "scalar expression required\nnear source 6:13 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/034-owner-result-escape-default.rf2)\n"
+    },
+    {
+      "case": "owner-pointer-property",
+      "optimized": false,
+      "outcome": "refused",
+      "sourceSHA256": "2d271686a89be4433710574770188820327836a1c5e0bb62c7b968c2c038f635",
+      "stderr": "expected: limit got: pointer unexpected token\nnear source 6:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/035-owner-pointer-property-default.rf2)\n"
+    },
+    {
+      "case": "move-in-branch",
+      "optimized": false,
+      "outcome": "refused",
+      "sourceSHA256": "139cd29a75b775a2e9818053a40d4220895e1e96b5bc26f347e68f59e5ed61f5",
+      "stderr": "record declarations must be function-level\nnear source 7:2 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/036-move-in-branch-default.rf2)\n"
+    },
+    {
+      "case": "move-in-loop",
+      "optimized": false,
+      "outcome": "refused",
+      "sourceSHA256": "f4c225d53ce95b27da69031990683ac36f8cbb74f49d6f26836640303b179c23",
+      "stderr": "record declarations must be function-level\nnear source 7:2 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/037-move-in-loop-default.rf2)\n"
+    },
+    {
+      "case": "borrow-cannot-release",
+      "optimized": false,
+      "outcome": "refused",
+      "sourceSHA256": "11c35ffc9ba86693595e6325da8fcd6436cd258a09ab4f73c879b506648c14ef",
+      "stderr": "borrowed collection cannot be released\nnear source 5:18 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/038-borrow-cannot-release-default.rf2)\n"
+    },
+    {
+      "case": "borrow-cannot-move",
+      "optimized": false,
+      "outcome": "refused",
+      "sourceSHA256": "8bc84cb09d73f4a3250e9082dac2e00a5c394e50021fb9856f02aecee0fd13f7",
+      "stderr": "borrowed collection cannot be moved\nnear source 5:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/039-borrow-cannot-move-default.rf2)\n"
+    },
+    {
+      "case": "empty",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "0e509b6d0416985fabf5854fed2b062d15a357d1f8c301cc8c1de2c04385dfb1",
+      "binarySHA256": "7b35ab395b00f235a58d211cf3cb7b6269bde68e9f0a8762f7716af7c0278761"
+    },
+    {
+      "case": "multiple-growth-u64-oracle",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "2e19a94b5a7c9838af12c48de09a9234a6a97cccb1c8f7f9343b3a71d1c9fe0e",
+      "binarySHA256": "073048f098353827e95d805b35071d999b35ae666b5fe21af3dad44793dc3367"
+    },
+    {
+      "case": "move-populated-owner",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "d53d1c201f7aa261ef20053c93dc9d14aa620c83051e6fbf6af45087f2ef85e7",
+      "binarySHA256": "a73391d4c89d0b29ba34f05e62db627fd94b13754ec533c53750c056f3ba050a"
+    },
+    {
+      "case": "move-empty-owner",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "73d4e509d2c8674dc1318cfe43d46b1acbced2c331b38b1de49a11231240cb1c",
+      "binarySHA256": "97d9872b38a1910bb3a32b062cd6d151c9a83546c11ec31d0d876b35e40974c0"
+    },
+    {
+      "case": "reserve-preserves-data-no-shrink",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "0f32d806ab56a355521ea5c22abea61ecd6568a0c20853d82a9bcd397e2f6665",
+      "binarySHA256": "3895291f6f72d9d56dda0373cf0c6ed990598d369da153f0999d7b435c89be2b"
+    },
+    {
+      "case": "bad-request-22-collection_reserve",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "b4f4eab885bbb6df39d0c266954dcd241236e6637a6edefceb8e9ef707365c46",
+      "binarySHA256": "1990ef3c69c77a3eb8d5e5d628254c85ed69450216f1096405e5b9ae5e6c0b7d"
+    },
+    {
+      "case": "bad-request-34-collection_get",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "b554f6404a58457f7d32d024c067272c92b4ff5e7255f4d86e8ec6b65405c8c5",
+      "binarySHA256": "9eed9a390a1668880b840597b90721fe2a0f9f9466761f44ea81d1a606a1aa5a"
+    },
+    {
+      "case": "bad-request-34-collection_set",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "003e4f4ae03c8cfd75920079769038a6b1ac9a625607577dbf9992d2183c8d06",
+      "binarySHA256": "647814674fcedbbbda3979455621365fef25f4d8456db6847f5a6ba4219dac8c"
+    },
+    {
+      "case": "maximum-push-does-not-commit",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "627ad9aa53dc4d40e9d16ece0f3debf638b325269c8f02871f66804796e19b65",
+      "binarySHA256": "5ee807f91891acfbd971bd7ef802be7161bf93e7f6e5aadb0b8ee7f152ec47f1"
+    },
+    {
+      "case": "clear-preserves-capacity-not-old-length",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "fd8380f3ca27068effe6028684d32b3fd5ce4b3207fae5b4364b79e5f049d30e",
+      "binarySHA256": "2b29f9894255ea1140834e4aa3c708c2d487ee7068dc7744d54648546c6301e4"
+    },
+    {
+      "case": "borrow-helper-mutation",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "1dac07ce818e815ac7424c0d1dc2344b41dc672dcef83817912ac1e4b1eda58f",
+      "binarySHA256": "354f82d3c36a1640c34676724da8999542274847199e8f3e013898f45bfb5841"
+    },
+    {
+      "case": "reentrant-push-reloads-grown-cleared-descriptor",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "a3bb74411745eea3cb82afbc9aa8b7ca5d8a9489c24081aac8242f39a11bb813",
+      "binarySHA256": "3cb0e5b3007ea0dd8a2732e1d3727c71e381b104339d212fe7e705a93ecf4fc1"
+    },
+    {
+      "case": "reentrant-set-reloads-grown-descriptor",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "452c3fc5f43bb1590607250fecf07dbf2ec49cf53d30156ef0900f44e692b57c",
+      "binarySHA256": "3733ef57d8ba8532042cf9e44b5fe25f71a22f2db92379ec6e63b9a5c33d76cf"
+    },
+    {
+      "case": "two-sequential-borrows-may-alias",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "8c9b30b422997fbd0ec8af355de014f7ad6fe1a3a3efd7d2df25edf9da9c44a1",
+      "binarySHA256": "ac2c39c377c18c112ec56da28ea0053cd43042dd1c62ef7b6aee159b6255486b"
+    },
+    {
+      "case": "successful-release-disarms-all-operations",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "sourceSHA256": "e56af0cba61bb98a60cb7410676484731eef073c9ed5ecafffedcc5ce9bdce8c",
+      "binarySHA256": "0bb65d9fd6b34ae40bc0f2aa6c72601d01ca8568b2e487a42a5ab09b74dd7933"
+    },
+    {
+      "case": "released-loop-property-controlled-trap",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 2,
+      "sourceSHA256": "957a4f9bc745ee64028746f31344b59b1047543c0ebaf8c01c0cba9a2fc30cdf",
+      "binarySHA256": "f1522e95ac2f247ec77d2d49df8c390162d62d595811c156e40721951b2f529c"
+    },
+    {
+      "case": "actual-relocation-and-retirement-mprotect",
+      "optimized": true,
+      "outcome": "executed instrumented own binary",
+      "instrumentation": {
+        "kind": "test-only descriptor pointer probe",
+        "offset": 16396,
+        "original": "fd7bbfa9ff4300d1",
+        "replacement": "000440f9c0035fd6",
+        "independentAssemblerMatches": true,
+        "sourceSHA256": "fbfb50d893d0617bc31d5366d7bad89fb0da8e0460efa4c4f8111deaae8b7329",
+        "patchedSHA256": "0d95542a71f0878f30219b0cd2db1e21629089cb3b660f837bdb941023323bf0"
+      }
+    },
+    {
+      "case": "actual-automatic-cleanup-after-move",
+      "optimized": true,
+      "outcome": "in-process retired mapping after callee return",
+      "instrumentation": {
+        "kind": "test-only descriptor pointer probe",
+        "offset": 16396,
+        "original": "fd7bbfa9ff4300d1",
+        "replacement": "000440f9c0035fd6",
+        "independentAssemblerMatches": true,
+        "sourceSHA256": "f9464ecc8ec9f75e06a4ca121c066a34755cb1dcada3cb23f23b7a9079cbe91e",
+        "patchedSHA256": "60434c189e7a2c5a2d830d1a222463937599b1287658923edc2831d7cb56b7b1"
+      }
+    },
+    {
+      "case": "injected-initial-mmap-state-and-retry",
+      "optimized": true,
+      "outcome": "executed injected own binary",
+      "fault": {
+        "kind": "one-shot canonical syscall-result injection",
+        "function": "__rf2heap_grow",
+        "number": 197,
+        "site": 0,
+        "offset": 18648,
+        "original": "011000d443000054e00300cb",
+        "replacement": "cdfdff971f2003d51f2003d5",
+        "sourceSHA256": "8b47f04586ef5be3824abc781799bfe7bc691e2a26052277dbfa817e51687bc8",
+        "patchedSHA256": "27174a2ecac026f15e0f89e9da2e4c9bfb64685ce3d8bf5975efae86817ca880",
+        "limits": "Injected owned-test syscall wrapper result, not actual OOM; BL used only in framed runtime functions"
+      }
+    },
+    {
+      "case": "injected-old-retire-preserves-active-pending-retry",
+      "optimized": true,
+      "outcome": "executed injected own binary",
+      "fault": {
+        "kind": "one-shot canonical syscall-result injection",
+        "function": "__rf2heap_grow",
+        "number": 73,
+        "site": 1,
+        "offset": 19432,
+        "original": "011000d443000054e00300cb",
+        "replacement": "09fdff971f2003d51f2003d5",
+        "sourceSHA256": "ca58b28b876419f8fc520e9626fe4b6c6a59e09a6d4bee973400c89b91f516ba",
+        "patchedSHA256": "4f99a921f8fde619427c14753c93518f50899ca6256b2ddcb26c95887100cbdf",
+        "limits": "Injected owned-test syscall wrapper result, not actual OOM; BL used only in framed runtime functions"
+      }
+    },
+    {
+      "case": "injected-release-failure-ownership-and-retry",
+      "optimized": true,
+      "outcome": "executed injected own binary",
+      "fault": {
+        "kind": "one-shot canonical syscall-result injection",
+        "function": "__rf2heap_drop",
+        "number": 73,
+        "site": 0,
+        "offset": 19964,
+        "original": "011000d443000054e00300cb",
+        "replacement": "84fcff971f2003d51f2003d5",
+        "sourceSHA256": "e1399958a48151e5ccb8d44eebf088190799fe812e0e98beb0df0b56633db855",
+        "patchedSHA256": "c8c9bde39879c42d1f05d9b729c2996e4c76bd9a4622043313cc0b99414066d7",
+        "limits": "Injected owned-test syscall wrapper result, not actual OOM; BL used only in framed runtime functions"
+      }
+    },
+    {
+      "case": "injected-pending-cleanup-failure-and-retry",
+      "optimized": true,
+      "outcome": "active data retained across two errors",
+      "faults": [
+        {
+          "kind": "one-shot canonical syscall-result injection",
+          "function": "__rf2heap_grow",
+          "number": 73,
+          "site": 1,
+          "offset": 19972,
+          "original": "011000d443000054e00300cb",
+          "replacement": "82fcff971f2003d51f2003d5",
+          "sourceSHA256": "56863c364ebca158ecd2e7ace0a2e33d05a94b3ff20c40885367935b7a82cb31",
+          "patchedSHA256": "ee77ff097ac55b8650e0ab61c214d02952bebb1a07fb7399aae1c7f0bd8a4274",
+          "limits": "Injected owned-test syscall wrapper result, not actual OOM; BL used only in framed runtime functions"
+        },
+        {
+          "kind": "one-shot canonical syscall-result injection",
+          "function": "__rf2heap_pending",
+          "number": 73,
+          "site": 0,
+          "offset": 18784,
+          "original": "011000d443000054e00300cb",
+          "replacement": "10feff971f2003d51f2003d5",
+          "sourceSHA256": "ee77ff097ac55b8650e0ab61c214d02952bebb1a07fb7399aae1c7f0bd8a4274",
+          "patchedSHA256": "7715d8829da700347d825cc725d54786be8f74a308970928a0ba93ef510403e1",
+          "limits": "Injected owned-test syscall wrapper result, not actual OOM; BL used only in framed runtime functions"
+        }
+      ]
+    },
+    {
+      "case": "injected-cleanup-reports-secondary",
+      "optimized": true,
+      "outcome": "executed injected own binary",
+      "fault": {
+        "kind": "permanent canonical syscall-result injection",
+        "function": "__rf2heap_drop",
+        "number": 73,
+        "site": 0,
+        "offset": 19000,
+        "original": "011000d443000054e00300cb",
+        "replacement": "600180921f2003d51f2003d5",
+        "sourceSHA256": "eb06ab300edbeef147791f7db7d34e386a3ba5c22027504f07908c41a4c20c61",
+        "patchedSHA256": "98b20969d2a7660ffa40ee6341b15855efcf31815b5908334bff9d6fa789bd5c",
+        "limits": "Injected owned-test syscall wrapper result, not actual OOM; BL used only in framed runtime functions"
+      }
+    },
+    {
+      "case": "injected-cleanup-preserves-primary",
+      "optimized": true,
+      "outcome": "executed injected own binary",
+      "fault": {
+        "kind": "permanent canonical syscall-result injection",
+        "function": "__rf2heap_drop",
+        "number": 73,
+        "site": 0,
+        "offset": 18988,
+        "original": "011000d443000054e00300cb",
+        "replacement": "600180921f2003d51f2003d5",
+        "sourceSHA256": "d5c5e28f66d557f30f159637bb6e1d69f6dd334534ea74a1e82307af427a121e",
+        "patchedSHA256": "63db1b5040a41d83a00aa057d51ce5d0874fbed9e9ea5fb05dbbef6e0e55cbb9",
+        "limits": "Injected owned-test syscall wrapper result, not actual OOM; BL used only in framed runtime functions"
+      }
+    },
+    {
+      "case": "private-helper-forgery",
+      "optimized": true,
+      "outcome": "refused",
+      "sourceSHA256": "6bc44e6ce4c3fee6b425b3955fc4dbfa2d7bd85d8b31360b7e28242ccdeb898f",
+      "stderr": "reserved compiler collection helper\nnear source 4:16 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/064-private-helper-forgery-opt.rf2)\n"
+    },
+    {
+      "case": "private-helper-call",
+      "optimized": true,
+      "outcome": "refused",
+      "sourceSHA256": "0f42fc9140a7cb823106d920ac460f40314ab884b4063f8c54c8e91ab3d71690",
+      "stderr": "reserved compiler collection helper\nnear source 6:18 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/065-private-helper-call-opt.rf2)\n"
+    },
+    {
+      "case": "private-type-forgery",
+      "optimized": true,
+      "outcome": "refused",
+      "sourceSHA256": "7b63c0224e8ddb4871d8257fd9051c8c45297ee92d7afd4f43998c56dfb7a369",
+      "stderr": "reserved compiler collection helper\nnear source 4:20 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/066-private-type-forgery-opt.rf2)\n"
+    },
+    {
+      "case": "owner-copy",
+      "optimized": true,
+      "outcome": "refused",
+      "sourceSHA256": "3e302c009bc7a33b6482c224f7f10ab8cb85671b9dae96f2c8c5529d8556493d",
+      "stderr": "scalar expression required\nnear source 6:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/067-owner-copy-opt.rf2)\n"
+    },
+    {
+      "case": "owner-rebind",
+      "optimized": true,
+      "outcome": "refused",
+      "sourceSHA256": "73503f9a77c20b2424b145e2789091d047c41785e7c5ca639391f2eb4d182c04",
+      "stderr": "record rebinding refused\nnear source 6:8 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/068-owner-rebind-opt.rf2)\n"
+    },
+    {
+      "case": "move-twice",
+      "optimized": true,
+      "outcome": "refused",
+      "sourceSHA256": "39d606664c2605b1c295905dd1a86b47626f9b1a42e0f833ef7b8d95e3e874ca",
+      "stderr": "local used before initialization or outside scope\nnear source 7:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/069-move-twice-opt.rf2)\n"
+    },
+    {
+      "case": "source-property-after-move",
+      "optimized": true,
+      "outcome": "refused",
+      "sourceSHA256": "b4e85138362ed053a220ed3c3f6fd70da27432ffe6c4f4f1b45176e513965e1b",
+      "stderr": "local used before initialization or outside scope\nnear source 7:13 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/070-source-property-after-move-opt.rf2)\n"
+    },
+    {
+      "case": "source-operation-after-move",
+      "optimized": true,
+      "outcome": "refused",
+      "sourceSHA256": "88786e64a1b7de77700062ca915da5366bae075bb48be002f0bd342da44211b2",
+      "stderr": "local used before initialization or outside scope\nnear source 7:26 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/071-source-operation-after-move-opt.rf2)\n"
+    },
+    {
+      "case": "raw-owner-pointer",
+      "optimized": true,
+      "outcome": "refused",
+      "sourceSHA256": "bc3444120be54e51df41de64456f57c8d47fc03fff9f250a9eb79a2c13eb4ca9",
+      "stderr": "record passed to raw intrinsic\nnear source 6:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/072-raw-owner-pointer-opt.rf2)\n"
+    },
+    {
+      "case": "owner-result-escape",
+      "optimized": true,
+      "outcome": "refused",
+      "sourceSHA256": "d59692f614908f9f409b746d16b97b0ea0201a1eb7d8b7d87e7dd0dfc711e623",
+      "stderr": "scalar expression required\nnear source 6:13 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/073-owner-result-escape-opt.rf2)\n"
+    },
+    {
+      "case": "owner-pointer-property",
+      "optimized": true,
+      "outcome": "refused",
+      "sourceSHA256": "2d271686a89be4433710574770188820327836a1c5e0bb62c7b968c2c038f635",
+      "stderr": "expected: limit got: pointer unexpected token\nnear source 6:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/074-owner-pointer-property-opt.rf2)\n"
+    },
+    {
+      "case": "move-in-branch",
+      "optimized": true,
+      "outcome": "refused",
+      "sourceSHA256": "139cd29a75b775a2e9818053a40d4220895e1e96b5bc26f347e68f59e5ed61f5",
+      "stderr": "record declarations must be function-level\nnear source 7:2 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/075-move-in-branch-opt.rf2)\n"
+    },
+    {
+      "case": "move-in-loop",
+      "optimized": true,
+      "outcome": "refused",
+      "sourceSHA256": "f4c225d53ce95b27da69031990683ac36f8cbb74f49d6f26836640303b179c23",
+      "stderr": "record declarations must be function-level\nnear source 7:2 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/076-move-in-loop-opt.rf2)\n"
+    },
+    {
+      "case": "borrow-cannot-release",
+      "optimized": true,
+      "outcome": "refused",
+      "sourceSHA256": "2197d02d16eb3c8abac05380bcd9b67d0aa451f931da4c75ec1f10a72b9d631e",
+      "stderr": "borrowed collection cannot be released\nnear source 5:18 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/077-borrow-cannot-release-opt.rf2)\n"
+    },
+    {
+      "case": "borrow-cannot-move",
+      "optimized": true,
+      "outcome": "refused",
+      "sourceSHA256": "8bc84cb09d73f4a3250e9082dac2e00a5c394e50021fb9856f02aecee0fd13f7",
+      "stderr": "borrowed collection cannot be moved\nnear source 5:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-033/heap-redteam-1794579344284614000/078-borrow-cannot-move-opt.rf2)\n"
+    }
+  ],
+  "compilerSHA256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37",
+  "controllerSHA256": "48a2af528c950d746cb984409338d36516ec08b2957a78cc45b270c7a747cd90",
+  "limits": "Finite native local ownership/data/borrow controls. Raw pointer/syscall interference excluded. Fault injections, if present, are explicitly labelled and are not actual OOM. No whole-language memory-safety, concurrency or general allocator guarantee."
+}

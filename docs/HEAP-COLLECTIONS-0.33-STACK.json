@@ -1,0 +1,640 @@
+{
+  "passed": true,
+  "schema": "rf2.structured.storage.independent.v1",
+  "compilerSHA256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37",
+  "compilerSourceSHA256": "3d2e7d65cc545c116b9c75aaabb10b0906f5b3cb7cdf9a3c29fa5c3ab51665d7",
+  "controllerSHA256": "7a174045c2ed3147ee0f3730246847466cee3725e9613c3a08e3de2b8f9b9374",
+  "cases": 82,
+  "rows": [
+    {
+      "case": "independent-clang-ARM64-instruction-oracle",
+      "words": [
+        "0x910003e0",
+        "0xd65f03c0",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0x914007ff",
+        "0xd10103ff",
+        "0x910103ff"
+      ],
+      "outcome": "encoded-matched"
+    },
+    {
+      "case": "no-array-byte-compat-arithmetic",
+      "optimized": false,
+      "outcome": "prior-compiler-exact-unsigned-bytes"
+    },
+    {
+      "case": "no-array-byte-compat-calls",
+      "optimized": false,
+      "outcome": "prior-compiler-exact-unsigned-bytes"
+    },
+    {
+      "case": "no-array-byte-compat-record",
+      "optimized": false,
+      "outcome": "prior-compiler-exact-unsigned-bytes"
+    },
+    {
+      "case": "no-array-byte-compat-arithmetic",
+      "optimized": true,
+      "outcome": "prior-compiler-exact-unsigned-bytes"
+    },
+    {
+      "case": "no-array-byte-compat-calls",
+      "optimized": true,
+      "outcome": "prior-compiler-exact-unsigned-bytes"
+    },
+    {
+      "case": "no-array-byte-compat-record",
+      "optimized": true,
+      "outcome": "prior-compiler-exact-unsigned-bytes"
+    },
+    {
+      "case": "u64-zero-write-borrow-512",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "a00095f7089bf57490ec9d60fa5b3ee06aeb93af11e0890ca2df938ad3acb921"
+    },
+    {
+      "case": "u64-zero-write-borrow-1024",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "895b180bbba1221ebc43424bf81ad7e9faa7a78d57b23ac739cf907aa3fb4e2d"
+    },
+    {
+      "case": "u64-zero-write-borrow-4096",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "42547cd02df30e2a69223194937451abcfc259a5281f6f4f767b313fc3f96db9"
+    },
+    {
+      "case": "packed-u8-zero-tail-511",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "7dfe69f015f68627766572e926897185742708fe8b4445bef72303799ae4895f"
+    },
+    {
+      "case": "packed-u8-zero-tail-512",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "ecb1cc17ff441490e158550a332aa335ea8a1607fcde7c1053ce1f54f2b984d3"
+    },
+    {
+      "case": "packed-u8-zero-tail-513",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "b403903dd7b7e3220febcf9df2e3698f2674ad414d9403b08560fa67e375ff3e"
+    },
+    {
+      "case": "packed-u8-zero-tail-32768",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "333ea9c32dfccea198f36f399dc01f9b81078553f7d0606568adc0ed21ad018f"
+    },
+    {
+      "case": "mixed-packed-arrays-records-scalars",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "9fa03d130ded80ecfe3adfe8d70774a235e054456e599666114d1f68f84d556d"
+    },
+    {
+      "case": "eight-argument-typed-borrow-ABI",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "e298c4f284954bb626e6e235754de07a7151ef1415c58f9473ceed3dadcc061f"
+    },
+    {
+      "case": "array-address-index-survives-large-RHS-call-and-order",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "12d5136d1126d1d36aef92acdb85054463aff34c3b30e4e13cb5037e3807cb62"
+    },
+    {
+      "case": "maximum-arena-recursive-activation-isolation",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "1f23577f289b8e410498fc56fd6e71e77d69e5bca528cdf7e65758c4f1f78f54"
+    },
+    {
+      "case": "fresh-array-on-each-call",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "86a3a4befa32f7df7981956d9dc5b5760275d17b4c2563e11031ebd946cc1c37"
+    },
+    {
+      "case": "actual-maximum-256-slots-and49152-arena",
+      "optimized": false,
+      "reservedBytes": 51200,
+      "pageTouches": 13,
+      "outcome": "executed-scalar-and-array-canaries"
+    },
+    {
+      "case": "257th-local-still-refuses",
+      "optimized": false,
+      "outcome": "compile-refusal",
+      "diagnostic": "local bound\nnear source 262:2 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0026-257th-local-still-refuses.rf2)\n"
+    },
+    {
+      "case": "declaration-budget-u64-0",
+      "optimized": false,
+      "outcome": "compile-refusal",
+      "diagnostic": "array length bound\nnear source 2:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0027-declaration-budget-u64-0.rf2)\n"
+    },
+    {
+      "case": "declaration-budget-u64-4097",
+      "optimized": false,
+      "outcome": "compile-refusal",
+      "diagnostic": "array length bound\nnear source 2:17 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0028-declaration-budget-u64-4097.rf2)\n"
+    },
+    {
+      "case": "declaration-budget-u8-32769",
+      "optimized": false,
+      "outcome": "compile-refusal",
+      "diagnostic": "array length bound\nnear source 2:17 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0029-declaration-budget-u8-32769.rf2)\n"
+    },
+    {
+      "case": "noncanonical-0512",
+      "optimized": false,
+      "outcome": "compile-refusal",
+      "diagnostic": "array length canonical decimal required\nnear source 2:17 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0030-noncanonical-0512.rf2)\n"
+    },
+    {
+      "case": "noncanonical-0x200",
+      "optimized": false,
+      "outcome": "compile-refusal",
+      "diagnostic": "array length canonical decimal required\nnear source 2:18 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0031-noncanonical-0x200.rf2)\n"
+    },
+    {
+      "case": "noncanonical-negative1",
+      "optimized": false,
+      "outcome": "compile-refusal",
+      "diagnostic": "array length literal required\nnear source 2:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0032-noncanonical-negative1.rf2)\n"
+    },
+    {
+      "case": "noncanonical-18446744073709551616",
+      "optimized": false,
+      "outcome": "compile-refusal",
+      "diagnostic": "integer literal exceeds u64\nnear source 2:13 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0033-noncanonical-18446744073709551616.rf2)\n"
+    },
+    {
+      "case": "arena-one-word-over-budget",
+      "optimized": false,
+      "outcome": "compile-refusal",
+      "diagnostic": "array arena bound\nnear source 8:2 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0034-arena-one-word-over-budget.rf2)\n"
+    },
+    {
+      "case": "byte-arena-padding-one-cell-over-budget",
+      "optimized": false,
+      "outcome": "compile-refusal",
+      "diagnostic": "array arena bound\nnear source 8:2 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0035-byte-arena-padding-one-cell-over-budget.rf2)\n"
+    },
+    {
+      "case": "byte-arena-exact-budget",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "7eec75f5b8b29a4bd02b37144cd23e7e1303bbe86598bce94b8e0c63fd9b737b"
+    },
+    {
+      "case": "u8-value-overflow-256",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 2,
+      "unsignedSHA256": "34e3c6f397f23bdc4f903052d5e3b2ef95d00e37c766b3b55bd9bb483b791edd"
+    },
+    {
+      "case": "u8-value-overflow-18446744073709551615",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 2,
+      "unsignedSHA256": "c5a41dce34a4d6f3793c578683ae78f4a5e6e01e52a40a7f2db219fa66e490d7"
+    },
+    {
+      "case": "bounds-before-RHS-512",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 2,
+      "unsignedSHA256": "39f213f68983e62d1239ee81a5532bd0655100da84039ab70db167989b6a2e5d"
+    },
+    {
+      "case": "bounds-read-512",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 2,
+      "unsignedSHA256": "cb994028c20b88b2b6dd1b3858790babb54e00ab50fefcd7ba641ca5cf05a22e"
+    },
+    {
+      "case": "bounds-before-RHS-18446744073709551615",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 2,
+      "unsignedSHA256": "c17b44682e0eda8037a118eac8b07a9141c81abf485124ad51ced40afda19be6"
+    },
+    {
+      "case": "bounds-read-18446744073709551615",
+      "optimized": false,
+      "outcome": "executed",
+      "exit": 2,
+      "unsignedSHA256": "cd2c97b48ecb27b2ddd10adee5b2dd3c96390efdeb1610e415688158f07b0bdd"
+    },
+    {
+      "case": "ownership-copy",
+      "optimized": false,
+      "outcome": "compile-refusal",
+      "diagnostic": "scalar expression required\nnear source 5:8 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0043-ownership-copy.rf2)\n"
+    },
+    {
+      "case": "ownership-return",
+      "optimized": false,
+      "outcome": "compile-refusal",
+      "diagnostic": "scalar expression required\nnear source 5:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0044-ownership-return.rf2)\n"
+    },
+    {
+      "case": "ownership-raw-escape",
+      "optimized": false,
+      "outcome": "compile-refusal",
+      "diagnostic": "record passed to raw intrinsic\nnear source 5:13 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0045-ownership-raw-escape.rf2)\n"
+    },
+    {
+      "case": "ownership-rebind",
+      "optimized": false,
+      "outcome": "compile-refusal",
+      "diagnostic": "record rebinding refused\nnear source 5:7 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0046-ownership-rebind.rf2)\n"
+    },
+    {
+      "case": "view-freeze-still-rejects-write",
+      "optimized": false,
+      "outcome": "compile-refusal",
+      "diagnostic": "array writes forbidden while view is live\nnear source 7:7 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0047-view-freeze-still-rejects-write.rf2)\n"
+    },
+    {
+      "case": "large-frame-SP-alignment-restoration-and-recursive-canaries",
+      "optimized": false,
+      "reservedBytes": 49216,
+      "pageTouches": 13,
+      "probe": "test-only MOV x0,SP;RET patched into own function, verified by clang",
+      "prologueWords": [
+        "0xa9bf7bfd",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd10103ff",
+        "0xf90003ff",
+        "0x910003fd"
+      ],
+      "instrumentedSHA256": "54f2b287d5ff77191a8c9f9d6e575ff92a9225ad800f04ec5becac9dc058f8ee",
+      "outcome": "executed"
+    },
+    {
+      "case": "u64-zero-write-borrow-512",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "3221f1392f2995f205abd4f866e47671ee7718e3ae2aadc858a39dca83a874b0"
+    },
+    {
+      "case": "u64-zero-write-borrow-1024",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "e17cd0367208396597baf0aa229940a97c5b88cb7f6f3f7497518bf13e22cc77"
+    },
+    {
+      "case": "u64-zero-write-borrow-4096",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "140f80713b7d25931e0a57a178dcacbdf9f56d2f86cd8e194623cc1fe895f4cf"
+    },
+    {
+      "case": "packed-u8-zero-tail-511",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "e9d05ff102afff6bb384b71721a1137d4e2201c64b3f4d9405e0731ac830916d"
+    },
+    {
+      "case": "packed-u8-zero-tail-512",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "ec81aa68538324a423a29f88dd13c99d6320e50062ea862022e38511a4ea25e7"
+    },
+    {
+      "case": "packed-u8-zero-tail-513",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "05cecb1d664c727dbd259d6b2c0520fbaac6303a1d185d98f3284b4963322478"
+    },
+    {
+      "case": "packed-u8-zero-tail-32768",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "3f9aa7f2314045c01e70b729c80abaad35ad5680e3235171fb228f1be3849a60"
+    },
+    {
+      "case": "mixed-packed-arrays-records-scalars",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "53f71c08f2af51a7fbb2348ee9608fb0013288f4c4e73290e95cd4c4b142b4d2"
+    },
+    {
+      "case": "eight-argument-typed-borrow-ABI",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "a9eafb0094dfb46d8e97222a81b69ff7b0c8e78e42be78edd21de1694e4353bf"
+    },
+    {
+      "case": "array-address-index-survives-large-RHS-call-and-order",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "81010576b5702b21ee31bd3fabdb401eca732e59cad43a6e3a3385715249e261"
+    },
+    {
+      "case": "maximum-arena-recursive-activation-isolation",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "222c848d3e99a9407d80e0eab53c90220c8405a92e29627c76551740a05a1fb3"
+    },
+    {
+      "case": "fresh-array-on-each-call",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "4cebbfd7763cc3a8f979145f26794c0d8068d68e3cb441b0a8687cd7823b7950"
+    },
+    {
+      "case": "actual-maximum-256-slots-and49152-arena",
+      "optimized": true,
+      "reservedBytes": 51264,
+      "pageTouches": 13,
+      "outcome": "executed-scalar-and-array-canaries"
+    },
+    {
+      "case": "257th-local-still-refuses",
+      "optimized": true,
+      "outcome": "compile-refusal",
+      "diagnostic": "local bound\nnear source 262:2 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0062-257th-local-still-refuses.rf2)\n"
+    },
+    {
+      "case": "declaration-budget-u64-0",
+      "optimized": true,
+      "outcome": "compile-refusal",
+      "diagnostic": "array length bound\nnear source 2:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0063-declaration-budget-u64-0.rf2)\n"
+    },
+    {
+      "case": "declaration-budget-u64-4097",
+      "optimized": true,
+      "outcome": "compile-refusal",
+      "diagnostic": "array length bound\nnear source 2:17 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0064-declaration-budget-u64-4097.rf2)\n"
+    },
+    {
+      "case": "declaration-budget-u8-32769",
+      "optimized": true,
+      "outcome": "compile-refusal",
+      "diagnostic": "array length bound\nnear source 2:17 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0065-declaration-budget-u8-32769.rf2)\n"
+    },
+    {
+      "case": "noncanonical-0512",
+      "optimized": true,
+      "outcome": "compile-refusal",
+      "diagnostic": "array length canonical decimal required\nnear source 2:17 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0066-noncanonical-0512.rf2)\n"
+    },
+    {
+      "case": "noncanonical-0x200",
+      "optimized": true,
+      "outcome": "compile-refusal",
+      "diagnostic": "array length canonical decimal required\nnear source 2:18 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0067-noncanonical-0x200.rf2)\n"
+    },
+    {
+      "case": "noncanonical-negative1",
+      "optimized": true,
+      "outcome": "compile-refusal",
+      "diagnostic": "array length literal required\nnear source 2:14 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0068-noncanonical-negative1.rf2)\n"
+    },
+    {
+      "case": "noncanonical-18446744073709551616",
+      "optimized": true,
+      "outcome": "compile-refusal",
+      "diagnostic": "integer literal exceeds u64\nnear source 2:13 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0069-noncanonical-18446744073709551616.rf2)\n"
+    },
+    {
+      "case": "arena-one-word-over-budget",
+      "optimized": true,
+      "outcome": "compile-refusal",
+      "diagnostic": "array arena bound\nnear source 8:2 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0070-arena-one-word-over-budget.rf2)\n"
+    },
+    {
+      "case": "byte-arena-padding-one-cell-over-budget",
+      "optimized": true,
+      "outcome": "compile-refusal",
+      "diagnostic": "array arena bound\nnear source 8:2 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0071-byte-arena-padding-one-cell-over-budget.rf2)\n"
+    },
+    {
+      "case": "byte-arena-exact-budget",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 0,
+      "unsignedSHA256": "a8592b0edd257fdb81607409057ce5b456689249f048092cd3cc4f26c13a6c5d"
+    },
+    {
+      "case": "u8-value-overflow-256",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 2,
+      "unsignedSHA256": "29addc0489c81b0f82257b5323b7211b1bedb4c56834970c8a814e1fa7aca2bb"
+    },
+    {
+      "case": "u8-value-overflow-18446744073709551615",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 2,
+      "unsignedSHA256": "284d66689488cb1dcf180c12ebd3bd866814ed1b014787f275696bbc6726d08e"
+    },
+    {
+      "case": "bounds-before-RHS-512",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 2,
+      "unsignedSHA256": "0a90468f06953466a362a57e1ac72c2efd3fa0f6cc182a4146e0b2a7ed8274b0"
+    },
+    {
+      "case": "bounds-read-512",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 2,
+      "unsignedSHA256": "7e7c2452fbb47f3291ccc4e75943563af9692a67369181036b986f1a35c541be"
+    },
+    {
+      "case": "bounds-before-RHS-18446744073709551615",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 2,
+      "unsignedSHA256": "8d8a03bbb653835fc01ab14eeabf7f9018a6a6543cc1c51e4cf3dbfd9031f04f"
+    },
+    {
+      "case": "bounds-read-18446744073709551615",
+      "optimized": true,
+      "outcome": "executed",
+      "exit": 2,
+      "unsignedSHA256": "96d2ba61a1507772dc3c0fe8d4508fd22753ed7f976f8e6f4518769199d8843e"
+    },
+    {
+      "case": "ownership-copy",
+      "optimized": true,
+      "outcome": "compile-refusal",
+      "diagnostic": "scalar expression required\nnear source 5:8 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0079-ownership-copy.rf2)\n"
+    },
+    {
+      "case": "ownership-return",
+      "optimized": true,
+      "outcome": "compile-refusal",
+      "diagnostic": "scalar expression required\nnear source 5:9 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0080-ownership-return.rf2)\n"
+    },
+    {
+      "case": "ownership-raw-escape",
+      "optimized": true,
+      "outcome": "compile-refusal",
+      "diagnostic": "record passed to raw intrinsic\nnear source 5:13 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0081-ownership-raw-escape.rf2)\n"
+    },
+    {
+      "case": "ownership-rebind",
+      "optimized": true,
+      "outcome": "compile-refusal",
+      "diagnostic": "record rebinding refused\nnear source 5:7 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0082-ownership-rebind.rf2)\n"
+    },
+    {
+      "case": "view-freeze-still-rejects-write",
+      "optimized": true,
+      "outcome": "compile-refusal",
+      "diagnostic": "array writes forbidden while view is live\nnear source 7:7 (line:byte-column; entry /Users/ik/Projects/RiverFlow/artifacts/sprint-032/redteam-1794579338574795000/0083-view-freeze-still-rejects-write.rf2)\n"
+    },
+    {
+      "case": "large-frame-SP-alignment-restoration-and-recursive-canaries",
+      "optimized": true,
+      "reservedBytes": 49280,
+      "pageTouches": 13,
+      "probe": "test-only MOV x0,SP;RET patched into own function, verified by clang",
+      "prologueWords": [
+        "0xa9bf7bfd",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd14007ff",
+        "0xf90003ff",
+        "0xd10203ff",
+        "0xf90003ff",
+        "0x910003fd"
+      ],
+      "instrumentedSHA256": "fdc0e04cd61edd08c780b2d6a293d4ad1e30c462d609bd5706d9b1552d2a4f59",
+      "outcome": "executed"
+    },
+    {
+      "case": "array-function-never-admitted-scalar-reuse-cold",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 0,
+        "compiled": 1,
+        "ineligible": 2,
+        "validationReused": 0,
+        "fullValidationChecks": 1,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37"
+      }
+    },
+    {
+      "case": "array-function-never-admitted-scalar-reuse-warm",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 1,
+        "fullValidationChecks": 0,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37"
+      }
+    },
+    {
+      "case": "array-function-never-admitted-scalar-reuse-edited",
+      "outcome": "clean-byte-and-execution-match",
+      "receipt": {
+        "schema": "rf2.function.reuse.v1",
+        "reused": 1,
+        "compiled": 0,
+        "ineligible": 2,
+        "validationReused": 1,
+        "fullValidationChecks": 0,
+        "unitContainerReads": 1,
+        "packed": 1,
+        "unitFormat": "RF2FN002",
+        "compilerSHA256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37"
+      }
+    }
+  ],
+  "scope": "Finite actual Apple Silicon Mac native tests, independent arithmetic/zeroing canaries and clang encoding oracle. SP instrumentation patches only disposable test functions. No all-program memory-safety, unlimited stack, concurrency, other-target or security certification claim."
+}

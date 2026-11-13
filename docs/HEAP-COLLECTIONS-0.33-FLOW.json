@@ -1,0 +1,130 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "native .flow entry and mixed imports execute",
+      "optimized": false
+    },
+    {
+      "case": ".flow native check",
+      "optimized": false
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": "../math.flow",
+      "optimized": false
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": "/math.flow",
+      "optimized": false
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": "lib//math.flow",
+      "optimized": false
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": "lib/.flow",
+      "optimized": false
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": ".flow",
+      "optimized": false
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": "lib/math.FLOW",
+      "optimized": false
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": "lib/math.txt",
+      "optimized": false
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": "lib/x..flow",
+      "optimized": false
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": "lib/math.flow/",
+      "optimized": false
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": "lib/a\u0000.flow",
+      "optimized": false
+    },
+    {
+      "case": "native .flow entry and mixed imports execute",
+      "optimized": true
+    },
+    {
+      "case": ".flow native check",
+      "optimized": true
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": "../math.flow",
+      "optimized": true
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": "/math.flow",
+      "optimized": true
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": "lib//math.flow",
+      "optimized": true
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": "lib/.flow",
+      "optimized": true
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": ".flow",
+      "optimized": true
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": "lib/math.FLOW",
+      "optimized": true
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": "lib/math.txt",
+      "optimized": true
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": "lib/x..flow",
+      "optimized": true
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": "lib/math.flow/",
+      "optimized": true
+    },
+    {
+      "case": "unsafe or unsupported path refuses",
+      "path": "lib/a\u0000.flow",
+      "optimized": true
+    },
+    {
+      "case": "mixed-extension cycle refuses"
+    },
+    {
+      "case": "unimplemented ESP32 target refuses"
+    }
+  ],
+  "compilerSHA256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37",
+  "controllerSHA256": "1b2aedae28c3fad9714e4b8a3b7dd2d39c5b00ddced3ab1bf19a5befd1922a8a",
+  "scope": "Native Apple Silicon Mac source extension/import qualification. This does not establish any ESP32/Arduino/embedded target."
+}

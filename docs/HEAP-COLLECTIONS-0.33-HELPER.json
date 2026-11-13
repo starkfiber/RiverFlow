@@ -1,0 +1,11 @@
+{
+  "derivedSnapshot": true,
+  "canonicalSource": "native/compiler/compiler.rf2",
+  "canonicalSourceSHA256": "3d2e7d65cc545c116b9c75aaabb10b0906f5b3cb7cdf9a3c29fa5c3ab51665d7",
+  "extractedFunction": "heap_runtime_source",
+  "snapshot": "artifacts/sprint-033/heap-runtime-readable.flow",
+  "snapshotSHA256": "14da8003a4c1ec8f8b7473521f71c85192118d60277e41aa0f1567da20ff9b0a",
+  "byteCount": 2515,
+  "exactLiteralEquality": true,
+  "authority": "Read-only derived view, not a second source of truth; compiler embeds its checked lowering source."
+}
