@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "manifestFiles": 38,
+  "threeNativeSignatures": true,
+  "nativeMacExtractionPreservesExecuteModes": true,
+  "compilerRebuiltWithRF2Only": true,
+  "sameBasenameSignedCompilerBytesMatch": true,
+  "fiveFirmwareImagesRebuiltIdentically": true,
+  "zipSHA256": "a07f2f7ac7e4895171b7c6a178c9c6817427e76379bf2c6a26e9da40213d0f1d",
+  "controllerSHA256": "693d361ba25d2c3d5236ac5c1e5dfab1aaa0c9c99d9069076a850e5e83963d2a",
+  "scope": "Fresh native Mac package extraction and rebuild, no physical device operation. Prior Python ZipFile extraction did not restore executable modes; native ditto checks actual archive metadata."
+}

@@ -1,0 +1,162 @@
+{
+  "version": "0.36.0-dev",
+  "compilerHost": "macos-arm64",
+  "firmwareTarget": "esp32c3-rv32im-ram-interrupt-v1",
+  "runtimeContract": "0.17 nine bounded tools",
+  "physicalHardwareTested": false,
+  "packagerSHA256": "6a95429e72a89d9141a8803a60605f72579a6929aca2105a35654f77f415af9b",
+  "files": {
+    "LICENSE": {
+      "bytes": 1087,
+      "sha256": "439e5b1ea79a6a0a2007acf65173490db2462b238b9805abab0ee820838b23e8"
+    },
+    "README.txt": {
+      "bytes": 1936,
+      "sha256": "2920d2221ed4d6c461b527a867252b86a8ddff0aa1376f26dfd2052fdc571279"
+    },
+    "examples/esp32c3/README.md": {
+      "bytes": 9877,
+      "sha256": "80ae1155d9cf711162a4264836d4857a97d4b73083f111c60951e0e89a4d3871"
+    },
+    "examples/esp32c3/board.json": {
+      "bytes": 2073,
+      "sha256": "ea9ce779e4c0571341b4c49f4cc7fc7585c77dc39600a3a3d8fa64dce72ac7d6"
+    },
+    "examples/esp32c3/interrupt-heartbeat.flow": {
+      "bytes": 2085,
+      "sha256": "3e8ecd21fd4aaf17149c8d2d59d56b777a9a04e78286b9cfd5dc5ade7caa7f46"
+    },
+    "examples/esp32c3/lib/peripheral.flow": {
+      "bytes": 4491,
+      "sha256": "658927d78aba0d699c069a0fe3e4f32af54350bd7ba1221d6a8389159333482d"
+    },
+    "examples/esp32c3/lib/time.flow": {
+      "bytes": 1615,
+      "sha256": "91bfc8abf31ebd26ce967bbd815f3b606c552a6d90b953ee67929e0aa208068a"
+    },
+    "examples/esp32c3/lib/uart.flow": {
+      "bytes": 595,
+      "sha256": "5be60a7918c94cb44b60c3fe925822cbe98008d19971eff3a92fa5d406eac1d8"
+    },
+    "examples/esp32c3/lib/watchdog.flow": {
+      "bytes": 1797,
+      "sha256": "f54a3fd3db6fcca08f2ba156dacee9f72f7f96ccb53facb103ee7e19840567a4"
+    },
+    "examples/esp32c3/register-sources.json": {
+      "bytes": 3116,
+      "sha256": "de8a81778e387562e1c3cdb1e3718d943b9fe9c2dda8ccbb0e6dadf158378748"
+    },
+    "examples/esp32c3/tests/model-hooks.flow": {
+      "bytes": 1483,
+      "sha256": "025ea6ddac132252ae7280ea7a7c9149289be3e383e7f9c9d596915a473ef634"
+    },
+    "examples/esp32c3/tests/model-main.flow": {
+      "bytes": 1437,
+      "sha256": "69f511709f7ee1d9903bd7f1b3d193cae4bc8def2aba7fcc5f3c393752bfcd4b"
+    },
+    "examples/esp32c3/tests/verify_protocol.py": {
+      "bytes": 9833,
+      "sha256": "0a2ea9ee48109c1f0cf42b15260841a0c13d4fc0863c9442185e99806b02e35a"
+    },
+    "examples/esp32c3/tests/verify_protocol_rv32.py": {
+      "bytes": 8996,
+      "sha256": "53b137c381d159876f895045ad632de086e93a224a03bc17face7f88b38849a4"
+    },
+    "examples/esp32c3/timed-heartbeat.flow": {
+      "bytes": 1330,
+      "sha256": "8a9679a08c632e57100afb6dfa36b6ab46efb7861b341c070f69ae601458e983"
+    },
+    "examples/esp32c3/tmp102.flow": {
+      "bytes": 6243,
+      "sha256": "19dd66516deb46fe17b1ae8599f303486c9273db816aaf4ef0b25b7c4c76e333"
+    },
+    "examples/esp32c3/uart-echo.flow": {
+      "bytes": 1017,
+      "sha256": "b646ba90c180769bf23eee9b2781e21f1fd2e0762b87a3991a75dbc796c2a91c"
+    },
+    "examples/esp32c3/uart-smoke.flow": {
+      "bytes": 1191,
+      "sha256": "d35ad4d5b5e93ffe77186479dbe907e6b76107d48635cae0249fb2989c796614"
+    },
+    "firmware/interrupt-heartbeat.bin": {
+      "bytes": 14832,
+      "sha256": "9abacde5f6954ead917cf6a4f03b86127904c444e1619cd8fe37dcf9ec56ccba"
+    },
+    "firmware/interrupt-heartbeat.elf": {
+      "bytes": 18852,
+      "sha256": "c685f27d0dd46b94efeb01d28628ca7001b1a28b4156479b3b8f35af5e94dc49"
+    },
+    "firmware/interrupt-heartbeat.map": {
+      "bytes": 537,
+      "sha256": "213f2615b65e46ccb70671836bf77b3e775c4e823850ed2db9feb036d450bcae"
+    },
+    "firmware/timed-heartbeat.bin": {
+      "bytes": 5696,
+      "sha256": "a025572346ec4b2df820e411612898b2e021281cfa1c3cbab2fa8cc17ec9db16"
+    },
+    "firmware/timed-heartbeat.elf": {
+      "bytes": 9712,
+      "sha256": "9205eb08603d085352bb6cf1e25824fa96e186fe8729976796c6d811d2ab4198"
+    },
+    "firmware/timed-heartbeat.map": {
+      "bytes": 291,
+      "sha256": "920393b1e88995631fb907bb9bc3037174cc76300f2f543daf1fcebeaa2c8b90"
+    },
+    "firmware/tmp102.bin": {
+      "bytes": 8048,
+      "sha256": "8e37daec3e681b868a59c3021d63a5c0fa1d0ff2f5175c8f5f5a7dfedbaaba58"
+    },
+    "firmware/tmp102.elf": {
+      "bytes": 12072,
+      "sha256": "daaf94471bc68bf6785f2cf6bbca7e75428c93ec25a66a113ef903f4ad782034"
+    },
+    "firmware/tmp102.map": {
+      "bytes": 351,
+      "sha256": "11331a4ed1eb56924bda29ce89e7f6eee59b8d5f3427f34343e3a4c33582d694"
+    },
+    "firmware/uart-echo.bin": {
+      "bytes": 1616,
+      "sha256": "eb9eec5ee0468b24c19a43609ff6e388d0fcc57573a72c152555b8d67b4236fa"
+    },
+    "firmware/uart-echo.elf": {
+      "bytes": 5640,
+      "sha256": "e03f533bde5bb5b24e653215c905f0c6e48de92235b092fa9cc7eee3362266aa"
+    },
+    "firmware/uart-echo.map": {
+      "bytes": 87,
+      "sha256": "2ebb529b7201911bec9a1416b85034040303f692034a620581027ceeef213ed9"
+    },
+    "firmware/uart-smoke.bin": {
+      "bytes": 1824,
+      "sha256": "e94bd7dab65e52981a786fdd2c2570ec2faf0cc5a9a6c24f7195115566bacba0"
+    },
+    "firmware/uart-smoke.elf": {
+      "bytes": 5852,
+      "sha256": "52f4b717dc0fa112e9ba01ff2ba4535618dff422725049037fb9c7a7abab5f7d"
+    },
+    "firmware/uart-smoke.map": {
+      "bytes": 90,
+      "sha256": "5fbbe484054200efc0b48063a0df8dccc7a5dd6c07f49d1562991b7e45534f46"
+    },
+    "rf2": {
+      "bytes": 231680,
+      "sha256": "df714d688e5b96577abb294a192432ed2f57f07c080ab23e32eee46cf94b0b89"
+    },
+    "rf2-esp32c3": {
+      "bytes": 149600,
+      "sha256": "a1a864b993bcb308c9ce11b86bfc936599438d02ba72e49dace70edad67325ed"
+    },
+    "rf2c": {
+      "bytes": 363008,
+      "sha256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37"
+    },
+    "source/backend.flow": {
+      "bytes": 26408,
+      "sha256": "e5dc87101938e702c626b851efc0e233dbf7b757125b4e45cc0be7b90a9bb3dd"
+    },
+    "source/embedded-compiler.rf2": {
+      "bytes": 46815,
+      "sha256": "cf11467e1f8d69291f4eaf2c7da4ad3a4be4fa3c6cfb959c78264786995b339d"
+    }
+  }
+}

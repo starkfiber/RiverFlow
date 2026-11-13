@@ -1,0 +1,52 @@
+[
+  {
+    "file": "interrupt_core0_reg.h",
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/soc/esp32c3/register/soc/interrupt_core0_reg.h",
+    "sha256": "6165e24b1b35c6812c210bd57fed603737d17f6c555faddc571804a0ef390b78"
+  },
+  {
+    "file": "interrupts.h",
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/soc/esp32c3/include/soc/interrupts.h",
+    "sha256": "9600d160c10102d4bfe5d2d9d6786f43b7547df9fc0a624f7fcb7368c1b406ef"
+  },
+  {
+    "file": "intr_alloc.c",
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/esp_hw_support/intr_alloc.c",
+    "sha256": "9159d5c5588552596d4c1c420fba670af4673144e99454df119e39f43ceab704"
+  },
+  {
+    "file": "riscv-vectors.S",
+    "url": "https://raw.githubusercontent.com/espressif/esp-idf/v5.5/components/riscv/vectors.S",
+    "sha256": "f61409a3bfb7da55506ef60780cbfdeaf566e08a2bcdec80c09dcb253d9102bb"
+  },
+  {
+    "file": "qemu-cpu.c",
+    "url": "https://raw.githubusercontent.com/espressif/qemu/40edccac415693c5130f91c01d84176ae6008566/target/riscv/cpu.c",
+    "sha256": "f7c8940771210146e423ba8dd419382bf306efe168dc875c2e69e2a8ee6333b4"
+  },
+  {
+    "file": "qemu-cpu-helper.c",
+    "url": "https://raw.githubusercontent.com/espressif/qemu/40edccac415693c5130f91c01d84176ae6008566/target/riscv/cpu_helper.c",
+    "sha256": "5f0488864be27c4e40511af53808da9a1948dd18f525463ffd20961e235a6531"
+  },
+  {
+    "file": "esp32c3_intmatrix.c",
+    "url": "https://raw.githubusercontent.com/espressif/qemu/40edccac415693c5130f91c01d84176ae6008566/hw/riscv/esp32c3_intmatrix.c",
+    "sha256": "60cebc2b15a507bf8d82ce473c066ac532ba686e750f4432aded99f6696fbb26"
+  },
+  {
+    "file": "esp32c3_intmatrix.h",
+    "url": "https://raw.githubusercontent.com/espressif/qemu/40edccac415693c5130f91c01d84176ae6008566/include/hw/riscv/esp32c3_intmatrix.h",
+    "sha256": "2794fdb9f919594467d135704dfc0e6ba9808e55194e519509bff3a5462655d0"
+  },
+  {
+    "file": "esp_cpu.c",
+    "url": "https://raw.githubusercontent.com/espressif/qemu/40edccac415693c5130f91c01d84176ae6008566/target/riscv/esp_cpu.c",
+    "sha256": "5ae2b8f806532ea6e970fddec475c8cb93c35d44bcd24571416a0656084cfa84"
+  },
+  {
+    "file": "esp_cpu.h",
+    "url": "https://raw.githubusercontent.com/espressif/qemu/40edccac415693c5130f91c01d84176ae6008566/target/riscv/esp_cpu.h",
+    "sha256": "1606fc82e7929f21d18c28ea51d4d7a791cedaf5ef841ed3a78100fb67735d1b"
+  }
+]

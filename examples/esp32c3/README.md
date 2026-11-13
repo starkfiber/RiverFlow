@@ -35,22 +35,45 @@ from the ROM loader. The original UART and TMP102 examples do not initialize an
 arbitrary cold UART or change watchdog configuration. When `main` returns, entry
 parks; its status is not an OS process exit status. The newer timed heartbeat
 explicitly configures and services TIMG0 watchdog supervision. Interrupt handling
-and physical continuous-operation qualification remain pending.
+and physical continuous-operation qualification remain pending for the original
+0.34/0.35 examples. The 0.36 compiler adds the bounded interrupt contract below.
+
+## Interrupts and checked peripheral leases
+
+`interrupt-heartbeat.flow` uses `interrupt fn on_interrupt(cause)`, a private
+interrupt stack and the checked `lib/peripheral.flow` timer/watchdog leases.
+It runs 2400 foreground intervals with independently checked arithmetic while
+timer interrupts acknowledge the source. Two 600-second virtual-time QEMU runs
+completed with 60068 and 60176 interrupts. These are model observations, not
+physical timing or wall-clock endurance.
+
+```sh
+rf2-esp32c3 examples/esp32c3/interrupt-heartbeat.flow NEW-PREFIX
+```
+
+Use the [0.36 native bundle](../../dist/0.36-candidate/README.md) and the
+[interrupt/ownership contract](../../docs/ESP32C3-INTERRUPTS-0.36.md). The older
+compiler does not accept the new handler syntax. The new development ABI
+reserves additional runtime memory; raw address users must honor those ranges.
+Only one non-nested dispatcher and two peripheral bundles are covered. Leases
+reject stale handles but do not isolate trusted raw MMIO or implement linear
+types. Unknown traps/storms halt with interrupts masked; an armed watchdog can
+reset that terminal state. RTC watchdog and physical validation remain pending.
 
 ## Timers and watchdog supervision
 
 `timed-heartbeat.flow` shares `lib/time.flow`, `lib/watchdog.flow` and
 `lib/uart.flow`. It completes480 quarter-second intervals, feeds the watchdog
 only after a successful interval, checks UART failures and deliberately disarms
-before returning. Two vendor-QEMU runs each completed120 seconds of virtual
+before returning. Two vendor-QEMU runs each completed 120 seconds of virtual
 time. This is not a physical or wall-clock endurance measurement.
 
 ```sh
 rf2-esp32c3 examples/esp32c3/timed-heartbeat.flow NEW-PREFIX
 ```
 
-Use the complete source checkout; the existing0.34 download does not contain
-these new example libraries. Read the [timer/watchdog contract](../../docs/ESP32C3-TIMERS.md)
+Use the complete source checkout or the 0.36 bundle; the older0.34 download does
+not contain these libraries. Read the [timer/watchdog contract](../../docs/ESP32C3-TIMERS.md)
 for clock assumptions, wrapping timestamps, bounded waits, explicit failure
 codes and emulator protection limitations. No new MCP device authority or
 automatic flashing is introduced.
