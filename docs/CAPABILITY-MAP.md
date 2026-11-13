@@ -1,8 +1,16 @@
 # What can RF2 build today?
 
-RiverFlow is an implemented language with a native compiler, useful applications and a bounded MCP server. It is not yet a replacement for every Java, C++, Python or assembly workflow. This inventory describes the **0.17** release, with owned files and visible cleanup errors. Qualification receipts define its exact tested scope.
+RiverFlow is an implemented language with a native compiler, useful applications and a bounded MCP server. It is not yet a replacement for every Java, C++, Python or assembly workflow. The stable inventory describes the **0.17** release, with owned files and visible cleanup errors. Qualification receipts define its exact tested scope.
 
 The long-term direction is one readable language across application and systems work. Each additional target needs its own implementation, contract and executed tests.
+
+## Development additions through 0.21
+
+These are source-development capabilities with scoped evidence, separate from the stable 0.17 download. Native stdio authenticated contract tools, direct Apple Hypervisor VMM control, bounded Core WebAssembly, VM/vCPU ownership, owned guest mappings and shared-key image authentication now have local tests. See [0.21 boot contract](BOOT-CONTRACT-0.21.md). No Linux boot, x86 backend or general mobile platform qualification follows from those tests.
+
+RF2 is **not at 100% Python, C or assembly coverage**. It still lacks major foundations such as floating-point types, arbitrary-precision arithmetic, general heap/ownership transfer, comprehensive libraries, concurrency, broad FFI, every CPU instruction/ABI and every machine target. Existing native applications do not establish ecosystem parity. Its AI host can write source, but RF2 has no embedded general model and no measured complete AI-task superiority.
+
+See [the current benchmark report](BENCHMARKS-0.21.md), including losses and the historical inventory. No single speed score summarizes these workloads.
 
 ## Choose the execution contract
 

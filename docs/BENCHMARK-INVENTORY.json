@@ -1,0 +1,155 @@
+{
+  "schema": "rf2.benchmark.inventory.v1",
+  "note": "An inventory of retained reports, not a meta-analysis or proof that every report is comparable. Historical reports were not rerun unless marked. No complete AI-generation/task benchmark exists.",
+  "reports": [
+    {
+      "path": "docs/CAPABILITY-MEASUREMENTS-0.7.json",
+      "sha256": "a76209866745d532679e4ec5976e78da977f0ee01e3056101499649f5dad982e",
+      "historical": true,
+      "scope": "Persistent JSON-lines request roundtrip, includes controller JSON encoding/decoding, IPC, validation, calculation and response. Process launch, schema discovery and compilation excluded. One host, not CPU-kernel or energy measurements.",
+      "rerunThisSprint": false
+    },
+    {
+      "path": "docs/COLLECTIONS-MEASUREMENTS.json",
+      "sha256": "d597ce32d360cb7cfc93d490eb3376241871baca0dcaf85e08d3d413a7022170",
+      "historical": true,
+      "scope": "Seven rotated fresh-process trials after retained cold/warmup, one uncontrolled Mac. Includes process launch, parsing, sorting and JSON output. The old raw-global-buffer RF2 variant has different lifetime and bounds semantics; C qsort also changes the sorting algorithm. No isolated check-overhead, general speed, energy or AI-token claim.",
+      "rerunThisSprint": false
+    },
+    {
+      "path": "docs/CONDITIONAL-REDUCTION-MEASUREMENTS.json",
+      "sha256": "f44e54d50d9cbb34e1b792d409fddb791d3e97380865c9305c3b21e1ce9995d1",
+      "historical": true,
+      "scope": "Identical runtime inputs; seven rotated process trials after separately retained cold/warmup. Wall time includes process launch on one uncontrolled Mac. Clang loop, scalar-only loop and equally specialized closed form retained. No energy, token, full-stack or universal speed claim.",
+      "rerunThisSprint": false
+    },
+    {
+      "path": "docs/CONTRACT-OVERHEAD-MEASUREMENTS.json",
+      "sha256": "01c05595d6fd73261f414a711fb1069e16ea3f0bec446a350ce12d0f501afcfe",
+      "historical": true,
+      "scope": "Native in-process repeated transforms with process startup included; equal input/output and checked reference semantics. Reference-only intentionally omits candidate execution/disagreement detection, so it provides fewer guarantees. Isolated benchmark code, not an unsafe production switch. No CLI parsing/hashing, no broad language comparison or token/energy measurement.",
+      "rerunThisSprint": false
+    },
+    {
+      "path": "docs/LANGUAGE-MEASUREMENTS-0.10.json",
+      "sha256": "b4ff6e1bce30f7c867a22afcfa3058584fc85c73f46d60f98ae32ef7e0de1798",
+      "historical": true,
+      "scope": "One host. Fresh-process wall time includes launch. Repeated kernels retain actual checksums. Optional optimiser compared with frozen 0.9 for identical scalar source. Token counts encode retained exchanges, not provider bills or AI task success.",
+      "rerunThisSprint": false
+    },
+    {
+      "path": "docs/OPTIMIZER-MEASUREMENTS-0.11.json",
+      "sha256": "c9222fbf4952689baa003e7a8cdca4249e0e492cee928c7e4244a111f4ec6069",
+      "historical": true,
+      "scope": "Runtime inputs for every variant; fresh-process wall time includes launch. Rotated matched trials. C -O3 -mcpu=native, plus equally specialised C formula. One host, uncontrolled system load; no universal performance or AI inference claim.",
+      "rerunThisSprint": false
+    },
+    {
+      "path": "docs/REUSE-MEASUREMENTS-0.8.json",
+      "sha256": "784f1638452d88b345e3f7fa2032029572919beb1e429602a081b8c72beb46c3",
+      "historical": true,
+      "scope": "One-host persistent JSON-lines roundtrip including controller serialization/result checking; startup, discovery and plan preparation excluded from latency. Token experiment includes preparation/release, schemas and exact requests/responses. No inference API invoked.",
+      "rerunThisSprint": false
+    },
+    {
+      "path": "docs/STACK-LAB-0.18-MEASUREMENTS.json",
+      "sha256": "1771fc6a1a0e33490bceb7f51bcc2d365abade838aef26aa84bee72e6a992b92",
+      "historical": true,
+      "scope": [
+        "Single physical host, single-worker bounded HTTP subset, loopback; not internet capacity",
+        "Host-Python control isolates some VM cost, not all implementation/runtime/OS differences",
+        "Guest is QEMU/HVF Linux with user-mode network forwarding; RF2 launches backend, not a new hypervisor",
+        "HTTP latency includes socket/client overhead; no compiler-wide/energy/token/transistor claims",
+        "Malformed probes are a bounded subset, not complete HTTP conformance or security proof"
+      ],
+      "rerunThisSprint": false
+    },
+    {
+      "path": "docs/STUDIO-MEASUREMENTS-0.9.json",
+      "sha256": "802d6f252131c5fa1c41a55b161043346f5ca207c1c79242b2a0fddde51cdcc1",
+      "historical": true,
+      "scope": "One-host persistent MCP roundtrips vs frozen 0.8. Separate GUI timing includes form encoding, POST, redirect GET, HTML generation and controller result check, not browser DOM/layout. Different work; no GUI-vs-MCP speedup claim. Startup/discovery/preparation excluded.",
+      "rerunThisSprint": false
+    },
+    {
+      "path": "docs/TRUST-0.18-ENGINE-MEASUREMENTS.json",
+      "sha256": "769c6dec2c52c7c29fb8c1a3c3070a71297bce1fdfa806070ab19006a3d3a210",
+      "historical": true,
+      "scope": "Native three-path in-process repeated XOR/reversal transforms with process startup included; equal input/output and checked reference semantics. Reference-only intentionally omits candidate execution/disagreement detection, so it provides fewer guarantees. Isolated benchmark code, not an unsafe production switch. No CLI parsing/hashing, no broad language comparison or token/energy measurement.",
+      "rerunThisSprint": false
+    },
+    {
+      "path": "docs/TRUST-0.18-MCP-MEASUREMENTS.json",
+      "sha256": "67ce583c6993e5dfd23cd3995da119b56af25731ee9765fef5d0bf9723559c06",
+      "historical": true,
+      "scope": "One local stdio process. Includes native parsing, execution or verification, authentication, pipes and Python host JSON serialization/deserialization. Not a network, GPU, pure engine, AI bill/token or crosslanguage result. No previous authenticated MCP baseline existed.",
+      "rerunThisSprint": false
+    },
+    {
+      "path": "docs/WASM-0.19-MEASUREMENTS.json",
+      "sha256": "a7e9c878a37eec2ef842f583d0eb3dc2b6b6a29e692c52f4e5f4e82a5555f0cb",
+      "historical": true,
+      "scope": [
+        "One Node/V8 process, selected checked sum; not network/browser/native CPU or language-wide performance",
+        "WASM preserves general emitted Core instruction/work guards; direct JS is a simpler specialized rival",
+        "No Android, token, energy or hypervisor speed result"
+      ],
+      "rerunThisSprint": false
+    },
+    {
+      "path": "docs/APPLICATION-BENCHMARKS-0.21.json",
+      "sha256": "50250640734a702e09235faa82c00f2f23ed3747a88833ac89aced4d6c004808",
+      "historical": false,
+      "scope": "Fresh-process end-to-end wall time including startup/IO for four bounded tasks, rotated order, one uncontrolled Mac. Algorithm/library differences named explicitly. No AI model calls, bills, token, energy or universal language-speed claim.",
+      "rerunThisSprint": true
+    },
+    {
+      "path": "docs/BENCHMARK.json",
+      "sha256": "1257bf1cad5019d3cb28d48e54fbc5371d0206b8f3cbf33d5b46062b6e3fa1fe",
+      "historical": true,
+      "scope": "One host process, warm deterministic checked sums; reparsed includes parse/validation each call; prepared excludes one setup; directJS is an optimized simple checked-loop baseline. No device/energy/general superiority claim.",
+      "rerunThisSprint": false
+    },
+    {
+      "path": "docs/HTTP-BENCHMARKS-0.21.json",
+      "sha256": "868426347c085030a69ce72c25a04bed5bd4e6b9408aa59b02d940dac3eb8026",
+      "historical": false,
+      "scope": [
+        "Single physical host, single-worker bounded HTTP subset, loopback; not internet capacity",
+        "Host-Python control isolates some VM cost, not all implementation/runtime/OS differences",
+        "Guest is QEMU/HVF Linux with user-mode network forwarding; RF2 launches backend, not a new hypervisor",
+        "HTTP latency includes socket/client overhead; no compiler-wide/energy/token/transistor claims",
+        "Malformed probes are a bounded subset, not complete HTTP conformance or security proof"
+      ],
+      "rerunThisSprint": true
+    },
+    {
+      "path": "docs/MCP-BENCHMARKS-0.21.json",
+      "sha256": "a17b5350fd38570e34ae6abd1a19975998b7bfee117d49cdeb8b3949b1dab9d3",
+      "historical": false,
+      "scope": "Local persistent native stdio services; includes native execution/HMAC, pipes and Python host JSON. Nine rotated trials,20calls per trial after3warmups. No network, provider inference, AI generation, billed tokens or language-equivalence claim.",
+      "rerunThisSprint": true
+    },
+    {
+      "path": "docs/NATIVE-BENCHMARK-CONSERVATIVE.json",
+      "sha256": "1932982c8babe47a175b9011775b91383e612dd381706238e215c54428b6c3a5",
+      "historical": true,
+      "scope": "One process on one host, warm checked sum. Separate translation units, no LTO, rotating order, all outputs and work counts verified. Manual baseline has the same ABI admission and a handwritten sum loop. Compilation, loading, allocation and cold startup excluded. No energy or phone result.",
+      "rerunThisSprint": false
+    },
+    {
+      "path": "docs/NATIVE-BENCHMARK-RUNS.json",
+      "sha256": "9fd98938a30f76cc17796bcde8406b0785e694e4a04a078b76901bc65770da5c",
+      "historical": true,
+      "scope": "Three fresh host benchmark processes; same machine and implementation, not independent hardware replication",
+      "rerunThisSprint": false
+    },
+    {
+      "path": "docs/NATIVE-BENCHMARK.json",
+      "sha256": "c3d0cd352a3d345f675e2f4a4ac05670918c3d6b39933089b51ad71e89dd7dee",
+      "historical": true,
+      "scope": "One process on one host, warm checked sum. Separate translation units, no LTO, rotating order, all outputs and work counts verified. Manual baseline has the same ABI admission and a handwritten sum loop. Compilation, loading, allocation and cold startup excluded. No energy or phone result.",
+      "rerunThisSprint": false
+    }
+  ]
+}

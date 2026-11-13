@@ -1,0 +1,440 @@
+profile RF2_SYSTEM_A64_V1
+# RF2A021 authenticated bounded boot contract. Trusted CLI, not Linux/ELF.
+use "lib/sha256.rf2"
+use "lib/auth.rf2"
+fn copy_bytes(dst,src,n)
+ let i=0
+ while i<n
+  do store8(dst+i,load8(src+i))
+  set i=i+1
+ end
+ return dst
+end
+result IO(u64,u64)
+resource File(IO)
+resource Machine(IO,vm)
+resource CPU(IO,vcpu)
+resource Pages(IO,mapping)
+array Chunk(u8,255)
+fn info()
+ return buffer("runner_info",128)
+end
+fn image()
+ return buffer("validated_image",8192)
+end
+fn decimal(p)
+ let n=0
+ let i=0
+ while load8(p+i)
+  let c=load8(p+i)
+  if any(i>=10,any(c<48,c>57))
+   return 18446744073709551615
+  end
+  if all(i==1,load8(p)==48)
+   return 18446744073709551615
+  end
+  set n=n*10+c-48
+  set i=i+1
+ end
+ if i==0
+  return 18446744073709551615
+ end
+ return n
+end
+fn load_image(path,keypath):IO
+ # O_NOFOLLOW | O_NONBLOCK: links refuse and FIFOs cannot block the loader.
+ own file=File(path,260,0)
+ let chunk=Chunk()
+ let total=0
+ let count=1
+ let i=0
+ while count
+  handle read_owned(file,chunk,255)
+  ok got
+   set count=got
+  err cause
+   return err(cause)
+  end
+  if count>4256-total
+   return err(1001)
+  end
+  set i=0
+  while i<count
+   do store8(image()+total,chunk[i])
+   set total=total+1
+   set i=i+1
+  end
+ end
+ if total<164
+  return err(1002)
+ end
+ if load64(image())!=13847456692454994
+  return err(1003)
+ end
+ let bytes=load64(image()+8)
+ let entry=load64(image()+16)
+ if any(bytes==0,any(bytes>4096,any(bytes&3!=0,bytes!=total-160)))
+  return err(1004)
+ end
+ if any(entry>=bytes,entry&3!=0)
+  return err(1005)
+ end
+ if any(load64(image()+24)!=1,any(load64(image()+32)!=0,load64(image()+40)!=0))
+  return err(1006)
+ end
+ set i=0
+ while i<bytes
+  let op=load32(image()+128+i)
+  let valid=any(op==3573751839,any(op==2332098560,any(op==4177526848,op==3556769826)))
+  if (op&4227858432)==335544320
+   let target=op&67108863
+   if target>=33554432
+    let delta=(67108864-target)*4
+    if delta<=i
+     set valid=true
+    end
+   else
+    if target*4<bytes-i
+     set valid=true
+    end
+   end
+  end
+  if not(valid)
+   return err(1007)
+  end
+  set i=i+4
+ end
+ # Boot contract: fixed guest layout, CPSR and admitted effects, with an authenticated max slice.
+ if any(load64(image()+48)!=65536,any(load64(image()+56)!=81920,any(load64(image()+64)!=16384,load64(image()+72)!=965)))
+  return err(1010)
+ end
+ if any(load64(image()+80)!=7,any(load64(image()+88)==0,load64(image()+88)>1000))
+  return err(1011)
+ end
+ if any(load64(image()+96)!=0,load64(image()+104)!=0)
+  return err(1012)
+ end
+ let key=buffer("guest_key",32)
+ if load_key(keypath,key)==0
+  return err(1013)
+ end
+ let keyhash=sha256(key,32)
+ if same_bytes(image()+112,keyhash,16)==0
+  do wipe(key,32)
+  return err(1014)
+ end
+ let digest=hmac256(key,32,image(),128+bytes)
+ let authenticated=same_bytes(digest,image()+128+bytes,32)
+ do wipe(key,32)
+ do wipe(digest,32)
+ if not(authenticated)
+  return err(1015)
+ end
+ do store64(info()+64,total)
+ do store64(info()+72,entry)
+ return ok(bytes)
+end
+fn reacquire():IO
+ own machine=Machine()
+ return ok(0)
+end
+fn guest(budget,left,right,cancel):IO
+ own machine=Machine()
+ own code=Pages(machine,65536,16384,5)
+ own data=Pages(machine,81920,16384,3)
+ let i=0
+ while i<load64(image()+8)
+  handle mapping_store32(code,i,load32(image()+128+i))
+  ok staged
+  err stage_error
+   return err(stage_error)
+  end
+  set i=i+4
+ end
+ own cpu=CPU(machine)
+ handle vcpu_set_owned(cpu,31,65536+load64(info()+72))
+ ok value2
+ err cause2
+  return err(cause2)
+ end
+ handle vcpu_set_owned(cpu,34,965)
+ ok value3
+ err cause3
+  return err(cause3)
+ end
+ handle vcpu_set_owned(cpu,0,left)
+ ok value4
+ err cause4
+  return err(cause4)
+ end
+ handle vcpu_set_owned(cpu,1,right)
+ ok value5
+ err cause5
+  return err(cause5)
+ end
+ handle vcpu_set_owned(cpu,2,81920)
+ ok value6
+ err cause6
+  return err(cause6)
+ end
+ handle vcpu_offset_owned(cpu,0)
+ ok value7
+ err cause7
+  return err(cause7)
+ end
+ handle vcpu_sys_owned(cpu,57114,vm_clock_ticks()+budget)
+ ok value8
+ err cause8
+  return err(cause8)
+ end
+ handle vcpu_sys_owned(cpu,57113,1)
+ ok value9
+ err cause9
+  return err(cause9)
+ end
+ handle vcpu_timer_owned(cpu,0)
+ ok value10
+ err cause10
+  return err(cause10)
+ end
+ if cancel
+ handle vcpu_cancel_owned(cpu)
+ ok value11
+ err cause11
+  return err(cause11)
+ end
+ end
+ let start=vm_clock_ticks()
+ handle vcpu_run_owned(cpu)
+ ok reason
+  do store64(info(),reason)
+ err run_error
+  return err(run_error)
+ end
+ do store64(info()+24,vm_clock_ticks()-start)
+ handle vcpu_read_owned(cpu,0)
+ ok answer
+  do store64(info()+8,answer)
+ err read_error
+  return err(read_error)
+ end
+ handle mapping_read64(data,0)
+ ok stored
+  do store64(info()+16,stored)
+ err stored_error
+  return err(stored_error)
+ end
+ handle release(cpu)
+ ok value12
+ err cause12
+  return err(cause12)
+ end
+ return ok(0)
+end
+fn main(argc,argv)
+ if argc==3
+  if text_equal(load64(argv+8),"keygen")
+   return not(generate_key(load64(argv+16)))
+  end
+ end
+ if argc==5
+  if text_equal(load64(argv+8),"seal")
+   handle seal_image(load64(argv+16),load64(argv+24),load64(argv+32))
+   ok length
+    return 0
+   err seal_error
+    return 1
+   end
+  end
+ end
+ if argc!=7
+  return 90
+ end
+ let ms=decimal(load64(argv+24))
+ let left=decimal(load64(argv+32))
+ let right=decimal(load64(argv+40))
+ let cancel=decimal(load64(argv+48))
+ if any(ms==0,any(ms>1000,any(left>4294967295,any(right>4294967295,cancel>1))))
+  return 90
+ end
+ let status=0
+ let bytes=0
+ handle load_image(load64(argv+8),load64(argv+16))
+ ok loaded
+  set bytes=loaded
+ err load_error
+  set status=load_error
+ end
+ # Authenticated configuration must admit this requested time slice before any VM allocation.
+ if all(status==0,ms>load64(image()+88))
+  set status=1016
+ end
+ if status==0
+  let timebase=buffer("clock_timebase",8)
+  let clock_error=clock_timebase(timebase)
+  let numerator=load32(timebase)
+  let denominator=load32(timebase+4)
+  if any(clock_error!=0,any(numerator==0,denominator==0))
+   return 91
+  end
+  let frequency=1000000000*denominator//numerator
+  let budget=1000000*ms*denominator//numerator
+  do store64(info()+32,budget)
+  do store64(info()+40,frequency)
+  handle guest(budget,left,right,cancel)
+  ok complete
+  err guest_error
+   set status=guest_error
+  end
+ end
+ if status==0
+  handle reacquire()
+  ok recreated
+  err reacquire_error
+   set status=reacquire_error
+  end
+ end
+ do store64(info()+48,status)
+ do write(1,info(),80)
+ if status
+  return 1
+ end
+ return 0
+end
+
+fn load_unsigned(path):IO
+ # O_NOFOLLOW | O_NONBLOCK: links refuse and FIFOs cannot block the loader.
+ own file=File(path,260,0)
+ let chunk=Chunk()
+ let total=0
+ let count=1
+ let i=0
+ while count
+  handle read_owned(file,chunk,255)
+  ok got
+   set count=got
+  err cause
+   return err(cause)
+  end
+  if count>4144-total
+   return err(1001)
+  end
+  set i=0
+  while i<count
+   do store8(image()+total,chunk[i])
+   set total=total+1
+   set i=i+1
+  end
+ end
+ if total<48
+  return err(1002)
+ end
+ if load64(image())!=13565981816407634
+  return err(1003)
+ end
+ let bytes=load64(image()+8)
+ let entry=load64(image()+16)
+ if any(bytes==0,any(bytes>4096,any(bytes&3!=0,bytes!=total-48)))
+  return err(1004)
+ end
+ if any(entry>=bytes,entry&3!=0)
+  return err(1005)
+ end
+ if any(load64(image()+24)!=1,any(load64(image()+32)!=0,load64(image()+40)!=0))
+  return err(1006)
+ end
+ set i=0
+ while i<bytes
+  let op=load32(image()+48+i)
+  let valid=any(op==3573751839,any(op==2332098560,any(op==4177526848,op==3556769826)))
+  if (op&4227858432)==335544320
+   let target=op&67108863
+   if target>=33554432
+    let delta=(67108864-target)*4
+    if delta<=i
+     set valid=true
+    end
+   else
+    if target*4<bytes-i
+     set valid=true
+    end
+   end
+  end
+  if not(valid)
+   return err(1007)
+  end
+  set i=i+4
+ end
+ do store64(info()+64,total)
+ do store64(info()+72,entry)
+ return ok(bytes)
+end
+
+fn text_equal(a,b)
+ let i=0
+ while load8(a+i)==load8(b+i)
+  if load8(a+i)==0
+   return 1
+  end
+  set i=i+1
+ end
+ return 0
+end
+fn seal_image(path,keypath,target):IO
+ let bytes=0
+ handle load_unsigned(path)
+ ok length
+  set bytes=length
+ err load_error
+  return err(load_error)
+ end
+ let key=buffer("sealing_key",32)
+ if load_key(keypath,key)==0
+  return err(1013)
+ end
+ # Shift the validated code backwards, preserving overlap.
+ let i=bytes
+ while i
+  set i=i-1
+  do store8(image()+128+i,load8(image()+48+i))
+ end
+ do store64(image(),13847456692454994)
+ do store64(image()+48,65536)
+ do store64(image()+56,81920)
+ do store64(image()+64,16384)
+ do store64(image()+72,965)
+ do store64(image()+80,7)
+ do store64(image()+88,100)
+ do store64(image()+96,0)
+ do store64(image()+104,0)
+ do copy_bytes(image()+112,sha256(key,32),16)
+ do copy_bytes(image()+128+bytes,hmac256(key,32,image(),128+bytes),32)
+ do wipe(key,32)
+ let chunk=Chunk()
+ own output=File(target,2817,384)
+ let offset=0
+ let count=0
+ let written=0
+ while offset<bytes+160
+  set count=bytes+160-offset
+  if count>255
+   set count=255
+  end
+  set i=0
+  while i<count
+   set chunk[i]=load8(image()+offset+i)
+   set i=i+1
+  end
+  handle write_owned(output,chunk,count)
+  ok got
+   set written=got
+  err write_error
+   return err(write_error)
+  end
+  if written==0
+   return err(5)
+  end
+  set offset=offset+written
+ end
+ return ok(bytes+160)
+end

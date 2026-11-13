@@ -1,0 +1,1548 @@
+{
+  "passed": true,
+  "edition": "0.21-dev",
+  "host": "macOS-26.5.1-arm64-arm-64bit",
+  "seed": 211113,
+  "imageObservations": [
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 2517350478,
+      "data": 2517350478,
+      "runTicks": 235,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 4125887279,
+      "data": 4125887279,
+      "runTicks": 139,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 2071487650,
+      "data": 2071487650,
+      "runTicks": 151,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 5610600720,
+      "data": 5610600720,
+      "runTicks": 148,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 7460586524,
+      "data": 7460586524,
+      "runTicks": 127,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 2159282559,
+      "data": 2159282559,
+      "runTicks": 136,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 5066734833,
+      "data": 5066734833,
+      "runTicks": 133,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 3639828368,
+      "data": 3639828368,
+      "runTicks": 126,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 7657684265,
+      "data": 7657684265,
+      "runTicks": 121,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 2828526737,
+      "data": 2828526737,
+      "runTicks": 126,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 5242619433,
+      "data": 5242619433,
+      "runTicks": 154,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 1864904145,
+      "data": 1864904145,
+      "runTicks": 129,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 5464687427,
+      "data": 5464687427,
+      "runTicks": 128,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 4434810160,
+      "data": 4434810160,
+      "runTicks": 136,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 6892876731,
+      "data": 6892876731,
+      "runTicks": 124,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 1759836625,
+      "data": 1759836625,
+      "runTicks": 141,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 1083830733,
+      "data": 1083830733,
+      "runTicks": 127,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 7542735804,
+      "data": 7542735804,
+      "runTicks": 358,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 2,
+      "value": 19,
+      "data": 0,
+      "runTicks": 24003,
+      "budgetTicks": 24000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 164
+    },
+    {
+      "exit": 0,
+      "reason": 2,
+      "value": 19,
+      "data": 0,
+      "runTicks": 24007,
+      "budgetTicks": 24000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 164
+    },
+    {
+      "exit": 0,
+      "reason": 2,
+      "value": 19,
+      "data": 0,
+      "runTicks": 24006,
+      "budgetTicks": 24000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 164
+    },
+    {
+      "exit": 0,
+      "reason": 2,
+      "value": 19,
+      "data": 0,
+      "runTicks": 120011,
+      "budgetTicks": 120000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 164
+    },
+    {
+      "exit": 0,
+      "reason": 2,
+      "value": 19,
+      "data": 0,
+      "runTicks": 120006,
+      "budgetTicks": 120000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 164
+    },
+    {
+      "exit": 0,
+      "reason": 2,
+      "value": 19,
+      "data": 0,
+      "runTicks": 120009,
+      "budgetTicks": 120000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 164
+    },
+    {
+      "exit": 0,
+      "reason": 2,
+      "value": 19,
+      "data": 0,
+      "runTicks": 480020,
+      "budgetTicks": 480000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 164
+    },
+    {
+      "exit": 0,
+      "reason": 2,
+      "value": 19,
+      "data": 0,
+      "runTicks": 479997,
+      "budgetTicks": 480000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 164
+    },
+    {
+      "exit": 0,
+      "reason": 2,
+      "value": 19,
+      "data": 0,
+      "runTicks": 480012,
+      "budgetTicks": 480000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 164
+    },
+    {
+      "exit": 0,
+      "reason": 0,
+      "value": 19,
+      "data": 0,
+      "runTicks": 22,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 164
+    },
+    {
+      "exit": 0,
+      "reason": 0,
+      "value": 19,
+      "data": 0,
+      "runTicks": 13,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 164
+    },
+    {
+      "exit": 0,
+      "reason": 0,
+      "value": 19,
+      "data": 0,
+      "runTicks": 34,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 164
+    },
+    {
+      "exit": 0,
+      "reason": 0,
+      "value": 19,
+      "data": 0,
+      "runTicks": 14,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 164
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1014,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1003,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1004,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1005,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1006,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1006,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1006,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1010,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1010,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1010,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1010,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1011,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1015,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1012,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1012,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1014,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1007,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1007,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1007,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1010,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1010,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1010,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1010,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1011,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1011,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1011,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1012,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1012,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1005,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1006,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1006,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1007,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1007,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1016,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1002,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1004,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1004,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1001,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 62,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1002,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1013,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1013,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1013,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1013,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1013,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 1,
+      "reason": 0,
+      "value": 0,
+      "data": 0,
+      "runTicks": 0,
+      "budgetTicks": 0,
+      "frequency": 0,
+      "status": 1013,
+      "loadedBytes": 0
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 42,
+      "data": 42,
+      "runTicks": 174,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 42,
+      "data": 42,
+      "runTicks": 156,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    },
+    {
+      "exit": 0,
+      "reason": 1,
+      "value": 42,
+      "data": 42,
+      "runTicks": 141,
+      "budgetTicks": 240000,
+      "frequency": 24000000,
+      "status": 0,
+      "loadedBytes": 172
+    }
+  ],
+  "authenticatedGuestRuns": 34,
+  "imageRefusals": 77,
+  "mappingCases": [
+    {
+      "name": "ordinary-cleanup",
+      "admitted": true,
+      "observed": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "primary-error",
+      "admitted": true,
+      "observed": [
+        [
+          1,
+          42
+        ],
+        [
+          1,
+          42
+        ]
+      ]
+    },
+    {
+      "name": "alignment",
+      "admitted": true,
+      "observed": [
+        [
+          1,
+          22
+        ],
+        [
+          1,
+          22
+        ]
+      ]
+    },
+    {
+      "name": "size-zero",
+      "admitted": true,
+      "observed": [
+        [
+          1,
+          22
+        ],
+        [
+          1,
+          22
+        ]
+      ]
+    },
+    {
+      "name": "size-large",
+      "admitted": true,
+      "observed": [
+        [
+          1,
+          22
+        ],
+        [
+          1,
+          22
+        ]
+      ]
+    },
+    {
+      "name": "permissions",
+      "admitted": true,
+      "observed": [
+        [
+          1,
+          22
+        ],
+        [
+          1,
+          22
+        ]
+      ]
+    },
+    {
+      "name": "map-overlap",
+      "admitted": true,
+      "observed": [
+        [
+          1,
+          4209590273
+        ],
+        [
+          1,
+          4209590273
+        ]
+      ]
+    },
+    {
+      "name": "copy",
+      "admitted": false,
+      "observed": [
+        "owner cannot be used as a value",
+        "owner cannot be used as a value"
+      ]
+    },
+    {
+      "name": "raw-escape",
+      "admitted": false,
+      "observed": [
+        "owner cannot be used as a value",
+        "owner cannot be used as a value"
+      ]
+    },
+    {
+      "name": "parent-release",
+      "admitted": false,
+      "observed": [
+        "release child before parent VM",
+        "release child before parent VM"
+      ]
+    },
+    {
+      "name": "live-cpu-release",
+      "admitted": false,
+      "observed": [
+        "release vCPU before mapping mutation or release",
+        "release vCPU before mapping mutation or release"
+      ]
+    },
+    {
+      "name": "live-cpu-write",
+      "admitted": false,
+      "observed": [
+        "release vCPU before mapping mutation or release",
+        "release vCPU before mapping mutation or release"
+      ]
+    },
+    {
+      "name": "conditional-release-guard",
+      "admitted": true,
+      "observed": [
+        [
+          1,
+          16
+        ],
+        [
+          1,
+          16
+        ]
+      ]
+    },
+    {
+      "name": "conditional-write-guard",
+      "admitted": true,
+      "observed": [
+        [
+          1,
+          16
+        ],
+        [
+          1,
+          16
+        ]
+      ]
+    },
+    {
+      "name": "late-mapping",
+      "admitted": true,
+      "observed": [
+        [
+          1,
+          16
+        ],
+        [
+          1,
+          16
+        ]
+      ]
+    },
+    {
+      "name": "compat-unmap-guard",
+      "admitted": true,
+      "observed": [
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "name": "read-range",
+      "admitted": true,
+      "observed": [
+        [
+          1,
+          22
+        ],
+        [
+          1,
+          22
+        ]
+      ]
+    },
+    {
+      "name": "write-range",
+      "admitted": true,
+      "observed": [
+        [
+          1,
+          22
+        ],
+        [
+          1,
+          22
+        ]
+      ]
+    },
+    {
+      "name": "write-value",
+      "admitted": true,
+      "observed": [
+        [
+          1,
+          22
+        ],
+        [
+          1,
+          22
+        ]
+      ]
+    },
+    {
+      "name": "last-word",
+      "admitted": true,
+      "observed": [
+        [
+          0,
+          180388626432
+        ],
+        [
+          0,
+          180388626432
+        ]
+      ]
+    },
+    {
+      "name": "raw-destroy-primary",
+      "admitted": true,
+      "observed": [
+        [
+          1,
+          42
+        ],
+        [
+          1,
+          42
+        ]
+      ]
+    },
+    {
+      "name": "raw-unmap-idempotent",
+      "admitted": true,
+      "observed": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "raw-destroy-cleanup",
+      "admitted": true,
+      "observed": [
+        [
+          1,
+          4209655814
+        ],
+        [
+          1,
+          4209655814
+        ]
+      ]
+    }
+  ],
+  "nativeSignerPythonHmacVerified": true,
+  "replayAllowedVerified": true,
+  "compilerSHA256": "27b465250a4848ac761db5c256f8e9e97791eead9aaff85cac54c627f9bb9d27",
+  "runnerSHA256": "a6228d930c38cfd4538fd894286692c48a10db3508d34226f267f353e83b17f5",
+  "sourceSHA256": "995cbdbd35d3009ad0778b2d6ee091d86320a873c188b55ffa7a36fbd6d1f554",
+  "controllerSHA256": "368aa58cb24bd1e4fb0e2657d920de48ca1b10dd8d7e33ef450bfabdb77a4bb5",
+  "limits": [
+    "Shared-key HMAC, not public signatures, measured boot attestation or anti-rollback",
+    "Fixed bounded boot ABI and admitted ARM64 instructions; no ELF/Linux/devices",
+    "Raw syscalls/API interference, fatal traps/signals remain outside ownership; failed guest unmap intentionally retains host memory until process reclamation",
+    "Single local Mac; no universal speed, AI-token, energy or hardware novelty claim"
+  ]
+}

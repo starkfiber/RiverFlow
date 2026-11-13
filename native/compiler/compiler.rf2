@@ -418,7 +418,7 @@ fn scan_record()
  do advance()
  let t = advance()
  do require(load64(token(t)) == 1, "record name required")
- do require((tmatch(t, "vm_map_owned") | tmatch(t, "vm_unmap_owned") | tmatch(t, "vm_protect_owned") | tmatch(t, "vcpu_set_owned") | tmatch(t, "vcpu_sys_owned") | tmatch(t, "vcpu_read_owned") | tmatch(t, "vcpu_run_owned") | tmatch(t, "vcpu_cancel_owned") | tmatch(t, "vcpu_offset_owned") | tmatch(t, "vcpu_timer_owned") | tmatch(t, "vm_clock_ticks") | tmatch(t, "clock_timebase")) == 0, "reserved platform name")
+ do require((tmatch(t, "mapping_store32") | tmatch(t, "mapping_read64") | tmatch(t, "vm_map_owned") | tmatch(t, "vm_unmap_owned") | tmatch(t, "vm_protect_owned") | tmatch(t, "vcpu_set_owned") | tmatch(t, "vcpu_sys_owned") | tmatch(t, "vcpu_read_owned") | tmatch(t, "vcpu_run_owned") | tmatch(t, "vcpu_cancel_owned") | tmatch(t, "vcpu_offset_owned") | tmatch(t, "vcpu_timer_owned") | tmatch(t, "vm_clock_ticks") | tmatch(t, "clock_timebase")) == 0, "reserved platform name")
  do require(record_index(t) == 0, "duplicate record")
  do require(logical_name(t) == 0, "reserved logical name")
  do require((tmatch(t, "read_bytes") | tmatch(t, "write_bytes") | tmatch(t, "buffer") | tmatch(t, "load8") | tmatch(t, "load32") | tmatch(t, "load64") | tmatch(t, "store8") | tmatch(t, "store32") | tmatch(t, "store64") | tmatch(t, "read") | tmatch(t, "write") | tmatch(t, "open") | tmatch(t, "close") | tmatch(t, "exit") | tmatch(t, "read_owned") | tmatch(t, "write_owned") | tmatch(t, "release") | tmatch(t, "buffer_reserve") | tmatch(t, "buffer_push") | tmatch(t, "buffer_get") | tmatch(t, "buffer_clear") | tmatch(t, "syscall6") | tmatch(t, "fork_process")) == 0, "reserved record name")
@@ -481,15 +481,20 @@ fn scan_record()
    if match("vm")
     set resource_kind = 8
    else
-    do expect("vcpu")
-    set resource_kind = 9
+    if match("mapping")
+     do advance()
+     set resource_kind = 10
+    else
+     do expect("vcpu")
+     set resource_kind = 9
+    end
    end
    if resource_kind == 8
     do advance()
    end
   end
   do expect(")")
-  do store64(r + 8, 2 + (resource_kind == 9) * 2)
+  do store64(r + 8, 2 + (resource_kind == 9) * 2 + (resource_kind == 10) * 3)
   do store64(r + 144, resource_kind)
   do store64(r + 152, field)
   do store64(state() + 128, id)
@@ -820,7 +825,7 @@ fn scan_functions_more(f)
    do require(load64(token(t)) == 1, "function name required")
    do require(logical_name(t) == 0, "reserved logical name")
    do require((tmatch(t, "read_bytes") | tmatch(t, "write_bytes") | tmatch(t, "read_owned") | tmatch(t, "write_owned") | tmatch(t, "release") | tmatch(t, "buffer_reserve") | tmatch(t, "buffer_push") | tmatch(t, "buffer_get") | tmatch(t, "buffer_clear")) == 0, "reserved IO name")
-   do require((tmatch(t,"platform_call") | tmatch(t, "clock_timebase") | tmatch(t, "vm_map_owned") | tmatch(t, "vm_unmap_owned") | tmatch(t, "vm_protect_owned") | tmatch(t, "vcpu_set_owned") | tmatch(t, "vcpu_sys_owned") | tmatch(t, "vcpu_read_owned") | tmatch(t, "vcpu_run_owned") | tmatch(t, "vcpu_cancel_owned") | tmatch(t, "vcpu_offset_owned") | tmatch(t, "vcpu_timer_owned") | tmatch(t, "vm_clock_ticks"))==0,"reserved platform name")
+   do require((tmatch(t,"platform_call") | tmatch(t, "clock_timebase") | tmatch(t, "mapping_store32") | tmatch(t, "mapping_read64") | tmatch(t, "vm_map_owned") | tmatch(t, "vm_unmap_owned") | tmatch(t, "vm_protect_owned") | tmatch(t, "vcpu_set_owned") | tmatch(t, "vcpu_sys_owned") | tmatch(t, "vcpu_read_owned") | tmatch(t, "vcpu_run_owned") | tmatch(t, "vcpu_cancel_owned") | tmatch(t, "vcpu_offset_owned") | tmatch(t, "vcpu_timer_owned") | tmatch(t, "vm_clock_ticks"))==0,"reserved platform name")
    do require(record_index(t) == 0, "function collides with record")
    set other = 0
    while other < f
@@ -938,7 +943,7 @@ fn scan_body(f, params)
    end
    if match("own")
     do require((id != 0) & tmatch(i + 4, "("), "own requires resource constructor")
-    do require((load64(record_info(id) + 144) == 6) | (load64(record_info(id) + 144) == 7) | (load64(record_info(id) + 144) == 8) | (load64(record_info(id) + 144) == 9), "own requires resource type")
+    do require((load64(record_info(id) + 144) == 6) | (load64(record_info(id) + 144) == 7) | (load64(record_info(id) + 144) == 8) | (load64(record_info(id) + 144) == 9) | (load64(record_info(id) + 144) == 10), "own requires resource type")
     set count = load64(cleanup_count(f))
     do require(count < 16, "resource cleanup count bound")
     do store64(cleanup_slot(f, count), slot + 1)
@@ -1238,9 +1243,12 @@ fn construct_owner(depth)
  let slot = find_local(advance())
  let id = load64(local_type(f, slot))
  do require(id != 0, "resource type required")
- do require((load64(record_info(id) + 144) == 6) | (load64(record_info(id) + 144) == 7) | (load64(record_info(id) + 144) == 8) | (load64(record_info(id) + 144) == 9), "resource type required")
+ do require((load64(record_info(id) + 144) == 6) | (load64(record_info(id) + 144) == 7) | (load64(record_info(id) + 144) == 8) | (load64(record_info(id) + 144) == 9) | (load64(record_info(id) + 144) == 10), "resource type required")
  do require(load64(function_result(f)) == load64(record_info(id) + 152), "owner function result type mismatch")
  do expect("=")
+ if load64(record_info(id) + 144) == 10
+  return construct_mapping_owner(f, slot, id)
+ end
  if load64(record_info(id) + 144) >= 8
   return construct_vm_owner(f, slot, id)
  end
@@ -1847,7 +1855,7 @@ fn invoke(name, depth)
   do store64(state() + 136, 0)
   return 0
  end
- if tmatch(name, "vm_map_owned") | tmatch(name, "vm_unmap_owned") | tmatch(name, "vm_protect_owned") | tmatch(name, "vcpu_set_owned") | tmatch(name, "vcpu_sys_owned") | tmatch(name, "vcpu_read_owned") | tmatch(name, "vcpu_run_owned") | tmatch(name, "vcpu_cancel_owned") | tmatch(name, "vcpu_offset_owned") | tmatch(name, "vcpu_timer_owned") | tmatch(name, "vm_clock_ticks") | tmatch(name, "clock_timebase")
+ if tmatch(name, "mapping_store32") | tmatch(name, "mapping_read64") | tmatch(name, "vm_map_owned") | tmatch(name, "vm_unmap_owned") | tmatch(name, "vm_protect_owned") | tmatch(name, "vcpu_set_owned") | tmatch(name, "vcpu_sys_owned") | tmatch(name, "vcpu_read_owned") | tmatch(name, "vcpu_run_owned") | tmatch(name, "vcpu_cancel_owned") | tmatch(name, "vcpu_offset_owned") | tmatch(name, "vcpu_timer_owned") | tmatch(name, "vm_clock_ticks") | tmatch(name, "clock_timebase")
   do require(load64(state() + 200) == 0, "calls forbidden while view is live")
   if tmatch(name, "vm_clock_ticks")
    do expect(")")
@@ -2797,10 +2805,14 @@ fn emit_cleanup(f)
   do access_local(0, slot, 1)
   do access_local(0, slot + 1, 0)
   if load64(cleanup_owned(f, n)) >= 3
+   if load64(cleanup_owned(f, n)) == 5
+    do emit_mapping_drop(slot - 1)
+   else
    if load64(cleanup_owned(f, n)) == 3
     do emit_vm_api("hv_vm_destroy")
    else
     do emit_vm_api("hv_vcpu_destroy")
+   end
    end
    do emit(4043309087)
    do jump(skip, 0)
@@ -3900,14 +3912,17 @@ fn invoke_vm_owner(name, depth, f, slot, id)
  let done = next_label()
  let n = 0
  let child = 0
+ if kind == 10
+  return invoke_mapping(name, depth, f, slot, id)
+ end
  do require((kind == 8) | (kind == 9), "typed VM or vCPU owner required")
  if tmatch(name, "release")
   do expect(")")
   if kind == 8
    while n < load64(cleanup_count(f))
-    if (load64(cleanup_owned(f, n)) == 4) & (load64(cleanup_span(f, n)) == slot + 1)
+    if ((load64(cleanup_owned(f, n)) == 4) | (load64(cleanup_owned(f, n)) == 5)) & (load64(cleanup_span(f, n)) == slot + 1)
      set child = load64(cleanup_slot(f, n)) - 1
-     do require(load64(local_ready(f, child)) == 0, "release vCPU before parent VM")
+     do require(load64(local_ready(f, child)) == 0, "release child before parent VM")
     end
     set n = n + 1
    end
@@ -3967,7 +3982,14 @@ fn invoke_vm_owner(name, depth, f, slot, id)
  do access_local(0, slot + 1, 0)
  do emit(4043309087)
  do jump(bad, 0)
+ # Compatibility VM mapping calls cannot bypass live owned mappings or CPUs.
+ if (kind == 8) & (tmatch(name, "release") == 0)
+  do emit_children_guard(f, slot, 0, bad)
+ end
  if tmatch(name, "release")
+  if kind == 8
+   do emit_children_guard(f, slot, 0, bad)
+  end
   do imm(0, 0)
   do access_local(0, slot + 1, 1)
  end
@@ -4030,5 +4052,251 @@ fn emit_clock_api(symbol)
  do address(16, obj)
  do emit(4181721616)
  do emit(3594453504)
+ return 0
+end
+
+# Memory mappings are VM children. No host pointer is exposed through typed operations.
+fn emit_children_guard(f, parent, cpu_only, bad)
+ let i = 0
+ while i < load64(cleanup_count(f))
+  if (load64(cleanup_span(f, i)) == parent + 1) & ((load64(cleanup_owned(f, i)) == 4) | ((cpu_only == 0) & (load64(cleanup_owned(f, i)) == 5)))
+   do access_local(0, load64(cleanup_slot(f, i)), 0)
+   do emit(4043309087)
+   do jump(bad, 1)
+  end
+  set i = i + 1
+ end
+ return 0
+end
+fn mapping_parent(f, slot)
+ let i = 0
+ while i < load64(cleanup_count(f))
+  if load64(cleanup_slot(f, i)) == slot + 1
+   return load64(cleanup_span(f, i)) - 1
+  end
+  set i = i + 1
+ end
+ do die("mapping parent missing")
+ return 0
+end
+fn mapping_static_cpu_guard(f, parent)
+ let i = 0
+ while i < load64(cleanup_count(f))
+  if (load64(cleanup_owned(f, i)) == 4) & (load64(cleanup_span(f, i)) == parent + 1)
+   do require(load64(local_ready(f, load64(cleanup_slot(f, i)) - 1)) == 0, "release vCPU before mapping mutation or release")
+  end
+  set i = i + 1
+ end
+ return 0
+end
+fn mapping_check(slot, minimum, maximum, alignment, bad)
+ do access_local(0, slot, 0)
+ do imm(1, minimum)
+ do emit(3942645791 | (1 << 16))
+ do jump(bad, 3)
+ do imm(1, maximum)
+ do emit(3942645791 | (1 << 16))
+ do jump(bad, 8)
+ do imm(1, alignment)
+ do emit(2315255808 | (1 << 16))
+ do emit(4043309087)
+ return jump(bad, 1)
+end
+fn construct_mapping_owner(f, slot, id)
+ let parent = 0
+ let i = 0
+ let invalid = next_label()
+ let busy = next_label()
+ let good = next_label()
+ let mapped = next_label()
+ let finished = next_label()
+ do require(record_index(advance()) == id, "mapping constructor mismatch")
+ do expect("(")
+ set parent = local_index(advance())
+ do require(load64(record_info(load64(local_type(f, parent))) + 144) == 8, "mapping requires VM owner")
+ do mapping_static_cpu_guard(f, parent)
+ do store64(cleanup_span(f, load64(state() + 224)), parent + 1)
+ while i < 3
+  do expect(",")
+  do scalar_expression(1, 1)
+  do access_local(0, slot + 4 - i + (i == 2) * 3, 1)
+  set i = i + 1
+ end
+ # Constructor arguments: GPA at+4, size at+3, permissions at+5.
+ do expect(")")
+ do emit_children_guard(f, parent, 1, busy)
+ do mapping_check(slot + 4, 65536, 1099510579200, 16383, invalid)
+ do mapping_check(slot + 3, 16384, 1048576, 16383, invalid)
+ do access_local(0, slot + 5, 0)
+ do imm(1, 1)
+ do emit(3942645791 | (1 << 16))
+ do jump(good, 0)
+ do imm(1, 3)
+ do emit(3942645791 | (1 << 16))
+ do jump(good, 0)
+ do imm(1, 5)
+ do emit(3942645791 | (1 << 16))
+ do jump(invalid, 1)
+ do label(good)
+ do imm(0, 0)
+ do access_local(1, slot + 3, 0)
+ do imm(2, 3)
+ do imm(3, 4098)
+ do imm(4, 18446744073709551615)
+ do imm(5, 0)
+ do imm(16, 197)
+ do emit(3556773889)
+ let allocated = next_label()
+ do jump(allocated, 3)
+ do emit(2852127713)
+ do imm(0, 1)
+ do jump(load64(state() + 88), 16)
+ do label(allocated)
+ do access_local(0, slot + 2, 1)
+ do access_local(1, slot + 4, 0)
+ do access_local(2, slot + 3, 0)
+ do access_local(3, slot + 5, 0)
+ do emit_vm_api("hv_vm_map")
+ do emit(4043309087)
+ do jump(mapped, 0)
+ # Roll back host allocation on map failure, preserving the primary API error.
+ do push()
+ do access_local(0, slot + 2, 0)
+ do access_local(1, slot + 3, 0)
+ do imm(16, 73)
+ do emit(3556773889)
+ do emit(4181722081)
+ do emit(2432713727)
+ do imm(0, 1)
+ do jump(load64(state() + 88), 16)
+ do label(mapped)
+ do imm(0, 1)
+ do access_local(0, slot + 1, 1)
+ do jump(finished, 16)
+ do label(busy)
+ do imm(1, 16)
+ do imm(0, 1)
+ do jump(load64(state() + 88), 16)
+ do label(invalid)
+ do imm(1, 22)
+ do imm(0, 1)
+ do jump(load64(state() + 88), 16)
+ do label(finished)
+ do store64(local_ready(f, slot), 1)
+ do store64(local_scope(f, slot), 0)
+ do require(load64(cleanup_slot(f, load64(state() + 224))) == slot + 1, "mapping cleanup order")
+ do store64(state() + 224, load64(state() + 224) + 1)
+ return newline()
+end
+fn emit_mapping_drop(slot)
+ let done = next_label()
+ do access_local(0, slot + 4, 0)
+ do access_local(1, slot + 3, 0)
+ do emit_vm_api("hv_vm_unmap")
+ do emit(4043309087)
+ do jump(done, 1)
+ # A failed guest unmap must not free memory still referenced by that guest.
+ do access_local(0, slot + 2, 0)
+ do access_local(1, slot + 3, 0)
+ do imm(16, 73)
+ do emit(3556773889)
+ do label(done)
+ return 0
+end
+fn invoke_mapping(name, depth, f, slot, id)
+ let count = 1
+ let n = 0
+ let bad = next_label()
+ let invalid = next_label()
+ let done = next_label()
+ let busy = next_label()
+ let success = next_label()
+ let parent = mapping_parent(f, slot)
+ do require(tmatch(name, "release") | tmatch(name, "mapping_store32") | tmatch(name, "mapping_read64"), "mapping operation required")
+ if tmatch(name, "release") | tmatch(name, "mapping_store32")
+  do mapping_static_cpu_guard(f, parent)
+ end
+ if tmatch(name, "release")
+  set count = 0
+  do store64(local_ready(f, slot), 0)
+ else
+  if tmatch(name, "mapping_store32")
+   set count = 2
+  end
+  while n < count
+   do expect(",")
+   do scalar_expression(1, depth + 1)
+   do push()
+   set n = n + 1
+  end
+ end
+ do expect(")")
+ do access_local(0, slot + 1, 0)
+ do emit(4043309087)
+ do jump(bad, 0)
+ if tmatch(name, "release") | tmatch(name, "mapping_store32")
+  do emit_children_guard(f, parent, 1, busy)
+ end
+ if count == 0
+  do imm(0, 0)
+  do access_local(0, slot + 1, 1)
+  do emit_mapping_drop(slot)
+  do emit(4043309087)
+  do jump(success, 0)
+  do emit(2852127713)
+  do imm(0, 1)
+  do jump(done, 16)
+ else
+  set n = count
+  while n != 0
+   set n = n - 1
+   do emit(4181722080 | n)
+   do emit(2432713727)
+  end
+  do access_local(2, slot + 3, 0)
+  do imm(3, 8 - (count == 2) * 4)
+  do emit(3405774848 | (3 << 16) | (2 << 5) | 2)
+  do emit(3942645791 | (2 << 16))
+  do jump(invalid, 8)
+  do imm(3, 7 - (count == 2) * 4)
+  do emit(2315255808 | (3 << 16) | (0 << 5) | 3)
+  do emit(4043309087 | (3 << 5))
+  do jump(invalid, 1)
+  do access_local(2, slot + 2, 0)
+  do emit(2332033024 | (0 << 16) | (2 << 5) | 2)
+  if count == 2
+   do imm(3, 4294967295)
+   do emit(3942645791 | (3 << 16) | (1 << 5))
+   do jump(invalid, 8)
+   do emit(3103784960 | (2 << 5) | 1)
+  else
+   do emit(4181721088 | (2 << 5) | 1)
+   do imm(0, 0)
+   do jump(done, 16)
+  end
+ end
+ do label(success)
+ do imm(0, 0)
+ do imm(1, 0)
+ do jump(done, 16)
+ do label(busy)
+ if count != 0
+  do emit(2432697343 | ((count * 16) << 10))
+ end
+ do imm(0, 1)
+ do imm(1, 16)
+ do jump(done, 16)
+ do label(bad)
+ if count != 0
+  do emit(2432697343 | ((count * 16) << 10))
+ end
+ do imm(0, 1)
+ do imm(1, 9)
+ do jump(done, 16)
+ do label(invalid)
+ do imm(0, 1)
+ do imm(1, 22)
+ do label(done)
+ do store64(state() + 136, load64(record_info(id) + 152))
  return 0
 end

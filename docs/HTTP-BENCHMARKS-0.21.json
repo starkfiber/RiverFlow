@@ -1,0 +1,1587 @@
+{
+  "date": "2026-11-13",
+  "passed": true,
+  "machine": "macOS-26.5.1-arm64-arm-64bit",
+  "backends": {
+    "18783": {
+      "backend": "RF2 native / macOS",
+      "language": "RiverFlow",
+      "version": "0.21-dev",
+      "system": "Darwin",
+      "architecture": "arm64",
+      "workers": 1,
+      "maxIterations": 100000
+    },
+    "18781": {
+      "backend": "Python / host",
+      "language": "CPython",
+      "version": "3.12.14",
+      "system": "Darwin",
+      "architecture": "arm64",
+      "workers": 1,
+      "maxIterations": 100000
+    },
+    "18782": {
+      "backend": "Python / linux-guest",
+      "language": "CPython",
+      "version": "3.12.3",
+      "system": "Linux",
+      "architecture": "aarch64",
+      "workers": 1,
+      "maxIterations": 100000
+    }
+  },
+  "seed": 180013,
+  "checks": [
+    {
+      "port": 18783,
+      "path": "/",
+      "passed": true,
+      "bodySHA256": "46450f309047a5b3099b78cc509ca183b56585e28234ad8714bd310081f219ab"
+    },
+    {
+      "port": 18783,
+      "path": "/health",
+      "passed": true,
+      "bodySHA256": "e5f1eb4d806641698a35efe20e098efd20d7d57a9b90ee69079d5bb650920726"
+    },
+    {
+      "port": 18783,
+      "path": "/api/compute?iterations=0",
+      "passed": true,
+      "bodySHA256": "9dfad4100ffbe8a8c84d527bc4c206fef1fa18e6d1a7e7f6cf6c3ff27d4c4996"
+    },
+    {
+      "port": 18783,
+      "path": "/api/compute?iterations=1",
+      "passed": true,
+      "bodySHA256": "d195e87ea3fdb30f74a395711ca0b1f8795c04debf4d1056c7c27384ec69b507"
+    },
+    {
+      "port": 18783,
+      "path": "/api/compute?iterations=10",
+      "passed": true,
+      "bodySHA256": "ee08136fcf1b2c07947699b98c3d7836bf65fd64062683cc781916703423f2ef"
+    },
+    {
+      "port": 18783,
+      "path": "/api/compute?iterations=10000",
+      "passed": true,
+      "bodySHA256": "7d207c780d8932ddc290493fe8a68e716423c523c783c0e003477e3bc52c9aad"
+    },
+    {
+      "port": 18783,
+      "path": "/api/compute?iterations=100000",
+      "passed": true,
+      "bodySHA256": "9c68df15020f73ed73a3d804563ebc70630d0d0e9025583ff361645af8a30d52"
+    },
+    {
+      "port": 18783,
+      "malformed": 0,
+      "passed": true
+    },
+    {
+      "port": 18783,
+      "malformed": 1,
+      "passed": true
+    },
+    {
+      "port": 18783,
+      "malformed": 2,
+      "passed": true
+    },
+    {
+      "port": 18783,
+      "malformed": 3,
+      "passed": true
+    },
+    {
+      "port": 18783,
+      "malformed": 4,
+      "passed": true
+    },
+    {
+      "port": 18783,
+      "invalidIterations": "",
+      "passed": true
+    },
+    {
+      "port": 18783,
+      "invalidIterations": "01",
+      "passed": true
+    },
+    {
+      "port": 18783,
+      "invalidIterations": "-1",
+      "passed": true
+    },
+    {
+      "port": 18783,
+      "invalidIterations": "100001",
+      "passed": true
+    },
+    {
+      "port": 18783,
+      "invalidIterations": "9999999",
+      "passed": true
+    },
+    {
+      "port": 18783,
+      "invalidIterations": "a",
+      "passed": true
+    },
+    {
+      "port": 18783,
+      "invalidIterations": "1&x=2",
+      "passed": true
+    },
+    {
+      "port": 18783,
+      "invalidIterations": "1%30",
+      "passed": true
+    },
+    {
+      "port": 18783,
+      "disconnectRecovery": 20,
+      "passed": true
+    },
+    {
+      "port": 18781,
+      "path": "/",
+      "passed": true,
+      "bodySHA256": "46450f309047a5b3099b78cc509ca183b56585e28234ad8714bd310081f219ab"
+    },
+    {
+      "port": 18781,
+      "path": "/health",
+      "passed": true,
+      "bodySHA256": "e5f1eb4d806641698a35efe20e098efd20d7d57a9b90ee69079d5bb650920726"
+    },
+    {
+      "port": 18781,
+      "path": "/api/compute?iterations=0",
+      "passed": true,
+      "bodySHA256": "9dfad4100ffbe8a8c84d527bc4c206fef1fa18e6d1a7e7f6cf6c3ff27d4c4996"
+    },
+    {
+      "port": 18781,
+      "path": "/api/compute?iterations=1",
+      "passed": true,
+      "bodySHA256": "d195e87ea3fdb30f74a395711ca0b1f8795c04debf4d1056c7c27384ec69b507"
+    },
+    {
+      "port": 18781,
+      "path": "/api/compute?iterations=10",
+      "passed": true,
+      "bodySHA256": "ee08136fcf1b2c07947699b98c3d7836bf65fd64062683cc781916703423f2ef"
+    },
+    {
+      "port": 18781,
+      "path": "/api/compute?iterations=10000",
+      "passed": true,
+      "bodySHA256": "7d207c780d8932ddc290493fe8a68e716423c523c783c0e003477e3bc52c9aad"
+    },
+    {
+      "port": 18781,
+      "path": "/api/compute?iterations=100000",
+      "passed": true,
+      "bodySHA256": "9c68df15020f73ed73a3d804563ebc70630d0d0e9025583ff361645af8a30d52"
+    },
+    {
+      "port": 18781,
+      "malformed": 0,
+      "passed": true
+    },
+    {
+      "port": 18781,
+      "malformed": 1,
+      "passed": true
+    },
+    {
+      "port": 18781,
+      "malformed": 2,
+      "passed": true
+    },
+    {
+      "port": 18781,
+      "malformed": 3,
+      "passed": true
+    },
+    {
+      "port": 18781,
+      "malformed": 4,
+      "passed": true
+    },
+    {
+      "port": 18781,
+      "invalidIterations": "",
+      "passed": true
+    },
+    {
+      "port": 18781,
+      "invalidIterations": "01",
+      "passed": true
+    },
+    {
+      "port": 18781,
+      "invalidIterations": "-1",
+      "passed": true
+    },
+    {
+      "port": 18781,
+      "invalidIterations": "100001",
+      "passed": true
+    },
+    {
+      "port": 18781,
+      "invalidIterations": "9999999",
+      "passed": true
+    },
+    {
+      "port": 18781,
+      "invalidIterations": "a",
+      "passed": true
+    },
+    {
+      "port": 18781,
+      "invalidIterations": "1&x=2",
+      "passed": true
+    },
+    {
+      "port": 18781,
+      "invalidIterations": "1%30",
+      "passed": true
+    },
+    {
+      "port": 18781,
+      "disconnectRecovery": 20,
+      "passed": true
+    },
+    {
+      "port": 18782,
+      "path": "/",
+      "passed": true,
+      "bodySHA256": "46450f309047a5b3099b78cc509ca183b56585e28234ad8714bd310081f219ab"
+    },
+    {
+      "port": 18782,
+      "path": "/health",
+      "passed": true,
+      "bodySHA256": "e5f1eb4d806641698a35efe20e098efd20d7d57a9b90ee69079d5bb650920726"
+    },
+    {
+      "port": 18782,
+      "path": "/api/compute?iterations=0",
+      "passed": true,
+      "bodySHA256": "9dfad4100ffbe8a8c84d527bc4c206fef1fa18e6d1a7e7f6cf6c3ff27d4c4996"
+    },
+    {
+      "port": 18782,
+      "path": "/api/compute?iterations=1",
+      "passed": true,
+      "bodySHA256": "d195e87ea3fdb30f74a395711ca0b1f8795c04debf4d1056c7c27384ec69b507"
+    },
+    {
+      "port": 18782,
+      "path": "/api/compute?iterations=10",
+      "passed": true,
+      "bodySHA256": "ee08136fcf1b2c07947699b98c3d7836bf65fd64062683cc781916703423f2ef"
+    },
+    {
+      "port": 18782,
+      "path": "/api/compute?iterations=10000",
+      "passed": true,
+      "bodySHA256": "7d207c780d8932ddc290493fe8a68e716423c523c783c0e003477e3bc52c9aad"
+    },
+    {
+      "port": 18782,
+      "path": "/api/compute?iterations=100000",
+      "passed": true,
+      "bodySHA256": "9c68df15020f73ed73a3d804563ebc70630d0d0e9025583ff361645af8a30d52"
+    },
+    {
+      "port": 18782,
+      "malformed": 0,
+      "passed": true
+    },
+    {
+      "port": 18782,
+      "malformed": 1,
+      "passed": true
+    },
+    {
+      "port": 18782,
+      "malformed": 2,
+      "passed": true
+    },
+    {
+      "port": 18782,
+      "malformed": 3,
+      "passed": true
+    },
+    {
+      "port": 18782,
+      "malformed": 4,
+      "passed": true
+    },
+    {
+      "port": 18782,
+      "invalidIterations": "",
+      "passed": true
+    },
+    {
+      "port": 18782,
+      "invalidIterations": "01",
+      "passed": true
+    },
+    {
+      "port": 18782,
+      "invalidIterations": "-1",
+      "passed": true
+    },
+    {
+      "port": 18782,
+      "invalidIterations": "100001",
+      "passed": true
+    },
+    {
+      "port": 18782,
+      "invalidIterations": "9999999",
+      "passed": true
+    },
+    {
+      "port": 18782,
+      "invalidIterations": "a",
+      "passed": true
+    },
+    {
+      "port": 18782,
+      "invalidIterations": "1&x=2",
+      "passed": true
+    },
+    {
+      "port": 18782,
+      "invalidIterations": "1%30",
+      "passed": true
+    },
+    {
+      "port": 18782,
+      "disconnectRecovery": 20,
+      "passed": true
+    }
+  ],
+  "trialsPerCell": 5,
+  "requestsPerBatch": 8,
+  "requestsMeasured": 480,
+  "summary": [
+    {
+      "port": 18781,
+      "path": "/",
+      "concurrency": 1,
+      "requests": 40,
+      "medianMs": 0.12264549999999999,
+      "p95Ms": 0.186209,
+      "medianBatchRequestsPerSecond": 6582.330556412629
+    },
+    {
+      "port": 18782,
+      "path": "/",
+      "concurrency": 4,
+      "requests": 40,
+      "medianMs": 0.38945850000000004,
+      "p95Ms": 64.706041,
+      "medianBatchRequestsPerSecond": 124.44114841322681
+    },
+    {
+      "port": 18781,
+      "path": "/",
+      "concurrency": 4,
+      "requests": 40,
+      "medianMs": 0.3366665,
+      "p95Ms": 0.487042,
+      "medianBatchRequestsPerSecond": 8686.59734038106
+    },
+    {
+      "port": 18783,
+      "path": "/",
+      "concurrency": 4,
+      "requests": 40,
+      "medianMs": 0.2967495,
+      "p95Ms": 0.459334,
+      "medianBatchRequestsPerSecond": 9646.294496547833
+    },
+    {
+      "port": 18783,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 4,
+      "requests": 40,
+      "medianMs": 0.28731249999999997,
+      "p95Ms": 0.525208,
+      "medianBatchRequestsPerSecond": 8744.76543806356
+    },
+    {
+      "port": 18783,
+      "path": "/",
+      "concurrency": 1,
+      "requests": 40,
+      "medianMs": 0.1014165,
+      "p95Ms": 0.131459,
+      "medianBatchRequestsPerSecond": 8380.98271212791
+    },
+    {
+      "port": 18782,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 4,
+      "requests": 40,
+      "medianMs": 1.9120415,
+      "p95Ms": 31.414875,
+      "medianBatchRequestsPerSecond": 252.37456069475687
+    },
+    {
+      "port": 18782,
+      "path": "/",
+      "concurrency": 1,
+      "requests": 40,
+      "medianMs": 0.236458,
+      "p95Ms": 0.408292,
+      "medianBatchRequestsPerSecond": 3530.7757864692726
+    },
+    {
+      "port": 18781,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 1,
+      "requests": 40,
+      "medianMs": 0.6324375,
+      "p95Ms": 0.870334,
+      "medianBatchRequestsPerSecond": 1475.606381997602
+    },
+    {
+      "port": 18783,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 1,
+      "requests": 40,
+      "medianMs": 0.137771,
+      "p95Ms": 0.235625,
+      "medianBatchRequestsPerSecond": 6296.525419860186
+    },
+    {
+      "port": 18781,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 4,
+      "requests": 40,
+      "medianMs": 2.020521,
+      "p95Ms": 2.880792,
+      "medianBatchRequestsPerSecond": 1753.264798212371
+    },
+    {
+      "port": 18782,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 1,
+      "requests": 40,
+      "medianMs": 0.801833,
+      "p95Ms": 1.011167,
+      "medianBatchRequestsPerSecond": 1156.0762137463532
+    }
+  ],
+  "samples": [
+    {
+      "trial": 0,
+      "port": 18783,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 4,
+      "milliseconds": [
+        0.430125,
+        0.470208,
+        0.511208,
+        0.549625,
+        0.419333,
+        0.302208,
+        0.348833,
+        0.283792
+      ],
+      "batchSeconds": 0.002471416,
+      "requestsPerSecond": 3237.0106853722723
+    },
+    {
+      "trial": 0,
+      "port": 18782,
+      "path": "/",
+      "concurrency": 4,
+      "milliseconds": [
+        0.881958,
+        0.960875,
+        0.936583,
+        0.815875,
+        0.404584,
+        0.392042,
+        32.324167,
+        0.374166
+      ],
+      "batchSeconds": 0.033704833,
+      "requestsPerSecond": 237.35468441573352
+    },
+    {
+      "trial": 0,
+      "port": 18783,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 1,
+      "milliseconds": [
+        0.2885,
+        0.166416,
+        0.25175,
+        0.131875,
+        0.12925,
+        0.174208,
+        0.235625,
+        0.127917
+      ],
+      "batchSeconds": 0.001692042,
+      "requestsPerSecond": 4728.015025631752
+    },
+    {
+      "trial": 0,
+      "port": 18782,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 4,
+      "milliseconds": [
+        1.895708,
+        32.612334,
+        2.346917,
+        2.870584,
+        1.90975,
+        1.946667,
+        1.914333,
+        1.892709
+      ],
+      "batchSeconds": 0.032863459,
+      "requestsPerSecond": 243.43146593302916
+    },
+    {
+      "trial": 0,
+      "port": 18782,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 1,
+      "milliseconds": [
+        0.803041,
+        1.509917,
+        1.0665,
+        0.992083,
+        0.837459,
+        0.893417,
+        0.771375,
+        0.75225
+      ],
+      "batchSeconds": 0.007818334,
+      "requestsPerSecond": 1023.2358965477812
+    },
+    {
+      "trial": 0,
+      "port": 18781,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 4,
+      "milliseconds": [
+        1.140875,
+        1.720625,
+        2.617416,
+        2.0085,
+        2.260416,
+        2.067584,
+        2.046083,
+        2.043417
+      ],
+      "batchSeconds": 0.005073292,
+      "requestsPerSecond": 1576.8853832974723
+    },
+    {
+      "trial": 0,
+      "port": 18781,
+      "path": "/",
+      "concurrency": 4,
+      "milliseconds": [
+        0.314459,
+        0.372,
+        0.487042,
+        0.339125,
+        0.438042,
+        0.309459,
+        0.255166,
+        0.220459
+      ],
+      "batchSeconds": 0.000920959,
+      "requestsPerSecond": 8686.59734038106
+    },
+    {
+      "trial": 0,
+      "port": 18783,
+      "path": "/",
+      "concurrency": 1,
+      "milliseconds": [
+        0.120791,
+        0.1055,
+        0.097333,
+        0.088333,
+        0.098458,
+        0.106209,
+        0.091833,
+        0.092833
+      ],
+      "batchSeconds": 0.00088825,
+      "requestsPerSecond": 9006.473402758233
+    },
+    {
+      "trial": 0,
+      "port": 18783,
+      "path": "/",
+      "concurrency": 4,
+      "milliseconds": [
+        0.492791,
+        0.38575,
+        0.288625,
+        0.299916,
+        0.263375,
+        0.182333,
+        0.167625,
+        0.174417
+      ],
+      "batchSeconds": 0.000775416,
+      "requestsPerSecond": 10317.042722873915
+    },
+    {
+      "trial": 0,
+      "port": 18781,
+      "path": "/",
+      "concurrency": 1,
+      "milliseconds": [
+        0.117125,
+        0.111458,
+        0.109292,
+        0.11225,
+        0.112958,
+        0.130833,
+        0.120125,
+        0.103959
+      ],
+      "batchSeconds": 0.001006667,
+      "requestsPerSecond": 7947.017236087008
+    },
+    {
+      "trial": 0,
+      "port": 18781,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 1,
+      "milliseconds": [
+        0.624792,
+        0.607292,
+        0.655958,
+        0.613125,
+        0.643458,
+        0.632125,
+        0.63275,
+        0.655792
+      ],
+      "batchSeconds": 0.005186125,
+      "requestsPerSecond": 1542.5775506760829
+    },
+    {
+      "trial": 0,
+      "port": 18782,
+      "path": "/",
+      "concurrency": 1,
+      "milliseconds": [
+        0.39875,
+        0.33825,
+        0.409417,
+        0.217458,
+        0.196083,
+        0.1885,
+        0.172292,
+        0.201
+      ],
+      "batchSeconds": 0.002265791,
+      "requestsPerSecond": 3530.7757864692726
+    },
+    {
+      "trial": 1,
+      "port": 18783,
+      "path": "/",
+      "concurrency": 1,
+      "milliseconds": [
+        0.125333,
+        0.101959,
+        0.107833,
+        0.098833,
+        0.125459,
+        0.11,
+        0.101042,
+        0.096417
+      ],
+      "batchSeconds": 0.000979917,
+      "requestsPerSecond": 8163.956743275196
+    },
+    {
+      "trial": 1,
+      "port": 18781,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 4,
+      "milliseconds": [
+        1.92875,
+        0.847041,
+        1.335084,
+        2.29875,
+        2.05775,
+        2.049,
+        2.046333,
+        2.034291
+      ],
+      "batchSeconds": 0.004562916,
+      "requestsPerSecond": 1753.264798212371
+    },
+    {
+      "trial": 1,
+      "port": 18782,
+      "path": "/",
+      "concurrency": 1,
+      "milliseconds": [
+        0.300583,
+        0.205667,
+        0.186209,
+        0.1805,
+        0.192791,
+        0.190042,
+        0.184416,
+        0.219209
+      ],
+      "batchSeconds": 0.001776208,
+      "requestsPerSecond": 4503.977011701332
+    },
+    {
+      "trial": 1,
+      "port": 18782,
+      "path": "/",
+      "concurrency": 4,
+      "milliseconds": [
+        0.411917,
+        64.084583,
+        0.416792,
+        0.33925,
+        0.291125,
+        0.270708,
+        31.384917,
+        0.227292
+      ],
+      "batchSeconds": 0.064287417,
+      "requestsPerSecond": 124.44114841322681
+    },
+    {
+      "trial": 1,
+      "port": 18781,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 1,
+      "milliseconds": [
+        0.746042,
+        0.610917,
+        0.638417,
+        0.598375,
+        0.661125,
+        0.856541,
+        0.744042,
+        0.647208
+      ],
+      "batchSeconds": 0.005662959,
+      "requestsPerSecond": 1412.6890199982022
+    },
+    {
+      "trial": 1,
+      "port": 18782,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 1,
+      "milliseconds": [
+        0.944167,
+        0.808833,
+        0.7765,
+        0.782375,
+        0.908375,
+        0.998542,
+        0.898333,
+        0.833208
+      ],
+      "batchSeconds": 0.007172625,
+      "requestsPerSecond": 1115.3517714923057
+    },
+    {
+      "trial": 1,
+      "port": 18783,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 4,
+      "milliseconds": [
+        0.370375,
+        0.511,
+        0.336042,
+        0.281792,
+        0.24275,
+        0.283541,
+        0.220083,
+        0.236083
+      ],
+      "batchSeconds": 0.000914833,
+      "requestsPerSecond": 8744.76543806356
+    },
+    {
+      "trial": 1,
+      "port": 18781,
+      "path": "/",
+      "concurrency": 1,
+      "milliseconds": [
+        0.220709,
+        0.121167,
+        0.125917,
+        0.156583,
+        0.121541,
+        0.111625,
+        0.1205,
+        0.111334
+      ],
+      "batchSeconds": 0.001185458,
+      "requestsPerSecond": 6748.446591950116
+    },
+    {
+      "trial": 1,
+      "port": 18783,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 1,
+      "milliseconds": [
+        0.151541,
+        0.132666,
+        0.122209,
+        0.173459,
+        0.180166,
+        0.1855,
+        0.119375,
+        0.120542
+      ],
+      "batchSeconds": 0.001270542,
+      "requestsPerSecond": 6296.525419860186
+    },
+    {
+      "trial": 1,
+      "port": 18781,
+      "path": "/",
+      "concurrency": 4,
+      "milliseconds": [
+        0.335875,
+        0.450625,
+        0.489333,
+        0.522875,
+        0.399917,
+        0.317625,
+        0.282167,
+        0.231458
+      ],
+      "batchSeconds": 0.001001458,
+      "requestsPerSecond": 7988.352981353187
+    },
+    {
+      "trial": 1,
+      "port": 18782,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 4,
+      "milliseconds": [
+        1.651584,
+        1.006709,
+        2.119584,
+        2.627583,
+        2.426792,
+        2.386166,
+        2.33825,
+        2.308958
+      ],
+      "batchSeconds": 0.005318,
+      "requestsPerSecond": 1504.3249341857843
+    },
+    {
+      "trial": 1,
+      "port": 18783,
+      "path": "/",
+      "concurrency": 4,
+      "milliseconds": [
+        0.28175,
+        0.333958,
+        0.377583,
+        0.449875,
+        0.4105,
+        0.324833,
+        0.253375,
+        0.1555
+      ],
+      "batchSeconds": 0.000931917,
+      "requestsPerSecond": 8584.455482623453
+    },
+    {
+      "trial": 2,
+      "port": 18781,
+      "path": "/",
+      "concurrency": 4,
+      "milliseconds": [
+        0.464125,
+        0.270958,
+        0.287792,
+        0.430125,
+        0.337458,
+        0.333625,
+        0.292292,
+        0.203958
+      ],
+      "batchSeconds": 0.000877125,
+      "requestsPerSecond": 9120.706854781245
+    },
+    {
+      "trial": 2,
+      "port": 18782,
+      "path": "/",
+      "concurrency": 1,
+      "milliseconds": [
+        0.39125,
+        0.33125,
+        0.248958,
+        0.408292,
+        0.35425,
+        0.3155,
+        0.266417,
+        0.223958
+      ],
+      "batchSeconds": 0.002713208,
+      "requestsPerSecond": 2948.5391462799757
+    },
+    {
+      "trial": 2,
+      "port": 18781,
+      "path": "/",
+      "concurrency": 1,
+      "milliseconds": [
+        0.179375,
+        0.132458,
+        0.130708,
+        0.122625,
+        0.126958,
+        0.155958,
+        0.147667,
+        0.1525
+      ],
+      "batchSeconds": 0.001265042,
+      "requestsPerSecond": 6323.900708434977
+    },
+    {
+      "trial": 2,
+      "port": 18782,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 1,
+      "milliseconds": [
+        0.809375,
+        0.772125,
+        0.7615,
+        0.876125,
+        1.011167,
+        0.832375,
+        0.800625,
+        0.854875
+      ],
+      "batchSeconds": 0.006919959,
+      "requestsPerSecond": 1156.0762137463532
+    },
+    {
+      "trial": 2,
+      "port": 18783,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 4,
+      "milliseconds": [
+        0.526625,
+        0.290833,
+        0.384875,
+        0.474125,
+        0.258875,
+        0.264833,
+        0.210209,
+        0.240083
+      ],
+      "batchSeconds": 0.00100375,
+      "requestsPerSecond": 7970.11207970112
+    },
+    {
+      "trial": 2,
+      "port": 18781,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 1,
+      "milliseconds": [
+        0.74025,
+        0.640667,
+        0.613042,
+        0.613625,
+        0.619042,
+        0.870334,
+        1.938125,
+        1.040584
+      ],
+      "batchSeconds": 0.007232791,
+      "requestsPerSecond": 1106.0737134530777
+    },
+    {
+      "trial": 2,
+      "port": 18781,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 4,
+      "milliseconds": [
+        2.880792,
+        3.78975,
+        2.736125,
+        3.041792,
+        1.938458,
+        1.366375,
+        1.980625,
+        1.930875
+      ],
+      "batchSeconds": 0.005940167,
+      "requestsPerSecond": 1346.7634832488718
+    },
+    {
+      "trial": 2,
+      "port": 18782,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 4,
+      "milliseconds": [
+        1.010042,
+        30.288667,
+        31.414875,
+        1.433208,
+        1.187584,
+        1.174875,
+        1.124333,
+        1.102375
+      ],
+      "batchSeconds": 0.031698916,
+      "requestsPerSecond": 252.37456069475687
+    },
+    {
+      "trial": 2,
+      "port": 18783,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 1,
+      "milliseconds": [
+        0.173708,
+        0.142958,
+        0.14025,
+        0.171208,
+        0.1305,
+        0.134708,
+        0.144208,
+        0.130709
+      ],
+      "batchSeconds": 0.001286375,
+      "requestsPerSecond": 6219.026333689631
+    },
+    {
+      "trial": 2,
+      "port": 18782,
+      "path": "/",
+      "concurrency": 4,
+      "milliseconds": [
+        64.706041,
+        0.28475,
+        96.625792,
+        32.536,
+        0.208416,
+        0.179333,
+        0.1715,
+        0.252625
+      ],
+      "batchSeconds": 0.096862666,
+      "requestsPerSecond": 82.59116056128374
+    },
+    {
+      "trial": 2,
+      "port": 18783,
+      "path": "/",
+      "concurrency": 1,
+      "milliseconds": [
+        0.16,
+        0.107291,
+        0.102,
+        0.099958,
+        0.096916,
+        0.096,
+        0.095042,
+        0.096167
+      ],
+      "batchSeconds": 0.000954542,
+      "requestsPerSecond": 8380.98271212791
+    },
+    {
+      "trial": 2,
+      "port": 18783,
+      "path": "/",
+      "concurrency": 4,
+      "milliseconds": [
+        0.398583,
+        0.459334,
+        0.509292,
+        0.382125,
+        0.343084,
+        0.28675,
+        0.279792,
+        0.220167
+      ],
+      "batchSeconds": 0.00099625,
+      "requestsPerSecond": 8030.112923462986
+    },
+    {
+      "trial": 3,
+      "port": 18783,
+      "path": "/",
+      "concurrency": 4,
+      "milliseconds": [
+        0.243625,
+        0.303167,
+        0.327417,
+        0.37225,
+        0.442667,
+        0.289792,
+        0.255,
+        0.176417
+      ],
+      "batchSeconds": 0.0007775,
+      "requestsPerSecond": 10289.389067524116
+    },
+    {
+      "trial": 3,
+      "port": 18782,
+      "path": "/",
+      "concurrency": 1,
+      "milliseconds": [
+        0.277875,
+        0.204125,
+        0.185125,
+        0.205166,
+        0.188709,
+        0.196333,
+        0.212834,
+        0.189875
+      ],
+      "batchSeconds": 0.001757166,
+      "requestsPerSecond": 4552.785564938088
+    },
+    {
+      "trial": 3,
+      "port": 18782,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 4,
+      "milliseconds": [
+        32.501417,
+        0.815875,
+        1.348166,
+        1.807792,
+        1.7145,
+        1.691834,
+        1.669333,
+        1.6365
+      ],
+      "batchSeconds": 0.032662833,
+      "requestsPerSecond": 244.92670308175656
+    },
+    {
+      "trial": 3,
+      "port": 18781,
+      "path": "/",
+      "concurrency": 4,
+      "milliseconds": [
+        0.369,
+        0.383167,
+        0.299084,
+        0.367667,
+        0.233542,
+        0.260792,
+        0.241292,
+        0.181584
+      ],
+      "batchSeconds": 0.000846209,
+      "requestsPerSecond": 9453.929230249265
+    },
+    {
+      "trial": 3,
+      "port": 18781,
+      "path": "/",
+      "concurrency": 1,
+      "milliseconds": [
+        0.141834,
+        0.113292,
+        0.113959,
+        0.106417,
+        0.116167,
+        0.186209,
+        0.166666,
+        0.176875
+      ],
+      "batchSeconds": 0.001218583,
+      "requestsPerSecond": 6565.00213772882
+    },
+    {
+      "trial": 3,
+      "port": 18781,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 4,
+      "milliseconds": [
+        1.249709,
+        0.707542,
+        1.662667,
+        2.076625,
+        1.982208,
+        1.957292,
+        1.946958,
+        1.938583
+      ],
+      "batchSeconds": 0.0042885,
+      "requestsPerSecond": 1865.4541214876997
+    },
+    {
+      "trial": 3,
+      "port": 18783,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 1,
+      "milliseconds": [
+        0.160625,
+        0.128834,
+        0.124459,
+        0.119042,
+        0.126333,
+        0.154458,
+        0.160791,
+        0.160792
+      ],
+      "batchSeconds": 0.001222583,
+      "requestsPerSecond": 6543.523016433241
+    },
+    {
+      "trial": 3,
+      "port": 18782,
+      "path": "/",
+      "concurrency": 4,
+      "milliseconds": [
+        0.386875,
+        62.919458,
+        0.3615,
+        30.727,
+        0.235,
+        0.231375,
+        0.243667,
+        0.249209
+      ],
+      "batchSeconds": 0.063102875,
+      "requestsPerSecond": 126.77710801607692
+    },
+    {
+      "trial": 3,
+      "port": 18782,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 1,
+      "milliseconds": [
+        0.756166,
+        0.734708,
+        0.739583,
+        0.745083,
+        0.710958,
+        0.735084,
+        0.718792,
+        0.69125
+      ],
+      "batchSeconds": 0.005965583,
+      "requestsPerSecond": 1341.02568013889
+    },
+    {
+      "trial": 3,
+      "port": 18783,
+      "path": "/",
+      "concurrency": 1,
+      "milliseconds": [
+        0.165167,
+        0.109709,
+        0.1085,
+        0.100667,
+        0.109125,
+        0.131459,
+        0.116458,
+        0.106708
+      ],
+      "batchSeconds": 0.001062,
+      "requestsPerSecond": 7532.956685499058
+    },
+    {
+      "trial": 3,
+      "port": 18783,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 4,
+      "milliseconds": [
+        0.195792,
+        0.310292,
+        0.336417,
+        0.232458,
+        0.22575,
+        0.225792,
+        0.187292,
+        0.204041
+      ],
+      "batchSeconds": 0.000743208,
+      "requestsPerSecond": 10764.146779905492
+    },
+    {
+      "trial": 3,
+      "port": 18781,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 1,
+      "milliseconds": [
+        0.618958,
+        0.618166,
+        0.635958,
+        0.619416,
+        0.62175,
+        0.6225,
+        0.622208,
+        0.622208
+      ],
+      "batchSeconds": 0.005078667,
+      "requestsPerSecond": 1575.2164888936406
+    },
+    {
+      "trial": 4,
+      "port": 18781,
+      "path": "/",
+      "concurrency": 1,
+      "milliseconds": [
+        0.189542,
+        0.153792,
+        0.117583,
+        0.122666,
+        0.117917,
+        0.119834,
+        0.144042,
+        0.148334
+      ],
+      "batchSeconds": 0.001215375,
+      "requestsPerSecond": 6582.330556412629
+    },
+    {
+      "trial": 4,
+      "port": 18782,
+      "path": "/",
+      "concurrency": 4,
+      "milliseconds": [
+        95.443709,
+        0.409625,
+        63.275333,
+        31.487041,
+        0.201542,
+        0.186208,
+        0.20575,
+        0.212792
+      ],
+      "batchSeconds": 0.095615209,
+      "requestsPerSecond": 83.66869751861337
+    },
+    {
+      "trial": 4,
+      "port": 18781,
+      "path": "/",
+      "concurrency": 4,
+      "milliseconds": [
+        0.388583,
+        0.393875,
+        0.436166,
+        0.425416,
+        0.431917,
+        0.299125,
+        0.338083,
+        0.294459
+      ],
+      "batchSeconds": 0.001021584,
+      "requestsPerSecond": 7830.976209494275
+    },
+    {
+      "trial": 4,
+      "port": 18783,
+      "path": "/",
+      "concurrency": 4,
+      "milliseconds": [
+        0.389917,
+        0.254167,
+        0.368583,
+        0.27575,
+        0.330666,
+        0.293583,
+        0.264834,
+        0.246708
+      ],
+      "batchSeconds": 0.000829334,
+      "requestsPerSecond": 9646.294496547833
+    },
+    {
+      "trial": 4,
+      "port": 18783,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 4,
+      "milliseconds": [
+        0.525208,
+        0.337958,
+        0.396167,
+        0.228833,
+        0.351958,
+        0.281875,
+        0.268875,
+        0.266625
+      ],
+      "batchSeconds": 0.000896,
+      "requestsPerSecond": 8928.57142857143
+    },
+    {
+      "trial": 4,
+      "port": 18783,
+      "path": "/",
+      "concurrency": 1,
+      "milliseconds": [
+        0.120333,
+        0.09525,
+        0.101458,
+        0.101375,
+        0.098792,
+        0.101166,
+        0.090208,
+        0.100166
+      ],
+      "batchSeconds": 0.000886,
+      "requestsPerSecond": 9029.345372460497
+    },
+    {
+      "trial": 4,
+      "port": 18782,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 4,
+      "milliseconds": [
+        0.909166,
+        1.506334,
+        2.097709,
+        2.934667,
+        3.14875,
+        3.409791,
+        3.624625,
+        3.606083
+      ],
+      "batchSeconds": 0.006895917,
+      "requestsPerSecond": 1160.1067704266163
+    },
+    {
+      "trial": 4,
+      "port": 18782,
+      "path": "/",
+      "concurrency": 1,
+      "milliseconds": [
+        0.251042,
+        0.261625,
+        0.303833,
+        0.254542,
+        0.2635,
+        0.25925,
+        0.422334,
+        0.30775
+      ],
+      "batchSeconds": 0.002494125,
+      "requestsPerSecond": 3207.5377136270235
+    },
+    {
+      "trial": 4,
+      "port": 18781,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 1,
+      "milliseconds": [
+        0.834,
+        0.664292,
+        0.630125,
+        0.603458,
+        0.609291,
+        0.615375,
+        0.642625,
+        0.688833
+      ],
+      "batchSeconds": 0.0054215,
+      "requestsPerSecond": 1475.606381997602
+    },
+    {
+      "trial": 4,
+      "port": 18783,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 1,
+      "milliseconds": [
+        0.18725,
+        0.135292,
+        0.133166,
+        0.129584,
+        0.147458,
+        0.129417,
+        0.1275,
+        0.125708
+      ],
+      "batchSeconds": 0.001235916,
+      "requestsPerSecond": 6472.9318173727015
+    },
+    {
+      "trial": 4,
+      "port": 18781,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 4,
+      "milliseconds": [
+        1.297375,
+        0.755292,
+        2.225875,
+        1.636834,
+        2.032542,
+        2.046334,
+        2.037084,
+        2.044
+      ],
+      "batchSeconds": 0.004495083,
+      "requestsPerSecond": 1779.7224211432801
+    },
+    {
+      "trial": 4,
+      "port": 18782,
+      "path": "/api/compute?iterations=10000",
+      "concurrency": 1,
+      "milliseconds": [
+        0.872583,
+        0.77325,
+        0.791375,
+        0.886416,
+        0.939292,
+        0.769875,
+        0.731417,
+        0.795083
+      ],
+      "batchSeconds": 0.0066885,
+      "requestsPerSecond": 1196.08282873589
+    }
+  ],
+  "controllerSHA256": "b0abb9bd57c80344d920c992e0b302c01c186fc17aaa6bcd034b34257dcd092b",
+  "sources": {
+    "examples/stack-lab/python_server.py": "464040010379f4228cbb13278bc96c4f9b5b0203e75b0e28ceba80b23d841712",
+    "examples/stack-lab/index.html": "46450f309047a5b3099b78cc509ca183b56585e28234ad8714bd310081f219ab",
+    "examples/stack-lab/server.rf2": "3287b4f5958584ae12e601de3fb1f42305830c690352c459625d7e97a0b94e20",
+    "examples/stack-lab/vm.rf2": "e24a6dcd3662c5fe8f60177658387876eae6d17513be000436b098eafcb426f5"
+  },
+  "limits": [
+    "Single physical host, single-worker bounded HTTP subset, loopback; not internet capacity",
+    "Host-Python control isolates some VM cost, not all implementation/runtime/OS differences",
+    "Guest is QEMU/HVF Linux with user-mode network forwarding; RF2 launches backend, not a new hypervisor",
+    "HTTP latency includes socket/client overhead; no compiler-wide/energy/token/transistor claims",
+    "Malformed probes are a bounded subset, not complete HTTP conformance or security proof"
+  ],
+  "candidateBinarySHA256": "da28b961619054cb3562a48680013ee525ea6620370d254ff34211dccb028302",
+  "candidateComposedSourceSHA256": "dba31cb86b81bde0ea456f4398af94e3610f1a54f2ba3f8dcddd8e9b1eabe580",
+  "candidateOwnedServerStopped": true,
+  "finalCompilerUnsignedServerEquivalenceSHA256": "a677b7a8ee212f04d9c563e692fddc3ad5d052ead8f6527bd6e6a613728dcc89",
+  "finalCompilerSHA256": "27b465250a4848ac761db5c256f8e9e97791eead9aaff85cac54c627f9bb9d27"
+}

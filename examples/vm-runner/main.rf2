@@ -74,7 +74,7 @@ fn load_image(path):IO
  set i=0
  while i<bytes
   let op=load32(image()+48+i)
-  let valid=any(op==3573751839,any(op==2332098560,any(op==4177526848,op==3556769794)))
+  let valid=any(op==3573751839,any(op==2332098560,any(op==4177526848,op==3556769826)))
   if (op&4227858432)==335544320
    let target=op&67108863
    if target>=33554432

@@ -12,7 +12,7 @@ def run(p,ms=10,a=19,b=23,cancel=0):
  assert len(q.stdout)==80,(q.returncode,q.stdout,q.stderr)
  values=dict(zip(['reason','value','data','elapsedTicks','budgetTicks','ticksPerSecond','status','reserved','loadedBytes','entry'],struct.unpack('<10Q',q.stdout)))
  row={'image':p.name,'ms':ms,'a':a,'b':b,'cancel':cancel,'processExit':q.returncode,'wallNs':wall,**values};rows.append(row);return row
-add=image('add',[0x8b010000,0xf9000040,0xd4000002]);loop=image('loop',[0x14000000]);noploop=image('nop-loop',[0xd503201f,0x17ffffff]);repeat=image('repeated-add',[0x8b010000]*7+[0xf9000040,0xd4000002]);entry=image('entry',[0xd503201f,0x8b010000,0xf9000040,0xd4000002],4)
+add=image('add',[0x8b010000,0xf9000040,0xd4000022]);loop=image('loop',[0x14000000]);noploop=image('nop-loop',[0xd503201f,0x17ffffff]);repeat=image('repeated-add',[0x8b010000]*7+[0xf9000040,0xd4000022]);entry=image('entry',[0xd503201f,0x8b010000,0xf9000040,0xd4000022],4)
 for i in range(24):
  a,b=rng.randrange(2**32),rng.randrange(2**32)
  for p,factor in [(add,1),(repeat,7),(entry,1)]:
@@ -31,7 +31,7 @@ bad=[]
 def refuse(p):
  x=run(p);assert x['processExit']==1 and x['status']!=0 and x['reason']==0 and x['loadedBytes']==0,x;bad.append({'file':p.name,'status':x['status']})
 for name,ops in [('timer-disable',[0xd51be31f]),('svc',[0xd4000001]),('eret',[0xd69f03e0]),('other-store',[0xf9000000]),('branch-out',[0x14000001]),('branch-before',[0x17ffffff]),('unknown',[0xffffffff]),('zero',[]),('oversize',[0xd503201f]*1025)]:refuse(image(name,ops))
-for p in [image('entry-oob',[0xd4000002],4),image('entry-align',[0xd4000002],1),image('wrong-isa',[0xd4000002],isa=2),image('flags',[0xd4000002],flags=1),image('reserved',[0xd4000002],reserved=1)]:refuse(p)
+for p in [image('entry-oob',[0xd4000022],4),image('entry-align',[0xd4000022],1),image('wrong-isa',[0xd4000022],isa=2),image('flags',[0xd4000022],flags=1),image('reserved',[0xd4000022],reserved=1)]:refuse(p)
 raw=add.read_bytes()
 for i in [0,1,7,8,15,24,47,48,49,59]:
  p=D/f'truncated-{i}.rf2g';p.write_bytes(raw[:i]);refuse(p)

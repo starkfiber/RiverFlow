@@ -1,0 +1,100 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "kind": "mmap",
+      "primaryError": 0,
+      "optimized": false,
+      "expectedError": 12,
+      "observed": [
+        1,
+        12
+      ],
+      "instructionOffsets": [
+        16688
+      ],
+      "originalUnsignedSHA256": "c71a79225b193bdb2a9f9160929237d6a7e30fc3c8019e91db1a6070abab0aca",
+      "patchedSignedSHA256": "ef5537edcf2edc5909781501ad6a6c6183c7614f411bcd9d473086f3b8b0b739"
+    },
+    {
+      "kind": "mmap",
+      "primaryError": 0,
+      "optimized": true,
+      "expectedError": 12,
+      "observed": [
+        1,
+        12
+      ],
+      "instructionOffsets": [
+        16696
+      ],
+      "originalUnsignedSHA256": "4bf546e4218c18edf08b91e71df624afd90ccd186ea66ef67d423aa044414391",
+      "patchedSignedSHA256": "046caca8dcecbdf24d0b0142c5761ca731dd187555576ffa2e29fec1e567d3df"
+    },
+    {
+      "kind": "munmap",
+      "primaryError": 0,
+      "optimized": false,
+      "expectedError": 65548,
+      "observed": [
+        1,
+        65548
+      ],
+      "instructionOffsets": [
+        16772,
+        16932
+      ],
+      "originalUnsignedSHA256": "c71a79225b193bdb2a9f9160929237d6a7e30fc3c8019e91db1a6070abab0aca",
+      "patchedSignedSHA256": "fab7eb5d794eaae5ace47109401899f07eefb6fdba0d261230fb433d7ad948d7"
+    },
+    {
+      "kind": "munmap",
+      "primaryError": 0,
+      "optimized": true,
+      "expectedError": 65548,
+      "observed": [
+        1,
+        65548
+      ],
+      "instructionOffsets": [
+        16780,
+        16940
+      ],
+      "originalUnsignedSHA256": "4bf546e4218c18edf08b91e71df624afd90ccd186ea66ef67d423aa044414391",
+      "patchedSignedSHA256": "0a06fbbf0c6e00778de57bb8215e10af1954f8603d7de421053c9f160ae7df0a"
+    },
+    {
+      "kind": "munmap",
+      "primaryError": 42,
+      "optimized": false,
+      "expectedError": 42,
+      "observed": [
+        1,
+        42
+      ],
+      "instructionOffsets": [
+        16772,
+        16932
+      ],
+      "originalUnsignedSHA256": "a5bea81ad97a374a319758ed7670054ea0626640e6878c5351155e9ec4ed3da1",
+      "patchedSignedSHA256": "5e1842d375161e731e29ce62735b437f9b77e0708ec3a2a5a54e2c61bc740a19"
+    },
+    {
+      "kind": "munmap",
+      "primaryError": 42,
+      "optimized": true,
+      "expectedError": 42,
+      "observed": [
+        1,
+        42
+      ],
+      "instructionOffsets": [
+        16780,
+        16940
+      ],
+      "originalUnsignedSHA256": "120fcbaffc1bb206c5784f22c3ff66e127e26ef30154fefe1caa335b83ae8448",
+      "patchedSignedSHA256": "fc8399ac08ee44cf219a16e58f911d02bb4c34d7be47ed04ab944e947c8cca70"
+    }
+  ],
+  "scope": "Controlled native binary substitutions: mmap path skips success branch, returns errno12; munmap is replaced by errno12. Not an actual kernel OOM, syscall interception or physical-memory reclamation measurement."
+}

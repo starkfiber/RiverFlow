@@ -1,0 +1,38 @@
+[
+  {
+    "exitInstruction": "hvc0",
+    "exitCode": 12,
+    "observations": [
+      0,
+      4294967295,
+      1,
+      2181038087,
+      7542735804,
+      0
+    ]
+  },
+  {
+    "exitInstruction": "hvc1",
+    "exitCode": 0,
+    "observations": [
+      0,
+      7542735804,
+      1,
+      1509949441,
+      7542735804,
+      0
+    ]
+  },
+  {
+    "exitInstruction": "brk0",
+    "exitCode": 14,
+    "observations": [
+      0,
+      7542735804,
+      1,
+      2181038087,
+      7542735804,
+      0
+    ]
+  }
+]

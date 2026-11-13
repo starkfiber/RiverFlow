@@ -18,6 +18,12 @@ The [Evidence Contract candidate](docs/EVIDENCE-CONTRACT.md) combines five teste
 
 The [ten-language source audit](docs/TOP-TEN-LANGUAGE-AUDIT.md) compares RF2 with selected implementations from Python through C, SQL and Go, with assembly as a separate low-level reference. It includes an A–Z acceptance ledger and marks missing capabilities explicitly. Popularity and shorter spelling do not prove correctness, speed or adoption.
 
+## 0.21 development: owned mappings and authenticated guest entry
+
+RF2 now owns guest mapping lifetimes and authenticates a fixed boot contract with shared-key HMAC. The final local suite passed 34 guest runs, 77 refusals, 23 mapping scenarios in both compiler modes and six controlled fault substitutions. A stronger test found an older HVC #0 counterexample; the current profile requires HVC #1. [Contract and limits](docs/BOOT-CONTRACT-0.21.md).
+
+RF2 is not a complete Python/C/assembly replacement or universally faster. Fresh task, HTTP and MCP measurements retain both wins and losses, including the slower RF2 repeated-hash path. [Benchmark tables and raw reports](docs/BENCHMARKS-0.21.md) · [Capability gaps](docs/CAPABILITY-MAP.md).
+
 ## 0.20 development: owned VMs and bounded guest images
 
 RF2 now checks VM/vCPU ownership, validates a small guest-image format and enforces a virtual-timer time slice for admitted looping guests. The final local suite passed 136 guest executions, 31 image refusals, 52 branch-admission checks and 14 ownership scenarios in both compiler modes. MCP authority is unchanged. [Implementation, clock correction and limits](docs/VM-OWNERSHIP-0.20.md) · [Run the native image loader](examples/vm-runner/README.md).

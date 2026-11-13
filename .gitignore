@@ -14,3 +14,6 @@ __pycache__/
 
 # Local investigation indexes can reference private workspace paths.
 .reverse-lab/
+
+# Local WhatIF cases are retained with project evidence, outside public source.
+.whatif/

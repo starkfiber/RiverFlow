@@ -1,7 +1,7 @@
 """Bounded loopback comparison. Measures this implementation/deployment, not languages in general."""
 from pathlib import Path
 import socket,time,json,hashlib,random,statistics,platform,concurrent.futures,subprocess,os
-R=Path(__file__).resolve().parents[1];D=R/'artifacts/virtual-lab';rows=[];checks=[];ports=[18780,18781,18782];rng=random.Random(180013)
+R=Path(__file__).resolve().parents[1];D=R/'artifacts/virtual-lab';rows=[];checks=[];ports=[int(os.environ.get("RF2_STACK_RF2_PORT","18780")),18781,18782];rng=random.Random(180013)
 def request(port,path='/',raw=None):
  start=time.perf_counter_ns()
  with socket.create_connection(('127.0.0.1',port),timeout=3)as s:
@@ -33,15 +33,16 @@ for port in ports:
  assert request(port,'/health')[0]==200;checks.append({'port':port,'disconnectRecovery':20,'passed':True})
 # 15 interleaved rounds;20 requests per cell;2 routes,2 concurrency levels,3 arms=3600 requests.
 cells=[(p,path,c)for p in ports for path in ['/','/api/compute?iterations=10000']for c in [1,4]]
-for trial in range(15):
+trials=int(os.environ.get('RF2_STACK_TRIALS','15'));batch=int(os.environ.get('RF2_STACK_BATCH','20'));assert 1<=trials<=15 and 1<=batch<=20
+for trial in range(trials):
  rng.shuffle(cells)
  for port,path,c in cells:
   start=time.perf_counter_ns()
-  with concurrent.futures.ThreadPoolExecutor(max_workers=c)as pool:r=list(pool.map(lambda _:request(port,path),range(20)))
+  with concurrent.futures.ThreadPoolExecutor(max_workers=c)as pool:r=list(pool.map(lambda _:request(port,path),range(batch)))
   seconds=(time.perf_counter_ns()-start)/1e9
   assert all(status==200 and body==expected[path]for status,body,_ in r)
-  rows.append({'trial':trial,'port':port,'path':path,'concurrency':c,'milliseconds':[x[2]for x in r],'batchSeconds':seconds,'requestsPerSecond':20/seconds})
+  rows.append({'trial':trial,'port':port,'path':path,'concurrency':c,'milliseconds':[x[2]for x in r],'batchSeconds':seconds,'requestsPerSecond':batch/seconds})
 summary=[]
 for port,path,c in cells:
  group=[x for x in rows if(x['port'],x['path'],x['concurrency'])==(port,path,c)];lat=[v for x in group for v in x['milliseconds']];summary.append({'port':port,'path':path,'concurrency':c,'requests':len(lat),'medianMs':statistics.median(lat),'p95Ms':sorted(lat)[int(.95*(len(lat)-1))],'medianBatchRequestsPerSecond':statistics.median(x['requestsPerSecond']for x in group)})
-report={'date':'2026-11-13','passed':True,'machine':platform.platform(),'backends':identities,'seed':180013,'checks':checks,'requestsMeasured':sum(len(x['milliseconds'])for x in rows),'summary':summary,'samples':rows,'controllerSHA256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'sources':{str(p.relative_to(R)):hashlib.sha256(p.read_bytes()).hexdigest()for p in (R/'examples/stack-lab').glob('*')if p.is_file()},'limits':['Single physical host, single-worker bounded HTTP subset, loopback; not internet capacity','Host-Python control isolates some VM cost, not all implementation/runtime/OS differences','Guest is QEMU/HVF Linux with user-mode network forwarding; RF2 launches backend, not a new hypervisor','HTTP latency includes socket/client overhead; no compiler-wide/energy/token/transistor claims','Malformed probes are a bounded subset, not complete HTTP conformance or security proof']};Path(os.environ.get('RF2_STACK_REPORT',str(D/'comparison.json'))).write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({'passed':True,'checks':len(checks),'requestsMeasured':report['requestsMeasured'],'summary':summary},indent=2))
+report={'date':'2026-11-13','passed':True,'machine':platform.platform(),'backends':identities,'seed':180013,'checks':checks,'trialsPerCell':trials,'requestsPerBatch':batch,'requestsMeasured':sum(len(x['milliseconds'])for x in rows),'summary':summary,'samples':rows,'controllerSHA256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'sources':{str(p.relative_to(R)):hashlib.sha256(p.read_bytes()).hexdigest()for p in (R/'examples/stack-lab').glob('*')if p.is_file()},'limits':['Single physical host, single-worker bounded HTTP subset, loopback; not internet capacity','Host-Python control isolates some VM cost, not all implementation/runtime/OS differences','Guest is QEMU/HVF Linux with user-mode network forwarding; RF2 launches backend, not a new hypervisor','HTTP latency includes socket/client overhead; no compiler-wide/energy/token/transistor claims','Malformed probes are a bounded subset, not complete HTTP conformance or security proof']};Path(os.environ.get('RF2_STACK_REPORT',str(D/'comparison.json'))).write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({'passed':True,'checks':len(checks),'requestsMeasured':report['requestsMeasured'],'summary':summary},indent=2))

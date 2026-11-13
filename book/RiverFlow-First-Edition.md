@@ -1373,6 +1373,64 @@ The frozen 0.19 executable agreed with the new runner on three arithmetic cases,
 
 The next boundary is ownership of mapped memory itself, followed by a specified boot contract and independently tested interrupt and device models. Wider guest instructions require a fresh cancellation analysis. A signed-image format would add a different property again: provenance. The present result supports the smaller statement that a checked owner and admitted image can share an observable, platform-enforced time slice.
 
+# 36. Own the mapping, authenticate the entry
+
+A VM owner does not, by itself, own the host memory behind a guest page. The next boundary gives that memory a checked relationship to the VM.
+
+```rf2
+result IO(u64,u64)
+resource Machine(IO,vm)
+resource Pages(IO,mapping)
+
+fn prepare():IO
+ own vm=Machine()
+ own code=Pages(vm,65536,16384,5)
+ return ok(0)
+end
+```
+
+The mapping constructor checks the address, size and guest permissions, allocates host memory and maps it into the VM. A live vCPU prevents mapping mutation or release. Static and runtime checks both matter: a conditional release that never ran must not authorize a later write. The older compatibility mapping calls cannot bypass live owned children. Ordinary cleanup destroys the CPU, removes guest mappings, releases their host allocation and finally destroys the VM.
+
+Failure still needs a contract. Acquisition rolls back its host allocation if the guest map fails. Cleanup errors replace success and preserve an existing primary error. If guest unmap fails, the host allocation is deliberately retained rather than freed while it might remain referenced. Raw calls and fatal process paths remain outside the checked lifetime. This is bounded ownership, not a complete borrow system or proof of physical memory reclamation.
+
+The authenticated image adds a different property. An RF2A021 envelope binds its code and header with HMAC-SHA256, reusing the existing RF2 implementation. The header names the admitted instruction set, entry, memory layout, initial CPU status, effect profile and maximum slice. A private snapshot is validated and authenticated before VM acquisition. A correct MAC cannot override an unsupported policy.
+
+Native RF2 commands generate an owner-only key and seal an unsigned admitted image. The verifier requires the intended trusted key. This is shared-key authentication, not a public signature, author identity, measured hardware boot or rollback protection. Replay is allowed. Anyone who can replace the supplied key controls that trust decision. Authentication says nothing about whether the computation is useful.
+
+The stronger tests also corrected an earlier exit choice. With inputs 3,611,736,829 and 3,930,998,975, a guest using HVC #0 stored the correct sum but later reported a different X0 value and exception syndrome. The frozen 0.20 runner reproduced it. A matched HVC #1 control preserved the register and produced the expected exit. The internal platform handling of HVC #0 remains unknown. The new profile requires HVC #1 and refuses HVC #0 even when its MAC is valid. Earlier passing seeds remain observations, not a universal register-preservation guarantee.
+
+The final authenticated suite passed 34 guest runs, rejected 77 malformed or unsupported inputs and checked 23 mapping scenarios in both compiler modes. Six additional emitted-instruction substitutions checked allocation and cleanup failures; those are controlled faults, not real kernel memory exhaustion. Native sealing agreed with Python HMAC calculations. The older VM, Core, WASM and MCP suites still passed with the final compiler.
+
+This is a boot contract for a small guest language on one Apple Silicon Mac. It is not ELF, Linux, UEFI, a physical boot sector or a device model. Wider instructions require a fresh cancellation analysis, especially if they can alter timer state. Public-key provenance and independently tested interrupts and devices remain next gates.
+
+# 37. Measure the task, retain the loss
+
+A language can win one measurement and lose the next. The useful question is which cost the experiment includes.
+
+The following medians come from nine rotated fresh-process trials on one Mac. They include process startup and output. C and Python use the named algorithms and libraries; the implementations are not identical. The first two rows are numerical kernels. The remaining rows are bounded file or CLI tasks.
+
+| Task | RF2 ms | C comparator ms | Python comparator ms |
+| --- | --- | --- | --- |
+| Mixed recurrence | 3.552 | 3.563 | 152.127 |
+| Conditional reduction | 1.603 | 5.702 | 10.390 |
+| Latency summary | 1.771 | 1.714 | 13.864 |
+| One file hash | 2.885 | 1.842 | 11.109 |
+| Fifty file hashes | 55.680 | 2.486 | 12.240 |
+
+The conditional row shows C's ordinary loop. An equally specialized C formula measured 1.771 ms. Both that formula and RF2 avoid repeated loop work. A tiny difference between two startup-sensitive specialized programs is not evidence that a compiler has defeated another compiler in general.
+
+The one-file hash result can be particularly misleading. RF2 finishes before a fresh Python process, but the batch of fifty hashes reverses that result. RF2 software SHA-256 took 55.680 ms, compared with 12.240 ms for Python/hashlib and 2.486 ms for Clang/CommonCrypto. Startup is amortized across the batch, exposing the slower RF2 hash implementation. That supplies a concrete optimization target instead of a universal speed slogan.
+
+A separate real HTTP application comparison measured 480 loopback requests across a native RF2 server, host Python and Python inside the existing QEMU/HVF Linux guest. Sequential static-page medians were 0.101, 0.123 and 0.236 ms. The bounded computation route measured 0.138, 0.632 and 0.802 ms. Bodies and bounded error cases were checked. Different server implementations, runtimes, operating systems and forwarding paths contribute to those numbers. The new owned-mapping guest runner did not boot that Linux system. Its temporary native HTTP comparison process was stopped after testing.
+
+Persistent MCP measurements include host JSON, pipes, execution and authentication. At 128 bytes and 32 steps, the current run and verify medians were about 0.249 and 0.252 ms per call. These are similar bounded tool costs, not a general improvement or measurement of model generation.
+
+There is no complete AI-task benchmark yet. A smaller source plan or transcript is not a measured reduction in billed tokens. A proper study needs matched tasks, model and settings, randomized language order, fixed acceptance tests, actual usage receipts and failures counted. The coding host supplied AI assistance, but this sprint was not such an instrumented trial.
+
+Nineteen retained benchmark reports are indexed separately. Historical optimizer, collection, invoice, UI, contract and WASM experiments keep their versions and limits. They are not nineteen real-world applications or a combined language score. The fresh task, HTTP and MCP reports are linked from docs/BENCHMARKS-0.21.md.
+
+RF2 is not at complete Python, C or assembly coverage. Floating point, arbitrary precision, general heap and ownership transfer, concurrency, comprehensive libraries, broad foreign interfaces and other CPU/OS targets remain substantial work. Direct native emission and a few complete apps are useful foundations. Their limits define the next tests.
+
 # Appendix A. Commands and interfaces
 
 Native standalone, no Node or npm required:

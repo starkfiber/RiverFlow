@@ -25,8 +25,8 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "Python": 404345,
-    "RiverFlow": 366157,
+    "Python": 432223,
+    "RiverFlow": 382835,
     "JavaScript": 85144,
     "HTML": 30503,
     "CSS": 17035,
@@ -233,6 +233,11 @@
       "path": "examples/compact/sum.rf2",
       "language": "RiverFlow",
       "bytes": 25
+    },
+    {
+      "path": "examples/evidence-contract/guest.rf2",
+      "language": "RiverFlow",
+      "bytes": 9185
     },
     {
       "path": "examples/evidence-contract/lib/auth.rf2",
@@ -482,7 +487,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 106379
+      "bytes": 113872
     },
     {
       "path": "native/core.rf2",
@@ -653,6 +658,11 @@
       "path": "tests/standalone/attendance_verify.py",
       "language": "Python",
       "bytes": 5806
+    },
+    {
+      "path": "tests/standalone/auth_vm_verify.py",
+      "language": "Python",
+      "bytes": 10001
     },
     {
       "path": "tests/standalone/browser_worker_verify.mjs",
@@ -880,6 +890,11 @@
       "bytes": 5228
     },
     {
+      "path": "tests/standalone/mapping_fault_injection.py",
+      "language": "Python",
+      "bytes": 2639
+    },
+    {
       "path": "tests/standalone/module_bounds_verify.py",
       "language": "Python",
       "bytes": 2336
@@ -1045,14 +1060,29 @@
       "bytes": 3254
     },
     {
+      "path": "tools/benchmark-mcp.py",
+      "language": "Python",
+      "bytes": 3482
+    },
+    {
       "path": "tools/benchmark-native.mjs",
       "language": "JavaScript",
       "bytes": 3711
     },
     {
+      "path": "tools/benchmark-real-apps.py",
+      "language": "Python",
+      "bytes": 9957
+    },
+    {
       "path": "tools/benchmark.mjs",
       "language": "JavaScript",
       "bytes": 2115
+    },
+    {
+      "path": "tools/build-auth-vm.py",
+      "language": "Python",
+      "bytes": 1557
     },
     {
       "path": "tools/build-book.py",
@@ -1157,7 +1187,7 @@
     {
       "path": "tools/measure-stack-lab.py",
       "language": "Python",
-      "bytes": 5001
+      "bytes": 5243
     },
     {
       "path": "tools/measure-studio.py",

@@ -27,10 +27,10 @@ fn probe(mode,left,right)
   return 3
  end
  do store64(state()+8,mem)
- # ADD X0,X0,X1; STR X0,[X2]; HVC #0. No guest loop or OS access.
+ # ADD X0,X0,X1; STR X0,[X2]; HVC #1. No guest loop or OS access.
  do store32(mem,2332098560)
  do store32(mem+4,4177526848)
- do store32(mem+8,3556769794)
+ do store32(mem+8,3556769826)
  if platform_call("Hypervisor","hv_vm_map",mem+1,65536,16384,5)==0
   return 4
  end

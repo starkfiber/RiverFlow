@@ -1,0 +1,1331 @@
+{
+  "passed": true,
+  "host": "macOS-26.5.1-arm64-arm-64bit",
+  "compilerSHA256": "27b465250a4848ac761db5c256f8e9e97791eead9aaff85cac54c627f9bb9d27",
+  "baselineCompilerSHA256": "7ab08add35439f32ae9af78735f625a33468e810a8931bf376125dd2acd8f452",
+  "pythonVersion": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+  "clang": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+  "trials": 9,
+  "raw": [
+    {
+      "task": "mixed",
+      "variant": "RF2 0.21",
+      "excludedWarmupMs": 683.175083
+    },
+    {
+      "task": "mixed",
+      "variant": "RF2 0.20",
+      "excludedWarmupMs": 359.667167
+    },
+    {
+      "task": "mixed",
+      "variant": "Clang O3 loop",
+      "excludedWarmupMs": 363.713459
+    },
+    {
+      "task": "mixed",
+      "variant": "Python loop",
+      "excludedWarmupMs": 153.909833
+    },
+    {
+      "task": "mixed",
+      "trial": 0,
+      "variant": "Python loop",
+      "ms": 150.568708
+    },
+    {
+      "task": "mixed",
+      "trial": 0,
+      "variant": "RF2 0.21",
+      "ms": 4.06275
+    },
+    {
+      "task": "mixed",
+      "trial": 0,
+      "variant": "RF2 0.20",
+      "ms": 3.850584
+    },
+    {
+      "task": "mixed",
+      "trial": 0,
+      "variant": "Clang O3 loop",
+      "ms": 3.562958
+    },
+    {
+      "task": "mixed",
+      "trial": 1,
+      "variant": "RF2 0.20",
+      "ms": 3.355084
+    },
+    {
+      "task": "mixed",
+      "trial": 1,
+      "variant": "RF2 0.21",
+      "ms": 3.702
+    },
+    {
+      "task": "mixed",
+      "trial": 1,
+      "variant": "Python loop",
+      "ms": 154.363584
+    },
+    {
+      "task": "mixed",
+      "trial": 1,
+      "variant": "Clang O3 loop",
+      "ms": 3.905875
+    },
+    {
+      "task": "mixed",
+      "trial": 2,
+      "variant": "RF2 0.20",
+      "ms": 3.5855
+    },
+    {
+      "task": "mixed",
+      "trial": 2,
+      "variant": "RF2 0.21",
+      "ms": 3.419541
+    },
+    {
+      "task": "mixed",
+      "trial": 2,
+      "variant": "Python loop",
+      "ms": 157.722958
+    },
+    {
+      "task": "mixed",
+      "trial": 2,
+      "variant": "Clang O3 loop",
+      "ms": 3.866083
+    },
+    {
+      "task": "mixed",
+      "trial": 3,
+      "variant": "Python loop",
+      "ms": 152.127292
+    },
+    {
+      "task": "mixed",
+      "trial": 3,
+      "variant": "RF2 0.20",
+      "ms": 4.050208
+    },
+    {
+      "task": "mixed",
+      "trial": 3,
+      "variant": "Clang O3 loop",
+      "ms": 3.532791
+    },
+    {
+      "task": "mixed",
+      "trial": 3,
+      "variant": "RF2 0.21",
+      "ms": 3.380042
+    },
+    {
+      "task": "mixed",
+      "trial": 4,
+      "variant": "Python loop",
+      "ms": 149.880292
+    },
+    {
+      "task": "mixed",
+      "trial": 4,
+      "variant": "RF2 0.21",
+      "ms": 3.915167
+    },
+    {
+      "task": "mixed",
+      "trial": 4,
+      "variant": "Clang O3 loop",
+      "ms": 3.482792
+    },
+    {
+      "task": "mixed",
+      "trial": 4,
+      "variant": "RF2 0.20",
+      "ms": 3.394417
+    },
+    {
+      "task": "mixed",
+      "trial": 5,
+      "variant": "RF2 0.21",
+      "ms": 3.378792
+    },
+    {
+      "task": "mixed",
+      "trial": 5,
+      "variant": "Python loop",
+      "ms": 158.990542
+    },
+    {
+      "task": "mixed",
+      "trial": 5,
+      "variant": "Clang O3 loop",
+      "ms": 4.0285
+    },
+    {
+      "task": "mixed",
+      "trial": 5,
+      "variant": "RF2 0.20",
+      "ms": 3.429042
+    },
+    {
+      "task": "mixed",
+      "trial": 6,
+      "variant": "RF2 0.20",
+      "ms": 3.65475
+    },
+    {
+      "task": "mixed",
+      "trial": 6,
+      "variant": "RF2 0.21",
+      "ms": 3.436083
+    },
+    {
+      "task": "mixed",
+      "trial": 6,
+      "variant": "Clang O3 loop",
+      "ms": 3.447375
+    },
+    {
+      "task": "mixed",
+      "trial": 6,
+      "variant": "Python loop",
+      "ms": 149.343167
+    },
+    {
+      "task": "mixed",
+      "trial": 7,
+      "variant": "RF2 0.20",
+      "ms": 3.933
+    },
+    {
+      "task": "mixed",
+      "trial": 7,
+      "variant": "Python loop",
+      "ms": 151.2485
+    },
+    {
+      "task": "mixed",
+      "trial": 7,
+      "variant": "Clang O3 loop",
+      "ms": 4.017625
+    },
+    {
+      "task": "mixed",
+      "trial": 7,
+      "variant": "RF2 0.21",
+      "ms": 10.849958
+    },
+    {
+      "task": "mixed",
+      "trial": 8,
+      "variant": "Python loop",
+      "ms": 152.66825
+    },
+    {
+      "task": "mixed",
+      "trial": 8,
+      "variant": "RF2 0.20",
+      "ms": 3.997208
+    },
+    {
+      "task": "mixed",
+      "trial": 8,
+      "variant": "RF2 0.21",
+      "ms": 3.552125
+    },
+    {
+      "task": "mixed",
+      "trial": 8,
+      "variant": "Clang O3 loop",
+      "ms": 3.371375
+    },
+    {
+      "task": "conditional",
+      "variant": "RF2 0.21",
+      "excludedWarmupMs": 378.114209
+    },
+    {
+      "task": "conditional",
+      "variant": "RF2 0.20",
+      "excludedWarmupMs": 390.704083
+    },
+    {
+      "task": "conditional",
+      "variant": "Clang O3 loop",
+      "excludedWarmupMs": 385.238083
+    },
+    {
+      "task": "conditional",
+      "variant": "Clang O3 formula",
+      "excludedWarmupMs": 386.320792
+    },
+    {
+      "task": "conditional",
+      "variant": "Python formula",
+      "excludedWarmupMs": 26.13475
+    },
+    {
+      "task": "conditional",
+      "trial": 0,
+      "variant": "Python formula",
+      "ms": 16.923083
+    },
+    {
+      "task": "conditional",
+      "trial": 0,
+      "variant": "RF2 0.20",
+      "ms": 2.71475
+    },
+    {
+      "task": "conditional",
+      "trial": 0,
+      "variant": "RF2 0.21",
+      "ms": 2.297875
+    },
+    {
+      "task": "conditional",
+      "trial": 0,
+      "variant": "Clang O3 formula",
+      "ms": 2.362292
+    },
+    {
+      "task": "conditional",
+      "trial": 0,
+      "variant": "Clang O3 loop",
+      "ms": 7.530334
+    },
+    {
+      "task": "conditional",
+      "trial": 1,
+      "variant": "Python formula",
+      "ms": 12.45975
+    },
+    {
+      "task": "conditional",
+      "trial": 1,
+      "variant": "Clang O3 formula",
+      "ms": 2.137083
+    },
+    {
+      "task": "conditional",
+      "trial": 1,
+      "variant": "RF2 0.21",
+      "ms": 1.791834
+    },
+    {
+      "task": "conditional",
+      "trial": 1,
+      "variant": "RF2 0.20",
+      "ms": 1.7315
+    },
+    {
+      "task": "conditional",
+      "trial": 1,
+      "variant": "Clang O3 loop",
+      "ms": 6.272708
+    },
+    {
+      "task": "conditional",
+      "trial": 2,
+      "variant": "Clang O3 formula",
+      "ms": 2.119875
+    },
+    {
+      "task": "conditional",
+      "trial": 2,
+      "variant": "Python formula",
+      "ms": 12.077709
+    },
+    {
+      "task": "conditional",
+      "trial": 2,
+      "variant": "RF2 0.20",
+      "ms": 1.773042
+    },
+    {
+      "task": "conditional",
+      "trial": 2,
+      "variant": "RF2 0.21",
+      "ms": 1.588875
+    },
+    {
+      "task": "conditional",
+      "trial": 2,
+      "variant": "Clang O3 loop",
+      "ms": 5.670292
+    },
+    {
+      "task": "conditional",
+      "trial": 3,
+      "variant": "Clang O3 formula",
+      "ms": 1.717042
+    },
+    {
+      "task": "conditional",
+      "trial": 3,
+      "variant": "RF2 0.20",
+      "ms": 1.51475
+    },
+    {
+      "task": "conditional",
+      "trial": 3,
+      "variant": "Python formula",
+      "ms": 10.524625
+    },
+    {
+      "task": "conditional",
+      "trial": 3,
+      "variant": "Clang O3 loop",
+      "ms": 6.151875
+    },
+    {
+      "task": "conditional",
+      "trial": 3,
+      "variant": "RF2 0.21",
+      "ms": 1.534375
+    },
+    {
+      "task": "conditional",
+      "trial": 4,
+      "variant": "RF2 0.21",
+      "ms": 1.491792
+    },
+    {
+      "task": "conditional",
+      "trial": 4,
+      "variant": "Clang O3 loop",
+      "ms": 5.646375
+    },
+    {
+      "task": "conditional",
+      "trial": 4,
+      "variant": "Clang O3 formula",
+      "ms": 1.511625
+    },
+    {
+      "task": "conditional",
+      "trial": 4,
+      "variant": "Python formula",
+      "ms": 9.875458
+    },
+    {
+      "task": "conditional",
+      "trial": 4,
+      "variant": "RF2 0.20",
+      "ms": 1.860291
+    },
+    {
+      "task": "conditional",
+      "trial": 5,
+      "variant": "Python formula",
+      "ms": 10.351708
+    },
+    {
+      "task": "conditional",
+      "trial": 5,
+      "variant": "RF2 0.21",
+      "ms": 1.750417
+    },
+    {
+      "task": "conditional",
+      "trial": 5,
+      "variant": "Clang O3 loop",
+      "ms": 5.860959
+    },
+    {
+      "task": "conditional",
+      "trial": 5,
+      "variant": "Clang O3 formula",
+      "ms": 1.822209
+    },
+    {
+      "task": "conditional",
+      "trial": 5,
+      "variant": "RF2 0.20",
+      "ms": 1.532209
+    },
+    {
+      "task": "conditional",
+      "trial": 6,
+      "variant": "Clang O3 loop",
+      "ms": 5.645834
+    },
+    {
+      "task": "conditional",
+      "trial": 6,
+      "variant": "RF2 0.21",
+      "ms": 1.556292
+    },
+    {
+      "task": "conditional",
+      "trial": 6,
+      "variant": "Python formula",
+      "ms": 10.389791
+    },
+    {
+      "task": "conditional",
+      "trial": 6,
+      "variant": "RF2 0.20",
+      "ms": 1.983916
+    },
+    {
+      "task": "conditional",
+      "trial": 6,
+      "variant": "Clang O3 formula",
+      "ms": 1.693583
+    },
+    {
+      "task": "conditional",
+      "trial": 7,
+      "variant": "Python formula",
+      "ms": 9.769208
+    },
+    {
+      "task": "conditional",
+      "trial": 7,
+      "variant": "Clang O3 formula",
+      "ms": 1.770791
+    },
+    {
+      "task": "conditional",
+      "trial": 7,
+      "variant": "Clang O3 loop",
+      "ms": 5.702166
+    },
+    {
+      "task": "conditional",
+      "trial": 7,
+      "variant": "RF2 0.20",
+      "ms": 1.683584
+    },
+    {
+      "task": "conditional",
+      "trial": 7,
+      "variant": "RF2 0.21",
+      "ms": 1.602541
+    },
+    {
+      "task": "conditional",
+      "trial": 8,
+      "variant": "Python formula",
+      "ms": 9.879917
+    },
+    {
+      "task": "conditional",
+      "trial": 8,
+      "variant": "RF2 0.21",
+      "ms": 1.779375
+    },
+    {
+      "task": "conditional",
+      "trial": 8,
+      "variant": "Clang O3 formula",
+      "ms": 1.685333
+    },
+    {
+      "task": "conditional",
+      "trial": 8,
+      "variant": "RF2 0.20",
+      "ms": 1.477375
+    },
+    {
+      "task": "conditional",
+      "trial": 8,
+      "variant": "Clang O3 loop",
+      "ms": 5.565
+    },
+    {
+      "task": "latency-summary",
+      "variant": "RF2 0.21",
+      "excludedWarmupMs": 372.683209
+    },
+    {
+      "task": "latency-summary",
+      "variant": "Clang O3 qsort",
+      "excludedWarmupMs": 383.322667
+    },
+    {
+      "task": "latency-summary",
+      "variant": "Python built-in sort",
+      "excludedWarmupMs": 35.444209
+    },
+    {
+      "task": "latency-summary",
+      "trial": 0,
+      "variant": "RF2 0.21",
+      "ms": 2.967
+    },
+    {
+      "task": "latency-summary",
+      "trial": 0,
+      "variant": "Python built-in sort",
+      "ms": 18.883584
+    },
+    {
+      "task": "latency-summary",
+      "trial": 0,
+      "variant": "Clang O3 qsort",
+      "ms": 2.187208
+    },
+    {
+      "task": "latency-summary",
+      "trial": 1,
+      "variant": "RF2 0.21",
+      "ms": 3.498708
+    },
+    {
+      "task": "latency-summary",
+      "trial": 1,
+      "variant": "Clang O3 qsort",
+      "ms": 1.918833
+    },
+    {
+      "task": "latency-summary",
+      "trial": 1,
+      "variant": "Python built-in sort",
+      "ms": 15.613292
+    },
+    {
+      "task": "latency-summary",
+      "trial": 2,
+      "variant": "Python built-in sort",
+      "ms": 14.920125
+    },
+    {
+      "task": "latency-summary",
+      "trial": 2,
+      "variant": "RF2 0.21",
+      "ms": 2.021333
+    },
+    {
+      "task": "latency-summary",
+      "trial": 2,
+      "variant": "Clang O3 qsort",
+      "ms": 1.654791
+    },
+    {
+      "task": "latency-summary",
+      "trial": 3,
+      "variant": "Python built-in sort",
+      "ms": 14.302916
+    },
+    {
+      "task": "latency-summary",
+      "trial": 3,
+      "variant": "Clang O3 qsort",
+      "ms": 2.041958
+    },
+    {
+      "task": "latency-summary",
+      "trial": 3,
+      "variant": "RF2 0.21",
+      "ms": 1.684083
+    },
+    {
+      "task": "latency-summary",
+      "trial": 4,
+      "variant": "Clang O3 qsort",
+      "ms": 1.651959
+    },
+    {
+      "task": "latency-summary",
+      "trial": 4,
+      "variant": "Python built-in sort",
+      "ms": 13.571
+    },
+    {
+      "task": "latency-summary",
+      "trial": 4,
+      "variant": "RF2 0.21",
+      "ms": 1.841542
+    },
+    {
+      "task": "latency-summary",
+      "trial": 5,
+      "variant": "Python built-in sort",
+      "ms": 13.233042
+    },
+    {
+      "task": "latency-summary",
+      "trial": 5,
+      "variant": "Clang O3 qsort",
+      "ms": 1.78225
+    },
+    {
+      "task": "latency-summary",
+      "trial": 5,
+      "variant": "RF2 0.21",
+      "ms": 1.628416
+    },
+    {
+      "task": "latency-summary",
+      "trial": 6,
+      "variant": "Python built-in sort",
+      "ms": 13.864292
+    },
+    {
+      "task": "latency-summary",
+      "trial": 6,
+      "variant": "RF2 0.21",
+      "ms": 1.771
+    },
+    {
+      "task": "latency-summary",
+      "trial": 6,
+      "variant": "Clang O3 qsort",
+      "ms": 1.656917
+    },
+    {
+      "task": "latency-summary",
+      "trial": 7,
+      "variant": "Clang O3 qsort",
+      "ms": 1.7135
+    },
+    {
+      "task": "latency-summary",
+      "trial": 7,
+      "variant": "Python built-in sort",
+      "ms": 13.2855
+    },
+    {
+      "task": "latency-summary",
+      "trial": 7,
+      "variant": "RF2 0.21",
+      "ms": 1.761083
+    },
+    {
+      "task": "latency-summary",
+      "trial": 8,
+      "variant": "Python built-in sort",
+      "ms": 12.72625
+    },
+    {
+      "task": "latency-summary",
+      "trial": 8,
+      "variant": "RF2 0.21",
+      "ms": 1.686208
+    },
+    {
+      "task": "latency-summary",
+      "trial": 8,
+      "variant": "Clang O3 qsort",
+      "ms": 1.654959
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "variant": "RF2 0.21",
+      "excludedWarmupMs": 393.211875
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "variant": "Clang/CommonCrypto",
+      "excludedWarmupMs": 585.642917
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "variant": "Python/hashlib",
+      "excludedWarmupMs": 27.942583
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 0,
+      "variant": "RF2 0.21",
+      "ms": 5.189416
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 0,
+      "variant": "Python/hashlib",
+      "ms": 18.033125
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 0,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.581125
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 1,
+      "variant": "RF2 0.21",
+      "ms": 3.3525
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 1,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.088334
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 1,
+      "variant": "Python/hashlib",
+      "ms": 13.551541
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 2,
+      "variant": "Python/hashlib",
+      "ms": 12.257542
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 2,
+      "variant": "RF2 0.21",
+      "ms": 3.799458
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 2,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.8905
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 3,
+      "variant": "Python/hashlib",
+      "ms": 11.907375
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 3,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.842
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 3,
+      "variant": "RF2 0.21",
+      "ms": 2.711084
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 4,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.540458
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 4,
+      "variant": "Python/hashlib",
+      "ms": 10.737
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 4,
+      "variant": "RF2 0.21",
+      "ms": 3.090792
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 5,
+      "variant": "Python/hashlib",
+      "ms": 11.048833
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 5,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.877792
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 5,
+      "variant": "RF2 0.21",
+      "ms": 2.793
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 6,
+      "variant": "Python/hashlib",
+      "ms": 11.109083
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 6,
+      "variant": "RF2 0.21",
+      "ms": 2.863458
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 6,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.60775
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 7,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.560791
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 7,
+      "variant": "Python/hashlib",
+      "ms": 10.864875
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 7,
+      "variant": "RF2 0.21",
+      "ms": 2.885459
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 8,
+      "variant": "Python/hashlib",
+      "ms": 10.715916
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 8,
+      "variant": "RF2 0.21",
+      "ms": 2.731166
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "trial": 8,
+      "variant": "Clang/CommonCrypto",
+      "ms": 1.577917
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "variant": "RF2 0.21",
+      "excludedWarmupMs": 200.227291
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "variant": "Clang/CommonCrypto",
+      "excludedWarmupMs": 106.964958
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "variant": "Python/hashlib",
+      "excludedWarmupMs": 18.499542
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 0,
+      "variant": "RF2 0.21",
+      "ms": 61.244625
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 0,
+      "variant": "Python/hashlib",
+      "ms": 14.188
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 0,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.863042
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 1,
+      "variant": "RF2 0.21",
+      "ms": 55.385166
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 1,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.43425
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 1,
+      "variant": "Python/hashlib",
+      "ms": 12.240334
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 2,
+      "variant": "Python/hashlib",
+      "ms": 11.559292
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 2,
+      "variant": "RF2 0.21",
+      "ms": 55.458125
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 2,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.508333
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 3,
+      "variant": "Python/hashlib",
+      "ms": 12.143167
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 3,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.442333
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 3,
+      "variant": "RF2 0.21",
+      "ms": 55.542084
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 4,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.689917
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 4,
+      "variant": "Python/hashlib",
+      "ms": 11.779375
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 4,
+      "variant": "RF2 0.21",
+      "ms": 55.680084
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 5,
+      "variant": "Python/hashlib",
+      "ms": 12.443167
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 5,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.477916
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 5,
+      "variant": "RF2 0.21",
+      "ms": 55.505334
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 6,
+      "variant": "Python/hashlib",
+      "ms": 12.336833
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 6,
+      "variant": "RF2 0.21",
+      "ms": 55.885292
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 6,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.88525
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 7,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.386458
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 7,
+      "variant": "Python/hashlib",
+      "ms": 12.026041
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 7,
+      "variant": "RF2 0.21",
+      "ms": 56.626542
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 8,
+      "variant": "Python/hashlib",
+      "ms": 12.718916
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 8,
+      "variant": "RF2 0.21",
+      "ms": 55.894833
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "trial": 8,
+      "variant": "Clang/CommonCrypto",
+      "ms": 2.486417
+    }
+  ],
+  "summary": [
+    {
+      "task": "mixed",
+      "detail": {
+        "iterations": 2000000,
+        "a": 17,
+        "b": 2000017,
+        "seed": 987654321,
+        "formulaComparator": false,
+        "classification": "numeric kernel, not a whole application"
+      },
+      "medianMs": {
+        "RF2 0.21": 3.552125,
+        "RF2 0.20": 3.65475,
+        "Clang O3 loop": 3.562958,
+        "Python loop": 152.127292
+      },
+      "minMs": {
+        "RF2 0.21": 3.378792,
+        "RF2 0.20": 3.355084,
+        "Clang O3 loop": 3.371375,
+        "Python loop": 149.343167
+      },
+      "maxMs": {
+        "RF2 0.21": 10.849958,
+        "RF2 0.20": 4.050208,
+        "Clang O3 loop": 4.0285,
+        "Python loop": 158.990542
+      }
+    },
+    {
+      "task": "conditional",
+      "detail": {
+        "iterations": 20000000,
+        "a": 17,
+        "b": 20000017,
+        "seed": 987654321,
+        "formulaComparator": true,
+        "classification": "numeric kernel, not a whole application"
+      },
+      "medianMs": {
+        "RF2 0.21": 1.602541,
+        "RF2 0.20": 1.7315,
+        "Clang O3 loop": 5.702166,
+        "Clang O3 formula": 1.770791,
+        "Python formula": 10.389791
+      },
+      "minMs": {
+        "RF2 0.21": 1.491792,
+        "RF2 0.20": 1.477375,
+        "Clang O3 loop": 5.565,
+        "Clang O3 formula": 1.511625,
+        "Python formula": 9.769208
+      },
+      "maxMs": {
+        "RF2 0.21": 2.297875,
+        "RF2 0.20": 2.71475,
+        "Clang O3 loop": 7.530334,
+        "Clang O3 formula": 2.362292,
+        "Python formula": 16.923083
+      }
+    },
+    {
+      "task": "latency-summary",
+      "detail": {
+        "count": 128,
+        "classification": "whole bounded CLI application; different sorting libraries; valid-input comparison only"
+      },
+      "medianMs": {
+        "RF2 0.21": 1.771,
+        "Clang O3 qsort": 1.7135,
+        "Python built-in sort": 13.864292
+      },
+      "minMs": {
+        "RF2 0.21": 1.628416,
+        "Clang O3 qsort": 1.651959,
+        "Python built-in sort": 12.72625
+      },
+      "maxMs": {
+        "RF2 0.21": 3.498708,
+        "Clang O3 qsort": 2.187208,
+        "Python built-in sort": 18.883584
+      }
+    },
+    {
+      "task": "file-sha256-32KiB",
+      "detail": {
+        "bytes": 32768,
+        "classification": "whole file digest CLI; optimized library baselines, not identical SHA implementation"
+      },
+      "medianMs": {
+        "RF2 0.21": 2.885459,
+        "Clang/CommonCrypto": 1.842,
+        "Python/hashlib": 11.109083
+      },
+      "minMs": {
+        "RF2 0.21": 2.711084,
+        "Clang/CommonCrypto": 1.540458,
+        "Python/hashlib": 10.715916
+      },
+      "maxMs": {
+        "RF2 0.21": 5.189416,
+        "Clang/CommonCrypto": 2.581125,
+        "Python/hashlib": 18.033125
+      }
+    },
+    {
+      "task": "sha256-batch50-32KiB",
+      "detail": {
+        "bytesPerHash": 32768,
+        "hashes": 50,
+        "classification": "50hash batch amortizes, but still includes process startup; different SHA implementations"
+      },
+      "medianMs": {
+        "RF2 0.21": 55.680084,
+        "Clang/CommonCrypto": 2.486417,
+        "Python/hashlib": 12.240334
+      },
+      "minMs": {
+        "RF2 0.21": 55.385166,
+        "Clang/CommonCrypto": 2.386458,
+        "Python/hashlib": 11.559292
+      },
+      "maxMs": {
+        "RF2 0.21": 61.244625,
+        "Clang/CommonCrypto": 2.88525,
+        "Python/hashlib": 14.188
+      }
+    }
+  ],
+  "scope": "Fresh-process end-to-end wall time including startup/IO for four bounded tasks, rotated order, one uncontrolled Mac. Algorithm/library differences named explicitly. No AI model calls, bills, token, energy or universal language-speed claim.",
+  "controllerSHA256": "ea1ab0fb4ee626d22f53e45526a00f96e880d8fe589d4e525ffad5d02c6da428",
+  "artifacts": [
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/sha-batch-rf2",
+      "sha256": "52f4fcad945cdb7c75d7b4095da78fa26dc842372b9489f71241fe253c5d94a2"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/conditional-old",
+      "sha256": "0e422413b950d9e54826b851c458984dea9f919cc4d8d3185a6f6c665d6aee99"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/sha-batch-clang.c",
+      "sha256": "7c7c4c2b174afd7df5c0aa17d335d493241dfe24a99fd9cac65ef823c72718d2"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/mixed-python.py",
+      "sha256": "800708bceee1d228a3219f43e79f22c432803616f2d330cf50b9c9cc3c75e0c1"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/sha-rf2.rf2",
+      "sha256": "a990999dd2736b41d7495b6edd0c17e7e6a318b3eb55aea7b8d5398a28bc5aba"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/sha-batch-clang",
+      "sha256": "616a6407598ffd617fac4f54309b7092ef098d277a3ea7156903f0ba8af5d54b"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/latency-rf2",
+      "sha256": "19be650623cb1ddf9cf0f34b9b2d50d4761c4ef734cbadf515d0eb39737053c2"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/sha-batch-rf2.rf2",
+      "sha256": "2ce5e476c3cfa6469f69eca789ca749733625404669a4322274542c1d19cc67c"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/sha-clang.c",
+      "sha256": "9660679a99255d29ac1261debe4a3abdfc9dc5ff43d6324b3bb111679f51c8b2"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/mixed-old",
+      "sha256": "edb39b876818b1cf301275cbc7a6037c564cb75933ae35b425d1405b34b079ba"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/conditional-old.rf2",
+      "sha256": "0270363ed711d2bd418c9686dbc3d93718b2926ecd44aecaff871a3e5d073a7a"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/mixed-rf2",
+      "sha256": "cb8910a438d9022485c378acc5098e56131d00aefc70e3d9f81edea37a11f6e5"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/sha-batch-python.py",
+      "sha256": "d98bd93cbe61573e5ca5a54ff9858dbb214def18c5f76576aa9aab016aa3bdbc"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/conditional-formula",
+      "sha256": "4f655936e9df9c05e4725af8a87c3db7d8785be7502b19605288b0279c535be0"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/sha-rf2",
+      "sha256": "ccaff5563f3c091175d54a2a1abf0edbe6ebb007f1e337edfa9a5370714e7588"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/sha-python.py",
+      "sha256": "28eb4529c605eeb24fb22402b2d07e09e0c07f471b402b6a91f69b0c5ba9004f"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/conditional-clang.c",
+      "sha256": "83b6c6e9e35be1206e40de23f8a88657fa2eaa7d00082800ca48ad2cdd7f45bb"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/mixed-rf2.rf2",
+      "sha256": "acff6f6bdbc2d7fec89ae30df1883607cdd19f5c087a42c3ac111b8adbf2e6e0"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/payload.bin",
+      "sha256": "e11360251d1173650cdcd20f111d8f1ca2e412f572e8b36a4dc067121c1799b8"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/conditional-formula.c",
+      "sha256": "6c19fff4bd8b01f781349d0ba2f276936bfce12406a5d18ce63f236d90e20f02"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/conditional-clang",
+      "sha256": "9d48e158be373d28916f9084a2081231801fe8687edb921b4d7b0c0ce4c581c3"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/sort-clang",
+      "sha256": "13677b6fd07fbed11f00dd502f7166bb4d889fcbe12177c6c65db8d40177b1ac"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/mixed-old.rf2",
+      "sha256": "acff6f6bdbc2d7fec89ae30df1883607cdd19f5c087a42c3ac111b8adbf2e6e0"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/mixed-clang",
+      "sha256": "1fc9a644187c7c140238e8fe3ee2f1297c043daeafd23b5a2c3ae551c169b779"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/sort-python.py",
+      "sha256": "b10a293d4ce0093f5ef4c51926bd71c2f900f45c75056ac8b837e585ad04a8b2"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/sha-clang",
+      "sha256": "80fba2161618927e392833a9955a7323c7d609787ab1281e12d9d1f2c9fa64b3"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/conditional-rf2",
+      "sha256": "4ea2e9ab6e525347d7ff1702e98e2e2cb01b3eec0b69ac1f20c1a02fbd587098"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/sort-clang.c",
+      "sha256": "ef8d7b5c91e837ce0c45b9d3fedb82e7881d06feee729eb9a1676956b9961afb"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/conditional-rf2.rf2",
+      "sha256": "0270363ed711d2bd418c9686dbc3d93718b2926ecd44aecaff871a3e5d073a7a"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/mixed-clang.c",
+      "sha256": "da3b341fb0e40d860faffb8efdb4b20292e565103c9ec34083faf76d5daf2c3f"
+    },
+    {
+      "path": "artifacts/mappings-0.21/bench-1794534627275111000/conditional-python.py",
+      "sha256": "83240a260d856f8e9d72b5fcea6b559e77966a071fdee2a44f2417a04fde1633"
+    }
+  ]
+}

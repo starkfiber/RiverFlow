@@ -1,0 +1,7 @@
+"""Build RF2 owned/authenticated guest runner; all runtime image operations are native RF2."""
+from pathlib import Path
+import os,sys,subprocess,json,hashlib
+R=Path(__file__).resolve().parents[1];out=Path(sys.argv[1]).resolve();out.mkdir(parents=True,exist_ok=False);seed=Path(os.environ.get('RF2_BOOTSTRAP_COMPILER',R/'output/ownership-0.20-final/rf2c-self'))
+for compiler,source,name in [(seed,R/'native/compiler/compiler.rf2','rf2c'),(out/'rf2c',R/'native/compiler/compiler.rf2','rf2c-self'),(out/'rf2c-self',R/'examples/evidence-contract/guest.rf2','rf2-guest')]:
+ subprocess.run([compiler,source,out/name,'--opt'],check=True,capture_output=True);args=['/usr/bin/codesign','-s','-'];args+=['--entitlements',str(R/'examples/hypervisor/entitlements.plist')]if name=='rf2-guest'else[];subprocess.run([*args,out/name],check=True,capture_output=True)
+files=['native/compiler/compiler.rf2','examples/evidence-contract/guest.rf2','examples/evidence-contract/lib/auth.rf2','examples/evidence-contract/lib/sha256.rf2','examples/hypervisor/entitlements.plist'];(out/'BUILD.json').write_text(json.dumps({'edition':'0.21-dev','seedSHA256':hashlib.sha256(seed.read_bytes()).hexdigest(),'sources':{f:hashlib.sha256((R/f).read_bytes()).hexdigest()for f in files},'binaries':{p.name:hashlib.sha256(p.read_bytes()).hexdigest()for p in out.iterdir()if p.is_file()},'scope':'Native trusted CLI, compiler-owned guest mappings, shared-key HMAC image envelope and fixed bounded boot contract; not public signatures, arbitrary ARM64 or Linux boot'},indent=2)+'\n');print(out)
