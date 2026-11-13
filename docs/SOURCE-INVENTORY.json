@@ -20,13 +20,14 @@
   "generatedExcluded": [
     "docs/book/index.html",
     "examples/evidence-contract/lib/json_transport.rf2",
+    "examples/sha40/rounds.rf2",
     "native/attendance-kernel.rf2",
     "native/invoice-kernel.rf2",
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 685039,
-    "Python": 550882,
+    "RiverFlow": 727324,
+    "Python": 611263,
     "JavaScript": 85144,
     "HTML": 30503,
     "CSS": 17035,
@@ -68,7 +69,7 @@
     {
       "path": "bootstrap/seed.py",
       "language": "Python",
-      "bytes": 11510
+      "bytes": 13178
     },
     {
       "path": "capabilities/attendance.local.v1/tally.flow",
@@ -381,6 +382,21 @@
       "bytes": 860
     },
     {
+      "path": "examples/number-lab-web/main.rf2",
+      "language": "RiverFlow",
+      "bytes": 26148
+    },
+    {
+      "path": "examples/number-lab/main.rf2",
+      "language": "RiverFlow",
+      "bytes": 7929
+    },
+    {
+      "path": "examples/sha40/main.rf2",
+      "language": "RiverFlow",
+      "bytes": 1105
+    },
+    {
       "path": "examples/stack-lab/index.html",
       "language": "HTML",
       "bytes": 3867
@@ -503,7 +519,7 @@
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
-      "bytes": 141554
+      "bytes": 148657
     },
     {
       "path": "native/core.rf2",
@@ -741,6 +757,11 @@
       "bytes": 4101
     },
     {
+      "path": "tests/standalone/compiler_hash_verify.py",
+      "language": "Python",
+      "bytes": 3884
+    },
+    {
       "path": "tests/standalone/compiler_store_verify.py",
       "language": "Python",
       "bytes": 5142
@@ -748,7 +769,7 @@
     {
       "path": "tests/standalone/compiler_verify.py",
       "language": "Python",
-      "bytes": 8561
+      "bytes": 8817
     },
     {
       "path": "tests/standalone/conditional_reduction_verify.py",
@@ -921,6 +942,11 @@
       "bytes": 506
     },
     {
+      "path": "tests/standalone/function_reuse_extended_verify.py",
+      "language": "Python",
+      "bytes": 17385
+    },
+    {
       "path": "tests/standalone/function_reuse_verify.py",
       "language": "Python",
       "bytes": 14271
@@ -1001,6 +1027,16 @@
       "bytes": 2876
     },
     {
+      "path": "tests/standalone/number_lab_verify.py",
+      "language": "Python",
+      "bytes": 7537
+    },
+    {
+      "path": "tests/standalone/number_lab_web_verify.py",
+      "language": "Python",
+      "bytes": 13400
+    },
+    {
       "path": "tests/standalone/optimizer_verify.py",
       "language": "Python",
       "bytes": 4484
@@ -1028,7 +1064,7 @@
     {
       "path": "tests/standalone/register_abi_verify.py",
       "language": "Python",
-      "bytes": 1814
+      "bytes": 1857
     },
     {
       "path": "tests/standalone/results_views_app_verify.py",
@@ -1064,6 +1100,11 @@
       "path": "tests/standalone/sha256_chain_armv8.s",
       "language": "Assembly",
       "bytes": 3140
+    },
+    {
+      "path": "tests/standalone/sha40_verify.py",
+      "language": "Python",
+      "bytes": 3425
     },
     {
       "path": "tests/standalone/sha_acceleration_verify.py",
@@ -1203,7 +1244,7 @@
     {
       "path": "tools/benchmark-function-reuse.py",
       "language": "Python",
-      "bytes": 3832
+      "bytes": 3870
     },
     {
       "path": "tools/benchmark-incremental.py",
@@ -1224,6 +1265,11 @@
       "path": "tools/benchmark-real-apps.py",
       "language": "Python",
       "bytes": 9957
+    },
+    {
+      "path": "tools/benchmark-reuse-edit.py",
+      "language": "Python",
+      "bytes": 3467
     },
     {
       "path": "tools/benchmark-sha-acceleration.py",
@@ -1326,6 +1372,11 @@
       "bytes": 2844
     },
     {
+      "path": "tools/generate-sha40.py",
+      "language": "Python",
+      "bytes": 2125
+    },
+    {
       "path": "tools/macho-empty-dyld.py",
       "language": "Python",
       "bytes": 1185
@@ -1403,12 +1454,17 @@
     {
       "path": "tools/source-inventory.py",
       "language": "Python",
-      "bytes": 2418
+      "bytes": 2446
     },
     {
       "path": "tools/stop-stack-showcase.py",
       "language": "Python",
       "bytes": 653
+    },
+    {
+      "path": "tools/stress-function-reuse.py",
+      "language": "Python",
+      "bytes": 7125
     },
     {
       "path": "tools/sync-contract-json.py",
