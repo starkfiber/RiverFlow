@@ -1,0 +1,4750 @@
+{
+  "trust": {
+    "date": "2026-11-13",
+    "passed": true,
+    "checks": 520,
+    "sourceIdentity": "253093e158b710ec38dfe025b1b891168072b54256156a1bbc93e27261858a2d",
+    "build": {
+      "edition": "0.18-dev",
+      "sourceIdentity": "253093e158b710ec38dfe025b1b891168072b54256156a1bbc93e27261858a2d",
+      "compilerSHA256": "b7c3bae1ad5b291266f82ff500c3bf34ac14762fe637cf06582c8eeb216d7b57",
+      "sources": [
+        {
+          "path": "guest.rf2",
+          "sha256": "995cbdbd35d3009ad0778b2d6ee091d86320a873c188b55ffa7a36fbd6d1f554"
+        },
+        {
+          "path": "lib/auth.rf2",
+          "sha256": "653d4c47abe18c62d0265383e5157557fafaeed8080fb6f99e22bdc25a62cf27"
+        },
+        {
+          "path": "lib/contract_mcp.rf2",
+          "sha256": "a9e9f03473da9bbd45760ee40d730f0d193c5e660b47199a85504a9fa11791a9"
+        },
+        {
+          "path": "lib/engine.rf2",
+          "sha256": "5e9424df979ac510e14e3573e0651033cf48c96fb563c7210ea3e12fe6271024"
+        },
+        {
+          "path": "lib/issuer.rf2",
+          "sha256": "b0851d9f90b392d3bb00ad510607f48e2a24b3af08d7bc5812c06756251927ea"
+        },
+        {
+          "path": "lib/json_transport.rf2",
+          "sha256": "2edbf0a8be16c343b189c7e999b5eb4b2d14c87610ca58b8a5669abaab5e72af"
+        },
+        {
+          "path": "lib/output.rf2",
+          "sha256": "b15fba158a6816c71de0bbb35db8c7eb93e728d927414a3ef0aeab06cdde6b23"
+        },
+        {
+          "path": "lib/parser.rf2",
+          "sha256": "defcabacd99e2fb6cdf0a569dca68a7978e8a84faf0d22d2fbdd0714d35e900c"
+        },
+        {
+          "path": "lib/sha256.rf2",
+          "sha256": "b79e7217db169985a5b2262ad4e4c5a550dc7741a60aaff816176a7324a0ffb5"
+        },
+        {
+          "path": "lib/verifier.rf2",
+          "sha256": "383c20fe1a1abe1827508ddf1d9a10794f28088c3a4905a1c4b7d1ba8431e89e"
+        },
+        {
+          "path": "lib/wire.rf2",
+          "sha256": "a92bd08b733a44ec0970bd5df592989399f49a12f7096a3f18582bb41e6dbf18"
+        },
+        {
+          "path": "main.rf2",
+          "sha256": "0634a634138f1f2ff1aa997e9a5337aaf5b963a02b4943bd02f946175d40e026"
+        },
+        {
+          "path": "trust.rf2",
+          "sha256": "8261c2de37f2a3d5a5cca0e05fb11f649fb771790425cffb1b386267136cd585"
+        },
+        {
+          "path": "verify.rf2",
+          "sha256": "d0fddbf65ab4d982c3927e2beeeaeb25f5a874f19d27cf3bde4eb2710a50e369"
+        }
+      ],
+      "binaries": [
+        {
+          "file": "rf2-trust",
+          "sha256": "b83b40e12b9fa762f07623db382be4356925310a5c1300fcfc22967bd8e5db50"
+        },
+        {
+          "file": "rf2-verify",
+          "sha256": "7992a7a942b8e571b2a888a9b0609525af4468c9151c501d972491c806642ac2"
+        }
+      ]
+    },
+    "controllerSHA256": "3c540db1c9af127ced57460594c71e1ab2cbd96d3f93faa8bc4077c2fefc0439",
+    "seed": 183191,
+    "results": [
+      {
+        "name": "keygen native",
+        "passed": true
+      },
+      {
+        "name": "key length and mode",
+        "passed": true
+      },
+      {
+        "name": "keygen refuses replacement",
+        "passed": true
+      },
+      {
+        "name": "separate keygen",
+        "passed": true
+      },
+      {
+        "name": "native envelope equals independent HMAC/receipt",
+        "passed": true
+      },
+      {
+        "name": "independent offline verify",
+        "passed": true
+      },
+      {
+        "name": "issuer verify route",
+        "passed": true
+      },
+      {
+        "name": "wrong key rejected",
+        "passed": true
+      },
+      {
+        "name": "insecure/unexpected key mode 0o644",
+        "passed": true
+      },
+      {
+        "name": "insecure/unexpected key mode 0o640",
+        "passed": true
+      },
+      {
+        "name": "insecure/unexpected key mode 0o400",
+        "passed": true
+      },
+      {
+        "name": "insecure/unexpected key mode 0o666",
+        "passed": true
+      },
+      {
+        "name": "symlink key rejected",
+        "passed": true
+      },
+      {
+        "name": "FIFO key refused without wait",
+        "passed": true
+      },
+      {
+        "name": "key size 0 refuses",
+        "passed": true
+      },
+      {
+        "name": "key size 31 refuses",
+        "passed": true
+      },
+      {
+        "name": "key size 33 refuses",
+        "passed": true
+      },
+      {
+        "name": "key size 64 refuses",
+        "passed": true
+      },
+      {
+        "name": "altered field 2 nibble 0",
+        "passed": true
+      },
+      {
+        "name": "altered field 2 nibble 1",
+        "passed": true
+      },
+      {
+        "name": "altered field 2 nibble 2",
+        "passed": true
+      },
+      {
+        "name": "altered field 2 nibble 3",
+        "passed": true
+      },
+      {
+        "name": "altered field 2 nibble 4",
+        "passed": true
+      },
+      {
+        "name": "altered field 2 nibble 5",
+        "passed": true
+      },
+      {
+        "name": "altered field 2 nibble 6",
+        "passed": true
+      },
+      {
+        "name": "altered field 2 nibble 7",
+        "passed": true
+      },
+      {
+        "name": "altered field 2 nibble 8",
+        "passed": true
+      },
+      {
+        "name": "altered field 2 nibble 9",
+        "passed": true
+      },
+      {
+        "name": "altered field 2 nibble 10",
+        "passed": true
+      },
+      {
+        "name": "altered field 2 nibble 11",
+        "passed": true
+      },
+      {
+        "name": "altered field 4 nibble 0",
+        "passed": true
+      },
+      {
+        "name": "altered field 4 nibble 1",
+        "passed": true
+      },
+      {
+        "name": "altered field 4 nibble 2",
+        "passed": true
+      },
+      {
+        "name": "altered field 4 nibble 3",
+        "passed": true
+      },
+      {
+        "name": "altered field 4 nibble 4",
+        "passed": true
+      },
+      {
+        "name": "altered field 4 nibble 5",
+        "passed": true
+      },
+      {
+        "name": "altered field 4 nibble 6",
+        "passed": true
+      },
+      {
+        "name": "altered field 4 nibble 7",
+        "passed": true
+      },
+      {
+        "name": "altered field 4 nibble 8",
+        "passed": true
+      },
+      {
+        "name": "altered field 4 nibble 9",
+        "passed": true
+      },
+      {
+        "name": "altered field 4 nibble 10",
+        "passed": true
+      },
+      {
+        "name": "altered field 4 nibble 11",
+        "passed": true
+      },
+      {
+        "name": "altered field 6 nibble 0",
+        "passed": true
+      },
+      {
+        "name": "altered field 6 nibble 1",
+        "passed": true
+      },
+      {
+        "name": "altered field 6 nibble 2",
+        "passed": true
+      },
+      {
+        "name": "altered field 6 nibble 3",
+        "passed": true
+      },
+      {
+        "name": "altered field 6 nibble 4",
+        "passed": true
+      },
+      {
+        "name": "altered field 6 nibble 5",
+        "passed": true
+      },
+      {
+        "name": "altered field 6 nibble 6",
+        "passed": true
+      },
+      {
+        "name": "altered field 6 nibble 7",
+        "passed": true
+      },
+      {
+        "name": "altered field 6 nibble 8",
+        "passed": true
+      },
+      {
+        "name": "altered field 6 nibble 9",
+        "passed": true
+      },
+      {
+        "name": "altered field 6 nibble 10",
+        "passed": true
+      },
+      {
+        "name": "altered field 6 nibble 11",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 0",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 1",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 2",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 3",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 4",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 5",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 6",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 7",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 8",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 9",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 10",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 11",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 12",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 13",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 14",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 15",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 16",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 17",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 18",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 19",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 20",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 21",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 22",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 23",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 24",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 25",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 26",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 27",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 28",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 29",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 30",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 31",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 32",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 33",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 34",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 35",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 36",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 37",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 38",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 39",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 40",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 41",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 42",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 43",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 44",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 45",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 46",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 47",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 48",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 49",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 50",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 51",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 52",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 53",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 54",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 55",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 56",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 57",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 58",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 59",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 60",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 61",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 62",
+        "passed": true
+      },
+      {
+        "name": "altered field 8 nibble 63",
+        "passed": true
+      },
+      {
+        "name": "altered field 10 nibble 0",
+        "passed": true
+      },
+      {
+        "name": "altered field 10 nibble 1",
+        "passed": true
+      },
+      {
+        "name": "altered field 10 nibble 2",
+        "passed": true
+      },
+      {
+        "name": "altered field 10 nibble 3",
+        "passed": true
+      },
+      {
+        "name": "altered field 10 nibble 4",
+        "passed": true
+      },
+      {
+        "name": "altered field 10 nibble 5",
+        "passed": true
+      },
+      {
+        "name": "altered field 10 nibble 6",
+        "passed": true
+      },
+      {
+        "name": "altered field 10 nibble 7",
+        "passed": true
+      },
+      {
+        "name": "altered field 10 nibble 8",
+        "passed": true
+      },
+      {
+        "name": "altered field 10 nibble 9",
+        "passed": true
+      },
+      {
+        "name": "altered field 10 nibble 10",
+        "passed": true
+      },
+      {
+        "name": "altered field 10 nibble 11",
+        "passed": true
+      },
+      {
+        "name": "valid MAC with wrong output rejects semantics",
+        "passed": true
+      },
+      {
+        "name": "valid MAC with wrong error witness rejects",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 0",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 0",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 1",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 1",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 2",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 2",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 3",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 3",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 4",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 4",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 5",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 5",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 6",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 6",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 7",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 7",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 8",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 8",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 9",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 9",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 10",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 10",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 11",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 11",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 12",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 12",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 13",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 13",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 14",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 14",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 15",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 15",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 16",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 16",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 17",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 17",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 18",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 18",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 19",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 19",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 20",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 20",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 21",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 21",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 22",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 22",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 23",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 23",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 24",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 24",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 25",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 25",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 26",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 26",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 27",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 27",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 28",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 28",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 29",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 29",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 30",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 30",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 31",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 31",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 32",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 32",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 33",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 33",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 34",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 34",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 35",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 35",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 36",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 36",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 37",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 37",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 38",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 38",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 39",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 39",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 40",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 40",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 41",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 41",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 42",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 42",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 43",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 43",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 44",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 44",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 45",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 45",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 46",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 46",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 47",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 47",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 48",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 48",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 49",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 49",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 50",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 50",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 51",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 51",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 52",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 52",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 53",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 53",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 54",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 54",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 55",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 55",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 56",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 56",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 57",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 57",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 58",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 58",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 59",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 59",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 60",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 60",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 61",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 61",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 62",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 62",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 63",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 63",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 64",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 64",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 65",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 65",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 66",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 66",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 67",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 67",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 68",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 68",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 69",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 69",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 70",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 70",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 71",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 71",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 72",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 72",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 73",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 73",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 74",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 74",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 75",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 75",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 76",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 76",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 77",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 77",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 78",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 78",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 79",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 79",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 80",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 80",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 81",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 81",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 82",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 82",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 83",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 83",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 84",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 84",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 85",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 85",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 86",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 86",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 87",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 87",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 88",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 88",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 89",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 89",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 90",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 90",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 91",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 91",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 92",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 92",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 93",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 93",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 94",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 94",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 95",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 95",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 96",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 96",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 97",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 97",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 98",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 98",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 99",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 99",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 100",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 100",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 101",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 101",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 102",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 102",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 103",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 103",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 104",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 104",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 105",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 105",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 106",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 106",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 107",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 107",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 108",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 108",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 109",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 109",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 110",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 110",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 111",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 111",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 112",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 112",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 113",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 113",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 114",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 114",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 115",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 115",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 116",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 116",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 117",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 117",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 118",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 118",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 119",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 119",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 120",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 120",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 121",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 121",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 122",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 122",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 123",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 123",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 124",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 124",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 125",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 125",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 126",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 126",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 127",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 127",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 128",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 128",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 129",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 129",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 130",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 130",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 131",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 131",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 132",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 132",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 133",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 133",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 134",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 134",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 135",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 135",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 136",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 136",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 137",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 137",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 138",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 138",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 139",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 139",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 140",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 140",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 141",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 141",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 142",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 142",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 143",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 143",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 144",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 144",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 145",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 145",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 146",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 146",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 147",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 147",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 148",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 148",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 149",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 149",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 150",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 150",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 151",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 151",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 152",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 152",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 153",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 153",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 154",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 154",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 155",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 155",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 156",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 156",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 157",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 157",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 158",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 158",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 159",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 159",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 160",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 160",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 161",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 161",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 162",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 162",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 163",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 163",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 164",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 164",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 165",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 165",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 166",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 166",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 167",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 167",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 168",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 168",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 169",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 169",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 170",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 170",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 171",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 171",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 172",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 172",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 173",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 173",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 174",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 174",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 175",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 175",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 176",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 176",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 177",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 177",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 178",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 178",
+        "passed": true
+      },
+      {
+        "name": "fresh issue matches Python 179",
+        "passed": true
+      },
+      {
+        "name": "fresh independent verify 179",
+        "passed": true
+      },
+      {
+        "name": "malformed plan 0",
+        "passed": true
+      },
+      {
+        "name": "malformed plan 1",
+        "passed": true
+      },
+      {
+        "name": "malformed plan 2",
+        "passed": true
+      },
+      {
+        "name": "malformed plan 3",
+        "passed": true
+      },
+      {
+        "name": "malformed plan 4",
+        "passed": true
+      },
+      {
+        "name": "malformed plan 5",
+        "passed": true
+      },
+      {
+        "name": "preinitialize refusal",
+        "passed": true
+      },
+      {
+        "name": "initialize",
+        "passed": true
+      },
+      {
+        "name": "exact bounded tools",
+        "passed": true
+      },
+      {
+        "name": "MCP output and native capsule",
+        "passed": true
+      },
+      {
+        "name": "MCP independent verification",
+        "passed": true
+      },
+      {
+        "name": "MCP forbidden schema 0",
+        "passed": true
+      },
+      {
+        "name": "MCP forbidden schema 1",
+        "passed": true
+      },
+      {
+        "name": "MCP forbidden schema 2",
+        "passed": true
+      },
+      {
+        "name": "MCP forbidden schema 3",
+        "passed": true
+      },
+      {
+        "name": "MCP forbidden schema 4",
+        "passed": true
+      },
+      {
+        "name": "MCP forbidden schema 5",
+        "passed": true
+      },
+      {
+        "name": "MCP forbidden schema 6",
+        "passed": true
+      },
+      {
+        "name": "MCP malformed 0",
+        "passed": true
+      },
+      {
+        "name": "MCP recovery 0",
+        "passed": true
+      },
+      {
+        "name": "MCP malformed 1",
+        "passed": true
+      },
+      {
+        "name": "MCP recovery 1",
+        "passed": true
+      },
+      {
+        "name": "MCP malformed 2",
+        "passed": true
+      },
+      {
+        "name": "MCP recovery 2",
+        "passed": true
+      },
+      {
+        "name": "MCP malformed 3",
+        "passed": true
+      },
+      {
+        "name": "MCP recovery 3",
+        "passed": true
+      },
+      {
+        "name": "MCP altered auth refuses",
+        "passed": true
+      },
+      {
+        "name": "final request recovery",
+        "passed": true
+      }
+    ],
+    "limits": [
+      "Shared-key authentication: key holders can forge; no public signature or nonrepudiation",
+      "Independent parser/trajectory algorithm shares compiler/crypto; not toolchain independence",
+      "MCP is separate native stdio service;9original tools unchanged",
+      "No key bytes in published report; all keys are local test artifacts"
+    ]
+  },
+  "protocol": {
+    "passed": true,
+    "checks": 245,
+    "seed": 180019,
+    "controllerSHA256": "1454a94dd72e485586b90ff2415ea5a558f422702a9f23b512362310e093d85c",
+    "results": [
+      {
+        "name": "keygen",
+        "passed": true
+      },
+      {
+        "name": "reject directory",
+        "passed": true
+      },
+      {
+        "name": "reject fifo",
+        "passed": true
+      },
+      {
+        "name": "reject symlink",
+        "passed": true
+      },
+      {
+        "name": "reject short",
+        "passed": true
+      },
+      {
+        "name": "reject long",
+        "passed": true
+      },
+      {
+        "name": "reject unix socket",
+        "passed": true
+      },
+      {
+        "name": "reject mode 0o0",
+        "passed": true
+      },
+      {
+        "name": "reject mode 0o400",
+        "passed": true
+      },
+      {
+        "name": "reject mode 0o640",
+        "passed": true
+      },
+      {
+        "name": "reject mode 0o644",
+        "passed": true
+      },
+      {
+        "name": "reject mode 0o666",
+        "passed": true
+      },
+      {
+        "name": "reject mode 0o700",
+        "passed": true
+      },
+      {
+        "name": "different key rejects",
+        "passed": true
+      },
+      {
+        "name": "original key accepts",
+        "passed": true
+      },
+      {
+        "name": "init",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 0",
+        "passed": true
+      },
+      {
+        "name": "recovery 0",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 1",
+        "passed": true
+      },
+      {
+        "name": "recovery 1",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 2",
+        "passed": true
+      },
+      {
+        "name": "recovery 2",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 3",
+        "passed": true
+      },
+      {
+        "name": "recovery 3",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 4",
+        "passed": true
+      },
+      {
+        "name": "recovery 4",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 5",
+        "passed": true
+      },
+      {
+        "name": "recovery 5",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 6",
+        "passed": true
+      },
+      {
+        "name": "recovery 6",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 7",
+        "passed": true
+      },
+      {
+        "name": "recovery 7",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 8",
+        "passed": true
+      },
+      {
+        "name": "recovery 8",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 9",
+        "passed": true
+      },
+      {
+        "name": "recovery 9",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 10",
+        "passed": true
+      },
+      {
+        "name": "recovery 10",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 11",
+        "passed": true
+      },
+      {
+        "name": "recovery 11",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 12",
+        "passed": true
+      },
+      {
+        "name": "recovery 12",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 13",
+        "passed": true
+      },
+      {
+        "name": "recovery 13",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 14",
+        "passed": true
+      },
+      {
+        "name": "recovery 14",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 15",
+        "passed": true
+      },
+      {
+        "name": "recovery 15",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 16",
+        "passed": true
+      },
+      {
+        "name": "recovery 16",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 17",
+        "passed": true
+      },
+      {
+        "name": "recovery 17",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 18",
+        "passed": true
+      },
+      {
+        "name": "recovery 18",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 19",
+        "passed": true
+      },
+      {
+        "name": "recovery 19",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 20",
+        "passed": true
+      },
+      {
+        "name": "recovery 20",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 21",
+        "passed": true
+      },
+      {
+        "name": "recovery 21",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 22",
+        "passed": true
+      },
+      {
+        "name": "recovery 22",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 23",
+        "passed": true
+      },
+      {
+        "name": "recovery 23",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 24",
+        "passed": true
+      },
+      {
+        "name": "recovery 24",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 25",
+        "passed": true
+      },
+      {
+        "name": "recovery 25",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 26",
+        "passed": true
+      },
+      {
+        "name": "recovery 26",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 27",
+        "passed": true
+      },
+      {
+        "name": "recovery 27",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 28",
+        "passed": true
+      },
+      {
+        "name": "recovery 28",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 29",
+        "passed": true
+      },
+      {
+        "name": "recovery 29",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 30",
+        "passed": true
+      },
+      {
+        "name": "recovery 30",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 31",
+        "passed": true
+      },
+      {
+        "name": "recovery 31",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 32",
+        "passed": true
+      },
+      {
+        "name": "recovery 32",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 33",
+        "passed": true
+      },
+      {
+        "name": "recovery 33",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 34",
+        "passed": true
+      },
+      {
+        "name": "recovery 34",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 35",
+        "passed": true
+      },
+      {
+        "name": "recovery 35",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 36",
+        "passed": true
+      },
+      {
+        "name": "recovery 36",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 37",
+        "passed": true
+      },
+      {
+        "name": "recovery 37",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 38",
+        "passed": true
+      },
+      {
+        "name": "recovery 38",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 39",
+        "passed": true
+      },
+      {
+        "name": "recovery 39",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 40",
+        "passed": true
+      },
+      {
+        "name": "recovery 40",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 41",
+        "passed": true
+      },
+      {
+        "name": "recovery 41",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 42",
+        "passed": true
+      },
+      {
+        "name": "recovery 42",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 43",
+        "passed": true
+      },
+      {
+        "name": "recovery 43",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 44",
+        "passed": true
+      },
+      {
+        "name": "recovery 44",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 45",
+        "passed": true
+      },
+      {
+        "name": "recovery 45",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 46",
+        "passed": true
+      },
+      {
+        "name": "recovery 46",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 47",
+        "passed": true
+      },
+      {
+        "name": "recovery 47",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 48",
+        "passed": true
+      },
+      {
+        "name": "recovery 48",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 49",
+        "passed": true
+      },
+      {
+        "name": "recovery 49",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 50",
+        "passed": true
+      },
+      {
+        "name": "recovery 50",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 51",
+        "passed": true
+      },
+      {
+        "name": "recovery 51",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 52",
+        "passed": true
+      },
+      {
+        "name": "recovery 52",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 53",
+        "passed": true
+      },
+      {
+        "name": "recovery 53",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 54",
+        "passed": true
+      },
+      {
+        "name": "recovery 54",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 55",
+        "passed": true
+      },
+      {
+        "name": "recovery 55",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 56",
+        "passed": true
+      },
+      {
+        "name": "recovery 56",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 57",
+        "passed": true
+      },
+      {
+        "name": "recovery 57",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 58",
+        "passed": true
+      },
+      {
+        "name": "recovery 58",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 59",
+        "passed": true
+      },
+      {
+        "name": "recovery 59",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 60",
+        "passed": true
+      },
+      {
+        "name": "recovery 60",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 61",
+        "passed": true
+      },
+      {
+        "name": "recovery 61",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 62",
+        "passed": true
+      },
+      {
+        "name": "recovery 62",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 63",
+        "passed": true
+      },
+      {
+        "name": "recovery 63",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 64",
+        "passed": true
+      },
+      {
+        "name": "recovery 64",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 65",
+        "passed": true
+      },
+      {
+        "name": "recovery 65",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 66",
+        "passed": true
+      },
+      {
+        "name": "recovery 66",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 67",
+        "passed": true
+      },
+      {
+        "name": "recovery 67",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 68",
+        "passed": true
+      },
+      {
+        "name": "recovery 68",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 69",
+        "passed": true
+      },
+      {
+        "name": "recovery 69",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 70",
+        "passed": true
+      },
+      {
+        "name": "recovery 70",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 71",
+        "passed": true
+      },
+      {
+        "name": "recovery 71",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 72",
+        "passed": true
+      },
+      {
+        "name": "recovery 72",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 73",
+        "passed": true
+      },
+      {
+        "name": "recovery 73",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 74",
+        "passed": true
+      },
+      {
+        "name": "recovery 74",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 75",
+        "passed": true
+      },
+      {
+        "name": "recovery 75",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 76",
+        "passed": true
+      },
+      {
+        "name": "recovery 76",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 77",
+        "passed": true
+      },
+      {
+        "name": "recovery 77",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 78",
+        "passed": true
+      },
+      {
+        "name": "recovery 78",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 79",
+        "passed": true
+      },
+      {
+        "name": "recovery 79",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 80",
+        "passed": true
+      },
+      {
+        "name": "recovery 80",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 81",
+        "passed": true
+      },
+      {
+        "name": "recovery 81",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 82",
+        "passed": true
+      },
+      {
+        "name": "recovery 82",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 83",
+        "passed": true
+      },
+      {
+        "name": "recovery 83",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 84",
+        "passed": true
+      },
+      {
+        "name": "recovery 84",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 85",
+        "passed": true
+      },
+      {
+        "name": "recovery 85",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 86",
+        "passed": true
+      },
+      {
+        "name": "recovery 86",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 87",
+        "passed": true
+      },
+      {
+        "name": "recovery 87",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 88",
+        "passed": true
+      },
+      {
+        "name": "recovery 88",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 89",
+        "passed": true
+      },
+      {
+        "name": "recovery 89",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 90",
+        "passed": true
+      },
+      {
+        "name": "recovery 90",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 91",
+        "passed": true
+      },
+      {
+        "name": "recovery 91",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 92",
+        "passed": true
+      },
+      {
+        "name": "recovery 92",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 93",
+        "passed": true
+      },
+      {
+        "name": "recovery 93",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 94",
+        "passed": true
+      },
+      {
+        "name": "recovery 94",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 95",
+        "passed": true
+      },
+      {
+        "name": "recovery 95",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 96",
+        "passed": true
+      },
+      {
+        "name": "recovery 96",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 97",
+        "passed": true
+      },
+      {
+        "name": "recovery 97",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 98",
+        "passed": true
+      },
+      {
+        "name": "recovery 98",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 99",
+        "passed": true
+      },
+      {
+        "name": "recovery 99",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 100",
+        "passed": true
+      },
+      {
+        "name": "recovery 100",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 101",
+        "passed": true
+      },
+      {
+        "name": "recovery 101",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 102",
+        "passed": true
+      },
+      {
+        "name": "recovery 102",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 103",
+        "passed": true
+      },
+      {
+        "name": "recovery 103",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 104",
+        "passed": true
+      },
+      {
+        "name": "recovery 104",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 105",
+        "passed": true
+      },
+      {
+        "name": "recovery 105",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 106",
+        "passed": true
+      },
+      {
+        "name": "recovery 106",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 107",
+        "passed": true
+      },
+      {
+        "name": "recovery 107",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 108",
+        "passed": true
+      },
+      {
+        "name": "recovery 108",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 109",
+        "passed": true
+      },
+      {
+        "name": "recovery 109",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 110",
+        "passed": true
+      },
+      {
+        "name": "recovery 110",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 111",
+        "passed": true
+      },
+      {
+        "name": "recovery 111",
+        "passed": true
+      },
+      {
+        "name": "malformed refusal 112",
+        "passed": true
+      },
+      {
+        "name": "recovery 112",
+        "passed": true
+      },
+      {
+        "name": "existing session retains original key",
+        "passed": true
+      },
+      {
+        "name": "clean EOF",
+        "passed": true
+      },
+      {
+        "name": "restart loads rotated key",
+        "passed": true
+      }
+    ],
+    "limits": [
+      "Bounded cases, not proof against arbitrary peers or local same-user compromise",
+      "Key snapshot per process; administrator rotation requires restart; no replay rejection",
+      "No key bytes retained in this report; test directory removed"
+    ]
+  },
+  "guest": {
+    "passed": true,
+    "edition": "0.21-dev",
+    "host": "macOS-26.5.1-arm64-arm-64bit",
+    "seed": 211113,
+    "imageObservations": [
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 2517350478,
+        "data": 2517350478,
+        "runTicks": 426,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 4125887279,
+        "data": 4125887279,
+        "runTicks": 262,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 2071487650,
+        "data": 2071487650,
+        "runTicks": 323,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 5610600720,
+        "data": 5610600720,
+        "runTicks": 180,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 7460586524,
+        "data": 7460586524,
+        "runTicks": 262,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 2159282559,
+        "data": 2159282559,
+        "runTicks": 346,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 5066734833,
+        "data": 5066734833,
+        "runTicks": 206,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 3639828368,
+        "data": 3639828368,
+        "runTicks": 335,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 7657684265,
+        "data": 7657684265,
+        "runTicks": 339,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 2828526737,
+        "data": 2828526737,
+        "runTicks": 229,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 5242619433,
+        "data": 5242619433,
+        "runTicks": 375,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 1864904145,
+        "data": 1864904145,
+        "runTicks": 555,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 5464687427,
+        "data": 5464687427,
+        "runTicks": 232,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 4434810160,
+        "data": 4434810160,
+        "runTicks": 334,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 6892876731,
+        "data": 6892876731,
+        "runTicks": 232,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 1759836625,
+        "data": 1759836625,
+        "runTicks": 317,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 1083830733,
+        "data": 1083830733,
+        "runTicks": 287,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 7542735804,
+        "data": 7542735804,
+        "runTicks": 444,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 2,
+        "value": 19,
+        "data": 0,
+        "runTicks": 23985,
+        "budgetTicks": 24000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 164
+      },
+      {
+        "exit": 0,
+        "reason": 2,
+        "value": 19,
+        "data": 0,
+        "runTicks": 24305,
+        "budgetTicks": 24000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 164
+      },
+      {
+        "exit": 0,
+        "reason": 2,
+        "value": 19,
+        "data": 0,
+        "runTicks": 23991,
+        "budgetTicks": 24000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 164
+      },
+      {
+        "exit": 0,
+        "reason": 2,
+        "value": 19,
+        "data": 0,
+        "runTicks": 120003,
+        "budgetTicks": 120000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 164
+      },
+      {
+        "exit": 0,
+        "reason": 2,
+        "value": 19,
+        "data": 0,
+        "runTicks": 120004,
+        "budgetTicks": 120000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 164
+      },
+      {
+        "exit": 0,
+        "reason": 2,
+        "value": 19,
+        "data": 0,
+        "runTicks": 119995,
+        "budgetTicks": 120000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 164
+      },
+      {
+        "exit": 0,
+        "reason": 2,
+        "value": 19,
+        "data": 0,
+        "runTicks": 480008,
+        "budgetTicks": 480000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 164
+      },
+      {
+        "exit": 0,
+        "reason": 2,
+        "value": 19,
+        "data": 0,
+        "runTicks": 480001,
+        "budgetTicks": 480000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 164
+      },
+      {
+        "exit": 0,
+        "reason": 2,
+        "value": 19,
+        "data": 0,
+        "runTicks": 480085,
+        "budgetTicks": 480000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 164
+      },
+      {
+        "exit": 0,
+        "reason": 0,
+        "value": 19,
+        "data": 0,
+        "runTicks": 23,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 164
+      },
+      {
+        "exit": 0,
+        "reason": 0,
+        "value": 19,
+        "data": 0,
+        "runTicks": 38,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 164
+      },
+      {
+        "exit": 0,
+        "reason": 0,
+        "value": 19,
+        "data": 0,
+        "runTicks": 25,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 164
+      },
+      {
+        "exit": 0,
+        "reason": 0,
+        "value": 19,
+        "data": 0,
+        "runTicks": 45,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 164
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1014,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1003,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1004,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1005,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1006,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1006,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1006,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1010,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1010,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1010,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1010,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1011,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1015,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1012,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1012,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1014,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1007,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1007,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1007,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1010,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1010,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1010,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1010,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1011,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1011,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1011,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1012,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1012,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1005,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1006,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1006,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1007,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1007,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1016,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1002,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1004,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1004,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1001,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 62,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1002,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1013,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1013,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1013,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1013,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1013,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 1,
+        "reason": 0,
+        "value": 0,
+        "data": 0,
+        "runTicks": 0,
+        "budgetTicks": 0,
+        "frequency": 0,
+        "status": 1013,
+        "loadedBytes": 0
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 42,
+        "data": 42,
+        "runTicks": 196,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 42,
+        "data": 42,
+        "runTicks": 180,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      },
+      {
+        "exit": 0,
+        "reason": 1,
+        "value": 42,
+        "data": 42,
+        "runTicks": 146,
+        "budgetTicks": 240000,
+        "frequency": 24000000,
+        "status": 0,
+        "loadedBytes": 172
+      }
+    ],
+    "authenticatedGuestRuns": 34,
+    "imageRefusals": 77,
+    "mappingCases": [
+      {
+        "name": "ordinary-cleanup",
+        "admitted": true,
+        "observed": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "name": "primary-error",
+        "admitted": true,
+        "observed": [
+          [
+            1,
+            42
+          ],
+          [
+            1,
+            42
+          ]
+        ]
+      },
+      {
+        "name": "alignment",
+        "admitted": true,
+        "observed": [
+          [
+            1,
+            22
+          ],
+          [
+            1,
+            22
+          ]
+        ]
+      },
+      {
+        "name": "size-zero",
+        "admitted": true,
+        "observed": [
+          [
+            1,
+            22
+          ],
+          [
+            1,
+            22
+          ]
+        ]
+      },
+      {
+        "name": "size-large",
+        "admitted": true,
+        "observed": [
+          [
+            1,
+            22
+          ],
+          [
+            1,
+            22
+          ]
+        ]
+      },
+      {
+        "name": "permissions",
+        "admitted": true,
+        "observed": [
+          [
+            1,
+            22
+          ],
+          [
+            1,
+            22
+          ]
+        ]
+      },
+      {
+        "name": "map-overlap",
+        "admitted": true,
+        "observed": [
+          [
+            1,
+            4209590273
+          ],
+          [
+            1,
+            4209590273
+          ]
+        ]
+      },
+      {
+        "name": "copy",
+        "admitted": false,
+        "observed": [
+          "owner cannot be used as a value",
+          "owner cannot be used as a value"
+        ]
+      },
+      {
+        "name": "raw-escape",
+        "admitted": false,
+        "observed": [
+          "owner cannot be used as a value",
+          "owner cannot be used as a value"
+        ]
+      },
+      {
+        "name": "parent-release",
+        "admitted": false,
+        "observed": [
+          "release child before parent VM",
+          "release child before parent VM"
+        ]
+      },
+      {
+        "name": "live-cpu-release",
+        "admitted": false,
+        "observed": [
+          "release vCPU before mapping mutation or release",
+          "release vCPU before mapping mutation or release"
+        ]
+      },
+      {
+        "name": "live-cpu-write",
+        "admitted": false,
+        "observed": [
+          "release vCPU before mapping mutation or release",
+          "release vCPU before mapping mutation or release"
+        ]
+      },
+      {
+        "name": "conditional-release-guard",
+        "admitted": true,
+        "observed": [
+          [
+            1,
+            16
+          ],
+          [
+            1,
+            16
+          ]
+        ]
+      },
+      {
+        "name": "conditional-write-guard",
+        "admitted": true,
+        "observed": [
+          [
+            1,
+            16
+          ],
+          [
+            1,
+            16
+          ]
+        ]
+      },
+      {
+        "name": "late-mapping",
+        "admitted": true,
+        "observed": [
+          [
+            1,
+            16
+          ],
+          [
+            1,
+            16
+          ]
+        ]
+      },
+      {
+        "name": "compat-unmap-guard",
+        "admitted": true,
+        "observed": [
+          [
+            1,
+            9
+          ],
+          [
+            1,
+            9
+          ]
+        ]
+      },
+      {
+        "name": "read-range",
+        "admitted": true,
+        "observed": [
+          [
+            1,
+            22
+          ],
+          [
+            1,
+            22
+          ]
+        ]
+      },
+      {
+        "name": "write-range",
+        "admitted": true,
+        "observed": [
+          [
+            1,
+            22
+          ],
+          [
+            1,
+            22
+          ]
+        ]
+      },
+      {
+        "name": "write-value",
+        "admitted": true,
+        "observed": [
+          [
+            1,
+            22
+          ],
+          [
+            1,
+            22
+          ]
+        ]
+      },
+      {
+        "name": "last-word",
+        "admitted": true,
+        "observed": [
+          [
+            0,
+            180388626432
+          ],
+          [
+            0,
+            180388626432
+          ]
+        ]
+      },
+      {
+        "name": "raw-destroy-primary",
+        "admitted": true,
+        "observed": [
+          [
+            1,
+            42
+          ],
+          [
+            1,
+            42
+          ]
+        ]
+      },
+      {
+        "name": "raw-unmap-idempotent",
+        "admitted": true,
+        "observed": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "name": "raw-destroy-cleanup",
+        "admitted": true,
+        "observed": [
+          [
+            1,
+            4209655814
+          ],
+          [
+            1,
+            4209655814
+          ]
+        ]
+      }
+    ],
+    "nativeSignerPythonHmacVerified": true,
+    "replayAllowedVerified": true,
+    "compilerSHA256": "589f0afc73b3e2aeec95b2e60c27a46b1ab599d2a414f4eb34846fbcd5f9209f",
+    "runnerSHA256": "ff24569f6107e3619b3efdd4709bbf6a8328e06d3144ce77e5e36eac69552006",
+    "sourceSHA256": "995cbdbd35d3009ad0778b2d6ee091d86320a873c188b55ffa7a36fbd6d1f554",
+    "controllerSHA256": "368aa58cb24bd1e4fb0e2657d920de48ca1b10dd8d7e33ef450bfabdb77a4bb5",
+    "limits": [
+      "Shared-key HMAC, not public signatures, measured boot attestation or anti-rollback",
+      "Fixed bounded boot ABI and admitted ARM64 instructions; no ELF/Linux/devices",
+      "Raw syscalls/API interference, fatal traps/signals remain outside ownership; failed guest unmap intentionally retains host memory until process reclamation",
+      "Single local Mac; no universal speed, AI-token, energy or hardware novelty claim"
+    ]
+  },
+  "registerABI": {
+    "passed": true,
+    "optimizedCases": [
+      "callee",
+      "fork",
+      "errno",
+      "six"
+    ],
+    "compilerSHA256": "b7c3bae1ad5b291266f82ff500c3bf34ac14762fe637cf06582c8eeb216d7b57",
+    "scope": "Executed eight-argument callee preservation, fork/wait, negative errno and six-argument memory mapping on macOS ARM64; not other-platform ABI qualification."
+  },
+  "optimizerControl": {
+    "passed": true,
+    "oracleCases": 180,
+    "old10Comparisons": 180,
+    "conditionSideEffectCases": 5,
+    "compilerSHA256": "b7c3bae1ad5b291266f82ff500c3bf34ac14762fe637cf06582c8eeb216d7b57",
+    "scope": "Specific alias/call/spill/control-flow/recursive lifetime cases with integer expectations. Not a whole-program correctness proof."
+  },
+  "conditionalReduction": {
+    "passed": true,
+    "smallIterationCases": 384,
+    "largeIntegerCases": 128,
+    "old11Comparisons": 384,
+    "fallbackCases": 72,
+    "literalBoundsCases": 18,
+    "preservedSpillCases": 384,
+    "compilerSHA256": "b7c3bae1ad5b291266f82ff500c3bf34ac14762fe637cf06582c8eeb216d7b57",
+    "sourceSHA256": "9e0cbd99e1307f958a27825ec5b7ad957a5a75071498f18c38e302321e3ee8d2",
+    "baselineCompilerSHA256": "8c62af26581c48f617cad29a71b7a7f6f8f37823624def248a1cde8d66ac3585",
+    "scope": "Exact pure conditional masked sum, power-of-two nested periods through 2^32, unsigned wrapping u64, zero/false entry and final induction state. No arbitrary conditional loop optimization, whole compiler proof or physical hardware result."
+  },
+  "mcpSDK": {
+    "passed": true,
+    "output": "Independent SDK: three native bounded tools, auth/semantics, refusal/recovery passed; server PATH=/nonexistent\n",
+    "testKeyRemoved": true
+  },
+  "passed": true
+}

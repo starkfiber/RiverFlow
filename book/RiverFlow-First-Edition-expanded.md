@@ -1454,6 +1454,110 @@ The batch candidate took about 38% less time than the frozen RF2 baseline. Both 
 
 This is a development source candidate, not a stable binary release. The explicitly selected SFE connector returned authenticated login starkfiber, account ID 6210371, before publication. Other account credentials are not a fallback for SFE work. The next technical experiment is to profile the remaining SHA schedule and round costs. Numeric types, general memory ownership, concurrency, libraries and other machine targets remain distinct pieces of language development.
 
+# 39. Close the implementation gap, keep the comparison
+
+A faster library is a useful engineering target. It is not evidence that a human or an AI is more intelligent. The relevant questions are which instructions execute, whether the programs perform comparable work and whether their results agree.
+
+The next RF2 candidate uses the existing ARM SHA2 instructions directly. The compiler emits a block-compression kernel. The RF2 library checks the Darwin hardware feature flag before selecting it and retains the scalar path if the query fails or the feature is absent. Padding and dispatch remain RF2. The executable calls neither Python nor CommonCrypto.
+
+The low-level intrinsic is named sha256_blocks_armv8. It accepts state, input, complete-block count and round-constant pointers. Nonzero calls require the hardware feature and valid, nonoverlapping ranges. It is a trusted systems operation, not a new bounded Core or MCP effect. Zero blocks do not dereference pointers. The implementation retains the library's shared scratch buffers and therefore makes no reentrancy claim.
+
+The final local comparison uses the same 32 KiB file, first-byte mutation before each hash and independently checked digest-byte sum. Twenty-one rotated fresh-process trials follow a warmup. Startup, feature discovery and file reading remain included.
+
+| Hashes | RF2 scalar, ms | RF2 SHA2, ms | C library, ms | Python library, ms |
+| --- | --- | --- | --- | --- |
+| 50 | 35.592 | 2.556 | 2.527 | 13.383 |
+| 2,000 | 1325.124 | 22.720 | 22.458 | 33.288 |
+
+The large scalar gap is substantially closed. RF2 beats the Python task in these runs. C retains a small larger-task lead: its median is about 1.2% lower. An earlier trial set favoured RF2, but that result is not selected to claim a reliable C win. Process timings with different I/O and runtime implementations are not isolated hash throughput. No language-wide, energy or AI-token conclusion follows.
+
+Nine hundred digest comparisons cover automatic selection, forced software and failed queries in both compiler modes. Another 192 independent compression comparisons use arbitrary state and constants, unaligned ranges and zero through five blocks. Six invalid programs refuse. The native instruction bytes match a platform assembler oracle. Compiler, authenticated guest, receipt and MCP checks also pass locally. These finite checks are neither a cryptographic certification nor proof against every defect.
+
+Two plausible changes did not help. Unrolling the scalar rounds and avoiding complete-block copies failed to improve the selected batch. Holding constants in vector registers did not establish a benefit and added preservation complexity. Both were rejected. A controller initially pointed at the wrong experimental source, and a test expected one inline kernel where the program contained three. These development mistakes were corrected before the final qualification, with earlier records retained.
+
+The next useful experiment is sustained in-process throughput against an equally direct hardware implementation, followed by another host. Existing ARM acceleration is the mechanism; RF2's contribution is its tested compiler and library integration. This 0.23 candidate remains local, and stable downloads are unchanged. Exact methods and receipts are in docs/SHA-ACCELERATION.md and its linked verification and measurement records.
+
+# 40. Remove preparation work, measure the API
+
+A short hash can spend more time preparing state and converting bytes than processing its input. The next candidate caches fixed constants, uses word stores for padding and introduces general bswap32 and bswap64 arithmetic. A narrow call-classification pass also avoids unnecessary register preservation for small functions containing only known inline operations. Real calls, syscalls and cleanup remain conservative. Larger frames keep the eight-register strategy after an experiment exposed an eighth-local spill regression.
+
+This experiment times loops inside each process after one warmup hash. Input loading, startup, first feature discovery and first constant initialization are excluded. Every iteration changes the first input byte where present, performs a complete SHA API call and contributes a digest byte to a verified sum. Twenty-one rotated trials run per case on one Mac.
+
+For 20,000 messages of 64 bytes, the final medians were:
+
+| Implementation | Milliseconds |
+| --- | --- |
+| RF2 0.23 | 6.065 |
+| RF2 preparation candidate | 1.093 |
+| C/CommonCrypto | 3.419 |
+| Direct specialised ARM C | 0.624 |
+| Python/hashlib | 6.028 |
+
+The historical generator and library source are retained so the control can be rebuilt. The direct C implementation is a stronger comparison than a general library alone. Its benchmark calls are opaque to prevent repeated empty-message work from being hoisted. It still beats RF2 on short inputs. At 32 KiB, RF2 measures 20.175 ms, CommonCrypto 20.387 ms and direct C 20.137 ms for 2,000 hashes; the paired interval includes zero against CommonCrypto. Earlier noisy sessions are retained. No dependable larger-message win is claimed.
+
+A new file-checksum CLI puts the library to work. It reads a regular file up to 1 MiB, produces its digest and optionally checks a supplied digest. Exit codes distinguish success, mismatch and error. Tests caught a FIFO being treated as an empty file; checking the opened descriptor's type fixes it. It refuses final-component symlinks, directories, FIFOs and oversized inputs. It never writes the input, but it does not freeze concurrent file changes or authenticate an author.
+
+Verification includes 8,280 byte-swap comparisons, 144 changing-length hashes in reused processes, 126 file-utility cases and 5,120 ABI comparisons. The existing digest, compiler, guest, authenticated receipt and MCP checks pass again. An initial byte-swap encoding error was caught and corrected. These are executed local checks, not a proof against every bug.
+
+The direct-C gap and independent-host qualification remain concrete next steps. This is a local 0.24 candidate, with stable downloads unchanged. Full methods, limits, failures and raw records are linked from docs/SHA-PREPARATION.md. Runtime users need no C, Python or Node; those languages remain visible development comparators and test controllers.
+
+# 41. Native memory, narrower overhead and honest controls
+
+
+
+`fill_zero(dst, bytes)` writes exactly the requested bytes. `bswap32_copy(dst, src, words)` reverses bytes within each four-byte word. Both accept unaligned ranges; zero counts do not dereference pointers. Copy supports disjoint ranges or exactly in-place operation. Partial overlap is outside its raw contract. The optional literal-size paths are bounded at 256 bytes or 64 words.
+
+`sha256_chain_armv8` chains two complete-block spans without restoring SIMD state between them. Two zero counts perform no pointer reads. Nonzero spans require valid memory and the ARM SHA256 feature. These are raw operations, not general memory ownership or permission enforcement.
+
+Optimised scalar frame omission is restricted to proven call-free helpers with at most seven named scalar local slots, no structured values and no cleanup. Other functions retain their frames. Direct argument register placement applies only to the narrow fixed-arity memory operations with simple scalar locals or literals. Complex expressions retain normal evaluation and checks. Broader argument lowering failed compiler self-generation and was reverted.
+
+The SHA wrapper caches feature discovery and constants, uses bulk zeroing and vector byte conversion, and keeps the hot helper within the scalar register budget. Shared scratch remains nonreentrant. Independent concurrent states are not implemented by this interface.
+
+## Why it helps
+
+A useful cost decomposition is `T = Tsetup + B*Tblock + Tformat`, where B is the number of complete blocks. Removing repeated setup matters most for short messages. SHA compression and its modular arithmetic are unchanged; work remains linear in input length. Amdahl's standard model, `S = 1 / ((1-p) + p/s)`, explains why improving one part cannot remove unrelated costs. No fraction p was measured or fitted here. This is an application of established optimisation ideas, not a claim that earlier engineers missed a new law.
+
+Primary background: Amdahl, 1967 (https://doi.org/10.1145/1465482.1465560) and Arm Advanced SIMD intrinsics (https://arm-software.github.io/acle/neon_intrinsics/advsimd.html). RF2's contribution here is the implemented compiler integration, guarded lowering and reproducible evaluation.
+
+## Repeated complete hash API measurements
+
+Twenty-one rotated trials after warmup, one Mac, milliseconds. Startup, input loading and first feature/setup discovery are excluded. All output digest sums were checked. Lower is better.
+
+| Bytes per hash; hashes | RF2 0.24 | Candidate | CommonCrypto | Direct ARM C | Python hashlib |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 0; 20000 | 0.845 | 0.355292 | 3.246375 | 0.302167 | 5.052083 |
+| 64; 20000 | 1.103417 | 0.666042 | 3.397958 | 0.627375 | 5.994875 |
+| 4096; 4000 | 5.118958 | 5.008208 | 5.474 | 5.005875 | 6.233167 |
+| 32768; 2000 | 20.260250 | 20.145458 | 20.410458 | 20.185792 | 20.866291 |
+
+The direct C control remains about six percent faster on the 64-byte case. Larger-message candidate-minus-C paired intervals cross zero. This does not establish a reliable larger-message win. Small literal unrolling alone did not establish a useful overall hash improvement.
+
+## Actual project file workload
+
+Ten source, document, SVG and generated object snapshots, each at most 1 MiB, were checked through real CLI processes. The whole task includes startup, file metadata, reading, hashing and output with a warm operating-system cache. Corpus medians were 15.739418 ms for RF2 0.24, 16.155835 ms for the candidate and 16.479207 ms for C. Paired intervals cross zero against both controls. No reliable end-to-end improvement was demonstrated. A warm-loop improvement must not be substituted for this result.
+
+## Verification and retained failures
+
+Passed: 4288 memory comparisons, 648 literal-size comparisons, 12 memory refusals; 672 two-span chain cases and five refusals; 8280 byte-swap comparisons, 144 reused-state digests, 126 CLI cases, 150 C full-digest checks and eight application refusals; 5120 ABI cases; 900 SHA cases, 192 arbitrary compression cases and six refusals. Compiler fixed-point, reference/runtime, guest, trust, protocol and independent MCP SDK checks also passed locally. These are finite tests, not a proof of all programs or hardware.
+
+Retained failures include the reverted general argument-register experiment and unsuccessful setup/unrolling attempts. Earlier corrected byte-swap encoding, FIFO handling and register-spill faults remain documented in the 0.24 record. No second-host, energy, token-billing or AI-task benefit is claimed.
+
+## Research records
+
+
+Warm API trials (MEMORY-0.25-STEADY.json), whole-file trials (MEMORY-0.25-FILES.json), paired analysis (MEMORY-0.25-ANALYSIS.json)
+
+Memory (MEMORY-0.25-VERIFICATION.json), two-span chaining (MEMORY-0.25-CHAIN.json), application (MEMORY-0.25-APPLICATION.json), ABI (MEMORY-0.25-ABI.json), SHA (MEMORY-0.25-DIGESTS.json)
+
+Compiler (MEMORY-0.25-COMPILER.json), integration (MEMORY-0.25-REGRESSIONS.json)
+
+Controllers: `tests/standalone/memory_intrinsics_verify.py`, `sha_chain_verify.py`, `sha_preparation_verify.py`, `sha_acceleration_verify.py`; `tools/benchmark-sha-steady.py` and `benchmark-checksum-files.py`.
+
+Retained comparator sources: `tests/fixtures`. Development controllers use Python and C; generated RF2 programs do not require them.
+
+Next: qualify another host, independently review raw-memory contracts, reduce the remaining short-message gap without weakening checks, and improve end-to-end workloads before making broader performance claims.
+
+
 # Appendix A. Commands and interfaces
 
 Native standalone, no Node or npm required:

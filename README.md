@@ -12,13 +12,29 @@ RiverFlow turns readable source into useful native programs. Its compiler emits 
 
 **The direction:** one understandable language for application and systems work. Each capability ships with its input contract, failure behavior, target limits and executed evidence.
 
+## Native memory research update: 0.25 source candidate
+
+Bulk zeroing, vector byte conversion, two-span SHA chaining and guarded scalar frame omission are implemented and tested. In the measured 64-byte repeated-hash task, median time fell from 1.103 to 0.666 ms; specialised ARM C took 0.627 ms. The whole project-file workload did not show a reliable improvement. One Mac, finite tests, stable downloads unchanged.
+
+[Implementation, measurements and limitations](docs/NATIVE-MEMORY-0.25.md). The book includes the new research chapter. These changes use established ARM instructions and compiler techniques; they do not claim new physics or universal language superiority.
+
 ## Research direction: make results challengeable
 
 The [Evidence Contract candidate](docs/EVIDENCE-CONTRACT.md) combines five tested mechanisms in a native RF2 application: permission and work checks, atomic byte transformations, independent execution, source-bound SHA-256 receipts and self-contained replay capsules. [Further tests and measured overhead](docs/CONTRACT-REPLAY-RESEARCH.md) retain shared-defect and unsigned-receipt negative controls. It is a research candidate built with 0.17, separate from the released package. These mechanisms have [established prior art](docs/FIVE-HYPOTHESES-REVIEW.md); their integration is the experiment.
 
 The [ten-language source audit](docs/TOP-TEN-LANGUAGE-AUDIT.md) compares RF2 with selected implementations from Python through C, SQL and Go, with assembly as a separate low-level reference. It includes an A–Z acceptance ledger and marks missing capabilities explicitly. Popularity and shorter spelling do not prove correctness, speed or adoption.
 
-## Local 0.22 candidate: native rotate
+
+## Earlier 0.24 preparation measurements
+
+General byte-swap instructions, safer call-preservation selection and a native file-checksum utility. In-process 20,000 x64-byte hashing improves from **6.06 ms to 1.09 ms**. CommonCrypto measures3.42ms; a direct specialised C implementation remains faster at0.62ms. These warm-loop measurements exclude startup and initialization. [Scope, tests, failures and all comparisons](docs/SHA-PREPARATION.md).
+
+
+## Earlier 0.23 SHA measurements
+
+Direct ARM SHA2 lowering reduces the matched 50-hash task from **35.59 ms to 2.56 ms**. The 2,000-hash task measures **22.72 ms RF2**, **22.46 ms C/CommonCrypto**, and **33.29 ms Python/hashlib**. RF2 retains the software fallback. These are local task measurements, not a universal speed claim or stable release. [Tests, method and remaining gap](docs/SHA-ACCELERATION.md).
+
+## Earlier 0.22 measurements: native rotate
 
 A direct32-bit rotation primitive reduces the selected50-hash SHA batch median from56.98to35.35ms in21matched trials. Library baselines remain faster. This is a source candidate; stable downloads are unchanged. SFE connector authentication was verified before publication. [Evidence and limits](docs/ROTATE32-0.22.md).
 

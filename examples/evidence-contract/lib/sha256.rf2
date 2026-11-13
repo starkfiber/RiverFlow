@@ -3,7 +3,7 @@ module digest
 fn rotate(v, n)
  return ((v >> n) | (v << (32 - n))) & 4294967295
 end
-fn sha256(src, n)
+fn sha256_software(src, n)
  let k = buffer("sha_k", 256)
  let hstate = buffer("sha_h", 32)
  let w = buffer("sha_w", 256)
@@ -176,4 +176,127 @@ fn sha256(src, n)
   set i = i + 1
  end
  return digest
+end
+
+fn sha256_initialize()
+ let k=buffer("sha_k",256)
+ let initial=buffer("sha_iv_be",32)
+ do store32(k + 0, 1116352408)
+ do store32(k + 4, 1899447441)
+ do store32(k + 8, 3049323471)
+ do store32(k + 12, 3921009573)
+ do store32(k + 16, 961987163)
+ do store32(k + 20, 1508970993)
+ do store32(k + 24, 2453635748)
+ do store32(k + 28, 2870763221)
+ do store32(k + 32, 3624381080)
+ do store32(k + 36, 310598401)
+ do store32(k + 40, 607225278)
+ do store32(k + 44, 1426881987)
+ do store32(k + 48, 1925078388)
+ do store32(k + 52, 2162078206)
+ do store32(k + 56, 2614888103)
+ do store32(k + 60, 3248222580)
+ do store32(k + 64, 3835390401)
+ do store32(k + 68, 4022224774)
+ do store32(k + 72, 264347078)
+ do store32(k + 76, 604807628)
+ do store32(k + 80, 770255983)
+ do store32(k + 84, 1249150122)
+ do store32(k + 88, 1555081692)
+ do store32(k + 92, 1996064986)
+ do store32(k + 96, 2554220882)
+ do store32(k + 100, 2821834349)
+ do store32(k + 104, 2952996808)
+ do store32(k + 108, 3210313671)
+ do store32(k + 112, 3336571891)
+ do store32(k + 116, 3584528711)
+ do store32(k + 120, 113926993)
+ do store32(k + 124, 338241895)
+ do store32(k + 128, 666307205)
+ do store32(k + 132, 773529912)
+ do store32(k + 136, 1294757372)
+ do store32(k + 140, 1396182291)
+ do store32(k + 144, 1695183700)
+ do store32(k + 148, 1986661051)
+ do store32(k + 152, 2177026350)
+ do store32(k + 156, 2456956037)
+ do store32(k + 160, 2730485921)
+ do store32(k + 164, 2820302411)
+ do store32(k + 168, 3259730800)
+ do store32(k + 172, 3345764771)
+ do store32(k + 176, 3516065817)
+ do store32(k + 180, 3600352804)
+ do store32(k + 184, 4094571909)
+ do store32(k + 188, 275423344)
+ do store32(k + 192, 430227734)
+ do store32(k + 196, 506948616)
+ do store32(k + 200, 659060556)
+ do store32(k + 204, 883997877)
+ do store32(k + 208, 958139571)
+ do store32(k + 212, 1322822218)
+ do store32(k + 216, 1537002063)
+ do store32(k + 220, 1747873779)
+ do store32(k + 224, 1955562222)
+ do store32(k + 228, 2024104815)
+ do store32(k + 232, 2227730452)
+ do store32(k + 236, 2361852424)
+ do store32(k + 240, 2428436474)
+ do store32(k + 244, 2756734187)
+ do store32(k + 248, 3204031479)
+ do store32(k + 252, 3329325298)
+  do store32(initial + 0, 1743128938)
+  do store32(initial + 4, 2242799547)
+  do store32(initial + 8, 1928556092)
+  do store32(initial + 12, 989155237)
+  do store32(initial + 16, 2136084049)
+  do store32(initial + 20, 2355627419)
+  do store32(initial + 24, 2883158815)
+  do store32(initial + 28, 432922715)
+ do store64(buffer("sha_feature",16),3)
+ return 0
+end
+fn sha256_accelerated(src, n)
+ let hstate=buffer("sha_h",32)
+ let digest=buffer("sha_digest",32)
+ let tail=buffer("sha_tail",128)
+ let i=0
+ let remaining=n&63
+ do bswap32_copy(hstate, buffer("sha_iv_be",32), 8)
+ do fill_zero(tail, 128)
+ set i = 0
+ while i < remaining
+  do store8(tail + i, load8(src + (n // 64) * 64 + i))
+  set i = i + 1
+ end
+ do store8(tail + remaining, 128)
+ do store64(tail + (1 + (remaining >= 56)) * 64 - 8, bswap64(n * 8))
+ do sha256_chain_armv8(hstate, src, n // 64, tail, 1 + (remaining >= 56), buffer("sha_k",256))
+ do bswap32_copy(digest, hstate, 8)
+ return digest
+end
+# Darwin runtime feature query; unavailable/failed query retains software.
+fn sha256_arm_available()
+ let flag = buffer("sha_feature", 16)
+ if load64(flag) == 0
+  do store64(flag + 8, 4)
+  let answer = buffer("sha_feature_answer", 8)
+  do store64(answer, 0)
+  let rc = syscall6(274, "hw.optional.arm.FEAT_SHA256", 27, answer, flag + 8, 0, 0)
+  if all(rc == 0, all(load64(flag + 8) == 4, load32(answer) == 1))
+   do store64(flag, 1)
+  else
+   do store64(flag, 2)
+  end
+ end
+ return any(load64(flag) == 1,load64(flag) == 3)
+end
+fn sha256(src,n)
+ if load64(buffer("sha_feature",16)) != 3
+  if sha256_arm_available() == 0
+   return sha256_software(src,n)
+  end
+  do sha256_initialize()
+ end
+ return sha256_accelerated(src,n)
 end
