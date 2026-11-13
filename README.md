@@ -62,6 +62,8 @@ The program exits successfully. The build creates a new directory and signs the 
 
 **Development source: 0.34 ESP32-C3 candidate.** A native RF2-written cross-compiler emits RV32 instructions, ELF32 and SHA-256 checked boot images. Generated programs boot through Espressif QEMU's ROM/SPI loader; UART TX/RX and bounded errors execute. The temperature driver has host and RV32 scripted-bus tests. **Physical board and sensor validation remain pending.** See [contracts and exact evidence](docs/ESP32C3-0.34.md) and the [native development bundle](dist/0.34-candidate/README.md).
 
+**New source libraries:** [timers and watchdogs](docs/ESP32C3-TIMERS.md) add bounded SYSTIMER waits, explicit watchdog supervision and reset reporting. A native `.flow` heartbeat completed two 120-second virtual-time runs in vendor QEMU. Reset and failure controls, an observed emulator protection gap and [Arduino MCP reference lessons](docs/ARDUINO-MCP-REVIEW.md) are documented. The existing download is unchanged; use these libraries from the source checkout. No physical timing or hardware qualification is claimed.
+
 [0.33 heap collections and shared applications](docs/HEAP-COLLECTIONS-0.33.md) and [0.32 larger fixed arrays](docs/STRUCTURED-STORAGE-0.32.md) remain available. Stable downloads are separate and unchanged. The cross-compiler host is still Apple Silicon macOS; x86, Linux applications, other ESP32 variants and arbitrary Arduino/Pico firmware are not implemented.
 
 MCP does not grant arbitrary filesystem, network or systems-code execution. AI intelligence comes from the connected host. There is no embedded model or automatic proof of correctness.
