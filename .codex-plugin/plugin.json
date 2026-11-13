@@ -1,7 +1,7 @@
 {
   "name": "rf2",
-  "version": "0.32.0-dev",
-  "description": "Native RF2 tools and bounded MCP; owned guest mappings and authenticated bounded boot research",
+  "version": "0.33.0-dev",
+  "description": "Native RF2 compiler, owned collections and bounded MCP tools",
   "author": {
     "name": "Ilangkhumanan Thirunavokkarasu",
     "url": "https://github.com/starkfiber"
