@@ -50,6 +50,7 @@ The program exits successfully. The build creates a new directory and signs the 
 | Learn the syntax | [Language and byte guide](docs/START-HERE.md#learn-the-language), [book](https://starkfiber.github.io/RiverFlow/book/) |
 | Write a native file or text tool | [Examples](examples/), [ownership](docs/RESOURCE-OWNERSHIP.md), [text and bytes](docs/TEXT-BYTES.md) |
 | Connect an AI assistant | [Native MCP setup](docs/START-HERE.md#connect-an-ai-host), [tool contracts](plugin/skills/rf2/SKILL.md) |
+| Inspect smaller native images and function changes | [Compact images and working sample](docs/COMPACT-IMAGES-0.27.md) |
 | Reuse unchanged native builds | [Incremental target builds](docs/INCREMENTAL-BUILDS.md) |
 | Work on the compiler | [Compiler map](native/compiler/README.md), [contribution guide](CONTRIBUTING.md) |
 | Test a performance claim | [Measurement guide](tools/README.md), [latest compiler experiment](docs/COMPILER-DISPATCH.md) |
@@ -59,7 +60,7 @@ The program exits successfully. The build creates a new directory and signs the 
 
 **Stable package: 0.17.** Bounded Core computation, local modules, records, checked arrays, UTF-8 scalar views, typed outcomes, owned files, bounded growing bytes and nine defined MCP tools.
 
-**Development source: 0.26 target-cache candidate.** Adds dependency-aware whole-target reuse through a native build driver, alongside native SHA instructions, guarded optimizations, guest ownership experiments and a bounded WebAssembly backend. Development source and frozen candidate bundles are separate from the stable download. See the [engineering history](docs/RESEARCH-HISTORY.md) for each implementation and its executed tests.
+**Development source: 0.27 compact-image candidate.** Adds compact native images and function-change evidence to dependency-aware whole-target reuse, alongside native SHA instructions, guarded optimizations, guest ownership experiments and a bounded WebAssembly backend. Development source and frozen candidate bundles are separate from the stable download. See the [engineering history](docs/RESEARCH-HISTORY.md) for each implementation and its executed tests.
 
 MCP does not grant arbitrary filesystem, network or systems-code execution. AI intelligence comes from the connected host. There is no embedded model or automatic proof of correctness.
 
