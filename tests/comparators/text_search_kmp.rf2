@@ -1,0 +1,61 @@
+module search
+# Trusted systems API: borrowed readable ranges, caller-owned output record.
+# Byte units only; no decoding, Unicode normalization or locale matching.
+array SearchPrefix(u64,128)
+record ByteSearch(status:u64,matches:u64,first:u64)
+fn byte_search(data,n,needle,m,overlap,prefix:SearchPrefix,out:ByteSearch)
+ set out.status=0
+ set out.matches=0
+ set out.first=18446744073709551615
+ # Explicit budgets also bound prefix storage and worst-case scan work.
+ if (n>1048576)|(m>128)|(overlap>1)
+  set out.status=1
+  return 0
+ end
+ if m==0
+  set out.matches=n+1
+  set out.first=0
+  return 0
+ end
+ if m>n
+  return 0
+ end
+ # KMP prefix table: each fallback reduces j, so total work is O(n+m).
+ # Caller supplies a distinct typed workspace; all accesses are bounds checked.
+ set prefix[0]=0
+ let i=1
+ let j=0
+ while i<m
+  while all(j>0,load8(needle+i)!=load8(needle+j))
+   set j=prefix[j-1]
+  end
+  if load8(needle+i)==load8(needle+j)
+   set j=j+1
+  end
+  set prefix[i]=j
+  set i=i+1
+ end
+ set i=0
+ set j=0
+ while i<n
+  while all(j>0,load8(data+i)!=load8(needle+j))
+   set j=prefix[j-1]
+  end
+  if load8(data+i)==load8(needle+j)
+   set j=j+1
+  end
+  if j==m
+   if out.matches==0
+    set out.first=i+1-m
+   end
+   set out.matches=out.matches+1
+   if overlap
+    set j=prefix[j-1]
+   else
+    set j=0
+   end
+  end
+  set i=i+1
+ end
+ return 0
+end
