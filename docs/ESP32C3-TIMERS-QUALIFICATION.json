@@ -1,0 +1,44 @@
+{
+  "schema": "rf2.esp32c3.timers.qualification.v1",
+  "compilerUnchangedFrom034": true,
+  "existingDownloadUnchanged": true,
+  "physicalHardwareTested": false,
+  "timers": {
+    "path": "artifacts/sprint-035/time-verify-1794600152622317000/report.json",
+    "sha256": "c6dc43f595d27cef2d1c8b7bcaa3fe6bca220aa61a6436e9c3324e364088de15",
+    "passed": true,
+    "cases": 27,
+    "knownEmulatorLimitations": 1
+  },
+  "uart": {
+    "path": "artifacts/sprint-034/uart-verify-1794600154947301000/report.json",
+    "sha256": "78ea0c8d6d4610e03950e36dc458d460b1da9470b487477a359527b7340be12f",
+    "passed": true,
+    "cases": 257,
+    "compilerSHA256": "4da23828e1ffdec7e361412e2eed54605ff902ec0ab78c9a38d28d6807524f02",
+    "controllerSHA256": "fa78673655aff3f97daeb0a2e17fb7089ed8b055e423334c80770280e0fe72cc"
+  },
+  "sensor": {
+    "path": "artifacts/sprint-034/tmp102-rv32-model-1794600153769818000/report.json",
+    "sha256": "1f340ad1987cbc374911539cfa7c7bf2b76672d5f2bdb21e45eeef02840e7228",
+    "passed": true,
+    "cases": 20,
+    "compilerSHA256": "4da23828e1ffdec7e361412e2eed54605ff902ec0ab78c9a38d28d6807524f02",
+    "controllerSHA256": "53b137c381d159876f895045ad632de086e93a224a03bc17face7f88b38849a4"
+  },
+  "mcp": {
+    "path": "artifacts/sprint-035/mcp/mcp.json",
+    "sha256": "29bdcf7d279e0c7df6dae6060ab5c6c31f1f228cfe8d1e4db3a56613e664b88b",
+    "report": {
+      "passed": true,
+      "tools": 9,
+      "statusResponded": true,
+      "rawEmbeddedSourceRejected": true,
+      "followingBoundedSum": 6,
+      "runtimeSHA256": "df714d688e5b96577abb294a192432ed2f57f07c080ab23e32eee46cf94b0b89",
+      "controllerSHA256": "b8072c4938fbe8a133c7f3ce5a84141baf48634ba5c4464d9bab973b40dfffea",
+      "scope": "Direct native MCP JSON-RPC exchanges, no Node runtime used. Existing nine-tool contract unchanged; no raw compile/flash/MMIO capability. No new SDK-pass claim."
+    },
+    "directJSONRPC": true
+  }
+}
