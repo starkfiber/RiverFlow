@@ -31,3 +31,7 @@ No broad argument-register lowering is enabled by the catalogue refactor. The fa
 `--reuse-cache existing-private-directory` admits only single-return scalar arithmetic helpers and emits a reuse report. Templates are captured before resolution, current exit fixups are rebuilt, and keys bind compiler file identity, options, declaration context and body tokens. All other source uses normal generation; diagnostic map mode deliberately disables reuse. The measured route is currently slower than clean compilation. Read [the contract and limits](../../docs/FUNCTION-REUSE-0.28.md) before use.
 
 0.29: guarded hardware hashing, one-pass context fingerprints and memoized linear-scalar eligibility reduce reuse overhead. RF2FN002 binds local count and metadata/code integrity; full validation remains required on misses. See [the current contract and mixed measurements](../../docs/FUNCTION-REUSE-0.29.md).
+
+## Development0.33 heap lowering
+
+[Owned u64 collections](../../docs/HEAP-COLLECTIONS-0.33.md) lower through compiler-owned RF2 helper text, with source-origin admission guards and no external runtime file dependency. Preserve local move/borrow restrictions, pending-map retirement, partial release and secondary-error semantics. The [readable helper snapshot](../../docs/HEAP-RUNTIME-0.33.md) is derived; compiler.rf2 remains authoritative. `.flow` imports do not add an embedded backend.

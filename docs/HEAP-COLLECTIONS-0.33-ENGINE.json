@@ -1,0 +1,554 @@
+{
+  "passed": true,
+  "schema": "rf2.heap.collection.verification.v1",
+  "cases": [
+    {
+      "case": "grow relocate preserve20000 values",
+      "mode": [],
+      "sourceSHA256": "22131cb1e6960c4ed19ecc89816b19d484a98d74173c35dfc75d3d1dcfa8df3d",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "7f6a98bfcc2897d734d189ed885513c4d0ffca71e83f4586abaabd6e14b67c1f"
+    },
+    {
+      "case": "local move and aliased borrows",
+      "mode": [],
+      "sourceSHA256": "00d7d990de5422889dd4f1393833d2415c61df8a60d90da8a2e3d0b408a97723",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "5227c79167da1d383bc63178a0f412c1a3252bb376f63c249fe4e074b057e6bd"
+    },
+    {
+      "case": "clear and recoverable range/limit",
+      "mode": [],
+      "sourceSHA256": "f8959eea4dd951a6d285200d34a430b0540dde8e4ad0338c28c7c2fd1e508765",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "2774322e5e3b86b2e4ddb3edad9f50a908968ce75c10763ecc9b09aa25ca229f"
+    },
+    {
+      "case": "release runtime state and double release",
+      "mode": [],
+      "sourceSHA256": "22675784960240e938d6fe25abb391a201c24b871978e47b18a2b9303d2c5b76",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "ffc20b8ba5bc8b42853339002c3b9114781c6ca417bff6a0a7b1a624bd4e7aa0"
+    },
+    {
+      "case": "cleanup preserves nonzero successful result",
+      "mode": [],
+      "sourceSHA256": "385541d5db03741f9945f6bd947160b46dc921996c5b22f4e80699379210117b",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "06b79e549b8435ef66306e5c8a196e317969575c729c03d218cc1047bce4decd"
+    },
+    {
+      "case": "cleanup preserves primary error",
+      "mode": [],
+      "sourceSHA256": "edca14d75ed9a8e674f2c5ce96f3bdd7c6d76e056c54caf30f205a6cf56ca5ee",
+      "compileExit": 0,
+      "exit": 37,
+      "binarySHA256": "9ad1c43c18fe33d27869350f87c46a59c8b6f024dfb6b99b930016bed31a5958"
+    },
+    {
+      "case": "copy",
+      "mode": [],
+      "sourceSHA256": "7a2255659183720f97ab893493ed0b7304c6ea868094021cec8181b8c99405e8",
+      "compileExit": 1
+    },
+    {
+      "case": "read moved",
+      "mode": [],
+      "sourceSHA256": "9cd228f71d86d0c8ca51f891c0f6b937bc65730c36475f018dcc9cb13659f69e",
+      "compileExit": 1
+    },
+    {
+      "case": "double move",
+      "mode": [],
+      "sourceSHA256": "6968332f048c1a3b02c794666f23c57d3316df685f3e8d2991976c4b634af077",
+      "compileExit": 1
+    },
+    {
+      "case": "raw escape",
+      "mode": [],
+      "sourceSHA256": "1b3f695813073011519bd47dc4daf7db911d451ebf6523a497b86e51c43f0522",
+      "compileExit": 1
+    },
+    {
+      "case": "owner result",
+      "mode": [],
+      "sourceSHA256": "584145717f716abe2ec3b0f2e0cf23a09e8fcbbf4afe7652cffa2b2293b7e729",
+      "compileExit": 1
+    },
+    {
+      "case": "nested move",
+      "mode": [],
+      "sourceSHA256": "b4833c9f2179c936d47dd237665472a61bbd06cebf630fec0c44de7866eba7f8",
+      "compileExit": 1
+    },
+    {
+      "case": "borrow release",
+      "mode": [],
+      "sourceSHA256": "4f86eeeed817e93f30336161a0c6f90dd4984fdc66f8bdc877e9b61b4cbb5f08",
+      "compileExit": 1
+    },
+    {
+      "case": "borrow move",
+      "mode": [],
+      "sourceSHA256": "4833d15f7a5f164726f900872f540af7b17f64719edd9ff05c461a2675391184",
+      "compileExit": 1
+    },
+    {
+      "case": "private helper definition",
+      "mode": [],
+      "sourceSHA256": "89c3ac515bb6f43d2b1038c2bcc32b8152f911bae7adb321e59f5616dc0a54f5",
+      "compileExit": 1
+    },
+    {
+      "case": "private helper call",
+      "mode": [],
+      "sourceSHA256": "ed824e66bc6de86491c698767848f6635d3a4a96e6abcbe60dbbf1e72b5d470f",
+      "compileExit": 1
+    },
+    {
+      "case": "grow relocate preserve20000 values",
+      "mode": [
+        "--opt"
+      ],
+      "sourceSHA256": "22131cb1e6960c4ed19ecc89816b19d484a98d74173c35dfc75d3d1dcfa8df3d",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "feefcd1008134e81fd0b7aae710dcff37df1220c869e62ec1c1fa3a1137d1f8d"
+    },
+    {
+      "case": "local move and aliased borrows",
+      "mode": [
+        "--opt"
+      ],
+      "sourceSHA256": "00d7d990de5422889dd4f1393833d2415c61df8a60d90da8a2e3d0b408a97723",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "d77145c05f6029ef99e577f2bf9c8e516e056f5b7885a5f50a73c071e4994b76"
+    },
+    {
+      "case": "clear and recoverable range/limit",
+      "mode": [
+        "--opt"
+      ],
+      "sourceSHA256": "f8959eea4dd951a6d285200d34a430b0540dde8e4ad0338c28c7c2fd1e508765",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "55ca0e1cc347c08ecd59778cfda994f8424ec8ea9d532d18e0a5d50f7fac002b"
+    },
+    {
+      "case": "release runtime state and double release",
+      "mode": [
+        "--opt"
+      ],
+      "sourceSHA256": "22675784960240e938d6fe25abb391a201c24b871978e47b18a2b9303d2c5b76",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "86f3bbd4240ec39c67d6489936352a1733eb05705eca0e98ac820ae760fa1187"
+    },
+    {
+      "case": "cleanup preserves nonzero successful result",
+      "mode": [
+        "--opt"
+      ],
+      "sourceSHA256": "385541d5db03741f9945f6bd947160b46dc921996c5b22f4e80699379210117b",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "5936811940e6ea703fb2d3a4d7cce638dc75e1f404e2fd05f54df35bacd0340f"
+    },
+    {
+      "case": "cleanup preserves primary error",
+      "mode": [
+        "--opt"
+      ],
+      "sourceSHA256": "edca14d75ed9a8e674f2c5ce96f3bdd7c6d76e056c54caf30f205a6cf56ca5ee",
+      "compileExit": 0,
+      "exit": 37,
+      "binarySHA256": "f374e50138b03c54219cd5775fb3635008bc71ad8636550c64d20c7064a95804"
+    },
+    {
+      "case": "copy",
+      "mode": [
+        "--opt"
+      ],
+      "sourceSHA256": "7a2255659183720f97ab893493ed0b7304c6ea868094021cec8181b8c99405e8",
+      "compileExit": 1
+    },
+    {
+      "case": "read moved",
+      "mode": [
+        "--opt"
+      ],
+      "sourceSHA256": "9cd228f71d86d0c8ca51f891c0f6b937bc65730c36475f018dcc9cb13659f69e",
+      "compileExit": 1
+    },
+    {
+      "case": "double move",
+      "mode": [
+        "--opt"
+      ],
+      "sourceSHA256": "6968332f048c1a3b02c794666f23c57d3316df685f3e8d2991976c4b634af077",
+      "compileExit": 1
+    },
+    {
+      "case": "raw escape",
+      "mode": [
+        "--opt"
+      ],
+      "sourceSHA256": "1b3f695813073011519bd47dc4daf7db911d451ebf6523a497b86e51c43f0522",
+      "compileExit": 1
+    },
+    {
+      "case": "owner result",
+      "mode": [
+        "--opt"
+      ],
+      "sourceSHA256": "584145717f716abe2ec3b0f2e0cf23a09e8fcbbf4afe7652cffa2b2293b7e729",
+      "compileExit": 1
+    },
+    {
+      "case": "nested move",
+      "mode": [
+        "--opt"
+      ],
+      "sourceSHA256": "b4833c9f2179c936d47dd237665472a61bbd06cebf630fec0c44de7866eba7f8",
+      "compileExit": 1
+    },
+    {
+      "case": "borrow release",
+      "mode": [
+        "--opt"
+      ],
+      "sourceSHA256": "4f86eeeed817e93f30336161a0c6f90dd4984fdc66f8bdc877e9b61b4cbb5f08",
+      "compileExit": 1
+    },
+    {
+      "case": "borrow move",
+      "mode": [
+        "--opt"
+      ],
+      "sourceSHA256": "4833d15f7a5f164726f900872f540af7b17f64719edd9ff05c461a2675391184",
+      "compileExit": 1
+    },
+    {
+      "case": "private helper definition",
+      "mode": [
+        "--opt"
+      ],
+      "sourceSHA256": "89c3ac515bb6f43d2b1038c2bcc32b8152f911bae7adb321e59f5616dc0a54f5",
+      "compileExit": 1
+    },
+    {
+      "case": "private helper call",
+      "mode": [
+        "--opt"
+      ],
+      "sourceSHA256": "ed824e66bc6de86491c698767848f6635d3a4a96e6abcbe60dbbf1e72b5d470f",
+      "compileExit": 1
+    },
+    {
+      "case": "grow relocate preserve20000 values",
+      "mode": [
+        "--compact"
+      ],
+      "sourceSHA256": "22131cb1e6960c4ed19ecc89816b19d484a98d74173c35dfc75d3d1dcfa8df3d",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "d605eb4ac479424126d70948b017eb21280ad1097148248ed800fd78f840aba4"
+    },
+    {
+      "case": "local move and aliased borrows",
+      "mode": [
+        "--compact"
+      ],
+      "sourceSHA256": "00d7d990de5422889dd4f1393833d2415c61df8a60d90da8a2e3d0b408a97723",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "24118730fe5a3f0d876eb3807ac3441a9cb9ed0ca79c55af893210d617d46543"
+    },
+    {
+      "case": "clear and recoverable range/limit",
+      "mode": [
+        "--compact"
+      ],
+      "sourceSHA256": "f8959eea4dd951a6d285200d34a430b0540dde8e4ad0338c28c7c2fd1e508765",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "9d1d98ad6531bd7cd7f83dbd5a871318af2dca3f7cca366c34476ecf3623db06"
+    },
+    {
+      "case": "release runtime state and double release",
+      "mode": [
+        "--compact"
+      ],
+      "sourceSHA256": "22675784960240e938d6fe25abb391a201c24b871978e47b18a2b9303d2c5b76",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "c9fcf0833c6799c94f595e6d7442d522275fd21800c6efbc41464d03efc95882"
+    },
+    {
+      "case": "cleanup preserves nonzero successful result",
+      "mode": [
+        "--compact"
+      ],
+      "sourceSHA256": "385541d5db03741f9945f6bd947160b46dc921996c5b22f4e80699379210117b",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "a7bfd50fcd6d0ba12d89030fba457574bf5208546e27a5b44aa6b07dffbeb61b"
+    },
+    {
+      "case": "cleanup preserves primary error",
+      "mode": [
+        "--compact"
+      ],
+      "sourceSHA256": "edca14d75ed9a8e674f2c5ce96f3bdd7c6d76e056c54caf30f205a6cf56ca5ee",
+      "compileExit": 0,
+      "exit": 37,
+      "binarySHA256": "88133ca8ed2428d2c279a5e8f4d50593f66e0bfa867d6bb88147f8e929e0b072"
+    },
+    {
+      "case": "copy",
+      "mode": [
+        "--compact"
+      ],
+      "sourceSHA256": "7a2255659183720f97ab893493ed0b7304c6ea868094021cec8181b8c99405e8",
+      "compileExit": 1
+    },
+    {
+      "case": "read moved",
+      "mode": [
+        "--compact"
+      ],
+      "sourceSHA256": "9cd228f71d86d0c8ca51f891c0f6b937bc65730c36475f018dcc9cb13659f69e",
+      "compileExit": 1
+    },
+    {
+      "case": "double move",
+      "mode": [
+        "--compact"
+      ],
+      "sourceSHA256": "6968332f048c1a3b02c794666f23c57d3316df685f3e8d2991976c4b634af077",
+      "compileExit": 1
+    },
+    {
+      "case": "raw escape",
+      "mode": [
+        "--compact"
+      ],
+      "sourceSHA256": "1b3f695813073011519bd47dc4daf7db911d451ebf6523a497b86e51c43f0522",
+      "compileExit": 1
+    },
+    {
+      "case": "owner result",
+      "mode": [
+        "--compact"
+      ],
+      "sourceSHA256": "584145717f716abe2ec3b0f2e0cf23a09e8fcbbf4afe7652cffa2b2293b7e729",
+      "compileExit": 1
+    },
+    {
+      "case": "nested move",
+      "mode": [
+        "--compact"
+      ],
+      "sourceSHA256": "b4833c9f2179c936d47dd237665472a61bbd06cebf630fec0c44de7866eba7f8",
+      "compileExit": 1
+    },
+    {
+      "case": "borrow release",
+      "mode": [
+        "--compact"
+      ],
+      "sourceSHA256": "4f86eeeed817e93f30336161a0c6f90dd4984fdc66f8bdc877e9b61b4cbb5f08",
+      "compileExit": 1
+    },
+    {
+      "case": "borrow move",
+      "mode": [
+        "--compact"
+      ],
+      "sourceSHA256": "4833d15f7a5f164726f900872f540af7b17f64719edd9ff05c461a2675391184",
+      "compileExit": 1
+    },
+    {
+      "case": "private helper definition",
+      "mode": [
+        "--compact"
+      ],
+      "sourceSHA256": "89c3ac515bb6f43d2b1038c2bcc32b8152f911bae7adb321e59f5616dc0a54f5",
+      "compileExit": 1
+    },
+    {
+      "case": "private helper call",
+      "mode": [
+        "--compact"
+      ],
+      "sourceSHA256": "ed824e66bc6de86491c698767848f6635d3a4a96e6abcbe60dbbf1e72b5d470f",
+      "compileExit": 1
+    },
+    {
+      "case": "grow relocate preserve20000 values",
+      "mode": [
+        "--opt",
+        "--compact"
+      ],
+      "sourceSHA256": "22131cb1e6960c4ed19ecc89816b19d484a98d74173c35dfc75d3d1dcfa8df3d",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "cbaaaa4d52a44757271d7c5ca345e0fb7427019fb93d2a5160a2f1d0fc49e894"
+    },
+    {
+      "case": "local move and aliased borrows",
+      "mode": [
+        "--opt",
+        "--compact"
+      ],
+      "sourceSHA256": "00d7d990de5422889dd4f1393833d2415c61df8a60d90da8a2e3d0b408a97723",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "ed6199046e1d6566525ac5dc3ae8cc030af23d0ce24820a60f661434ed512a30"
+    },
+    {
+      "case": "clear and recoverable range/limit",
+      "mode": [
+        "--opt",
+        "--compact"
+      ],
+      "sourceSHA256": "f8959eea4dd951a6d285200d34a430b0540dde8e4ad0338c28c7c2fd1e508765",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "9ff16ce365738e8b00845023ac7fe278b08f635b01021f785c84b39fba02fa41"
+    },
+    {
+      "case": "release runtime state and double release",
+      "mode": [
+        "--opt",
+        "--compact"
+      ],
+      "sourceSHA256": "22675784960240e938d6fe25abb391a201c24b871978e47b18a2b9303d2c5b76",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "bb298ae78f20d5b57fae640cbe909a6a018a0c51b8576d7118442012a62552eb"
+    },
+    {
+      "case": "cleanup preserves nonzero successful result",
+      "mode": [
+        "--opt",
+        "--compact"
+      ],
+      "sourceSHA256": "385541d5db03741f9945f6bd947160b46dc921996c5b22f4e80699379210117b",
+      "compileExit": 0,
+      "exit": 0,
+      "binarySHA256": "6e05c9a3d5097c8c38bb85047acffb9d4389f3add6aa0d209a9c38b0f1d1e9d9"
+    },
+    {
+      "case": "cleanup preserves primary error",
+      "mode": [
+        "--opt",
+        "--compact"
+      ],
+      "sourceSHA256": "edca14d75ed9a8e674f2c5ce96f3bdd7c6d76e056c54caf30f205a6cf56ca5ee",
+      "compileExit": 0,
+      "exit": 37,
+      "binarySHA256": "d6638e8040694699cc8acf4610f8fb3a1b381904799b28b7c49e63032362680f"
+    },
+    {
+      "case": "copy",
+      "mode": [
+        "--opt",
+        "--compact"
+      ],
+      "sourceSHA256": "7a2255659183720f97ab893493ed0b7304c6ea868094021cec8181b8c99405e8",
+      "compileExit": 1
+    },
+    {
+      "case": "read moved",
+      "mode": [
+        "--opt",
+        "--compact"
+      ],
+      "sourceSHA256": "9cd228f71d86d0c8ca51f891c0f6b937bc65730c36475f018dcc9cb13659f69e",
+      "compileExit": 1
+    },
+    {
+      "case": "double move",
+      "mode": [
+        "--opt",
+        "--compact"
+      ],
+      "sourceSHA256": "6968332f048c1a3b02c794666f23c57d3316df685f3e8d2991976c4b634af077",
+      "compileExit": 1
+    },
+    {
+      "case": "raw escape",
+      "mode": [
+        "--opt",
+        "--compact"
+      ],
+      "sourceSHA256": "1b3f695813073011519bd47dc4daf7db911d451ebf6523a497b86e51c43f0522",
+      "compileExit": 1
+    },
+    {
+      "case": "owner result",
+      "mode": [
+        "--opt",
+        "--compact"
+      ],
+      "sourceSHA256": "584145717f716abe2ec3b0f2e0cf23a09e8fcbbf4afe7652cffa2b2293b7e729",
+      "compileExit": 1
+    },
+    {
+      "case": "nested move",
+      "mode": [
+        "--opt",
+        "--compact"
+      ],
+      "sourceSHA256": "b4833c9f2179c936d47dd237665472a61bbd06cebf630fec0c44de7866eba7f8",
+      "compileExit": 1
+    },
+    {
+      "case": "borrow release",
+      "mode": [
+        "--opt",
+        "--compact"
+      ],
+      "sourceSHA256": "4f86eeeed817e93f30336161a0c6f90dd4984fdc66f8bdc877e9b61b4cbb5f08",
+      "compileExit": 1
+    },
+    {
+      "case": "borrow move",
+      "mode": [
+        "--opt",
+        "--compact"
+      ],
+      "sourceSHA256": "4833d15f7a5f164726f900872f540af7b17f64719edd9ff05c461a2675391184",
+      "compileExit": 1
+    },
+    {
+      "case": "private helper definition",
+      "mode": [
+        "--opt",
+        "--compact"
+      ],
+      "sourceSHA256": "89c3ac515bb6f43d2b1038c2bcc32b8152f911bae7adb321e59f5616dc0a54f5",
+      "compileExit": 1
+    },
+    {
+      "case": "private helper call",
+      "mode": [
+        "--opt",
+        "--compact"
+      ],
+      "sourceSHA256": "ed824e66bc6de86491c698767848f6635d3a4a96e6abcbe60dbbf1e72b5d470f",
+      "compileExit": 1
+    }
+  ],
+  "compilerSHA256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37",
+  "compilerSourceSHA256": "3d2e7d65cc545c116b9c75aaabb10b0906f5b3cb7cdf9a3c29fa5c3ab51665d7",
+  "controllerSHA256": "cfdc10219e480f7c334a36c82cbd6ffef5586be0c48ecf3bcf56d2ae736ccd52",
+  "limits": "Bounded u64 collections on one Mac, native ordinary/optimized and full/compact modes. Runtime mapping failure injection and relocation address instrumentation are separately qualified. No owner return/function ownership transfer, concurrency, whole-language safety, platform or speed claim."
+}

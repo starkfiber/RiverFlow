@@ -1,0 +1,131 @@
+{
+  "schema": "rf2.heap.qualification.v1",
+  "passed": true,
+  "target": "macos-arm64",
+  "hostCount": 1,
+  "compilerSourceSHA256": "3d2e7d65cc545c116b9c75aaabb10b0906f5b3cb7cdf9a3c29fa5c3ab51665d7",
+  "compilerSHA256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37",
+  "runtimeSHA256": "df714d688e5b96577abb294a192432ed2f57f07c080ab23e32eee46cf94b0b89",
+  "counts": {
+    "heapEngine": 64,
+    "independentHeap": 78,
+    "apps": 308,
+    "flowModules": 26,
+    "existingBytesVector": 94,
+    "existingFileCleanup": 52,
+    "existingFileOwnership": 136,
+    "existingStack": 82,
+    "targetCache": 58,
+    "functionPack": 79,
+    "compilerStore": 20
+  },
+  "independentHeapBreakdown": {
+    "nativeExecutions": 32,
+    "mappingLifetimeInstrumentedObservations": 4,
+    "injectedFailureControls": 12,
+    "compileRefusals": 30
+  },
+  "receipts": [
+    {
+      "file": "HEAP-COLLECTIONS-0.33-ABI.json",
+      "sha256": "80b89c0c20c08a58bb474e1471e1c1b658fa23c5708f651a56ca22120bbea135",
+      "role": "final v4 qualification or derived helper identity"
+    },
+    {
+      "file": "HEAP-COLLECTIONS-0.33-APPS.json",
+      "sha256": "5f32375c32242f7a5bf3fdd47cca01fcf7e3cf165d8e701f8af69b70da11c6ef",
+      "role": "final v4 qualification or derived helper identity"
+    },
+    {
+      "file": "HEAP-COLLECTIONS-0.33-CLEANUP.json",
+      "sha256": "09883705f05dd28230835e09e2e1bed0e9d4303bf4dd777d256045562fd7b414",
+      "role": "final v4 qualification or derived helper identity"
+    },
+    {
+      "file": "HEAP-COLLECTIONS-0.33-COMPILER.json",
+      "sha256": "f6bca3c9f1ebf75c08af6b9695cb2d7876305027b6f9bf1e854c5ef2d2ba4348",
+      "role": "final v4 qualification or derived helper identity"
+    },
+    {
+      "file": "HEAP-COLLECTIONS-0.33-DEFECT.json",
+      "sha256": "bdd03e4d4d5993d97bde7c4bc99658f1ca044e5768e4c0c5a9affc7b1124e184",
+      "role": "retained superseded v3 defect"
+    },
+    {
+      "file": "HEAP-COLLECTIONS-0.33-ENGINE.json",
+      "sha256": "e02c2d8f7e1312f54413134e511fa7d37407e781b423fcf59ccb05de8fcc793f",
+      "role": "final v4 qualification or derived helper identity"
+    },
+    {
+      "file": "HEAP-COLLECTIONS-0.33-FLOW.json",
+      "sha256": "c1884215237dd8797fba89cbf542d2256754327197940a78e08775047e4e53a4",
+      "role": "final v4 qualification or derived helper identity"
+    },
+    {
+      "file": "HEAP-COLLECTIONS-0.33-HELPER.json",
+      "sha256": "08bc670b981a410450ad4ecbf2e242424489dea7a906a826b8e13d3454cdc3d5",
+      "role": "final v4 qualification or derived helper identity"
+    },
+    {
+      "file": "HEAP-COLLECTIONS-0.33-INCREMENTAL.json",
+      "sha256": "88c79bedf31b25a920dee938ba120c631d6e009901342ac68a24abce44f9c255",
+      "role": "final v4 qualification or derived helper identity"
+    },
+    {
+      "file": "HEAP-COLLECTIONS-0.33-OWNERSHIP.json",
+      "sha256": "18421dd868dce35caaf13446155ec21eee1335afaa91d96cbf503b3cb779c4ed",
+      "role": "final v4 qualification or derived helper identity"
+    },
+    {
+      "file": "HEAP-COLLECTIONS-0.33-PACK.json",
+      "sha256": "555b08f77e1eac14e5c675361722b59331224126b48edbe88250ecdc1caa93ae",
+      "role": "final v4 qualification or derived helper identity"
+    },
+    {
+      "file": "HEAP-COLLECTIONS-0.33-PACKAGE.json",
+      "sha256": "8f97f7463f1132d4738725b3a08b703a317c09ce674e3e3d7ff194f7b7c697a0",
+      "role": "final v4 qualification or derived helper identity"
+    },
+    {
+      "file": "HEAP-COLLECTIONS-0.33-REDTEAM.json",
+      "sha256": "a1cb9bf44e30a83956cb8bf4aa1240868b52945e843e757f2821a5448d53fcab",
+      "role": "final v4 qualification or derived helper identity"
+    },
+    {
+      "file": "HEAP-COLLECTIONS-0.33-RUNTIME.json",
+      "sha256": "cac47450ae2aebe87dda8f3621df650bd560fdd0901e37ff24c3d64addec0f7a",
+      "role": "final v4 qualification or derived helper identity"
+    },
+    {
+      "file": "HEAP-COLLECTIONS-0.33-STACK.json",
+      "sha256": "1ee44331b672209e2f113f346d6acad594441a2fb4fb69074d3c651beb2e3899",
+      "role": "final v4 qualification or derived helper identity"
+    },
+    {
+      "file": "HEAP-COLLECTIONS-0.33-STORE.json",
+      "sha256": "1eb4774e1b6c8339b82db4eb36ed16f6fb5c0226bafd7353595015727feed573",
+      "role": "final v4 qualification or derived helper identity"
+    },
+    {
+      "file": "HEAP-COLLECTIONS-0.33-VECTOR.json",
+      "sha256": "37ebd2d3593d18926b3f56a7f7fda147954cbafdab5d1a83c925df84c9c0c242",
+      "role": "final v4 qualification or derived helper identity"
+    },
+    {
+      "file": "HEAP-COLLECTIONS-0.33-VIEWS.json",
+      "sha256": "113d09b89bdcdfc49bfd47c68ec86ff741513cbfc236fbcf01590c6f8e60d81f",
+      "role": "final v4 qualification or derived helper identity"
+    }
+  ],
+  "sdk": {
+    "passed": true,
+    "toolCount": 9,
+    "version": "0.17.0",
+    "controller": "tests/standalone/sdk.mjs",
+    "controllerSHA256": "854e0ad2837dc10f39dc8b1529a2d27425af27f19d42df51c2c9151f255480e0",
+    "logSHA256": "51fb0de0a559c41801b288b774d07bb92643abd124614262a0634f11a11e2966"
+  },
+  "defaultCompilerImageBytes": 16647664,
+  "compilerStoreLimit": 16777216,
+  "limits": "Finite single-Mac default/optimized native controls. Injected syscall results are not real OOM. No owner returns, threads, whole-language memory safety, embedded target, hardware, speed, energy or AI token claim. Python seed verifies compiler reproduction and legacy runtime, not an independent collection-language implementation."
+}

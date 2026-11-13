@@ -23,3 +23,7 @@ Build profile-specific examples around real jobs. A learner needs visible feedba
 ## What further optimization must preserve
 
 Compare outputs and failure behaviour first. Measure complete tasks separately from kernel loops, compiler rebuilds and startup. Include optimized libraries as comparators, retained fallbacks, periodic/adversarial inputs and regressions. Account for added selection/checking cost. Record source, compiler, binary and workload identities. Keep losing cases; do not train the headline on a favourable workload alone.
+
+## Development 0.33 checkpoint
+
+Owned u64 heap growth, local moves, typed mutable borrows and two shared-library `.flow` applications are [implemented and qualified within explicit bounds](HEAP-COLLECTIONS-0.33.md). Cleanup failures, pending retirement and partial release remain part of the public contract. Next allocation work: structured element types, maps and ownership transfer across function boundaries with independent failure tests. An [ESP32-C3 target](EMBEDDED-DIRECTION.md) is proposed and unimplemented. Neither host collections nor a new filename extension supply firmware support.

@@ -1,0 +1,98 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "overlap",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "name": "overlap",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "name": "derived",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "name": "derived",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "name": "empty-second",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "name": "empty-second",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "name": "overflow-second",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "name": "overflow-second",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "name": "write-after-second",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "name": "write-after-second",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "name": "call-in-second",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "name": "call-in-second",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "name": "fresh-owned-storage",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "name": "fresh-owned-storage",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "name": "frame-85",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "name": "frame-85",
+      "optimized": true,
+      "passed": true
+    },
+    {
+      "name": "frame-86",
+      "optimized": false,
+      "passed": true
+    },
+    {
+      "name": "frame-86",
+      "optimized": true,
+      "passed": true
+    }
+  ],
+  "compilerSHA256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37",
+  "sourceSHA256": "3d2e7d65cc545c116b9c75aaabb10b0906f5b3cb7cdf9a3c29fa5c3ab51665d7",
+  "scope": "18 tests of multiple frame-owned immutable byte views; all-call/all-array-write freeze remains until function return."
+}

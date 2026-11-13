@@ -1,0 +1,52 @@
+module output
+fn output_length(p)
+ let n=0
+ while load8(p+n)!=0
+  set n=n+1
+ end
+ return n
+end
+fn output_bytes(fd,p,n)
+ let used=0
+ while used<n
+  let got=write(fd,p+used,n-used)
+  if (got>>63)|(got==0)
+   return 0
+  end
+  set used=used+got
+ end
+ return 1
+end
+fn output_text(p)
+ return output_bytes(1,p,output_length(p))
+end
+fn output_number(n)
+ let p=buffer("collection_output_digits",24)
+ let i=24
+ if n==0
+  return output_bytes(1,"0",1)
+ end
+ while n
+  set i=i-1
+  do store8(p+i,48+n-(n//10)*10)
+  set n=n//10
+ end
+ return output_bytes(1,p+i,24-i)
+end
+fn output_error(n)
+ let p=buffer("collection_error_digits",24)
+ let i=24
+ do output_bytes(2,"Error ",6)
+ if n==0
+  do output_bytes(2,"0\n",2)
+  return 0
+ end
+ while n
+  set i=i-1
+  do store8(p+i,48+n-(n//10)*10)
+  set n=n//10
+ end
+ do output_bytes(2,p+i,24-i)
+ do output_bytes(2,"\n",1)
+ return 0
+end

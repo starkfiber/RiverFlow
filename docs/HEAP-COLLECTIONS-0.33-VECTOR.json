@@ -1,0 +1,621 @@
+{
+  "passed": true,
+  "checks": 94,
+  "compilerSHA256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37",
+  "compilerSourceSHA256": "3d2e7d65cc545c116b9c75aaabb10b0906f5b3cb7cdf9a3c29fa5c3ab51665d7",
+  "scope": "Finite native reservation-backed byte-vector probes in bothmodes. mmap/mprotect/munmap failures injected by exact machine-instruction patch in disposable signed copies, not real OS OOM or general allocatorproof.",
+  "results": [
+    {
+      "name": "empty",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "reserve-zero",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "reserve-no-shrink",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "all-byte-values",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "boundary-seventeen",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "boundary-one",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "reserve-over-65",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "reserve-over-18446744073709551615",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "bad-byte-256",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "bad-byte-18446744073709551615",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "empty-get-0",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "empty-get-64",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "empty-get-18446744073709551615",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "clear-keeps-capacity",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "explicit-release",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "loop-release-guard",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "max-reservation-bound",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "index-trap",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "refuse-copy",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "refuse-discard",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "refuse-return",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "refuse-property-write",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "refuse-indexed-write",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "refuse-raw-argument",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "refuse-discard-result",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "refuse-wrong-arity",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "refuse-rebind",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "use-after-release",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "parameter-owner",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "limit-0",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "limit-1048577",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "limit-0001",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "limit-0x40",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "limit-18446744073709551617",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "limit-999999999999999999999999999999999999999",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "view-while-grow",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "loop-reentry-0",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "loop-reentry-length",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "loop-reentry-capacity",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "loop-reentry-limit",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "frame-176",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "frame-177",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "seventeen-owners",
+      "optimized": false,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "injected-mmap",
+      "optimized": false,
+      "passed": true,
+      "fault": {
+        "syscall": 197,
+        "site": 0,
+        "matchingSites": 1,
+        "sourceSHA256": "25271bb2f33f048bf6db9ffc6d8c3851e9f1517cdd093d0d9e827d2ef3a63dcb",
+        "patchedSHA256": "b707f6e062015cdfb5f15b2edddefccab0aff01409f23fbc2d87cd4bd595d0c1"
+      }
+    },
+    {
+      "name": "injected-mprotect-preserves-state",
+      "optimized": false,
+      "passed": true,
+      "fault": {
+        "syscall": 74,
+        "site": 1,
+        "matchingSites": 2,
+        "sourceSHA256": "bd7784dfd0b1406ab45c4c596abaa8b492f5db589c6eb7dbd54fd55f8a293b9a",
+        "patchedSHA256": "c9568d98e960fc7d59ad1a54e2a5d66e55ecb8ce7b337ab731ffa59e6b07ed02"
+      }
+    },
+    {
+      "name": "injected-munmap-cleanup-error",
+      "optimized": false,
+      "passed": true,
+      "fault": {
+        "syscall": 73,
+        "site": 0,
+        "matchingSites": 1,
+        "sourceSHA256": "73a95eb4369b65c0f3e40b19be493ec1a9f9f56432f8074ae3b1c20448dda246",
+        "patchedSHA256": "18ec32708288f7b1c8e2ee4de9b71d62a35dd5a0dbb4c010f2db602be545e68f"
+      }
+    },
+    {
+      "name": "injected-release-error-consumes",
+      "optimized": false,
+      "passed": true,
+      "fault": {
+        "syscall": 73,
+        "site": 0,
+        "matchingSites": 2,
+        "sourceSHA256": "4dc318d38eb5e32e2f2142a43e22dad24cd91a52ec6ae76ed4fe62ba90db1f41",
+        "patchedSHA256": "4a66c2d4398dc3208df01201427774a4734e2a858cb9e04e981103c48329bd41"
+      }
+    },
+    {
+      "name": "empty",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "reserve-zero",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "reserve-no-shrink",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "all-byte-values",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "boundary-seventeen",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "boundary-one",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "reserve-over-65",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "reserve-over-18446744073709551615",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "bad-byte-256",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "bad-byte-18446744073709551615",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "empty-get-0",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "empty-get-64",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "empty-get-18446744073709551615",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "clear-keeps-capacity",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "explicit-release",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "loop-release-guard",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "max-reservation-bound",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "index-trap",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "refuse-copy",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "refuse-discard",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "refuse-return",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "refuse-property-write",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "refuse-indexed-write",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "refuse-raw-argument",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "refuse-discard-result",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "refuse-wrong-arity",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "refuse-rebind",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "use-after-release",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "parameter-owner",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "limit-0",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "limit-1048577",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "limit-0001",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "limit-0x40",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "limit-18446744073709551617",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "limit-999999999999999999999999999999999999999",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "view-while-grow",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "loop-reentry-0",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "loop-reentry-length",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "loop-reentry-capacity",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "loop-reentry-limit",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "frame-176",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": true
+    },
+    {
+      "name": "frame-177",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "seventeen-owners",
+      "optimized": true,
+      "passed": true,
+      "expectedCompile": false
+    },
+    {
+      "name": "injected-mmap",
+      "optimized": true,
+      "passed": true,
+      "fault": {
+        "syscall": 197,
+        "site": 0,
+        "matchingSites": 1,
+        "sourceSHA256": "df1a0368820260a0764d4370173113df2694dbd75849e0d33d32cd3006e21437",
+        "patchedSHA256": "3db258660adde2ec64bd13197c221127d3e65d93b30c54219987e8962403220d"
+      }
+    },
+    {
+      "name": "injected-mprotect-preserves-state",
+      "optimized": true,
+      "passed": true,
+      "fault": {
+        "syscall": 74,
+        "site": 1,
+        "matchingSites": 2,
+        "sourceSHA256": "adbfd6a93d1e8d111c5cfe374388be44fc764e3fee360211c19c55605361850d",
+        "patchedSHA256": "d0ce52a415df79ca5c291ca053c9f12c02d5cec2857057f987e9182318ed409f"
+      }
+    },
+    {
+      "name": "injected-munmap-cleanup-error",
+      "optimized": true,
+      "passed": true,
+      "fault": {
+        "syscall": 73,
+        "site": 0,
+        "matchingSites": 1,
+        "sourceSHA256": "147ed323a473d444c41f47a6ea6ec3778beaa6a0d7deb496a4d0e44792843246",
+        "patchedSHA256": "6c08257644f7146f74c9d748f7521b396863065ac4f63827904d8418d913572c"
+      }
+    },
+    {
+      "name": "injected-release-error-consumes",
+      "optimized": true,
+      "passed": true,
+      "fault": {
+        "syscall": 73,
+        "site": 0,
+        "matchingSites": 2,
+        "sourceSHA256": "76ac35a9f097e2304b81bb7f8c445bc0e3d6ff64fcab7f6bf97103d588075f01",
+        "patchedSHA256": "c2c4e29662fcdd5123fb474568b5aa2e01337218308bd905bdd76063fca862dc"
+      }
+    }
+  ]
+}

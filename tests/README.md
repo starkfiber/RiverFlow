@@ -24,3 +24,7 @@ For compact images, use compact_image_verify.py with RF2_TEST_COMPILER. To rerun
 0.28: `standalone/function_reuse_verify.py` compares opt-in function reuse with clean images and execution; `standalone/compiler_store_verify.py` checks explicit private stores and retained-inode behavior. Both require explicit RF2_TEST_COMPILER and the store suite also RF2_BUILD_BIN. Existing cache, compact-image, compiler and native MCP gates remain required.
 
 0.29: `compiler_hash_verify.py` checks hardware/fallback digests and reference encoding; `function_reuse_extended_verify.py` checks linear readiness/memoized admission; NumberLab CLI/HTTP controllers and `sha40_verify.py` execute real apps with independent result oracles. Native reports belong to new artifact paths, not historical verification files.
+
+## Heap ownership and `.flow` applications, development0.33
+
+`heap_collection_verify.py` checks bounded allocation/data/moves; `heap_ownership_redteam_verify.py` independently challenges native lifetimes, reentrant borrows, private helper refusal and injected syscall failures. `collection_apps_verify.py` checks both real numeric apps against independent integer/JSON oracles. `flow_modules_verify.py` checks mixed .flow/.rf2 imports and refuses unsupported targets. Set RF2_TEST_COMPILER explicitly. See [contract and exact final receipts](../docs/HEAP-COLLECTIONS-0.33.md); no embedded hardware, universal memory-safety or speed result is established.

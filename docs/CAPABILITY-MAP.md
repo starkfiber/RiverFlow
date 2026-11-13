@@ -4,6 +4,10 @@ RiverFlow is an implemented language with a native compiler, useful applications
 
 The long-term direction is one readable language across application and systems work. Each additional target needs its own implementation, contract and executed tests.
 
+## Development 0.33: owned u64 collections
+
+[Relocating heap collections](HEAP-COLLECTIONS-0.33.md) support recoverable growth/access, checked local moves and typed mutable borrows, with explicit retirement retry and partial-release rules. Two `.flow` apps share parsing/sorting libraries and handle up to65536 values. No owner returns, concurrency or general raw-pointer safety is established. [Embedded firmware](EMBEDDED-DIRECTION.md) remains a proposed target, not current support.
+
 ## Development 0.32: structured fixed arrays
 
 [Separate array arenas and larger bounded frames](STRUCTURED-STORAGE-0.32.md) remove the former per-element scalar-slot cost. The tested bounds are4096 u64 elements or32768 u8 bytes per declaration and49152 aggregate payload bytes per function. Named-local metadata stays bounded. Two native applications share the same library and support4096-byte queries. This is fixed function-local storage, not general heap transfer, concurrency or ecosystem parity.
@@ -37,10 +41,10 @@ See [the current benchmark report](BENCHMARKS-0.21.md), including losses and the
 | Hex and bytes | Decimal and lowercase `0x` hex spelling; packed u8 arrays; byte I/O; bitwise operators | No `0b` binary spelling, uppercase `0X` prefix or numeric separators | [Byte reference](BYTE-REFERENCE.md) |
 | Modules and records | Explicit local imports; nominal records with u64 fields; typed borrowed parameters | Shared namespace, bounded source graph; no package registry, nested records or generic types | [Modules](MODULES-TYPES.md), [workload app](../examples/workload/) |
 | Growable bytes | Noncopyable reservation-backed byte vectors; capacity grows within declared maximum | Max 1 MiB, function-local, no transfer, vector views or general heap | [Storage/results](STORAGE-RESULTS.md) |
-| Checked arrays | Nominal fixed u64/u8 arrays, bounds checks and typed byte I/O | Function/frame bounds; bounded byte vectors available; no general heap/relocating vectors | [Arrays](CHECKED-ARRAYS.md), [bytes](TEXT-BYTES.md) |
+| Checked arrays | Nominal fixed u64/u8 arrays, bounds checks and typed byte I/O | Function/frame bounds; bounded byte vectors available; separate bounded heap collections; no general heap transfer | [Arrays](CHECKED-ARRAYS.md), [bytes](TEXT-BYTES.md) |
 | Results | Nominal scalar `ok`/`err` returns and mandatory exhaustive handlers | Structured ok records up to 4 scalar fields; errors u64 only; no generic payloads/resultlocals/params | [Results](RESULTS-VIEWS.md) |
 | Unicode text | Validated UTF-8 views, byte/scalar counts and scalar indexing | Scalars are not grapheme clusters; no normalization, collation or language detection | [Unicode](UNICODE-CLEANUP.md), [document app](../examples/unicode-lines/) |
-| Cleanup | Noncopyable owned files, handled release and automatic cleanup errors; legacy deferred close | Ordinary returns only; raw syscalls remain unsafe; no transfer, async or heap ownership | [Ownership](RESOURCE-OWNERSHIP.md) |
+| Cleanup | Noncopyable owned files, handled release and automatic cleanup errors; legacy deferred close | Ordinary returns only; raw syscalls remain unsafe; local collection moves added in development0.33; no cross-function owner transfer or async | [Ownership](RESOURCE-OWNERSHIP.md) |
 | Files and CLI | Trusted explicit file operations and bounded example parsers | Caller must handle short I/O and failures; not automatic access containment | [Text auditor](../examples/text-audit/), [Unicode auditor](../examples/unicode-lines/) |
 | Documents | Native invoice revisions and direct PDF output | One defined document model; not a general publishing engine or accounting service | [Workspace](INVOICE-WORKSPACE.md) |
 | Graphical application | RF2-controlled private loopback editor, browser forms and document exports | Not a native widget toolkit; not a general mobile UI framework | [Studio](GRAPHICAL-EDITOR.md) |

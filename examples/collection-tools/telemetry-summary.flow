@@ -1,0 +1,67 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/numbers.rf2"
+use "lib/output.rf2"
+fn summarize_input():IO
+ own incoming=Numbers()
+ let data=buffer("summary_input",1048577)
+ let n=0
+ handle read_input(data)
+ ok bytes_read
+  set n=bytes_read
+ err input_error
+  return err(input_error)
+ end
+ handle parse_numbers(data,n,incoming)
+ ok parsed
+ err parse_error
+  return err(parse_error)
+ end
+ own values=move(incoming)
+ handle sort_numbers(values)
+ ok sorted
+ err sort_error
+  return err(sort_error)
+ end
+ let stats=Stats(0,0,0,0)
+ handle summarize_numbers(values,stats)
+ ok summarized
+ err summary_error
+  return err(summary_error)
+ end
+ let median=0
+ handle collection_get(values,(stats.count-1)//2)
+ ok middle
+  set median=middle
+ err median_error
+  return err(median_error)
+ end
+ let good=output_text("{\"count\":")
+ set good=good&output_number(stats.count)
+ set good=good&output_text(",\"minimum\":")
+ set good=good&output_number(stats.minimum)
+ set good=good&output_text(",\"maximum\":")
+ set good=good&output_number(stats.maximum)
+ set good=good&output_text(",\"sum\":")
+ set good=good&output_number(stats.total)
+ set good=good&output_text(",\"median_lower\":")
+ set good=good&output_number(median)
+ set good=good&output_text("}\n")
+ if good==0
+  return err(5)
+ end
+ return ok(0)
+end
+fn main(argc,argv)
+ if argc!=1
+  do output_bytes(2,"Usage: telemetry-summary < numbers.txt\n",39)
+  return 2
+ end
+ let status=0
+ handle summarize_input()
+ ok completed
+ err cause
+  do output_error(cause)
+  set status=1
+ end
+ return status
+end

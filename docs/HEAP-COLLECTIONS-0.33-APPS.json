@@ -1,0 +1,2388 @@
+{
+  "passed": true,
+  "schema": "rf2.collection.apps.verification.v1",
+  "cases": 308,
+  "rows": [
+    {
+      "case": "independent integer oracle 0",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 1,
+      "inputBytes": 1,
+      "inputSHA256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "case": "independent integer oracle 1",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 1,
+      "inputBytes": 1,
+      "inputSHA256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    {
+      "case": "independent integer oracle 2",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 3,
+      "inputSHA256": "b598b3a62a3f7cedb17e66d1cb31d53dffeebaf5c07e2c60d5e31971936fd35e"
+    },
+    {
+      "case": "independent integer oracle 3",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 6,
+      "inputSHA256": "f5865eaf93bbf6412a9aceaac2be1ec2fefdff9af41787043d38507a862d952b"
+    },
+    {
+      "case": "independent integer oracle 4",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 5,
+      "inputBytes": 9,
+      "inputSHA256": "9b71476ceb975743fc82ddb4535f94d281b6bb84933be5538f68ec9a76c957a5"
+    },
+    {
+      "case": "independent integer oracle 5",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 1,
+      "inputBytes": 20,
+      "inputSHA256": "2cdb26265b4dc65e3b44d694f121fd6de99b9e4b8ae7f08d84bfa9537635ae43"
+    },
+    {
+      "case": "independent integer oracle 6",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 7,
+      "inputBytes": 41,
+      "inputSHA256": "2ac68c6aa386f1d4268ae9d68920f4718cc0564f7ac11d2fe66d299cb42b847a"
+    },
+    {
+      "case": "independent integer oracle 7",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 1,
+      "inputBytes": 5,
+      "inputSHA256": "dbc2ff4ec79060f1433824ea5cb3c11b4e1fa750144ab4cf9ab2921706bbaf26"
+    },
+    {
+      "case": "independent integer oracle 8",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 32,
+      "inputBytes": 189,
+      "inputSHA256": "1baa949c6f02d3aad1f9dee7c26abe10b3df4eef95dce308f862dd307e78e6f2"
+    },
+    {
+      "case": "independent integer oracle 9",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 65,
+      "inputBytes": 378,
+      "inputSHA256": "6fe4b1194625e6d6b86fe06027e0e2a1a68a48c067e7588d5ab0d786b860edb6"
+    },
+    {
+      "case": "independent integer oracle 10",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 65,
+      "inputBytes": 379,
+      "inputSHA256": "1552a4710b024aaecfc66b8cb5fba3a142612b2d32c1e74cab6f1ee3d1bbe207"
+    },
+    {
+      "case": "independent integer oracle 11",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 17,
+      "inputBytes": 146,
+      "inputSHA256": "e3836171732fa81cf4d7242e46f8ee1a86a858a3270825d460d514ffdd35c53c"
+    },
+    {
+      "case": "independent integer oracle 12",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 1,
+      "inputBytes": 5,
+      "inputSHA256": "78df65ba3f92c92a6936aeeb155fc96dce52cc88e02cf3756064e345c1b9dec7"
+    },
+    {
+      "case": "independent integer oracle 13",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 32,
+      "inputBytes": 189,
+      "inputSHA256": "772fa794266501778d48b6037b7f923b8990e01a88470349f56d9e548ec7351e"
+    },
+    {
+      "case": "independent integer oracle 14",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 17,
+      "inputBytes": 100,
+      "inputSHA256": "ca8111afc0f9b020357f74d76b842b9d69103dfac693303fdef2ab3d24807aac"
+    },
+    {
+      "case": "independent integer oracle 15",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 17,
+      "inputBytes": 149,
+      "inputSHA256": "a6f989e0a4bc368c083cf4de1763b1d14ed665e73371daef6f52f44500172541"
+    },
+    {
+      "case": "independent integer oracle 16",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 16,
+      "inputBytes": 95,
+      "inputSHA256": "10dea19ad890c9f00f63b470ae476fb2f0e0731fb1b9a42eee83062fd0c31682"
+    },
+    {
+      "case": "independent integer oracle 17",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 257,
+      "inputBytes": 1514,
+      "inputSHA256": "afd843aa4e1e66c1977db08f57656ba8c582be373384e0e00cbc3afbb21551c5"
+    },
+    {
+      "case": "independent integer oracle 18",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 16,
+      "inputBytes": 91,
+      "inputSHA256": "eb572ebd87824b3034213925d0cbfada55bfd76acf05162b1e9723933db9a911"
+    },
+    {
+      "case": "independent integer oracle 19",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 14,
+      "inputSHA256": "6705bccd5f8f16f1b41bd2fa731ff28d6e18b17c024574c1d8d73cdcece0f3c0"
+    },
+    {
+      "case": "independent integer oracle 20",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 11,
+      "inputSHA256": "d1f837230420fd3b17e2e09d981df448014ec5d67f1a8a6da39e3211476dd19c"
+    },
+    {
+      "case": "independent integer oracle 21",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 17,
+      "inputBytes": 101,
+      "inputSHA256": "90b1c0a9372e86414a79c595809d28ef4d4346b4233eaec1837d61392ae13966"
+    },
+    {
+      "case": "independent integer oracle 22",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 7,
+      "inputBytes": 41,
+      "inputSHA256": "ddfc58d5a1ed9bf339db4eab79530d2ebf10dd100fbdf3ff87048aa68077404d"
+    },
+    {
+      "case": "independent integer oracle 23",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 17,
+      "inputBytes": 148,
+      "inputSHA256": "ccc6cdfa86ce93cb5e9d737d9bf71b8d83817e690c5963f17f181b9adf355afd"
+    },
+    {
+      "case": "independent integer oracle 24",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 1,
+      "inputBytes": 5,
+      "inputSHA256": "be2f729ab6796de2bc2336fd3245b5ff688e216ecb3e624cf9a6346705ba63b4"
+    },
+    {
+      "case": "independent integer oracle 25",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 1025,
+      "inputBytes": 6047,
+      "inputSHA256": "ecc11c21e1290b1ee2bd97b85cbd2fc2acd6caf599e67a1aa3c4d142d0b81067"
+    },
+    {
+      "case": "independent integer oracle 26",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 10,
+      "inputSHA256": "2b719b10c12ff9a8ad5785e1d686f826b87624054ff0312be8a574f6104222f9"
+    },
+    {
+      "case": "independent integer oracle 27",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 32,
+      "inputBytes": 282,
+      "inputSHA256": "f097f70a036e8ced31f60fbe280283afd525bcdfbde08601d7fbb519c85db4b1"
+    },
+    {
+      "case": "independent integer oracle 28",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 1025,
+      "inputBytes": 6023,
+      "inputSHA256": "cd5d65dbf22d2bdf3e61cfa377c284e304b37a1a6e3910366dacbd91185111d9"
+    },
+    {
+      "case": "independent integer oracle 29",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 7,
+      "inputBytes": 40,
+      "inputSHA256": "bd84facf4dd58b973e472bc3630051f0b0ce71de6cecda42cd67bb3003324480"
+    },
+    {
+      "case": "independent integer oracle 30",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 11,
+      "inputSHA256": "c59f3387e2700368c3949e19aa55d9afba334b8232cdd75f22dab6e60e764bb2"
+    },
+    {
+      "case": "independent integer oracle 31",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 14,
+      "inputSHA256": "22c84091f128d34c456a4519b89baf3b2359662f4202e6e7ddfe502471746d94"
+    },
+    {
+      "case": "independent integer oracle 32",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 10,
+      "inputSHA256": "b41dd8ad8d5c5a365b2ffa3b43a1e02894f05ee88612137e4b259e32b79d60d7"
+    },
+    {
+      "case": "independent integer oracle 33",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 65,
+      "inputBytes": 377,
+      "inputSHA256": "abe3dc388f74294794029b0a5d942d8f94fccfee40aefafb1230231fb158fc3f"
+    },
+    {
+      "case": "independent integer oracle 34",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 17,
+      "inputBytes": 100,
+      "inputSHA256": "77a39f14cd96dbe378bae479a76f9090a5420bc7b7a214ab25abb81cb7f12ba5"
+    },
+    {
+      "case": "independent integer oracle 35",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 13,
+      "inputSHA256": "da061d41b7778e5e469ea7c753dc385266d8406be089f09cb4bf6eef40056ff5"
+    },
+    {
+      "case": "independent integer oracle 36",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 10,
+      "inputSHA256": "0eb7d82eacc47d9883169a97905edccb52fc37b54b731cb428be4e19dae80a8e"
+    },
+    {
+      "case": "independent integer oracle 37",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 1025,
+      "inputBytes": 6032,
+      "inputSHA256": "1a2a46ac06cf99f4c1fbfe461d201f721e8c405b67b311cf08a4fedc78ab785c"
+    },
+    {
+      "case": "independent integer oracle 38",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 17,
+      "inputBytes": 100,
+      "inputSHA256": "bad7d0350198753739e2c6e1e9d28f8624601a395f71fdb2a2fc0ddc333071b4"
+    },
+    {
+      "case": "independent integer oracle 39",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 17,
+      "inputBytes": 146,
+      "inputSHA256": "49cd01e472e1e90a230419f232cc12e3558f49f22761188667d0cfac6cedcc88"
+    },
+    {
+      "case": "independent integer oracle 40",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 1025,
+      "inputBytes": 6014,
+      "inputSHA256": "27f1a46d632d02d4f8e91317042eb07acc86b382a9d257063fcb9e11b8da3475"
+    },
+    {
+      "case": "independent integer oracle 41",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 32,
+      "inputBytes": 189,
+      "inputSHA256": "f6db22060cdebd749943445e3d06f5c57982062f684ca2c23a7e4575b3d76126"
+    },
+    {
+      "case": "independent integer oracle 42",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 17,
+      "inputBytes": 101,
+      "inputSHA256": "a88c66765fac752646b1dde124aa59bfbd1464fd25b6776565548e4ebd1ba745"
+    },
+    {
+      "case": "independent integer oracle 43",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 17,
+      "inputBytes": 148,
+      "inputSHA256": "8d5cbcc4c5b2c0dc3daef99d11eb06b1f8d8bfab8e36cdf0ece435101b8861e6"
+    },
+    {
+      "case": "independent integer oracle 44",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 7,
+      "inputBytes": 41,
+      "inputSHA256": "0b7618f9193a5a86af18056ffc78eeaa1524f567d669652bb5d88fcaed0316c3"
+    },
+    {
+      "case": "independent integer oracle 45",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 1025,
+      "inputBytes": 6043,
+      "inputSHA256": "e3e1620231dc34bdbfdddc614f08784d9885b5a11c258e9768cce43665f90b85"
+    },
+    {
+      "case": "actual growth beyond prior stack arena 4097",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 4097,
+      "inputBytes": 15913,
+      "inputSHA256": "480b49a9b9e70b4f0b4d0a506adaac8a41c1389ebb90193383390f684b7e8fcf"
+    },
+    {
+      "case": "actual growth beyond prior stack arena 16384",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 16384,
+      "inputBytes": 63811,
+      "inputSHA256": "462891b7eb5c5180f2ea3adeaad357c40214770fd52524e8666c53acd5af642f"
+    },
+    {
+      "case": "actual growth beyond prior stack arena 65536",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 65536,
+      "inputBytes": 255571,
+      "inputSHA256": "1d5eff5587169ae136c9a897a2878a157ce30f959e0a6ae5794cc7f0a88c6a11"
+    },
+    {
+      "case": "separator boundaries",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 4,
+      "inputSHA256": "a6e2b7a040683432de03a18fd8a1939a2fdf82585b364bfc874bdd4095c4cae1"
+    },
+    {
+      "case": "separator boundaries",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 10,
+      "inputSHA256": "4c26c2e9d094a61c961cef95fee7cef7e85278f30d2067eabdc4ac9dc9360fea"
+    },
+    {
+      "case": "separator boundaries",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "values": 3,
+      "inputBytes": 5,
+      "inputSHA256": "7c01691d53eb209bba1ea4ade72c86e6e85b6efbec920cc9ca5756e7c4e98c55"
+    },
+    {
+      "case": "empty summary refuses",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 0
+    },
+    {
+      "case": "whitespace-only summary refuses",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 3
+    },
+    {
+      "case": "checked sum overflow",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 22
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 4
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 4
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 6
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 3
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 3
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 3
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 3
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 20
+    },
+    {
+      "case": "collection limit overflow",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 131073
+    },
+    {
+      "case": "stdin limit overflow",
+      "app": "telemetry-summary",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 1048577
+    },
+    {
+      "case": "unexpected argument refuses",
+      "app": "telemetry-summary",
+      "optimized": false
+    },
+    {
+      "case": "closed input descriptor refuses",
+      "app": "telemetry-summary",
+      "optimized": false
+    },
+    {
+      "case": "closed output descriptor refuses",
+      "app": "telemetry-summary",
+      "optimized": false
+    },
+    {
+      "case": "independent integer oracle 0",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 1,
+      "inputBytes": 1,
+      "inputSHA256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "case": "independent integer oracle 1",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 1,
+      "inputBytes": 1,
+      "inputSHA256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    {
+      "case": "independent integer oracle 2",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 3,
+      "inputSHA256": "b598b3a62a3f7cedb17e66d1cb31d53dffeebaf5c07e2c60d5e31971936fd35e"
+    },
+    {
+      "case": "independent integer oracle 3",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 6,
+      "inputSHA256": "f5865eaf93bbf6412a9aceaac2be1ec2fefdff9af41787043d38507a862d952b"
+    },
+    {
+      "case": "independent integer oracle 4",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 5,
+      "inputBytes": 9,
+      "inputSHA256": "9b71476ceb975743fc82ddb4535f94d281b6bb84933be5538f68ec9a76c957a5"
+    },
+    {
+      "case": "independent integer oracle 5",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 4,
+      "inputBytes": 45,
+      "inputSHA256": "0b08b5db9c4bf1f699de2d9abe263751a3ed0d0d671b382d26e5679cf34f7139"
+    },
+    {
+      "case": "independent integer oracle 6",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 31,
+      "inputBytes": 182,
+      "inputSHA256": "09bb6dcb90034d2b57232ec5a15f4574fc354f342b5fa508874480af8fa138dd"
+    },
+    {
+      "case": "independent integer oracle 7",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 13,
+      "inputSHA256": "648b69423be5f3093d2bf516946dfe3e91e75dd5a7cb351fe0ce8ec817f0b82a"
+    },
+    {
+      "case": "independent integer oracle 8",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 32,
+      "inputBytes": 187,
+      "inputSHA256": "ac311da993f6f6a148d89511d2e59d35d7c3d9499549f5bb1d5d5e2ba633da60"
+    },
+    {
+      "case": "independent integer oracle 9",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 7,
+      "inputBytes": 40,
+      "inputSHA256": "d06b5d2ebcc44407fd8509d9e0af6d73ad854c939aa17b4c540b3d9a38789434"
+    },
+    {
+      "case": "independent integer oracle 10",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 65,
+      "inputBytes": 380,
+      "inputSHA256": "c289f4fbeb39e7e3b32be83739bd4ec8555c29d6ea927ede89188e3875f7d7ee"
+    },
+    {
+      "case": "independent integer oracle 11",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 31,
+      "inputBytes": 271,
+      "inputSHA256": "0c59eb867c0009bd2286db80d398e021f0ba0494ec761e6753c6590ecd2a0bd4"
+    },
+    {
+      "case": "independent integer oracle 12",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 16,
+      "inputBytes": 95,
+      "inputSHA256": "2a97a983716bfd80c0fe820c465f826ce514e6ad4a793e7a27b8cb0efd39a09c"
+    },
+    {
+      "case": "independent integer oracle 13",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 1025,
+      "inputBytes": 6022,
+      "inputSHA256": "9eeef06287753ed5a3bc9d0da13e09b5425aff376f08f6cb84687c0b0e0245df"
+    },
+    {
+      "case": "independent integer oracle 14",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 32,
+      "inputBytes": 187,
+      "inputSHA256": "28f694c3792398350ed952fef29f672cf5a0f41f8cfa8390fcf3f5c229e9900e"
+    },
+    {
+      "case": "independent integer oracle 15",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 1,
+      "inputBytes": 5,
+      "inputSHA256": "0f03270686ebc6ebcb74070e697543bbb6ce6d2df52fc4943b296c7c85216672"
+    },
+    {
+      "case": "independent integer oracle 16",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 32,
+      "inputBytes": 190,
+      "inputSHA256": "43f67f1aa6778130184e4fc475806a6b50e8d02e16d1391a83c36b16fbbc20e0"
+    },
+    {
+      "case": "independent integer oracle 17",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 1,
+      "inputBytes": 5,
+      "inputSHA256": "47c08db1b3c66fd8b38e5f94a113adf29debaeed001ed767b018ebc9e8185089"
+    },
+    {
+      "case": "independent integer oracle 18",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 16,
+      "inputBytes": 93,
+      "inputSHA256": "12f379f4101d77ac79902f3bf271d40c2b0c80a255749a1972a6e51d702c6b08"
+    },
+    {
+      "case": "independent integer oracle 19",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 14,
+      "inputSHA256": "922b8085ac8205bd93ff60c74085fd629e5449ea7ed87399637a108c4550a266"
+    },
+    {
+      "case": "independent integer oracle 20",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 16,
+      "inputBytes": 95,
+      "inputSHA256": "159ff8e9db02411a9ad6d43b54a604f9369f2974510ae6c84d7d879825a52e19"
+    },
+    {
+      "case": "independent integer oracle 21",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 1,
+      "inputBytes": 5,
+      "inputSHA256": "fca40f808d04d64351dacc59a1eb4a239ad527b062b92c1fd65ce21c5c3e7859"
+    },
+    {
+      "case": "independent integer oracle 22",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 7,
+      "inputBytes": 40,
+      "inputSHA256": "44bc26873bc3d270dea8474206935f7b6c7b2c120ad4dde885026fc48871b726"
+    },
+    {
+      "case": "independent integer oracle 23",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 1,
+      "inputBytes": 3,
+      "inputSHA256": "1a6d9c97798d8997f85ed9228296d533be6b47f97217709d7e2b628e21800220"
+    },
+    {
+      "case": "independent integer oracle 24",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 11,
+      "inputSHA256": "f25fca26d3c78887dc32437fc25490e9ea33925291bdb89adf311110d29c00e3"
+    },
+    {
+      "case": "independent integer oracle 25",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 1,
+      "inputBytes": 5,
+      "inputSHA256": "fe701fbc67a58d3405f67e3a01651b91e477972737ad5b3d477ea2875a70434a"
+    },
+    {
+      "case": "independent integer oracle 26",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 32,
+      "inputBytes": 188,
+      "inputSHA256": "15b8bbf555a70090d1c186a75cf0a540e2f1eab43f19d6460541434f4adedabd"
+    },
+    {
+      "case": "independent integer oracle 27",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 16,
+      "inputBytes": 139,
+      "inputSHA256": "0a5240400393c910ea0cdb3205cc3834e7ed42aa67cfcc8c69544ba352b6048b"
+    },
+    {
+      "case": "independent integer oracle 28",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 65,
+      "inputBytes": 376,
+      "inputSHA256": "a876404c94d2cc0e02bc06a0512057c216cd6c717d1b0990ba14960973457693"
+    },
+    {
+      "case": "independent integer oracle 29",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 257,
+      "inputBytes": 1507,
+      "inputSHA256": "72fdb1e1212cc08a9e9f3155fe13e0c0226cc88151e3f787894a73994f7b74e9"
+    },
+    {
+      "case": "independent integer oracle 30",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 1025,
+      "inputBytes": 6029,
+      "inputSHA256": "bf7c3cb6fba5a84eb375bf0328e2b69fbcc6bf8cbd135c59403220df580532c3"
+    },
+    {
+      "case": "independent integer oracle 31",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 1,
+      "inputBytes": 4,
+      "inputSHA256": "10328971ea9db3098028d3c05f0c79e840925cfc8a583f544e839832dfedb984"
+    },
+    {
+      "case": "independent integer oracle 32",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 65,
+      "inputBytes": 379,
+      "inputSHA256": "d584a26269d1425c529b41c123da22b7a442c5c348e0d0a16818a2516821089f"
+    },
+    {
+      "case": "independent integer oracle 33",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 32,
+      "inputBytes": 186,
+      "inputSHA256": "27c136a39aa249f64ccbe1009368fe4ddd67b7f2e8dd78a9565743a58697b553"
+    },
+    {
+      "case": "independent integer oracle 34",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 17,
+      "inputBytes": 100,
+      "inputSHA256": "2d63a62295640e4cb1f56c6153d56039746dbc5b2be4b74e675e7cfd41ccd4a7"
+    },
+    {
+      "case": "independent integer oracle 35",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 1025,
+      "inputBytes": 9101,
+      "inputSHA256": "528db2eb36d68c36cb84d2f87a5221e96d25e35e7730fc77e178a6f1a18971c7"
+    },
+    {
+      "case": "independent integer oracle 36",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 1025,
+      "inputBytes": 6016,
+      "inputSHA256": "b04bf9175ee95259fcc0a771e09f3a8095ae63b06e3f9e6d161ba301a7b19dfb"
+    },
+    {
+      "case": "independent integer oracle 37",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 65,
+      "inputBytes": 378,
+      "inputSHA256": "48b45099dd301d49574078082833145c0b8b47d8e3e0845861f8263c3a78b6b8"
+    },
+    {
+      "case": "independent integer oracle 38",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 1,
+      "inputBytes": 5,
+      "inputSHA256": "bac183a4f233b8c4e87063013a5ff4f4007f409bc612c4197ed921797eb2346c"
+    },
+    {
+      "case": "independent integer oracle 39",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 65,
+      "inputBytes": 570,
+      "inputSHA256": "ac7ce983c4385cbf7e0da8546b72d30bbb1e7a1598ebcfb3edf8f9aac0184018"
+    },
+    {
+      "case": "independent integer oracle 40",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 17,
+      "inputBytes": 101,
+      "inputSHA256": "aeb9058a23716967015be34c24afd7c1d761f33fc430989b4b58a514b7ec094f"
+    },
+    {
+      "case": "independent integer oracle 41",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 31,
+      "inputBytes": 181,
+      "inputSHA256": "aef9ea167edd62f68da1bbc2be69cf3aad2f870d307985beeda4a6591ed56ebb"
+    },
+    {
+      "case": "independent integer oracle 42",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 1025,
+      "inputBytes": 6042,
+      "inputSHA256": "d32fd335d8d805ac433aaaf8f042962ff461c45079ac588a27610d11f8790e5f"
+    },
+    {
+      "case": "independent integer oracle 43",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 257,
+      "inputBytes": 2278,
+      "inputSHA256": "add56af43924dd1ff1707ac1a7c9ba26c14cab495648c124d628c5ecb5a0d73d"
+    },
+    {
+      "case": "independent integer oracle 44",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 17,
+      "inputBytes": 97,
+      "inputSHA256": "68136593b767192a6f201fe050220bbd1b778e9d6522b525eb7371cdeb6f6834"
+    },
+    {
+      "case": "independent integer oracle 45",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 11,
+      "inputSHA256": "6a8ff366108c52054bb158e67207c9373efd5df6af6d0545bf4c25a530d4c550"
+    },
+    {
+      "case": "actual growth beyond prior stack arena 4097",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 4097,
+      "inputBytes": 15913,
+      "inputSHA256": "480b49a9b9e70b4f0b4d0a506adaac8a41c1389ebb90193383390f684b7e8fcf"
+    },
+    {
+      "case": "actual growth beyond prior stack arena 16384",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 16384,
+      "inputBytes": 63811,
+      "inputSHA256": "462891b7eb5c5180f2ea3adeaad357c40214770fd52524e8666c53acd5af642f"
+    },
+    {
+      "case": "actual growth beyond prior stack arena 65536",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 65536,
+      "inputBytes": 255571,
+      "inputSHA256": "1d5eff5587169ae136c9a897a2878a157ce30f959e0a6ae5794cc7f0a88c6a11"
+    },
+    {
+      "case": "separator boundaries",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 4,
+      "inputSHA256": "a6e2b7a040683432de03a18fd8a1939a2fdf82585b364bfc874bdd4095c4cae1"
+    },
+    {
+      "case": "separator boundaries",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 2,
+      "inputBytes": 10,
+      "inputSHA256": "4c26c2e9d094a61c961cef95fee7cef7e85278f30d2067eabdc4ac9dc9360fea"
+    },
+    {
+      "case": "separator boundaries",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 3,
+      "inputBytes": 5,
+      "inputSHA256": "7c01691d53eb209bba1ea4ade72c86e6e85b6efbec920cc9ca5756e7c4e98c55"
+    },
+    {
+      "case": "empty frequency table",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 0,
+      "inputBytes": 0,
+      "inputSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "whitespace-only frequency table",
+      "app": "value-frequency",
+      "optimized": false,
+      "values": 0,
+      "inputBytes": 3,
+      "inputSHA256": "9b8318187072010f3081af0de6d1c356f4695d1b5a5e1778629153663acad751"
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 4
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 4
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 6
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 3
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 3
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 3
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 3
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 20
+    },
+    {
+      "case": "collection limit overflow",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 131073
+    },
+    {
+      "case": "stdin limit overflow",
+      "app": "value-frequency",
+      "optimized": false,
+      "refused": true,
+      "inputBytes": 1048577
+    },
+    {
+      "case": "unexpected argument refuses",
+      "app": "value-frequency",
+      "optimized": false
+    },
+    {
+      "case": "closed input descriptor refuses",
+      "app": "value-frequency",
+      "optimized": false
+    },
+    {
+      "case": "closed output descriptor refuses",
+      "app": "value-frequency",
+      "optimized": false
+    },
+    {
+      "case": "independent integer oracle 0",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 1,
+      "inputBytes": 1,
+      "inputSHA256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "case": "independent integer oracle 1",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 1,
+      "inputBytes": 1,
+      "inputSHA256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    {
+      "case": "independent integer oracle 2",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 2,
+      "inputBytes": 3,
+      "inputSHA256": "b598b3a62a3f7cedb17e66d1cb31d53dffeebaf5c07e2c60d5e31971936fd35e"
+    },
+    {
+      "case": "independent integer oracle 3",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 2,
+      "inputBytes": 6,
+      "inputSHA256": "f5865eaf93bbf6412a9aceaac2be1ec2fefdff9af41787043d38507a862d952b"
+    },
+    {
+      "case": "independent integer oracle 4",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 5,
+      "inputBytes": 9,
+      "inputSHA256": "9b71476ceb975743fc82ddb4535f94d281b6bb84933be5538f68ec9a76c957a5"
+    },
+    {
+      "case": "independent integer oracle 5",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 1,
+      "inputBytes": 20,
+      "inputSHA256": "2cdb26265b4dc65e3b44d694f121fd6de99b9e4b8ae7f08d84bfa9537635ae43"
+    },
+    {
+      "case": "independent integer oracle 6",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 257,
+      "inputBytes": 1509,
+      "inputSHA256": "7411532ce9c7c14c40298fea04f269fecd8ee463b58ec0f80a6e11856ebce50c"
+    },
+    {
+      "case": "independent integer oracle 7",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 16,
+      "inputBytes": 138,
+      "inputSHA256": "891a026c6dc52f6be80cf12919e11090c7e92fffc35b816d447c2b55da3c58cb"
+    },
+    {
+      "case": "independent integer oracle 8",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 1,
+      "inputBytes": 5,
+      "inputSHA256": "025305a5cb4f82aa778b260ecce4529baa6dc4fd50f86f80c5ae291f26cdb18f"
+    },
+    {
+      "case": "independent integer oracle 9",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 1,
+      "inputBytes": 5,
+      "inputSHA256": "b9656844120aa0e2a8511760a1c1611c27b77cc00c5fc402098c3ec61a434c6f"
+    },
+    {
+      "case": "independent integer oracle 10",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 257,
+      "inputBytes": 1521,
+      "inputSHA256": "f90bf36f01b438d52a862d89c41e5d5e4ba0da6dac19e441d418065d3e9fda76"
+    },
+    {
+      "case": "independent integer oracle 11",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 1,
+      "inputBytes": 5,
+      "inputSHA256": "f9edfb5611b0d686c84e1dd1a7770a2edfefcd50b2236d168b8efb2e86b712fb"
+    },
+    {
+      "case": "independent integer oracle 12",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 32,
+      "inputBytes": 190,
+      "inputSHA256": "86c17bfbab3d77ef7a3d9c0d66500228910ca0f3af269543a3365c5ba3ed7d29"
+    },
+    {
+      "case": "independent integer oracle 13",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 17,
+      "inputBytes": 100,
+      "inputSHA256": "b221eb327aa7f7cf0ebd7290899a7228125f663cad93490ddeb87c811ef8dcce"
+    },
+    {
+      "case": "independent integer oracle 14",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 17,
+      "inputBytes": 97,
+      "inputSHA256": "e6ed0fb3dfafb36ceccfb0b1ebd73e8ab890ae8380411ad9cf9d7322b8a9917e"
+    },
+    {
+      "case": "independent integer oracle 15",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 1025,
+      "inputBytes": 9116,
+      "inputSHA256": "1310ae3faa6b44b161dee5e27508f5f255d86bbe2da99286a1de7332bf3014e0"
+    },
+    {
+      "case": "independent integer oracle 16",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 16,
+      "inputBytes": 92,
+      "inputSHA256": "9657adad2143ef224f8aef3956abeb80f6202c122c16f2354bb81cfee95393ec"
+    },
+    {
+      "case": "independent integer oracle 17",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 1025,
+      "inputBytes": 6024,
+      "inputSHA256": "1fcbab14b903c7fd68994a38a74dc4d0a0438864c410dfc7afe8129714974e69"
+    },
+    {
+      "case": "independent integer oracle 18",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 1,
+      "inputBytes": 4,
+      "inputSHA256": "5d6e5dacd1f15ec9e3860fbbaf3666e0a3c6717f6eba7982d43c2d2d626bbd31"
+    },
+    {
+      "case": "independent integer oracle 19",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 257,
+      "inputBytes": 2275,
+      "inputSHA256": "8a8916077733d6d4bebff43a69b0264893a87d84f28d9cc7d02235890a40c6ef"
+    },
+    {
+      "case": "independent integer oracle 20",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 17,
+      "inputBytes": 101,
+      "inputSHA256": "ecaea9aa272380191d589940ab4735742e4944fcb46c834f7a5b001baf38b8cc"
+    },
+    {
+      "case": "independent integer oracle 21",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 16,
+      "inputBytes": 93,
+      "inputSHA256": "a50bb3baf0efb696d10f5915fb44aaf1ef046691e2a32b769b210e2c1264eb6e"
+    },
+    {
+      "case": "independent integer oracle 22",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 65,
+      "inputBytes": 384,
+      "inputSHA256": "2696cfc232e6693dddf9372fceac31d157168757c7f589fbf3330c555ea6312a"
+    },
+    {
+      "case": "independent integer oracle 23",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 31,
+      "inputBytes": 266,
+      "inputSHA256": "519ec93492d40cc2c7e0464a249a3e149d58871c8e42e2a9432e457776080094"
+    },
+    {
+      "case": "independent integer oracle 24",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 32,
+      "inputBytes": 189,
+      "inputSHA256": "aa0390c4cad299bbb60d9c578ec1547e60fd1c4ea82679aaeb8e3816e1c27cac"
+    },
+    {
+      "case": "independent integer oracle 25",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 2,
+      "inputBytes": 10,
+      "inputSHA256": "89ba299284f13b3cc1e5242c5e7f2a3de8515d48ae8f94801ff44363611569b9"
+    },
+    {
+      "case": "independent integer oracle 26",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 7,
+      "inputBytes": 40,
+      "inputSHA256": "f5170b59eddfb49eee1e8f2cf933713ab7f0f1a75be66b96e44e5e9c72ae333d"
+    },
+    {
+      "case": "independent integer oracle 27",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 65,
+      "inputBytes": 575,
+      "inputSHA256": "5fba6335e826828a6d7387f3e78f61e7e1f58c2092f03222d233aea0edbc15e3"
+    },
+    {
+      "case": "independent integer oracle 28",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 65,
+      "inputBytes": 384,
+      "inputSHA256": "c4d876a92ecde3041cffed01f30ec1795716145a27bb7ae16b3b7ca1a174d90b"
+    },
+    {
+      "case": "independent integer oracle 29",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 65,
+      "inputBytes": 380,
+      "inputSHA256": "a1c2f6174a112c369365f899a8ad1297b49bd54e13a6bdd1df712da4e91df40c"
+    },
+    {
+      "case": "independent integer oracle 30",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 32,
+      "inputBytes": 187,
+      "inputSHA256": "0629787628cea43fd7e6818e2c30fb476829a9e85094897f2856f3121c647ff5"
+    },
+    {
+      "case": "independent integer oracle 31",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 7,
+      "inputBytes": 58,
+      "inputSHA256": "a6b80cab333bae50ec6ec369830b43d5c39d6537f9448ed42a78ec6269d767fd"
+    },
+    {
+      "case": "independent integer oracle 32",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 257,
+      "inputBytes": 1515,
+      "inputSHA256": "4d6d68c41de3e2123826fbd0423cb04bcea00747a706436d0ceddd437f8e59f8"
+    },
+    {
+      "case": "independent integer oracle 33",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 2,
+      "inputBytes": 11,
+      "inputSHA256": "3c02419bb3ae59950b5006fb01a57df0e1531d8aac6376c9f9d3aaf1dd206ede"
+    },
+    {
+      "case": "independent integer oracle 34",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 31,
+      "inputBytes": 182,
+      "inputSHA256": "1883a594058cdd49e6c7d731e2f550b404339f71c68acd3b16156e1c44252468"
+    },
+    {
+      "case": "independent integer oracle 35",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 7,
+      "inputBytes": 58,
+      "inputSHA256": "e6766c6eb49ab258ca8ea0fa588e0472f5d7ca9fbdc4575430d71851c0dbdfe8"
+    },
+    {
+      "case": "independent integer oracle 36",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 2,
+      "inputBytes": 11,
+      "inputSHA256": "c1f1b1190a301d76aa743a1bdb6d95524ac978bba2958711cf08c5f84c3e94f4"
+    },
+    {
+      "case": "independent integer oracle 37",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 2,
+      "inputBytes": 11,
+      "inputSHA256": "bad6ff1b8be1a3c20737c4e1f9c813696ac5044a2a1d51141c09d3da32bf7588"
+    },
+    {
+      "case": "independent integer oracle 38",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 1025,
+      "inputBytes": 6029,
+      "inputSHA256": "cb6087adc5863374a6907d1ccfceec377b6260e9ac9356c7e404dd62b58a887b"
+    },
+    {
+      "case": "independent integer oracle 39",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 1,
+      "inputBytes": 5,
+      "inputSHA256": "ffb86cea5cce5a23d65a8459baad87e470df12c2094e0dfed572878840349d15"
+    },
+    {
+      "case": "independent integer oracle 40",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 1,
+      "inputBytes": 4,
+      "inputSHA256": "37af3f678ecf438491e342ee31996a7b294101b781c20221158017a1203db302"
+    },
+    {
+      "case": "independent integer oracle 41",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 17,
+      "inputBytes": 100,
+      "inputSHA256": "6963d3a2f95d355d1f3b84d4a13049553440a2157d899bdfb7ba6248a64c28a2"
+    },
+    {
+      "case": "independent integer oracle 42",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 2,
+      "inputBytes": 11,
+      "inputSHA256": "12ab5c08496a738cf32716f5ad543dc7a191df6317666684193bc6ec64ffb982"
+    },
+    {
+      "case": "independent integer oracle 43",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 2,
+      "inputBytes": 14,
+      "inputSHA256": "64c67464f253dec3d0158d1aafa37a99e3a45370806d245afecdab74069cd8a6"
+    },
+    {
+      "case": "independent integer oracle 44",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 65,
+      "inputBytes": 383,
+      "inputSHA256": "9096b4a94cd8fef4a15a55fb15d5384dfe033f03878519bda0381b3f5afd1b06"
+    },
+    {
+      "case": "independent integer oracle 45",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 17,
+      "inputBytes": 100,
+      "inputSHA256": "e3e940d00a604ebc6efb3fee24cc49d9a17efe4ee8987548e287a9aeb20b11e9"
+    },
+    {
+      "case": "actual growth beyond prior stack arena 4097",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 4097,
+      "inputBytes": 15913,
+      "inputSHA256": "480b49a9b9e70b4f0b4d0a506adaac8a41c1389ebb90193383390f684b7e8fcf"
+    },
+    {
+      "case": "actual growth beyond prior stack arena 16384",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 16384,
+      "inputBytes": 63811,
+      "inputSHA256": "462891b7eb5c5180f2ea3adeaad357c40214770fd52524e8666c53acd5af642f"
+    },
+    {
+      "case": "actual growth beyond prior stack arena 65536",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 65536,
+      "inputBytes": 255571,
+      "inputSHA256": "1d5eff5587169ae136c9a897a2878a157ce30f959e0a6ae5794cc7f0a88c6a11"
+    },
+    {
+      "case": "separator boundaries",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 2,
+      "inputBytes": 4,
+      "inputSHA256": "a6e2b7a040683432de03a18fd8a1939a2fdf82585b364bfc874bdd4095c4cae1"
+    },
+    {
+      "case": "separator boundaries",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 2,
+      "inputBytes": 10,
+      "inputSHA256": "4c26c2e9d094a61c961cef95fee7cef7e85278f30d2067eabdc4ac9dc9360fea"
+    },
+    {
+      "case": "separator boundaries",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "values": 3,
+      "inputBytes": 5,
+      "inputSHA256": "7c01691d53eb209bba1ea4ade72c86e6e85b6efbec920cc9ca5756e7c4e98c55"
+    },
+    {
+      "case": "empty summary refuses",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 0
+    },
+    {
+      "case": "whitespace-only summary refuses",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 3
+    },
+    {
+      "case": "checked sum overflow",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 22
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 4
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 4
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 6
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 3
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 3
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 3
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 3
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 20
+    },
+    {
+      "case": "collection limit overflow",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 131073
+    },
+    {
+      "case": "stdin limit overflow",
+      "app": "telemetry-summary",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 1048577
+    },
+    {
+      "case": "unexpected argument refuses",
+      "app": "telemetry-summary",
+      "optimized": true
+    },
+    {
+      "case": "closed input descriptor refuses",
+      "app": "telemetry-summary",
+      "optimized": true
+    },
+    {
+      "case": "closed output descriptor refuses",
+      "app": "telemetry-summary",
+      "optimized": true
+    },
+    {
+      "case": "independent integer oracle 0",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 1,
+      "inputBytes": 1,
+      "inputSHA256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    {
+      "case": "independent integer oracle 1",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 1,
+      "inputBytes": 1,
+      "inputSHA256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    {
+      "case": "independent integer oracle 2",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 2,
+      "inputBytes": 3,
+      "inputSHA256": "b598b3a62a3f7cedb17e66d1cb31d53dffeebaf5c07e2c60d5e31971936fd35e"
+    },
+    {
+      "case": "independent integer oracle 3",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 2,
+      "inputBytes": 6,
+      "inputSHA256": "f5865eaf93bbf6412a9aceaac2be1ec2fefdff9af41787043d38507a862d952b"
+    },
+    {
+      "case": "independent integer oracle 4",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 5,
+      "inputBytes": 9,
+      "inputSHA256": "9b71476ceb975743fc82ddb4535f94d281b6bb84933be5538f68ec9a76c957a5"
+    },
+    {
+      "case": "independent integer oracle 5",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 4,
+      "inputBytes": 45,
+      "inputSHA256": "0b08b5db9c4bf1f699de2d9abe263751a3ed0d0d671b382d26e5679cf34f7139"
+    },
+    {
+      "case": "independent integer oracle 6",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 257,
+      "inputBytes": 1519,
+      "inputSHA256": "f21578a78ba19d690f78244e66933bdb88aedbd7459d496c345c9165cc21620f"
+    },
+    {
+      "case": "independent integer oracle 7",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 32,
+      "inputBytes": 278,
+      "inputSHA256": "71a1f710468b749f7fdac3127a414638ff925a614df8d21b20ae9a0a8a187804"
+    },
+    {
+      "case": "independent integer oracle 8",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 16,
+      "inputBytes": 94,
+      "inputSHA256": "d259a672c8ef57b2341810541fa6af9a1d5582b6757bf964d27fce3e499d372e"
+    },
+    {
+      "case": "independent integer oracle 9",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 17,
+      "inputBytes": 100,
+      "inputSHA256": "b243447572a0a6b52386cd7550a65ba7a4edef9979d702589df143e13197ada4"
+    },
+    {
+      "case": "independent integer oracle 10",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 7,
+      "inputBytes": 39,
+      "inputSHA256": "d406bd5878e97b7ad39d7b4454748b2ce9b73785bee524bf10b2783c224e0247"
+    },
+    {
+      "case": "independent integer oracle 11",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 1025,
+      "inputBytes": 9099,
+      "inputSHA256": "a9332539a6fe57adc82bc36277efc77840b23d1447d35d35cec0f5f43b467c37"
+    },
+    {
+      "case": "independent integer oracle 12",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 31,
+      "inputBytes": 176,
+      "inputSHA256": "5113d027dea7a5830e568d7f3b1a86a8f2202fa3dd1db12e57a3745acf7a676c"
+    },
+    {
+      "case": "independent integer oracle 13",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 1,
+      "inputBytes": 5,
+      "inputSHA256": "c9b9f898039eca6ff24503f5ae58540333823038e5c17e868a69364a7207c24e"
+    },
+    {
+      "case": "independent integer oracle 14",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 1025,
+      "inputBytes": 6027,
+      "inputSHA256": "9715afd74222236f53129ba1517db34896b55b38be293381400a79cf05402821"
+    },
+    {
+      "case": "independent integer oracle 15",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 17,
+      "inputBytes": 147,
+      "inputSHA256": "84b324a7fe8a8f11053883125e9696453b1c3b466ea35141451786669bcbaed3"
+    },
+    {
+      "case": "independent integer oracle 16",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 7,
+      "inputBytes": 40,
+      "inputSHA256": "14e3b915961e46efa68d30f995e63adfaa9866dbd972dccbb9faec0917a0adba"
+    },
+    {
+      "case": "independent integer oracle 17",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 257,
+      "inputBytes": 1515,
+      "inputSHA256": "a150df9759ef37ddbc6841c8edbf080bd0861f7f5949e5ccef0b9f58425f6ef9"
+    },
+    {
+      "case": "independent integer oracle 18",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 2,
+      "inputBytes": 11,
+      "inputSHA256": "73544d2675d6596a87d300f79188a1282e1197b778275d43e6517473f8681b21"
+    },
+    {
+      "case": "independent integer oracle 19",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 16,
+      "inputBytes": 136,
+      "inputSHA256": "e4782a567178cc88a7c92a2bace3695480fba106e4141d104e7d458620f0ff8f"
+    },
+    {
+      "case": "independent integer oracle 20",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 65,
+      "inputBytes": 388,
+      "inputSHA256": "28722b7e25b2f8f1ce706ca3d1d035e6797203c759d891d8d4a822e18f22efb0"
+    },
+    {
+      "case": "independent integer oracle 21",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 257,
+      "inputBytes": 1508,
+      "inputSHA256": "58251b3f1c297a077cc440d9aa3524b566cfb7eb97bc287ba61308847f6f1f44"
+    },
+    {
+      "case": "independent integer oracle 22",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 17,
+      "inputBytes": 99,
+      "inputSHA256": "1324d2563a042bf048d9c1ad84d0cb4b3b96066c6e2039e9bae74f9a87c1b870"
+    },
+    {
+      "case": "independent integer oracle 23",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 1,
+      "inputBytes": 5,
+      "inputSHA256": "a2f2504a59a9515a3166437eeb55407da28edb79387d18b75b776aa90056ddc4"
+    },
+    {
+      "case": "independent integer oracle 24",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 65,
+      "inputBytes": 383,
+      "inputSHA256": "fd941630a4b7be5b95b00f32c5683a1934faf827106df6578e153b47490c3fd9"
+    },
+    {
+      "case": "independent integer oracle 25",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 7,
+      "inputBytes": 41,
+      "inputSHA256": "63098f21d25f010ac90d757ddb98ba0c72f1d6edcacd10d406c8edef8bb53400"
+    },
+    {
+      "case": "independent integer oracle 26",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 7,
+      "inputBytes": 39,
+      "inputSHA256": "9fa003e063234a94e965f7f89b395bd87212dda5d824f99e16741cd9c25a9aeb"
+    },
+    {
+      "case": "independent integer oracle 27",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 1025,
+      "inputBytes": 9098,
+      "inputSHA256": "80c57788e31360f0da59d3296bc2f52d99f1164262249fa614d8f7d0a74c69a0"
+    },
+    {
+      "case": "independent integer oracle 28",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 1025,
+      "inputBytes": 6036,
+      "inputSHA256": "05ba51870ebf17e73fa2f5b2062391f7efe5dc56bcb5c2a18a349376ff88360a"
+    },
+    {
+      "case": "independent integer oracle 29",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 7,
+      "inputBytes": 38,
+      "inputSHA256": "d5fec7faca8d09bea7a03165dd1149e65ce54155c433c2e6238795ea323ca8b5"
+    },
+    {
+      "case": "independent integer oracle 30",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 17,
+      "inputBytes": 101,
+      "inputSHA256": "e01d14124d61a2222256f8d5dc544c1f7b3e0a3baf284500d4a4e780f7c4a46a"
+    },
+    {
+      "case": "independent integer oracle 31",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 7,
+      "inputBytes": 59,
+      "inputSHA256": "867da6e931d7889622b7f6ac41dd0713459a4ad09693a864f1da419b122f79fe"
+    },
+    {
+      "case": "independent integer oracle 32",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 257,
+      "inputBytes": 1499,
+      "inputSHA256": "d92f57805154402015fd80897336b42b17e20c01af158eb424be9841ae7e5b26"
+    },
+    {
+      "case": "independent integer oracle 33",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 17,
+      "inputBytes": 98,
+      "inputSHA256": "3a33ce11a961625821393219fff3409c222c3dbff37d6162314d16b62ab5f2c8"
+    },
+    {
+      "case": "independent integer oracle 34",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 31,
+      "inputBytes": 183,
+      "inputSHA256": "73cadf751ca6e118d06bc7d0f01a0249d3703d1fea07cbf740cf98ff620b3db3"
+    },
+    {
+      "case": "independent integer oracle 35",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 17,
+      "inputBytes": 146,
+      "inputSHA256": "e36218c991ef9784a066c3e11060dadcde24a05b91d729a317ed9881ff9e72f2"
+    },
+    {
+      "case": "independent integer oracle 36",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 17,
+      "inputBytes": 97,
+      "inputSHA256": "332494017306a9d6707994b1ee92a3653f37e1d6e9ee76d789d2ab35328f12af"
+    },
+    {
+      "case": "independent integer oracle 37",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 7,
+      "inputBytes": 41,
+      "inputSHA256": "69067b90d1de5adf280f84c3ef70a4f27abbce3bcd67b0f237e85a363c10ad9e"
+    },
+    {
+      "case": "independent integer oracle 38",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 257,
+      "inputBytes": 1516,
+      "inputSHA256": "744c51e995d256b93f43ae2f3b51df46e169f8531c4b6e6bcfeb794c8604a8dc"
+    },
+    {
+      "case": "independent integer oracle 39",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 1,
+      "inputBytes": 5,
+      "inputSHA256": "60dc13afd9db46855db7cb4b46b2429c473ae61d93c867bb13914cc0ee137a78"
+    },
+    {
+      "case": "independent integer oracle 40",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 65,
+      "inputBytes": 383,
+      "inputSHA256": "41c17bb94f850b9133c7c7dfe3c096a66ff659d7892f9baf8959620f681a639c"
+    },
+    {
+      "case": "independent integer oracle 41",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 1,
+      "inputBytes": 5,
+      "inputSHA256": "07cbe2dce1cb32f69584b445c5c72163e7221662e22784c5f4f5cb7fd2db478f"
+    },
+    {
+      "case": "independent integer oracle 42",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 1025,
+      "inputBytes": 6058,
+      "inputSHA256": "0b8489bca6d9170018f8b579b081c1806bc616829e76734c12694a5f0216d9e7"
+    },
+    {
+      "case": "independent integer oracle 43",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 1025,
+      "inputBytes": 9096,
+      "inputSHA256": "a865a1482d17611145a4bda84f5f4f65513e92a5d56759614bb4ae4066851d76"
+    },
+    {
+      "case": "independent integer oracle 44",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 31,
+      "inputBytes": 181,
+      "inputSHA256": "216ea391b198093bfbd058ecdbdc8b802930ed36365533b2d5e7a3795c5cde63"
+    },
+    {
+      "case": "independent integer oracle 45",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 1025,
+      "inputBytes": 6015,
+      "inputSHA256": "d16de2f2a84e869ef08db18badaa585a4a617a891c5af39b16be1a325d8712cb"
+    },
+    {
+      "case": "actual growth beyond prior stack arena 4097",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 4097,
+      "inputBytes": 15913,
+      "inputSHA256": "480b49a9b9e70b4f0b4d0a506adaac8a41c1389ebb90193383390f684b7e8fcf"
+    },
+    {
+      "case": "actual growth beyond prior stack arena 16384",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 16384,
+      "inputBytes": 63811,
+      "inputSHA256": "462891b7eb5c5180f2ea3adeaad357c40214770fd52524e8666c53acd5af642f"
+    },
+    {
+      "case": "actual growth beyond prior stack arena 65536",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 65536,
+      "inputBytes": 255571,
+      "inputSHA256": "1d5eff5587169ae136c9a897a2878a157ce30f959e0a6ae5794cc7f0a88c6a11"
+    },
+    {
+      "case": "separator boundaries",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 2,
+      "inputBytes": 4,
+      "inputSHA256": "a6e2b7a040683432de03a18fd8a1939a2fdf82585b364bfc874bdd4095c4cae1"
+    },
+    {
+      "case": "separator boundaries",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 2,
+      "inputBytes": 10,
+      "inputSHA256": "4c26c2e9d094a61c961cef95fee7cef7e85278f30d2067eabdc4ac9dc9360fea"
+    },
+    {
+      "case": "separator boundaries",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 3,
+      "inputBytes": 5,
+      "inputSHA256": "7c01691d53eb209bba1ea4ade72c86e6e85b6efbec920cc9ca5756e7c4e98c55"
+    },
+    {
+      "case": "empty frequency table",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 0,
+      "inputBytes": 0,
+      "inputSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "case": "whitespace-only frequency table",
+      "app": "value-frequency",
+      "optimized": true,
+      "values": 0,
+      "inputBytes": 3,
+      "inputSHA256": "9b8318187072010f3081af0de6d1c356f4695d1b5a5e1778629153663acad751"
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 4
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 4
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 6
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 3
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 3
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 3
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 3
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 2
+    },
+    {
+      "case": "invalid canonical numeric input",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 20
+    },
+    {
+      "case": "collection limit overflow",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 131073
+    },
+    {
+      "case": "stdin limit overflow",
+      "app": "value-frequency",
+      "optimized": true,
+      "refused": true,
+      "inputBytes": 1048577
+    },
+    {
+      "case": "unexpected argument refuses",
+      "app": "value-frequency",
+      "optimized": true
+    },
+    {
+      "case": "closed input descriptor refuses",
+      "app": "value-frequency",
+      "optimized": true
+    },
+    {
+      "case": "closed output descriptor refuses",
+      "app": "value-frequency",
+      "optimized": true
+    },
+    {
+      "case": "one isolated shared parser mutation reaches both apps",
+      "app": "telemetry-summary"
+    },
+    {
+      "case": "one isolated shared parser mutation reaches both apps",
+      "app": "value-frequency"
+    }
+  ],
+  "images": [
+    {
+      "app": "telemetry-summary",
+      "optimized": false,
+      "binary": "artifacts/collection-apps/verify-1794579791013381000/telemetry-summary-False",
+      "unsignedSHA256": "980a0dca3e26f337df953cff7c879906e44e03c0a44a851e5ec18068bfebbb44",
+      "signedSHA256": "e0f7c3fbf0eface10280616e76bd578a33e53bbf06d032e142c5a2126a78e7f7"
+    },
+    {
+      "app": "value-frequency",
+      "optimized": false,
+      "binary": "artifacts/collection-apps/verify-1794579791013381000/value-frequency-False",
+      "unsignedSHA256": "500c6c1925c91558739d5ea99f2046add0adf71ac10cd0837b4e335c3ef05228",
+      "signedSHA256": "b855e2a633c6da0e27da5b828175575ed62782c4389f35c34119067a403f7437"
+    },
+    {
+      "app": "telemetry-summary",
+      "optimized": true,
+      "binary": "artifacts/collection-apps/verify-1794579791013381000/telemetry-summary-True",
+      "unsignedSHA256": "3f4abd59173f62ceaffe0d5b30e4886c689aeff41deca4efee7ba5a40bc46ab4",
+      "signedSHA256": "cd3e3c17baa63b3e60bf9678dd0d6e2a27cd7d26d79556d20810673595b2568b"
+    },
+    {
+      "app": "value-frequency",
+      "optimized": true,
+      "binary": "artifacts/collection-apps/verify-1794579791013381000/value-frequency-True",
+      "unsignedSHA256": "cd6e412c6d098fac19f5917cbf0c5673fe0d0f726496090593a9978048844697",
+      "signedSHA256": "87727b94cc13fd32d29417e2184cd41668609bd4777d5fda6dd7dbdc164fdb60"
+    }
+  ],
+  "sources": {
+    "examples/collection-tools/lib/numbers.rf2": "aa1d16e52c8c6232e2a1b5fd92b10f1057b2ccbc20d0d96d6abe1f4b68f31803",
+    "examples/collection-tools/lib/output.rf2": "08f93f074be4c13ab3993b454adad0ffa81afcb69c4b06fbebe93f48827f4a66",
+    "examples/collection-tools/telemetry-summary.flow": "4df20164c3d0d3c99dac9c99c5e59ca8ea673e58392ff97c9249f0d0750dfd58",
+    "examples/collection-tools/value-frequency.flow": "d80dd0a373e406cc09011ba436150bfa7489c806d9a954f1476fce3ac7f0917a"
+  },
+  "compilerSHA256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37",
+  "controllerSHA256": "77b471a0491793f69e033cd41bc973d7e6493e49fb3d5119f241f8a8abdccafb",
+  "sourceEntriesUseFlowExtension": true,
+  "oneCanonicalParserAndSortModule": true,
+  "maxValues": 65536,
+  "maxInputBytes": 1048576,
+  "limits": "Actual bounded native CLI programs on one Apple Silicon Mac; supplied integer samples and independent Python sorting/frequency oracles. .flow filename acceptance is not an embedded/ESP32 target. No field observations, float precision, cross-platform, speed, energy, model-usage, general heap or full memory-safety claim. Standard output can be partial on output/fatal cleanup failures; signals/traps are outside ordinary cleanup."
+}

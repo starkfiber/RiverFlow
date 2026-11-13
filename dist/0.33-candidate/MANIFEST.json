@@ -1,0 +1,87 @@
+{
+  "version": "0.33.0-dev",
+  "target": "macos-arm64",
+  "runtimeContract": "0.17 nine bounded tools",
+  "smokePassed": true,
+  "summary": {
+    "count": 5,
+    "minimum": 1,
+    "maximum": 9,
+    "sum": 24,
+    "median_lower": 3
+  },
+  "frequency": {
+    "count": 5,
+    "unique": 4,
+    "frequencies": [
+      {
+        "value": 1,
+        "count": 1
+      },
+      {
+        "value": 2,
+        "count": 1
+      },
+      {
+        "value": 3,
+        "count": 1
+      },
+      {
+        "value": 9,
+        "count": 2
+      }
+    ]
+  },
+  "packagerSHA256": "e989695f27655244fc43fdaaa67415d3af552f9f83ded35e3c15d03130cd58f3",
+  "files": {
+    "LICENSE": {
+      "bytes": 1087,
+      "sha256": "439e5b1ea79a6a0a2007acf65173490db2462b238b9805abab0ee820838b23e8"
+    },
+    "README.txt": {
+      "bytes": 1287,
+      "sha256": "f8983bc4fb33b69fdfe7d4ec5231f5edde49386b4f55fd9e4d6f4c7496cd36c0"
+    },
+    "examples/collection-tools/README.md": {
+      "bytes": 4989,
+      "sha256": "9e79a6a556ba2411bad480d03bbe562f9efe388e194e480102753aa6608fb8d5"
+    },
+    "examples/collection-tools/lib/numbers.rf2": {
+      "bytes": 3840,
+      "sha256": "aa1d16e52c8c6232e2a1b5fd92b10f1057b2ccbc20d0d96d6abe1f4b68f31803"
+    },
+    "examples/collection-tools/lib/output.rf2": {
+      "bytes": 856,
+      "sha256": "08f93f074be4c13ab3993b454adad0ffa81afcb69c4b06fbebe93f48827f4a66"
+    },
+    "examples/collection-tools/telemetry-summary.flow": {
+      "bytes": 1515,
+      "sha256": "4df20164c3d0d3c99dac9c99c5e59ca8ea673e58392ff97c9249f0d0750dfd58"
+    },
+    "examples/collection-tools/value-frequency.flow": {
+      "bytes": 2032,
+      "sha256": "d80dd0a373e406cc09011ba436150bfa7489c806d9a954f1476fce3ac7f0917a"
+    },
+    "rf2": {
+      "bytes": 231680,
+      "sha256": "df714d688e5b96577abb294a192432ed2f57f07c080ab23e32eee46cf94b0b89"
+    },
+    "rf2c": {
+      "bytes": 363008,
+      "sha256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37"
+    },
+    "source/compiler.rf2": {
+      "bytes": 167767,
+      "sha256": "3d2e7d65cc545c116b9c75aaabb10b0906f5b3cb7cdf9a3c29fa5c3ab51665d7"
+    },
+    "telemetry-summary": {
+      "bytes": 67520,
+      "sha256": "cd3e3c17baa63b3e60bf9678dd0d6e2a27cd7d26d79556d20810673595b2568b"
+    },
+    "value-frequency": {
+      "bytes": 67520,
+      "sha256": "87727b94cc13fd32d29417e2184cd41668609bd4777d5fda6dd7dbdc164fdb60"
+    }
+  },
+  "limits": "Same-Mac development smoke; ad-hoc signed, not notarized. No embedded target, whole-language safety, concurrency, speed or AI productivity claim."
+}

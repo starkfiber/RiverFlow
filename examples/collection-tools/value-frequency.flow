@@ -1,0 +1,101 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/numbers.rf2"
+use "lib/output.rf2"
+fn frequency_input():IO
+ own incoming=Numbers()
+ let data=buffer("frequency_input",1048577)
+ let n=0
+ handle read_input(data)
+ ok bytes_read
+  set n=bytes_read
+ err input_error
+  return err(input_error)
+ end
+ handle parse_numbers(data,n,incoming)
+ ok parsed
+ err parse_error
+  return err(parse_error)
+ end
+ own values=move(incoming)
+ handle sort_numbers(values)
+ ok sorted
+ err sort_error
+  return err(sort_error)
+ end
+ let i=0
+ let groups=0
+ let value=0
+ let previous=0
+ while i<values.length
+  handle collection_get(values,i)
+  ok item
+   set value=item
+  err item_error
+   return err(item_error)
+  end
+  if (i==0)|(value!=previous)
+   set groups=groups+1
+  end
+  set previous=value
+  set i=i+1
+ end
+ let good=output_text("{\"count\":")
+ set good=good&output_number(values.length)
+ set good=good&output_text(",\"unique\":")
+ set good=good&output_number(groups)
+ set good=good&output_text(",\"frequencies\":[")
+ set i=0
+ let first=1
+ let count=0
+ while i<values.length
+  handle collection_get(values,i)
+  ok group_value
+   set value=group_value
+  err group_error
+   return err(group_error)
+  end
+  set count=0
+  let active=1
+  while all(active,i<values.length)
+   handle collection_get(values,i)
+   ok next_value
+    if next_value==value
+     set count=count+1
+     set i=i+1
+    else
+     set active=0
+    end
+   err next_error
+    return err(next_error)
+   end
+  end
+  if first==0
+   set good=good&output_text(",")
+  end
+  set first=0
+  set good=good&output_text("{\"value\":")
+  set good=good&output_number(value)
+  set good=good&output_text(",\"count\":")
+  set good=good&output_number(count)
+  set good=good&output_text("}")
+ end
+ set good=good&output_text("]}\n")
+ if good==0
+  return err(5)
+ end
+ return ok(0)
+end
+fn main(argc,argv)
+ if argc!=1
+  do output_bytes(2,"Usage: value-frequency < numbers.txt\n",37)
+  return 2
+ end
+ let status=0
+ handle frequency_input()
+ ok completed
+ err cause
+  do output_error(cause)
+  set status=1
+ end
+ return status
+end

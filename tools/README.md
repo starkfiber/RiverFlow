@@ -42,3 +42,5 @@ benchmark-compact-builds.py compares retained legacy and compact complete build 
 ## Native application comparison, 0.31
 
 `benchmark-text-search.py` takes RF2_SEARCH_BINARY (baseline) and optional RF2_SEARCH_CANDIDATE (candidate). It compiles the retained C libc comparator and runs Python bytes.find as developer comparison routes, with matched supplied inputs and independent JSON oracles. All timings include startup and input/output. Run after correctness qualification, while other owned load jobs are paused. Keep source/build receipts, raw trials and losing cases; do not infer model-token usage or steady-state throughput. RF2_BENCH_TRIALS controls 5..101 rotated trials per route.
+
+`package-heap.py` explicitly packages a qualified compiler, runtime and two collection-app binaries into a new0.33development directory. It verifies signatures, native smoke outputs and creates a file-hash manifest. It neither downloads binaries nor changes the stable release. Follow [the heap contract](../docs/HEAP-COLLECTIONS-0.33.md) and recheck fresh extraction.

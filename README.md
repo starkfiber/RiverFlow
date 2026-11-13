@@ -60,7 +60,9 @@ The program exits successfully. The build creates a new directory and signs the 
 
 **Stable package: 0.17.** Bounded Core computation, local modules, records, checked arrays, UTF-8 scalar views, typed outcomes, owned files, bounded growing bytes and nine defined MCP tools.
 
-**Development source: 0.32 structured-storage candidate.** Fixed-array payloads use a separate stack arena with checked larger-frame lowering. Two [native search tools](examples/text-search/README.md) share one library and accept queries up to 4096 bytes. See [executed tests and limits](docs/STRUCTURED-STORAGE-0.32.md), the [native development bundle](dist/0.32-candidate/README.md) and the [developer roadmap](docs/DEVELOPER-ROADMAP.md). Stable downloads are separate and unchanged.
+**Development source: 0.33 owned-collection candidate.** Bounded u64 collections grow on the heap, support checked local ownership moves and typed mutable borrows, and retain allocations for cleanup retry. Two [.flow applications](examples/collection-tools/README.md) share numeric parsing, sorting and output libraries, handling up to 65,536 values. See [executed tests and limits](docs/HEAP-COLLECTIONS-0.33.md) and the [native development bundle](dist/0.33-candidate/README.md). [Larger fixed arrays](docs/STRUCTURED-STORAGE-0.32.md) remain available. Stable downloads are separate and unchanged.
+
+**ESP32, Arduino or printers?** Host tools can be written in `.flow` today. Firmware compilation and device control need new targets and board qualification; see the [embedded direction](docs/EMBEDDED-DIRECTION.md).
 
 MCP does not grant arbitrary filesystem, network or systems-code execution. AI intelligence comes from the connected host. There is no embedded model or automatic proof of correctness.
 
