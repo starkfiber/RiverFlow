@@ -3,6 +3,20 @@ from pathlib import Path
 import atexit,hashlib,http.client,json,os,re,select,socket,subprocess,time,urllib.parse,random
 R=Path(__file__).resolve().parents[2];C=Path(os.environ['RF2_TEST_COMPILER']).resolve();SOURCE=R/'examples/number-lab-web/main.rf2';D=R/'artifacts/number-lab-web'/('verify-'+str(time.time_ns()));D.mkdir(parents=True);CONTROLLER_SHA=hashlib.sha256(Path(__file__).read_bytes()).hexdigest();ROWS=[]
 B=D/'number-lab-web';q=subprocess.run([str(C),str(SOURCE),str(B),'--opt','--compact'],capture_output=True,timeout=30);assert q.returncode==0,q.stderr;subprocess.run(['/usr/bin/codesign','-s','-',B],capture_output=True,check=True)
+# Exercise a retained function pack before running the complete HTTP campaign.
+if os.environ.get('RF2_WEB_PACK_TEST') == '1':
+ cache=D/'packed-units';cache.mkdir(mode=0o700)
+ for stage in ['cold','warm']:
+  out=D/('packed-'+stage)
+  q=subprocess.run([str(C),str(SOURCE),str(out),'--opt','--compact','--reuse-pack',str(cache)],capture_output=True,timeout=30)
+  assert q.returncode==0,q.stderr
+  # Both images use different signing identifiers; compare unsigned image bytes.
+  clean=D/('oracle-'+stage)
+  q=subprocess.run([str(C),str(SOURCE),str(clean),'--opt','--compact'],capture_output=True,timeout=30)
+  assert q.returncode==0 and out.read_bytes()==clean.read_bytes(),q.stderr
+  receipt=json.loads(Path(str(out)+'.reuse.json').read_text())
+  if stage=='warm':assert receipt['reused']>0 and receipt['unitContainerReads']==1
+ B=out;subprocess.run(['/usr/bin/codesign','-s','-',B],capture_output=True,check=True)
 p=subprocess.Popen([str(B)],stdout=subprocess.PIPE,stderr=subprocess.PIPE,env={'PATH':'/nonexistent'});atexit.register(lambda:p.kill()if p.poll()is None else None);assert select.select([p.stdout],[],[],10)[0];URL=p.stdout.readline().decode().strip().rstrip('/');assert re.fullmatch(r'http://127\.0\.0\.1:[0-9]+',URL);PORT=int(URL.rsplit(':',1)[1]);HOST='127.0.0.1:'+str(PORT)
 def req(method,path,body=None,headers=None):
  c=http.client.HTTPConnection('127.0.0.1',PORT,timeout=6);c.request(method,path,body=body,headers=headers or {});r=c.getresponse();raw=r.read();result=r.status,dict((k.lower(),v)for k,v in r.getheaders()),raw;c.close();return result
@@ -105,4 +119,4 @@ for label in ['first','warm']:
  q=subprocess.run([str(C),str(SOURCE),str(image),*flags,'--reuse-cache',str(cache)],capture_output=True,timeout=30);assert q.returncode==0,q.stderr
  q=subprocess.run([str(C),str(SOURCE),str(oracle),*flags],capture_output=True,timeout=30);assert q.returncode==0,q.stderr;assert image.read_bytes()==oracle.read_bytes()
  reuse=json.loads(Path(str(image)+'.reuse.json').read_text());assert reuse['reused']==0 if label=='first'else reuse['reused']>0;record('native graphical app '+label+' function-reuse clean bytes',reuse=reuse)
-report={'passed':True,'schema':'rf2.number.lab.web.verification.v1','cases':len(ROWS),'rows':ROWS,'sourceSHA256':hashlib.sha256(SOURCE.read_bytes()).hexdigest(),'compilerSHA256':hashlib.sha256(C.read_bytes()).hexdigest(),'controllerSHA256':CONTROLLER_SHA,'executableSHA256':hashlib.sha256(B.read_bytes()).hexdigest(),'cleanupVerified':True,'target':'macos-arm64','scope':'Actual RF2 native private loopback HTTP and computed learning-game state. Browser rendering is not validated by this HTTP controller. No public hosting, external educational, platform, hardware, energy or token result.'};(D/'report.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({'report':str(D/'report.json'),'passed':True,'cases':len(ROWS)}))
+report={'passed':True,'schema':'rf2.number.lab.web.verification.v1','cases':len(ROWS),'rows':ROWS,'sourceSHA256':hashlib.sha256(SOURCE.read_bytes()).hexdigest(),'compilerSHA256':hashlib.sha256(C.read_bytes()).hexdigest(),'controllerSHA256':CONTROLLER_SHA,'executableSHA256':hashlib.sha256(B.read_bytes()).hexdigest(),'cleanupVerified':True,'executedRetainedPackImage':os.environ.get('RF2_WEB_PACK_TEST')=='1','target':'macos-arm64','scope':'Actual RF2 native private loopback HTTP and computed learning-game state. Browser rendering is not validated by this HTTP controller. No public hosting, external educational, platform, hardware, energy or token result.'};(D/'report.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({'report':str(D/'report.json'),'passed':True,'cases':len(ROWS)}))

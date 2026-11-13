@@ -34,3 +34,7 @@ benchmark-compact-builds.py compares retained legacy and compact complete build 
 0.28 developer measurements: `benchmark-function-reuse.py` includes identity, validation, unit I/O and output creation in clean/empty/retained function-cache routes. `benchmark-compiler-store.py` compares empty project caches with one explicitly retained compiler store and reports its initial setup separately. Run sequentially on frozen compiler/builder inputs; publish regressions as well as improvements.
 
 0.29 adds `generate-sha40.py`, `benchmark-reuse-edit.py` and bounded `stress-function-reuse.py`. The stress controller has a case cap and deadline, stops on failures and supports PAUSE between cases; no network traffic. Retain actual completed counts and source/controller identities.
+
+## Packed reuse experiment, 0.30
+
+`benchmark-packed-reuse.py` compares an explicitly supplied previous compiler (RF2_OLD_COMPILER) with RF2_TEST_COMPILER clean, retained loose units, empty pack and retained pack. It rotates complete process runs, checks every unsigned image against the previous compiler, and records raw observations. RF2_BENCH_TRIALS defaults to21. Use `tests/standalone/function_pack_verify.py` for adversarial cache controls and RF2_WEB_PACK_TEST=1 with `number_lab_web_verify.py` to execute the packed app through its full HTTP campaign. Do not replace a correctness run with timing.
