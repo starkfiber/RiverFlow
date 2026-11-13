@@ -25,8 +25,8 @@
     "site/book/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 654244,
-    "Python": 491032,
+    "RiverFlow": 666676,
+    "Python": 508925,
     "JavaScript": 85144,
     "HTML": 30503,
     "CSS": 17035,
@@ -491,6 +491,11 @@
       "bytes": 6832
     },
     {
+      "path": "native/build/incremental.rf2",
+      "language": "RiverFlow",
+      "bytes": 12432
+    },
+    {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
       "bytes": 125310
@@ -911,6 +916,11 @@
       "bytes": 3979
     },
     {
+      "path": "tests/standalone/incremental_verify.py",
+      "language": "Python",
+      "bytes": 11893
+    },
+    {
       "path": "tests/standalone/instruction_verify.py",
       "language": "Python",
       "bytes": 2671
@@ -1161,6 +1171,11 @@
       "bytes": 3376
     },
     {
+      "path": "tools/benchmark-incremental.py",
+      "language": "Python",
+      "bytes": 3835
+    },
+    {
       "path": "tools/benchmark-mcp.py",
       "language": "Python",
       "bytes": 3482
@@ -1224,6 +1239,11 @@
       "path": "tools/build-foundation.py",
       "language": "Python",
       "bytes": 1378
+    },
+    {
+      "path": "tools/build-incremental.py",
+      "language": "Python",
+      "bytes": 2165
     },
     {
       "path": "tools/build-program.sh",

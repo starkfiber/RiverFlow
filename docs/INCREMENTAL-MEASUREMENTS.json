@@ -1,0 +1,1891 @@
+{
+  "schema": "rf2.incremental.measurements.v1",
+  "passed": true,
+  "trialsPerTaskVariant": 21,
+  "options": [
+    "--opt"
+  ],
+  "rows": [
+    {
+      "task": "native compiler",
+      "medianMs": {
+        "direct clean": 46.9575,
+        "builder forced clean": 75.236959,
+        "builder warm reuse": 17.420583
+      },
+      "directCleanOverWarmRatio": 2.695518284319187,
+      "warmMinusDirectPairedMedianMs": -29.624250999999997,
+      "pairedBootstrap95Ms": [
+        -31.580416,
+        -27.561042
+      ]
+    },
+    {
+      "task": "native runtime",
+      "medianMs": {
+        "direct clean": 56.732875,
+        "builder forced clean": 82.390292,
+        "builder warm reuse": 17.477208
+      },
+      "directCleanOverWarmRatio": 3.246106300274048,
+      "warmMinusDirectPairedMedianMs": -37.837166999999994,
+      "pairedBootstrap95Ms": [
+        -46.718333,
+        -29.918875000000003
+      ]
+    },
+    {
+      "task": "modular checksum app",
+      "medianMs": {
+        "direct clean": 6.059625,
+        "builder forced clean": 19.770042,
+        "builder warm reuse": 7.826291
+      },
+      "directCleanOverWarmRatio": 0.774265229851535,
+      "warmMinusDirectPairedMedianMs": 1.9606660000000007,
+      "pairedBootstrap95Ms": [
+        1.0947509999999996,
+        2.8629170000000004
+      ]
+    }
+  ],
+  "raw": [
+    {
+      "task": "native compiler",
+      "trial": 0,
+      "variant": "builder warm reuse",
+      "ms": 21.582625,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 0,
+      "variant": "builder forced clean",
+      "ms": 65.5555,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 0,
+      "variant": "direct clean",
+      "ms": 51.456917,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 1,
+      "variant": "builder warm reuse",
+      "ms": 18.118416,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 1,
+      "variant": "direct clean",
+      "ms": 45.40925,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 1,
+      "variant": "builder forced clean",
+      "ms": 131.130375,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 2,
+      "variant": "builder warm reuse",
+      "ms": 30.59175,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 2,
+      "variant": "direct clean",
+      "ms": 54.825333,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 2,
+      "variant": "builder forced clean",
+      "ms": 70.340875,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 3,
+      "variant": "builder warm reuse",
+      "ms": 19.045125,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 3,
+      "variant": "direct clean",
+      "ms": 46.9575,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 3,
+      "variant": "builder forced clean",
+      "ms": 75.236959,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 4,
+      "variant": "builder warm reuse",
+      "ms": 15.303917,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 4,
+      "variant": "direct clean",
+      "ms": 73.331125,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 4,
+      "variant": "builder forced clean",
+      "ms": 109.386292,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 5,
+      "variant": "direct clean",
+      "ms": 44.850792,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 5,
+      "variant": "builder warm reuse",
+      "ms": 18.031333,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 5,
+      "variant": "builder forced clean",
+      "ms": 75.477917,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 6,
+      "variant": "builder warm reuse",
+      "ms": 14.698625,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 6,
+      "variant": "direct clean",
+      "ms": 42.755291,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 6,
+      "variant": "builder forced clean",
+      "ms": 68.455708,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 7,
+      "variant": "builder forced clean",
+      "ms": 89.701125,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 7,
+      "variant": "builder warm reuse",
+      "ms": 18.889834,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 7,
+      "variant": "direct clean",
+      "ms": 75.182334,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 8,
+      "variant": "builder forced clean",
+      "ms": 74.258416,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 8,
+      "variant": "direct clean",
+      "ms": 44.313417,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 8,
+      "variant": "builder warm reuse",
+      "ms": 14.67575,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 9,
+      "variant": "builder warm reuse",
+      "ms": 15.074041,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 9,
+      "variant": "builder forced clean",
+      "ms": 68.658417,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 9,
+      "variant": "direct clean",
+      "ms": 53.845416,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 10,
+      "variant": "direct clean",
+      "ms": 69.50125,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 10,
+      "variant": "builder forced clean",
+      "ms": 114.365417,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 10,
+      "variant": "builder warm reuse",
+      "ms": 17.064833,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 11,
+      "variant": "builder forced clean",
+      "ms": 115.486416,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 11,
+      "variant": "direct clean",
+      "ms": 74.272208,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 11,
+      "variant": "builder warm reuse",
+      "ms": 20.912417,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 12,
+      "variant": "direct clean",
+      "ms": 43.106042,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 12,
+      "variant": "builder forced clean",
+      "ms": 69.959292,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 12,
+      "variant": "builder warm reuse",
+      "ms": 15.545,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 13,
+      "variant": "direct clean",
+      "ms": 42.435917,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 13,
+      "variant": "builder warm reuse",
+      "ms": 15.110458,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 13,
+      "variant": "builder forced clean",
+      "ms": 71.701458,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 14,
+      "variant": "builder forced clean",
+      "ms": 93.835083,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 14,
+      "variant": "builder warm reuse",
+      "ms": 14.701917,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 14,
+      "variant": "direct clean",
+      "ms": 48.25625,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 15,
+      "variant": "builder forced clean",
+      "ms": 82.865166,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 15,
+      "variant": "direct clean",
+      "ms": 54.113833,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 15,
+      "variant": "builder warm reuse",
+      "ms": 58.191541,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 16,
+      "variant": "builder warm reuse",
+      "ms": 38.425792,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 16,
+      "variant": "builder forced clean",
+      "ms": 69.562916,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 16,
+      "variant": "direct clean",
+      "ms": 33.754875,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 17,
+      "variant": "direct clean",
+      "ms": 50.562042,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 17,
+      "variant": "builder warm reuse",
+      "ms": 20.937791,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 17,
+      "variant": "builder forced clean",
+      "ms": 84.913042,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 18,
+      "variant": "builder forced clean",
+      "ms": 60.603375,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 18,
+      "variant": "direct clean",
+      "ms": 46.531,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 18,
+      "variant": "builder warm reuse",
+      "ms": 14.950584,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 19,
+      "variant": "builder forced clean",
+      "ms": 76.87425,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 19,
+      "variant": "builder warm reuse",
+      "ms": 17.420583,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 19,
+      "variant": "direct clean",
+      "ms": 46.032375,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 20,
+      "variant": "direct clean",
+      "ms": 46.006917,
+      "receipt": null
+    },
+    {
+      "task": "native compiler",
+      "trial": 20,
+      "variant": "builder warm reuse",
+      "ms": 14.65775,
+      "receipt": {
+        "cache": "hit",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native compiler",
+      "trial": 20,
+      "variant": "builder forced clean",
+      "ms": 59.172875,
+      "receipt": {
+        "cache": "miss",
+        "key": "1543c0a1fdf9a5de98c9ddd618fa6ebefacf3d4c53ff723b87794842bf635ec5",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 0,
+      "variant": "builder warm reuse",
+      "ms": 19.14025,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 0,
+      "variant": "builder forced clean",
+      "ms": 76.183959,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 0,
+      "variant": "direct clean",
+      "ms": 63.823583,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 1,
+      "variant": "builder warm reuse",
+      "ms": 16.9705,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 1,
+      "variant": "direct clean",
+      "ms": 85.676125,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 1,
+      "variant": "builder forced clean",
+      "ms": 64.380833,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 2,
+      "variant": "builder warm reuse",
+      "ms": 17.011333,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 2,
+      "variant": "direct clean",
+      "ms": 52.076292,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 2,
+      "variant": "builder forced clean",
+      "ms": 132.693209,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 3,
+      "variant": "builder warm reuse",
+      "ms": 19.032666,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 3,
+      "variant": "direct clean",
+      "ms": 56.732875,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 3,
+      "variant": "builder forced clean",
+      "ms": 125.07975,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 4,
+      "variant": "builder warm reuse",
+      "ms": 16.973042,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 4,
+      "variant": "direct clean",
+      "ms": 46.385625,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 4,
+      "variant": "builder forced clean",
+      "ms": 71.918708,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 5,
+      "variant": "direct clean",
+      "ms": 49.486708,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 5,
+      "variant": "builder warm reuse",
+      "ms": 17.139208,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 5,
+      "variant": "builder forced clean",
+      "ms": 133.682542,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 6,
+      "variant": "builder warm reuse",
+      "ms": 17.089792,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 6,
+      "variant": "direct clean",
+      "ms": 78.211584,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 6,
+      "variant": "builder forced clean",
+      "ms": 75.216667,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 7,
+      "variant": "builder forced clean",
+      "ms": 80.216541,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 7,
+      "variant": "builder warm reuse",
+      "ms": 30.673417,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 7,
+      "variant": "direct clean",
+      "ms": 40.4565,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 8,
+      "variant": "builder forced clean",
+      "ms": 76.072667,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 8,
+      "variant": "direct clean",
+      "ms": 65.025375,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 8,
+      "variant": "builder warm reuse",
+      "ms": 18.307042,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 9,
+      "variant": "builder warm reuse",
+      "ms": 20.695084,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 9,
+      "variant": "builder forced clean",
+      "ms": 105.299708,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 9,
+      "variant": "direct clean",
+      "ms": 75.784833,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 10,
+      "variant": "direct clean",
+      "ms": 68.176625,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 10,
+      "variant": "builder forced clean",
+      "ms": 122.130875,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 10,
+      "variant": "builder warm reuse",
+      "ms": 17.343708,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 11,
+      "variant": "builder forced clean",
+      "ms": 97.891792,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 11,
+      "variant": "direct clean",
+      "ms": 43.911625,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 11,
+      "variant": "builder warm reuse",
+      "ms": 17.039375,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 12,
+      "variant": "direct clean",
+      "ms": 48.048042,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 12,
+      "variant": "builder forced clean",
+      "ms": 74.344208,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 12,
+      "variant": "builder warm reuse",
+      "ms": 18.129167,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 13,
+      "variant": "direct clean",
+      "ms": 72.562209,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 13,
+      "variant": "builder warm reuse",
+      "ms": 19.833875,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 13,
+      "variant": "builder forced clean",
+      "ms": 91.578542,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 14,
+      "variant": "builder forced clean",
+      "ms": 93.146958,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 14,
+      "variant": "builder warm reuse",
+      "ms": 17.477208,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 14,
+      "variant": "direct clean",
+      "ms": 55.314375,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 15,
+      "variant": "builder forced clean",
+      "ms": 152.239041,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 15,
+      "variant": "direct clean",
+      "ms": 37.893417,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 15,
+      "variant": "builder warm reuse",
+      "ms": 29.657916,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 16,
+      "variant": "builder warm reuse",
+      "ms": 18.923333,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 16,
+      "variant": "builder forced clean",
+      "ms": 82.390292,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 16,
+      "variant": "direct clean",
+      "ms": 59.935667,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 17,
+      "variant": "direct clean",
+      "ms": 72.583625,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 17,
+      "variant": "builder warm reuse",
+      "ms": 17.444125,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 17,
+      "variant": "builder forced clean",
+      "ms": 76.292625,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 18,
+      "variant": "builder forced clean",
+      "ms": 98.805375,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 18,
+      "variant": "direct clean",
+      "ms": 45.391667,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 18,
+      "variant": "builder warm reuse",
+      "ms": 16.804625,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 19,
+      "variant": "builder forced clean",
+      "ms": 80.978208,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 19,
+      "variant": "builder warm reuse",
+      "ms": 32.714542,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 19,
+      "variant": "direct clean",
+      "ms": 47.843375,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 20,
+      "variant": "direct clean",
+      "ms": 58.245959,
+      "receipt": null
+    },
+    {
+      "task": "native runtime",
+      "trial": 20,
+      "variant": "builder warm reuse",
+      "ms": 16.985959,
+      "receipt": {
+        "cache": "hit",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "native runtime",
+      "trial": 20,
+      "variant": "builder forced clean",
+      "ms": 64.372041,
+      "receipt": {
+        "cache": "miss",
+        "key": "a0034003f259fcaf0281a804f698151f7972e53ddd2cd62fb6dbc3580976deec",
+        "dependencies": 1
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 0,
+      "variant": "builder warm reuse",
+      "ms": 8.106666,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 0,
+      "variant": "builder forced clean",
+      "ms": 17.57875,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 0,
+      "variant": "direct clean",
+      "ms": 4.764708,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 1,
+      "variant": "builder warm reuse",
+      "ms": 7.455292,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 1,
+      "variant": "direct clean",
+      "ms": 4.767584,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 1,
+      "variant": "builder forced clean",
+      "ms": 17.546875,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 2,
+      "variant": "builder warm reuse",
+      "ms": 8.164208,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 2,
+      "variant": "direct clean",
+      "ms": 4.999625,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 2,
+      "variant": "builder forced clean",
+      "ms": 19.770042,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 3,
+      "variant": "builder warm reuse",
+      "ms": 7.599417,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 3,
+      "variant": "direct clean",
+      "ms": 5.559917,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 3,
+      "variant": "builder forced clean",
+      "ms": 19.584917,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 4,
+      "variant": "builder warm reuse",
+      "ms": 8.257958,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 4,
+      "variant": "direct clean",
+      "ms": 6.297292,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 4,
+      "variant": "builder forced clean",
+      "ms": 20.865375,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 5,
+      "variant": "direct clean",
+      "ms": 6.999666,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 5,
+      "variant": "builder warm reuse",
+      "ms": 8.094417,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 5,
+      "variant": "builder forced clean",
+      "ms": 19.890333,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 6,
+      "variant": "builder warm reuse",
+      "ms": 7.990458,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 6,
+      "variant": "direct clean",
+      "ms": 5.316167,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 6,
+      "variant": "builder forced clean",
+      "ms": 17.750917,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 7,
+      "variant": "builder forced clean",
+      "ms": 18.617042,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 7,
+      "variant": "builder warm reuse",
+      "ms": 8.037417,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 7,
+      "variant": "direct clean",
+      "ms": 4.457292,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 8,
+      "variant": "builder forced clean",
+      "ms": 18.603958,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 8,
+      "variant": "direct clean",
+      "ms": 5.803209,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 8,
+      "variant": "builder warm reuse",
+      "ms": 7.550625,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 9,
+      "variant": "builder warm reuse",
+      "ms": 7.491875,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 9,
+      "variant": "builder forced clean",
+      "ms": 18.883833,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 9,
+      "variant": "direct clean",
+      "ms": 6.524625,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 10,
+      "variant": "direct clean",
+      "ms": 6.577,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 10,
+      "variant": "builder forced clean",
+      "ms": 19.939584,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 10,
+      "variant": "builder warm reuse",
+      "ms": 7.971667,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 11,
+      "variant": "builder forced clean",
+      "ms": 20.539667,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 11,
+      "variant": "direct clean",
+      "ms": 7.875916,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 11,
+      "variant": "builder warm reuse",
+      "ms": 7.639208,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 12,
+      "variant": "direct clean",
+      "ms": 8.3495,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 12,
+      "variant": "builder forced clean",
+      "ms": 21.737166,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 12,
+      "variant": "builder warm reuse",
+      "ms": 8.153083,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 13,
+      "variant": "direct clean",
+      "ms": 6.059625,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 13,
+      "variant": "builder warm reuse",
+      "ms": 7.826291,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 13,
+      "variant": "builder forced clean",
+      "ms": 20.064083,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 14,
+      "variant": "builder forced clean",
+      "ms": 20.634459,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 14,
+      "variant": "builder warm reuse",
+      "ms": 7.704166,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 14,
+      "variant": "direct clean",
+      "ms": 8.030083,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 15,
+      "variant": "builder forced clean",
+      "ms": 21.466125,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 15,
+      "variant": "direct clean",
+      "ms": 9.006292,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 15,
+      "variant": "builder warm reuse",
+      "ms": 7.586833,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 16,
+      "variant": "builder warm reuse",
+      "ms": 7.627084,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 16,
+      "variant": "builder forced clean",
+      "ms": 22.8065,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 16,
+      "variant": "direct clean",
+      "ms": 9.991791,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 17,
+      "variant": "direct clean",
+      "ms": 7.531291,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 17,
+      "variant": "builder warm reuse",
+      "ms": 12.295417,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 17,
+      "variant": "builder forced clean",
+      "ms": 19.919417,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 18,
+      "variant": "builder forced clean",
+      "ms": 18.055208,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 18,
+      "variant": "direct clean",
+      "ms": 4.63125,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 18,
+      "variant": "builder warm reuse",
+      "ms": 7.52825,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 19,
+      "variant": "builder forced clean",
+      "ms": 17.246792,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 19,
+      "variant": "builder warm reuse",
+      "ms": 8.473375,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 19,
+      "variant": "direct clean",
+      "ms": 5.132084,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 20,
+      "variant": "direct clean",
+      "ms": 4.946,
+      "receipt": null
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 20,
+      "variant": "builder warm reuse",
+      "ms": 7.808917,
+      "receipt": {
+        "cache": "hit",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    },
+    {
+      "task": "modular checksum app",
+      "trial": 20,
+      "variant": "builder forced clean",
+      "ms": 18.537875,
+      "receipt": {
+        "cache": "miss",
+        "key": "46e64b2424d555d66dce3b68c65ed9fdf15cecf48bac2f47e9dbaeb6685e4b8c",
+        "dependencies": 2
+      }
+    }
+  ],
+  "outputSHA256": {
+    "native compiler": "74ef4719a16555b3a625b3266fd81d3c659c4d4d797450cb3c42c1a9262f6b97",
+    "native runtime": "dfb85673a6397acbb35b746c3a4d1c5130d5c26f53eef7439d24e7b9f7c667a9",
+    "modular checksum app": "1cdec26ec97b2d8c83844a830bf5a4c5fd531c45807e2aa582b8e142319ec451"
+  },
+  "builderSHA256": "11b815016a3dc9fbd46377bab0e1515d52cbeb94946be3622b0f863606b62da8",
+  "compilerSHA256": "8766e3461e0a79004e34ec55fe36a7373af1895befbf3d5163ddf30ac91a2046",
+  "controllerSHA256": "a1c04e379a50a3b1c20dddc0f298624ab5733feeabe6d6f06a48a17a32f0dc50",
+  "host": "macOS-26.5.1-arm64-arm-64bit",
+  "limits": "One host, warm OS filesystem, process-inclusive startup/read/hash/compile-or-reuse/write. Native builder adds snapshots, integrity checks, fsync and atomic output publication; direct compiler does not provide all these guarantees. Signing/acceptance checks excluded. Cache misses remain full target compilation. No Clang/Python runtime, cross-host, energy or billed-token comparison."
+}

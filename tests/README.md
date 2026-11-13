@@ -8,6 +8,7 @@ Set RF2_TEST_COMPILER to an existing native candidate for applicable standalone 
 
 | Change | Relevant starting checks |
 | --- | --- |
+| Incremental target builds | incremental_verify.py with explicit RF2_BUILD_BIN, RF2_TEST_COMPILER and optional RF2_OLD_COMPILER |
 | Compiler lowering or shared dispatch | compiler_verify.py, intrinsic_leaf_verify.py, compiler_dispatch_verify.py |
 | Raw memory or SHA | memory_intrinsics_verify.py, sha_chain_verify.py, sha_acceleration_verify.py |
 | Typed files and storage | ownership/resource/vector/result controllers matching the changed contract |

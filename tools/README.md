@@ -11,8 +11,11 @@ These are explicit developer operations. They are not native user runtime depend
 
 Builds never silently replace an existing output. Execution is a separate action.
 
+- `build-incremental.py`: explicitly compose and compile the native dependency-aware target-cache driver into a new directory. Native runtime use needs no Python.
+
 ## Measure
 
+- `benchmark-incremental.py`: direct clean, forced clean and warm reuse tasks with complete output equality and rotated process-inclusive trials.
 - `benchmark-compiler-dispatch.py`: identical source/default and optimized compile tasks, byte equality and rotated process-inclusive trials. RF2_BASELINE_COMPILER and RF2_TEST_COMPILER select explicit binaries.
 - `benchmark-sha-steady.py`: repeated complete hash API calls after warmup; excludes startup and I/O.
 - `benchmark-checksum-files.py`: complete file checksum CLI tasks with actual project snapshots.

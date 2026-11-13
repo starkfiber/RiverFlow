@@ -21,6 +21,7 @@ The compiler and MCP runtime are separate execution routes. Never expose the tru
 | Area | Entry point | Responsibility |
 | --- | --- | --- |
 | Native compiler | `native/compiler/compiler.rf2` | Lexing, semantic checks, ARM64 emission and Mach-O layout |
+| Native target cache | `native/build/incremental.rf2` | Explicit dependency snapshots and verified whole-image reuse; separate from MCP |
 | Runtime entry | `native/rf2.rf2` | CLI/MCP transport and dispatch |
 | Checked execution | `native/core.rf2` | Bounded Core semantics |
 | Application capabilities | `native/attendance.rf2`, `native/invoice.rf2`, `native/prepared.rf2` | Schemas, checked totals and prepared handles |

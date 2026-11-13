@@ -159,3 +159,9 @@ Read docs/NATIVE-MEMORY-0.25.md. fill_zero(dst,bytes) and bswap32_copy(dst,src,w
 sha256_chain_armv8 handles two ranges of complete SHA blocks in one state chain without concatenating. Nonzero work requires FEAT_SHA256 and valid raw ranges. Strict call-free scalar functions with at most seven live slots, no structured locals/results or cleanup may omit a stack frame in --opt. This is standard native-code optimisation, not new physics or a complete ABI proof. Broad generic argument lowering failed self-generation and was excluded.
 
 Final short-message medians0.666ms versus0.24's1.103ms and directC0.627ms; direct C still leads byabout6%. Ten-file end-to-end corpus has no reliable advantage against either previous RF2 or direct C. Warm-loop and whole-process results are distinct. No language-wide, energy, AI-generation or token-billing claim. SFE browser identity was verified before source publication; terminal pushes stay locked without their own verified credential.
+
+## 0.26 source candidate: native target-level incremental builds
+
+Read docs/INCREMENTAL-BUILDS.md before using rf2-build. This is explicit trusted local CLI compilation, not a new bounded MCP effect. Select the existing native compiler, source entry, new output path and existing private cache directory. Actual compiler bytes, options, builder-source identity and every raw transitive dependency bind the key. Hits verify the complete cached image. Misses compile captured source and compiler snapshots. Existing outputs refuse; --clean bypasses image reuse.
+
+Reuse is whole-target, not function/object/AST reuse. The native compiler and nine stable MCP tools remain unchanged. Private cache owner trust is required; hashes are not authenticated shared-cache receipts. Preserve mixed timings and cold-build costs; there is no universal twofold speed, Clang/Python replacement, energy or AI-token claim.

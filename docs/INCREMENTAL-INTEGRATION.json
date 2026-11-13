@@ -1,0 +1,94 @@
+{
+  "schema": "rf2.incremental.integration.v1",
+  "passed": true,
+  "nativeBuild": {
+    "schema": "rf2.incremental.build.v1",
+    "builderIdentity": "ae3786cf6277a4f8f49023cd7d4afe21cbe7a4aa46c31420a605bc89bf8ae4a8",
+    "buildScriptSHA256": "c7797b46811668eb0feb4a9ff99d463251527afa0c0d0a4a43441bf978854ccf",
+    "sourceSHA256": "380b1cefdf5ea6be7a4347666786fb42490f010b742327899479570834df7673",
+    "compilerSHA256": "8766e3461e0a79004e34ec55fe36a7373af1895befbf3d5163ddf30ac91a2046",
+    "binarySHA256": "11b815016a3dc9fbd46377bab0e1515d52cbeb94946be3622b0f863606b62da8",
+    "extractedCompilerFunctions": [
+      "state",
+      "die",
+      "require",
+      "length",
+      "same",
+      "cp",
+      "digit",
+      "letter",
+      "identifier_end",
+      "module_state",
+      "module_info",
+      "module_path",
+      "line_end",
+      "line_trim",
+      "line_starts",
+      "module_path_check",
+      "module_append",
+      "module_walk",
+      "expand_modules"
+    ],
+    "extractSourceSHA256": "63bd52452e66e15661baae51fccab431d58c31a59c60839223686c57df7a24d2",
+    "shaLibrarySHA256": "8b183bce14462f1fc19fc550bcc6f97d5d9f19c54d266b4e1dde3806b7416ec4",
+    "target": "macos-arm64",
+    "runtimeDependencies": "Native RF2 executable and explicitly selected native compiler; normal Darwin APIs. No Python/Node runtime."
+  },
+  "runtimeVerification": {
+    "schema": "rf2.standalone.verification.v1",
+    "target": "macos-arm64",
+    "speedClaim": null,
+    "differentialCases": 1016,
+    "independentCases": 1016,
+    "negativeCases": 42,
+    "parserMutations": 250,
+    "maxInputWords": 65536,
+    "tests": [
+      "Eight compact operations/modes expand to checked Core; native result, event counts and overflow agree with JS and independent integer arithmetic",
+      "Malformed JSON, duplicate/escaped keys, UTF-8, surrogate pairs, size/depth/data bounds, numeric forms, 250 seeded mutations and request recovery exercised",
+      "Native CLI runs with PATH=/nonexistent"
+    ],
+    "runtimeVersion": "0.17.0",
+    "systemsCompiler": "Native compiler self-reproduction is qualified in a separate report",
+    "sourceFiles": {
+      "native/rf2.rf2": "d3c088855043eeabc8124dfe295c4f7e44a04bd1c4d3e36d3839505e7943dd1e",
+      "native/core.rf2": "a9c9fb00d40bec2afb2e7af70073f04e071b3716e447394bf519cfbb80350b78",
+      "native/attendance.rf2": "721252c4710bd0264c9e8115be6d7c5e838c459473474ce99d45ca6de97b3453",
+      "native/attendance-kernel.rf2": "ad3ed7e00c0120411878e405fa5841634955d854353c24f4b2c9aebb31e55e55",
+      "native/fingerprint.rf2": "618f8f6cf7277132829c303319482aa762c53201fa88c9096d80f2d6feb6b9b3",
+      "native/invoice.rf2": "4416e611ac6eda352cf37ee0353d89cd3a829417bd89e8abc48b8b5de6ef44a5",
+      "native/invoice-kernel.rf2": "0e0778112e99d2678159aa1ee856a4ffcb92d964cdc9e27ef921de460b90aa09",
+      "native/prepared.rf2": "6a85bf0eca69fd557b24103c94ab228ba0a195edbe91cf3fe917d833cf35a5d1",
+      "native/workspace.rf2": "b475230a0dbd0b2f7d277e08ee0d9a9d1c6b34b62d2f12acfd48eed402cac606",
+      "native/editor.rf2": "4ddb41e80a6cb4f22cd865c88207821c4f30af11533e5ab6b9d8d1e5535eb1d1"
+    },
+    "executableSHA256": "a46a5d3b657ff15021ed0d006b5bc70608c9456f3ca26400ad990c03d1e1e8ee",
+    "sourceSHA256": "d3c088855043eeabc8124dfe295c4f7e44a04bd1c4d3e36d3839505e7943dd1e",
+    "bootstrapSHA256": "1b7749a7e4c5c7c02b6228c5b3e3c0047da2931e8496bf21d00da9246cd5322c",
+    "passed": true
+  },
+  "mcpSDK": {
+    "passed": true,
+    "output": "Independent MCP SDK: native discovery, result, refusal and recovery passed",
+    "tools": 9,
+    "serverEffectsUnchanged": true
+  },
+  "mcpCold": {
+    "cache": "miss",
+    "key": "9d19467f2d971ef2b826d7779854fe1f5e1929a454d9d4a21be3ae36abd68ade",
+    "dependencies": 1
+  },
+  "mcpWarm": {
+    "cache": "hit",
+    "key": "9d19467f2d971ef2b826d7779854fe1f5e1929a454d9d4a21be3ae36abd68ade",
+    "dependencies": 1
+  },
+  "binaryLayout": {
+    "transport": "local macOS otool, not REA analysis",
+    "header": "output/incremental-final/rf2-build:\nMach header\n      magic  cputype cpusubtype  caps    filetype ncmds sizeofcmds      flags\nMH_MAGIC_64    ARM64        ALL  0x00     EXECUTE    11        512   NOUNDEFS DYLDLINK TWOLEVEL PIE\n",
+    "libraries": "output/incremental-final/rf2-build:\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1.0.0)\n",
+    "reaUnavailable": "Attached inspect_binary_layout profile supports Linux x64 only; Mach-O analysis unavailable.",
+    "binarySHA256": "11b815016a3dc9fbd46377bab0e1515d52cbeb94946be3622b0f863606b62da8"
+  },
+  "qualification": "Local native CLI and real checksum application plus cached runtime MCP integration, not cross-host qualification or universal compiler parity."
+}
