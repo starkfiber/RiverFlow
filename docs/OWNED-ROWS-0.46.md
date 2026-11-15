@@ -17,7 +17,7 @@ The completion audit found that the earlier R04 badge was too broad: 0.44 admitt
 | Typed Booking persistence | 1,350 checks |
 | Booking HTTP | 178 checks, including80 oversized refused bodies |
 | Booking agent | 794 checks, including independent legacy SDK exchanges |
-| Fresh local archive | 93 checks; exact signed compiler and all four application rebuilds |
+| Fresh local archive and actual public download | 93 checks each; exact signed compiler and all four application rebuilds |
 | Original runtime MCP SDK | Discovery, valid results, refusal and recovery passed; nine tools unchanged |
 | Compiler self-generation | Exact signed executable bytes reproduced |
 
@@ -56,3 +56,7 @@ The final Booking HTTP regression also exposed a genuine close/reset problem:33 
 The source graph is acyclic; 32 nominal types include compiler helpers. Records retain16 fields, functions eight parameters,256 local slots and16 leaf cleanup registrations. Inline rows are at most255 words and collections65,536 words. Ordinary owned/borrowed signature restrictions remain. No owned file fields, user destructors, cycles, borrowed indexed views, concurrency or panic/signal cleanup are implemented. Stronger heap abstraction, typed persistence for arbitrary new row types and other hardware targets remain broader platform work. Booking's two codecs do not become a generic serializer merely because these new values exist.
 
 The old four-attempt construction comparison remains historical; this change does not establish that RF2 now uses fewer tokens or beats Python. GitHub Linguist acceptance still requires genuine external adoption and upstream review.
+
+## Published download
+
+SFE published [v0.46.0-dev](https://github.com/starkfiber/RiverFlow/releases/tag/v0.46.0-dev) at source2764e7abf4bdb6b6d8578cdb5174d0d7b4ca5e74. The fresh browser download matched671c2a1b36055550ed85cd24bc9ad3284691807f4955581720ace0e67d75ea08 and passed all93 extraction/source-rebuild checks again. The archive is a development edition for Apple Silicon Mac, ad-hoc signed and not notarized. Stable0.17 and earlier0.45 assets are unchanged. This resolves the reopened R04 evidence gap; actual upstream Linguist acceptance remains unfinished.

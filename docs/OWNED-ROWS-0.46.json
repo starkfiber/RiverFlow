@@ -94,8 +94,13 @@
     "file": "RF2-0.46-dev-macos-arm64.tar.gz",
     "sha256": "671c2a1b36055550ed85cd24bc9ad3284691807f4955581720ace0e67d75ea08",
     "files": 30,
-    "publiclyPublished": false,
-    "downloadVerified": false
+    "publiclyPublished": true,
+    "downloadVerified": true,
+    "releaseURL": "https://github.com/starkfiber/RiverFlow/releases/tag/v0.46.0-dev",
+    "sourceCommit": "2764e7abf4bdb6b6d8578cdb5174d0d7b4ca5e74",
+    "actor": "starkfiber",
+    "downloadReport": "artifacts/booking-package-7h4ogifx/report.json",
+    "downloadReportSHA256": "ab65a687731ae56fd0804332b4e072b70c48e5f8ce30d6f22c2f407017bd5d32"
   },
   "failures": {
     "initialCandidateSHA256": "d17ae20336bada523f09f727efbac6366fbca3c615578ee54d9cecbc0da180fb",
@@ -121,6 +126,6 @@
     "rows_push consumes the static source binding even when reserve fails; runtime owner remains for scope cleanup if not transferred",
     "Controlled disposable-image faults/probes only; no actual host OOM or hardware failure claim",
     "No new speed, energy, actual AI usage, learner or independent reviewer claim",
-    "Current local archive not yet published/download-qualified; existing0.45 is unchanged"
+    "Public development download verified; Apple Silicon Mac only, ad-hoc signed and not notarized. Existing0.45 unchanged."
   ]
 }
