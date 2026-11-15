@@ -184,7 +184,7 @@ for opt in(False,True):
   check('fresh persisted rows '+str(opt)+' '+str(iteration),decode(db.read_bytes())[-1]['rows']==rows)
  final=expect(exe,db,'list');check('fresh final state',final==dict(revision=revision,version=2,bookings=[as_json(r)for r in rows]))
  # Full record capacity is tested with an independently encoded, semantically valid snapshot.
- maximum=[(i+1,i//16+1,739935,(i%16)*10,(i%16)*10+5)for i in range(256)];db=D/f'maximum-rows-{opt}.db';db.write_bytes(snapshot(2,1,maximum));result=expect(exe,db,'list');check('all 256 rows decoded',result['bookings']==[as_json(r)for r in maximum]);expect(exe,db,'add',1,257,1,739936,0,1,error=22);expect(exe,db,'cancel',1,1)
+ maximum=[(i+1,i//16+1,739935,(i%16)*10,(i%16)*10+5)for i in range(256)];db=D/f'maximum-rows-{opt}.db';db.write_bytes(snapshot(2,1,maximum));result=expect(exe,db,'list');check('all 256 rows decoded',result['bookings']==[as_json(r)for r in maximum]);expect(exe,db,'add',1,257,1,739936,0,1,error=27);expect(exe,db,'cancel',1,1)
  # Explicit file-size limit: no short read of an oversized journal may look valid.
  db=D/f'oversized-{opt}.db';db.write_bytes(b'x'*1048577);expect(exe,db,'list',error=27)
  # Near-full but valid digest chain must refuse an oversized next snapshot before writing.

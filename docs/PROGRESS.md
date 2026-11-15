@@ -23,7 +23,7 @@ This is the fixed delivery checklist reviewed with the owner on 15 November 2026
 
 ## Active implementation
 
-R12: Actual upstream Linguist acceptance remains missing. The owned-row scope audit is resolved in the published and download-verified0.46 edition. Recognition still requires genuine independent adoption and upstream review; local tests and generated files cannot substitute for external acceptance.
+G8 / G4: Application effort remains the priority. Source candidate0.47B fixes tested SDK/cleanup/protocol/UI gaps;15native suites passed and both corrected RF2 apps pass55/55. Reported input fell25.7% against revisedSDK A, but authoring time increased7.5% and Python still leads. Next: safe repeat-build workflow, clearer diagnostics, typed form/request adapters and a second matched app task. R12 Linguist remains pending and does not block this work.
 
 The eight longer-term platform gates and historical sprint evidence remain in PIPELINE.json. They do not produce extra completion badges. GitHub recognition depends on real external adoption and review; implementing a grammar or documenting requirements does not complete R12.
 

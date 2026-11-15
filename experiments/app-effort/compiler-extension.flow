@@ -1,0 +1,37 @@
+# Deliberately statement-level: no pending expression/argument stack to unwind.
+# Existing functions/locals named try remain compatible unless the new prefix fits.
+fn try_prefix()
+ let i=load64(state()+24)
+ return tmatch(i,"try")&(load64(token(i+1))==1)&tmatch(i+2,"(")
+end
+fn try_value()
+ let f=load64(state()+32)
+ let parent=load64(function_result(f))
+ do require(parent!=0,"try requires a typed-result function")
+ do require(load64(record_info(parent)+144)==3,"try requires a typed-result function")
+ do expect("try")
+ let name=advance()
+ do expect("(")
+ do invoke(name,1)
+ let result=load64(state()+136)
+ do require(result!=0,"try requires a scalar typed result")
+ do require(load64(record_info(result)+144)==3,"try requires a scalar typed result")
+ do require(load64(record_info(result)+152)==0,"try cannot discard structured ownership or record payloads")
+ let compatible=parent==result
+ let owner=owned_payload(parent)
+ if owner
+  set compatible=compatible|(load64(record_info(owner)+152)==result)
+ end
+ do require(compatible,"try error result must match the enclosing function contract")
+ do require(load64(token(load64(state()+24)))==5,"try is a complete statement call; use a temporary for other expressions")
+ let success=next_label()
+ do emit(4043309087)
+ do jump(success,0)
+ # x0/x1 keep the primary error; ordinary common-return cleanup still runs.
+ do jump(load64(state()+88),16)
+ do label(success)
+ do emit(2852193248)
+ do store64(state()+136,0)
+ do store64(state()+232,0)
+ return 0
+end

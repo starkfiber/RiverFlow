@@ -1,0 +1,26 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/store.flow"
+use "lib/mcp.flow"
+fn mcp_execute(out:Writer):IO
+ let request=StoreRequest(0,0,0,0,0,0,0)
+ do try store_operation(load64(buffer("read_selected_path",8)),request,out)
+ return ok(out.used)
+end
+fn work(path):IO
+ do try store_configure(4194304)
+ do store64(buffer("read_selected_path",8),path)
+ do try mcp_serve("rf2-booking-read","0.47-candidate","booking_list","Read the workspace selected at launch; no path argument or mutation")
+ return ok(0)
+end
+fn main(argc,argv)
+ if argc!=2
+  return 2
+ end
+ handle work(load64(argv+8))
+ ok complete
+  return 0
+ err failure
+  return 2
+ end
+ return 3
+end

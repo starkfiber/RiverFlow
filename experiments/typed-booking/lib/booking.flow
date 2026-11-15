@@ -37,6 +37,10 @@ fn booking_add(bookings:Bookings,requested:Booking):IO
   end
   set i=i+1
  end
+ # Domain capacity is distinct from invalid request fields.
+ if bookings.length>=256
+  return err(27)
+ end
  handle records_push(bookings,requested)
  ok count
   return ok(1)

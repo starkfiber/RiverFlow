@@ -384,7 +384,7 @@ fn form_theme_cookie(p,n)
    set end=end+1
   end
   let prefix="rf2_booking_theme="
-  if (end-i>=18)&store_equal(p+i,prefix,18)
+  if all(end-i>=18,text_equal(p+i,18,prefix,18))
    if seen|load64(globals()+120)
     return 0
    end

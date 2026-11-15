@@ -1,4 +1,5 @@
 module booking_ui
+use "lib/booking.flow"
 use "lib/forms.flow"
 use "lib/datetime.flow"
 fn ui_begin(out:Writer,title)
@@ -115,8 +116,21 @@ fn ui_action(out:Writer,revision,action,label)
  return writer_text(out,"</button></form>")
 end
 fn ui_response(fd,out:Writer,status)
- if out.error
+ if out.error|(out.used>out.capacity)|(out.used>1048576)|((out.data==0)&(out.used!=0))
   return app_bad(fd,"500 Internal Server Error")
+ end
+ # Writer may use a private buffer; transport owns a distinct header/body area.
+ let target=buffer("documents_web_output",1048576)
+ if out.data!=target
+  if all(target>out.data,target-out.data<out.used)
+   let at=out.used
+   while at
+    set at=at-1
+    do store8(target+at,load8(out.data+at))
+   end
+  else
+   do io_copy(target,out.data,out.used)
+  end
  end
  do store64(globals()+80,out.used)
  do store64(globals()+88,0)

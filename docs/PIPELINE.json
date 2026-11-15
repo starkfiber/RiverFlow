@@ -1,6 +1,6 @@
 {
   "schema": "rf2.pipeline.v2",
-  "updatedOn": "2026-11-15",
+  "updatedOn": "2026-11-16",
   "mission": "One readable language and SDK for humans, AI, applications, devices and system software. Competitor benchmarks and the universal-platform ambition remain in scope.",
   "platformGates": [
     {
@@ -74,9 +74,12 @@
       "state": "active",
       "acceptance": "Matched complete-task comparisons with actual usage and failures",
       "evidence": [
-        "docs/SDK-CONSTRUCTION-0.45.md"
+        "docs/SDK-CONSTRUCTION-0.45.md",
+        "docs/APP-EFFORT-0.47.md",
+        "docs/APP-EFFORT-0.47.json",
+        "docs/APP-EFFORT-0.47-REPLAY.json"
       ],
-      "note": "One exploratory four-attempt SDK construction task executed. Broader model-pinned/target comparisons and real human trials remain open."
+      "note": "Two further frozen studies retain ten actual construction attempts, model request/usage, original failures, clean rebuilds and fresh replays. Corrected RF2 passes2/2, Python still leads effort. Broader tasks/models and real human trials remain open."
     }
   ],
   "completedSprints": [
@@ -324,7 +327,7 @@
     ]
   },
   "activeWork": {
-    "requirement": "R12",
-    "description": "Actual upstream Linguist acceptance remains missing. The owned-row scope audit is resolved in the published and download-verified0.46 edition. Recognition still requires genuine independent adoption and upstream review; local tests and generated files cannot substitute for external acceptance."
+    "requirement": "G8 / G4",
+    "description": "Application effort remains the priority. Source candidate0.47B fixes tested SDK/cleanup/protocol/UI gaps;15native suites passed and both corrected RF2 apps pass55/55. Reported input fell25.7% against revisedSDK A, but authoring time increased7.5% and Python still leads. Next: safe repeat-build workflow, clearer diagnostics, typed form/request adapters and a second matched app task. R12 Linguist remains pending and does not block this work."
   }
 }

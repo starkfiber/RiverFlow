@@ -5,8 +5,30 @@ use "lib/sha256.rf2"
 record StoreState(revision:u64,bytes:u64,version:u64,tail:u64,digest:u64,committed:u64,result:u64)
 record StoreRequest(action:u64,expected:u64,id:u64,room:u64,day:u64,start:u64,finish:u64)
 result StoredRows(own Bookings,u64)
+# Process policy is fixed by the first operation, including failed operations.
+# Default remains1MiB; callers can explicitly select up to16MiB before use.
+fn store_policy()
+ return buffer("typed_booking_policy",16)
+end
+fn store_limit()
+ let selected=load64(store_policy())
+ if selected==0
+  return 1048576
+ end
+ return selected
+end
+fn store_configure(limit):IO
+ if (limit<1048576)|(limit>16777216)
+  return err(22)
+ end
+ if load64(store_policy()+8)
+  return err(16)
+ end
+ do store64(store_policy(),limit)
+ return ok(limit)
+end
 fn store_data()
- return buffer("typed_booking_file",1048577)
+ return buffer("typed_booking_file",16777217)
 end
 fn store_equal(a,b,n)
  let i=0
@@ -99,7 +121,7 @@ fn store_decode(data,n,state:StoreState):StoredRows
  set state.version=0
  set state.tail=0
  set state.digest=0
- if (n==0)|(n>1048576)
+ if (n==0)|(n>store_limit())
   return err(9001)
  end
  let position=0
@@ -186,13 +208,13 @@ fn store_decode(data,n,state:StoreState):StoredRows
 end
 # Serialize only declared fields, with explicit schema identity and digest chaining.
 fn store_snapshot(fd,rows:Bookings,state:StoreState,version):IO
- if ((version!=1)&(version!=2))|(state.bytes>1048576)|(state.revision==18446744073709551615)
+ if ((version!=1)&(version!=2))|(state.bytes>store_limit())|(state.revision==18446744073709551615)
   return err(22)
  end
  let count=rows.length
  let width=32+(version==2)*8
  let size=120+count*width
- if (count>256)|(size>1048576-state.bytes)
+ if (count>256)|(size>store_limit()-state.bytes)
   return err(27)
  end
  let frame=buffer("typed_booking_snapshot",10360)
@@ -335,7 +357,7 @@ end
 fn store_locked(fd,request:StoreRequest,state:StoreState,out:Writer):IO
  own empty=Bookings()
  let bytes=0
- handle storage_read(fd,store_data(),1048576)
+ handle storage_read(fd,store_data(),store_limit())
  ok loaded
   set bytes=loaded
  err read_error
@@ -467,6 +489,7 @@ fn store_abort_creation(path,fd):IO
  return ok(0)
 end
 fn store_execute(path,request:StoreRequest,out:Writer,state:StoreState):IO
+ do store64(store_policy()+8,1)
  set state.revision=0
  set state.bytes=0
  set state.version=0
@@ -525,6 +548,7 @@ fn store_execute(path,request:StoreRequest,out:Writer,state:StoreState):IO
 end
 # A view returns a newly loaded owner only after the read descriptor is closed.
 fn store_view(path,state:StoreState):StoredRows
+ do store64(store_policy()+8,1)
  let fd=0
  handle storage_open(path,0,0)
  ok opened
@@ -534,7 +558,7 @@ fn store_view(path,state:StoreState):StoredRows
  end
  let bytes=0
  let error=0
- handle storage_read(fd,store_data(),1048576)
+ handle storage_read(fd,store_data(),store_limit())
  ok loaded
   set bytes=loaded
  err read_error

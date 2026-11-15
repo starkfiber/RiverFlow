@@ -1,6 +1,47 @@
 module app_server
 use "lib/forms.flow"
+# Zero selects serve-until-terminated. Other resource limits remain unchanged.
+fn app_policy()
+ return buffer("app_server_policy",24)
+end
+fn app_request_budget(limit):IO
+ if limit>1000000000
+  return err(22)
+ end
+ if load64(app_policy()+16)
+  return err(16)
+ end
+ do store64(app_policy(),limit)
+ do store64(app_policy()+8,1)
+ return ok(limit)
+end
+fn app_more(requests)
+ if load64(app_policy()+8)==0
+  return requests<4096
+ end
+ let limit=load64(app_policy())
+ return (limit==0)|(requests<limit)
+end
+# Zero means a rejection response was sent; never execute the app action then.
+# Parsed domain fields remain caller-owned so overlap/stale forms can be retained.
+fn app_form(fd,allowed,values:FormValues):IO
+ handle form_parse(load64(globals()+16),load64(globals()+24),allowed,values)
+ ok fields
+  return ok(fields)
+ err admission_error
+  let status="400 Bad Request"
+  if admission_error==403
+   set status="403 Forbidden"
+  end
+  if app_bad(fd,status)==0
+   return err(5)
+  end
+  return ok(0)
+ end
+ return err(5)
+end
 fn app_serve():IO
+ do store64(app_policy()+16,1)
  let i=0
  let got=0
  if clock_timebase(buffer("documents_web_timebase",8))!=0
@@ -59,13 +100,13 @@ fn app_serve():IO
  let client = 0
  let requests = 0
  let flags = 0
- while (load64(globals()+40)==0)&(requests<4096)
+ while (load64(globals()+40)==0)&app_more(requests)
   set got = syscall6(230,poll,9,1000,0,0,0)
   if got>>63
    do store64(globals()+40,1)
   else
    set i = 1
-   while (i<9)&(load64(globals()+40)==0)&(requests<4096)
+   while (i<9)&(load64(globals()+40)==0)&app_more(requests)
     set client = load32(poll+i*8)
     if (client!=4294967295)&((load32(poll+i*8+4)>>16)!=0)
      if form_request(client)

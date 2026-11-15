@@ -1,0 +1,15 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/mcp.flow"
+fn mcp_execute(out:Writer):IO
+ do writer_text(out,"{\"status\":\"ready\"}")
+ return ok(out.used)
+end
+fn main(argc,argv)
+ handle mcp_serve("native-status","0.47-candidate","status_read","Read a local status object")
+ ok complete
+  return 0
+ err cause
+  return 2
+ end
+ return 3
+end
