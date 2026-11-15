@@ -20,3 +20,17 @@ Twelve default/optimized admission controls ran; the admitted borrowed example w
 ## Source extension sprint0.40
 
 prepare.py now pins the baseline compiler source SHA-256, requires each assignment patch exactly once and refuses an existing generated compiler file. Pass an optional output directory to retain older experiment evidence. The extension adds nested scalar leaf assignment, including call-valued RHS and alias checks. The broader generated suite is tests/standalone/platform_sprint_verify.py; see docs/PLATFORM-SPRINT-0.40.md for final results. It remains a candidate, with no new owner transfer or generic collection element support.
+
+## Booking value boundary, source sprint 0.41
+
+`examples/booking-conflict.flow` is a borrowed nested-record application using the actual `examples/documents/lib/{datetime,text,io}.flow` modules. The acceptance controller copies only these reviewed dependencies into a fresh local fixture, compiles in both modes, compares conflicts with an independent Python date/interval oracle, and checks malformed inputs, closed output, nominal types, escape refusals and record boundaries.
+
+```sh
+RF2_NESTED_COMPILER=/absolute/experimental/compiler \
+RF2_TEST_COMPILER=/absolute/qualified/baseline/rf2c \
+python3 tests/standalone/application_values_verify.py
+```
+
+Run from the source root. The candidate is created through `prepare.py` and the explicit build route above. Do not compile the experimental example using a released compiler and count an unrelated missing-import refusal as type safety. The controller captures library/source/compiler hashes and retains raw results under ignored `artifacts/application-values-*`.
+
+The prototype accepts six arguments: `DATE START END DATE START END`, with canonical Gregorian dates and `HH:MM` times. An end may be `24:00`; a start may not. Intervals must be nonempty, same-day and half-open. Output is `{"conflict":0}` or `{"conflict":1}`; invalid arguments and failed output exit 2 without success JSON. There are no journal or room-state writes. General owned values and the real Booking storage migration remain work; see docs/APPLICATION-VALUES.md and the progress tracker.
