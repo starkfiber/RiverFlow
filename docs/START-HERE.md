@@ -51,3 +51,7 @@ For a manual stdio session from the checkout, `sh tools/dev.sh mcp` starts the s
 Read [the codebase map](CODEBASE.md) and [standalone build routes](STANDALONE.md). Select existing qualified native tools explicitly; `RF2_BOOTSTRAP_COMPILER` and `RF2_TEST_COMPILER` are developer verification inputs, not installation mechanisms. The historical package.json scripts exercise the JavaScript reference, not the default native user interface.
 
 For firmware use [the ESP32-C3 guide](../examples/esp32c3/README.md). Emulation is not physical board qualification. For broader app work, [product proof gates](PRODUCT-PROOF-GATES.md) keep completed engineering separate from unmeasured learning, AI usage and business benefits.
+
+## Typed multi-room development edition
+
+[Download RF2 Booking 0.45-dev](https://github.com/starkfiber/RiverFlow/releases/tag/v0.45.0-dev) for the qualified 0.44 owned-value compiler, full native rebuild source and shared CLI/browser/agent app. Verify the attached checksum and MANIFEST.json. This is a separate Apple Silicon Mac development edition, ad-hoc signed and not notarized; stable 0.17 remains unchanged. See [the full typed Booking contract](TYPED-BOOKING-0.45.md). Run booking-web with an explicitly selected workspace path and open its printed loopback URL. booking-agent is read-only by default; --write is explicit launch authority. This is a local cooperative application, not a public reservation service.

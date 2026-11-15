@@ -293,16 +293,16 @@
       },
       {
         "id": "R10",
-        "state": "active",
+        "state": "done",
         "acceptance": "Qualified downloadable compiler/application packages with fresh extraction and source-build checks",
         "evidence": [
           "docs/TYPED-BOOKING-0.45.json"
         ],
-        "note": "Fresh local archive extraction and native source rebuild passed; SFE upload and public download verification remain pending."
+        "note": "Development archive published by starkfiber, downloaded/hash-matched and freshly rebuilt; Apple Silicon Mac only, ad-hoc signed and not notarized."
       },
       {
         "id": "R11",
-        "state": "pending",
+        "state": "active",
         "acceptance": "Executed matched complete-development comparison against an established stack, retaining actual effort/usage and failures",
         "evidence": [],
         "note": ""
@@ -319,7 +319,7 @@
     ]
   },
   "activeWork": {
-    "requirement": "R10",
-    "description": "Publish the exact locally qualified native compiler/Booking development archive through verified SFE, then download and verify its bytes. Next: matched complete-development comparison with actual effort/usage, then genuine external language recognition."
+    "requirement": "R11",
+    "description": "Freeze an equal complete-app task and available libraries, execute fresh matched development attempts, retain actual usage/effort and failures, then independently grade features. Genuine upstream Linguist recognition remains a separate external gate."
   }
 }

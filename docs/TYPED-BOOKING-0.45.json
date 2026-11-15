@@ -69,7 +69,15 @@
   "package": {
     "path": "artifacts/RF2-Booking-0.45-dev-macos-arm64.tar.gz",
     "sha256": "5021115eff24e6d02e4304381ad31c280fc8f028f6076044aaae006d8bfa2c85",
-    "publicDownloadVerified": false
+    "publicDownloadVerified": true,
+    "releaseURL": "https://github.com/starkfiber/RiverFlow/releases/tag/v0.45.0-dev",
+    "downloadURL": "https://github.com/starkfiber/RiverFlow/releases/download/v0.45.0-dev/RF2-Booking-0.45-dev-macos-arm64.tar.gz",
+    "downloadedSHA256": "5021115eff24e6d02e4304381ad31c280fc8f028f6076044aaae006d8bfa2c85",
+    "downloadReport": "artifacts/booking-package-iffvll_8/report.json",
+    "downloadReportSHA256": "d77642051fb10d4005bb3e61ca1a95171019c5bb49fc219215230b32e74c5390",
+    "downloadChecks": 76,
+    "releaseCommit": "e0d347f2d76aa452c34967b2a6beb0a06c099689",
+    "actor": "starkfiber"
   },
   "existingMCP": "Original nine tools passed tests/standalone/sdk.mjs with SDK 1.32.2; no raw Systems admission",
   "limits": [
@@ -77,6 +85,6 @@
     "One Apple Silicon Mac, no second-host/hardware claim",
     "No actual AI productivity or new speed result",
     "No general nested pointer-bearing row storage",
-    "Public release and full-task comparison remain pending"
+    "Matched full-task comparison and actual external language recognition remain pending"
   ]
 }

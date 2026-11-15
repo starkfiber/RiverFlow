@@ -65,6 +65,6 @@ Preserved test-controller failures include an incorrect Origin trailing slash, a
 
 ## Remaining delivery gates
 
-The new archive is locally qualified. Public downloadable promotion remains pending until the exact archive is uploaded through verified SFE and downloaded/hash-checked. Stable 0.17 and historical bundles remain available. No second-host or new hardware qualification is claimed.
+The [new development archive](https://github.com/starkfiber/RiverFlow/releases/tag/v0.45.0-dev) was published by the verified starkfiber account at e0d347f. A fresh download matched SHA-256 `5021115eff24e6d02e4304381ad31c280fc8f028f6076044aaae006d8bfa2c85`; its 76 extraction, source-rebuild and shared-frontend checks passed again. Stable 0.17 and historical bundles remain available. No second-host or new hardware qualification is claimed.
 
 A matched complete-development comparison with actual usage/effort and retained failures is still required. No new runtime-speed, energy, token-saving or global Python/C/assembly parity claim is established. GitHub Linguist recognition requires genuine adoption and upstream acceptance; a local inventory or editor grammar cannot complete it. See the fixed [delivery progress](PROGRESS.md).
