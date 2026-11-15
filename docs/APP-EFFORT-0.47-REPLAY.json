@@ -1,0 +1,408 @@
+{
+  "controllerSHA256": "40ea3b16e61a6e5c6abf2bac902272ed898a38bdb3764bde67a6bf062a549dc3",
+  "kind": "post-construction source/image binding and fresh replay, not additional model attempts",
+  "results": [
+    {
+      "study": "v2",
+      "attempt": 1,
+      "arm": "oldRF2",
+      "rebuild": {
+        "entry": "main.flow",
+        "compilerSHA256": "85798b5c4e91cc5f80894f7f88bfcd23c00ef2eaf2800c63114ce7870a9372c8",
+        "flags": [
+          "--opt"
+        ],
+        "imageSHA256": "57e27679297f3dccebcd5e899098e4a8bc2b22b6cdea1d3324cf7d0efc67c27c",
+        "signatureIdentifier": "app-55554944d4eb70f816e79970febb1186375c438b",
+        "matched": true
+      },
+      "rebuildProbes": [
+        {
+          "flags": [
+            "--compact",
+            "--opt"
+          ],
+          "exit": 0,
+          "diagnostic": "RF2 native image emitted; apply macOS code signing before execution.",
+          "sha256": "912cdd61a2883fd501bbcdabf0040e1d99dbdae596a75bb33373c5cedea2e317",
+          "matchesGradedImage": false
+        },
+        {
+          "flags": [
+            "--opt"
+          ],
+          "exit": 0,
+          "diagnostic": "RF2 native image emitted; apply macOS code signing before execution.",
+          "sha256": "57e27679297f3dccebcd5e899098e4a8bc2b22b6cdea1d3324cf7d0efc67c27c",
+          "matchesGradedImage": true
+        }
+      ],
+      "originalGradeSHA256": "dc271f0a3126024709c04abf022b86aadbe9927f3a0cd72372deb8585a6f0396",
+      "replayGradeSHA256": "dc271f0a3126024709c04abf022b86aadbe9927f3a0cd72372deb8585a6f0396",
+      "originalAllPassed": false,
+      "replayAllPassed": false,
+      "checks": 47,
+      "passed": 44,
+      "failures": [
+        {
+          "name": "GUI wrong CSRF no effect",
+          "passed": false,
+          "detail": null
+        },
+        {
+          "name": "GUI complete acceptance sequence",
+          "passed": false,
+          "detail": "[Errno 54] Connection reset by peer"
+        },
+        {
+          "name": "MCP path/write denial and recovery",
+          "passed": false,
+          "detail": null
+        }
+      ],
+      "sourceChanges": 0
+    },
+    {
+      "study": "v2",
+      "attempt": 2,
+      "arm": "newRF2",
+      "rebuild": {
+        "entry": "main.flow",
+        "compilerSHA256": "1f7eba3991ce1116f700844b2f1a0980227a07505af1666a4b7bb6a3dcebcba4",
+        "flags": [
+          "--compact",
+          "--opt"
+        ],
+        "imageSHA256": "3b2fb8ee87a2200d0f6a4a6823e4cbf84264db9fab394f2a3525c66bd6e3edb4",
+        "signatureIdentifier": "app-5555494418509cdbda55c05338b4b2c4cf185b33",
+        "matched": true
+      },
+      "rebuildProbes": [
+        {
+          "flags": [
+            "--compact",
+            "--opt"
+          ],
+          "exit": 0,
+          "diagnostic": "RF2 native image emitted; apply macOS code signing before execution.",
+          "sha256": "3b2fb8ee87a2200d0f6a4a6823e4cbf84264db9fab394f2a3525c66bd6e3edb4",
+          "matchesGradedImage": true
+        }
+      ],
+      "originalGradeSHA256": "ed3886d639f9b3a06a828f53c152e0ed730252624f1cf94c81641b07d632ef5d",
+      "replayGradeSHA256": "ed3886d639f9b3a06a828f53c152e0ed730252624f1cf94c81641b07d632ef5d",
+      "originalAllPassed": false,
+      "replayAllPassed": false,
+      "checks": 55,
+      "passed": 52,
+      "failures": [
+        {
+          "name": "GUI wrong CSRF no effect",
+          "passed": false,
+          "detail": null
+        },
+        {
+          "name": "GUI duplicate field no effect",
+          "passed": false,
+          "detail": null
+        },
+        {
+          "name": "GUI unknown field no effect",
+          "passed": false,
+          "detail": null
+        }
+      ],
+      "sourceChanges": 0,
+      "statusDiagnostics": [
+        {
+          "name": "GUI wrong CSRF no effect",
+          "passed": false,
+          "detail": {
+            "status": 200,
+            "dataUnchanged": true
+          }
+        },
+        {
+          "name": "GUI duplicate field no effect",
+          "passed": false,
+          "detail": {
+            "status": 200,
+            "dataUnchanged": true
+          }
+        },
+        {
+          "name": "GUI unknown field no effect",
+          "passed": false,
+          "detail": {
+            "status": 200,
+            "dataUnchanged": true
+          }
+        }
+      ],
+      "diagnosticGraderSHA256": "7d3cc0e406586d8c248004e7ab5232d9650a899718ccdfbf8bfa74de8d0bd410",
+      "diagnosticReportSHA256": "ffa651a7b3e369c0a260d37a9f1a79dea48da6a2609f84cc94bef674d8939a18"
+    },
+    {
+      "study": "v2",
+      "attempt": 3,
+      "arm": "python",
+      "rebuild": null,
+      "rebuildProbes": [],
+      "originalGradeSHA256": "4e9790fd5742ad21a585a5cf7976893726f22ef29cb28d5fc5867b2c5a05ab9c",
+      "replayGradeSHA256": "7d23e1b2b4a69c94cc68629e3c7f58eb0706979796990f9e88abda1496ac5f7f",
+      "originalAllPassed": true,
+      "replayAllPassed": true,
+      "checks": 55,
+      "passed": 55,
+      "failures": [],
+      "sourceChanges": 0
+    },
+    {
+      "study": "v2",
+      "attempt": 4,
+      "arm": "python",
+      "rebuild": null,
+      "rebuildProbes": [],
+      "originalGradeSHA256": "f8b2bd48ebb97f1da4cd13d55416180796e5843f4f74f73294bf56f4d6b5689d",
+      "replayGradeSHA256": "365f993a95832cc2f3da1455f88985ced9795492a57532c6d98f4b5aa7ae4d5c",
+      "originalAllPassed": true,
+      "replayAllPassed": true,
+      "checks": 55,
+      "passed": 55,
+      "failures": [],
+      "sourceChanges": 0
+    },
+    {
+      "study": "v2",
+      "attempt": 5,
+      "arm": "newRF2",
+      "rebuild": {
+        "entry": "main.flow",
+        "compilerSHA256": "1f7eba3991ce1116f700844b2f1a0980227a07505af1666a4b7bb6a3dcebcba4",
+        "flags": [
+          "--compact",
+          "--opt"
+        ],
+        "imageSHA256": "5646821e34d2ab3aa449dda9bd2a5d38f63b17db7e453a2ba5913096db1aca72",
+        "signatureIdentifier": "app-5555494432a297570c56db0e544fc48c9613e78e",
+        "matched": true
+      },
+      "rebuildProbes": [
+        {
+          "flags": [
+            "--compact",
+            "--opt"
+          ],
+          "exit": 0,
+          "diagnostic": "RF2 native image emitted; apply macOS code signing before execution.",
+          "sha256": "5646821e34d2ab3aa449dda9bd2a5d38f63b17db7e453a2ba5913096db1aca72",
+          "matchesGradedImage": true
+        }
+      ],
+      "originalGradeSHA256": "ed3886d639f9b3a06a828f53c152e0ed730252624f1cf94c81641b07d632ef5d",
+      "replayGradeSHA256": "efc812a603af1a10ac969dd3494dd92dda937210dc268b2e97602154d7e4c950",
+      "originalAllPassed": false,
+      "replayAllPassed": false,
+      "checks": 55,
+      "passed": 52,
+      "failures": [
+        {
+          "name": "GUI wrong CSRF no effect",
+          "passed": false,
+          "detail": null
+        },
+        {
+          "name": "GUI duplicate field no effect",
+          "passed": false,
+          "detail": null
+        },
+        {
+          "name": "GUI unknown field no effect",
+          "passed": false,
+          "detail": null
+        }
+      ],
+      "sourceChanges": 0,
+      "statusDiagnostics": [
+        {
+          "name": "GUI wrong CSRF no effect",
+          "passed": false,
+          "detail": {
+            "status": 200,
+            "dataUnchanged": true
+          }
+        },
+        {
+          "name": "GUI duplicate field no effect",
+          "passed": false,
+          "detail": {
+            "status": 200,
+            "dataUnchanged": true
+          }
+        },
+        {
+          "name": "GUI unknown field no effect",
+          "passed": false,
+          "detail": {
+            "status": 200,
+            "dataUnchanged": true
+          }
+        }
+      ],
+      "diagnosticGraderSHA256": "7d3cc0e406586d8c248004e7ab5232d9650a899718ccdfbf8bfa74de8d0bd410",
+      "diagnosticReportSHA256": "ffa651a7b3e369c0a260d37a9f1a79dea48da6a2609f84cc94bef674d8939a18"
+    },
+    {
+      "study": "v2",
+      "attempt": 6,
+      "arm": "oldRF2",
+      "rebuild": {
+        "entry": "main.flow",
+        "compilerSHA256": "85798b5c4e91cc5f80894f7f88bfcd23c00ef2eaf2800c63114ce7870a9372c8",
+        "flags": [
+          "--opt"
+        ],
+        "imageSHA256": "d9ae120f717d06a57dfcd63d4f614a9ceeecf831b73dcae27f0cea5d9ede1f81",
+        "signatureIdentifier": "app-55554944349179c91c001071a9002154245b7b5d",
+        "matched": true
+      },
+      "rebuildProbes": [
+        {
+          "flags": [
+            "--compact",
+            "--opt"
+          ],
+          "exit": 0,
+          "diagnostic": "RF2 native image emitted; apply macOS code signing before execution.",
+          "sha256": "230897c9ec4391690bb91bf7f1c95a17b0059cc57567811b0031aa299abb8825",
+          "matchesGradedImage": false
+        },
+        {
+          "flags": [
+            "--opt"
+          ],
+          "exit": 0,
+          "diagnostic": "RF2 native image emitted; apply macOS code signing before execution.",
+          "sha256": "d9ae120f717d06a57dfcd63d4f614a9ceeecf831b73dcae27f0cea5d9ede1f81",
+          "matchesGradedImage": true
+        }
+      ],
+      "originalGradeSHA256": "f3925e598523b507f41547c8f0bb200b26e0b729f05a06f9dc28c025c42b7d90",
+      "replayGradeSHA256": "da97e497b7ef0b5c34fd32392a531b3365b2cbc31215830c8f404f53112810cc",
+      "originalAllPassed": false,
+      "replayAllPassed": false,
+      "checks": 55,
+      "passed": 54,
+      "failures": [
+        {
+          "name": "MCP path/write denial and recovery",
+          "passed": false,
+          "detail": null
+        }
+      ],
+      "sourceChanges": 0
+    },
+    {
+      "study": "v3",
+      "attempt": 1,
+      "arm": "python",
+      "rebuild": null,
+      "rebuildProbes": [],
+      "originalGradeSHA256": "dc9525cf5bdbb0a3363d509bce91670aa8fc6f3edf32a9b361bf438b0450ee6f",
+      "replayGradeSHA256": "aa63ef6868edf8bb784ef352e048bfa2117d2d654262a58a8f277ea391ef0956",
+      "originalAllPassed": true,
+      "replayAllPassed": true,
+      "checks": 55,
+      "passed": 55,
+      "failures": [],
+      "sourceChanges": 0
+    },
+    {
+      "study": "v3",
+      "attempt": 2,
+      "arm": "newRF2",
+      "rebuild": {
+        "entry": "main.flow",
+        "compilerSHA256": "88a7881433f3ca93ee6fac1702faef9bfaaa8a8563b665ad5a62f0a46978089b",
+        "flags": [
+          "--compact",
+          "--opt"
+        ],
+        "imageSHA256": "14b05bdbdeb69635cc2c7620341aa895c14d1907b884c31e3c33a005c2bddd64",
+        "signatureIdentifier": "app-55554944729f3f7ba34e33d09c1c8d2d66380216",
+        "matched": true
+      },
+      "rebuildProbes": [
+        {
+          "flags": [
+            "--compact",
+            "--opt"
+          ],
+          "exit": 0,
+          "diagnostic": "RF2 native image emitted; apply macOS code signing before execution.",
+          "sha256": "14b05bdbdeb69635cc2c7620341aa895c14d1907b884c31e3c33a005c2bddd64",
+          "matchesGradedImage": true
+        }
+      ],
+      "originalGradeSHA256": "e291860719521761b5ba7693b2de1789996cfe83499cccf42a6d59ba5e5d57f0",
+      "replayGradeSHA256": "1fbc1c2355d210f9ddac4bbd4f42390751d4a02309a26583eb9f39bc74b854b9",
+      "originalAllPassed": true,
+      "replayAllPassed": true,
+      "checks": 55,
+      "passed": 55,
+      "failures": [],
+      "sourceChanges": 0
+    },
+    {
+      "study": "v3",
+      "attempt": 3,
+      "arm": "newRF2",
+      "rebuild": {
+        "entry": "main.flow",
+        "compilerSHA256": "88a7881433f3ca93ee6fac1702faef9bfaaa8a8563b665ad5a62f0a46978089b",
+        "flags": [
+          "--compact",
+          "--opt"
+        ],
+        "imageSHA256": "315bc24673b28e2304405f0fe07ef1e7c00c405e7044eb539d455369313ccaab",
+        "signatureIdentifier": "app-555549447c2c7802ac6b5508d2029abb78e649a6",
+        "matched": true
+      },
+      "rebuildProbes": [
+        {
+          "flags": [
+            "--compact",
+            "--opt"
+          ],
+          "exit": 0,
+          "diagnostic": "RF2 native image emitted; apply macOS code signing before execution.",
+          "sha256": "315bc24673b28e2304405f0fe07ef1e7c00c405e7044eb539d455369313ccaab",
+          "matchesGradedImage": true
+        }
+      ],
+      "originalGradeSHA256": "1fbc1c2355d210f9ddac4bbd4f42390751d4a02309a26583eb9f39bc74b854b9",
+      "replayGradeSHA256": "1fbc1c2355d210f9ddac4bbd4f42390751d4a02309a26583eb9f39bc74b854b9",
+      "originalAllPassed": true,
+      "replayAllPassed": true,
+      "checks": 55,
+      "passed": 55,
+      "failures": [],
+      "sourceChanges": 0
+    },
+    {
+      "study": "v3",
+      "attempt": 4,
+      "arm": "python",
+      "rebuild": null,
+      "rebuildProbes": [],
+      "originalGradeSHA256": "4e9790fd5742ad21a585a5cf7976893726f22ef29cb28d5fc5867b2c5a05ab9c",
+      "replayGradeSHA256": "beba7e649d8f973bae51b19fca6a6b29b745fc227f8db0d1d8e38505b1347877",
+      "originalAllPassed": true,
+      "replayAllPassed": true,
+      "checks": 55,
+      "passed": 55,
+      "failures": [],
+      "sourceChanges": 0
+    }
+  ]
+}

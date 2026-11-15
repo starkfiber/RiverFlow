@@ -19,3 +19,5 @@ Versioned documents describe the artifacts tested at that time. Their numbers ar
 GitHub Pages is published from this `docs/` tree. The website source also lives under `site/`; generated book, learning and browser-lab mirrors must be regenerated together through their documented tools. Keep private raw evidence in ignored local directories; only reviewed public summaries belong here.
 
 [Typed Booking 0.45](TYPED-BOOKING-0.45.md): shared typed persistence, multi-room transactions, browser components and bounded agent tools, with exact executed evidence. Public promotion and full-task comparisons remain separate gates.
+
+[Application effort candidate 0.47](APP-EFFORT-0.47.md): 15 native suites, ten retained AI construction attempts, byte-identical RF2 app rebuilds and fresh replays. The corrected SDK passes the task; Python still leads the matched construction comparison. Native/source-only scope and all earlier failures remain explicit.
