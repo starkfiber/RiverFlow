@@ -71,7 +71,7 @@ For AI integration, [configure the native MCP host](docs/START-HERE.md#connect-a
 
 **Development apps: Workbench 0.38 and Documents 0.37.** Native Mac Booking, a Core learning editor and read-only document search share reusable libraries. [Select a package](docs/START-HERE.md#choose-a-package); each guide links its own acceptance evidence.
 
-**Latest foundation sprint: 0.41.** A [durable pipeline and borrowed Booking-value prototype](docs/APPLICATION-VALUES-0.41.md) add explicit progress and native acceptance evidence. The [0.40 lookup and composition work](docs/PLATFORM-SPRINT-0.40.md) remains available. General owned nested values are still a proposed foundation gate; no new compiler package is released.
+**Latest source candidate: 0.42.** [Owned text and collection fields](docs/OWNED-VALUES-0.42.md) support explicit local aggregate/field moves and ordinary cleanup in an isolated native compiler. A real labelled-batch app and controlled failure tests provide evidence. Owner returns, broader composition and release qualification remain work; stable packages are unchanged. The [progress ledger](docs/PROGRESS.md) keeps this sprint separate from those remaining gates.
 
 **Embedded development: 0.36 ESP32-C3.** A separate RF2-written backend has [emulator evidence](docs/ESP32C3-INTERRUPTS-0.36.md) for boot, UART, sensor-bus controls, timers and interrupts. Physical board and sensor validation remain pending.
 
