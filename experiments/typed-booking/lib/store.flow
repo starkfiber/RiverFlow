@@ -1,0 +1,570 @@
+module typed_booking_store
+use "lib/booking.flow"
+use "lib/storage.flow"
+use "lib/sha256.rf2"
+record StoreState(revision:u64,bytes:u64,version:u64,tail:u64,digest:u64,committed:u64,result:u64)
+record StoreRequest(action:u64,expected:u64,id:u64,room:u64,day:u64,start:u64,finish:u64)
+result StoredRows(own Bookings,u64)
+fn store_data()
+ return buffer("typed_booking_file",1048577)
+end
+fn store_equal(a,b,n)
+ let i=0
+ while i<n
+  if load8(a+i)!=load8(b+i)
+   return 0
+  end
+  set i=i+1
+ end
+ return 1
+end
+fn store_schema(version)
+ if version==1
+  return load64("BKG00001")
+ end
+ return load64("BKG00002")
+end
+fn store_magic(version)
+ if version==1
+  return load64("RF2BK01\n")
+ end
+ return load64("RF2BK02\n")
+end
+# An incomplete suffix is recoverable only if its available contract bytes agree.
+fn store_prefix_number(frame,remaining,offset,value)
+ if remaining<=offset
+  return 1
+ end
+ let size=remaining-offset
+ if size>8
+  set size=8
+ end
+ let expected=buffer("typed_booking_expected_word",8)
+ do store64(expected,value)
+ return store_equal(frame+offset,expected,size)
+end
+fn store_incomplete(frame,remaining,state:StoreState)
+ let prefix=remaining
+ if prefix>8
+  set prefix=8
+ end
+ let version=2
+ if store_equal(frame,"RF2BK01\n",prefix)
+  set version=1
+ else
+  if store_equal(frame,"RF2BK02\n",prefix)==0
+   return 0
+  end
+ end
+ if (state.version==2)&(version==1)
+  # Very short common prefixes do not imply a downgrade.
+  if (remaining>=7)|(store_equal(frame,"RF2BK02\n",prefix)==0)
+   return 0
+  end
+  set version=2
+ end
+ if (store_prefix_number(frame,remaining,8,version)==0)|(store_prefix_number(frame,remaining,16,store_schema(version))==0)|(store_prefix_number(frame,remaining,24,state.revision+1)==0)
+  return 0
+ end
+ if remaining>=40
+  let count=load64(frame+32)
+  if count>256
+   return 0
+  end
+  if store_prefix_number(frame,remaining,40,count*(32+(version==2)*8))==0
+   return 0
+  end
+ end
+ if remaining>48
+  let size=remaining-48
+  if size>32
+   set size=32
+  end
+  let previous=buffer("typed_booking_zero_digest",32)
+  if state.digest
+   set previous=state.digest
+  end
+  if store_equal(frame+48,previous,size)==0
+   return 0
+  end
+ end
+ return 1
+end
+# Reconstruct private typed rows before delivering any loaded owner to the caller.
+fn store_decode(data,n,state:StoreState):StoredRows
+ own rows=Bookings()
+ let row=Booking(0,0,0,0,0)
+ set state.revision=0
+ set state.bytes=0
+ set state.version=0
+ set state.tail=0
+ set state.digest=0
+ if (n==0)|(n>1048576)
+  return err(9001)
+ end
+ let position=0
+ while position<n
+  if n-position<120
+   if store_incomplete(data+position,n-position,state)==0
+    return err(9001)
+   end
+   set state.tail=1
+   return err(9003)
+  end
+  let frame=data+position
+  let version=load64(frame+8)
+  if (version!=1)&(version!=2)
+   return err(9001)
+  end
+  if (load64(frame)!=store_magic(version))|(load64(frame+16)!=store_schema(version))|((state.version==2)&(version==1))
+   return err(9001)
+  end
+  let count=load64(frame+32)
+  let width=32+(version==2)*8
+  if (count>256)|(load64(frame+40)!=count*width)|(load64(frame+24)!=state.revision+1)
+   return err(9001)
+  end
+  let size=120+count*width
+  if size>n-position
+   if store_incomplete(frame,n-position,state)==0
+    return err(9001)
+   end
+   set state.tail=1
+   return err(9003)
+  end
+  if load64(frame+size-8)!=load64("BKCOMMIT")
+   return err(9001)
+  end
+  let previous=buffer("typed_booking_zero_digest",32)
+  if state.digest
+   set previous=state.digest
+  end
+  if store_equal(frame+48,previous,32)==0
+   return err(9001)
+  end
+  if store_equal(sha256(frame,size-40),frame+size-40,32)==0
+   return err(9001)
+  end
+  handle records_clear(rows)
+  ok cleared
+  err clear_error
+   return err(clear_error)
+  end
+  let i=0
+  while i<count
+   let entry=frame+80+i*width
+   set row.id=load64(entry)
+   set row.room=1
+   let shift=0
+   if version==2
+    set row.room=load64(entry+8)
+    set shift=8
+   end
+   set row.day=load64(entry+8+shift)
+   set row.start=load64(entry+16+shift)
+   set row.finish=load64(entry+24+shift)
+   handle booking_add(rows,row)
+   ok added
+    if added!=1
+     return err(9001)
+    end
+   err row_error
+    if (row_error==17)|(row_error==22)
+     return err(9001)
+    end
+    return err(row_error)
+   end
+   set i=i+1
+  end
+  set position=position+size
+  set state.bytes=position
+  set state.revision=state.revision+1
+  set state.version=version
+  set state.digest=frame+size-40
+ end
+ return ok(move(rows))
+end
+# Serialize only declared fields, with explicit schema identity and digest chaining.
+fn store_snapshot(fd,rows:Bookings,state:StoreState,version):IO
+ if ((version!=1)&(version!=2))|(state.bytes>1048576)|(state.revision==18446744073709551615)
+  return err(22)
+ end
+ let count=rows.length
+ let width=32+(version==2)*8
+ let size=120+count*width
+ if (count>256)|(size>1048576-state.bytes)
+  return err(27)
+ end
+ let frame=buffer("typed_booking_snapshot",10360)
+ do fill_zero(frame,80)
+ do store64(frame,store_magic(version))
+ do store64(frame+8,version)
+ do store64(frame+16,store_schema(version))
+ do store64(frame+24,state.revision+1)
+ do store64(frame+32,count)
+ do store64(frame+40,count*width)
+ if state.digest
+  do io_copy(frame+48,state.digest,32)
+ end
+ let row=Booking(0,0,0,0,0)
+ let i=0
+ while i<count
+  handle records_read(rows,i,row)
+  ok fields
+  err row_error
+   return err(row_error)
+  end
+  let entry=frame+80+i*width
+  do store64(entry,row.id)
+  let shift=0
+  if version==2
+   do store64(entry+8,row.room)
+   set shift=8
+  else
+   if row.room!=1
+    return err(426)
+   end
+  end
+  do store64(entry+8+shift,row.day)
+  do store64(entry+16+shift,row.start)
+  do store64(entry+24+shift,row.finish)
+  set i=i+1
+ end
+ do io_copy(frame+size-40,sha256(frame,size-40),32)
+ do store64(frame+size-8,load64("BKCOMMIT"))
+ handle storage_append(fd,frame,size,state.bytes)
+ ok committed
+  set state.committed=1
+  set state.bytes=committed
+  set state.revision=state.revision+1
+  set state.version=version
+  set state.digest=frame+size-40
+ err append_error
+  return err(append_error)
+ end
+ return ok(state.revision)
+end
+fn store_json(rows:Bookings,state:StoreState,out:Writer)
+ do writer_reset(out)
+ do writer_text(out,"{\"revision\":")
+ do writer_number(out,state.revision)
+ do writer_text(out,",\"version\":")
+ do writer_number(out,state.version)
+ do writer_text(out,",\"bookings\":[")
+ let row=Booking(0,0,0,0,0)
+ let i=0
+ while i<rows.length
+  handle records_read(rows,i,row)
+  ok fields
+  err row_error
+   return 0
+  end
+  if i
+   do writer_text(out,",")
+  end
+  do writer_text(out,"{\"id\":\"")
+  do writer_number(out,row.id)
+  do writer_text(out,"\",\"room\":")
+  do writer_number(out,row.room)
+  do writer_text(out,",\"day\":")
+  do writer_number(out,row.day)
+  do writer_text(out,",\"start\":")
+  do writer_number(out,row.start)
+  do writer_text(out,",\"finish\":")
+  do writer_number(out,row.finish)
+  do writer_text(out,"}")
+  set i=i+1
+ end
+ do writer_text(out,"]}\n")
+ return out.error==0
+end
+fn store_apply(fd,rows:Bookings,request:StoreRequest,state:StoreState):IO
+ let row=Booking(request.id,request.room,request.day,request.start,request.finish)
+ let existing=Booking(0,0,0,0,0)
+ if request.expected!=state.revision
+  return err(409)
+ end
+ if request.action==4
+  if state.version!=1
+   return err(22)
+  end
+  return ok(0)
+ end
+ if request.action==2
+  if (state.version==1)&(row.room!=1)
+   return err(426)
+  end
+  handle booking_add(rows,row)
+  ok added
+   if added==0
+    return err(409)
+   end
+  err add_error
+   return err(add_error)
+  end
+ else
+  if request.action!=3
+   return err(22)
+  end
+  let i=0
+  let found=0
+  while i<rows.length
+   handle records_read(rows,i,existing)
+   ok fields
+   err read_error
+    return err(read_error)
+   end
+   if existing.id==request.id
+    handle records_remove(rows,i)
+    ok remaining
+     set found=1
+    err remove_error
+     return err(remove_error)
+    end
+    set i=rows.length
+   else
+    set i=i+1
+   end
+  end
+  if found==0
+   return err(404)
+  end
+ end
+ return ok(0)
+end
+fn store_locked(fd,request:StoreRequest,state:StoreState,out:Writer):IO
+ own empty=Bookings()
+ let bytes=0
+ handle storage_read(fd,store_data(),1048576)
+ ok loaded
+  set bytes=loaded
+ err read_error
+  return err(read_error)
+ end
+ if (request.action==1)|(request.action==6)
+  if bytes
+   return err(17)
+  end
+  let initial_version=2
+  if request.action==6
+   set initial_version=1
+  end
+  handle store_snapshot(fd,empty,state,initial_version)
+  ok initialized
+  err init_error
+   return err(init_error)
+  end
+  if store_json(empty,state,out)==0
+   return err(5)
+  end
+  return ok(state.revision)
+ end
+ handle store_decode(store_data(),bytes,state)
+ ok own rows:Bookings
+  if request.action==5
+   return err(22)
+  end
+  if request.action
+   handle store_apply(fd,rows,request,state)
+   ok applied
+   err apply_error
+    return err(apply_error)
+   end
+   let version=state.version
+   if request.action==4
+    set version=2
+   end
+   handle store_snapshot(fd,rows,state,version)
+   ok saved
+   err save_error
+    return err(save_error)
+   end
+  end
+  if store_json(rows,state,out)==0
+   return err(5)
+  end
+ err decode_error
+  if (request.action!=5)|(decode_error!=9003)|(state.bytes==0)
+   return err(decode_error)
+  end
+  if state.revision!=request.expected
+   return err(409)
+  end
+  # Explicit recovery retires only an incomplete suffix after a verified prefix.
+  if storage_truncate(fd,state.bytes)!=0
+   return err(9002)
+  end
+  if storage_sync(fd)!=0
+   return err(9002)
+  end
+  set state.committed=1
+  do writer_reset(out)
+  do writer_text(out,"{\"recovered_revision\":")
+  do writer_number(out,state.revision)
+  do writer_text(out,"}\n")
+ end
+ return ok(state.revision)
+end
+# Initial file creation also needs its directory entry synced before confirmation.
+fn store_parent_sync(path):IO
+ let bytes=io_size(path)
+ if (bytes==0)|(bytes>1023)
+  return err(22)
+ end
+ let parent=buffer("typed_booking_parent",1024)
+ let last=0
+ let i=0
+ while i<bytes
+  if load8(path+i)==47
+   set last=i+1
+  end
+  set i=i+1
+ end
+ if last==0
+  do store8(parent,46)
+  do store8(parent+1,0)
+ else
+  let count=last-1
+  if count==0
+   set count=1
+  end
+  do io_copy(parent,path,count)
+  do store8(parent+count,0)
+ end
+ let fd=open(parent,1048580,0)
+ if fd>>63
+  return err(0-fd)
+ end
+ let synced=storage_sync(fd)
+ let closed=close(fd)
+ if synced>>63
+  return err(0-synced)
+ end
+ if closed>>63
+  return err(0-closed)
+ end
+ return ok(0)
+end
+# Retire only this operation's exclusively created, verified empty file.
+# This is cooperative pathname safety, not isolation from a hostile same-user rename.
+fn store_abort_creation(path,fd):IO
+ let opened=buffer("typed_booking_abort_opened",144)
+ let named=buffer("typed_booking_abort_named",144)
+ if (syscall6(339,fd,opened,0,0,0,0)!=0)|(syscall6(340,path,named,0,0,0,0)!=0)
+  return err(9002)
+ end
+ if (load64(opened+96)!=0)|(load32(opened)!=load32(named))|(load64(opened+8)!=load64(named+8))|((load32(named+4)&61440)!=32768)|((load32(named+4)>>16)!=1)
+  return err(9002)
+ end
+ if syscall6(10,path,0,0,0,0,0)!=0
+  return err(9002)
+ end
+ handle store_parent_sync(path)
+ ok retired
+ err sync_error
+  return err(9002)
+ end
+ return ok(0)
+end
+fn store_execute(path,request:StoreRequest,out:Writer,state:StoreState):IO
+ set state.revision=0
+ set state.bytes=0
+ set state.version=0
+ set state.tail=0
+ set state.digest=0
+ set state.committed=0
+ set state.result=0
+ if (io_size(path)==0)|(io_size(path)>1023)
+  return err(22)
+ end
+ let fd=0
+ handle storage_open(path,(request.action==1)|(request.action==6),request.action!=0)
+ ok opened
+  set fd=opened
+ err open_error
+  return err(open_error)
+ end
+ let error=0
+ let result=0
+ handle store_locked(fd,request,state,out)
+ ok completed
+  set result=completed
+ err operation_error
+  set error=operation_error
+ end
+ if error&((request.action==1)|(request.action==6))&(state.committed==0)&(error!=9002)
+  handle store_abort_creation(path,fd)
+  ok retired_new_file
+  err abort_error
+   set error=9002
+  end
+ end
+ let closed=close(fd)
+ if closed>>63
+  if (request.action!=0)|(state.committed!=0)
+   return err(9002)
+  end
+  if error==0
+   return err(65536-closed)
+  end
+ end
+ if error
+  if state.committed
+   return err(9002)
+  end
+  return err(error)
+ end
+ if (request.action==1)|(request.action==6)
+  handle store_parent_sync(path)
+  ok directory_synced
+  err directory_error
+   return err(9002)
+  end
+ end
+ return ok(result)
+end
+# A view returns a newly loaded owner only after the read descriptor is closed.
+fn store_view(path,state:StoreState):StoredRows
+ let fd=0
+ handle storage_open(path,0,0)
+ ok opened
+  set fd=opened
+ err open_error
+  return err(open_error)
+ end
+ let bytes=0
+ let error=0
+ handle storage_read(fd,store_data(),1048576)
+ ok loaded
+  set bytes=loaded
+ err read_error
+  set error=read_error
+ end
+ if error
+  do close(fd)
+  return err(error)
+ end
+ handle store_decode(store_data(),bytes,state)
+ ok own rows:Bookings
+  let closed=close(fd)
+  if closed>>63
+   return err(65536-closed)
+  end
+  return ok(move(rows))
+ err decode_error
+  do close(fd)
+  return err(decode_error)
+ end
+ return err(5)
+end
+
+fn store_operation(path,request:StoreRequest,out:Writer):IO
+ let state=StoreState(0,0,0,0,0,0,0)
+ handle store_execute(path,request,out,state)
+ ok result
+  return ok(result)
+ err operation_error
+  return err(operation_error)
+ end
+ return err(5)
+end

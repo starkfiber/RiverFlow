@@ -37,13 +37,13 @@
     "site/learn/index.html"
   ],
   "bytesByLanguage": {
-    "Python": 985170,
-    "RiverFlow": 947523,
-    "JavaScript": 82568,
+    "RiverFlow": 1046495,
+    "Python": 1036760,
+    "JavaScript": 84605,
     "HTML": 23891,
     "CSS": 12629,
+    "Shell": 7064,
     "Assembly": 6795,
-    "Shell": 5706,
     "C": 3957
   },
   "filesByLanguage": {
@@ -51,10 +51,10 @@
     "C": 3,
     "CSS": 3,
     "HTML": 6,
-    "JavaScript": 29,
-    "Python": 161,
-    "RiverFlow": 177,
-    "Shell": 6
+    "JavaScript": 30,
+    "Python": 166,
+    "RiverFlow": 187,
+    "Shell": 7
   },
   "bytesByArea": {
     "Application and target examples": {
@@ -67,8 +67,8 @@
     },
     "Build and publishing tools": {
       "JavaScript": 10300,
-      "Python": 217357,
-      "Shell": 4855
+      "Python": 221667,
+      "Shell": 6213
     },
     "Compiler and native runtime": {
       "RiverFlow": 358046
@@ -88,13 +88,13 @@
     },
     "Unreleased experiments": {
       "Python": 31479,
-      "RiverFlow": 40318
+      "RiverFlow": 139290
     },
     "Verification and independent oracles": {
       "Assembly": 6795,
       "C": 3567,
-      "JavaScript": 25875,
-      "Python": 701447,
+      "JavaScript": 27912,
+      "Python": 748727,
       "RiverFlow": 262069
     },
     "Website and documentation source": {
@@ -1042,6 +1042,66 @@
       "bytes": 11838
     },
     {
+      "path": "experiments/typed-booking/agent.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 19422
+    },
+    {
+      "path": "experiments/typed-booking/lib/app-server.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 3264
+    },
+    {
+      "path": "experiments/typed-booking/lib/booking.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 1469
+    },
+    {
+      "path": "experiments/typed-booking/lib/forms.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 7568
+    },
+    {
+      "path": "experiments/typed-booking/lib/json.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 12875
+    },
+    {
+      "path": "experiments/typed-booking/lib/store.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 13297
+    },
+    {
+      "path": "experiments/typed-booking/lib/transport.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 4046
+    },
+    {
+      "path": "experiments/typed-booking/lib/ui.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 20997
+    },
+    {
+      "path": "experiments/typed-booking/main.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 2865
+    },
+    {
+      "path": "experiments/typed-booking/web.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 13169
+    },
+    {
       "path": "native/attendance.rf2",
       "language": "RiverFlow",
       "area": "Compiler and native runtime",
@@ -1300,16 +1360,40 @@
       "bytes": 10001
     },
     {
+      "path": "tests/standalone/booking_agent_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 12952
+    },
+    {
       "path": "tests/standalone/booking_faults_verify.py",
       "language": "Python",
       "area": "Verification and independent oracles",
       "bytes": 2119
     },
     {
+      "path": "tests/standalone/booking_package_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 4539
+    },
+    {
+      "path": "tests/standalone/booking_sdk.mjs",
+      "language": "JavaScript",
+      "area": "Verification and independent oracles",
+      "bytes": 2037
+    },
+    {
       "path": "tests/standalone/booking_verify.py",
       "language": "Python",
       "area": "Verification and independent oracles",
       "bytes": 4102
+    },
+    {
+      "path": "tests/standalone/booking_web_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 10329
     },
     {
       "path": "tests/standalone/browser_worker_verify.mjs",
@@ -1996,6 +2080,12 @@
       "bytes": 9475
     },
     {
+      "path": "tests/standalone/typed_booking_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 19460
+    },
+    {
       "path": "tests/standalone/unicode_lines_verify.py",
       "language": "Python",
       "area": "Verification and independent oracles",
@@ -2248,6 +2338,12 @@
       "bytes": 1723
     },
     {
+      "path": "tools/build-typed-booking.sh",
+      "language": "Shell",
+      "area": "Build and publishing tools",
+      "bytes": 1358
+    },
+    {
       "path": "tools/build-vm-runner.py",
       "language": "Python",
       "area": "Build and publishing tools",
@@ -2372,6 +2468,12 @@
       "language": "Python",
       "area": "Build and publishing tools",
       "bytes": 2370
+    },
+    {
+      "path": "tools/package-typed-booking.py",
+      "language": "Python",
+      "area": "Build and publishing tools",
+      "bytes": 4310
     },
     {
       "path": "tools/prepare-vm-lab.py",

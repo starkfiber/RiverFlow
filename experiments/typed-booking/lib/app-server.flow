@@ -1,0 +1,125 @@
+module app_server
+use "lib/forms.flow"
+fn app_serve():IO
+ let i=0
+ let got=0
+ if clock_timebase(buffer("documents_web_timebase",8))!=0
+  return err(5)
+ end
+ if (load32(buffer("documents_web_timebase",8))==0)|(load32(buffer("documents_web_timebase",8)+4)==0)
+  return err(5)
+ end
+ let server = syscall6(97,2,1,0,0,0,0)
+ if server>>63
+  return err(5)
+ end
+ if syscall6(92,server,2,1,0,0,0)!=0
+  do close(server)
+  return err(5)
+ end
+ let address = buffer("documents_web_address",16)
+ let address_size = buffer("documents_web_address_size",4)
+ do store8(address,16)
+ do store8(address+1,2)
+ do store8(address+4,127)
+ do store8(address+7,1)
+ if syscall6(104,server,address,16,0,0,0)!=0
+  do close(server)
+  return err(5)
+ end
+ do store32(address_size,16)
+ if syscall6(32,server,address,address_size,0,0,0)!=0
+  do close(server)
+  return err(5)
+ end
+ if syscall6(106,server,8,0,0,0,0)!=0
+  do close(server)
+  return err(5)
+ end
+ do reset_output()
+ do text("127.0.0.1:")
+ do decimal(load8(address+2)*256+load8(address+3))
+ do copy(buffer("documents_web_host",64),buffer("documents_web_output",1048576),load64(globals()+80))
+ do reset_output()
+ do text("http://")
+ do text(buffer("documents_web_host",64))
+ do copy(buffer("documents_web_url",96),buffer("documents_web_output",1048576),load64(globals()+80))
+ do write(1,buffer("documents_web_url",96),size(buffer("documents_web_url",96)))
+ do write(1,"/\n",2)
+ let poll = buffer("documents_web_poll",72)
+ do store32(poll,server)
+ do store32(poll+4,1)
+ set i = 1
+ while i<9
+  do store32(poll+i*8,4294967295)
+  do store32(poll+i*8+4,1)
+  set i = i+1
+ end
+ let option = buffer("documents_web_socket_option",8)
+ let client = 0
+ let requests = 0
+ let flags = 0
+ while (load64(globals()+40)==0)&(requests<4096)
+  set got = syscall6(230,poll,9,1000,0,0,0)
+  if got>>63
+   do store64(globals()+40,1)
+  else
+   set i = 1
+   while (i<9)&(load64(globals()+40)==0)&(requests<4096)
+    set client = load32(poll+i*8)
+    if (client!=4294967295)&((load32(poll+i*8+4)>>16)!=0)
+     if form_request(client)
+      handle app_dispatch(client)
+      ok handled
+      err handler_error
+       do store64(globals()+40,1)
+      end
+     else
+      if load64(globals()+32)!=0
+       do app_bad(client,"400 Bad Request")
+      end
+     end
+     do close(client)
+     do store32(poll+i*8,4294967295)
+     set requests = requests+1
+    end
+    set i = i+1
+   end
+   if ((load32(poll+4)>>16)!=0)&(load64(globals()+40)==0)
+    set client = syscall6(30,server,0,0,0,0,0)
+    if (client>>63)==0
+     set flags = syscall6(92,client,3,0,0,0,0)
+     if (flags>>63)==0
+      if (syscall6(92,client,4,flags|4,0,0,0)==0)&(syscall6(92,client,2,1,0,0,0)==0)
+       do store32(option,1)
+       do syscall6(105,client,65535,4130,option,4,0)
+       set i = 1
+       while (i<8)&(load32(poll+i*8)!=4294967295)
+        set i = i+1
+       end
+       if load32(poll+i*8)!=4294967295
+        do close(load32(poll+i*8))
+       end
+       do store32(poll+i*8,client)
+       do store32(poll+i*8+4,1)
+      else
+       do close(client)
+      end
+     else
+      do close(client)
+     end
+    end
+   end
+  end
+ end
+ set i = 1
+ while i<9
+  set client = load32(poll+i*8)
+  if client!=4294967295
+   do close(client)
+  end
+  set i = i+1
+ end
+ do close(server)
+ return ok(0)
+end

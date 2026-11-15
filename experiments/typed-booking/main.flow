@@ -1,0 +1,145 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/store.flow"
+use "lib/output.rf2"
+fn store_command(p,text)
+ let n=io_size(text)
+ return (io_size(p)==n)&store_equal(p,text,n)
+end
+fn command_number(p):IO
+ let value=0
+ let i=0
+ if load8(p)==0
+  return err(22)
+ end
+ while load8(p+i)
+  let digit=load8(p+i)
+  if (digit<48)|(digit>57)|(i>=20)
+   return err(22)
+  end
+  set digit=digit-48
+  if value>(18446744073709551615-digit)//10
+   return err(22)
+  end
+  set value=value*10+digit
+  set i=i+1
+ end
+ return ok(value)
+end
+fn command_request(argc,argv,request:StoreRequest):IO
+ if argc<3
+  return err(22)
+ end
+ let cmd=load64(argv+16)
+ let expected_count=3
+ if store_command(cmd,"init")
+  set request.action=1
+ else
+  if store_command(cmd,"init-v1")
+   set request.action=6
+  else
+   if store_command(cmd,"list")
+    set request.action=0
+   else
+    if store_command(cmd,"add")
+     set request.action=2
+     set expected_count=9
+    else
+     if store_command(cmd,"cancel")
+      set request.action=3
+      set expected_count=5
+     else
+      if store_command(cmd,"migrate")
+       set request.action=4
+       set expected_count=4
+      else
+       if store_command(cmd,"recover")
+        set request.action=5
+        set expected_count=4
+       else
+        return err(22)
+       end
+      end
+     end
+    end
+   end
+  end
+ end
+ if argc!=expected_count
+  return err(22)
+ end
+ if expected_count>3
+  handle command_number(load64(argv+24))
+  ok revision
+   set request.expected=revision
+  err revision_error
+   return err(revision_error)
+  end
+ end
+ if expected_count>4
+  handle command_number(load64(argv+32))
+  ok id
+   set request.id=id
+  err id_error
+   return err(id_error)
+  end
+ end
+ if expected_count==9
+  handle command_number(load64(argv+40))
+  ok room
+   set request.room=room
+  err room_error
+   return err(room_error)
+  end
+  handle command_number(load64(argv+48))
+  ok day
+   set request.day=day
+  err day_error
+   return err(day_error)
+  end
+  handle command_number(load64(argv+56))
+  ok start
+   set request.start=start
+  err start_error
+   return err(start_error)
+  end
+  handle command_number(load64(argv+64))
+  ok finish
+   set request.finish=finish
+  err finish_error
+   return err(finish_error)
+  end
+ end
+ return ok(0)
+end
+fn run_store(argc,argv):IO
+ let request=StoreRequest(0,0,0,0,0,0,0)
+ handle command_request(argc,argv,request)
+ ok parsed
+ err parse_error
+  return err(parse_error)
+ end
+ let output=buffer("typed_booking_json",65536)
+ let writer=Writer(output,65536,0,0)
+ handle store_operation(load64(argv+8),request,writer)
+ ok finished
+ err store_error
+  return err(store_error)
+ end
+ if output_bytes(1,output,writer.used)==0
+  if request.action
+   return err(9002)
+  end
+  return err(5)
+ end
+ return ok(0)
+end
+fn main(argc,argv)
+ handle run_store(argc,argv)
+ ok complete
+  return 0
+ err failure
+  do output_error(failure)
+  return 2
+ end
+ return 3
+end

@@ -1,0 +1,434 @@
+{
+  "readOnly": [
+    {
+      "name": "booking_list",
+      "title": "Read saved bookings",
+      "description": "Read the one journal selected when this native server was launched. Returns an exact revision and snapshot digest. No path argument, network request or code execution.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "read",
+              "confirmed",
+              "failed",
+              "uncertain"
+            ]
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ]
+          },
+          "bookings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]{0,19}$"
+                },
+                "room": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 16
+                },
+                "day": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 3652059
+                },
+                "start": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1439
+                },
+                "finish": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1440
+                }
+              },
+              "required": [
+                "id",
+                "room",
+                "day",
+                "start",
+                "finish"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 256
+          },
+          "snapshot_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "errorCode": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "outcome"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ],
+  "writeEnabled": [
+    {
+      "name": "booking_list",
+      "title": "Read saved bookings",
+      "description": "Read the one journal selected when this native server was launched. Returns an exact revision and snapshot digest. No path argument, network request or code execution.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "read",
+              "confirmed",
+              "failed",
+              "uncertain"
+            ]
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ]
+          },
+          "bookings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]{0,19}$"
+                },
+                "room": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 16
+                },
+                "day": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 3652059
+                },
+                "start": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1439
+                },
+                "finish": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1440
+                }
+              },
+              "required": [
+                "id",
+                "room",
+                "day",
+                "start",
+                "finish"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 256
+          },
+          "snapshot_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "errorCode": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "outcome"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "booking_reserve",
+      "title": "Reserve a room",
+      "description": "Save one booking in the selected journal only, if its revision still matches and the room/time does not overlap. Day is Gregorian ordinal; minutes are same-day 24-hour values. ID is a decimal string. An uncertain outcome requires a fresh read before retry.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expected_revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4294967295
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]{0,19}$"
+          },
+          "room": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 16
+          },
+          "day": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3652059
+          },
+          "start": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1439
+          },
+          "finish": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1440
+          }
+        },
+        "required": [
+          "expected_revision",
+          "id",
+          "room",
+          "day",
+          "start",
+          "finish"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "read",
+              "confirmed",
+              "failed",
+              "uncertain"
+            ]
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ]
+          },
+          "bookings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]{0,19}$"
+                },
+                "room": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 16
+                },
+                "day": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 3652059
+                },
+                "start": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1439
+                },
+                "finish": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1440
+                }
+              },
+              "required": [
+                "id",
+                "room",
+                "day",
+                "start",
+                "finish"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 256
+          },
+          "snapshot_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "errorCode": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "outcome"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "booking_cancel",
+      "title": "Cancel a saved booking",
+      "description": "Cancel one exact ID in the selected journal only, with a matching expected revision. Historical frames remain in the file. An uncertain outcome requires a fresh read before retry.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expected_revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4294967295
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]{0,19}$"
+          }
+        },
+        "required": [
+          "expected_revision",
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "read",
+              "confirmed",
+              "failed",
+              "uncertain"
+            ]
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ]
+          },
+          "bookings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]{0,19}$"
+                },
+                "room": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 16
+                },
+                "day": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 3652059
+                },
+                "start": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1439
+                },
+                "finish": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1440
+                }
+              },
+              "required": [
+                "id",
+                "room",
+                "day",
+                "start",
+                "finish"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 256
+          },
+          "snapshot_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "errorCode": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "outcome"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

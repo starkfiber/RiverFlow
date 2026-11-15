@@ -17,3 +17,5 @@
 Versioned documents describe the artifacts tested at that time. Their numbers are retained for reproduction; a later guide does not silently update an old package. Source experiments, development bundles and stable releases have different qualification scopes. See the current package table before choosing a compiler.
 
 GitHub Pages is published from this `docs/` tree. The website source also lives under `site/`; generated book, learning and browser-lab mirrors must be regenerated together through their documented tools. Keep private raw evidence in ignored local directories; only reviewed public summaries belong here.
+
+[Typed Booking 0.45](TYPED-BOOKING-0.45.md): shared typed persistence, multi-room transactions, browser components and bounded agent tools, with exact executed evidence. Public promotion and full-task comparisons remain separate gates.

@@ -1,0 +1,82 @@
+{
+  "edition": "0.45.0-dev",
+  "host": "Apple Silicon macOS, one host",
+  "compilerSHA256": "85798b5c4e91cc5f80894f7f88bfcd23c00ef2eaf2800c63114ce7870a9372c8",
+  "compilerSourceSHA256": "65d729395929b8766b5f3d96aa0730a558004e74964fb31e9022bdd02065d0c7",
+  "runtimeSHA256": "df714d688e5b96577abb294a192432ed2f57f07c080ab23e32eee46cf94b0b89",
+  "suites": [
+    {
+      "name": "persistence",
+      "checks": 1350,
+      "allPassed": true,
+      "rawReport": "artifacts/typed-booking-lrmto20w/report.json",
+      "rawSHA256": "8cbde89b10218e0e269163624e3e5777ef96d8b3d1830b35e696ccc83e7da913"
+    },
+    {
+      "name": "guiHTTP",
+      "checks": 96,
+      "allPassed": true,
+      "rawReport": "artifacts/booking-web-6t81hr8q/report.json",
+      "rawSHA256": "33d0841ff4da42997dcf0634cfe988dbc2bcdd0f1a277e6ad71d27f06f776eb5"
+    },
+    {
+      "name": "agent",
+      "checks": 794,
+      "allPassed": true,
+      "rawReport": "artifacts/booking-agent-farsb3mf/report.json",
+      "rawSHA256": "1e29b2174326a4816906d08e35bde677b7b3e66f0a5f022078c4cdbc01ecf773"
+    },
+    {
+      "name": "freshPackage",
+      "checks": 76,
+      "allPassed": true,
+      "rawReport": "artifacts/booking-package-w274am2a/report.json",
+      "rawSHA256": "d77642051fb10d4005bb3e61ca1a95171019c5bb49fc219215230b32e74c5390"
+    }
+  ],
+  "sources": {
+    "examples/collection-tools/lib/output.rf2": "08f93f074be4c13ab3993b454adad0ffa81afcb69c4b06fbebe93f48827f4a66",
+    "examples/documents/lib/datetime.flow": "e91acb6d334dafef70b258f34261db5d1ef6b66473a0560345a8cca714f36aad",
+    "examples/documents/lib/io.flow": "3c7be52f4314ab613af53271a0bd00dd2e9e04d4c198275d47a3fe34f4af023f",
+    "examples/documents/lib/storage.flow": "ae214159408d083c13a517e6c0807e1b3bbd44b983fe7e50dfc3bc08c6015cad",
+    "examples/documents/lib/text.flow": "840525a4afe7829121b7ddbf14b9db01950d215657e5966bd3ddc9bdf2a59daf",
+    "examples/evidence-contract/lib/sha256.rf2": "b79e7217db169985a5b2262ad4e4c5a550dc7741a60aaff816176a7324a0ffb5",
+    "experiments/typed-booking/README.md": "962262eca436bd7f85a09d1c8ad8cf7276b52ab43755a90ceb9ca3b138399f43",
+    "experiments/typed-booking/agent.flow": "6c66b8b5a81fe336d58fe3263a2e986e27ebc4144e5886ef99cbdc571e40b07a",
+    "experiments/typed-booking/lib/app-server.flow": "cd83ba1ddddc577b01427869c013e423204d4f1441afa1ff250da41e02ae7d70",
+    "experiments/typed-booking/lib/booking.flow": "d4e0bc0a42d240a841c342f7560bebffad7eac65ba573b1b4a6ee52b08114431",
+    "experiments/typed-booking/lib/forms.flow": "a6991460734df3fcd7868bdb1fb50d9244168235acef86b2a7e29e3bf683bcb2",
+    "experiments/typed-booking/lib/json.flow": "036a185eaa932a10f41e7da973e35373eee7fc8b9c86bb030c3da80899911e6a",
+    "experiments/typed-booking/lib/store.flow": "dbea9face7b1db6048e6fd6cee35159e9d747005e20780e63989f6c9e1b56272",
+    "experiments/typed-booking/lib/transport.flow": "a6ff9e09b81be5864632cbeda6697d4b66ff18bfc8031b6f254c12ae0c71053b",
+    "experiments/typed-booking/lib/ui.flow": "83fe2865123dce845a5891c280ff16a4252effe5e708eadf972629dc7b6a5c56",
+    "experiments/typed-booking/main.flow": "e2adb1260392427b1cbc413fdfd086dae36234b693e308ae61bd79c2ae56e927",
+    "experiments/typed-booking/tools.json": "0cd9209f48c1a87d06cde43dad8d1bd2e6f38e45bb4cdec22e61cbc99f1a8640",
+    "experiments/typed-booking/web.flow": "327c8a86181b1f5fcf32060582fc44d767d492cce9de396f3edcfd8bd9e2cfe9",
+    "tests/standalone/booking_agent_verify.py": "cd97076ec0d00a435ab32fd003f0c917eff442dc03b023c4d7f890a9e205695e",
+    "tests/standalone/booking_package_verify.py": "3df9ecc098d80940ed747e8deb00b2c5352b543a371b9f11bb88ef10a34efec9",
+    "tests/standalone/booking_sdk.mjs": "f29bafc9eed8037a033dc01de3d0e85b6f81ce8fffeb4f3ff33207ab412c0464",
+    "tests/standalone/booking_web_verify.py": "d035d6e4fb01538059acda32a420b508e455b00971dc1ad2a043d7dd15415361",
+    "tests/standalone/typed_booking_verify.py": "65f8f1ff8030f5645b9d7b11f614aaf6e808e1b7ec429666a8b4817dfbb92e01",
+    "tools/build-typed-booking.sh": "8817a94c360c4c4c0bc11a06267af68ee1af1bcb878fc1386069330142ba8b69",
+    "tools/package-typed-booking.py": "5084833b37cfa0ddd9dcfd387fd0e7a3dd83e2de821a2f97f99943d8533552c5"
+  },
+  "browser": {
+    "rawReport": "artifacts/booking-web-6t81hr8q/BROWSER-QA.json",
+    "sha256": "7084250b2edb471e4418c2d2220e4cba08108bceb192fa4084cc0d2f52cf3e56",
+    "screenshotSHA256": "970850c8407d6c9bb87d4d8ac3fa2f786738cbcf74a30f68be15346a9d731fd2"
+  },
+  "package": {
+    "path": "artifacts/RF2-Booking-0.45-dev-macos-arm64.tar.gz",
+    "sha256": "5021115eff24e6d02e4304381ad31c280fc8f028f6076044aaae006d8bfa2c85",
+    "publicDownloadVerified": false
+  },
+  "existingMCP": "Original nine tools passed tests/standalone/sdk.mjs with SDK 1.32.2; no raw Systems admission",
+  "limits": [
+    "Controlled faults, not actual power-loss/disk trials",
+    "One Apple Silicon Mac, no second-host/hardware claim",
+    "No actual AI productivity or new speed result",
+    "No general nested pointer-bearing row storage",
+    "Public release and full-task comparison remain pending"
+  ]
+}

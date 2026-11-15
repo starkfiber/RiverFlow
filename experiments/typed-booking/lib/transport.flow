@@ -1,0 +1,210 @@
+module booking_http
+use "lib/text.flow"
+fn globals()
+ return buffer("documents_web_state",128)
+end
+fn size(p)
+ let n = 0
+ while load8(p+n)!=0
+  set n = n+1
+ end
+ return n
+end
+fn copy(dst,src,n)
+ let i = 0
+ while i<n
+  do store8(dst+i,load8(src+i))
+  set i = i+1
+ end
+ return n
+end
+fn same(p,n,text)
+ let i = 0
+ if n!=size(text)
+  return 0
+ end
+ while i<n
+  if load8(p+i)!=load8(text+i)
+   return 0
+  end
+  set i = i+1
+ end
+ return 1
+end
+fn key(p,n,text)
+ let i = 0
+ let c = 0
+ if n!=size(text)
+  return 0
+ end
+ while i<n
+  set c = load8(p+i)
+  if (c>=65)&(c<=90)
+   set c = c+32
+  end
+  if c!=load8(text+i)
+   return 0
+  end
+  set i = i+1
+ end
+ return 1
+end
+fn find(p,n,text,count)
+ let i = 0
+ let j = 0
+ while i+count<=n
+  set j = 0
+  while (j<count)&(load8(p+i+j)==load8(text+j))
+   set j = j+1
+  end
+  if j==count
+   return i+1
+  end
+  set i = i+1
+ end
+ return 0
+end
+fn reset_output()
+ do store64(globals()+80,0)
+ do store64(globals()+88,0)
+ return 0
+end
+fn text(p)
+ let n = size(p)
+ let used = load64(globals()+80)
+ if used+n>=1048576
+  do store64(globals()+88,1)
+  return 0
+ end
+ do copy(buffer("documents_web_output",1048576)+used,p,n)
+ do store64(globals()+80,used+n)
+ return 0
+end
+fn decimal(value)
+ let digits = buffer("documents_web_digits",32)
+ let n = 0
+ let one = buffer("documents_web_one",2)
+ while 1
+  do store8(digits+n,48+value-value//10*10)
+  set n = n+1
+  set value = value//10
+  if value==0
+   while n!=0
+    set n = n-1
+    do store8(one,load8(digits+n))
+    do text(one)
+   end
+   return 0
+  end
+ end
+ return 0
+end
+fn unsigned(p,n,max)
+ if (n==0)|(n>10)
+  return -1
+ end
+ let i = 0
+ let value = 0
+ let c = 0
+ while i<n
+  set c = load8(p+i)
+  if (c<48)|(c>57)
+   return -1
+  end
+  set value = value*10+c-48
+  if value>max
+   return -1
+  end
+  set i = i+1
+ end
+ return value
+end
+fn elapsed(start)
+ return (vm_clock_ticks()-start)*load32(buffer("documents_web_timebase",8))//load32(buffer("documents_web_timebase",8)+4)
+end
+fn wait_ready(fd,event,start)
+ let poll = buffer("documents_web_io_poll",8)
+ let remaining = 0
+ let rc = 0
+ let age = elapsed(start)
+ while age<2000000000
+  set remaining = (2000000000-age)//1000000
+  if remaining==0
+   set remaining = 1
+  end
+  do store32(poll,fd)
+  do store32(poll+4,event)
+  set rc = syscall6(230,poll,1,remaining,0,0,0)
+  if rc>>63
+   return 0
+  end
+  if rc!=0
+   if (load32(poll+4)>>16)&event
+    return 1
+   end
+   return 0
+  end
+  set age = elapsed(start)
+ end
+ return 0
+end
+fn receive(fd,p,n,start)
+ let got = 0
+ while wait_ready(fd,1,start)
+  set got = read(fd,p,n)
+  if (got>>63)==0
+   return got
+  end
+  # EINTR/EAGAIN remain bounded by the same monotonic deadline.
+ end
+ return 0
+end
+fn send(fd,p,n,start)
+ let done = 0
+ let got = 0
+ while done<n
+  if wait_ready(fd,4,start)==0
+   return 0
+  end
+  set got = write(fd,p+done,n-done)
+  if (got==0)|(got>>63)
+   return 0
+  end
+  set done = done+got
+ end
+ return 1
+end
+fn respond(fd,status,mime)
+ let n=load64(globals()+80)
+ if load64(globals()+88)
+  return 0
+ end
+ do copy(buffer("documents_web_body",1048576),buffer("documents_web_output",1048576),n)
+ do reset_output()
+ do text("HTTP/1.1 ")
+ do text(status)
+ if load64(globals()+112)
+  do text("\r\nSet-Cookie: rf2_booking_theme=")
+  let appearance=load64(globals()+104)
+  if appearance==1
+   do text("light")
+  else
+   if appearance==2
+    do text("dark")
+   else
+    do text("system")
+   end
+  end
+  do text("; Path=/; SameSite=Strict; HttpOnly; Max-Age=31536000")
+ end
+ do text("\r\nConnection: close\r\nCache-Control: no-store\r\nX-Content-Type-Options: nosniff\r\nReferrer-Policy: same-origin\r\nCross-Origin-Resource-Policy: same-origin\r\nContent-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; form-action 'self'; frame-ancestors 'none'; base-uri 'none'\r\nContent-Type: ")
+ do text(mime)
+ do text("\r\nContent-Length: ")
+ do decimal(n)
+ do text("\r\n\r\n")
+ let start=vm_clock_ticks()
+ if send(fd,buffer("documents_web_output",1048576),load64(globals()+80),start)==0
+  return 0
+ end
+ return send(fd,buffer("documents_web_body",1048576),n,start)
+end

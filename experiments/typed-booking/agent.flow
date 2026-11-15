@@ -1,0 +1,573 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/store.flow"
+use "lib/json.flow"
+fn agent_config()
+ return buffer("booking_agent_config",32)
+end
+fn agent_bytes(p,n)
+ let done=0
+ while done<n
+  let sent=write(1,p+done,n-done)
+  if (sent==0)|(sent>>63)
+   do exit(1)
+  end
+  set done=done+sent
+ end
+ return done
+end
+fn agent_say(text)
+ return agent_bytes(text,j_slen(text))
+end
+fn agent_number(n)
+ let digits=buffer("booking_agent_digits",24)
+ let i=24
+ if n==0
+  return agent_say("0")
+ end
+ while n
+  set i=i-1
+  do store8(digits+i,48+n-(n//10)*10)
+  set n=n//10
+ end
+ return agent_bytes(digits+i,24-i)
+end
+fn agent_quote(p,n)
+ do agent_say("\"")
+ let i=0
+ let hex="0123456789abcdef"
+ while i<n
+  let c=load8(p+i)
+  if (c==34)|(c==92)
+   do agent_say("\\")
+   do agent_bytes(p+i,1)
+  else
+   if c<32
+    do agent_say("\\u00")
+    do agent_bytes(hex+(c>>4),1)
+    do agent_bytes(hex+(c&15),1)
+   else
+    do agent_bytes(p+i,1)
+   end
+  end
+  set i=i+1
+ end
+ return agent_say("\"")
+end
+fn agent_line()
+ let state=buffer("booking_agent_stream",24)
+ let chunk=buffer("booking_agent_chunk",8192)
+ let output=buffer("booking_agent_line",65537)
+ let pos=load64(state)
+ let size=load64(state+8)
+ let used=0
+ let oversized=0
+ while 1
+  if pos==size
+   set size=read(0,chunk,8192)
+   set pos=0
+   if size>>63
+    do exit(1)
+   end
+   if size==0
+    do store64(state,0)
+    do store64(state+8,0)
+    if used|oversized
+     return 65537
+    end
+    return 0
+   end
+  end
+  let c=load8(chunk+pos)
+  set pos=pos+1
+  if c==10
+   do store64(state,pos)
+   do store64(state+8,size)
+   if oversized
+    return 65537
+   end
+   if used
+    return used
+   end
+  else
+   if used<65536
+    do store8(output+used,c)
+    set used=used+1
+   else
+    set oversized=1
+   end
+  end
+ end
+ return 0
+end
+fn agent_rpc(id)
+ do agent_say("{\"jsonrpc\":\"2.0\",\"id\":")
+ if id==0
+  return agent_say("null")
+ end
+ let t=j_token(id)
+ if load64(t)==1
+  do agent_say("\"")
+  do agent_bytes(load64(t+8),load64(t+16))
+  return agent_say("\"")
+ end
+ return agent_bytes(load64(t+8),load64(t+16))
+end
+fn agent_error(id,code,message)
+ do agent_rpc(id)
+ do agent_say(",\"error\":{\"code\":-")
+ do agent_number(code)
+ do agent_say(",\"message\":")
+ do agent_quote(message,j_slen(message))
+ return agent_say("}}\n")
+end
+fn agent_result(id)
+ do agent_rpc(id)
+ do agent_say(",\"result\":{")
+ if load64(agent_config()+24)
+  do agent_say("\"resultType\":\"complete\",\"_meta\":{\"io.modelcontextprotocol/serverInfo\":{\"name\":\"rf2-booking\",\"version\":\"0.45.0-dev\"}}")
+ end
+ return 0
+end
+fn agent_separator()
+ if load64(agent_config()+24)
+  return agent_say(",")
+ end
+ return 0
+end
+fn agent_version_error(id,version)
+ do agent_rpc(id)
+ do agent_say(",\"error\":{\"code\":-32022,\"message\":\"Unsupported protocol version\",\"data\":{\"supported\":[\"2026-07-28\",\"2025-11-25\"],\"requested\":")
+ do agent_quote(load64(j_token(version)+32),load64(j_token(version)+40))
+ return agent_say("}}}\n")
+end
+fn agent_id_valid(id)
+ if id==0
+  return 1
+ end
+ let t=j_token(id)
+ if load64(t)==1
+  return load64(t+40)<=256
+ end
+ if load64(t)!=7
+  return 0
+ end
+ let p=load64(t+8)
+ let n=load64(t+16)
+ if n>21
+  return 0
+ end
+ let i=0
+ if load8(p)==45
+  set i=1
+ end
+ while i<n
+  if j_digit(load8(p+i))==0
+   return 0
+  end
+  set i=i+1
+ end
+ return 1
+end
+fn agent_object(t,names)
+ if load64(j_token(t))!=2
+  return 0
+ end
+ let count=0
+ let i=t+1
+ let end=load64(j_token(t)+24)
+ while i<end
+  let name=load64(j_token(i)+32)
+  let bytes=load64(j_token(i)+40)
+  let allowed=0
+  let a=0
+  let length=j_slen(names)
+  while a<length
+   let b=a
+   while all(b<length,load8(names+b)!=44)
+    set b=b+1
+   end
+   if b-a==bytes
+    if store_equal(name,names+a,bytes)
+     set allowed=1
+    end
+   end
+   set a=b+1
+  end
+  if allowed==0
+   return 0
+  end
+  set count=count+1
+  set i=load64(j_token(i+1)+24)
+ end
+ return count+1
+end
+fn agent_u32(arguments,name,max):IO
+ let index=j_field(arguments,name)
+ if (index==0)|(load64(j_token(index))!=7)
+  return err(22)
+ end
+ let value=j_number_u32(j_token(index))
+ if load64(j_state())| (value>max)
+  return err(22)
+ end
+ return ok(value)
+end
+fn agent_identifier(arguments):IO
+ let index=j_field(arguments,"id")
+ if (index==0)|(load64(j_token(index))!=1)
+  return err(22)
+ end
+ let p=load64(j_token(index)+32)
+ let n=load64(j_token(index)+40)
+ if (n==0)|(n>20)|(load8(p)==48)
+  return err(22)
+ end
+ let i=0
+ let value=0
+ while i<n
+  let c=load8(p+i)
+  if (c<48)|(c>57)
+   return err(22)
+  end
+  let digit=c-48
+  if value>(18446744073709551615-digit)//10
+   return err(22)
+  end
+  set value=value*10+digit
+  set i=i+1
+ end
+ return ok(value)
+end
+fn agent_tool_request(name,arguments,request:StoreRequest):IO
+ if j_matches(j_token(name),"booking_list")
+  if agent_object(arguments,"")!=1
+   return err(22)
+  end
+  return ok(0)
+ end
+ if load64(agent_config()+8)==0
+  return err(13)
+ end
+ let expected_fields=0
+ if j_matches(j_token(name),"booking_reserve")
+  set request.action=2
+  set expected_fields=agent_object(arguments,"expected_revision,id,room,day,start,finish")
+  if expected_fields!=7
+   return err(22)
+  end
+ else
+  if j_matches(j_token(name),"booking_cancel")==0
+   return err(22)
+  end
+  set request.action=3
+  set expected_fields=agent_object(arguments,"expected_revision,id")
+  if expected_fields!=3
+   return err(22)
+  end
+ end
+ handle agent_identifier(arguments)
+ ok id
+  set request.id=id
+ err id_error
+  return err(22)
+ end
+ handle agent_u32(arguments,"expected_revision",4294967295)
+ ok revision
+  if revision==0
+   return err(22)
+  end
+  set request.expected=revision
+ err revision_error
+  return err(22)
+ end
+ if request.action==2
+  handle agent_u32(arguments,"room",16)
+  ok room
+   if room==0
+    return err(22)
+   end
+   set request.room=room
+  err room_error
+   return err(22)
+  end
+  handle agent_u32(arguments,"day",3652059)
+  ok day
+   if day==0
+    return err(22)
+   end
+   set request.day=day
+  err day_error
+   return err(22)
+  end
+  handle agent_u32(arguments,"start",1439)
+  ok start
+   set request.start=start
+  err start_error
+   return err(22)
+  end
+  handle agent_u32(arguments,"finish",1440)
+  ok finish
+   if finish==0
+    return err(22)
+   end
+   set request.finish=finish
+  err finish_error
+   return err(22)
+  end
+ end
+ return ok(0)
+end
+fn agent_outcome(error)
+ if error==9002
+  return "uncertain"
+ end
+ return "failed"
+end
+fn agent_tool_error(id,error)
+ do agent_result(id)
+ do agent_separator()
+ do agent_say("\"isError\":true,\"content\":[{\"type\":\"text\",\"text\":")
+ let message="The operation could not be completed. No confirmation was issued."
+ if error==9002
+  set message="The save outcome is uncertain. Read the current bookings before retrying."
+ end
+ if error==409
+  set message="The room overlaps another booking, or the expected revision is stale. Read current bookings."
+ end
+ if error==35
+  set message="Storage is busy. No confirmation was issued. Read current bookings before retrying."
+ end
+ do agent_quote(message,j_slen(message))
+ do agent_say("}],\"structuredContent\":{\"outcome\":")
+ do agent_quote(agent_outcome(error),j_slen(agent_outcome(error)))
+ do agent_say(",\"errorCode\":")
+ do agent_number(error)
+ return agent_say("}}}\n")
+end
+fn agent_hex(p,n)
+ let hex="0123456789abcdef"
+ let i=0
+ while i<n
+  do agent_bytes(hex+(load8(p+i)>>4),1)
+  do agent_bytes(hex+(load8(p+i)&15),1)
+  set i=i+1
+ end
+ return 0
+end
+fn agent_snapshot(out:Writer,state:StoreState,action)
+ do agent_say("{\"outcome\":")
+ if action
+  do agent_say("\"confirmed\"")
+ else
+  do agent_say("\"read\"")
+ end
+ do agent_say(",\"snapshot_sha256\":\"")
+ do agent_hex(state.digest,32)
+ do agent_say("\",")
+ do agent_bytes(out.data+1,out.used-3)
+ return agent_say("}")
+end
+fn agent_tool_call(id,params)
+ let name=j_field(params,"name")
+ let arguments=j_field(params,"arguments")
+ let request=StoreRequest(0,0,0,0,0,0,0)
+ let state=StoreState(0,0,0,0,0,0,0)
+ let out=Writer(buffer("booking_agent_result",65536),65536,0,0)
+ if (agent_object(params,"name,arguments,_meta")==0)|(name==0)|(load64(j_token(name))!=1)
+  return agent_error(id,32602,"Expected a declared tool name and arguments")
+ end
+ if (arguments==0)|(load64(j_token(arguments))!=2)
+  return agent_error(id,32602,"Arguments must be an explicit object")
+ end
+ let error=0
+ handle agent_tool_request(name,arguments,request)
+ ok valid
+ err input_error
+  set error=input_error
+ end
+ if error
+  return agent_error(id,32602,"Unknown tool, unavailable permission, extra field or invalid argument")
+ end
+ handle store_execute(load64(agent_config()),request,out,state)
+ ok completed
+ err operation_error
+  set error=operation_error
+ end
+ if error
+  return agent_tool_error(id,error)
+ end
+ # Text is readable by older tool hosts; the structured result carries exact typed data.
+ do agent_result(id)
+ do agent_separator()
+ do agent_say("\"isError\":false,\"content\":[{\"type\":\"text\",\"text\":\"")
+ if request.action
+  do agent_say("Confirmed saved revision ")
+ else
+  do agent_say("Read saved revision ")
+ end
+ do agent_number(state.revision)
+ do agent_say(".\"}],\"structuredContent\":")
+ do agent_snapshot(out,state,request.action)
+ return agent_say("}}\n")
+end
+
+fn agent_tools(id)
+ do agent_result(id)
+ do agent_separator()
+ do agent_say("\"tools\":[")
+ do agent_say("{\"name\":\"booking_list\",\"title\":\"Read saved bookings\",\"description\":\"Read the one journal selected when this native server was launched. Returns an exact revision and snapshot digest. No path argument, network request or code execution.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{},\"additionalProperties\":false},\"annotations\":{\"readOnlyHint\":true,\"destructiveHint\":false,\"idempotentHint\":true,\"openWorldHint\":false},\"outputSchema\":{\"type\":\"object\",\"properties\":{\"outcome\":{\"type\":\"string\",\"enum\":[\"read\",\"confirmed\",\"failed\",\"uncertain\"]},\"revision\":{\"type\":\"integer\",\"minimum\":1},\"version\":{\"type\":\"integer\",\"enum\":[1,2]},\"bookings\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"pattern\":\"^[1-9][0-9]{0,19}$\"},\"room\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":16},\"day\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":3652059},\"start\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":1439},\"finish\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":1440}},\"required\":[\"id\",\"room\",\"day\",\"start\",\"finish\"],\"additionalProperties\":false},\"maxItems\":256},\"snapshot_sha256\":{\"type\":\"string\",\"pattern\":\"^[0-9a-f]{64}$\"},\"errorCode\":{\"type\":\"integer\",\"minimum\":1}},\"required\":[\"outcome\"],\"additionalProperties\":false}}")
+ if load64(agent_config()+8)
+  do agent_say(",")
+  do agent_say("{\"name\":\"booking_reserve\",\"title\":\"Reserve a room\",\"description\":\"Save one booking in the selected journal only, if its revision still matches and the room/time does not overlap. Day is Gregorian ordinal; minutes are same-day 24-hour values. ID is a decimal string. An uncertain outcome requires a fresh read before retry.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"expected_revision\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":4294967295},\"id\":{\"type\":\"string\",\"pattern\":\"^[1-9][0-9]{0,19}$\"},\"room\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":16},\"day\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":3652059},\"start\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":1439},\"finish\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":1440}},\"required\":[\"expected_revision\",\"id\",\"room\",\"day\",\"start\",\"finish\"],\"additionalProperties\":false},\"annotations\":{\"readOnlyHint\":false,\"destructiveHint\":false,\"idempotentHint\":false,\"openWorldHint\":false},\"outputSchema\":{\"type\":\"object\",\"properties\":{\"outcome\":{\"type\":\"string\",\"enum\":[\"read\",\"confirmed\",\"failed\",\"uncertain\"]},\"revision\":{\"type\":\"integer\",\"minimum\":1},\"version\":{\"type\":\"integer\",\"enum\":[1,2]},\"bookings\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"pattern\":\"^[1-9][0-9]{0,19}$\"},\"room\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":16},\"day\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":3652059},\"start\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":1439},\"finish\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":1440}},\"required\":[\"id\",\"room\",\"day\",\"start\",\"finish\"],\"additionalProperties\":false},\"maxItems\":256},\"snapshot_sha256\":{\"type\":\"string\",\"pattern\":\"^[0-9a-f]{64}$\"},\"errorCode\":{\"type\":\"integer\",\"minimum\":1}},\"required\":[\"outcome\"],\"additionalProperties\":false}}")
+ end
+ if load64(agent_config()+8)
+  do agent_say(",")
+  do agent_say("{\"name\":\"booking_cancel\",\"title\":\"Cancel a saved booking\",\"description\":\"Cancel one exact ID in the selected journal only, with a matching expected revision. Historical frames remain in the file. An uncertain outcome requires a fresh read before retry.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"expected_revision\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":4294967295},\"id\":{\"type\":\"string\",\"pattern\":\"^[1-9][0-9]{0,19}$\"}},\"required\":[\"expected_revision\",\"id\"],\"additionalProperties\":false},\"annotations\":{\"readOnlyHint\":false,\"destructiveHint\":true,\"idempotentHint\":false,\"openWorldHint\":false},\"outputSchema\":{\"type\":\"object\",\"properties\":{\"outcome\":{\"type\":\"string\",\"enum\":[\"read\",\"confirmed\",\"failed\",\"uncertain\"]},\"revision\":{\"type\":\"integer\",\"minimum\":1},\"version\":{\"type\":\"integer\",\"enum\":[1,2]},\"bookings\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"pattern\":\"^[1-9][0-9]{0,19}$\"},\"room\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":16},\"day\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":3652059},\"start\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":1439},\"finish\":{\"type\":\"integer\",\"minimum\":1,\"maximum\":1440}},\"required\":[\"id\",\"room\",\"day\",\"start\",\"finish\"],\"additionalProperties\":false},\"maxItems\":256},\"snapshot_sha256\":{\"type\":\"string\",\"pattern\":\"^[0-9a-f]{64}$\"},\"errorCode\":{\"type\":\"integer\",\"minimum\":1}},\"required\":[\"outcome\"],\"additionalProperties\":false}}")
+ end
+ return agent_say("]}}\n")
+end
+# Dual-era stdio: current per-request metadata, plus explicit legacy initialization.
+# https://modelcontextprotocol.io/specification/2026-07-28/basic/versioning
+fn agent_request(bytes)
+ do store64(agent_config()+24,0)
+ if bytes>65536
+  return agent_error(0,32700,"Request framing or size limit")
+ end
+ if j_json_parse(buffer("booking_agent_line",65537),bytes)==0
+  return agent_error(0,32700,"Invalid JSON or parser limit")
+ end
+ if load64(j_token(0))!=2
+  return agent_error(0,32600,"Expected one JSON RPC object")
+ end
+ let id=j_field(0,"id")
+ if agent_id_valid(id)==0
+  return agent_error(0,32600,"Request id must be a bounded string or integer")
+ end
+ let method=j_field(0,"method")
+ if (j_matches(j_token(j_field(0,"jsonrpc")),"2.0")==0)|(method==0)|(load64(j_token(method))!=1)
+  return agent_error(id,32600,"Expected jsonrpc 2.0 and a string method")
+ end
+ let params=j_field(0,"params")
+ if params
+  if load64(j_token(params))!=2
+   if id==0
+    return 0
+   end
+   return agent_error(id,32602,"Params must be an object")
+  end
+ end
+ let session=buffer("booking_agent_legacy",16)
+ # No notification may invoke a tool, initialize authority or change storage.
+ if id==0
+  if j_matches(j_token(method),"notifications/initialized")
+   if load64(session)==1
+    do store64(session+8,1)
+   end
+  end
+  return 0
+ end
+ let meta=0
+ if params
+  set meta=j_field(params,"_meta")
+ end
+ let version=0
+ let capabilities=0
+ let modern=j_matches(j_token(method),"server/discover")
+ if meta
+  if load64(j_token(meta))!=2
+   return agent_error(id,32602,"Metadata must be an object")
+  end
+  set version=j_field(meta,"io.modelcontextprotocol/protocolVersion")
+  set capabilities=j_field(meta,"io.modelcontextprotocol/clientCapabilities")
+  set modern=modern|(version!=0)|(capabilities!=0)
+ end
+ if modern
+  if (version==0)|(load64(j_token(version))!=1)|(capabilities==0)|(load64(j_token(capabilities))!=2)
+   return agent_error(id,32602,"Required per-request protocol metadata is missing")
+  end
+  if load64(j_token(version)+40)>64
+   return agent_error(id,32602,"Protocol version exceeds the declared bound")
+  end
+  if j_matches(j_token(version),"2026-07-28")==0
+   return agent_version_error(id,version)
+  end
+  let info=j_field(meta,"io.modelcontextprotocol/clientInfo")
+  if info
+   if (load64(j_token(info))!=2)|(load64(j_token(j_field(info,"name")))!=1)|(load64(j_token(j_field(info,"version")))!=1)
+    return agent_error(id,32602,"Invalid client display metadata")
+   end
+  end
+  do store64(agent_config()+24,1)
+ else
+  if j_matches(j_token(method),"initialize")
+   if load64(session)
+    return agent_error(id,32600,"Legacy session is already initialized")
+   end
+   if params==0
+    return agent_error(id,32602,"Initialize params are required")
+   end
+   set version=j_field(params,"protocolVersion")
+   if (version==0)|(load64(j_token(version))!=1)
+    return agent_error(id,32602,"Protocol version is required")
+   end
+   if (load64(j_token(j_field(params,"capabilities")))!=2)|(load64(j_token(j_field(params,"clientInfo")))!=2)
+    return agent_error(id,32602,"Capabilities and clientInfo are required")
+   end
+   do store64(session,1)
+   do agent_result(id)
+   do agent_say("\"protocolVersion\":\"2025-11-25\",\"capabilities\":{\"tools\":{}},\"serverInfo\":{\"name\":\"rf2-booking\",\"version\":\"0.45.0-dev\"},\"instructions\":\"Use the selected journal only. Read its revision before mutations. An uncertain outcome requires a fresh read, never a blind retry.\"}}\n")
+   return 0
+  end
+  if load64(session+8)==0
+   return agent_error(id,32602,"Supply current per-request metadata or initialize the legacy session")
+  end
+ end
+ if j_matches(j_token(method),"server/discover")
+  do agent_result(id)
+  do agent_separator()
+  return agent_say("\"supportedVersions\":[\"2026-07-28\",\"2025-11-25\"],\"capabilities\":{\"tools\":{}},\"instructions\":\"This process has one explicitly selected journal. Per-request client display metadata never expands permissions. No path, source, network, initialization, migration or recovery tool is exposed. Read current data after an uncertain save.\",\"cacheScope\":\"private\"}}\n")
+ end
+ if j_matches(j_token(method),"ping")
+  do agent_result(id)
+  return agent_say("}}\n")
+ end
+ if j_matches(j_token(method),"tools/list")
+  if params
+   if agent_object(params,"_meta")!=2
+    if agent_object(params,"")!=1
+     return agent_error(id,32602,"This fixed tool set has no pagination cursor")
+    end
+   end
+  end
+  return agent_tools(id)
+ end
+ if j_matches(j_token(method),"tools/call")
+  if params==0
+   return agent_error(id,32602,"Tool params are required")
+  end
+  return agent_tool_call(id,params)
+ end
+ return agent_error(id,32601,"Method not found")
+end
+fn main(argc,argv)
+ if (argc<2)|(argc>3)
+  return 2
+ end
+ do store64(agent_config(),load64(argv+8))
+ if argc==3
+  let flag=load64(argv+16)
+  if j_slen(flag)!=7
+   return 2
+  end
+  if store_equal(flag,"--write",7)==0
+   return 2
+  end
+  do store64(agent_config()+8,1)
+ end
+ let bytes=agent_line()
+ while bytes
+  do agent_request(bytes)
+  set bytes=agent_line()
+ end
+ return 0
+end
