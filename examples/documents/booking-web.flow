@@ -1,0 +1,190 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/booking.flow"
+use "lib/workbench-ui.flow"
+use "lib/app-server.flow"
+fn booking_path()
+ return load64(buffer("booking_web_config",8))
+end
+fn booking_page(fd,slots:BookingSlots,state:BookingState)
+ let out=Writer(buffer("documents_web_output",1048576),1048576,0,0)
+ do workbench_begin(out,"Booking")
+ do writer_text(out,"<h1>A room. A time. A confirmed booking.</h1><p class=muted>One-room booking lab. Times use the calendar date entered, without timezone conversion.</p>")
+ let error=load64(globals()+56)
+ if error
+  do writer_text(out,"<div class=\"notice error\" role=alert>")
+  if error==9002
+   do writer_text(out,"The save outcome is uncertain. Inspect the saved bookings before trying again.")
+  else
+   if error==409
+    do writer_text(out,"The time overlaps an existing booking, or this form is out of date. Review the latest bookings below.")
+   else
+    if error==35
+     do writer_text(out,"Storage is busy. No confirmation was issued. Refresh and try again.")
+    else
+     do writer_text(out,"The operation was refused. Check the date, times and name, or inspect the storage error. Code: ")
+     do writer_number(out,error)
+    end
+   end
+  end
+  do writer_text(out,"</div>")
+ else
+  if load64(globals()+64)
+   do writer_text(out,"<div class=notice role=status>Last action saved. Booking ID: ")
+   do writer_number(out,load64(globals()+64))
+   do writer_text(out,". The current saved bookings are shown below.</div>")
+  end
+ end
+ do writer_text(out,"<div class=grid><section class=card><h2>Reserve the room</h2><form action=/action method=post>")
+ do form_hidden(out,state.events)
+ do writer_text(out,"<input type=hidden name=action value=reserve><label class=field for=customer>Name</label><input id=customer name=name required maxlength=64 autocomplete=off><p class=muted>Use a short name, up to 64 UTF-8 bytes.</p><label class=field for=day>Date</label><input id=day type=date name=date required min=0001-01-01 max=9999-12-31><div class=row><div><label class=field for=start>Start time</label><input id=start type=time name=start required step=60></div><div><label class=field for=finish>End time</label><input id=finish type=time name=end required step=60></div></div><p class=muted>Start must be before end on the same day. Adjacent bookings are allowed.</p><button>Confirm booking</button></form></section><section class=card aria-label=\"Saved bookings\"><h2>Saved bookings</h2><p class=muted>")
+ do writer_number(out,state.active)
+ do writer_text(out," active · revision ")
+ do writer_number(out,state.events)
+ do writer_text(out," · reloaded from storage</p>")
+ let i=0
+ while i<512
+  let at=i*8
+  if slots[at]==1
+   do writer_text(out,"<article class=reservation><h3>")
+   do date_format(out,slots[at+1])
+   do writer_text(out," · ")
+   do time_format(out,slots[at+2])
+   do writer_text(out," to ")
+   do time_format(out,slots[at+3])
+   do writer_text(out,"</h3><p>")
+   do writer_html(out,booking_data()+slots[at+4],slots[at+5])
+   do writer_text(out," · ID ")
+   do writer_number(out,i+1)
+   do writer_text(out,"</p><form action=/action method=post>")
+   do form_hidden(out,state.events)
+   do writer_text(out,"<input type=hidden name=action value=cancel><input type=hidden name=id value=\"")
+   do writer_number(out,i+1)
+   do writer_text(out,"\"><button class=danger>Cancel booking ")
+   do writer_number(out,i+1)
+   do writer_text(out,"</button></form></article>")
+  end
+  set i=i+1
+ end
+ if state.active==0
+  do writer_text(out,"<p>No active bookings. Choose a date and time to make the first reservation.</p>")
+ end
+ do writer_text(out,"</section></div><p><a href=/>Refresh saved bookings</a></p>")
+ do workbench_end(out)
+ return workbench_response(fd,out)
+end
+fn app_dispatch(fd):IO
+ let target=buffer("app_target",32)
+ let request=BookingRequest(0,0,0,0,0,0,0,18446744073709551615)
+ let slots=BookingSlots()
+ let state=BookingState(0,0,0,0)
+ let values=FormValues()
+ let error=0
+ if load64(globals()+8)==2
+  if same(target,size(target),"/action")==0
+   return ok(app_bad(fd,"404 Not Found"))
+  end
+  let mask=0
+  handle form_parse(load64(globals()+16),load64(globals()+24),255,values)
+  ok seen
+   set mask=seen
+  err form_error
+   if form_error==403
+    return ok(app_bad(fd,"403 Forbidden"))
+   end
+   return ok(app_bad(fd,"400 Bad Request"))
+  end
+  handle text_parse_u64(values[2],values[3],512)
+  ok rev
+   set request.revision=rev
+  err revision_error
+   return ok(app_bad(fd,"400 Bad Request"))
+  end
+  if same(values[4],values[5],"reserve")
+   if mask!=127
+    return ok(app_bad(fd,"400 Bad Request"))
+   end
+   set request.action=1
+   set request.name=values[12]
+   set request.name_bytes=values[13]
+   handle date_parse(values[6],values[7])
+   ok date_value
+    set request.day=date_value
+   err date_error
+    set error=date_error
+   end
+   handle time_parse(values[8],values[9],0)
+   ok start_value
+    set request.start=start_value
+   err start_error
+    set error=start_error
+   end
+   handle time_parse(values[10],values[11],1)
+   ok end_value
+    set request.finish=end_value
+   err end_error
+    set error=end_error
+   end
+  else
+   if same(values[4],values[5],"cancel")==0
+    return ok(app_bad(fd,"400 Bad Request"))
+   end
+   if mask!=135
+    return ok(app_bad(fd,"400 Bad Request"))
+   end
+   set request.action=2
+   handle text_parse_u64(values[14],values[15],512)
+   ok id_value
+    set request.id=id_value
+   err id_error
+    set error=id_error
+   end
+  end
+  do store64(globals()+64,0)
+  if error==0
+   handle booking_operation(booking_path(),request,slots,state)
+   ok saved
+    do store64(globals()+64,saved)
+   err save_error
+    set error=save_error
+   end
+  end
+  do store64(globals()+56,error)
+ else
+  if same(target,size(target),"/")==0
+   return ok(app_bad(fd,"404 Not Found"))
+  end
+ end
+ set request.action=0
+ handle booking_operation(booking_path(),request,slots,state)
+ ok reloaded
+ err load_error
+  return ok(app_bad(fd,"503 Service Unavailable"))
+ end
+ return ok(booking_page(fd,slots,state))
+end
+fn main(argc,argv)
+ if argc!=2
+  return 2
+ end
+ do store64(buffer("booking_web_config",8),load64(argv+8))
+ let initial=BookingRequest(0,0,0,0,0,0,0,18446744073709551615)
+ let initial_slots=BookingSlots()
+ let initial_state=BookingState(0,0,0,0)
+ handle booking_operation(booking_path(),initial,initial_slots,initial_state)
+ ok validated
+ err initial_error
+  return 1
+ end
+ let status=0
+ handle form_session()
+ ok session
+ err session_error
+  return 1
+ end
+ handle app_serve()
+ ok served
+ err serve_error
+  set status=1
+ end
+ return status
+end

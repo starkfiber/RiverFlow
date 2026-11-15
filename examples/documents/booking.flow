@@ -1,0 +1,109 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/booking.flow"
+fn booking_cli(argc,argv):IO
+ let command=load64(argv+8)
+ let path=load64(argv+16)
+ let request=BookingRequest(0,0,0,0,0,0,0,18446744073709551615)
+ let state=BookingState(0,0,0,0)
+ let slots=BookingSlots()
+ let out=Writer(buffer("booking_cli_output",131072),131072,0,0)
+ if text_equal(command,io_size(command),"init",4)
+  if argc!=3
+   return err(22)
+  end
+  set request.action=3
+ else
+  if text_equal(command,io_size(command),"reserve",7)
+   if argc!=7
+    return err(22)
+   end
+   set request.action=1
+   let date=load64(argv+24)
+   let start=load64(argv+32)
+   let finish=load64(argv+40)
+   set request.name=load64(argv+48)
+   set request.name_bytes=io_size(request.name)
+   handle date_parse(date,io_size(date))
+   ok day
+    set request.day=day
+   err date_error
+    return err(date_error)
+   end
+   handle time_parse(start,io_size(start),0)
+   ok minute
+    set request.start=minute
+   err start_error
+    return err(start_error)
+   end
+   handle time_parse(finish,io_size(finish),1)
+   ok end_minute
+    set request.finish=end_minute
+   err end_error
+    return err(end_error)
+   end
+  else
+   if text_equal(command,io_size(command),"cancel",6)
+    if argc!=4
+     return err(22)
+    end
+    set request.action=2
+    let id=load64(argv+24)
+    handle text_parse_u64(id,io_size(id),512)
+    ok number
+     set request.id=number
+    err id_error
+     return err(id_error)
+    end
+   else
+    if (text_equal(command,io_size(command),"list",4)==0)|(argc!=3)
+     return err(22)
+    end
+   end
+  end
+ end
+ handle booking_operation(path,request,slots,state)
+ ok result
+  if request.action
+   do writer_text(out,"{\"saved\":true,\"id\":")
+   do writer_number(out,result)
+   do writer_text(out,"}\n")
+  else
+   do booking_json(slots,state,out)
+  end
+ err operation_error
+  return err(operation_error)
+ end
+ if out.error
+  return err(out.error)
+ end
+ handle io_write_all(1,out.data,out.used)
+ ok written
+ err output_error
+  if request.action
+   return err(9002)
+  end
+  return err(output_error)
+ end
+ return ok(0)
+end
+fn main(argc,argv)
+ if argc<3
+  do write(2,"Usage: booking init|list|reserve|cancel DATABASE [arguments]\n",io_size("Usage: booking init|list|reserve|cancel DATABASE [arguments]\n"))
+  return 2
+ end
+ let status=0
+ let out=Writer(buffer("booking_cli_error",256),256,0,0)
+ handle booking_cli(argc,argv)
+ ok completed
+ err code
+  do writer_text(out,"Booking refused: ")
+  do writer_number(out,code)
+  if code==9002
+   do writer_text(out," (save outcome uncertain; inspect storage before retry)")
+  end
+  do writer_text(out,"\n")
+  do write(2,out.data,out.used)
+  set status=1
+ end
+ return status
+end

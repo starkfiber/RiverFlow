@@ -1,0 +1,121 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/studio.flow"
+use "lib/app-server.flow"
+fn app_dispatch(fd):IO
+ let target=buffer("app_target",32)
+ let values=FormValues()
+ if load64(globals()+8)==1
+  if same(target,size(target),"/sum")|same(target,size(target),"/bits")
+   do studio_lesson(same(target,size(target),"/bits"))
+  else
+   if same(target,size(target),"/")==0
+    return ok(app_bad(fd,"404 Not Found"))
+   end
+  end
+ else
+  if same(target,size(target),"/action")==0
+   return ok(app_bad(fd,"404 Not Found"))
+  end
+  let mask=0
+  handle form_parse(load64(globals()+16),load64(globals()+24),775,values)
+  ok fields
+   set mask=fields
+  err form_error
+   if form_error==403
+    return ok(app_bad(fd,"403 Forbidden"))
+   end
+   return ok(app_bad(fd,"400 Bad Request"))
+  end
+  if mask!=775
+   return ok(app_bad(fd,"400 Bad Request"))
+  end
+  let revision=0
+  handle text_parse_u64(values[2],values[3],4096)
+  ok parsed
+   set revision=parsed
+  err revision_error
+   return ok(app_bad(fd,"400 Bad Request"))
+  end
+  if revision!=load64(globals()+48)
+   return ok(app_bad(fd,"409 Conflict"))
+  end
+  let action=4
+  if same(values[4],values[5],"check")
+   set action=0
+  end
+  if same(values[4],values[5],"run")
+   set action=1
+  end
+  if same(values[4],values[5],"build")
+   set action=2
+  end
+  if same(values[4],values[5],"native")
+   set action=3
+  end
+  if action==4
+   return ok(app_bad(fd,"400 Bad Request"))
+  end
+  do io_copy(studio_source(),values[16],values[17]+1)
+  do io_copy(studio_input(),values[18],values[19]+1)
+  do store64(globals()+48,revision+1)
+  do store64(globals()+56,0)
+  do store64(studio_config()+16,0)
+  handle studio_job(values,action)
+  ok tool_status
+  err job_error
+   do store64(globals()+56,job_error)
+  end
+ end
+ return ok(studio_page(fd))
+end
+fn main(argc,argv)
+ if argc!=4
+  do write(2,"Usage: studio ABSOLUTE-PRIVATE-PROJECT ABSOLUTE-NATIVE-BUNDLE ABSOLUTE-CHECKOUT\n",io_size("Usage: studio ABSOLUTE-PRIVATE-PROJECT ABSOLUTE-NATIVE-BUNDLE ABSOLUTE-CHECKOUT\n"))
+  return 2
+ end
+ let project=load64(argv+8)
+ let bundle=load64(argv+16)
+ let checkout=load64(argv+24)
+ if (load8(project)!=47)|(load8(bundle)!=47)|(load8(checkout)!=47)
+  return 2
+ end
+ let directory=open(project,0x1100104,0)
+ if directory>>63
+  return 1
+ end
+ let stat=buffer("studio_directory_stat",144)
+ if syscall6(339,directory,stat,0,0,0,0)!=0
+  do close(directory)
+  return 1
+ end
+ if (load32(stat+16)!=syscall6(24,0,0,0,0,0,0))|((load32(stat+4)&63)!=0)
+  do close(directory)
+  return 1
+ end
+ if syscall6(13,directory,0,0,0,0,0)!=0
+  do close(directory)
+  return 1
+ end
+ do close(directory)
+ let runtime=buffer("studio_runtime_path",1024)
+ let compiler=buffer("studio_compiler_path",1024)
+ let builder=buffer("studio_builder_path",1024)
+ if (studio_join(runtime,bundle,"/rf2")==0)|(studio_join(compiler,bundle,"/rf2c")==0)|(studio_join(builder,checkout,"/tools/build-core.sh")==0)
+  return 1
+ end
+ do store64(studio_config(),runtime)
+ do store64(studio_config()+8,builder)
+ do studio_lesson(0)
+ handle form_session()
+ ok session
+ err session_error
+  return 1
+ end
+ let status=0
+ handle app_serve()
+ ok stopped
+ err serve_error
+  set status=1
+ end
+ return status
+end

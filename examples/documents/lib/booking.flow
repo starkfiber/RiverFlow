@@ -1,0 +1,262 @@
+module booking_engine
+use "lib/datetime.flow"
+use "lib/storage.flow"
+array BookingSlots(u64,4096)
+record BookingRequest(action:u64,id:u64,day:u64,start:u64,finish:u64,name:u64,name_bytes:u64,revision:u64)
+record BookingState(events:u64,active:u64,bytes:u64,result:u64)
+fn booking_data()
+ return buffer("booking_journal",65569)
+end
+fn booking_name(p,n)
+ if (n==0)|(n>64)
+  return 0
+ end
+ let info=TextInfo(0,0,0,0)
+ do text_measure(p,n,info)
+ if info.status
+  return 0
+ end
+ let i=0
+ let visible=0
+ while i<n
+  let c=load8(p+i)
+  if (c<32)|(c==127)
+   return 0
+  end
+  if c!=32
+   set visible=1
+  end
+  set i=i+1
+ end
+ return visible
+end
+fn booking_conflict(slots:BookingSlots,day,start,finish)
+ let i=0
+ while i<512
+  if slots[i*8]==1
+   if (slots[i*8+1]==day)&time_overlap(start,finish,slots[i*8+2],slots[i*8+3])
+    return 1
+   end
+  end
+  set i=i+1
+ end
+ return 0
+end
+fn booking_replay(n,slots:BookingSlots,state:BookingState):IO
+ if (n<32)|(n>65568)|((n-32)&127)
+  return err(9001)
+ end
+ let data=booking_data()
+ if load64(data)!=load64("RF2BOOK1")
+  return err(9001)
+ end
+ let i=8
+ while i<32
+  if load8(data+i)
+   return err(9001)
+  end
+  set i=i+1
+ end
+ set i=0
+ while i<4096
+  set slots[i]=0
+  set i=i+1
+ end
+ set state.events=(n-32)//128
+ set state.active=0
+ set state.bytes=n
+ set state.result=0
+ set i=0
+ while i<state.events
+  let event=data+32+i*128
+  if (load64(event)!=load64("RF2EVT01"))|(storage_checksum(event,120)!=load64(event+120))
+   return err(9001)
+  end
+  let action=load64(event+8)
+  let id=load64(event+16)
+  if (id==0)|(id>512)
+   return err(9001)
+  end
+  let at=(id-1)*8
+  if action==1
+   let day=load64(event+24)
+   let start=load64(event+32)
+   let finish=load64(event+40)
+   let name_bytes=load64(event+48)
+   if (id!=i+1)|(date_valid(day)==0)|(start>=finish)|(finish>1440)|(name_bytes>64)
+    return err(9001)
+   end
+   if booking_name(event+56,name_bytes)==0
+    return err(9001)
+   end
+   let padding=name_bytes
+   while padding<64
+    if load8(event+56+padding)
+     return err(9001)
+    end
+    set padding=padding+1
+   end
+   if booking_conflict(slots,day,start,finish)
+    return err(9001)
+   end
+   set slots[at]=1
+   set slots[at+1]=day
+   set slots[at+2]=start
+   set slots[at+3]=finish
+   set slots[at+4]=32+i*128+56
+   set slots[at+5]=name_bytes
+   set state.active=state.active+1
+  else
+   if (action!=2)|(slots[at]!=1)
+    return err(9001)
+   end
+   let zero=24
+   while zero<120
+    if load8(event+zero)
+     return err(9001)
+    end
+    set zero=zero+1
+   end
+   set slots[at]=2
+   set state.active=state.active-1
+  end
+  set i=i+1
+ end
+ return ok(state.events)
+end
+fn booking_locked(fd,request:BookingRequest,slots:BookingSlots,state:BookingState):IO
+ let n=0
+ handle storage_read(fd,booking_data(),65568)
+ ok loaded
+  set n=loaded
+ err read_error
+  return err(read_error)
+ end
+ if request.action==3
+  if n!=0
+   return err(17)
+  end
+  let header=buffer("booking_header",32)
+  do fill_zero(header,32)
+  do store64(header,load64("RF2BOOK1"))
+  handle storage_append(fd,header,32,0)
+  ok initialized
+   return ok(0)
+  err init_error
+   return err(init_error)
+  end
+ end
+ handle booking_replay(n,slots,state)
+ ok replayed
+ err replay_error
+  return err(replay_error)
+ end
+ if request.action==0
+  return ok(state.events)
+ end
+ if (request.revision!=18446744073709551615)&(request.revision!=state.events)
+  return err(409)
+ end
+ if state.events==512
+  return err(28)
+ end
+ let event=buffer("booking_new_event",128)
+ do fill_zero(event,128)
+ do store64(event,load64("RF2EVT01"))
+ do store64(event+8,request.action)
+ let id=request.id
+ if request.action==1
+  if (date_valid(request.day)==0)|(request.start>=request.finish)|(request.finish>1440)|(booking_name(request.name,request.name_bytes)==0)
+   return err(22)
+  end
+  if booking_conflict(slots,request.day,request.start,request.finish)
+   return err(409)
+  end
+  set id=state.events+1
+  do store64(event+24,request.day)
+  do store64(event+32,request.start)
+  do store64(event+40,request.finish)
+  do store64(event+48,request.name_bytes)
+  do io_copy(event+56,request.name,request.name_bytes)
+ else
+  if request.action!=2
+   return err(22)
+  end
+  if (id==0)|(id>512)
+   return err(404)
+  end
+  if slots[(id-1)*8]!=1
+   return err(404)
+  end
+ end
+ do store64(event+16,id)
+ do store64(event+120,storage_checksum(event,120))
+ handle storage_append(fd,event,128,n)
+ ok committed
+  set state.result=id
+ err save_error
+  return err(save_error)
+ end
+ return ok(id)
+end
+fn booking_operation(path,request:BookingRequest,slots:BookingSlots,state:BookingState):IO
+ let fd=0
+ handle storage_open(path,request.action==3,request.action!=0)
+ ok acquired
+  set fd=acquired
+ err open_error
+  return err(open_error)
+ end
+ let result=0
+ let error=0
+ handle booking_locked(fd,request,slots,state)
+ ok completed
+  set result=completed
+ err operation_error
+  set error=operation_error
+ end
+ let closed=close(fd)
+ if error
+  return err(error)
+ end
+ if closed>>63
+  if request.action
+   return err(9002)
+  end
+  return err(65536-closed)
+ end
+ return ok(result)
+end
+fn booking_json(slots:BookingSlots,state:BookingState,out:Writer)
+ do writer_reset(out)
+ do writer_text(out,"{\"revision\":")
+ do writer_number(out,state.events)
+ do writer_text(out,",\"active\":")
+ do writer_number(out,state.active)
+ do writer_text(out,",\"bookings\":[")
+ let i=0
+ let emitted=0
+ while i<512
+  let at=i*8
+  if slots[at]==1
+   if emitted
+    do writer_text(out,",")
+   end
+   do writer_text(out,"{\"id\":")
+   do writer_number(out,i+1)
+   do writer_text(out,",\"date\":\"")
+   do date_format(out,slots[at+1])
+   do writer_text(out,"\",\"start\":\"")
+   do time_format(out,slots[at+2])
+   do writer_text(out,"\",\"end\":\"")
+   do time_format(out,slots[at+3])
+   do writer_text(out,"\",\"name\":")
+   do writer_json(out,booking_data()+slots[at+4],slots[at+5])
+   do writer_text(out,"}")
+   set emitted=emitted+1
+  end
+  set i=i+1
+ end
+ do writer_text(out,"]}\n")
+ return out.error==0
+end

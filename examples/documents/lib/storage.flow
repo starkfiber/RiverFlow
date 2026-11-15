@@ -1,0 +1,112 @@
+module locked_storage
+use "lib/io.flow"
+# Darwin, explicit user-selected regular single-link files. No path containment.
+fn storage_open(path,create,writing):IO
+ if (create>1)|(writing>1)
+  return err(22)
+ end
+ let flags=260+writing*2
+ if create
+  set flags=flags|2560
+ end
+ let fd=open(path,flags,384)
+ if fd>>63
+  return err(0-fd)
+ end
+ let lock=5
+ if writing
+  set lock=6
+ end
+ let error=0
+ let rc=syscall6(131,fd,lock,0,0,0,0)
+ if rc>>63
+  set error=0-rc
+ else
+  let stat=buffer("storage_stat",144)
+  set rc=syscall6(339,fd,stat,0,0,0,0)
+  if rc>>63
+   set error=0-rc
+  else
+   if ((load32(stat+4)&61440)!=32768)|((load32(stat+4)>>16)!=1)
+    set error=79
+   end
+  end
+ end
+ if error
+  do close(fd)
+  return err(error)
+ end
+ return ok(fd)
+end
+fn storage_read(fd,data,limit):IO
+ if limit>1048576
+  return err(22)
+ end
+ let rc=syscall6(199,fd,0,0,0,0,0)
+ if rc>>63
+  return err(0-rc)
+ end
+ let used=0
+ let got=1
+ while got!=0
+  set got=read(fd,data+used,limit+1-used)
+  if got>>63
+   return err(0-got)
+  end
+  set used=used+got
+  if used>limit
+   return err(27)
+  end
+ end
+ return ok(used)
+end
+fn storage_sync(fd)
+ return syscall6(95,fd,0,0,0,0,0)
+end
+fn storage_truncate(fd,size)
+ return syscall6(201,fd,size,0,0,0,0)
+end
+# Caller holds the exclusive lock. Rollback uncertainty has a distinct outcome.
+fn storage_append(fd,data,n,previous):IO
+ if (n==0)|(n>1048576)
+  return err(22)
+ end
+ let rc=syscall6(199,fd,0,2,0,0,0)
+ if rc>>63
+  return err(0-rc)
+ end
+ if rc!=previous
+  return err(409)
+ end
+ let error=0
+ handle io_write_all(fd,data,n)
+ ok wrote
+ err write_error
+  set error=write_error
+ end
+ if error==0
+  set rc=storage_sync(fd)
+  if rc>>63
+   set error=0-rc
+  end
+ end
+ if error
+  if storage_truncate(fd,previous)!=0
+   return err(9002)
+  end
+  if storage_sync(fd)!=0
+   return err(9002)
+  end
+  return err(error)
+ end
+ return ok(previous+n)
+end
+fn storage_checksum(p,n)
+ let hash=14695981039346656037
+ let i=0
+ while i<n
+  set hash=(hash^load8(p+i))*1099511628211
+  set i=i+1
+ end
+ return hash
+end
