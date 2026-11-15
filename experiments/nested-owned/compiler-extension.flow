@@ -1,0 +1,394 @@
+fn aggregate_field_slot(root,id,field)
+ let slot=root+2+load64(record_info(id)+8)
+ let i=0
+ while i<field
+  let child=load64(field_type(id,i))
+  if child
+   set slot=slot+owned_storage_size(child)
+  end
+  set i=i+1
+ end
+ return slot
+end
+fn owned_storage_size(id)
+ if load64(record_info(id)+144)==12
+  return aggregate_slots(id)+1
+ end
+ return 7
+end
+fn aggregate_slots(id)
+ let cache=buffer("owned_layout_cache",264)+id*8
+ if load64(cache)
+  return load64(cache)-1
+ end
+ let count=1+load64(record_info(id)+8)
+ let i=0
+ while i<load64(record_info(id)+8)
+  let child=load64(field_type(id,i))
+  if child
+   set count=count+owned_storage_size(child)
+   do require(count<256,"nested owned layout bound")
+  end
+  set i=i+1
+ end
+ do store64(cache,count+1)
+ return count
+end
+fn aggregate_register(f,root,id)
+ do store64(local_type(f,root),id)
+ let i=0
+ while i<load64(record_info(id)+8)
+  let child=load64(field_type(id,i))
+  if child
+   let slot=aggregate_field_slot(root,id,i)
+   do store64(local_type(f,slot),child)
+   if load64(record_info(child)+144)==12
+    do aggregate_register(f,slot,child)
+   else
+    let count=load64(cleanup_count(f))
+    do require(count<16,"aggregate cleanup count bound")
+    do store64(cleanup_slot(f,count),slot+1)
+    do store64(cleanup_owned(f,count),6)
+    do store64(cleanup_count(f),count+1)
+   end
+  end
+  set i=i+1
+ end
+ return 0
+end
+fn owned_field_local(f)
+ let root=local_index(advance())
+ let id=load64(local_type(f,root))
+ while (id!=0)&(load64(record_info(id)+144)==12)&match(".")
+  do aggregate_guard(f,root)
+  do advance()
+  let field=field_index(id,advance())
+  set root=aggregate_field_slot(root,id,field)
+  set id=load64(field_type(id,field))
+  do require(owned_kind(id),"owned field required")
+  do require(load64(local_ready(f,root)),"owned field was moved")
+ end
+ return root
+end
+fn aggregate_construct(f,root,id)
+ do aggregate_construct_value(f,root,id)
+ return newline()
+end
+fn aggregate_construct_value(f,root,id)
+ if match("move")
+  do advance()
+  do expect("(")
+  let source=owned_field_local(f)
+  do require(source>=load64(ftable(f)+8),"borrowed aggregate cannot move")
+  do require(load64(local_type(f,source))==id,"aggregate move type mismatch")
+  do expect(")")
+  do aggregate_guard(f,source)
+  do owned_consumed(f,source,id)
+  do local_pointer(6,source)
+  do local_pointer(5,root)
+  do emit_owned_transfer(id)
+  # Named roots may be register allocated; child roots are anonymous frame slots.
+  do local_pointer(7,root)
+  do emit(4181721088 | (7<<5))
+  do access_local(0,root,1)
+  do store64(state()+224,load64(state()+224)+owned_registration_count(id))
+  do owned_ready(f,root,id,0)
+  return 0
+ end
+ do require(record_index(advance())==id,"aggregate constructor mismatch")
+ do expect("(")
+ let i=0
+ while i<load64(record_info(id)+8)
+  if i
+   do expect(",")
+  end
+  let child=load64(field_type(id,i))
+  if child
+   let target=aggregate_field_slot(root,id,i)
+   if load64(record_info(child)+144)==12
+    do aggregate_construct_value(f,target,child)
+   else
+    do collection_construct_value(f,target,child)
+   end
+   do access_local(0,target,0)
+  else
+   do scalar_expression(1,0)
+  end
+  do access_local(0,root+2+i,1)
+  set i=i+1
+ end
+ do expect(")")
+ do local_pointer(0,root+2)
+ do access_local(0,root,1)
+ do imm(0,1)
+ do access_local(0,root+1,1)
+ do owned_ready(f,root,id,0)
+ return 0
+end
+fn owned_ready(f,root,id,depth)
+ do store64(local_ready(f,root),1)
+ do store64(local_scope(f,root),depth)
+ if load64(record_info(id)+144)==12
+  let i=0
+  while i<load64(record_info(id)+8)
+   let child=load64(field_type(id,i))
+   if child
+    do owned_ready(f,aggregate_field_slot(root,id,i),child,depth)
+   end
+   set i=i+1
+  end
+ end
+ return 0
+end
+fn owned_consumed(f,root,id)
+ do require(load64(local_ready(f,root)),"transferred aggregate contains moved field")
+ do store64(local_ready(f,root),0)
+ if load64(record_info(id)+144)==12
+  let field=0
+  while field<load64(record_info(id)+8)
+   let child=load64(field_type(id,field))
+   if child
+    do owned_consumed(f,aggregate_field_slot(root,id,field),child)
+   end
+   set field=field+1
+  end
+ end
+ return 0
+end
+fn emit_owned_transfer(id)
+ return emit_owned_transfer_at(id,0)
+end
+fn emit_owned_transfer_at(id,offset)
+ if load64(record_info(id)+144)==12
+  let field=0
+  while field<load64(record_info(id)+8)
+   let child=load64(field_type(id,field))
+   if child
+    let slot=aggregate_field_slot(offset,id,field)
+    do emit_owned_transfer_at(child,slot)
+    # Reference the nested field table or heap descriptor, never the source frame.
+    let delta=1+(load64(record_info(child)+144)==12)
+    do emit(2432696320 | (((slot+delta)*8)<<10) | (5<<5) | 7)
+   else
+    do emit(4181721088 | ((offset+2+field)<<10) | (6<<5) | 7)
+   end
+   do emit(4177526784 | ((offset+2+field)<<10) | (5<<5) | 7)
+   set field=field+1
+  end
+  do emit(2432696320 | (((offset+2)*8)<<10) | (5<<5) | 7)
+  do emit(4177526784 | (offset<<10) | (5<<5) | 7)
+  do imm(7,1)
+  do emit(4177526784 | ((offset+1)<<10) | (5<<5) | 7)
+  do imm(7,0)
+  do emit(4177526784 | ((offset+1)<<10) | (6<<5) | 7)
+ else
+  let word=0
+  while word<6
+   do emit(4181721088 | ((offset+1+word)<<10) | (6<<5) | 7)
+   do emit(4177526784 | ((offset+1+word)<<10) | (5<<5) | 7)
+   do imm(7,0)
+   do emit(4177526784 | ((offset+1+word)<<10) | (6<<5) | 7)
+   set word=word+1
+  end
+  do emit(2432696320 | (((offset+1)*8)<<10) | (5<<5) | 7)
+  do emit(4177526784 | (offset<<10) | (5<<5) | 7)
+ end
+ return 0
+end
+fn owned_scope_drop(f,root,id)
+ do imm(0,0)
+ do push()
+ do owned_drop_children(f,root,id)
+ do emit(4181722080)
+ do emit(2432713727)
+ return 0
+end
+fn owned_drop_children(f,root,id)
+ if load64(record_info(id)+144)==12
+  let field=0
+  while field<load64(record_info(id)+8)
+   let child=load64(field_type(id,field))
+   if child
+    do owned_drop_children(f,aggregate_field_slot(root,id,field),child)
+   end
+   set field=field+1
+  end
+ else
+  let skip=next_label()
+  do access_local(0,root+1,0)
+  do emit(4043309087)
+  do jump(skip,0)
+  do access_local(0,root,0)
+  do imm(1,5)
+  do imm(2,0)
+  do imm(3,0)
+  do imm(4,0)
+  do collection_call()
+  do emit(4043309087)
+  do jump(skip,0)
+  do emit(4181722082)
+  do emit(4043309087 | (2<<5))
+  do jump(skip,1)
+  do emit(4177527777)
+  do label(skip)
+ end
+ return 0
+end
+fn owned_registration_count(id)
+ if load64(record_info(id)+144)!=12
+  return 1
+ end
+ let count=0
+ let field=0
+ while field<load64(record_info(id)+8)
+  let child=load64(field_type(id,field))
+  if child
+   set count=count+owned_registration_count(child)
+  end
+  set field=field+1
+ end
+ return count
+end
+fn nested_owned_expression(f,root,id)
+ while load64(record_info(id)+144)==12
+  do require(match("."),"aggregate is not a value; use own move")
+  do aggregate_guard(f,root)
+  do advance()
+  let field=field_index(id,advance())
+  let child=load64(field_type(id,field))
+  if child==0
+   do access_local(0,root+2+field,0)
+   do store64(state()+136,0)
+   return 0
+  end
+  set root=aggregate_field_slot(root,id,field)
+  set id=child
+  do require(load64(local_ready(f,root)),"owned field was moved")
+ end
+ do access_local(0,root,0)
+ do store64(state()+136,id)
+ return 0
+end
+fn nested_owned_assignment(f,root,id)
+ while 1
+  do require(match("."),"nested owned field cannot be rebound")
+  do aggregate_guard(f,root)
+  do advance()
+  let field=field_index(id,advance())
+  let child=load64(field_type(id,field))
+  if child==0
+   do local_pointer(0,root+2+field)
+   do push()
+   do expect("=")
+   do scalar_expression(1,0)
+   do pop1()
+   return emit(4177526816)
+  end
+  set root=aggregate_field_slot(root,id,field)
+  set id=child
+  do require(load64(local_ready(f,root)),"owned field was moved")
+  if load64(record_info(id)+144)!=12
+   do require(match(".")==0,"nested path requires plain borrowed record")
+   do require(0,"nested child binding is immutable")
+  end
+ end
+ return 0
+end
+
+fn nested_owned_kind(id)
+ if id==0
+  return 0
+ end
+ return load64(record_info(id)+144)==12
+end
+fn records_intrinsic(t)
+ return tmatch(t,"records_push")|tmatch(t,"records_read")|tmatch(t,"records_set")|tmatch(t,"records_remove")|tmatch(t,"records_clear")|tmatch(t,"records_reserve")
+end
+fn invoke_records(name,depth)
+ let f=load64(state()+32)
+ let slot=owned_field_local(f)
+ let id=load64(local_type(f,slot))
+ do require(id!=0,"record collection required")
+ do require(load64(record_info(id)+144)==14,"record collection required")
+ let rowtype=load64(field_type(id,0))
+ let op=0
+ if tmatch(name,"records_push")
+  set op=1
+ end
+ if tmatch(name,"records_read")
+  set op=2
+ end
+ if tmatch(name,"records_set")
+  set op=3
+ end
+ if tmatch(name,"records_clear")
+  set op=4
+ end
+ if tmatch(name,"release")
+  set op=5
+  do require(slot>=load64(ftable(f)+8),"borrowed collection cannot be released")
+ end
+ if tmatch(name,"records_remove")
+  set op=6
+ end
+ do access_local(0,slot,0)
+ do push()
+ if (op==0)|(op==2)|(op==3)|(op==6)
+  do expect(",")
+  do scalar_expression(1,depth+1)
+ else
+  do imm(0,0)
+ end
+ do push()
+ if (op==1)|(op==2)|(op==3)
+  do expect(",")
+  do expression(1,depth+1)
+  do require(load64(state()+136)==rowtype,"record collection row type mismatch")
+  if op==2
+   do require(load64(state()+232)==0,"immutable payload cannot be read output")
+  end
+ else
+  do imm(0,0)
+ end
+ do expect(")")
+ do emit(2852127712 | 3)
+ do emit(4181722082)
+ do emit(2432713727)
+ do emit(4181722080)
+ do emit(2432713727)
+ do imm(1,op)
+ do imm(4,load64(record_info(rowtype)+8))
+ do imm(5,load64(record_info(id)+8))
+ let helper=0
+ while helper<load64(state()+40)
+  if tmatch(load64(ftable(helper)),"__rf2heap_records")
+   do fix(1,load64(ftable(helper)+40))
+   do emit(2483027968)
+   do store64(state()+136,load64(record_info(id)+152))
+   return 0
+  end
+  set helper=helper+1
+ end
+ do die("missing structured collection runtime")
+ return 0
+end
+
+fn records_property(id)
+ do emit(4181721088 | 1)
+ do emit(4043309087 | (1<<5))
+ do jump(bounds_failure_label(),0)
+ if match("limit")
+  do advance()
+  do imm(0,load64(record_info(id)+8))
+  return 0
+ end
+ if match("length")
+  do advance()
+  do emit(4181721088 | (2<<10))
+ else
+  do expect("capacity")
+  do emit(4181721088 | (3<<10))
+ end
+ do imm(1,load64(record_info(load64(field_type(id,0)))+8))
+ return emit(0x9ac10800)
+end

@@ -1,0 +1,80 @@
+# Compiler-injected row storage; private source origin is checked by heap_name_guard.
+fn __rf2heap_records(d,op,index,row,width,limit):__rf2heap_IO
+ if load64(d)==0
+  return err(9)
+ end
+ if (width==0)|(width>16)|(limit>65536//width)
+  return err(22)
+ end
+ let words=load64(d+16)
+ let count=words//width
+ if (count*width)!=words
+  return err(22)
+ end
+ if op==5
+  handle __rf2heap_drop(d)
+  ok released
+   return ok(released)
+  err cause
+   return err(cause)
+  end
+ end
+ if op==0
+  if index>limit
+   return err(22)
+  end
+  handle __rf2heap_grow(d,index*width,limit*width)
+  ok capacity
+   return ok(capacity//width)
+  err reserve_error
+   return err(reserve_error)
+  end
+ end
+ if op==4
+  do store64(d+16,0)
+  return ok(0)
+ end
+ if op==1
+  if count>=limit
+   return err(22)
+  end
+  handle __rf2heap_grow(d,words+width,limit*width)
+  ok grown
+  err growth_error
+   return err(growth_error)
+  end
+  let push_field=0
+  while push_field<width
+   do store64(load64(d+8)+(words+push_field)*8,load64(row+push_field*8))
+   set push_field=push_field+1
+  end
+  do store64(d+16,words+width)
+  return ok(count+1)
+ end
+ if index>=count
+  return err(34)
+ end
+ let start=load64(d+8)+index*width*8
+ if op==6
+  let cursor=(index+1)*width
+  while cursor<words
+   do store64(load64(d+8)+(cursor-width)*8,load64(load64(d+8)+cursor*8))
+   set cursor=cursor+1
+  end
+  do store64(d+16,words-width)
+  return ok(count-1)
+ end
+ let field=0
+ while field<width
+  if op==2
+   do store64(row+field*8,load64(start+field*8))
+  else
+   if op!=3
+    return err(22)
+   end
+   do store64(start+field*8,load64(row+field*8))
+  end
+  set field=field+1
+ end
+ return ok(width)
+end
