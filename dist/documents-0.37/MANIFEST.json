@@ -1,0 +1,103 @@
+{
+  "version": "0.37.0-dev",
+  "product": "RF2 Documents",
+  "host": "macos-arm64",
+  "compilerSHA256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37",
+  "runtimeSHA256": "df714d688e5b96577abb294a192432ed2f57f07c080ab23e32eee46cf94b0b89",
+  "testReportSHA256": "6b39e37deb3e1196154e95184bd36efc974a1b7a2ca469f0a68ad854fda38507",
+  "packagerSHA256": "ee246cbcfb5fd18b3904b9c129d4cdf8ffe01018c08a5c100e351920c0ce9cd6",
+  "files": {
+    "LICENSE": {
+      "bytes": 1087,
+      "sha256": "439e5b1ea79a6a0a2007acf65173490db2462b238b9805abab0ee820838b23e8"
+    },
+    "README.txt": {
+      "bytes": 2043,
+      "sha256": "67d2a47ff92b4a1662bec3321f41e340a7837bd57e91c8d5b9f1908c1c323ae7"
+    },
+    "examples/documents/LIBRARIES.md": {
+      "bytes": 5814,
+      "sha256": "c366fa5d50bb46b2c20e29d3575c51e38533072abaaf2c607de26dc6d1b7cc90"
+    },
+    "examples/documents/README.md": {
+      "bytes": 8341,
+      "sha256": "c74c1d5d239e548b5ac6974575c1ac0a4501bd32565c66f0b1048a5d85980c94"
+    },
+    "examples/documents/fixtures/documents.txt": {
+      "bytes": 124,
+      "sha256": "4d1b87b6714070868291c250c17d3676f11d54e80f71b1144902d270689d3c4b"
+    },
+    "examples/documents/fixtures/overview.txt": {
+      "bytes": 210,
+      "sha256": "c5d311a5ad413035da9d4832bb6d404299997c426e2588752ff3bbafade79db0"
+    },
+    "examples/documents/fixtures/review-notes.txt": {
+      "bytes": 165,
+      "sha256": "3f58246dce17c1372ca9ae006da8d06ebac4391b8921125e1cd8e0b72d178b33"
+    },
+    "examples/documents/fixtures/tamil.txt": {
+      "bytes": 166,
+      "sha256": "b2e5400bb1afc096d84acefff83a056fd1195c172c2e9b30633971a5839c03b8"
+    },
+    "examples/documents/lib/collections.flow": {
+      "bytes": 2816,
+      "sha256": "0ca4ba7e18df8e5020eef4b7a83bf2c9090ec0dd2ea8b7f8f8d6438b0e6f8b62"
+    },
+    "examples/documents/lib/corpus.flow": {
+      "bytes": 4454,
+      "sha256": "d72d1d9e93d8844a6d7e548d225d64bf3fc3ecbca17dda1c6f9a7236bddf4fc0"
+    },
+    "examples/documents/lib/http.flow": {
+      "bytes": 7408,
+      "sha256": "9f5289684f8809af153f85bf50003c93bb441c6be0d8d39ab5914c4b584c0d89"
+    },
+    "examples/documents/lib/io.flow": {
+      "bytes": 1874,
+      "sha256": "3c7be52f4314ab613af53271a0bd00dd2e9e04d4c198275d47a3fe34f4af023f"
+    },
+    "examples/documents/lib/reader.flow": {
+      "bytes": 14128,
+      "sha256": "df8115eb59c970e03ca6aa04f863a19fa5e1429cb2495fc7fc54a7c529d9b08f"
+    },
+    "examples/documents/lib/text.flow": {
+      "bytes": 7339,
+      "sha256": "840525a4afe7829121b7ddbf14b9db01950d215657e5966bd3ddc9bdf2a59daf"
+    },
+    "examples/documents/library-probe.flow": {
+      "bytes": 5316,
+      "sha256": "e5446cc5b5171423c4579ebc12153b46be5ff97e002caa27853ed6c0fdce6ac7"
+    },
+    "examples/documents/text-lines.flow": {
+      "bytes": 2257,
+      "sha256": "03ff1ae694dc35be65cfe179580442e9a1228a706c8b4a65d99184d3c6afb04d"
+    },
+    "examples/documents/workspace.flow": {
+      "bytes": 1319,
+      "sha256": "b8c1060ba4a939276e092015aca42aaccd1f0ef9d59e343b36104dbcef7f6868"
+    },
+    "rf2": {
+      "bytes": 231680,
+      "sha256": "df714d688e5b96577abb294a192432ed2f57f07c080ab23e32eee46cf94b0b89"
+    },
+    "rf2c": {
+      "bytes": 363008,
+      "sha256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37"
+    },
+    "text-lines": {
+      "bytes": 182432,
+      "sha256": "1922baa5c5dd8af95ece7e6017dd8d218a88c584937e5da8fa74465d7221b88f"
+    },
+    "tools/build-program.sh": {
+      "bytes": 475,
+      "sha256": "bee98ded9ae46f27850df4916383435f1812161e03d7593286055f600de605ed"
+    },
+    "tools/dev.sh": {
+      "bytes": 3023,
+      "sha256": "f2b021ac3f0d2c64cf31823a5ff69ac99434da8f7542ea6908c400ebbd92b6bd"
+    },
+    "workspace": {
+      "bytes": 4417856,
+      "sha256": "c46128192561564b5c46516a27199e590949f1ee37f7ff61284e13462d9e6180"
+    }
+  }
+}
