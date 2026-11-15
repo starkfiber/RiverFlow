@@ -1,0 +1,102 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/datetime.flow"
+record TimeWindow(start:u64,finish:u64)
+record ReservationValue(day:u64,window:TimeWindow)
+fn reservation_conflict(left:ReservationValue,right:ReservationValue):IO
+ if (date_valid(left.day)==0)|(date_valid(right.day)==0)
+  return err(22)
+ end
+ if (left.window.start>=left.window.finish)|(right.window.start>=right.window.finish)
+  return err(22)
+ end
+ if (left.window.finish>1440)|(right.window.finish>1440)
+  return err(22)
+ end
+ return ok((left.day==right.day)&time_overlap(left.window.start,left.window.finish,right.window.start,right.window.finish))
+end
+fn reservation_inputs(argc,argv):IO
+ if argc!=7
+  return err(22)
+ end
+ let day_a=0
+ let start_a=0
+ let finish_a=0
+ let day_b=0
+ let start_b=0
+ let finish_b=0
+ let arg=load64(argv+8)
+ handle date_parse(arg,io_size(arg))
+ ok parsed_day_a
+  set day_a=parsed_day_a
+ err bad_day_a
+  return err(bad_day_a)
+ end
+ set arg=load64(argv+16)
+ handle time_parse(arg,io_size(arg),0)
+ ok parsed_start_a
+  set start_a=parsed_start_a
+ err bad_start_a
+  return err(bad_start_a)
+ end
+ set arg=load64(argv+24)
+ handle time_parse(arg,io_size(arg),1)
+ ok parsed_finish_a
+  set finish_a=parsed_finish_a
+ err bad_finish_a
+  return err(bad_finish_a)
+ end
+ set arg=load64(argv+32)
+ handle date_parse(arg,io_size(arg))
+ ok parsed_day_b
+  set day_b=parsed_day_b
+ err bad_day_b
+  return err(bad_day_b)
+ end
+ set arg=load64(argv+40)
+ handle time_parse(arg,io_size(arg),0)
+ ok parsed_start_b
+  set start_b=parsed_start_b
+ err bad_start_b
+  return err(bad_start_b)
+ end
+ set arg=load64(argv+48)
+ handle time_parse(arg,io_size(arg),1)
+ ok parsed_finish_b
+  set finish_b=parsed_finish_b
+ err bad_finish_b
+  return err(bad_finish_b)
+ end
+ let window_a=TimeWindow(start_a,finish_a)
+ let window_b=TimeWindow(start_b,finish_b)
+ let reservation_a=ReservationValue(day_a,window_a)
+ let reservation_b=ReservationValue(day_b,window_b)
+ let conflict=0
+ handle reservation_conflict(reservation_a,reservation_b)
+ ok outcome
+  set conflict=outcome
+ err invalid_reservation
+  return err(invalid_reservation)
+ end
+ let out=Writer(buffer("reservation_answer",64),64,0,0)
+ do writer_text(out,"{\"conflict\":")
+ do writer_number(out,conflict)
+ do writer_text(out,"}\n")
+ if out.error
+  return err(out.error)
+ end
+ handle io_write_all(1,out.data,out.used)
+ ok written
+ err write_error
+  return err(write_error)
+ end
+ return ok(0)
+end
+fn main(argc,argv)
+ handle reservation_inputs(argc,argv)
+ ok complete
+  return 0
+ err failure
+  return 2
+ end
+ return 3
+end
