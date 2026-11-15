@@ -40,3 +40,7 @@ For compact images, use compact_image_verify.py with RF2_TEST_COMPILER. To rerun
 ## Shared text, collections and document workspace
 
 `standalone/documents_verify.py` requires explicit `RF2_TEST_COMPILER`. It builds real Mac programs in both modes, compares UTF-8/byte/numeric/collection outputs with independent oracles and tests failed imports, file types, limits, closed output, in-process descriptor balance, shared-library mutations and bounded HTTP behavior. Browser forms/download/responsive acceptance and package/MCP/source-rebuild checks are recorded separately in `docs/DOCUMENTS-0.37-*`. No performance or physical-hardware inference follows.
+
+## Borrowed application-value boundary, source 0.41
+
+`standalone/application_values_verify.py` requires explicit RF2_NESTED_COMPILER and RF2_TEST_COMPILER. It copies reviewed Booking date/time dependencies into a fresh fixture, compares actual conflict outputs with an independent date/interval oracle and tests failures and nominal/escape/deep-field rules in both modes. It never writes a Booking journal. See [qualification and harness corrections](../docs/APPLICATION-VALUES-0.41.md); this is not general owned-value or released compiler qualification.

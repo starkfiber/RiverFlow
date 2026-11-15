@@ -27,6 +27,8 @@ Read a controller and its input manifest before running it. Preserve the previou
 
 ## Documentation and packaging
 
+`project-progress.py` renders `docs/PIPELINE.json` into the progress view; `--check` refuses stale output. It validates declared states and local evidence-file existence, not the truth of every claim. Update the ledger only from reviewed outcomes. [Project continuity](../docs/PROJECT-CONTINUITY.md) records owner direction and scope.
+
 `source-inventory.py` records tracked source bytes by language and architectural area, using `.gitattributes` for generated exclusions. Run it after staging reviewed new source; `--check` refuses drift without writing. See [language reporting](../docs/LANGUAGE-REPORTING.md). `build-book.py` generates the book and website mirror when requested. `package-trust-candidate.py` and qualification tools apply only to their explicitly versioned package. They do not publish a stable release automatically.
 
 ## Compact image and function-change work

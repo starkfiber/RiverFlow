@@ -6,6 +6,7 @@
 | Select and run native tools | [Start here](START-HERE.md) · [first .flow app](FIRST-APP.md) |
 | Find a complete program | [Example catalogue](../examples/README.md) |
 | Understand current limits | [Capability map](CAPABILITY-MAP.md) · [package choices](START-HERE.md#choose-a-package) |
+| Resume the current sprint | [Progress](PROGRESS.md) · [project continuity](PROJECT-CONTINUITY.md) · [application-value evidence](APPLICATION-VALUES-0.41.md) |
 | Follow the platform ambition | [RF2 everywhere](RF2-EVERYWHERE.md) · [evolution specification](RF2-EVOLUTION.md) |
 | Work on the implementation | [Codebase map](CODEBASE.md) · [compiler](../native/compiler/README.md) |
 | Connect an AI host | [Native MCP setup](START-HERE.md#connect-an-ai-host) · [tool contracts](../plugin/skills/rf2/SKILL.md) |

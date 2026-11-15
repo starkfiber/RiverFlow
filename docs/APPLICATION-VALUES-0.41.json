@@ -1,0 +1,65 @@
+{
+  "schema": "rf2.application-values.summary.v1",
+  "baselineCommit": "60d301537c6c7fb3cd25153eb56d478bf4d1fca3",
+  "host": {
+    "architecture": "arm64",
+    "macOS": "26.5.1"
+  },
+  "allPassed": true,
+  "acceptanceChecks": 687,
+  "validConflictExecutions": 606,
+  "invalidInputExecutions": 18,
+  "closedOutputFailures": 2,
+  "nominalInitEscapeRefusals": 16,
+  "boundaryExecutions": 8,
+  "boundaryDepthMaximum": 31,
+  "boundaryWidthMaximum": 16,
+  "candidateSHA256": "2281b3f501da675372647247e743ab2f1f8ba720c428400a64a063bc7a8ae796",
+  "freshCandidateMatchesPreviouslyTestedCandidate": true,
+  "qualifiedCompilerSHA256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37",
+  "applicationSHA256": "c76bf81d5f2f8c23ca9579338f41af0821022569ae580234fbe1547c87e13b86",
+  "controllerSHA256": "97e93b613160576bcf16feb91da30bf9795f0295e68f859b08977fe46c6fec28",
+  "sharedLibraries": {
+    "datetime.flow": "e91acb6d334dafef70b258f34261db5d1ef6b66473a0560345a8cca714f36aad",
+    "io.flow": "3c7be52f4314ab613af53271a0bd00dd2e9e04d4c198275d47a3fe34f4af023f",
+    "text.flow": "840525a4afe7829121b7ddbf14b9db01950d215657e5966bd3ddc9bdf2a59daf"
+  },
+  "rawReportSHA256": "9fc90f3e588788b36d92a5f4e41a36e2ee1efb7b11ffc241bf91366e1fc6556b",
+  "rawEvidence": "artifacts/application-values-fzm4t9jz/report.json",
+  "regressions": [
+    {
+      "name": "heap ownership and fault controls",
+      "cases": 78,
+      "localEvidence": "artifacts/sprint-033/heap-redteam-1794733087505080000/report.json",
+      "sha256": "f21d601fe773472c40f22433baf0710c4c13d5dc3631a540dac40a11676a7b4d"
+    },
+    {
+      "name": "shared collection apps",
+      "cases": 308,
+      "localEvidence": "artifacts/collection-apps/verify-1794733115211848000/report.json",
+      "sha256": "0d1c88b90ead9cb6172bcd86a5c2ef76746800ee5e5f2f4c588d20bf806966bc"
+    }
+  ],
+  "mcp": {
+    "tools": 9,
+    "systemsSourceRefused": true,
+    "validFollowingRequest": 6,
+    "receiptSHA256": "9349c92bbd2789f94cae39ab22c68cd3c0e7002f2f9eb5c54682c7c27e1c9149"
+  },
+  "progressControls": {
+    "cases": 8,
+    "allPassed": true,
+    "receiptSHA256": "5f5ccf2acd0c710c6150272648b9e6de418119c6f6808024f32ecc2201a62e8c"
+  },
+  "harnessCorrections": [
+    "Initial direct experimental-source baseline check hit missing imports; replaced with a dependency-resolved near control.",
+    "Exact baseline diagnostic includes a colon after expected; assertion corrected without changing expected refusal.",
+    "Before-initialization refusal is a local-readiness diagnostic; assertion corrected without changing admission requirements."
+  ],
+  "compilerChanges": "None. Existing isolated borrowed-record candidate reproduced byte-for-byte; no new owned-value implementation or binary release.",
+  "limits": [
+    "Borrowed same-day conflict calculation only; no journal writes or migration.",
+    "No general nested ownership, owner returns, whole-language lifetime proof or concurrency qualification.",
+    "No speed, energy, billed token, human learner, device or universal platform claim."
+  ]
+}
