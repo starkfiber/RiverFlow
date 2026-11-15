@@ -1,0 +1,127 @@
+--- a/lib/app-server.flow
++++ b/lib/app-server.flow
+@@ -59,13 +59,13 @@
+  let client = 0
+  let requests = 0
+  let flags = 0
+- while (load64(globals()+40)==0)&(requests<4096)
++ while load64(globals()+40)==0
+   set got = syscall6(230,poll,9,1000,0,0,0)
+   if got>>63
+    do store64(globals()+40,1)
+   else
+    set i = 1
+-   while (i<9)&(load64(globals()+40)==0)&(requests<4096)
++   while (i<9)&(load64(globals()+40)==0)
+     set client = load32(poll+i*8)
+     if (client!=4294967295)&((load32(poll+i*8+4)>>16)!=0)
+      if form_request(client)
+--- a/lib/storage.flow
++++ b/lib/storage.flow
+@@ -11,6 +11,9 @@
+  end
+  let fd=open(path,flags,384)
+  if fd>>63
++  if 0-fd==2
++   return err(404)
++  end
+   return err(0-fd)
+  end
+  let lock=5
+@@ -39,7 +42,7 @@
+  return ok(fd)
+ end
+ fn storage_read(fd,data,limit):IO
+- if limit>1048576
++ if limit>16777216
+   return err(22)
+  end
+  let rc=syscall6(199,fd,0,0,0,0,0)
+--- a/lib/store.flow
++++ b/lib/store.flow
+@@ -6,7 +6,7 @@
+ record StoreRequest(action:u64,expected:u64,id:u64,room:u64,day:u64,start:u64,finish:u64)
+ result StoredRows(own Bookings,u64)
+ fn store_data()
+- return buffer("typed_booking_file",1048577)
++ return buffer("typed_booking_file",16777217)
+ end
+ fn store_equal(a,b,n)
+  let i=0
+@@ -99,7 +99,7 @@
+  set state.version=0
+  set state.tail=0
+  set state.digest=0
+- if (n==0)|(n>1048576)
++ if (n==0)|(n>16777216)
+   return err(9001)
+  end
+  let position=0
+@@ -186,13 +186,13 @@
+ end
+ # Serialize only declared fields, with explicit schema identity and digest chaining.
+ fn store_snapshot(fd,rows:Bookings,state:StoreState,version):IO
+- if ((version!=1)&(version!=2))|(state.bytes>1048576)|(state.revision==18446744073709551615)
++ if ((version!=1)&(version!=2))|(state.bytes>16777216)|(state.revision==18446744073709551615)
+   return err(22)
+  end
+  let count=rows.length
+  let width=32+(version==2)*8
+  let size=120+count*width
+- if (count>256)|(size>1048576-state.bytes)
++ if (count>256)|(size>16777216-state.bytes)
+   return err(27)
+  end
+  let frame=buffer("typed_booking_snapshot",10360)
+@@ -335,7 +335,7 @@
+ fn store_locked(fd,request:StoreRequest,state:StoreState,out:Writer):IO
+  own empty=Bookings()
+  let bytes=0
+- handle storage_read(fd,store_data(),1048576)
++ handle storage_read(fd,store_data(),16777216)
+  ok loaded
+   set bytes=loaded
+  err read_error
+@@ -534,7 +534,7 @@
+  end
+  let bytes=0
+  let error=0
+- handle storage_read(fd,store_data(),1048576)
++ handle storage_read(fd,store_data(),16777216)
+  ok loaded
+   set bytes=loaded
+  err read_error
+--- a/lib/ui.flow
++++ b/lib/ui.flow
+@@ -3,28 +3,12 @@
+ use "lib/datetime.flow"
+ fn ui_begin(out:Writer,title)
+  do writer_reset(out)
+- do writer_text(out,"<!doctype html><html lang=en class=\"")
+- do writer_text(out,ui_theme_class())
+- do writer_text(out,"\"><head><meta charset=utf-8><meta name=viewport content=\"width=device-width,initial-scale=1\"><title>")
+- do writer_text(out,title)
+- do writer_text(out," | RF2 Booking</title><style>")
++ do writer_text(out,"<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content=\"width=device-width,initial-scale=1\"><title>Study Rooms</title><style>")
+  do writer_text(out,ui_css())
+- do writer_text(out,"</style></head><body><a class=skip href=#main>Skip to bookings</a><div class=shell><aside class=sidebar><a class=brand href=/ aria-label=\"RF2 Booking home\"><svg aria-hidden=true viewBox=\"0 0 32 32\"><path d=\"M4 9h15c8 0 8 12 0 12H4m7-6h13M4 27l7-12-7-12\" /></svg><span>RF²<span class=brand-sub>Booking</span></span></a><p class=nav-label>YOUR WORKSPACE</p><nav aria-label=\"Main navigation\"><a class=nav-link href=/")
+- if text_equal(title,io_size(title),"Bookings",8)
+-  do writer_text(out," aria-current=page")
+- end
+- do writer_text(out,"><svg aria-hidden=true viewBox=\"0 0 24 24\"><rect x=3 y=5 width=18 height=16 rx=3 /><path d=\"M3 10h18M8 2v6m8-6v6\" /></svg> Bookings</a><a class=nav-link href=/storage")
+- if text_equal(title,io_size(title),"Storage",7)
+-  do writer_text(out," aria-current=page")
+- end
+- do writer_text(out,"><svg aria-hidden=true viewBox=\"0 0 24 24\"><rect x=3 y=3 width=18 height=18 rx=3 /><path d=\"M7 8h10M7 12h10m-10 4h6\" /></svg> Storage &amp; recovery</a></nav><div class=sidebar-note><span class=status-dot></span><strong>Local by design</strong><p>Your bookings stay in the file you chose on this Mac.</p></div></aside><main id=main><header class=topbar><span class=breadcrumb>Workspace <span aria-hidden=true>/</span> ")
+- do writer_text(out,title)
+- do writer_text(out,"</span><div class=topbar-actions><span class=local-badge><span class=status-dot></span> On this Mac</span>")
+- do ui_appearance(out)
+- return writer_text(out,"</div></header>")
++ return writer_text(out,"main{max-width:1100px;margin:auto;padding:24px}select,input{font:inherit;padding:10px;max-width:100%}table{width:100%;text-align:left}td,th{padding:10px}.card{padding:24px;margin:20px 0;background:var(--surface);border:1px solid var(--line);border-radius:18px}</style></head><body><main id=main>")
+ end
+ fn ui_end(out:Writer)
+- return writer_text(out,"<footer>RF² Booking <span>Written in RiverFlow. Saved in your workspace.</span></footer></main></div></body></html>")
++ return writer_text(out,"<footer>RF² Booking <span>Written in RiverFlow. Saved in your workspace.</span></footer></main></body></html>")
+ end
+ fn ui_stat(out:Writer,label,value,detail)
+  do writer_text(out,"<div class=stat><span class=stat-label>")

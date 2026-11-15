@@ -1,0 +1,11 @@
+--- a/study.flow
++++ b/study.flow
+@@ -290,7 +290,7 @@
+     else
+      if j_matches(j_token(method),"tools/call")
+       if (params==0)|(only_fields(params,"name","arguments","","")==0)|(j_matches(j_token(j_field(params,"name")),"booking_list")==0)|(object_empty(j_field(params,"arguments"))==0)
+-       do writer_text(out,",\"result\":{\"isError\":true,\"content\":[{\"type\":\"text\",\"text\":\"Expected booking_list with explicit empty arguments\"}]}}\n")
++       do rpc_error(out,"-32602","Unknown tool or invalid arguments")
+       else
+        handle store_operation(app_path(),req,state)
+        ok revision28
