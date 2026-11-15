@@ -1,0 +1,102 @@
+module native_process
+use "lib/storage.flow"
+fn process_elapsed(start)
+ return (vm_clock_ticks()-start)*load32(buffer("process_timebase",8))//load32(buffer("process_timebase",8)+4)
+end
+# Trusted fixed tool invocations. Argument vectors are never shell command strings.
+fn process_run(executable,args,log):IO
+ if clock_timebase(buffer("process_timebase",8))!=0
+  return err(5)
+ end
+ if (load32(buffer("process_timebase",8))==0)|(load32(buffer("process_timebase",8)+4)==0)
+  return err(5)
+ end
+ let fd=open(log,2822,384)
+ if fd>>63
+  return err(0-fd)
+ end
+ let child=fork_process()
+ if child==0
+  if syscall6(82,0,0,0,0,0,0)!=0
+   do exit(126)
+  end
+  do syscall6(90,fd,1,0,0,0,0)
+  do syscall6(90,fd,2,0,0,0,0)
+  if fd>2
+   do close(fd)
+  end
+  let env=buffer("studio_child_env",24)
+  do store64(env,"PATH=/usr/bin:/bin")
+  do store64(env+8,"LC_ALL=C")
+  do syscall6(59,executable,args,env,0,0,0)
+  do exit(127)
+ end
+ do close(fd)
+ if child>>63
+  return err(0-child)
+ end
+ do syscall6(82,child,child,0,0,0,0)
+ let status=buffer("studio_child_status",8)
+ let start=vm_clock_ticks()
+ let timeout=0
+ let ended=0
+ while ended==0
+  let rc=syscall6(7,child,status,1,0,0,0)
+  if rc==child
+   set ended=1
+  else
+   if rc>>63
+    do syscall6(37,0-child,9,0,0,0,0)
+    do syscall6(37,child,9,0,0,0,0)
+    return err(9004)
+   end
+   if process_elapsed(start)>5000000000
+    set timeout=1
+    do syscall6(37,0-child,9,0,0,0,0)
+    do syscall6(37,child,9,0,0,0,0)
+    set rc=syscall6(7,child,status,0,0,0,0)
+    if rc!=child
+     return err(9004)
+    end
+    set ended=1
+   else
+    do syscall6(230,0,0,10,0,0,0)
+   end
+  end
+ end
+ # Reap the direct child; also terminate any remaining members of its tool group.
+ if syscall6(37,0-child,0,0,0,0,0)==0
+  do syscall6(37,0-child,9,0,0,0,0)
+ end
+ if timeout
+  return err(9003)
+ end
+ let result=load32(status)
+ if (result&127)!=0
+  return err(9005)
+ end
+ return ok((result>>8)&255)
+end
+fn storage_create(path,data,n):IO
+ let fd=0
+ handle storage_open(path,1,1)
+ ok opened
+  set fd=opened
+ err open_error
+  return err(open_error)
+ end
+ let error=0
+ handle storage_append(fd,data,n,0)
+ ok saved
+ err save_error
+  set error=save_error
+ end
+ let closed=close(fd)
+ if error
+  return err(error)
+ end
+ if closed>>63
+  return err(9002)
+ end
+ return ok(n)
+end

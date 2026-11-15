@@ -1,0 +1,136 @@
+module date_time
+use "lib/text.flow"
+fn date_leap(year)
+ return ((year-(year//4)*4)==0)&(((year-(year//100)*100)!=0)|((year-(year//400)*400)==0))
+end
+fn date_month_days(year,month)
+ if month==2
+  return 28+date_leap(year)
+ end
+ if (month==4)|(month==6)|(month==9)|(month==11)
+  return 30
+ end
+ return 31
+end
+fn date_valid(key)
+ let year=key//10000
+ let month=((key//100)-(key//10000)*100)
+ let day=(key-(key//100)*100)
+ if (year<1)|(year>9999)|(month<1)|(month>12)|(day<1)
+  return 0
+ end
+ return day<=date_month_days(year,month)
+end
+fn date_parse(p,n):IO
+ if n!=10
+  return err(22)
+ end
+ if (load8(p+4)!=45)|(load8(p+7)!=45)
+  return err(22)
+ end
+ let i=0
+ let key=0
+ while i<10
+  if (i!=4)&(i!=7)
+   let digit=load8(p+i)
+   if (digit<48)|(digit>57)
+    return err(22)
+   end
+   set key=key*10+digit-48
+  end
+  set i=i+1
+ end
+ if date_valid(key)==0
+  return err(22)
+ end
+ return ok(key)
+end
+# Gregorian ordinal, 1 = 0001-01-01. No timezone or daylight-saving conversion.
+fn date_ordinal(key):IO
+ if date_valid(key)==0
+  return err(22)
+ end
+ let year=key//10000-1
+ let month=((key//100)-(key//10000)*100)
+ let days=year*365+year//4-year//100+year//400+(key-(key//100)*100)
+ let i=1
+ while i<month
+  set days=days+date_month_days(year+1,i)
+  set i=i+1
+ end
+ return ok(days)
+end
+fn time_parse(p,n,allow_end):IO
+ if (n!=5)|(allow_end>1)
+  return err(22)
+ end
+ if load8(p+2)!=58
+  return err(22)
+ end
+ let i=0
+ while i<5
+  if i!=2
+   let digit=load8(p+i)
+   if (digit<48)|(digit>57)
+    return err(22)
+   end
+  end
+  set i=i+1
+ end
+ let hour=(load8(p)-48)*10+load8(p+1)-48
+ let minute=(load8(p+3)-48)*10+load8(p+4)-48
+ if minute>59
+  return err(22)
+ end
+ if hour==24
+  if allow_end&(minute==0)
+   return ok(1440)
+  end
+  return err(22)
+ end
+ if hour>23
+  return err(22)
+ end
+ return ok(hour*60+minute)
+end
+fn time_overlap(a,b,c,d)
+ return (a<d)&(c<b)
+end
+fn date_fixed(out:Writer,value,width)
+ let digits=buffer("date_digits",24)
+ let i=width
+ if (width==0)|(width>20)
+  set out.error=22
+  return 0
+ end
+ while i>0
+  set i=i-1
+  do store8(digits+i,48+value-(value//10)*10)
+  set value=value//10
+ end
+ if value!=0
+  set out.error=75
+  return 0
+ end
+ return writer_bytes(out,digits,width)
+end
+fn date_format(out:Writer,key)
+ if date_valid(key)==0
+  set out.error=22
+  return 0
+ end
+ do date_fixed(out,key//10000,4)
+ do writer_text(out,"-")
+ do date_fixed(out,((key//100)-(key//10000)*100),2)
+ do writer_text(out,"-")
+ return date_fixed(out,(key-(key//100)*100),2)
+end
+fn time_format(out:Writer,minute)
+ if minute>1440
+  set out.error=22
+  return 0
+ end
+ do date_fixed(out,minute//60,2)
+ do writer_text(out,":")
+ return date_fixed(out,(minute-(minute//60)*60),2)
+end

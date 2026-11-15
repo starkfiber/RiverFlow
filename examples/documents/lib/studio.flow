@@ -1,0 +1,168 @@
+module studio_engine
+use "lib/workbench-ui.flow"
+use "lib/process.flow"
+fn studio_config()
+ return buffer("studio_config",32)
+end
+fn studio_source()
+ return buffer("studio_source",4097)
+end
+fn studio_input()
+ return buffer("studio_input",4097)
+end
+fn studio_join(dst,base,suffix)
+ let n=io_size(base)
+ if n+io_size(suffix)>1000
+  return 0
+ end
+ do io_copy(dst,base,n)
+ do io_copy(dst+n,suffix,io_size(suffix)+1)
+ return 1
+end
+fn studio_job(values:FormValues,action):IO
+ let config=studio_config()
+ let rev=load64(globals()+48)
+ let prefix=buffer("studio_job_prefix",128)
+ let name=Writer(prefix,128,0,0)
+ do writer_text(name,"job-")
+ do writer_text(name,form_token())
+ do writer_text(name,"-")
+ do writer_number(name,rev)
+ do store8(prefix+name.used,0)
+ let source=buffer("studio_source_path",160)
+ let log=buffer("studio_log_path",160)
+ let build=buffer("studio_build_path",160)
+ let checklog=buffer("studio_check_log",160)
+ let program=buffer("studio_program_path",180)
+ do studio_join(source,prefix,".flow")
+ do studio_join(log,prefix,".log")
+ do studio_join(checklog,prefix,".check.log")
+ do studio_join(build,prefix,"-build")
+ do studio_join(program,build,"/program")
+ handle storage_create(source,values[16],values[17])
+ ok captured
+ err capture_error
+  return err(capture_error)
+ end
+ let args=buffer("studio_exec_args",64)
+ do fill_zero(args,64)
+ do store64(args,load64(config))
+ do store64(args+8,"check")
+ do store64(args+16,source)
+ let checked=0
+ handle process_run(load64(config),args,checklog)
+ ok check_status
+  set checked=check_status
+ err process_error
+  return err(process_error)
+ end
+ let output=buffer("studio_output",262145)
+ let bytes=0
+ if checked!=0
+  handle io_regular(checklog,output,262144)
+  ok check_bytes
+   set bytes=check_bytes
+  err check_read_error
+   return err(check_read_error)
+  end
+  do store64(config+16,bytes)
+  do store64(config+24,1)
+  return ok(1)
+ end
+ if action==0
+  do io_copy(output,"Source check passed.\n",21)
+  do store64(config+16,21)
+  do store64(config+24,0)
+  return ok(0)
+ end
+ do fill_zero(args,64)
+ if action==1
+  do store64(args,load64(config))
+  do store64(args+8,"run")
+  do store64(args+16,source)
+  do store64(args+24,values[18])
+  handle process_run(load64(config),args,log)
+  ok run_status
+   do store64(config+24,run_status)
+  err run_error
+   return err(run_error)
+  end
+ else
+  do store64(args,"/bin/sh")
+  do store64(args+8,load64(config+8))
+  do store64(args+16,load64(config))
+  do store64(args+24,buffer("studio_compiler_path",1024))
+  do store64(args+32,source)
+  do store64(args+40,build)
+  let built=0
+  handle process_run("/bin/sh",args,log)
+  ok build_status
+   set built=build_status
+   do store64(config+24,built)
+  err build_error
+   return err(build_error)
+  end
+  if (built==0)&(action==3)
+   let native_log=buffer("studio_native_log",160)
+   do studio_join(native_log,prefix,".native.log")
+   do fill_zero(args,64)
+   do store64(args,program)
+   do store64(args+8,values[18])
+   handle process_run(program,args,native_log)
+   ok native_status
+    do store64(config+24,native_status)
+   err native_error
+    return err(native_error)
+   end
+   do io_copy(log,native_log,io_size(native_log)+1)
+  end
+ end
+ handle io_regular(log,output,262144)
+ ok output_bytes
+  set bytes=output_bytes
+ err output_error
+  return err(output_error)
+ end
+ do store64(config+16,bytes)
+ return ok(load64(config+24))
+end
+fn studio_page(fd)
+ let out=Writer(buffer("documents_web_output",1048576),1048576,0,0)
+ do workbench_begin(out,"Studio Code")
+ do writer_text(out,"<h1>Write it. Check it. See it work.</h1><p class=muted>Learning edition: checked number programs. General Mac systems source and Booking builds use the trusted developer tools.</p><div class=\"grid wide\"><section class=card><h2>Your .flow program</h2><p><a href=/sum>Sum lesson</a> · <a href=/bits>Bits lesson</a></p><form action=/action method=post>")
+ do form_hidden(out,load64(globals()+48))
+ do writer_text(out,"<label class=field for=source>RF2 source</label><textarea id=source name=source spellcheck=false required>")
+ do writer_html(out,studio_source(),io_size(studio_source()))
+ do writer_text(out,"</textarea><label class=field for=data>Input numbers (JSON array)</label><input id=data name=data required value=\"")
+ do writer_html(out,studio_input(),io_size(studio_input()))
+ do writer_text(out,"\"><div class=toolbar><button name=action value=check>Check</button><button name=action value=run>Run checked code</button><button name=action value=build>Build native</button><button name=action value=native>Run native</button></div><p class=muted>Each action saves a new source revision in your selected private project folder. Build creates an executable without running it. Run native builds and runs the checked program.</p></form></section><section class=card><h2>Results and diagnostics</h2>")
+ if load64(globals()+56)
+  do writer_text(out,"<div class=\"notice error\" role=alert>Step could not complete. Error ")
+  do writer_number(out,load64(globals()+56))
+  do writer_text(out,". No success is claimed. Inspect this project's saved files before retrying an uncertain operation.</div>")
+ else
+  if load64(studio_config()+24)
+   do writer_text(out,"<p class=\"notice error\" role=alert>The tool refused this program or input. Read the diagnostic below, correct it and try again.</p>")
+  else
+   if load64(studio_config()+16)
+    do writer_text(out,"<p class=notice role=status>Step completed. Read the result below.</p>")
+   else
+    do writer_text(out,"<p class=muted>Choose a lesson or run the program. Output appears below.</p>")
+   end
+  end
+ end
+ do writer_text(out,"<pre id=output>")
+ do writer_html(out,buffer("studio_output",262145),load64(studio_config()+16))
+ do writer_text(out,"</pre><h2>Try a change</h2><p>Change <code>sum input</code> to <code>squares input</code>. With [1,2,3], the answer changes from 6 to 14.</p><p>Check validates source. Run checked code uses the native bounded runtime. Build native creates a standalone executable using the selected compiler.</p></section></div>")
+ do workbench_end(out)
+ return workbench_response(fd,out)
+end
+fn studio_lesson(bits)
+ let source="rf2 v1 checked\nsum input\n"
+ if bits
+  set source="rf2 v1 checked\nbits input\n"
+ end
+ do io_copy(studio_source(),source,io_size(source)+1)
+ do io_copy(studio_input(),"[1,2,3]",8)
+ return 0
+end

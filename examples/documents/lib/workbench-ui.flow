@@ -1,0 +1,27 @@
+module workbench_ui
+use "lib/forms.flow"
+fn workbench_begin(out:Writer,title)
+ do writer_reset(out)
+ do writer_text(out,"<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content=\"width=device-width,initial-scale=1\"><title>")
+ do writer_text(out,title)
+ do writer_text(out," | RF2</title><style>*{box-sizing:border-box}body{margin:0;background:#f4f6fa;color:#172c42;font:16px/1.6 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:28px 22px}header{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:30px;flex-wrap:wrap}.brand{font-weight:750;font-size:21px}h1{font-size:34px;line-height:1.2;letter-spacing:-1px;margin:12px 0}h2{font-size:22px;margin-top:0}.muted{color:#53677c}.badge{background:#e1f0e8;color:#24503b;border-radius:24px;padding:6px 12px;font-size:13px}.grid{display:grid;grid-template-columns:minmax(280px,360px) minmax(0,1fr);gap:24px}.card{background:white;border:1px solid #d9e1eb;border-radius:14px;padding:24px;min-width:0}.field{display:block;font-weight:600;margin:16px 0 6px}input,textarea,button{font:inherit}input,textarea{width:100%;padding:11px;border:1px solid #99abc0;border-radius:7px;min-height:44px}textarea{font:15px/1.6 ui-monospace,monospace;min-height:240px;tab-size:2}button{border:0;background:#2154af;color:white;border-radius:7px;padding:12px 18px;min-height:44px;cursor:pointer}button.secondary{background:#edf2fb;color:#254e8f}button.danger{background:#fff0ee;color:#8b2620}a{color:#2154af}button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid #2871d4;outline-offset:3px}.row{display:flex;gap:12px;flex-wrap:wrap}.row>*{flex:1}.notice{background:#e8f3ed;border:1px solid #afcebb;padding:16px;border-radius:10px;margin-bottom:22px}.notice.error{background:#fff2e9;border-color:#dcb69a}.reservation{border-bottom:1px solid #dce4ee;padding:16px 0}.reservation:first-of-type{padding-top:0}.reservation h3{margin:0;font-size:18px}.reservation p{margin:5px 0;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f3f6fa;padding:16px;border-radius:8px;font:14px/1.65 ui-monospace,monospace}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.toolbar button{flex:1}footer{margin-top:30px;font-size:13px;color:#53677c}.wide{grid-template-columns:minmax(0,1fr) minmax(280px,.7fr)}@media(max-width:760px){.grid,.wide{grid-template-columns:1fr}main{padding:22px 16px}.card{padding:20px}h1{font-size:28px}.toolbar button{min-width:110px}}</style></head><body><main><header><div class=brand>RF² / ")
+ do writer_text(out,title)
+ return writer_text(out,"</div><span class=badge>Native tools · Local workspace</span></header>")
+end
+fn workbench_end(out:Writer)
+ return writer_text(out,"<footer>This development application runs on this Mac. It is not a hosted service or a substitute for a production security review.</footer></main></body></html>")
+end
+fn workbench_response(fd,out:Writer)
+ if out.error
+  return app_bad(fd,"500 Internal Server Error")
+ end
+ do store64(globals()+80,out.used)
+ do store64(globals()+88,0)
+ return respond(fd,"200 OK","text/html; charset=utf-8")
+end
+
+fn app_bad(fd,status)
+ do reset_output()
+ do text("<!doctype html><html lang=en><meta charset=utf-8><title>Request refused</title><h1>Request refused</h1><p>No action was confirmed. Refresh the workspace and inspect its current state before retrying.</p><p><a href=/>Return to the workspace</a></p></html>")
+ return respond(fd,status,"text/html; charset=utf-8")
+end
