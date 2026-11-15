@@ -1,0 +1,29 @@
+profile RF2_SYSTEM_A64_V1
+result Number(u64,u64)
+fn accept(n):Number
+ if n==0
+  return err(22)
+ end
+ return ok(n)
+end
+fn main(argc,argv)
+ let answer=0
+ handle accept(7)
+ ok value
+  set answer=value
+ err cause
+  return 1
+ end
+ if answer!=7
+  return 2
+ end
+ handle accept(0)
+ ok value2
+  return 3
+ err cause2
+  if cause2!=22
+   return 4
+  end
+ end
+ return 0
+end

@@ -1,0 +1,11 @@
+profile RF2_SYSTEM_A64_V1
+fn twice(n)
+ return n*2
+end
+fn main(argc,argv)
+ let answer=twice(7)
+ if answer==14
+  return 0
+ end
+ return 1
+end
