@@ -4,6 +4,8 @@ These are explicit developer operations. They are not native user runtime depend
 
 ## Build
 
+- `dev.sh`: newcomer entry point using explicit `RF2_HOME` or `--home`; doctor/status, trusted Mac check/build, ESP32-C3 firmware generation and the unchanged native MCP service. It never downloads, auto-runs a compiled app, flashes devices or changes system settings. Follow [the first-app tutorial](../docs/FIRST-APP.md).
+
 - `build-program.sh`: compile one trusted source into a new directory and apply macOS signing.
 - `build-runtime.sh`: concatenate the documented runtime modules, compile and sign into a new directory.
 - `build-core.sh`: compose a trusted harness for checked Core lowering.

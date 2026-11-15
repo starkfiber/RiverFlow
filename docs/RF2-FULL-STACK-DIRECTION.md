@@ -2,7 +2,7 @@
 
 RF2's direction is a readable language for human and AI authors, with one compiler-owned representation connecting application logic to machine execution. A request such as “build this app for Android, iOS and Mac” needs more than translating syntax: the toolchain must also implement the selected platform's interface, resources, permissions, packaging, signing and observable tests. This is the development direction, not the current compatibility claim.
 
-The current qualified target is Apple Silicon macOS. RF2 owns its ARM64 emitter and bounded native compiler. It has local modules, nominal u64 records, operating-system interfaces, a native runtime and a bounded MCP interface. The browser-based Studio is an application example, not a complete cross-platform GUI toolkit. Systems compilation is trusted and not a sandbox.
+The current qualified application host is Apple Silicon macOS; the 0.36 development cross-compiler also has an emulator-qualified ESP32-C3 subset, not physical board qualification. RF2 owns its ARM64 emitter and bounded native compiler. It has local modules, nominal u64 records, operating-system interfaces, a native runtime and a bounded MCP interface. The browser-based Studio is an application example, not a complete cross-platform GUI toolkit. Systems compilation is trusted and not a sandbox.
 
 ## Research ideas must become mechanisms
 
@@ -26,12 +26,12 @@ A new RF2 candidate handles one exact conditional periodic recurrence through ar
 ## A coherent implementation route
 
 1. Stabilize the language contract: integer/overflow rules, modules, diagnostics, structured values, errors, lifetimes and version compatibility. Build a typed, effect-aware representation rather than recognizing every future application as a string template.
-2. Fixed, nominal, zero-initialized u64 arrays now have a checked native implementation on main, with a complete supplied-sample analyzer and default/optimized tests. See CHECKED-ARRAYS.md. Growable collections, strings, nested structured values, ownership and concurrent sharing remain further work.
+2. Fixed, nominal, zero-initialized u64 arrays now have a checked native implementation on main, with a complete supplied-sample analyzer and default/optimized tests. See CHECKED-ARRAYS.md. Development 0.33 also implements bounded u64 heap collections with local moves and mutable borrows; see HEAP-COLLECTIONS-0.33.md. General strings, nested structured values, cross-function ownership transfer and concurrent sharing remain further work.
 3. Extend native lowering with verified scalar/SIMD alternatives. Qualify aliasing, overflow, tail handling and side effects, then measure end-to-end workload costs. Keep a correct scalar fallback.
 4. Define concurrency before claiming it: task lifetime, shared-memory rules, atomics, cancellation, deterministic test hooks and bounded resource ownership. Fork/process support is not an RF2 threading or memory model. Compare single-thread and multi-worker paths including synchronization.
 5. Implement a platform adapter per target while keeping application source in RF2. Begin with a small shared computation and UI event test on macOS, Android and iOS; require actual built and exercised packages on each. SDK compatibility and signing requirements remain real even when the source language is unified.
 6. Add a web target with a specified DOM or WebAssembly boundary, user input, browser tests and deployment artifact. Current static documentation pages are not an RF2 web-app compiler.
-7. Qualify boot targets separately: selected architecture, image format, entry contract, interrupts, memory ownership and emulator boot receipt. A macOS Mach-O executable is not a boot sector. Never write a physical disk as an incidental language test.
+7. ESP32-C3 boot, timer/watchdog and bounded interrupt controls now have vendor-QEMU evidence; physical boards and additional targets remain open. Qualify boot targets separately: selected architecture, image format, entry contract, interrupts, memory ownership and emulator boot receipt. A macOS Mach-O executable is not a boot sector. Never write a physical disk as an incidental language test.
 8. Expose reviewed capabilities through MCP with explicit input/output contracts, bounded effects and reproducible receipts. The AI host proposes and explains; the compiler and runtime enforce what they actually implement. Existing nine tools remain bounded rather than silently acquiring raw system authority.
 
 Each stage must produce an application or machine experiment, an independent expected result, negative cases, reproducible commands and an honest target matrix. Progress is capability-specific, not a percentage inferred from enthusiasm or word count.

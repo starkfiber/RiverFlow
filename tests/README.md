@@ -32,3 +32,7 @@ For compact images, use compact_image_verify.py with RF2_TEST_COMPILER. To rerun
 ## ESP32-C3 development0.34
 
 `embedded_verify.py` independently qualifies generated RV32 instructions/images, actual vendor-QEMU ROM boot, arithmetic/call frames and refusals. `esp32c3_uart_verify.py` executes UART TX/RX and timeout cases. The board example's host and RV32 controllers keep scripted sensor-bus responses separate from real sensor acquisition. See [exact contracts, commands and evidence](../docs/ESP32C3-0.34.md). A different CPU/emulator is not physical hardware qualification.
+
+## Native onboarding journey
+
+`standalone/onboarding_verify.py` downloads the pinned published 0.36 bundle to a new local artifact directory, checks all manifest entries and exercises the exact `tools/dev.sh` workflow against actual native tools. It covers paths with spaces, explicit selection, source checking, two shared-library apps, invalid/overflow input, existing/symlink outputs, compiler refusals, firmware image equality and native MCP boundaries. It does not run device or flash operations, change the published package or claim a fresh hardware/performance result. Python is developer test tooling only.
