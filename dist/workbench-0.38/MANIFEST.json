@@ -1,0 +1,168 @@
+{
+  "edition": "0.38.0-dev",
+  "platform": "Apple Silicon macOS",
+  "runtimeVersion": "0.17.0",
+  "files": {
+    "LICENSE": {
+      "sha256": "439e5b1ea79a6a0a2007acf65173490db2462b238b9805abab0ee820838b23e8",
+      "bytes": 1087
+    },
+    "README.md": {
+      "sha256": "8533156c185a00437fbbc149d1bb989aeb90f1e61167e08a544d20aa839497eb",
+      "bytes": 5792
+    },
+    "booking": {
+      "sha256": "c777301e6bee2741dbcee540aca73992be49604a0d7e06e9422c051fd1fa31cc",
+      "bytes": 280928
+    },
+    "booking-web": {
+      "sha256": "b65c3c9d823b487bfa2323f1b2c3013e9ec925a1adbbf5639381a9b35d3eac3b",
+      "bytes": 3531392
+    },
+    "docs/BOOKING-STUDIO.md": {
+      "sha256": "8533156c185a00437fbbc149d1bb989aeb90f1e61167e08a544d20aa839497eb",
+      "bytes": 5792
+    },
+    "docs/NATIVE-CORE.md": {
+      "sha256": "d46eee1aea0bc16c2df1375bcd0511e42bca491227240a15448d898f9f88efb8",
+      "bytes": 5992
+    },
+    "docs/STANDALONE.md": {
+      "sha256": "e97eed8dc245fd21f9dca33e7827bcfe78746a66b5eaa26eb612db955d167654",
+      "bytes": 5727
+    },
+    "examples/documents/LIBRARIES.md": {
+      "sha256": "c366fa5d50bb46b2c20e29d3575c51e38533072abaaf2c607de26dc6d1b7cc90",
+      "bytes": 5814
+    },
+    "examples/documents/README.md": {
+      "sha256": "c74c1d5d239e548b5ac6974575c1ac0a4501bd32565c66f0b1048a5d85980c94",
+      "bytes": 8341
+    },
+    "examples/documents/booking-web.flow": {
+      "sha256": "b7149ff1611eeb9e06b4add7fb49af04a3771513c6b8dfd0d862cefe4fb46198",
+      "bytes": 6550
+    },
+    "examples/documents/booking.flow": {
+      "sha256": "081bca16226ec00dac1f0d152b78acae236493c7e7c2856e28730ee06e1eb4be",
+      "bytes": 2662
+    },
+    "examples/documents/fixtures/documents.txt": {
+      "sha256": "4d1b87b6714070868291c250c17d3676f11d54e80f71b1144902d270689d3c4b",
+      "bytes": 124
+    },
+    "examples/documents/fixtures/overview.txt": {
+      "sha256": "c5d311a5ad413035da9d4832bb6d404299997c426e2588752ff3bbafade79db0",
+      "bytes": 210
+    },
+    "examples/documents/fixtures/review-notes.txt": {
+      "sha256": "3f58246dce17c1372ca9ae006da8d06ebac4391b8921125e1cd8e0b72d178b33",
+      "bytes": 165
+    },
+    "examples/documents/fixtures/tamil.txt": {
+      "sha256": "b2e5400bb1afc096d84acefff83a056fd1195c172c2e9b30633971a5839c03b8",
+      "bytes": 166
+    },
+    "examples/documents/lib/app-server.flow": {
+      "sha256": "cd83ba1ddddc577b01427869c013e423204d4f1441afa1ff250da41e02ae7d70",
+      "bytes": 3264
+    },
+    "examples/documents/lib/booking.flow": {
+      "sha256": "6bd5e7d0ace407ea30f31bcdc064c32974359be03c03c778ef70c17303fde48f",
+      "bytes": 5941
+    },
+    "examples/documents/lib/collections.flow": {
+      "sha256": "0ca4ba7e18df8e5020eef4b7a83bf2c9090ec0dd2ea8b7f8f8d6438b0e6f8b62",
+      "bytes": 2816
+    },
+    "examples/documents/lib/corpus.flow": {
+      "sha256": "d72d1d9e93d8844a6d7e548d225d64bf3fc3ecbca17dda1c6f9a7236bddf4fc0",
+      "bytes": 4454
+    },
+    "examples/documents/lib/datetime.flow": {
+      "sha256": "e91acb6d334dafef70b258f34261db5d1ef6b66473a0560345a8cca714f36aad",
+      "bytes": 2660
+    },
+    "examples/documents/lib/forms.flow": {
+      "sha256": "e03a95540bbe03f7b5634c5c76a86428450e07dc0e5d79abda546cec4b0826ab",
+      "bytes": 6591
+    },
+    "examples/documents/lib/http.flow": {
+      "sha256": "9f5289684f8809af153f85bf50003c93bb441c6be0d8d39ab5914c4b584c0d89",
+      "bytes": 7408
+    },
+    "examples/documents/lib/io.flow": {
+      "sha256": "3c7be52f4314ab613af53271a0bd00dd2e9e04d4c198275d47a3fe34f4af023f",
+      "bytes": 1874
+    },
+    "examples/documents/lib/process.flow": {
+      "sha256": "a1f92dfa75ed32347fc297f2a0cb82f37a2be556a46cef99ee2b333ed903715d",
+      "bytes": 2282
+    },
+    "examples/documents/lib/reader.flow": {
+      "sha256": "df8115eb59c970e03ca6aa04f863a19fa5e1429cb2495fc7fc54a7c529d9b08f",
+      "bytes": 14128
+    },
+    "examples/documents/lib/storage.flow": {
+      "sha256": "ae214159408d083c13a517e6c0807e1b3bbd44b983fe7e50dfc3bc08c6015cad",
+      "bytes": 2012
+    },
+    "examples/documents/lib/studio.flow": {
+      "sha256": "6614468a107aa24561ffe2ca50aeccdc1163459cfe1c3d22f56efb84572962c3",
+      "bytes": 6341
+    },
+    "examples/documents/lib/text.flow": {
+      "sha256": "840525a4afe7829121b7ddbf14b9db01950d215657e5966bd3ddc9bdf2a59daf",
+      "bytes": 7339
+    },
+    "examples/documents/lib/workbench-ui.flow": {
+      "sha256": "e4fe979f62cf7ff8ba1cacc0c17f2f506a0427c2c4031483c31c27e510d685a4",
+      "bytes": 3532
+    },
+    "examples/documents/library-probe.flow": {
+      "sha256": "e5446cc5b5171423c4579ebc12153b46be5ff97e002caa27853ed6c0fdce6ac7",
+      "bytes": 5316
+    },
+    "examples/documents/studio.flow": {
+      "sha256": "a8fb542a7684dcb5d2d587dc98317992479a05a76aa0c97f3b460e85ce2024dd",
+      "bytes": 3166
+    },
+    "examples/documents/text-lines.flow": {
+      "sha256": "03ff1ae694dc35be65cfe179580442e9a1228a706c8b4a65d99184d3c6afb04d",
+      "bytes": 2257
+    },
+    "examples/documents/workspace.flow": {
+      "sha256": "b8c1060ba4a939276e092015aca42aaccd1f0ef9d59e343b36104dbcef7f6868",
+      "bytes": 1319
+    },
+    "native/lowered-harness.rf2": {
+      "sha256": "16cffff183dc4cf3dcdc18d793b2c52dafc9c022c9fc8c70fbd3df79595eb11b",
+      "bytes": 14639
+    },
+    "rf2": {
+      "sha256": "df714d688e5b96577abb294a192432ed2f57f07c080ab23e32eee46cf94b0b89",
+      "bytes": 231680
+    },
+    "rf2c": {
+      "sha256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37",
+      "bytes": 363008
+    },
+    "studio": {
+      "sha256": "5681af2865028a3f5f204b437357358452583cbb6b2f6fae781413c8d4df1bec",
+      "bytes": 3728384
+    },
+    "tools/build-core.sh": {
+      "sha256": "7b8069ca5db0fd81e994083fb3405a62df77d442788d4418ca51c40085e83d41",
+      "bytes": 586
+    },
+    "tools/build-program.sh": {
+      "sha256": "bee98ded9ae46f27850df4916383435f1812161e03d7593286055f600de605ed",
+      "bytes": 475
+    },
+    "tools/dev.sh": {
+      "sha256": "f2b021ac3f0d2c64cf31823a5ff69ac99434da8f7542ea6908c400ebbd92b6bd",
+      "bytes": 3023
+    }
+  },
+  "scope": "Development Booking and bounded Core Studio. No new MCP tools, production/hardware/performance claims."
+}
