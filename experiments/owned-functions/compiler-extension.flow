@@ -1,0 +1,362 @@
+# Owned results use caller-owned stack storage via x8, never a callee-frame pointer.
+fn owned_kind(id)
+ if id==0
+  return 0
+ end
+ let kind=load64(record_info(id)+144)
+ return (kind==11)|(kind==12)|(kind==13)
+end
+fn owned_payload(result)
+ if result==0
+  return 0
+ end
+ let payload=load64(record_info(result)+152)
+ if owned_kind(payload)
+  return payload
+ end
+ return 0
+end
+fn owner_result_slot(f)
+ return buffer("owned_result_slots",2048)+f*8
+end
+fn owned_context()
+ return buffer("owned_handle_context",32)
+end
+fn owned_slot_register(f,root,id)
+ do store64(local_type(f,root),id)
+ let slots=6
+ if load64(record_info(id)+144)==12
+  set slots=aggregate_slots(id)
+ end
+ do require(root+slots<256,"owned result local bound")
+ do store64(ftable(f)+32,root+slots+1)
+ if load64(record_info(id)+144)==12
+  do aggregate_register(f,root,id)
+ else
+  let count=load64(cleanup_count(f))
+  do require(count<16,"owned result cleanup bound")
+  do store64(cleanup_slot(f,count),root+1)
+  do store64(cleanup_owned(f,count),6)
+  do store64(cleanup_count(f),count+1)
+ end
+ return 0
+end
+fn owner_error_compatible(f,id)
+ let result=load64(function_result(f))
+ return (result==load64(record_info(id)+152))|(owned_payload(result)!=0)
+end
+fn owned_ready(f,root,id,depth)
+ do store64(local_ready(f,root),1)
+ do store64(local_scope(f,root),depth)
+ if load64(record_info(id)+144)==12
+  let i=0
+  while i<load64(record_info(id)+8)
+   if load64(field_type(id,i))
+    let slot=aggregate_field_slot(root,id,i)
+    do store64(local_ready(f,slot),1)
+    do store64(local_scope(f,slot),depth)
+   end
+   set i=i+1
+  end
+ end
+ return 0
+end
+# Return the first drop errno while attempting every armed child.
+fn owned_scope_drop(f,root,id)
+ do imm(0,0)
+ do push()
+ let i=0
+ let count=1
+ if load64(record_info(id)+144)==12
+  set count=load64(record_info(id)+8)
+ end
+ while i<count
+  let slot=root
+  let child=id
+  if load64(record_info(id)+144)==12
+   set child=load64(field_type(id,i))
+   set slot=aggregate_field_slot(root,id,i)
+  end
+  if child
+   let skip=next_label()
+   do access_local(0,slot+1,0)
+   do emit(4043309087)
+   do jump(skip,0)
+   do access_local(0,slot,0)
+   do imm(1,5)
+   do imm(2,0)
+   do imm(3,0)
+   do imm(4,0)
+   do collection_call()
+   do emit(4043309087)
+   do jump(skip,0)
+   do emit(4181722082)
+   do emit(4043309087 | (2<<5))
+   do jump(skip,1)
+   do emit(4177527777)
+   do label(skip)
+  end
+  set i=i+1
+ end
+ do emit(4181722080)
+ do emit(2432713727)
+ return 0
+end
+fn owned_handle_peek()
+ let i=load64(state()+24)+1
+ while load64(token(i))!=5
+  if load64(token(i))==0
+   return 0
+  end
+  set i=i+1
+ end
+ if tmatch(i+1,"ok")&tmatch(i+2,"own")
+  do require(tmatch(i+4,":"),"owned result arm requires nominal annotation")
+  return find_local(i+3)+1
+ end
+ return 0
+end
+fn handle_result(depth)
+ let target=owned_handle_peek()
+ if target==0
+  return handle_plain_result(depth)
+ end
+ return handle_owned_result(depth,target-1)
+end
+fn handle_owned_result(depth,root)
+ do expect("handle")
+ let f=load64(state()+32)
+ let payload=load64(local_type(f,root))
+ do store64(state()+224,load64(state()+224)+owned_registration_count(payload))
+ do require(owner_error_compatible(f,payload),"owned handler requires compatible result function")
+ do require(load64(token(load64(state()+24)))==1,"owned handler requires named call")
+ do store64(owned_context(),load64(state()+24)+1)
+ do store64(owned_context()+8,root)
+ do store64(owned_context()+16,payload)
+ do expression(1,0)
+ do store64(owned_context(),0)
+ let result=load64(state()+136)
+ do require(owned_payload(result)==payload,"owned handler payload mismatch")
+ do newline()
+ let other=next_label()
+ let done=next_label()
+ do emit(4043309087)
+ do jump(other,1)
+ do expect("ok")
+ do expect("own")
+ do require(find_local(advance())==root,"owned result binding mismatch")
+ do expect(":")
+ do require(record_index(advance())==payload,"owned handler annotation mismatch")
+ # The named root may live in an optimizer register; refresh it from caller storage.
+ do local_pointer(7,root)
+ do emit(4181721088 | (7<<5))
+ do access_local(0,root,1)
+ do owned_ready(f,root,payload,depth+1)
+ do newline()
+ do require(block(depth+1)==2,"missing owned result err arm")
+ do owned_scope_drop(f,root,payload)
+ let success=next_label()
+ do emit(4043309087)
+ do jump(success,0)
+ do imm(1,65536)
+ do emit(2332033024 | (1<<16) | 1)
+ do imm(0,1)
+ do jump(load64(state()+88),16)
+ do label(success)
+ do jump(done,16)
+ do label(other)
+ # Preserve the producer's primary error across disposal of an undeliverable owner.
+ do emit(2852127712 | (1<<16))
+ do push()
+ do owned_scope_drop(f,root,payload)
+ let disposed=next_label()
+ do emit(4043309087)
+ do jump(disposed,0)
+ do emit(4181722081)
+ do emit(2432713727)
+ do imm(0,1)
+ do jump(load64(state()+88),16)
+ do label(disposed)
+ do emit(4181722081)
+ do emit(2432713727)
+ do expect("err")
+ let error_slot=find_local(advance())
+ do access_local(1,error_slot,1)
+ do store64(local_ready(f,error_slot),1)
+ do store64(local_scope(f,error_slot),depth+1)
+ do newline()
+ do require(block(depth+1)==0,"duplicate or missing owned result arm")
+ do label(done)
+ return 0
+end
+# Copy a local owner into the caller's storage. No runtime calls occur during transfer.
+fn return_owned_value(payload)
+ let f=load64(state()+32)
+ do expect("move")
+ do expect("(")
+ let source=0
+ if tmatch(load64(state()+24)+1,".")
+  set source=owned_field_local(f)
+ else
+  set source=local_index(advance())
+ end
+ do require(source>=load64(ftable(f)+8),"borrow cannot escape in owned result")
+ do require(load64(local_type(f,source))==payload,"owned result move type mismatch")
+ do expect(")")
+ let bad=next_label()
+ let transferred=next_label()
+ do access_local(0,source+1,0)
+ do emit(4043309087)
+ do jump(bad,0)
+ do access_local(5,load64(owner_result_slot(f))-1,0)
+ do local_pointer(6,source)
+ do emit_owned_transfer(payload)
+ do owned_consumed(f,source,payload)
+ if load64(record_info(payload)+144)==12
+  do imm(7,0)
+  do access_local(7,source+1,1)
+ end
+ do emit(2852127712 | (5<<16) | 1)
+ do jump(transferred,16)
+ do label(bad)
+ do imm(0,1)
+ do imm(1,9)
+ do jump(load64(state()+88),16)
+ do label(transferred)
+ return 0
+end
+
+fn owned_parameter(f,param)
+ return buffer("owned_parameters",16384)+(f*8+param)*8
+end
+fn owned_consumed(f,root,id)
+ do store64(local_ready(f,root),0)
+ if load64(record_info(id)+144)==12
+  let field=0
+  while field<load64(record_info(id)+8)
+   if load64(field_type(id,field))
+    let child=aggregate_field_slot(root,id,field)
+    do require(load64(local_ready(f,child)),"transferred aggregate contains moved field")
+    do store64(local_ready(f,child),0)
+   end
+   set field=field+1
+  end
+ end
+ return 0
+end
+# x6 source and x5 destination are full storage bases. No fallible call occurs.
+fn emit_owned_transfer(id)
+ let aggregate=load64(record_info(id)+144)==12
+ let count=1
+ if aggregate
+  set count=load64(record_info(id)+8)
+ end
+ let field=0
+ while field<count
+  let child=id
+  let slot=0
+  if aggregate
+   set child=load64(field_type(id,field))
+   set slot=aggregate_field_slot(0,id,field)
+  end
+  if child
+   let word=0
+   while word<6
+    do emit(4181721088 | ((slot+1+word)<<10) | (6<<5) | 7)
+    do emit(4177526784 | ((slot+1+word)<<10) | (5<<5) | 7)
+    do imm(7,0)
+    do emit(4177526784 | ((slot+1+word)<<10) | (6<<5) | 7)
+    set word=word+1
+   end
+   do emit(2432696320 | (((slot+1)*8)<<10) | (5<<5) | 7)
+   do emit(4177526784 | (slot<<10) | (5<<5) | 7)
+   if aggregate
+    do emit(4177526784 | ((2+field)<<10) | (5<<5) | 7)
+   end
+  else
+   do emit(4181721088 | ((2+field)<<10) | (6<<5) | 7)
+   do emit(4177526784 | ((2+field)<<10) | (5<<5) | 7)
+  end
+  set field=field+1
+ end
+ if aggregate
+  do emit(2432696320 | (16<<10) | (5<<5) | 7)
+  do emit(4177526784 | (5<<5) | 7)
+  do imm(7,1)
+  do emit(4177526784 | (1<<10) | (5<<5) | 7)
+  do imm(7,0)
+  do emit(4177526784 | (1<<10) | (6<<5) | 7)
+ end
+ return 0
+end
+fn owned_argument(callee,param)
+ let f=load64(state()+32)
+ do expect("move")
+ do expect("(")
+ let source=0
+ if tmatch(load64(state()+24)+1,".")
+  set source=owned_field_local(f)
+ else
+  set source=local_index(advance())
+ end
+ let id=load64(local_type(callee,param))
+ do require(load64(local_type(f,source))==id,"owned argument type mismatch")
+ do require(source>=load64(ftable(f)+8),"borrow cannot transfer")
+ do expect(")")
+ do owned_consumed(f,source,id)
+ do local_pointer(0,source)
+ do store64(state()+136,id)
+ return 0
+end
+fn owned_parameters_prepare(f,params)
+ let param=0
+ let has_owned=0
+ let has_borrow=0
+ while param<params
+  if load64(owned_parameter(f,param))
+   let id=load64(local_type(f,param))
+   let root=load64(ftable(f)+32)
+   do owned_slot_register(f,root,id)
+   do store64(owned_parameter(f,param),root+1)
+   do require(owner_error_compatible(f,id),"owned parameter requires compatible result function")
+   set has_owned=1
+  else
+   if load64(local_type(f,param))
+    set has_borrow=1
+   end
+  end
+  set param=param+1
+ end
+ do require((has_owned&has_borrow)==0,"owned and borrowed parameters cannot mix")
+ return 0
+end
+fn owned_parameters_receive(f)
+ let param=0
+ while param<load64(ftable(f)+8)
+  let mapped=load64(owned_parameter(f,param))
+  if mapped
+   let root=mapped-1
+   let id=load64(local_type(f,param))
+   do access_local(6,param,0)
+   do local_pointer(5,root)
+   do emit_owned_transfer(id)
+   do owned_ready(f,root,id,0)
+   do store64(state()+224,load64(state()+224)+owned_registration_count(id))
+  end
+  set param=param+1
+ end
+ return 0
+end
+
+fn owned_registration_count(id)
+ if load64(record_info(id)+144)!=12
+  return 1
+ end
+ let count=0
+ let field=0
+ while field<load64(record_info(id)+8)
+  set count=count+(load64(field_type(id,field))!=0)
+  set field=field+1
+ end
+ return count
+end
