@@ -71,12 +71,12 @@
     },
     {
       "id": "G8",
-      "state": "pending",
+      "state": "active",
       "acceptance": "Matched complete-task comparisons with actual usage and failures",
       "evidence": [
-        "docs/RF2-PLATFORM-RESEARCH.md"
+        "docs/SDK-CONSTRUCTION-0.45.md"
       ],
-      "note": "References describe current boundaries; this gate is not complete."
+      "note": "One exploratory four-attempt SDK construction task executed. Broader model-pinned/target comparisons and real human trials remain open."
     }
   ],
   "completedSprints": [
@@ -302,24 +302,28 @@
       },
       {
         "id": "R11",
-        "state": "active",
+        "state": "done",
         "acceptance": "Executed matched complete-development comparison against an established stack, retaining actual effort/usage and failures",
-        "evidence": [],
-        "note": ""
+        "evidence": [
+          "docs/SDK-CONSTRUCTION-0.45.md",
+          "docs/SDK-CONSTRUCTION-0.45.json"
+        ],
+        "note": "Four frozen complete-app SDK attempts with actual usage/elapsed time and retained failures. RF2 advantage not established; repairs/grader correction separate, served model identity unknown."
       },
       {
         "id": "R12",
         "state": "pending",
         "acceptance": "RiverFlow accepted in upstream GitHub Linguist; actual external acceptance verified",
         "evidence": [
-          "docs/LANGUAGE-REPORTING.md"
+          "docs/LANGUAGE-REPORTING.md",
+          "docs/EDITOR-LANGUAGE-0.1.json"
         ],
-        "note": "External adoption/review dependency; do not fabricate usage or acceptance."
+        "note": "MIT grammar, native TextMate/Oniguruma tests and declarative VSIX prepared. Actual editor-host distribution/adoption and upstream acceptance remain external/open; no manufactured usage."
       }
     ]
   },
   "activeWork": {
-    "requirement": "R11",
-    "description": "Freeze an equal complete-app task and available libraries, execute fresh matched development attempts, retain actual usage/effort and failures, then independently grade features. Genuine upstream Linguist recognition remains a separate external gate."
+    "requirement": "R12",
+    "description": "Publish the reviewed editor grammar/VSIX and reproducible comparison findings through SFE. Actual GitHub Linguist recognition still requires genuine distributed adoption and upstream acceptance; do not fabricate usage or approval."
   }
 }
