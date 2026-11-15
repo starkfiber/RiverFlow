@@ -1,0 +1,141 @@
+# Compiler-private owned row machinery. A row is inline storage with rebased links.
+fn __rf2rows_rebase(row,shape,width)
+ let i=0
+ while i<width
+  let role=load64(shape+i*8)&4294967295
+  if role
+   do store64(row+i*8,row+(role-1)*8)
+  end
+  set i=i+1
+ end
+ return 0
+end
+fn __rf2rows_move(source,target,shape,width)
+ let i=0
+ while i<width
+  do store64(target+i*8,load64(source+i*8))
+  do store64(source+i*8,0)
+  set i=i+1
+ end
+ return __rf2rows_rebase(target,shape,width)
+end
+fn __rf2rows_drop(row,shape,width):__rf2heap_IO
+ let i=0
+ let first=0
+ while i<width
+  if load64(shape+i*8)>>32
+   let descriptor=row+(i+1)*8
+   if load64(descriptor)
+    handle __rf2heap_op(descriptor,5,0,0,0)
+    ok dropped
+    err cause
+     if first==0
+      set first=cause
+     end
+    end
+   end
+  end
+  set i=i+1
+ end
+ if first
+  return err(first)
+ end
+ # Includes the aggregate alive marker. All child owners are already disarmed.
+ do fill_zero(row,width*8)
+ return ok(0)
+end
+fn __rf2rows_op(d,op,a,row):__rf2heap_IO
+ if load64(d)!=2
+  return err(9)
+ end
+ let width=load64(d+48)
+ let limit=load64(d+56)
+ let shape=load64(d+64)
+ let words=load64(d+16)
+ if (width==0)|(width>255)|(limit==0)|(limit>65536//width)
+  return err(22)
+ end
+ let count=words//width
+ if count*width!=words
+  return err(22)
+ end
+ if (op==4)|(op==5)
+  # A partial cleanup poisons access until a later clear/release finishes.
+  do store64(d+72,1)
+  let cleanup_index=0
+  let first=0
+  while cleanup_index<count
+   handle __rf2rows_drop(load64(d+8)+cleanup_index*width*8,shape,width)
+   ok cleaned
+   err cause
+    if first==0
+     set first=cause
+    end
+   end
+   set cleanup_index=cleanup_index+1
+  end
+  if first
+   return err(first)
+  end
+  do store64(d+16,0)
+  do store64(d+72,0)
+  if op==5
+   handle __rf2heap_drop(d)
+   ok released
+    return ok(released)
+   err retirement
+    return err(retirement)
+   end
+  end
+  return ok(0)
+ end
+ if load64(d+72)
+  return err(16)
+ end
+ if (op==0)|(op==1)
+  let wanted=a
+  if op==1
+   if load64(row+8)==0
+    return err(9)
+   end
+   if count>=limit
+    return err(22)
+   end
+   set wanted=count+1
+  end
+  if wanted>limit
+   return err(22)
+  end
+  handle __rf2heap_grow(d,wanted*width,limit*width)
+  ok capacity
+  err reserve_error
+   return err(reserve_error)
+  end
+  # Growth copied inline bytes; old addresses must never survive a relocation.
+  let rebase_index=0
+  while rebase_index<count
+   do __rf2rows_rebase(load64(d+8)+rebase_index*width*8,shape,width)
+   set rebase_index=rebase_index+1
+  end
+  if op==0
+   return ok(load64(d+24)//width)
+  end
+  do __rf2rows_move(row,load64(d+8)+words*8,shape,width)
+  do store64(d+16,words+width)
+  return ok(count+1)
+ end
+ if op!=2
+  return err(22)
+ end
+ if a>=count
+  return err(34)
+ end
+ do __rf2rows_move(load64(d+8)+a*width*8,row,shape,width)
+ let cursor=a+1
+ while cursor<count
+  do __rf2rows_move(load64(d+8)+cursor*width*8,load64(d+8)+(cursor-1)*width*8,shape,width)
+  set cursor=cursor+1
+ end
+ do store64(d+16,words-width)
+ return ok(row)
+end

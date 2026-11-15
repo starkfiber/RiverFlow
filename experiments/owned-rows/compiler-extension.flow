@@ -1,0 +1,182 @@
+fn own_rows_intrinsic(t)
+ return tmatch(t,"rows_push")|tmatch(t,"rows_take")|tmatch(t,"rows_clear")|tmatch(t,"rows_reserve")
+end
+fn own_rows_shape_at(id,offset,obj)
+ do address(6,obj)
+ let kind=load64(record_info(id)+144)
+ let target=offset+1+(kind==12)
+ do imm(7,target+1+((kind!=12)<<32))
+ do emit(4177526784 | (offset<<10) | (6<<5) | 7)
+ if kind==12
+  let field=0
+  while field<load64(record_info(id)+8)
+   let child=load64(field_type(id,field))
+   if child
+    let slot=aggregate_field_slot(offset,id,field)
+    do own_rows_shape_at(child,slot,obj)
+    do address(6,obj)
+    do imm(7,slot+2+(load64(record_info(child)+144)==12))
+    do emit(4177526784 | ((offset+2+field)<<10) | (6<<5) | 7)
+   end
+   set field=field+1
+  end
+ end
+ return 0
+end
+fn construct_own_rows(f,slot,id)
+ if match("move")
+  do advance()
+  do expect("(")
+  let source=owned_field_local(f)
+  do require(source>=load64(ftable(f)+8),"borrowed collection cannot be moved")
+  do require(load64(local_type(f,source))==id,"move collection type mismatch")
+  do expect(")")
+  let live=next_label()
+  do access_local(0,source+1,0)
+  do emit(4043309087)
+  do jump(live,1)
+  do imm(0,1)
+  do imm(1,9)
+  do jump(load64(state()+88),16)
+  do label(live)
+  do owned_consumed(f,source,id)
+  do local_pointer(6,source)
+  do local_pointer(5,slot)
+  do emit_owned_transfer(id)
+ else
+  do require(record_index(advance())==id,"collection constructor mismatch")
+  do expect("(")
+  do expect(")")
+  let i=1
+  do imm(0,0)
+  while i<=10
+   do access_local(0,slot+i,1)
+   set i=i+1
+  end
+  do imm(0,2)
+  do access_local(0,slot+1,1)
+  let row=load64(field_type(id,0))
+  let width=owned_storage_size(row)
+  let shape=intern(4,load64(record_info(row)),width*8)
+  do own_rows_shape_at(row,0,shape)
+  do imm(0,width)
+  do access_local(0,slot+7,1)
+  do imm(0,load64(record_info(id)+8))
+  do access_local(0,slot+8,1)
+  do address(0,shape)
+  do access_local(0,slot+9,1)
+ end
+ do local_pointer(0,slot+1)
+ do access_local(0,slot,1)
+ do store64(local_ready(f,slot),1)
+ do store64(local_scope(f,slot),0)
+ do require(load64(cleanup_slot(f,load64(state()+224)))==slot+1,"collection cleanup order")
+ do store64(state()+224,load64(state()+224)+1)
+ return 0
+end
+fn own_rows_result(row)
+ let i=1
+ while i<=load64(state()+128)
+  if load64(record_info(i)+144)==3
+   if owned_payload(i)==row
+    return i
+   end
+  end
+  set i=i+1
+ end
+ do die("rows_take requires a declared owned row result")
+ return 0
+end
+fn invoke_own_rows(name,depth)
+ let f=load64(state()+32)
+ let slot=owned_field_local(f)
+ let id=load64(local_type(f,slot))
+ do require(id!=0,"owned row collection required")
+ do require(load64(record_info(id)+144)==15,"owned row collection required")
+ let op=0
+ if tmatch(name,"rows_push")
+  set op=1
+ end
+ if tmatch(name,"rows_take")
+  set op=2
+ end
+ if tmatch(name,"rows_clear")
+  set op=4
+ end
+ if tmatch(name,"release")
+  set op=5
+  do require(slot>=load64(ftable(f)+8),"borrowed collection cannot be released")
+ end
+ do access_local(0,slot,0)
+ do push()
+ let rowtype=load64(field_type(id,0))
+ let result=load64(record_info(id)+152)
+ if op==1
+  do expect(",")
+  do expect("move")
+  do expect("(")
+  let source=owned_field_local(f)
+  do require(source>=load64(ftable(f)+8),"borrow cannot transfer")
+  do require(load64(local_type(f,source))==rowtype,"owned row nominal type mismatch")
+  do expect(")")
+  do owned_consumed(f,source,rowtype)
+  do local_pointer(0,source)
+ else
+  if (op==0)|(op==2)
+   do expect(",")
+   do scalar_expression(1,depth+1)
+  else
+   do imm(0,0)
+  end
+ end
+ do push()
+ do expect(")")
+ do imm(3,0)
+ if op==2
+  do require(load64(owned_context()),"rows_take requires an owned result handler")
+  do require(load64(owned_context()+16)==rowtype,"owned row handler type mismatch")
+  do local_pointer(3,load64(owned_context()+8))
+  set result=own_rows_result(rowtype)
+ end
+ if op==1
+  do emit(4181722083)
+  do emit(2432713727)
+  do imm(2,0)
+ else
+  do emit(4181722082)
+  do emit(2432713727)
+ end
+ do emit(4181722080)
+ do emit(2432713727)
+ do imm(1,op)
+ let helper=0
+ while helper<load64(state()+40)
+  if tmatch(load64(ftable(helper)),"__rf2rows_op")
+   do fix(1,load64(ftable(helper)+40))
+   do emit(2483027968)
+   do store64(state()+136,result)
+   return 0
+  end
+  set helper=helper+1
+ end
+ do die("missing owned row runtime")
+ return 0
+end
+fn own_rows_property(id)
+ do emit(4181721088 | 1)
+ do emit(4043309087 | (1<<5))
+ do jump(bounds_failure_label(),0)
+ if match("limit")
+  do advance()
+  return imm(0,load64(record_info(id)+8))
+ end
+ if match("length")
+  do advance()
+  do emit(4181721088 | (2<<10))
+ else
+  do expect("capacity")
+  do emit(4181721088 | (3<<10))
+ end
+ do imm(1,owned_storage_size(load64(field_type(id,0))))
+ return emit(0x9ac10800)
+end

@@ -1,0 +1,131 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/batch.flow"
+collection Catalog(IO,64,OwnedBatch)
+result CatalogReady(own Catalog,u64)
+# Validate every supplied UTF-8 label before producing a JSON manifest.
+fn catalog_entry(p,id):BatchReady
+ own entry=OwnedBatch(BatchLabel(),Numbers(),id)
+ let bytes=0
+ while load8(p+bytes)
+  set bytes=bytes+1
+  if bytes>1024
+   return err(22)
+  end
+ end
+ handle batch_label_decode(entry.label,p,bytes)
+ ok decoded
+ err decode_error
+  return err(decode_error)
+ end
+ let i=0
+ while i<entry.label.length
+  handle text_get(entry.label,i)
+  ok scalar
+   handle collection_push(entry.readings,scalar)
+   ok appended
+   err append_error
+    return err(append_error)
+   end
+  err scalar_error
+   return err(scalar_error)
+  end
+  set i=i+1
+ end
+ return ok(move(entry))
+end
+fn catalog_parse(argc,argv):CatalogReady
+ if (argc<2)|(argc>65)
+  return err(22)
+ end
+ own catalog=Catalog()
+ let i=1
+ while i<argc
+  handle catalog_entry(load64(argv+i*8),i)
+  ok own entry:OwnedBatch
+   handle rows_push(catalog,move(entry))
+   ok added
+   err insertion_error
+    return err(insertion_error)
+   end
+  err entry_error
+   return err(entry_error)
+  end
+  set i=i+1
+ end
+ return ok(move(catalog))
+end
+fn catalog_render(own catalog:Catalog):IO
+ let stats=Stats(0,0,0,0)
+ if output_text("[\n")==0
+  return err(5)
+ end
+ let i=0
+ while catalog.length
+  handle rows_take(catalog,0)
+  ok own entry:OwnedBatch
+   if i
+    if output_text(",\n")==0
+     return err(5)
+    end
+   end
+   let good=output_text("  {\"id\":")
+   set good=good&output_number(entry.revision)
+   set good=good&output_text(",\"label\":")
+   if good==0
+    return err(5)
+   end
+   handle batch_label_json(entry.label)
+   ok encoded
+   err encoding_error
+    return err(encoding_error)
+   end
+   set stats.total=0
+   if entry.readings.length
+    handle summarize_numbers(entry.readings,stats)
+    ok summary
+    err summary_error
+     return err(summary_error)
+    end
+   end
+   set good=output_text(",\"scalars\":")
+   set good=good&output_number(entry.label.length)
+   set good=good&output_text(",\"scalar_sum\":")
+   set good=good&output_number(stats.total)
+   set good=good&output_text("}")
+   if good==0
+    return err(5)
+   end
+  err extraction_error
+   return err(extraction_error)
+  end
+  set i=i+1
+ end
+ if output_text("\n]\n")==0
+  return err(5)
+ end
+ return ok(i)
+end
+fn run(argc,argv):IO
+ handle catalog_parse(argc,argv)
+ ok own catalog:Catalog
+  handle catalog_render(move(catalog))
+  ok complete
+   return ok(complete)
+  err render_error
+   return err(render_error)
+  end
+ err parse_error
+  return err(parse_error)
+ end
+ return err(22)
+end
+fn main(argc,argv)
+ handle run(argc,argv)
+ ok complete
+  return 0
+ err failure
+  do output_error(failure)
+  return 2
+ end
+ return 3
+end
