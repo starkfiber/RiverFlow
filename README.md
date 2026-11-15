@@ -20,6 +20,8 @@ The goal is one readable language and SDK across learning, apps, devices and sys
 
 ## Learn RF2 from zero
 
+[Developer-loop source candidate 0.48](docs/DEVELOPER-LOOP-0.48.md) adds safe repeat builds, direct scalar field propagation and original-source diagnostics. The real app passes 55/55 and 120 new native controls pass. Its measured native compile is about 15ms; complete AI authoring and token advantage against Python remains unproven. Existing downloads are unchanged.
+
 [Editor language development download](https://github.com/starkfiber/RiverFlow/releases/tag/rf2-editor-v0.1.0): `.flow`/`.rf2` highlighting and explicit snippets for VS Code. This is lexical editor support; [qualification and limits](editors/vscode/README.md) distinguish it from a debugger, full IDE or GitHub Linguist acceptance.
 
 [First Learning Edition](book/learning-edition-1/README.md): 24 short chapters, runnable examples, exercises, answers and a clear boundary between working features and proposals. [Evolution specification](docs/RF2-EVOLUTION.md) records the next engineering gates.

@@ -35,12 +35,12 @@
     },
     {
       "id": "G4",
-      "state": "pending",
+      "state": "active",
       "acceptance": "Versioned reusable SDK and repeatable package builds",
       "evidence": [
-        "docs/RF2-EVERYWHERE.md"
+        "docs/DEVELOPER-LOOP-0.48.md"
       ],
-      "note": "References describe current boundaries; this gate is not complete."
+      "note": "Safe owner-private repeated build publication is executed locally; broader SDK/package/versioning remains open."
     },
     {
       "id": "G5",
@@ -77,7 +77,8 @@
         "docs/SDK-CONSTRUCTION-0.45.md",
         "docs/APP-EFFORT-0.47.md",
         "docs/APP-EFFORT-0.47.json",
-        "docs/APP-EFFORT-0.47-REPLAY.json"
+        "docs/APP-EFFORT-0.47-REPLAY.json",
+        "docs/DEVELOPER-LOOP-0.48.md"
       ],
       "note": "Two further frozen studies retain ten actual construction attempts, model request/usage, original failures, clean rebuilds and fresh replays. Corrected RF2 passes2/2, Python still leads effort. Broader tasks/models and real human trials remain open."
     }
@@ -328,6 +329,6 @@
   },
   "activeWork": {
     "requirement": "G8 / G4",
-    "description": "Application effort remains the priority. Source candidate0.47B fixes tested SDK/cleanup/protocol/UI gaps;15native suites passed and both corrected RF2 apps pass55/55. Reported input fell25.7% against revisedSDK A, but authoring time increased7.5% and Python still leads. Next: safe repeat-build workflow, clearer diagnostics, typed form/request adapters and a second matched app task. R12 Linguist remains pending and does not block this work."
+    "description": "Application effort remains the priority. Source candidate 0.48B implements repeatable native builds preserving the last image, scalar field propagation and original-source diagnostics. 120 new controls, 15 regression suites/self-generation and 55/55 real app replay checks pass. Native compilation is about 15ms; no new model authoring or token advantage is established. Next: typed form/request adapters and a reusable SDK, then a preregistered second complete-task comparison. R12 Linguist remains pending and nonblocking."
   }
 }

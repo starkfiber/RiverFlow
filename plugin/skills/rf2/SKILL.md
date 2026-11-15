@@ -4,6 +4,10 @@ description: Check and execute RiverFlow Core/compact programs, lower checked ke
 ---
 # RiverFlow RF²: stable 0.17, Workbench 0.38 and embedded 0.36
 
+## Developer-loop source candidate 0.48
+
+Read docs/DEVELOPER-LOOP-0.48.md and experiments/developer-loop/README.md before using the isolated candidate. Scalar record-field `try` propagates compatible errors while unwinding its saved destination before ordinary cleanup; arrays and arbitrary nested expressions are not admitted. Imported diagnostics name source paths/byte columns; existing parameter/scope/root-return restrictions remain with hints. Native rf2-dev accepts an explicit compiler, source and existing owner-private dedicated build directory; it signs/verifies then atomically replaces its program. Failed compile/sign preserves the previous image. This trusted CLI driver is not a new bounded MCP effect, shared build sandbox, crash-durability or cancellation-cleanup guarantee. Public 0.46 and stable 0.17 binaries remain unchanged. 120 new controls, 15 regression suites/self-generation and 55 app replay checks passed. About 15ms native compilation is distinct from the earlier 456-second model authoring task. No new actual token saving or Python task-time advantage is established; keep both timing rounds and failures. Linguist stays pending and nonblocking.
+
 Use rf2_status first. Read docs/NATIVE-CORE.md and docs/STANDALONE.md for current profiles/effects. Nine native tools exist: rf2_status, rf2_check, rf2_run, rf2_lower, attendance_export, invoice_total, invoice_prepare, invoice_apply and invoice_release. Users require no Node/npm/Python/C++ runtime. The host provides AI intelligence; the executable has no embedded model.
 
 ## Booking and learning IDE

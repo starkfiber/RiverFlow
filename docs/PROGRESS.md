@@ -23,7 +23,7 @@ This is the fixed delivery checklist reviewed with the owner on 15 November 2026
 
 ## Active implementation
 
-G8 / G4: Application effort remains the priority. Source candidate0.47B fixes tested SDK/cleanup/protocol/UI gaps;15native suites passed and both corrected RF2 apps pass55/55. Reported input fell25.7% against revisedSDK A, but authoring time increased7.5% and Python still leads. Next: safe repeat-build workflow, clearer diagnostics, typed form/request adapters and a second matched app task. R12 Linguist remains pending and does not block this work.
+G8 / G4: Application effort remains the priority. Source candidate 0.48B implements repeatable native builds preserving the last image, scalar field propagation and original-source diagnostics. 120 new controls, 15 regression suites/self-generation and 55/55 real app replay checks pass. Native compilation is about 15ms; no new model authoring or token advantage is established. Next: typed form/request adapters and a reusable SDK, then a preregistered second complete-task comparison. R12 Linguist remains pending and nonblocking.
 
 The eight longer-term platform gates and historical sprint evidence remain in PIPELINE.json. They do not produce extra completion badges. GitHub recognition depends on real external adoption and review; implementing a grammar or documenting requirements does not complete R12.
 

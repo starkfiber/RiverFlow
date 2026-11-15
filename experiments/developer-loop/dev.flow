@@ -1,0 +1,240 @@
+profile RF2_SYSTEM_A64_V1
+# Trusted local build driver. Compiles and signs, never executes application code.
+# The selected private directory is dedicated to its replaceable program output.
+fn size(p)
+ let n=0
+ while load8(p+n)
+  set n=n+1
+ end
+ return n
+end
+fn say(fd,p)
+ return write(fd,p,size(p))
+end
+fn number(p,v)
+ let digits=buffer("dev_digits",32)
+ let n=0
+ while 1
+  do store8(digits+n,48+v-(v//10)*10)
+  set n=n+1
+  set v=v//10
+  if v==0
+   let i=0
+   while i<n
+    do store8(p+i,load8(digits+n-i-1))
+    set i=i+1
+   end
+   do store8(p+n,0)
+   return n
+  end
+ end
+ return 0
+end
+fn append(p,text)
+ let at=size(p)
+ let n=size(text)
+ if at+n>=1024
+  return 0
+ end
+ let i=0
+ while i<=n
+  do store8(p+at+i,load8(text+i))
+  set i=i+1
+ end
+ return 1
+end
+fn regular(fd)
+ let st=buffer("dev_stat",144)
+ if syscall6(339,fd,st,0,0,0,0)!=0
+  return 0
+ end
+ return ((load32(st+4)&61440)==32768)&((load32(st+4)>>16)==1)&(load32(st+16)==syscall6(24,0,0,0,0,0,0))
+end
+fn existing_safe(dir,name)
+ let fd=syscall6(463,dir,name,0x1000104,0,0,0)
+ if fd>>63
+  return fd==18446744073709551614
+ end
+ let good=regular(fd)
+ do close(fd)
+ return good
+end
+fn executable_image(fd)
+ if regular(fd)==0
+  return 0
+ end
+ let st=buffer("dev_stat",144)
+ let n=load64(st+96)
+ if (n<32)|(n>16777216)|((load32(st+4)&511)!=448)
+  return 0
+ end
+ let header=buffer("dev_header",32)
+ if read(fd,header,32)!=32
+  return 0
+ end
+ # Code signing alone can also accept ordinary data files. Require an ARM64
+ # Mach-O executable, with its declared command area inside the actual file.
+ return (load32(header)==4277009103)&(load32(header+4)==16777228)&(load32(header+12)==2)&(load32(header+16)<=64)&(load32(header+20)<=n-32)
+end
+fn spawn(tool,a,b,compile,opt)
+ let child=fork_process()
+ if child>>63
+  return 125
+ end
+ if child==0
+  let args=buffer("dev_args",64)
+  do store64(args,tool)
+  if compile
+   do store64(args+8,a)
+   do store64(args+16,b)
+   do store64(args+24,"--compact")
+   if opt
+    do store64(args+32,"--opt")
+   end
+  else
+   if opt
+    do store64(args+8,"-s")
+    do store64(args+16,"-")
+    do store64(args+24,a)
+   else
+    do store64(args+8,"--verify")
+    do store64(args+16,a)
+   end
+  end
+  let env=buffer("dev_env",24)
+  do store64(env,"PATH=/usr/bin:/bin")
+  do store64(env+8,"LC_ALL=C")
+  do syscall6(59,tool,args,env,0,0,0)
+  do exit(127)
+ end
+ let status=buffer("dev_status",8)
+ let waited=0
+ while waited!=child
+  set waited=syscall6(7,child,status,0,0,0,0)
+  if (waited>>63)&(waited!=18446744073709551612)
+   return 125
+  end
+ end
+ let value=load32(status)
+ if value&127
+  return 128+(value&127)
+ end
+ return (value>>8)&255
+end
+fn main(argc,argv)
+ if (argc<4)|(argc>5)
+  do say(2,"usage: rf2-dev native-compiler entry.flow private-build-directory [--no-opt]\n")
+  return 2
+ end
+ let opt=1
+ if argc==5
+  let p=load64(argv+32)
+  let q="--no-opt"
+  let i=0
+  if size(p)!=8
+   return 2
+  end
+  while i<8
+   if load8(p+i)!=load8(q+i)
+    return 2
+   end
+   set i=i+1
+  end
+  set opt=0
+ end
+ let dir=open(load64(argv+24),0x1100104,0)
+ if dir>>63
+  do say(2,"RF2 build: use an existing private directory, not a symlink\n")
+  return 2
+ end
+ let st=buffer("dev_directory_stat",144)
+ if (syscall6(339,dir,st,0,0,0,0)!=0)|((load32(st+4)&63)!=0)|(load32(st+16)!=syscall6(24,0,0,0,0,0,0))
+  do say(2,"RF2 build: directory must belong to you and exclude group/other access\n")
+  do close(dir)
+  return 2
+ end
+ let lock=syscall6(463,dir,".rf2-dev.lock",0x1000302,384,0,0)
+ if lock>>63
+  do close(dir)
+  return 2
+ end
+ if (regular(lock)==0)|(syscall6(131,lock,6,0,0,0,0)!=0)
+  do say(2,"RF2 build: unsafe lock or another build is active\n")
+  do close(lock)
+  do close(dir)
+  return 75
+ end
+ let parent=buffer("dev_parent",1024)
+ if syscall6(92,dir,50,parent,0,0,0)!=0
+  return 2
+ end
+ let name=buffer("dev_name",64)
+ do append(name,".rf2-candidate-")
+ do number(name+size(name),syscall6(20,0,0,0,0,0,0))
+ let path=buffer("dev_path",1024)
+ if (append(path,parent)&append(path,"/")&append(path,name))==0
+  return 2
+ end
+ let probe=syscall6(463,dir,name,0x1000104,0,0,0)
+ if probe!=18446744073709551614
+  if (probe>>63)==0
+   do close(probe)
+  end
+  do say(2,"RF2 build: candidate already exists or cannot be checked\n")
+  return 2
+ end
+ if existing_safe(dir,"program")==0
+  do say(2,"RF2 build: output is not an owned single-link regular file\n")
+  return 2
+ end
+ let status=spawn(load64(argv+8),load64(argv+16),path,1,opt)
+ if status==0
+  let fd=syscall6(463,dir,name,0x1000104,0,0,0)
+  if fd>>63
+   set status=125
+  else
+   let good=executable_image(fd)
+   do close(fd)
+   if good==0
+    set status=125
+   end
+  end
+ end
+ if status==0
+  set status=spawn("/usr/bin/codesign",path,0,0,1)
+ end
+ if status==0
+  set status=spawn("/usr/bin/codesign",path,0,0,0)
+ end
+ if status==0
+  let syncfd=syscall6(463,dir,name,0x1000104,0,0,0)
+  if syncfd>>63
+   set status=125
+  else
+   if (executable_image(syncfd)==0)|(syscall6(95,syncfd,0,0,0,0,0)!=0)
+    set status=125
+   end
+   do close(syncfd)
+  end
+ end
+ if status==0
+  if existing_safe(dir,"program")==0
+   set status=125
+  else
+   if syscall6(465,dir,name,dir,"program",0,0)!=0
+    set status=125
+   end
+  end
+ end
+ if status
+  do syscall6(472,dir,name,0,0,0,0)
+  do say(2,"RF2 build failed; the previous program was preserved.\n")
+ else
+  do say(1,"RF2 build ready: ")
+  do say(1,parent)
+  do say(1,"/program\n")
+ end
+ do close(lock)
+ do close(dir)
+ return status
+end

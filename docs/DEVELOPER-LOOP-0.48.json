@@ -1,0 +1,3141 @@
+{
+  "schema": "rf2.developer-loop.qualification.v1",
+  "edition": "0.48-source-candidate-B",
+  "recordedUTC": "2026-11-15T21:27:11.479476+00:00",
+  "baselineCommit": "995d65a3c4a1966dfccc8eda86233aa00072a5f1",
+  "compilerSourceSHA256": "7fe4a9ed8c2a2b144d108023d72e3e5a88ab2177b59425990d8c157b1c1072dd",
+  "compilerSHA256": "c283a572c0d51db04155156e7adf59cb1b2dfd1bc7313abb8c2fc4a68972a375",
+  "driverSourceSHA256": "f0597b2576bc9a37c4107d0f94fe349c9ee6d5efd6b6a4ecfb4c4000930fbd9a",
+  "driverSHA256": "c8d818610f4642e81143e5bc6400253a098063d49c13a83a12a5b278f9ef96ac",
+  "sources": {
+    "experiments/developer-loop/diagnostics.flow": "b04215ed7986044909147a3c814271004ab80c280a5964df6424e83ab6cf4bfe",
+    "experiments/developer-loop/dev.flow": "f0597b2576bc9a37c4107d0f94fe349c9ee6d5efd6b6a4ecfb4c4000930fbd9a",
+    "experiments/developer-loop/benchmark.py": "fa123f901caa8712305bdf321c8f3fa4338396f91a520155cfafe9f44573b027",
+    "experiments/developer-loop/replay.py": "b6aa9cc31274818946f8f56688168462b43327892d0d1cd2ded79c3e18583462",
+    "experiments/developer-loop/prepare.py": "826ab51886eeeb5c0c17b36d746def3e2f1c6226aba9bcdee9e13edabb2c89ae",
+    "tests/standalone/developer_loop_verify.py": "51445f37346752808fcc5ccc354cb13365cbb04cce8aafe7a472e1d8aaf59568",
+    "experiments/developer-loop/README.md": "e516652f70d3605ca73236e4e0c93cd77d9701100a5d5a0c9fb0b2cf4f7a5a34"
+  },
+  "native": {
+    "schema": "rf2.developer-loop.native.v1",
+    "compilerSHA256": "c283a572c0d51db04155156e7adf59cb1b2dfd1bc7313abb8c2fc4a68972a375",
+    "baselineSHA256": "88a7881433f3ca93ee6fac1702faef9bfaaa8a8563b665ad5a62f0a46978089b",
+    "driverSHA256": "c8d818610f4642e81143e5bc6400253a098063d49c13a83a12a5b278f9ef96ac",
+    "checks": [
+      {
+        "name": "field-try compile",
+        "passed": true,
+        "detail": "RF2 native image emitted; apply macOS code signing before execution."
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (False, False, 0)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (False, False, 1)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (False, False, 2)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (False, False, 3)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (False, False, 4)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (False, False, 5)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (False, False, 6)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (False, False, 7)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (False, False, 8)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "old-field-refusal refusal",
+        "passed": true,
+        "detail": "unknown local\nnear source 14:20 (line:byte-column; entry $REPO/artifacts/developer-loop-checks-rxb9pibg/10-old-field-refusal.flow)\n"
+      },
+      {
+        "name": "old-field-refusal no image",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "field-try compile",
+        "passed": true,
+        "detail": "RF2 native image emitted; apply macOS code signing before execution."
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (False, True, 0)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (False, True, 1)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (False, True, 2)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (False, True, 3)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (False, True, 4)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (False, True, 5)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (False, True, 6)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (False, True, 7)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (False, True, 8)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "old-field-refusal refusal",
+        "passed": true,
+        "detail": "unknown local\nnear source 14:26 (line:byte-column; entry $REPO/artifacts/developer-loop-checks-rxb9pibg/22-old-field-refusal.flow)\n"
+      },
+      {
+        "name": "old-field-refusal no image",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "owned-nested-field compile",
+        "passed": true,
+        "detail": "RF2 native image emitted; apply macOS code signing before execution."
+      },
+      {
+        "name": "owned nested field (False, [])",
+        "passed": true,
+        "detail": 73
+      },
+      {
+        "name": "owned nested field (False, ['x'])",
+        "passed": true,
+        "detail": 1
+      },
+      {
+        "name": "owned nested field (False, ['x', 'x'])",
+        "passed": true,
+        "detail": 2
+      },
+      {
+        "name": "nominal-refusal refusal",
+        "passed": true,
+        "detail": "try error result must match the enclosing function contract\nnear source 16:27 (line:byte-column; entry $REPO/artifacts/developer-loop-checks-rxb9pibg/28-nominal-refusal.flow)\n"
+      },
+      {
+        "name": "nominal-refusal no image",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "field-expression-refusal refusal",
+        "passed": true,
+        "detail": "try is a complete statement call; use a temporary for other expressions\nnear source 16:30 (line:byte-column; entry $REPO/artifacts/developer-loop-checks-rxb9pibg/30-field-expression-refusal.flow)\n"
+      },
+      {
+        "name": "field-expression-refusal no image",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "field-untyped-refusal refusal",
+        "passed": true,
+        "detail": "try requires a typed-result function\nnear source 16:16 (line:byte-column; entry $REPO/artifacts/developer-loop-checks-rxb9pibg/32-field-untyped-refusal.flow)\n"
+      },
+      {
+        "name": "field-untyped-refusal no image",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "field-try compile",
+        "passed": true,
+        "detail": "RF2 native image emitted; apply macOS code signing before execution."
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (True, False, 0)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (True, False, 1)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (True, False, 2)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (True, False, 3)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (True, False, 4)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (True, False, 5)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (True, False, 6)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (True, False, 7)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (True, False, 8)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "old-field-refusal refusal",
+        "passed": true,
+        "detail": "unknown local\nnear source 14:20 (line:byte-column; entry $REPO/artifacts/developer-loop-checks-rxb9pibg/44-old-field-refusal.flow)\n"
+      },
+      {
+        "name": "old-field-refusal no image",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "field-try compile",
+        "passed": true,
+        "detail": "RF2 native image emitted; apply macOS code signing before execution."
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (True, True, 0)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (True, True, 1)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (True, True, 2)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (True, True, 3)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (True, True, 4)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (True, True, 5)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (True, True, 6)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (True, True, 7)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "field value, preserved failure and actual File cleanup (True, True, 8)",
+        "passed": true,
+        "detail": [
+          0,
+          ""
+        ]
+      },
+      {
+        "name": "old-field-refusal refusal",
+        "passed": true,
+        "detail": "unknown local\nnear source 14:26 (line:byte-column; entry $REPO/artifacts/developer-loop-checks-rxb9pibg/56-old-field-refusal.flow)\n"
+      },
+      {
+        "name": "old-field-refusal no image",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "owned-nested-field compile",
+        "passed": true,
+        "detail": "RF2 native image emitted; apply macOS code signing before execution."
+      },
+      {
+        "name": "owned nested field (True, [])",
+        "passed": true,
+        "detail": 73
+      },
+      {
+        "name": "owned nested field (True, ['x'])",
+        "passed": true,
+        "detail": 1
+      },
+      {
+        "name": "owned nested field (True, ['x', 'x'])",
+        "passed": true,
+        "detail": 2
+      },
+      {
+        "name": "nominal-refusal refusal",
+        "passed": true,
+        "detail": "try error result must match the enclosing function contract\nnear source 16:27 (line:byte-column; entry $REPO/artifacts/developer-loop-checks-rxb9pibg/62-nominal-refusal.flow)\n"
+      },
+      {
+        "name": "nominal-refusal no image",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "field-expression-refusal refusal",
+        "passed": true,
+        "detail": "try is a complete statement call; use a temporary for other expressions\nnear source 16:30 (line:byte-column; entry $REPO/artifacts/developer-loop-checks-rxb9pibg/64-field-expression-refusal.flow)\n"
+      },
+      {
+        "name": "field-expression-refusal no image",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "field-untyped-refusal refusal",
+        "passed": true,
+        "detail": "try requires a typed-result function\nnear source 16:16 (line:byte-column; entry $REPO/artifacts/developer-loop-checks-rxb9pibg/66-field-untyped-refusal.flow)\n"
+      },
+      {
+        "name": "field-untyped-refusal no image",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "imported source location False",
+        "passed": true,
+        "detail": "unknown local\nat $REPO/artifacts/developer-loop-checks-rxb9pibg/map-lf/lib/bad.flow:4:16 (source line:byte-column)"
+      },
+      {
+        "name": "import error has no image False",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "entry source location False",
+        "passed": true,
+        "detail": "unknown local\nat $REPO/artifacts/developer-loop-checks-rxb9pibg/map-lf/main.flow:4:15 (source line:byte-column)"
+      },
+      {
+        "name": "imported source location True",
+        "passed": true,
+        "detail": "unknown local\nat $REPO/artifacts/developer-loop-checks-rxb9pibg/map-crlf/lib/bad.flow:4:17 (source line:byte-column)"
+      },
+      {
+        "name": "import error has no image True",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "entry source location True",
+        "passed": true,
+        "detail": "unknown local\nat $REPO/artifacts/developer-loop-checks-rxb9pibg/map-crlf/main.flow:4:15 (source line:byte-column)"
+      },
+      {
+        "name": "many origin ranges and no terminal newline",
+        "passed": true,
+        "detail": "unknown local\nat $REPO/artifacts/developer-loop-checks-rxb9pibg/map-ranges/main.flow:57:16 (source line:byte-column)"
+      },
+      {
+        "name": "deduplicated dependency origin with UTF8",
+        "passed": true,
+        "detail": "unknown local\nat $REPO/artifacts/developer-loop-checks-rxb9pibg/map-ranges/lib/part26.flow:5:15 (source line:byte-column)"
+      },
+      {
+        "name": "repeat build 0",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "repeat image executes 0",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "repeat build 1",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "repeat image executes 1",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "repeat build 2",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "repeat image executes 2",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "compile rejection",
+        "passed": true,
+        "detail": "unknown local\nnear source 3:22 (line:byte-column; entry $REPO/artifacts/developer-loop-checks-rxb9pibg/app.flow)\nRF2 build failed; the previous program was preserved.\n"
+      },
+      {
+        "name": "failed compile keeps exact signed image",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "failed compile clears candidate",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "simultaneous builder refused",
+        "passed": true,
+        "detail": "RF2 build: unsafe lock or another build is active\n"
+      },
+      {
+        "name": "contended build preserves image",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "explicit unoptimized build",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "unsafe output refused symlink",
+        "passed": true,
+        "detail": "RF2 build: output is not an owned single-link regular file\n"
+      },
+      {
+        "name": "canary unchanged symlink",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "unsafe output no candidate symlink",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "unsafe output refused hardlink",
+        "passed": true,
+        "detail": "RF2 build: output is not an owned single-link regular file\n"
+      },
+      {
+        "name": "canary unchanged hardlink",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "unsafe output no candidate hardlink",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "unsafe output refused directory",
+        "passed": true,
+        "detail": "RF2 build: output is not an owned single-link regular file\n"
+      },
+      {
+        "name": "canary unchanged directory",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "unsafe output no candidate directory",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "nonprivate directory refused 493",
+        "passed": true,
+        "detail": "RF2 build: directory must belong to you and exclude group/other access\n"
+      },
+      {
+        "name": "nonprivate directory refused 504",
+        "passed": true,
+        "detail": "RF2 build: directory must belong to you and exclude group/other access\n"
+      },
+      {
+        "name": "lock symlink refused",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "partial-compiler compile",
+        "passed": true,
+        "detail": "RF2 native image emitted; apply macOS code signing before execution."
+      },
+      {
+        "name": "nonexecutable data refused before signing",
+        "passed": true,
+        "detail": "RF2 build failed; the previous program was preserved.\n"
+      },
+      {
+        "name": "invalid image preserves old image",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "invalid image clears candidate",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "malformed-compiler compile",
+        "passed": true,
+        "detail": "RF2 native image emitted; apply macOS code signing before execution."
+      },
+      {
+        "name": "malformed Mach-O signing failure",
+        "passed": true,
+        "detail": "$REPO/artifacts/developer-loop-checks-rxb9pibg/build/.rf2-candidate-83874: main executable failed strict validation\nRF2 build failed; the previous program was preserved.\n"
+      },
+      {
+        "name": "signing failure preserves exact old image",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "signing failure clears private candidate",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "missing compiler failure",
+        "passed": true,
+        "detail": "RF2 build failed; the previous program was preserved.\n"
+      },
+      {
+        "name": "missing compiler preserves image",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "eight actual builders bounded outcome",
+        "passed": true,
+        "detail": [
+          0,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75
+        ]
+      },
+      {
+        "name": "eight builders include a commit",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "concurrent final image signed",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "concurrent final image executes",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "concurrent candidates cleared",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "active-image fixture build",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "old image active",
+        "passed": true,
+        "detail": null
+      },
+      {
+        "name": "atomic publication while old program runs",
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "name": "old process retains old code",
+        "passed": true,
+        "detail": [
+          7,
+          ""
+        ]
+      },
+      {
+        "name": "new launch sees new code",
+        "passed": true,
+        "detail": null
+      }
+    ],
+    "allPassed": true,
+    "count": 120,
+    "scope": "One Mac ARM64, controlled native failure fixtures; no human/model token or universal security claim."
+  },
+  "nativeRawSHA256": "ca080d38478f0999088e0f8aa3b145a3866d4d3dbf7231286c3462d8a7559423",
+  "qualification": {
+    "compilerSHA256": "c283a572c0d51db04155156e7adf59cb1b2dfd1bc7313abb8c2fc4a68972a375",
+    "results": [
+      {
+        "name": "try_verify.py",
+        "sourceSHA256": "0e24cc976dc155220e0204766b31b4167e24091db690937798a0ab7c47645c96",
+        "exit": 0,
+        "seconds": 3.7990172500000003,
+        "stdoutSHA256": "9fb0c2c83b0f15dff32928b3ddc1839bad0eaca23b3f99ab1512c45065d3a655",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "app_effort_verify.py",
+        "sourceSHA256": "53b594b884d2d8d6f1dea913e482376f3a3e45537bf5a6d01dd1a777c441d568",
+        "exit": 0,
+        "seconds": 5.749070583000001,
+        "stdoutSHA256": "ab489841898845a1ab58835e522510a40a33e7a785cb3aaee18be0166594092b",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "app_policy_verify.py",
+        "sourceSHA256": "4a55369a551e14785cf17d7099fab65d8dbe2ce1fa80815c259e73c185e73c1c",
+        "exit": 0,
+        "seconds": 12.258271417000001,
+        "stdoutSHA256": "fbca671464957fffd04a5b60cdc9afe9b1d787f36a602cff3777f2ba05a91f21",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "structured_results_verify.py",
+        "sourceSHA256": "c77c3d291ae73cbfbe4d8e2928ecd1dfff016c2062ee902e6e82ad4bb573f7d9",
+        "exit": 0,
+        "seconds": 7.530078958000001,
+        "stdoutSHA256": "8d5ae784a7b3bee09b7680e777c5ded1cf798e6952b8055c614448b43a81aa78",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "multiple_views_verify.py",
+        "sourceSHA256": "04efcd23bcc3a2171d5b58ea0258614c24006b30548932550a00b90158af2b52",
+        "exit": 0,
+        "seconds": 1.6080354999999997,
+        "stdoutSHA256": "20c6fac19398bfb5298302396216fe701fdd52f69948e673e5b94b05b4d3db00",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "owned_rows_verify.py",
+        "sourceSHA256": "e598f84b624d673de4703cd6de25dfd6fd3097f4b3532e245a0372a7f292a161",
+        "exit": 0,
+        "seconds": 5.145156541999999,
+        "stdoutSHA256": "884e73fe8703a16918d564207eace5bde8b849e17e70b1e84ea3d879393e3082",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "nested_owned_verify.py",
+        "sourceSHA256": "c39c39661661cd616cd56d603db068b1592f6d8cd9714404d85635fbd2b6f07a",
+        "exit": 0,
+        "seconds": 6.611994957999997,
+        "stdoutSHA256": "217b4ff4e32bea2b2345c26a3b6db68edc73fe42545092938eff70daa98b28a8",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "owned_functions_verify.py",
+        "sourceSHA256": "0b5a070052b61936abfbff27ff732d4b0a6d7e4309c852fd4f1c62415a09badd",
+        "exit": 0,
+        "seconds": 5.625716666999999,
+        "stdoutSHA256": "8a6cca4bd65ccad97cd09404e2ca2e270fb795d460526c4b6d0d098af2f6d3f9",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "owned_values_verify.py",
+        "sourceSHA256": "ddcb9e552acda91dce68222774e4207258afe4a84529cc127533d358f1288f07",
+        "exit": 0,
+        "seconds": 7.153365750000006,
+        "stdoutSHA256": "dfddc2382099d069029947b6f44d430bde01cd22d71e8655978c3f266f78ffec",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "application_values_verify.py",
+        "sourceSHA256": "97e93b613160576bcf16feb91da30bf9795f0295e68f859b08977fe46c6fec28",
+        "exit": 0,
+        "seconds": 2.4245144170000046,
+        "stdoutSHA256": "efdb92011bc4650a4c4a8a743fdb25fdbdfd33bd81c4435a542e793626455216",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "heap_collection_verify.py",
+        "sourceSHA256": "cfdc10219e480f7c334a36c82cbd6ffef5586be0c48ecf3bcf56d2ae736ccd52",
+        "exit": 0,
+        "seconds": 3.498426875,
+        "stdoutSHA256": "e312e4487ff46700f2edaaa346f7785f70339e3f752f80de5a72554642676d3f",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "typed_booking_verify.py",
+        "sourceSHA256": "4458035fe6e5567cd0cbde524cd32f3def418c7ff491990afed3df7694d47f39",
+        "exit": 0,
+        "seconds": 5.399850749999992,
+        "stdoutSHA256": "7f44cc02026ad1815d7f4b25719564700d97d46440341bed0c91472f49424892",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "booking_web_verify.py",
+        "sourceSHA256": "cf66335e851e945841c9340b84a8c5368f2c5265c178ae45ad8a11d22196422d",
+        "exit": 0,
+        "seconds": 2.175912457999999,
+        "stdoutSHA256": "38d780863c44c35ad04608170e5f6ca2abb514d5516097bbd77363e0145a65a5",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "booking_agent_verify.py",
+        "sourceSHA256": "cd97076ec0d00a435ab32fd003f0c917eff442dc03b023c4d7f890a9e205695e",
+        "exit": 0,
+        "seconds": 4.262038165999996,
+        "stdoutSHA256": "af2ca60e83d5d27a4effe70530cab17df7a10b9b7e6c1714d22a2fdd7dda2cbd",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "verify.py",
+        "sourceSHA256": "3f76c0c2e6a9032a25c47ae50ce73b92aef33c673d4f74a46f1fa03e7f8c0538",
+        "exit": 0,
+        "seconds": 0.5016054999999966,
+        "stdoutSHA256": "cac47450ae2aebe87dda8f3621df650bd560fdd0901e37ff24c3d64addec0f7a",
+        "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  },
+  "selfGeneration": {
+    "compilerSHA256": "c283a572c0d51db04155156e7adf59cb1b2dfd1bc7313abb8c2fc4a68972a375",
+    "selfSHA256": "c283a572c0d51db04155156e7adf59cb1b2dfd1bc7313abb8c2fc4a68972a375",
+    "passed": true
+  },
+  "appReplay": {
+    "originalSourceSHA256": "d1542a0147529883b10ee2cdaa344a91bf8f535fc981a5040aac522103bc658e",
+    "candidateSourceSHA256": "f093920af0b5f3733fed37bbc8571a7a6c8fa3f7fa7ac6f3af6c1e75c77e78b7",
+    "compilerSHA256": "c283a572c0d51db04155156e7adf59cb1b2dfd1bc7313abb8c2fc4a68972a375",
+    "driverSHA256": "c8d818610f4642e81143e5bc6400253a098063d49c13a83a12a5b278f9ef96ac",
+    "removedTemporaryPairs": 5,
+    "originalBytes": 11200,
+    "candidateBytes": 11029,
+    "grade": {
+      "checks": 55,
+      "passed": 55,
+      "allPassed": true,
+      "results": [
+        {
+          "name": "valid self-contained launch contract",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "exclusive new workspace",
+          "passed": true,
+          "detail": [
+            0,
+            {
+              "revision": 1,
+              "version": 2,
+              "bookings": []
+            },
+            ""
+          ]
+        },
+        {
+          "name": "initial state",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "existing path refused",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "first reservation",
+          "passed": true,
+          "detail": [
+            0,
+            {
+              "revision": 2,
+              "version": 2,
+              "bookings": [
+                {
+                  "id": "18446744073709551615",
+                  "room": 1,
+                  "day": 740406,
+                  "start": 540,
+                  "finish": 600
+                }
+              ]
+            },
+            ""
+          ]
+        },
+        {
+          "name": "canonical date and exact u64 row",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "overlap refusal",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "overlap preserves data",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "stale refusal",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "stale preserves data",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "bad leap refusal",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "bad leap preserves data",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "noncanonical date refusal",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "noncanonical date preserves data",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "noncanonical id refusal",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "noncanonical id preserves data",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "overflow id refusal",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "overflow id preserves data",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "invalid room refusal",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "invalid room preserves data",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "bad start refusal",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "bad start preserves data",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "equal time refusal",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "equal time preserves data",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "backwards refusal",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "backwards preserves data",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "adjacent allowed",
+          "passed": true,
+          "detail": [
+            0,
+            {
+              "revision": 3,
+              "version": 2,
+              "bookings": [
+                {
+                  "id": "18446744073709551615",
+                  "room": 1,
+                  "day": 740406,
+                  "start": 540,
+                  "finish": 600
+                },
+                {
+                  "id": "2",
+                  "room": 1,
+                  "day": 740406,
+                  "start": 600,
+                  "finish": 660
+                }
+              ]
+            },
+            ""
+          ]
+        },
+        {
+          "name": "other room allowed",
+          "passed": true,
+          "detail": [
+            0,
+            {
+              "revision": 4,
+              "version": 2,
+              "bookings": [
+                {
+                  "id": "18446744073709551615",
+                  "room": 1,
+                  "day": 740406,
+                  "start": 540,
+                  "finish": 600
+                },
+                {
+                  "id": "2",
+                  "room": 1,
+                  "day": 740406,
+                  "start": 600,
+                  "finish": 660
+                },
+                {
+                  "id": "3",
+                  "room": 2,
+                  "day": 740406,
+                  "start": 540,
+                  "finish": 600
+                }
+              ]
+            },
+            ""
+          ]
+        },
+        {
+          "name": "other day and midnight allowed",
+          "passed": true,
+          "detail": [
+            0,
+            {
+              "revision": 5,
+              "version": 2,
+              "bookings": [
+                {
+                  "id": "18446744073709551615",
+                  "room": 1,
+                  "day": 740406,
+                  "start": 540,
+                  "finish": 600
+                },
+                {
+                  "id": "2",
+                  "room": 1,
+                  "day": 740406,
+                  "start": 600,
+                  "finish": 660
+                },
+                {
+                  "id": "3",
+                  "room": 2,
+                  "day": 740406,
+                  "start": 540,
+                  "finish": 600
+                },
+                {
+                  "id": "4",
+                  "room": 1,
+                  "day": 740407,
+                  "start": 1380,
+                  "finish": 1440
+                }
+              ]
+            },
+            ""
+          ]
+        },
+        {
+          "name": "four real reopened reservations",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "reopen in fresh process",
+          "passed": true,
+          "detail": [
+            0,
+            {
+              "revision": 5,
+              "version": 2,
+              "bookings": [
+                {
+                  "id": "18446744073709551615",
+                  "room": 1,
+                  "day": 740406,
+                  "start": 540,
+                  "finish": 600
+                },
+                {
+                  "id": "2",
+                  "room": 1,
+                  "day": 740406,
+                  "start": 600,
+                  "finish": 660
+                },
+                {
+                  "id": "3",
+                  "room": 2,
+                  "day": 740406,
+                  "start": 540,
+                  "finish": 600
+                },
+                {
+                  "id": "4",
+                  "room": 1,
+                  "day": 740407,
+                  "start": 1380,
+                  "finish": 1440
+                }
+              ]
+            },
+            ""
+          ]
+        },
+        {
+          "name": "first u64 remains exact",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "stale cancellation refuses",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "exact cancellation",
+          "passed": true,
+          "detail": [
+            0,
+            {
+              "revision": 6,
+              "version": 2,
+              "bookings": [
+                {
+                  "id": "18446744073709551615",
+                  "room": 1,
+                  "day": 740406,
+                  "start": 540,
+                  "finish": 600
+                },
+                {
+                  "id": "3",
+                  "room": 2,
+                  "day": 740406,
+                  "start": 540,
+                  "finish": 600
+                },
+                {
+                  "id": "4",
+                  "room": 1,
+                  "day": 740407,
+                  "start": 1380,
+                  "finish": 1440
+                }
+              ]
+            },
+            ""
+          ]
+        },
+        {
+          "name": "cancel preserves other rows",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "simultaneous native processes have one confirmed winner",
+          "passed": true,
+          "detail": [
+            [
+              0,
+              null
+            ],
+            [
+              2,
+              409
+            ],
+            [
+              2,
+              409
+            ],
+            [
+              2,
+              409
+            ],
+            [
+              2,
+              409
+            ],
+            [
+              2,
+              409
+            ],
+            [
+              2,
+              409
+            ],
+            [
+              2,
+              409
+            ]
+          ]
+        },
+        {
+          "name": "race reopen",
+          "passed": true,
+          "detail": [
+            0,
+            {
+              "revision": 7,
+              "version": 2,
+              "bookings": [
+                {
+                  "id": "18446744073709551615",
+                  "room": 1,
+                  "day": 740406,
+                  "start": 540,
+                  "finish": 600
+                },
+                {
+                  "id": "3",
+                  "room": 2,
+                  "day": 740406,
+                  "start": 540,
+                  "finish": 600
+                },
+                {
+                  "id": "4",
+                  "room": 1,
+                  "day": 740407,
+                  "start": 1380,
+                  "finish": 1440
+                },
+                {
+                  "id": "10",
+                  "room": 3,
+                  "day": 740408,
+                  "start": 540,
+                  "finish": 600
+                }
+              ]
+            },
+            ""
+          ]
+        },
+        {
+          "name": "race persisted one revision",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "GUI actual data and semantic form",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "GUI wrong CSRF no effect",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "GUI foreign origin no effect",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "GUI duplicate field no effect",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "GUI unknown field no effect",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "CLI sees actual GUI commit",
+          "passed": true,
+          "detail": [
+            0,
+            {
+              "revision": 8,
+              "version": 2,
+              "bookings": [
+                {
+                  "id": "18446744073709551615",
+                  "room": 1,
+                  "day": 740406,
+                  "start": 540,
+                  "finish": 600
+                },
+                {
+                  "id": "3",
+                  "room": 2,
+                  "day": 740406,
+                  "start": 540,
+                  "finish": 600
+                },
+                {
+                  "id": "4",
+                  "room": 1,
+                  "day": 740407,
+                  "start": 1380,
+                  "finish": 1440
+                },
+                {
+                  "id": "10",
+                  "room": 3,
+                  "day": 740408,
+                  "start": 540,
+                  "finish": 600
+                },
+                {
+                  "id": "99",
+                  "room": 4,
+                  "day": 740814,
+                  "start": 540,
+                  "finish": 600
+                }
+              ]
+            },
+            ""
+          ]
+        },
+        {
+          "name": "GUI uses shared transaction rules",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "stale browser form cannot duplicate",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "failed GUI retains user input",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "CLI sees GUI cancellation",
+          "passed": true,
+          "detail": [
+            0,
+            {
+              "revision": 9,
+              "version": 2,
+              "bookings": [
+                {
+                  "id": "3",
+                  "room": 2,
+                  "day": 740406,
+                  "start": 540,
+                  "finish": 600
+                },
+                {
+                  "id": "4",
+                  "room": 1,
+                  "day": 740407,
+                  "start": 1380,
+                  "finish": 1440
+                },
+                {
+                  "id": "10",
+                  "room": 3,
+                  "day": 740408,
+                  "start": 540,
+                  "finish": 600
+                },
+                {
+                  "id": "99",
+                  "room": 4,
+                  "day": 740814,
+                  "start": 540,
+                  "finish": 600
+                }
+              ]
+            },
+            ""
+          ]
+        },
+        {
+          "name": "GUI cancels only selected ID",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "MCP legacy actual connection",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "MCP exact read-only tool schema",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "MCP returns actual saved state",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "MCP path/write denial and recovery",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "MCP malformed/duplicate refusal then valid recovery",
+          "passed": true,
+          "detail": null
+        },
+        {
+          "name": "delivery instructions present",
+          "passed": true,
+          "detail": null
+        }
+      ]
+    },
+    "scope": "Mechanical parent edit and fresh acceptance replay. No new autonomous authoring, model-usage or runtime-speed result."
+  },
+  "benchmark": {
+    "plan": {
+      "schema": "rf2.developer-loop.compile-plan.v1",
+      "host": "macOS-26.5.1-arm64-arm-64bit",
+      "compilerSHA256": {
+        "baseline047": "88a7881433f3ca93ee6fac1702faef9bfaaa8a8563b665ad5a62f0a46978089b",
+        "byteMap048A": "5d4ca32f4f43c60d68d392f65247196c6f15ab0771ddeec7842dca3857797220",
+        "rangeMap048B": "c283a572c0d51db04155156e7adf59cb1b2dfd1bc7313abb8c2fc4a68972a375"
+      },
+      "sourceFiles": {
+        "source/small.flow": "4ded08c7a59dc5acd8b3463ca3578ce57f147deb4c8c0b40524053c02a5b8ce8",
+        "source/compiler.flow": "7fe4a9ed8c2a2b144d108023d72e3e5a88ab2177b59425990d8c157b1c1072dd",
+        "source/study/main.flow": "d1542a0147529883b10ee2cdaa344a91bf8f535fc981a5040aac522103bc658e",
+        "source/study/README.md": "3ad18fe1e6fbc95ef601d3899c505365b6d3d0d7c357ae0297c959c872ab0ccf",
+        "source/study/lib/app-server.flow": "0c53d71eb93bff541fc2d61a6a8bfb420799c60b0c6b5a856c9a71e6977d430a",
+        "source/study/lib/datetime.flow": "e91acb6d334dafef70b258f34261db5d1ef6b66473a0560345a8cca714f36aad",
+        "source/study/lib/output.rf2": "08f93f074be4c13ab3993b454adad0ffa81afcb69c4b06fbebe93f48827f4a66",
+        "source/study/lib/store.flow": "1e735ef95d15f78cc94e14f1efae0bd4a6b7c674d359164082a827c27d47fa91",
+        "source/study/lib/text.flow": "d0b082ad7a1df031b8a6290251192fde08231788bdc26e97cdc09c882f9f2020",
+        "source/study/lib/sha256.rf2": "b79e7217db169985a5b2262ad4e4c5a550dc7741a60aaff816176a7324a0ffb5",
+        "source/study/lib/storage.flow": "2a1750f3245109483e958a2672abafe17ba8f0e1506ee7fe35738de2243f7130",
+        "source/study/lib/mcp.flow": "0e0a035b775a4f72b77de4bd2ed9bb4e27b997f5dc7f76a06197e0d1d5b33a9e",
+        "source/study/lib/io.flow": "3c7be52f4314ab613af53271a0bd00dd2e9e04d4c198275d47a3fe34f4af023f",
+        "source/study/lib/forms.flow": "39d4465f5570750497e34f96112bc9f1d6bf0e09bfab43dc41809791d26d2faa",
+        "source/study/lib/json.flow": "036a185eaa932a10f41e7da973e35373eee7fc8b9c86bb030c3da80899911e6a",
+        "source/study/lib/booking.flow": "2210a84664a800ee77783cd2e21d230c68dcd11c4b7ca84bd8dfd8f1d8015066",
+        "source/study/lib/ui.flow": "dfea437c60375a2162b015b79e8dec95b7f4f729ff37c427de5abf56c71b8e14",
+        "source/study/lib/transport.flow": "1054378225bdb8d4dc2ac50333c33e2b1efdb5f3617514997cec43d321bdebbc"
+      },
+      "warmups": 2,
+      "trials": 15,
+      "order": "rotate three arms by trial index",
+      "options": [
+        "--compact",
+        "--opt"
+      ],
+      "scope": "Whole native process compilation on one warm Mac. Signing, model authoring, tokens, app runtime and energy excluded. No adaptive sampling."
+    },
+    "planSHA256": "bc837eea4e31a18ac0b1a7313dc5a67e6062328ca4ff9e50f59715479b0610e3",
+    "rawSHA256": "c6201056aaddec36e9ce5543fc35ca135d24c4b0fa076bf5ad870d1804dab71b",
+    "summary": {
+      "small": {
+        "baseline047": {
+          "trials": 15,
+          "medianMS": 1.946458,
+          "minMS": 1.62425,
+          "maxMS": 2.2785,
+          "medianAbsoluteDeviationMS": 0.15749999999999997
+        },
+        "byteMap048A": {
+          "trials": 15,
+          "medianMS": 1.825333,
+          "minMS": 1.694167,
+          "maxMS": 3.428792,
+          "medianAbsoluteDeviationMS": 0.05845800000000012
+        },
+        "rangeMap048B": {
+          "trials": 15,
+          "medianMS": 1.893208,
+          "minMS": 1.617333,
+          "maxMS": 2.3805,
+          "medianAbsoluteDeviationMS": 0.055500000000000105
+        }
+      },
+      "studyRooms": {
+        "baseline047": {
+          "trials": 15,
+          "medianMS": 14.855166,
+          "minMS": 14.54575,
+          "maxMS": 16.449833,
+          "medianAbsoluteDeviationMS": 0.22312400000000032
+        },
+        "byteMap048A": {
+          "trials": 15,
+          "medianMS": 15.126,
+          "minMS": 14.764208,
+          "maxMS": 15.430709,
+          "medianAbsoluteDeviationMS": 0.14349999999999952
+        },
+        "rangeMap048B": {
+          "trials": 15,
+          "medianMS": 14.791083,
+          "minMS": 14.585208,
+          "maxMS": 15.176417,
+          "medianAbsoluteDeviationMS": 0.1173339999999996
+        }
+      },
+      "compiler": {
+        "baseline047": {
+          "trials": 15,
+          "medianMS": 33.411958,
+          "minMS": 33.031917,
+          "maxMS": 36.495666,
+          "medianAbsoluteDeviationMS": 0.20862499999999784
+        },
+        "byteMap048A": {
+          "trials": 15,
+          "medianMS": 33.35875,
+          "minMS": 33.064584,
+          "maxMS": 36.17475,
+          "medianAbsoluteDeviationMS": 0.12308300000000116
+        },
+        "rangeMap048B": {
+          "trials": 15,
+          "medianMS": 33.312042,
+          "minMS": 33.029583,
+          "maxMS": 37.70725,
+          "medianAbsoluteDeviationMS": 0.11104199999999764
+        }
+      }
+    },
+    "unsignedImageSHA256": {
+      "small": "137e32f5d01e5af45552c32a58704de37cb841895417e6d66d20e2c879d4be7a",
+      "studyRooms": "17d707cfb0d37c81a9a88a8eee1eb4f073e34bfd7f17ce01d1b09d28cf4bf5e9",
+      "compiler": "3ee69a4096917c6cc761393de04ef138e8793b88603254bd91bb6adfb34f9f88"
+    },
+    "byteIdenticalAcrossArms": true
+  },
+  "benchmarkRaw": [
+    {
+      "workload": "small",
+      "arm": "byteMap048A",
+      "round": -2,
+      "warmup": true,
+      "nanoseconds": 2783750,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "rangeMap048B",
+      "round": -2,
+      "warmup": true,
+      "nanoseconds": 2202375,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "baseline047",
+      "round": -2,
+      "warmup": true,
+      "nanoseconds": 2044166,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "rangeMap048B",
+      "round": -1,
+      "warmup": true,
+      "nanoseconds": 1827292,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "baseline047",
+      "round": -1,
+      "warmup": true,
+      "nanoseconds": 1977667,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "byteMap048A",
+      "round": -1,
+      "warmup": true,
+      "nanoseconds": 1797625,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "baseline047",
+      "round": 0,
+      "warmup": false,
+      "nanoseconds": 1957333,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "byteMap048A",
+      "round": 0,
+      "warmup": false,
+      "nanoseconds": 1811833,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "rangeMap048B",
+      "round": 0,
+      "warmup": false,
+      "nanoseconds": 2176916,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "byteMap048A",
+      "round": 1,
+      "warmup": false,
+      "nanoseconds": 2061875,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "rangeMap048B",
+      "round": 1,
+      "warmup": false,
+      "nanoseconds": 1876417,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "baseline047",
+      "round": 1,
+      "warmup": false,
+      "nanoseconds": 1995417,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "rangeMap048B",
+      "round": 2,
+      "warmup": false,
+      "nanoseconds": 1908208,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "baseline047",
+      "round": 2,
+      "warmup": false,
+      "nanoseconds": 2180416,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "byteMap048A",
+      "round": 2,
+      "warmup": false,
+      "nanoseconds": 1793416,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "baseline047",
+      "round": 3,
+      "warmup": false,
+      "nanoseconds": 1984625,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "byteMap048A",
+      "round": 3,
+      "warmup": false,
+      "nanoseconds": 1874041,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "rangeMap048B",
+      "round": 3,
+      "warmup": false,
+      "nanoseconds": 1930208,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "byteMap048A",
+      "round": 4,
+      "warmup": false,
+      "nanoseconds": 1837791,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "rangeMap048B",
+      "round": 4,
+      "warmup": false,
+      "nanoseconds": 1887250,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "baseline047",
+      "round": 4,
+      "warmup": false,
+      "nanoseconds": 1788958,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "rangeMap048B",
+      "round": 5,
+      "warmup": false,
+      "nanoseconds": 1837708,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "baseline047",
+      "round": 5,
+      "warmup": false,
+      "nanoseconds": 2278500,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "byteMap048A",
+      "round": 5,
+      "warmup": false,
+      "nanoseconds": 2145333,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "baseline047",
+      "round": 6,
+      "warmup": false,
+      "nanoseconds": 1946458,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "byteMap048A",
+      "round": 6,
+      "warmup": false,
+      "nanoseconds": 1908041,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "rangeMap048B",
+      "round": 6,
+      "warmup": false,
+      "nanoseconds": 1997166,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "byteMap048A",
+      "round": 7,
+      "warmup": false,
+      "nanoseconds": 1825333,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "rangeMap048B",
+      "round": 7,
+      "warmup": false,
+      "nanoseconds": 1841334,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "baseline047",
+      "round": 7,
+      "warmup": false,
+      "nanoseconds": 1624250,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "rangeMap048B",
+      "round": 8,
+      "warmup": false,
+      "nanoseconds": 1617333,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "baseline047",
+      "round": 8,
+      "warmup": false,
+      "nanoseconds": 1985375,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "byteMap048A",
+      "round": 8,
+      "warmup": false,
+      "nanoseconds": 1762708,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "baseline047",
+      "round": 9,
+      "warmup": false,
+      "nanoseconds": 1727750,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "byteMap048A",
+      "round": 9,
+      "warmup": false,
+      "nanoseconds": 1726959,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "rangeMap048B",
+      "round": 9,
+      "warmup": false,
+      "nanoseconds": 1986084,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "byteMap048A",
+      "round": 10,
+      "warmup": false,
+      "nanoseconds": 1835417,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "rangeMap048B",
+      "round": 10,
+      "warmup": false,
+      "nanoseconds": 2058291,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "baseline047",
+      "round": 10,
+      "warmup": false,
+      "nanoseconds": 1817958,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "rangeMap048B",
+      "round": 11,
+      "warmup": false,
+      "nanoseconds": 2380500,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "baseline047",
+      "round": 11,
+      "warmup": false,
+      "nanoseconds": 2180625,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "byteMap048A",
+      "round": 11,
+      "warmup": false,
+      "nanoseconds": 1774083,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "baseline047",
+      "round": 12,
+      "warmup": false,
+      "nanoseconds": 1779208,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "byteMap048A",
+      "round": 12,
+      "warmup": false,
+      "nanoseconds": 1766875,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "rangeMap048B",
+      "round": 12,
+      "warmup": false,
+      "nanoseconds": 1886709,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "byteMap048A",
+      "round": 13,
+      "warmup": false,
+      "nanoseconds": 1694167,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "rangeMap048B",
+      "round": 13,
+      "warmup": false,
+      "nanoseconds": 1893208,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "baseline047",
+      "round": 13,
+      "warmup": false,
+      "nanoseconds": 1870167,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "rangeMap048B",
+      "round": 14,
+      "warmup": false,
+      "nanoseconds": 1801666,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "baseline047",
+      "round": 14,
+      "warmup": false,
+      "nanoseconds": 1666458,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "small",
+      "arm": "byteMap048A",
+      "round": 14,
+      "warmup": false,
+      "nanoseconds": 3428792,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "byteMap048A",
+      "round": -2,
+      "warmup": true,
+      "nanoseconds": 16009750,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "rangeMap048B",
+      "round": -2,
+      "warmup": true,
+      "nanoseconds": 15878333,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "baseline047",
+      "round": -2,
+      "warmup": true,
+      "nanoseconds": 15873291,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "rangeMap048B",
+      "round": -1,
+      "warmup": true,
+      "nanoseconds": 15080417,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "baseline047",
+      "round": -1,
+      "warmup": true,
+      "nanoseconds": 14601583,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "byteMap048A",
+      "round": -1,
+      "warmup": true,
+      "nanoseconds": 15060292,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "baseline047",
+      "round": 0,
+      "warmup": false,
+      "nanoseconds": 14935833,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "byteMap048A",
+      "round": 0,
+      "warmup": false,
+      "nanoseconds": 14982500,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "rangeMap048B",
+      "round": 0,
+      "warmup": false,
+      "nanoseconds": 14667959,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "byteMap048A",
+      "round": 1,
+      "warmup": false,
+      "nanoseconds": 15124625,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "rangeMap048B",
+      "round": 1,
+      "warmup": false,
+      "nanoseconds": 14617209,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "baseline047",
+      "round": 1,
+      "warmup": false,
+      "nanoseconds": 14754583,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "rangeMap048B",
+      "round": 2,
+      "warmup": false,
+      "nanoseconds": 14585208,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "baseline047",
+      "round": 2,
+      "warmup": false,
+      "nanoseconds": 14545750,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "byteMap048A",
+      "round": 2,
+      "warmup": false,
+      "nanoseconds": 15000834,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "baseline047",
+      "round": 3,
+      "warmup": false,
+      "nanoseconds": 14958708,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "byteMap048A",
+      "round": 3,
+      "warmup": false,
+      "nanoseconds": 15126000,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "rangeMap048B",
+      "round": 3,
+      "warmup": false,
+      "nanoseconds": 14750708,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "byteMap048A",
+      "round": 4,
+      "warmup": false,
+      "nanoseconds": 14870709,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "rangeMap048B",
+      "round": 4,
+      "warmup": false,
+      "nanoseconds": 14802458,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "baseline047",
+      "round": 4,
+      "warmup": false,
+      "nanoseconds": 14632042,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "rangeMap048B",
+      "round": 5,
+      "warmup": false,
+      "nanoseconds": 14706916,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "baseline047",
+      "round": 5,
+      "warmup": false,
+      "nanoseconds": 14634084,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "byteMap048A",
+      "round": 5,
+      "warmup": false,
+      "nanoseconds": 15157500,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "baseline047",
+      "round": 6,
+      "warmup": false,
+      "nanoseconds": 14621875,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "byteMap048A",
+      "round": 6,
+      "warmup": false,
+      "nanoseconds": 15127709,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "rangeMap048B",
+      "round": 6,
+      "warmup": false,
+      "nanoseconds": 14787833,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "byteMap048A",
+      "round": 7,
+      "warmup": false,
+      "nanoseconds": 15132375,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "rangeMap048B",
+      "round": 7,
+      "warmup": false,
+      "nanoseconds": 14791083,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "baseline047",
+      "round": 7,
+      "warmup": false,
+      "nanoseconds": 14855166,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "rangeMap048B",
+      "round": 8,
+      "warmup": false,
+      "nanoseconds": 14816917,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "baseline047",
+      "round": 8,
+      "warmup": false,
+      "nanoseconds": 14627125,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "byteMap048A",
+      "round": 8,
+      "warmup": false,
+      "nanoseconds": 15029375,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "baseline047",
+      "round": 9,
+      "warmup": false,
+      "nanoseconds": 16449833,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "byteMap048A",
+      "round": 9,
+      "warmup": false,
+      "nanoseconds": 14764208,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "rangeMap048B",
+      "round": 9,
+      "warmup": false,
+      "nanoseconds": 14736250,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "byteMap048A",
+      "round": 10,
+      "warmup": false,
+      "nanoseconds": 14965666,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "rangeMap048B",
+      "round": 10,
+      "warmup": false,
+      "nanoseconds": 15046458,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "baseline047",
+      "round": 10,
+      "warmup": false,
+      "nanoseconds": 14990292,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "rangeMap048B",
+      "round": 11,
+      "warmup": false,
+      "nanoseconds": 15176417,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "baseline047",
+      "round": 11,
+      "warmup": false,
+      "nanoseconds": 15293750,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "byteMap048A",
+      "round": 11,
+      "warmup": false,
+      "nanoseconds": 15312708,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "baseline047",
+      "round": 12,
+      "warmup": false,
+      "nanoseconds": 15173708,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "byteMap048A",
+      "round": 12,
+      "warmup": false,
+      "nanoseconds": 15385041,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "rangeMap048B",
+      "round": 12,
+      "warmup": false,
+      "nanoseconds": 14908417,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "byteMap048A",
+      "round": 13,
+      "warmup": false,
+      "nanoseconds": 15430709,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "rangeMap048B",
+      "round": 13,
+      "warmup": false,
+      "nanoseconds": 15173208,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "baseline047",
+      "round": 13,
+      "warmup": false,
+      "nanoseconds": 15126000,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "rangeMap048B",
+      "round": 14,
+      "warmup": false,
+      "nanoseconds": 15118958,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "baseline047",
+      "round": 14,
+      "warmup": false,
+      "nanoseconds": 14837417,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "studyRooms",
+      "arm": "byteMap048A",
+      "round": 14,
+      "warmup": false,
+      "nanoseconds": 15338792,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "byteMap048A",
+      "round": -2,
+      "warmup": true,
+      "nanoseconds": 33925375,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "rangeMap048B",
+      "round": -2,
+      "warmup": true,
+      "nanoseconds": 34310167,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "baseline047",
+      "round": -2,
+      "warmup": true,
+      "nanoseconds": 34207541,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "rangeMap048B",
+      "round": -1,
+      "warmup": true,
+      "nanoseconds": 33419833,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "baseline047",
+      "round": -1,
+      "warmup": true,
+      "nanoseconds": 34639875,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "byteMap048A",
+      "round": -1,
+      "warmup": true,
+      "nanoseconds": 34233834,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "baseline047",
+      "round": 0,
+      "warmup": false,
+      "nanoseconds": 34089500,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "byteMap048A",
+      "round": 0,
+      "warmup": false,
+      "nanoseconds": 36174750,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "rangeMap048B",
+      "round": 0,
+      "warmup": false,
+      "nanoseconds": 33752833,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "byteMap048A",
+      "round": 1,
+      "warmup": false,
+      "nanoseconds": 33341041,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "rangeMap048B",
+      "round": 1,
+      "warmup": false,
+      "nanoseconds": 34237750,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "baseline047",
+      "round": 1,
+      "warmup": false,
+      "nanoseconds": 33689834,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "rangeMap048B",
+      "round": 2,
+      "warmup": false,
+      "nanoseconds": 33547125,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "baseline047",
+      "round": 2,
+      "warmup": false,
+      "nanoseconds": 33524459,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "byteMap048A",
+      "round": 2,
+      "warmup": false,
+      "nanoseconds": 33397833,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "baseline047",
+      "round": 3,
+      "warmup": false,
+      "nanoseconds": 33480125,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "byteMap048A",
+      "round": 3,
+      "warmup": false,
+      "nanoseconds": 33801375,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "rangeMap048B",
+      "round": 3,
+      "warmup": false,
+      "nanoseconds": 34368083,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "byteMap048A",
+      "round": 4,
+      "warmup": false,
+      "nanoseconds": 33479708,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "rangeMap048B",
+      "round": 4,
+      "warmup": false,
+      "nanoseconds": 33365000,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "baseline047",
+      "round": 4,
+      "warmup": false,
+      "nanoseconds": 33301583,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "rangeMap048B",
+      "round": 5,
+      "warmup": false,
+      "nanoseconds": 33277500,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "baseline047",
+      "round": 5,
+      "warmup": false,
+      "nanoseconds": 33720250,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "byteMap048A",
+      "round": 5,
+      "warmup": false,
+      "nanoseconds": 33358750,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "baseline047",
+      "round": 6,
+      "warmup": false,
+      "nanoseconds": 33372333,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "byteMap048A",
+      "round": 6,
+      "warmup": false,
+      "nanoseconds": 33211417,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "rangeMap048B",
+      "round": 6,
+      "warmup": false,
+      "nanoseconds": 33388584,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "byteMap048A",
+      "round": 7,
+      "warmup": false,
+      "nanoseconds": 33178334,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "rangeMap048B",
+      "round": 7,
+      "warmup": false,
+      "nanoseconds": 33201000,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "baseline047",
+      "round": 7,
+      "warmup": false,
+      "nanoseconds": 33203333,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "rangeMap048B",
+      "round": 8,
+      "warmup": false,
+      "nanoseconds": 33275292,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "baseline047",
+      "round": 8,
+      "warmup": false,
+      "nanoseconds": 36495666,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "byteMap048A",
+      "round": 8,
+      "warmup": false,
+      "nanoseconds": 33375542,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "baseline047",
+      "round": 9,
+      "warmup": false,
+      "nanoseconds": 33411958,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "byteMap048A",
+      "round": 9,
+      "warmup": false,
+      "nanoseconds": 33261042,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "rangeMap048B",
+      "round": 9,
+      "warmup": false,
+      "nanoseconds": 33267542,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "byteMap048A",
+      "round": 10,
+      "warmup": false,
+      "nanoseconds": 33753375,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "rangeMap048B",
+      "round": 10,
+      "warmup": false,
+      "nanoseconds": 37707250,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "baseline047",
+      "round": 10,
+      "warmup": false,
+      "nanoseconds": 33384875,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "rangeMap048B",
+      "round": 11,
+      "warmup": false,
+      "nanoseconds": 33230000,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "baseline047",
+      "round": 11,
+      "warmup": false,
+      "nanoseconds": 33074083,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "byteMap048A",
+      "round": 11,
+      "warmup": false,
+      "nanoseconds": 33481833,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "baseline047",
+      "round": 12,
+      "warmup": false,
+      "nanoseconds": 33189125,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "byteMap048A",
+      "round": 12,
+      "warmup": false,
+      "nanoseconds": 33064584,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "rangeMap048B",
+      "round": 12,
+      "warmup": false,
+      "nanoseconds": 33121625,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "byteMap048A",
+      "round": 13,
+      "warmup": false,
+      "nanoseconds": 33286417,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "rangeMap048B",
+      "round": 13,
+      "warmup": false,
+      "nanoseconds": 33312042,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "baseline047",
+      "round": 13,
+      "warmup": false,
+      "nanoseconds": 33031917,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "rangeMap048B",
+      "round": 14,
+      "warmup": false,
+      "nanoseconds": 33029583,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "baseline047",
+      "round": 14,
+      "warmup": false,
+      "nanoseconds": 33490334,
+      "exit": 0,
+      "stderr": ""
+    },
+    {
+      "workload": "compiler",
+      "arm": "byteMap048A",
+      "round": 14,
+      "warmup": false,
+      "nanoseconds": 33068167,
+      "exit": 0,
+      "stderr": ""
+    }
+  ],
+  "earlierBenchmark": {
+    "path": "artifacts/developer-loop-benchmark-ev8djfvi/RESULTS.json",
+    "sha256": "ee0e63a268c22adab7545f483862978864da51640c2d964af881c11a2b5188d1",
+    "result": {
+      "plan": {
+        "schema": "rf2.developer-loop.compile-plan.v1",
+        "host": "macOS-26.5.1-arm64-arm-64bit",
+        "compilerSHA256": {
+          "baseline047": "88a7881433f3ca93ee6fac1702faef9bfaaa8a8563b665ad5a62f0a46978089b",
+          "byteMap048A": "5d4ca32f4f43c60d68d392f65247196c6f15ab0771ddeec7842dca3857797220",
+          "rangeMap048B": "c283a572c0d51db04155156e7adf59cb1b2dfd1bc7313abb8c2fc4a68972a375"
+        },
+        "sourceFiles": {
+          "source/small.flow": "4ded08c7a59dc5acd8b3463ca3578ce57f147deb4c8c0b40524053c02a5b8ce8",
+          "source/compiler.flow": "7fe4a9ed8c2a2b144d108023d72e3e5a88ab2177b59425990d8c157b1c1072dd",
+          "source/study/main.flow": "d1542a0147529883b10ee2cdaa344a91bf8f535fc981a5040aac522103bc658e",
+          "source/study/lib/app-server.flow": "0c53d71eb93bff541fc2d61a6a8bfb420799c60b0c6b5a856c9a71e6977d430a",
+          "source/study/lib/datetime.flow": "e91acb6d334dafef70b258f34261db5d1ef6b66473a0560345a8cca714f36aad",
+          "source/study/lib/output.rf2": "08f93f074be4c13ab3993b454adad0ffa81afcb69c4b06fbebe93f48827f4a66",
+          "source/study/lib/store.flow": "1e735ef95d15f78cc94e14f1efae0bd4a6b7c674d359164082a827c27d47fa91",
+          "source/study/lib/text.flow": "d0b082ad7a1df031b8a6290251192fde08231788bdc26e97cdc09c882f9f2020",
+          "source/study/lib/sha256.rf2": "b79e7217db169985a5b2262ad4e4c5a550dc7741a60aaff816176a7324a0ffb5",
+          "source/study/lib/storage.flow": "2a1750f3245109483e958a2672abafe17ba8f0e1506ee7fe35738de2243f7130",
+          "source/study/lib/mcp.flow": "0e0a035b775a4f72b77de4bd2ed9bb4e27b997f5dc7f76a06197e0d1d5b33a9e",
+          "source/study/lib/io.flow": "3c7be52f4314ab613af53271a0bd00dd2e9e04d4c198275d47a3fe34f4af023f",
+          "source/study/lib/forms.flow": "39d4465f5570750497e34f96112bc9f1d6bf0e09bfab43dc41809791d26d2faa",
+          "source/study/lib/json.flow": "036a185eaa932a10f41e7da973e35373eee7fc8b9c86bb030c3da80899911e6a",
+          "source/study/lib/booking.flow": "2210a84664a800ee77783cd2e21d230c68dcd11c4b7ca84bd8dfd8f1d8015066",
+          "source/study/lib/ui.flow": "dfea437c60375a2162b015b79e8dec95b7f4f729ff37c427de5abf56c71b8e14",
+          "source/study/lib/transport.flow": "1054378225bdb8d4dc2ac50333c33e2b1efdb5f3617514997cec43d321bdebbc"
+        },
+        "warmups": 2,
+        "trials": 15,
+        "order": "rotate three arms by trial index",
+        "options": [
+          "--compact",
+          "--opt"
+        ],
+        "scope": "Whole native process compilation on one warm Mac. Signing, model authoring, tokens, app runtime and energy excluded. No adaptive sampling."
+      },
+      "planSHA256": "2db5d0d3f3b24cbcbee68acf8827a71046c0c270111b8a8dea69f6894f913580",
+      "rawSHA256": "f0ad5467b97b8f758fc0d770c1e24bc3056acae63a04c0add64a2658de0c2591",
+      "summary": {
+        "small": {
+          "baseline047": {
+            "trials": 15,
+            "medianMS": 2.233083,
+            "minMS": 1.719583,
+            "maxMS": 8.887291,
+            "medianAbsoluteDeviationMS": 0.3167089999999999
+          },
+          "byteMap048A": {
+            "trials": 15,
+            "medianMS": 2.312417,
+            "minMS": 1.755125,
+            "maxMS": 14.749708,
+            "medianAbsoluteDeviationMS": 0.41937500000000005
+          },
+          "rangeMap048B": {
+            "trials": 15,
+            "medianMS": 2.18375,
+            "minMS": 1.763333,
+            "maxMS": 7.270583,
+            "medianAbsoluteDeviationMS": 0.3631249999999999
+          }
+        },
+        "studyRooms": {
+          "baseline047": {
+            "trials": 15,
+            "medianMS": 15.197583,
+            "minMS": 14.811916,
+            "maxMS": 19.733375,
+            "medianAbsoluteDeviationMS": 0.14170900000000053
+          },
+          "byteMap048A": {
+            "trials": 15,
+            "medianMS": 15.550334,
+            "minMS": 14.909625,
+            "maxMS": 16.230208,
+            "medianAbsoluteDeviationMS": 0.12020899999999912
+          },
+          "rangeMap048B": {
+            "trials": 15,
+            "medianMS": 15.18775,
+            "minMS": 14.835458,
+            "maxMS": 17.0345,
+            "medianAbsoluteDeviationMS": 0.18933400000000056
+          }
+        },
+        "compiler": {
+          "baseline047": {
+            "trials": 15,
+            "medianMS": 33.997042,
+            "minMS": 33.428458,
+            "maxMS": 41.213416,
+            "medianAbsoluteDeviationMS": 0.5087919999999997
+          },
+          "byteMap048A": {
+            "trials": 15,
+            "medianMS": 34.080709,
+            "minMS": 33.606458,
+            "maxMS": 39.546458,
+            "medianAbsoluteDeviationMS": 0.3777509999999964
+          },
+          "rangeMap048B": {
+            "trials": 15,
+            "medianMS": 33.888084,
+            "minMS": 33.5025,
+            "maxMS": 54.165708,
+            "medianAbsoluteDeviationMS": 0.2808339999999987
+          }
+        }
+      },
+      "unsignedImageSHA256": {
+        "small": "137e32f5d01e5af45552c32a58704de37cb841895417e6d66d20e2c879d4be7a",
+        "studyRooms": "17d707cfb0d37c81a9a88a8eee1eb4f073e34bfd7f17ce01d1b09d28cf4bf5e9",
+        "compiler": "3ee69a4096917c6cc761393de04ef138e8793b88603254bd91bb6adfb34f9f88"
+      },
+      "byteIdenticalAcrossArms": true
+    }
+  },
+  "retainedFailure": {
+    "path": "artifacts/developer-loop-checks-yx1ca_rh/RESULTS.json",
+    "sha256": "ab17e2f45ebc8dbed0396463e54f4f0d0deac50283327940b76e1978e12c0438",
+    "finding": "Initial driver accepted signed ordinary data; corrected with executable format checks before signing and before commit. Original failure preserved."
+  },
+  "limits": [
+    "No new model construction calls; no new provider token saving or complete task time advantage established.",
+    "One Mac ARM64; source candidate only. Existing public 0.46 and stable 0.17 unchanged.",
+    "Source map positions are compiler error cursor byte locations, sometimes following the offending token. No source excerpt/redaction service.",
+    "Native driver trusts the selected compiler/source and owner-controlled directory; no malicious same-UID, crash-durable directory commit or cancellation cleanup guarantee.",
+    "Original nine Core MCP tools remain unchanged; trusted CLI compilation is not a new MCP permission.",
+    "Linguist pending and nonblocking."
+  ],
+  "sourceBundle": {
+    "path": "docs/evidence/DEVELOPER-LOOP-0.48-SOURCES.tar.gz",
+    "sha256": "e8b7fea1a56d498fe1a5167f65f781d9902e992d71d1e4dcdc5819ddb8c35748",
+    "contents": "Two exact candidate compiler sources and SHA256 manifest only. No executable, database or account traces."
+  }
+}

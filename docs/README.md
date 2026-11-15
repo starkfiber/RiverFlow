@@ -1,5 +1,7 @@
 # RiverFlow documentation
 
+[Developer loop 0.48](DEVELOPER-LOOP-0.48.md): native repeat builds preserving the last working image, scalar field propagation and imported-source diagnostics. New failure controls and matched compile timings are distinct from unmeasured model-authoring savings.
+
 | Your next step | Read |
 | --- | --- |
 | Learn programming with RF2 | [RF2 From Zero](../book/learning-edition-1/README.md) · [online reader](https://starkfiber.github.io/RiverFlow/learn/) |
