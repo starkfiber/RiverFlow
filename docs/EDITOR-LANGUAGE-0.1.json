@@ -76,5 +76,14 @@
     "No external Linguist acceptance or adoption fabricated"
   ],
   "packageVerifierSHA256": "236ff85da6e9a04bec4996821d8450f0a1659126355d46a8d64e0bb1301ead1f",
-  "corpusCommit": "55ca9eff7e7aa54f6423cd3d902114aa2b0ee8ec"
+  "corpusCommit": "55ca9eff7e7aa54f6423cd3d902114aa2b0ee8ec",
+  "publicDownload": {
+    "verified": true,
+    "releaseURL": "https://github.com/starkfiber/RiverFlow/releases/tag/rf2-editor-v0.1.0",
+    "assetURL": "https://github.com/starkfiber/RiverFlow/releases/download/rf2-editor-v0.1.0/riverflow-rf2-language-0.1.0.vsix",
+    "sourceCommit": "f558ca2b8a72c53fdb6702e5b4a487eaf6d55a4d",
+    "actor": "starkfiber",
+    "sha256": "e51844ebadeeb8ce2432af82a1fe84e5fc763f4958c5f7baf52861290d34969a",
+    "reportSHA256": "d4db673af96dd70e2b5bf8ec60093e22567403e31be2870dfc1c8316c2dd0920"
+  }
 }
