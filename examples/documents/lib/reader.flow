@@ -1,0 +1,375 @@
+module doc_reader
+use "lib/http.flow"
+record DocView(document:u64,query_bytes:u64,fold:u64,error:u64)
+fn reader_query()
+ return buffer("documents_query",257)
+end
+fn reader_parse(target,n,view:DocView)
+ set view.document=18446744073709551615
+ set view.query_bytes=0
+ set view.fold=0
+ set view.error=0
+ do store8(reader_query(),0)
+ if same(target,n,"/")
+  return 1
+ end
+ if (n<3)|(load8(target)!=47)|(load8(target+1)!=63)
+  return 0
+ end
+ let pos=2
+ let seen=0
+ let k=buffer("documents_query_key",17)
+ let v=buffer("documents_query_value",257)
+ let info=TextInfo(0,0,0,0)
+ while pos<n
+  let end=pos
+  while all(end<n,load8(target+end)!=38)
+   set end=end+1
+  end
+  let sep=pos
+  while all(sep<end,load8(target+sep)!=61)
+   set sep=sep+1
+  end
+  if sep==end
+   return 0
+  end
+  let kn=0
+  let vn=0
+  handle text_decode(target+pos,sep-pos,k,17)
+  ok key_bytes
+   set kn=key_bytes
+  err key_error
+   return 0
+  end
+  handle text_decode(target+sep+1,end-sep-1,v,257)
+  ok value_bytes
+   set vn=value_bytes
+  err value_error
+   return 0
+  end
+  let bit=0
+  if same(k,kn,"q")
+   set bit=1
+   do text_measure(v,vn,info)
+   if info.status
+    return 0
+   end
+   do copy(reader_query(),v,vn)
+   do store8(reader_query()+vn,0)
+   set view.query_bytes=vn
+  end
+  if same(k,kn,"doc")
+   set bit=2
+   if (vn>1)&(load8(v)==48)
+    return 0
+   end
+   set view.document=unsigned(v,vn,63)
+   if view.document>>63
+    return 0
+   end
+  end
+  if same(k,kn,"fold")
+   set bit=4
+   set view.fold=unsigned(v,vn,1)
+   if (vn!=1)|(view.fold>1)
+    return 0
+   end
+  end
+  if (bit==0)|((seen&bit)!=0)|(end+1==n)
+   return 0
+  end
+  set seen=seen|bit
+  set pos=end+1
+ end
+ return 1
+end
+fn reader_page(rows:Items,state:Corpus,view:DocView,hits:Items):IO
+ handle corpus_hits(rows,reader_query(),view.query_bytes,view.fold,hits)
+ ok matched
+ err query_error
+  return err(query_error)
+ end
+ if view.document==18446744073709551615
+  if hits.length
+   handle collection_get(hits,0)
+   ok first_id
+    set view.document=first_id
+   err lookup_error
+    return err(lookup_error)
+   end
+  end
+ else
+  if view.document>=state.documents
+   return err(34)
+  end
+ end
+ let out=Writer(buffer("documents_web_output",1048576),1048576,0,0)
+ let row=Row4(0,0,0,0)
+ let label=TextSpan(0,0)
+ let info=TextInfo(0,0,0,0)
+ let prefix=TextPrefix()
+ let found=TextMatches(0,0,0,0)
+ do writer_text(out,"<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content=\"width=device-width,initial-scale=1\"><title>Documents | RiverFlow</title><style>")
+ do writer_text(out,"*{box-sizing:border-box}body{margin:0;background:#f5f7fa;color:#192b3d;font:16px/1.55 system-ui,sans-serif}a{color:#2155b6}a,button,input{touch-action:manipulation}button,input{font:inherit}button,a,input{outline-offset:4px}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #2470dc}header{background:#fff;border-bottom:1px solid #dce3eb;padding:22px max(24px,calc((100vw - 1240px)/2));display:flex;justify-content:space-between;gap:20px;align-items:center}.brand{font-weight:750;font-size:20px;letter-spacing:-.5px}.brand span{color:#617184;font-weight:400}.tag{font-size:13px;color:#285a4d;background:#e8f4ed;border-radius:20px;padding:6px 12px}.wrap{max-width:1240px;margin:auto;padding:32px 24px}h1{font-size:34px;letter-spacing:-1px;margin:0 0 8px}p{margin:8px 0 18px}.muted{color:#586a7c}.search{background:#fff;border:1px solid #dce3eb;border-radius:14px;padding:20px;margin:24px 0}.search label{font-weight:600}.search button{flex-shrink:0;white-space:nowrap}.search .row{display:flex;gap:12px;margin:10px 0}input[type=search]{width:100%;min-width:0;padding:12px;border:1px solid #a6b6c9;border-radius:8px;min-height:46px}button{cursor:pointer;border:0;border-radius:8px;background:#2155b6;color:#fff;padding:12px 20px;min-height:46px}input[type=checkbox]{width:18px;height:18px;margin-right:8px}.check{display:flex;align-items:center;font-size:14px;color:#586a7c;min-height:32px}.grid{display:grid;grid-template-columns:300px minmax(0,1fr);gap:24px}.shelf{display:grid;gap:12px;align-content:start}.document{margin:0;background:#fff;border:1px solid #dce3eb;border-radius:12px;padding:18px}.document.active{border-color:#2155b6;box-shadow:inset 3px 0 #2155b6}.document h2{font-size:16px;overflow-wrap:anywhere;margin:0 0 8px}.document p{font-size:13px;margin:6px 0;color:#586a7c}.document button{background:#edf2fb;color:#214b98;width:100%;margin-top:12px}.reader{background:#fff;border:1px solid #dce3eb;border-radius:14px;padding:30px;min-width:0}.reader details p{overflow-wrap:anywhere}.reader h2{margin:0;font-size:24px;overflow-wrap:anywhere}.reader pre{font:18px/1.8 Georgia,serif;white-space:pre-wrap;overflow-wrap:anywhere;margin-top:26px}.reader .meta{font-size:13px;color:#586a7c;border-bottom:1px solid #e5eaf0;padding-bottom:18px}.empty{background:#fff;border:1px dashed #a6b6c9;border-radius:12px;padding:24px}footer{margin:30px 0 0;color:#586a7c;font-size:13px;display:flex;gap:18px;justify-content:space-between}section,nav{min-width:0}@media(max-width:740px){.grid{grid-template-columns:1fr}.shelf{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.wrap{padding:24px 16px}header{padding:18px 16px;align-items:flex-start;flex-wrap:wrap}.reader{padding:20px}h1{font-size:28px}.search .row{flex-wrap:wrap}.search button{width:100%}footer{display:block}.tag{white-space:nowrap}}</style></head><body><header><div class=brand>RF² <span>/ Documents</span></div><span class=tag>Local reading workspace</span></header><main class=wrap><h1>Your documents, within reach.</h1><p class=muted>")
+ do writer_number(out,state.documents)
+ do writer_text(out," documents loaded from your list. Originals stay untouched.</p><form class=search action=/ method=get><label for=query>Search document text</label><div class=row><input id=query name=q type=search maxlength=256 placeholder=\"Find a phrase, an idea, a question\" value=\"")
+ do writer_html(out,reader_query(),view.query_bytes)
+ do writer_text(out,"\"><button>Search documents</button></div><label class=check><input type=checkbox name=fold value=1")
+ if view.fold
+  do writer_text(out," checked")
+ end
+ do writer_text(out,">Ignore A-Z letter case</label><p class=muted style=\"font-size:13px;margin-bottom:0\">Search limit: 256 bytes of text.</p></form><p class=muted>")
+ do writer_number(out,hits.length)
+ if hits.length==1
+  do writer_text(out," document matches. ")
+ else
+  do writer_text(out," documents match. ")
+ end
+ do writer_text(out,"Exact text matching; no fuzzy or meaning-based search.</p><div class=grid><nav class=shelf aria-label=\"Matching documents\">")
+ let i=0
+ let id=0
+ while i<hits.length
+  handle collection_get(hits,i)
+  ok item_id
+   set id=item_id
+  err item_error
+   return err(item_error)
+  end
+  handle items_row4(rows,id,row)
+  ok got_row
+  err row_error
+   return err(row_error)
+  end
+  do corpus_label(row,label)
+  do text_measure(corpus_data()+row.a,row.b,info)
+  do writer_text(out,"<form class=\"document")
+  if id==view.document
+   do writer_text(out," active")
+  end
+  do writer_text(out,"\" action=/ method=get><h2>")
+  do writer_html(out,corpus_names()+label.start,label.length)
+  do writer_text(out,"</h2><p>")
+  do writer_number(out,info.lines)
+  do writer_text(out," lines · ")
+  do writer_number(out,row.b)
+  do writer_text(out," bytes</p><input type=hidden name=q value=\"")
+  do writer_html(out,reader_query(),view.query_bytes)
+  do writer_text(out,"\"><input type=hidden name=fold value=\"")
+  do writer_number(out,view.fold)
+  do writer_text(out,"\"><button name=doc value=\"")
+  do writer_number(out,id)
+  do writer_text(out,"\" aria-label=\"Open ")
+  do writer_html(out,corpus_names()+label.start,label.length)
+  do writer_text(out,"\"")
+  if id==view.document
+   do writer_text(out," aria-current=page")
+  end
+  do writer_text(out,">Open document</button></form>")
+  set i=i+1
+ end
+ if hits.length==0
+  do writer_text(out,"<div class=empty><h2>No matching documents</h2><p>Try a shorter phrase, enable ASCII case matching or clear the search.</p><a href=/>Show all documents</a></div>")
+ end
+ do writer_text(out,"</nav><section class=reader aria-label=\"Document preview\">")
+ if view.document<state.documents
+  handle items_row4(rows,view.document,row)
+  ok preview_row
+  err preview_error
+   return err(preview_error)
+  end
+  do corpus_label(row,label)
+  do text_measure(corpus_data()+row.a,row.b,info)
+  do writer_text(out,"<h2>")
+  do writer_html(out,corpus_names()+label.start,label.length)
+  do writer_text(out,"</h2><p class=meta>")
+  do writer_number(out,info.lines)
+  do writer_text(out," lines · ")
+  do writer_number(out,row.b)
+  do writer_text(out," bytes · read-only snapshot</p>")
+  if view.query_bytes
+   do text_search(corpus_data()+row.a,row.b,reader_query(),view.query_bytes,view.fold,prefix,found)
+   do writer_text(out,"<p class=muted>")
+   do writer_number(out,found.count)
+   if found.count==1
+    do writer_text(out," match in this document")
+   else
+    do writer_text(out," nonoverlapping matches in this document")
+   end
+   if found.count
+    do writer_text(out,"; first at byte ")
+    do writer_number(out,found.first)
+   end
+   do writer_text(out,".</p>")
+  end
+  do writer_text(out,"<details><summary>Original source path</summary><p class=muted>")
+  do writer_html(out,corpus_names()+row.c,row.d)
+  do writer_text(out,"</p></details><pre id=document-text>")
+  do writer_html(out,corpus_data()+row.a,row.b)
+  do writer_text(out,"</pre>")
+ else
+  do writer_text(out,"<h2>Find your next passage</h2><p>Search another phrase or return to all documents.</p>")
+ end
+ do writer_text(out,"</section></div><footer><span>Snapshot in memory. Restart to reload changed files. Stop the server in Terminal with Ctrl+C.</span><a href=/catalog.json download=rf2-catalog.json>Export catalogue</a></footer></main></body></html>")
+ if out.error
+  return err(out.error)
+ end
+ do store64(globals()+80,out.used)
+ do store64(globals()+88,0)
+ return ok(out.used)
+end
+fn workspace_handle(fd,rows:Items,state:Corpus):IO
+ let target=buffer("documents_web_target",2049)
+ let view=DocView(0,0,0,0)
+ own hits=Items()
+ let out=Writer(buffer("documents_web_output",1048576),1048576,0,0)
+ if same(target,size(target),"/catalog.json")
+  handle corpus_catalog(rows,state,out)
+  ok bytes
+   do store64(globals()+80,out.used)
+   do store64(globals()+88,0)
+  err catalog_error
+   return ok(bad(fd,"500 Internal Server Error"))
+  end
+  return ok(respond(fd,"200 OK","application/json; charset=utf-8"))
+ end
+ if reader_parse(target,size(target),view)==0
+  if load8(target)==47
+   if load8(target+1)==63
+    return ok(bad(fd,"400 Bad Request"))
+   end
+  end
+  return ok(bad(fd,"404 Not Found"))
+ end
+ let status=0
+ handle reader_page(rows,state,view,hits)
+ ok rendered
+ err render_error
+  set status=render_error
+ end
+ if status==34
+  return ok(bad(fd,"400 Bad Request"))
+ end
+ if status
+  return ok(bad(fd,"500 Internal Server Error"))
+ end
+ return ok(respond(fd,"200 OK","text/html; charset=utf-8"))
+end
+fn server_run(rows:Items,state:Corpus):IO
+ let i=0
+ let got=0
+ if clock_timebase(buffer("documents_web_timebase",8))!=0
+  return err(5)
+ end
+ if (load32(buffer("documents_web_timebase",8))==0)|(load32(buffer("documents_web_timebase",8)+4)==0)
+  return err(5)
+ end
+ let server = syscall6(97,2,1,0,0,0,0)
+ if server>>63
+  return err(5)
+ end
+ let address = buffer("documents_web_address",16)
+ let address_size = buffer("documents_web_address_size",4)
+ do store8(address,16)
+ do store8(address+1,2)
+ do store8(address+4,127)
+ do store8(address+7,1)
+ if syscall6(104,server,address,16,0,0,0)!=0
+  do close(server)
+  return err(5)
+ end
+ do store32(address_size,16)
+ if syscall6(32,server,address,address_size,0,0,0)!=0
+  do close(server)
+  return err(5)
+ end
+ if syscall6(106,server,8,0,0,0,0)!=0
+  do close(server)
+  return err(5)
+ end
+ do reset_output()
+ do text("127.0.0.1:")
+ do decimal(load8(address+2)*256+load8(address+3))
+ do copy(buffer("documents_web_host",64),buffer("documents_web_output",1048576),load64(globals()+80))
+ do reset_output()
+ do text("http://")
+ do text(buffer("documents_web_host",64))
+ do copy(buffer("documents_web_url",96),buffer("documents_web_output",1048576),load64(globals()+80))
+ do write(1,buffer("documents_web_url",96),size(buffer("documents_web_url",96)))
+ do write(1,"/\n",2)
+ let poll = buffer("documents_web_poll",72)
+ do store32(poll,server)
+ do store32(poll+4,1)
+ set i = 1
+ while i<9
+  do store32(poll+i*8,4294967295)
+  do store32(poll+i*8+4,1)
+  set i = i+1
+ end
+ let option = buffer("documents_web_socket_option",8)
+ let client = 0
+ let requests = 0
+ let flags = 0
+ while (load64(globals()+40)==0)&(requests<4096)
+  set got = syscall6(230,poll,9,1000,0,0,0)
+  if got>>63
+   do store64(globals()+40,1)
+  else
+   set i = 1
+   while (i<9)&(load64(globals()+40)==0)&(requests<4096)
+    set client = load32(poll+i*8)
+    if (client!=4294967295)&((load32(poll+i*8+4)>>16)!=0)
+     if request(client)
+      handle workspace_handle(client,rows,state)
+      ok handled
+      err handler_error
+       do store64(globals()+40,1)
+      end
+     else
+      if load64(globals()+32)!=0
+       do bad(client,"400 Bad Request")
+      end
+     end
+     do close(client)
+     do store32(poll+i*8,4294967295)
+     set requests = requests+1
+    end
+    set i = i+1
+   end
+   if ((load32(poll+4)>>16)!=0)&(load64(globals()+40)==0)
+    set client = syscall6(30,server,0,0,0,0,0)
+    if (client>>63)==0
+     set flags = syscall6(92,client,3,0,0,0,0)
+     if (flags>>63)==0
+      if syscall6(92,client,4,flags|4,0,0,0)==0
+       do store32(option,1)
+       do syscall6(105,client,65535,4130,option,4,0)
+       set i = 1
+       while (i<8)&(load32(poll+i*8)!=4294967295)
+        set i = i+1
+       end
+       if load32(poll+i*8)!=4294967295
+        do close(load32(poll+i*8))
+       end
+       do store32(poll+i*8,client)
+       do store32(poll+i*8+4,1)
+      else
+       do close(client)
+      end
+     else
+      do close(client)
+     end
+    end
+   end
+  end
+ end
+ set i = 1
+ while i<9
+  set client = load32(poll+i*8)
+  if client!=4294967295
+   do close(client)
+  end
+  set i = i+1
+ end
+ do close(server)
+ return ok(0)
+end
