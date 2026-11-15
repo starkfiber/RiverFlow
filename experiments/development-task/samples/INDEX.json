@@ -1,0 +1,75 @@
+{
+  "samples": {
+    "1-rf2": {
+      "language": "rf2",
+      "files": {
+        "main.flow": "3fa66fa6785953b023c967bd547164c1649e7b62212e4526394766ea07ead087",
+        "study.flow": "fd6a2a61f30d900c1bde7b75f8d572d822854aa6ce802034ff0b3f97d5313326",
+        "launch.json": "cb72c03268cfd79e1a8ee9f72cb0fce2af478bb6a58cccc26c797ed40fae9b0a",
+        "README.md": "3dfc3f37dc8bf07c2fac377ee427644b870c69f9e63da26b22dd1bd9ac1a789f",
+        "build.sh": "60063725187039227617d7f1a15da9e028002ea66f24953eda71b2760a3c3729",
+        "http-test.flow": "5c88c763f4988075e6cc059ee8afde5b508196ad1184282fc4e809e71b55df7f",
+        "tests/selftest.py": "96d71cd7c0a42578cd7e3a088738c529558d5659bd5eed1e6397118428d1d86d"
+      },
+      "sdkChangesSHA256": "4503102ff40171da56878cf2be15c9680e8c732f18b70517fff6f5cca6f20d1c",
+      "repairSHA256": "fedcfe0bf31d6a3f335a83bef8d529e35ee186a8f158f6be0fb7b2842d5b23bd",
+      "originalBinarySHA256": "39c67c9c2efcbfa1eaf0a19f8feb75df47b4d26a7733bee88fd12bf2215d752c"
+    },
+    "2-python": {
+      "language": "python",
+      "files": {
+        "app.py": "9fea0f6e039225fcbc1634c4e5443188bbcf3a343f9d1e2c919207109b3d35f1",
+        "launch.json": "30adb4ef0b305df9d4d10498d450e2370407b97379e6ad870443d7d08a3bc190",
+        "README.md": "ee0210c478f531e7641f73c9074123f9cb9f9e67037e31246841a32001e60cb7",
+        "test_app.py": "5427a3a68b92e5b7d99a8e431d07177685b8de6a7102f2c72a14756f9849a1d1"
+      },
+      "sdkChangesSHA256": null,
+      "repairSHA256": "53c217e2ba88c76e4ea30e1a756e85e9ed855323f56f864fba93e198c13af6cd",
+      "originalBinarySHA256": null
+    },
+    "3-python": {
+      "language": "python",
+      "files": {
+        "app.py": "a75c038afc9840ad9cdb1c7a26eb5f31ec6a4cd88f7995d6ac756536e9f4d67e",
+        "launch.json": "30adb4ef0b305df9d4d10498d450e2370407b97379e6ad870443d7d08a3bc190",
+        "README.md": "d2ea131810826cb3192b9f8ae79dd542a7b69670a6ec57a89a2a3957dba567c0",
+        "test_app.py": "78942d41839aa7becf865f409a0d4d32f0e7b2da35ae7af9dcc2a6dc4285426e"
+      },
+      "sdkChangesSHA256": null,
+      "repairSHA256": null,
+      "originalBinarySHA256": null
+    },
+    "4-rf2": {
+      "language": "rf2",
+      "files": {
+        "main.flow": "7d415e9a9626d7a83601ba9d740d094d54f37688cfdcf82c731708eb8ac027b5",
+        "application.flow": "8c36299e00dbfae3a3a302fc20b1488710c6b491a0464d9c81730f848adaaf89",
+        "launch.json": "cb72c03268cfd79e1a8ee9f72cb0fce2af478bb6a58cccc26c797ed40fae9b0a",
+        "README.md": "a70c7407d66dc7c8a4f2246197a5b62ba905da4738538682e74d15dbfa0bbe41",
+        "http-selftest.flow": "f2a1081e3f77fe2ffec8385c7c4ecba056377f88b1a96bc7bf478ac994146b40",
+        "selftest.py": "ce6f59756a8c89898351d59b366ff1892885ee413a052f3fb0a325c7ab60d165"
+      },
+      "sdkChangesSHA256": "022f1eb90e09eb420c158b4a4340592aeef01cdb3aa385ee37c53e082a25e043",
+      "repairSHA256": "4197e3f0a9921e91f914019951f1436d6ede0fd51b7f7246856dcb206d6a6243",
+      "originalBinarySHA256": "150df6ffcba1e08e3c2349de3a70ad8212f2fe9be206dc8c4c7213c2e3a82cf7"
+    }
+  },
+  "compilerSHA256": "85798b5c4e91cc5f80894f7f88bfcd23c00ef2eaf2800c63114ce7870a9372c8",
+  "SDKCommit": "55ca9eff7e7aa54f6423cd3d902114aa2b0ee8ec",
+  "SDKLibrarySHA256": {
+    "app-server.flow": "cd83ba1ddddc577b01427869c013e423204d4f1441afa1ff250da41e02ae7d70",
+    "booking.flow": "d4e0bc0a42d240a841c342f7560bebffad7eac65ba573b1b4a6ee52b08114431",
+    "datetime.flow": "e91acb6d334dafef70b258f34261db5d1ef6b66473a0560345a8cca714f36aad",
+    "forms.flow": "a6991460734df3fcd7868bdb1fb50d9244168235acef86b2a7e29e3bf683bcb2",
+    "io.flow": "3c7be52f4314ab613af53271a0bd00dd2e9e04d4c198275d47a3fe34f4af023f",
+    "json.flow": "036a185eaa932a10f41e7da973e35373eee7fc8b9c86bb030c3da80899911e6a",
+    "output.rf2": "08f93f074be4c13ab3993b454adad0ffa81afcb69c4b06fbebe93f48827f4a66",
+    "sha256.rf2": "b79e7217db169985a5b2262ad4e4c5a550dc7741a60aaff816176a7324a0ffb5",
+    "storage.flow": "ae214159408d083c13a517e6c0807e1b3bbd44b983fe7e50dfc3bc08c6015cad",
+    "store.flow": "dbea9face7b1db6048e6fd6cee35159e9d747005e20780e63989f6c9e1b56272",
+    "text.flow": "840525a4afe7829121b7ddbf14b9db01950d215657e5966bd3ddc9bdf2a59daf",
+    "transport.flow": "a6ff9e09b81be5864632cbeda6697d4b66ff18bfc8031b6f254c12ae0c71053b",
+    "ui.flow": "83fe2865123dce845a5891c280ff16a4252effe5e708eadf972629dc7b6a5c56"
+  },
+  "pythonSDK_SHA256": "852055b8770f69a073daf459a8dc8ddf4efb062be97c2a024961ea4bbbd5c13c"
+}
