@@ -1,0 +1,43 @@
+module sorted_ranges
+use "lib/numbers.rf2"
+record NumberRange(first:u64,after:u64)
+# Caller supplies ascending sorted Numbers. Bounds are half-open [first,after).
+# No mutation, allocation or owner transfer. Empty collections are valid.
+fn numbers_equal_range(values:Numbers,needle,out:NumberRange):IO
+ let lo=0
+ let hi=values.length
+ let item=0
+ while lo<hi
+  let mid=lo+(hi-lo)//2
+  handle collection_get(values,mid)
+  ok value
+   set item=value
+  err cause
+   return err(cause)
+  end
+  if item<needle
+   set lo=mid+1
+  else
+   set hi=mid
+  end
+ end
+ let first=lo
+ set hi=values.length
+ while lo<hi
+  let mid2=lo+(hi-lo)//2
+  handle collection_get(values,mid2)
+  ok value2
+   set item=value2
+  err cause2
+   return err(cause2)
+  end
+  if item<=needle
+   set lo=mid2+1
+  else
+   set hi=mid2
+  end
+ end
+ set out.first=first
+ set out.after=lo
+ return ok(lo-first)
+end
