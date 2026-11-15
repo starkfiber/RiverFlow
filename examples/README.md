@@ -12,6 +12,8 @@ Start with [RF2 From Zero](../book/learning-edition-1/README.md), [package selec
 | Parse, sort and summarize numeric input | [Collection tools](collection-tools/README.md) | Trusted Mac programs sharing bounded heap collection/parser libraries |
 | Find duplicate numeric values | [Sorted lookup](collection-tools/LOOKUP.md) | Source addition qualified in sprint 0.40; borrowed lower/upper-bound lookup |
 | Read and search text documents | [Documents workspace](documents/README.md), [shared APIs](documents/LIBRARIES.md) | Explicit UTF-8 corpus, read-only originals; no PDF extraction or persistent index |
+| Fingerprint a selected corpus through CLI and MCP | [Document Audit](document-audit/README.md) | Native text-corpus integrity/search; bounded agent summary, sequential capture and no authenticity claim |
+| Validate and summarize recorded sensor logs | [Sensor Audit](sensor-audit/README.md) | Native fixed-point CSV analysis, exact JSON-safe timestamps; no physical sensor or field measurement |
 | Build a booking application | [Booking CLI and GUI](../docs/BOOKING-STUDIO.md) | One room, bounded journal and explicit uncertain-save behavior |
 | Search lines from a CLI | [Text search](text-search/) | Shares text/collection modules with Documents |
 
