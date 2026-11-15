@@ -1,0 +1,15 @@
+# RF2 trial SDK
+
+Use the provided native `./rf2c` compiler. All runtime app source must be RF2. No existing app main/web/agent is provided. Libraries under lib/ are frozen starting material; modifications inside this trial are allowed and count as generated work. Compile `./rf2c main.flow app --opt` then `/usr/bin/codesign -s - app`. The compiler has the qualified0.44 ownership contract. Trusted raw systems operations remain your responsibility.
+
+Entry: `profile RF2_SYSTEM_A64_V1`, `use "lib/store.flow"`, `fn main(argc,argv)`; argv is a pointer array, `load64(argv+index*8)`. Semantics are unsigned64words, so negative syscall returns require `value>>63`. Recoverable functions use `result IO(u64,u64)`, `fn f(...):IO`, `handle f(...) / ok value / err code / end`, final `return ok(...)` or `return err(...)`. A failure result call must be exhaustively handled; ordinary scalar calls use let/do. Records are typed named parameters, no implicit copy.
+
+`StoreRequest(action,expected,id,room,day,start,finish)` actions0list,1init,2reserve,3cancel. `StoreState(revision,bytes,version,tail,digest,committed,result)` tracks outcome. `Writer(data,capacity,used,error)` buffers output. `buffer("unique",SIZE)` is staticzeroed memory. `store_operation(path,request,out):IO` validates/locks/executes/persists and writes JSON to out. `store_execute(path,request,out,state):IO` also fills exact observed state. `writer_reset/text/number/html/json` and `io_size`, `text_parse_u64(ptr,length,maximum):IO` are reusable. Print with handled `io_write_all(fd,ptr,length):IO`. Never print a success before the shared engine confirms. `StoreState.version` is the native journal schema; do not modify codec bytes.
+
+Dates/times: import `lib/datetime.flow`; date_parse(ptr,len):IO -> numericYYYYMMDD, date_ordinal(key):IO -> Gregorianordinal, time_parse(ptr,len,allow_end):IO -> minutes. date_format(out,key), time_format(out,minute). text functions use pointer+length. `ui_date_key(ordinal)` reverses ordinal for display.
+
+For typed iteration use `handle store_view(path,state)` with `ok own rows:Bookings` and `err code` arms. Read rows via `records_read(rows,index,row:Booking):IO`. `Booking(id,room,day,start,finish)`, rows.length. Owned handles clean on ordinary return; do not copy the owner. More syntax is visible in the library.
+
+HTTP/form foundation: lib/app-server.flow supplies `app_serve():IO`, calls your `app_dispatch(fd):IO`. lib/forms.flow has bounded request admission/parser, token generation, rev/action/id/room/date/start/end fields and form_hidden(out,revision). Inspect its API/state layout before using it; route/field admission remains your responsibility. lib/ui.flow offers ui_begin/end/stat/notice/input and CSS. These are building blocks; no complete app entry is supplied. Browser output is HTML/CSS, not a native widget window.
+
+MCP: lib/json.flow is a bounded native parser, namespaced j_. It validates UTF8/duplicates/depth. Inspect j_json_parse/j_field/j_token and token fields to consume it; lib/io.flow and transport helpers provide I/O. No full MCP application entry is supplied. Preserve the read-only selected-path authority in TASK.md.
