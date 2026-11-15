@@ -37,8 +37,8 @@
     "site/learn/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 909719,
-    "Python": 897463,
+    "Python": 930453,
+    "RiverFlow": 917622,
     "JavaScript": 82568,
     "HTML": 23891,
     "CSS": 12629,
@@ -52,8 +52,8 @@
     "CSS": 3,
     "HTML": 6,
     "JavaScript": 29,
-    "Python": 154,
-    "RiverFlow": 167,
+    "Python": 156,
+    "RiverFlow": 170,
     "Shell": 6
   },
   "bytesByArea": {
@@ -87,14 +87,14 @@
       "RiverFlow": 2388
     },
     "Unreleased experiments": {
-      "Python": 5374,
-      "RiverFlow": 2514
+      "Python": 17212,
+      "RiverFlow": 10417
     },
     "Verification and independent oracles": {
       "Assembly": 6795,
       "C": 3567,
       "JavaScript": 25875,
-      "Python": 639735,
+      "Python": 660887,
       "RiverFlow": 262069
     },
     "Website and documentation source": {
@@ -964,6 +964,30 @@
       "bytes": 1989
     },
     {
+      "path": "experiments/owned-values/compiler-extension.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 3566
+    },
+    {
+      "path": "experiments/owned-values/examples/lib/batch.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 2717
+    },
+    {
+      "path": "experiments/owned-values/examples/owned-batch.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 1620
+    },
+    {
+      "path": "experiments/owned-values/prepare.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 11838
+    },
+    {
       "path": "native/attendance.rf2",
       "language": "RiverFlow",
       "area": "Compiler and native runtime",
@@ -1712,6 +1736,12 @@
       "language": "JavaScript",
       "area": "Verification and independent oracles",
       "bytes": 495
+    },
+    {
+      "path": "tests/standalone/owned_values_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 21152
     },
     {
       "path": "tests/standalone/ownership_adversarial.py",

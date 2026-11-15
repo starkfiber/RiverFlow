@@ -1,6 +1,6 @@
 # Typed application values: contract before promotion
 
-Foundation draft, 15 November 2026. This specifies acceptance behavior for G1; it does not enable new owned fields in released compilers. The [isolated candidate](../experiments/nested-records/README.md) currently implements borrowed record composition only. The full-platform [pipeline](PROGRESS.md) keeps these states separate.
+Foundation draft, 15 November 2026. This specifies acceptance behavior for G1; it does not enable new owned fields in released compilers. The [isolated candidate](../experiments/nested-records/README.md) provides borrowed composition. The separate [owned-field candidate](OWNED-VALUES-0.42.md) now adds bounded text/collection fields and local moves, while cross-function ownership remains unimplemented. The full-platform [pipeline](PROGRESS.md) keeps these states separate.
 
 ## Current borrowed composition
 
@@ -10,7 +10,9 @@ Child binding replacement, traversal through a scalar, missing fields, a differe
 
 The Booking conflict prototype uses the real date/time/text/I/O library snapshots and two borrowed `ReservationValue` records containing `TimeWindow` records. It validates Gregorian dates and same-day half-open minute intervals. It computes a conflict only; it neither books a room nor writes a journal. It must not be presented as the full Booking migration or owned-value support.
 
-## Proposed owned-value rules
+## Owned-value acceptance rules
+
+The 0.42 candidate implements scoped parts of V1–V3 and V6–V9, with finite evidence linked above. It does not complete these requirements generally or satisfy V4/V5/V10/V11 as a full application-value model.
 
 These rules are design requirements. Exact surface syntax, representation and ABI remain unapproved until a candidate implements and qualifies them.
 

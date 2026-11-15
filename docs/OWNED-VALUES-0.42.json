@@ -1,0 +1,100 @@
+{
+  "schema": "rf2.owned-values.summary.v1",
+  "baselineCommit": "43b1dd5708829b5e98ee530ffc894feb5eba54fb",
+  "allPassed": true,
+  "ownedAcceptanceChecks": 460,
+  "realAppJSONComparisons": 280,
+  "compilerSHA256": "a157604051ac5bb69733556ae33dfbd1ecc845ff34198066c8a13b2ad2e6d3fd",
+  "candidateSourceSHA256": "6b4b79ff4308ab6ecbcc8ee0bbef2637eee2437fc5f89214151df6a8a9796b22",
+  "generatorSHA256": "7e60624b9dd9b7f598f540718b42c8b143f32b779d59c5a210ee8c29ee3a59d8",
+  "extensionSHA256": "8de4c81328f908efe0790036ead307f1e3449cea51861471eb610b1953e5a404",
+  "controllerSHA256": "ddcb9e552acda91dce68222774e4207258afe4a84529cc127533d358f1288f07",
+  "appSources": {
+    "main.flow": "5bc94686a99095a56a7b350ebca8c6a06b810e81868745680c36860bc3e14c76",
+    "lib/output.rf2": "08f93f074be4c13ab3993b454adad0ffa81afcb69c4b06fbebe93f48827f4a66",
+    "lib/numbers.rf2": "aa1d16e52c8c6232e2a1b5fd92b10f1057b2ccbc20d0d96d6abe1f4b68f31803",
+    "lib/batch.flow": "1aab852f35eafb86043e484c707a5310816abf76f295e3ce2a2f172a2a76cb6b"
+  },
+  "rawEvidence": "artifacts/owned-values-a5l74jux/report.json",
+  "rawReportSHA256": "2ca8ebc60dc2756c230cc1aa82cca2cf4c5b55c8f1af49aceff282d137292573",
+  "regressions": [
+    {
+      "evidence": "artifacts/sprint-033/heap-redteam-1794735074475587000/report.json",
+      "sha256": "72ab90834b9b9dfdf4e08f29bfa60ea4df16caf2807dc1ea851919463f3ee205"
+    },
+    {
+      "evidence": "artifacts/collection-apps/verify-1794735085903864000/report.json",
+      "sha256": "da87d6091789f69694b6ff638e558e00ffa0dd8b65225eac2c17d1460f7378e0"
+    },
+    {
+      "evidence": "artifacts/application-values-a78yb9qu/report.json",
+      "sha256": "b9a3a58ed15145c956c7538e323b912922e9a08b6ddd8443449336fb13c2a842"
+    },
+    {
+      "evidence": "artifacts/incremental/verify-1794735341714635000/report.json",
+      "sha256": "a895b81edf255da10e3d686e57e38aa6c55146f435f3b31f14ab2bfc2717299b"
+    },
+    {
+      "evidence": "artifacts/function-reuse/pack-verify-1794735347274115000/report.json",
+      "sha256": "816d95709fc29fbf70b2227eb07d7bafbf79cdc63de3b28d8b88d6a97bd8f8ec"
+    }
+  ],
+  "regressionCounts": {
+    "ownership": 78,
+    "collectionApps": 308,
+    "borrowedApplicationValues": 687,
+    "incremental": 56,
+    "functionPack": 79,
+    "ABI": 4
+  },
+  "compilerImplementation": {
+    "receiptSHA256": "f6093880e6a3bf757c40fef49cae128f4913c311a028b3787fdd81811e7d5ea6",
+    "scope": "Candidate bootstraps the maintained compiler through the existing encoder/runtime/SDK controller; this does not independently qualify the new language semantics."
+  },
+  "selfGeneration": {
+    "candidateSourceSHA256": "6b4b79ff4308ab6ecbcc8ee0bbef2637eee2437fc5f89214151df6a8a9796b22",
+    "candidateExecutableSHA256": "a157604051ac5bb69733556ae33dfbd1ecc845ff34198066c8a13b2ad2e6d3fd",
+    "candidateBytes": 16598432,
+    "nativeUnsignedGenerationsMatch": true,
+    "generations": 2,
+    "unsignedSHA256": "2bfc8b0daef24a6cc61a83fefc36e16a49fbc3eba9026997da14ce35721a485c",
+    "independentEncoder": {
+      "normalization": "Only spacing surrounding let/set assignment equals, anchored at source lines. Native and encoder consume identical normalized bytes. No oracle source modification.",
+      "normalizedSourceSHA256": "e5e8308ee7ab51337f601b9c79b9f456c120ae823d12dcb6e430ab415bf3ac6f",
+      "passed": true,
+      "unsignedSHA256": "a533cfedb18278501c92d4e196bc06e829f0b575a7045d8843a95f95714399c2"
+    },
+    "scope": "Compiler implementation subset and native fixed point. Neither independently implements new owned-field language semantics."
+  },
+  "mcp": {
+    "tools": 9,
+    "systemsSourceRefused": true,
+    "followingSum": 6,
+    "receiptSHA256": "723cf8c7a1e7bed1b6e9a6b81f607ba2dcd15c18f8a7a5cf76db1e90fb44a8f1"
+  },
+  "fixedFindings": [
+    "Scalar expressions initially queried record metadata for type zero; guard corrected.",
+    "Property-kind condition initially used non-normalized bitwise truth and mishandled even type tags; corrected.",
+    "Moved-out field property reads were admitted and trapped; now refused at compile time.",
+    "The labelled-batch app now accepts empty readings without changing the shared statistics library contract."
+  ],
+  "faultScope": "Controlled syscall-result patches and descriptor-address observation in owned disposable test binaries, not actual host OOM/kernel errors or a source-level pointer API.",
+  "limits": [
+    "Apple Silicon Mac isolated candidate, no stable compiler/package replacement.",
+    "Text stores validated Unicode scalars in u64 cells; no grapheme, normalization or compact-storage claim.",
+    "Local aggregate/field moves only; no owner return/transfer parameter, owned nested aggregates, generic collection elements or concurrency proof.",
+    "Cleanup applies to ordinary returns; fatal traps, signals, trusted raw effects and persistent kernel retirement refusal remain outside infallible cleanup guarantees.",
+    "No performance, token, hardware, independent reviewer or universal language-safety claim."
+  ],
+  "sourcePreparation": {
+    "freshSourceMatches": true,
+    "existingDestinationRefusedWithoutOverwrite": true,
+    "publicationOnlyAfterAllPatchChecks": true
+  },
+  "ownedApplicationCacheChecks": {
+    "defaultAndOptimized": true,
+    "coldAndWarmPackMatchCleanImages": true,
+    "changedTextLimitMatchesCleanImage": true,
+    "changedLimitEnforced": true
+  }
+}
