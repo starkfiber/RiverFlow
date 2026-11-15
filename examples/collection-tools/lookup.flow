@@ -1,0 +1,76 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/ranges.flow"
+use "lib/output.rf2"
+fn lookup(argc,argv):IO
+ if argc!=2
+  return err(22)
+ end
+ own query=Numbers()
+ let arg=load64(argv+8)
+ let bytes=0
+ while load8(arg+bytes)
+  set bytes=bytes+1
+ end
+ handle parse_numbers(arg,bytes,query)
+ ok count
+  if count!=1
+   return err(22)
+  end
+ err query_error
+  return err(query_error)
+ end
+ let needle=0
+ handle collection_get(query,0)
+ ok value
+  set needle=value
+ err get_error
+  return err(get_error)
+ end
+ own values=Numbers()
+ let data=buffer("lookup_input",1048577)
+ let n=0
+ handle read_input(data)
+ ok input_bytes
+  set n=input_bytes
+ err read_error
+  return err(read_error)
+ end
+ handle parse_numbers(data,n,values)
+ ok count2
+ err parse_error
+  return err(parse_error)
+ end
+ handle sort_numbers(values)
+ ok sorted
+ err sort_error
+  return err(sort_error)
+ end
+ let bounds=NumberRange(0,0)
+ let matches=0
+ handle numbers_equal_range(values,needle,bounds)
+ ok found
+  set matches=found
+ err search_error
+  return err(search_error)
+ end
+ let good=output_text("{\"first\":")
+ set good=good&output_number(bounds.first)
+ set good=good&output_text(",\"after\":")
+ set good=good&output_number(bounds.after)
+ set good=good&output_text(",\"matches\":")
+ set good=good&output_number(matches)
+ set good=good&output_text("}\n")
+ if good==0
+  return err(5)
+ end
+ return ok(matches)
+end
+fn main(argc,argv)
+ handle lookup(argc,argv)
+ ok matches
+  return 0
+ err cause
+  do output_error(cause)
+ end
+ return 1
+end
