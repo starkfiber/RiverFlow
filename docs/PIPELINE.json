@@ -318,12 +318,12 @@
           "docs/LANGUAGE-REPORTING.md",
           "docs/EDITOR-LANGUAGE-0.1.json"
         ],
-        "note": "MIT grammar, native TextMate/Oniguruma tests and declarative VSIX prepared. Actual editor-host distribution/adoption and upstream acceptance remain external/open; no manufactured usage."
+        "note": "MIT grammar and 26 native-engine checks, official declarative VSIX published by SFE and downloaded/source-verified. Actual editor-host/Marketplace trial and genuine upstream acceptance remain open; no manufactured usage."
       }
     ]
   },
   "activeWork": {
     "requirement": "R12",
-    "description": "Publish the reviewed editor grammar/VSIX and reproducible comparison findings through SFE. Actual GitHub Linguist recognition still requires genuine distributed adoption and upstream acceptance; do not fabricate usage or approval."
+    "description": "Actual upstream Linguist acceptance remains missing. The editor grammar/VSIX is published and downloaded/hash-verified, and the construction comparison is published. Recognition requires genuine distributed adoption and upstream review; local tests or generated files cannot substitute for acceptance."
   }
 }

@@ -14,6 +14,8 @@ The goal is one readable language and SDK across learning, apps, devices and sys
 
 ## Learn RF2 from zero
 
+[Editor language development download](https://github.com/starkfiber/RiverFlow/releases/tag/rf2-editor-v0.1.0): `.flow`/`.rf2` highlighting and explicit snippets for VS Code. This is lexical editor support; [qualification and limits](editors/vscode/README.md) distinguish it from a debugger, full IDE or GitHub Linguist acceptance.
+
 [First Learning Edition](book/learning-edition-1/README.md): 24 short chapters, runnable examples, exercises, answers and a clear boundary between working features and proposals. [Evolution specification](docs/RF2-EVOLUTION.md) records the next engineering gates.
 
 ## Build a booking app. Try the learning IDE.
