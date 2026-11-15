@@ -1,0 +1,182 @@
+{
+  "baseline": "954762a199e1fc94e651f39fab87c2642bea71f8",
+  "compilerSha256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37",
+  "runtimeSha256": "df714d688e5b96577abb294a192432ed2f57f07c080ab23e32eee46cf94b0b89",
+  "checks": [
+    {
+      "name": "sum check",
+      "passed": true
+    },
+    {
+      "name": "sum runtime [1, 2, 3]",
+      "passed": true
+    },
+    {
+      "name": "sum build",
+      "passed": true
+    },
+    {
+      "name": "sum native [1, 2, 3]",
+      "passed": true
+    },
+    {
+      "name": "sum check",
+      "passed": true
+    },
+    {
+      "name": "sum runtime [2, 4, 6]",
+      "passed": true
+    },
+    {
+      "name": "sum native [2, 4, 6]",
+      "passed": true
+    },
+    {
+      "name": "squares check",
+      "passed": true
+    },
+    {
+      "name": "squares runtime [1, 2, 3]",
+      "passed": true
+    },
+    {
+      "name": "squares build",
+      "passed": true
+    },
+    {
+      "name": "squares native [1, 2, 3]",
+      "passed": true
+    },
+    {
+      "name": "bits check",
+      "passed": true
+    },
+    {
+      "name": "bits runtime [0, 1, 3, 255]",
+      "passed": true
+    },
+    {
+      "name": "bits build",
+      "passed": true
+    },
+    {
+      "name": "bits native [0, 1, 3, 255]",
+      "passed": true
+    },
+    {
+      "name": "bits check",
+      "passed": true
+    },
+    {
+      "name": "bits runtime [7, 8]",
+      "passed": true
+    },
+    {
+      "name": "bits native [7, 8]",
+      "passed": true
+    },
+    {
+      "name": "nonzero check",
+      "passed": true
+    },
+    {
+      "name": "nonzero runtime [0, 8, 0, 2]",
+      "passed": true
+    },
+    {
+      "name": "nonzero build",
+      "passed": true
+    },
+    {
+      "name": "nonzero native [0, 8, 0, 2]",
+      "passed": true
+    },
+    {
+      "name": "wrap check",
+      "passed": true
+    },
+    {
+      "name": "wrap runtime [4294967295, 1]",
+      "passed": true
+    },
+    {
+      "name": "wrap build",
+      "passed": true
+    },
+    {
+      "name": "wrap native [4294967295, 1]",
+      "passed": true
+    },
+    {
+      "name": "refuse [4294967295,1]",
+      "passed": true
+    },
+    {
+      "name": "refuse [\"three\"]",
+      "passed": true
+    },
+    {
+      "name": "refuse [-1]",
+      "passed": true
+    },
+    {
+      "name": "functions build False",
+      "passed": true
+    },
+    {
+      "name": "functions run False",
+      "passed": true
+    },
+    {
+      "name": "functions build True",
+      "passed": true
+    },
+    {
+      "name": "functions run True",
+      "passed": true
+    },
+    {
+      "name": "loop build False",
+      "passed": true
+    },
+    {
+      "name": "loop run False",
+      "passed": true
+    },
+    {
+      "name": "loop build True",
+      "passed": true
+    },
+    {
+      "name": "loop run True",
+      "passed": true
+    },
+    {
+      "name": "results build False",
+      "passed": true
+    },
+    {
+      "name": "results run False",
+      "passed": true
+    },
+    {
+      "name": "results build True",
+      "passed": true
+    },
+    {
+      "name": "results run True",
+      "passed": true
+    }
+  ],
+  "sourceHashes": {
+    "bits.flow": "33d3b348fc67b38567e4f7b9216205aeac36980369688f7ec4b50bfae7d2191a",
+    "functions.flow": "eac49effc09bbd46afdfec8757dfbfc5f5c8b7820a5a9d1c13e257b0c815e18b",
+    "loop.flow": "a3ae140286ce9503e5677df1406b143619cee5db4a4544b54794687d43da8ce0",
+    "nonzero.flow": "a096bde82f4deb592bfe37820169a260bf03861d03985d89cc8e08eeb1f5f808",
+    "results.flow": "2e40cc91645783ba9f85f48f391e706438f245003e70d65fa365d88076e947a3",
+    "squares.flow": "ec2234afe4455c7eeb2f24d5ff94a758e8516ba086c14a608cf8210ceae6e9ed",
+    "sum.flow": "3c05660b1e1238128336bece6e5e3001086106d4553cbca79eb63acd0bc97f25",
+    "wrap.flow": "d0bea5e8aae13030e6d0a54a6a62fe6a803c36ee9bbc3981178783e1cace6d90"
+  },
+  "limits": "Local finite examples; fragment-only snippets are labelled; no learner usability study, speed/token benchmark or independent academic approval."
+}
