@@ -1,0 +1,11 @@
+--- a/app.py
++++ b/app.py
+@@ -200,7 +200,7 @@
+                 result = {'tools':[{'name':'booking_list','description':'Read saved study-room reservations.','inputSchema':{'type':'object','properties':{},'additionalProperties':False}}]}
+             elif method == 'tools/call':
+                 if set(p) != {'name','arguments'} or p['name'] != 'booking_list' or type(p['arguments']) is not dict or p['arguments']:
+-                    result = {'isError':True,'content':[{'type':'text','text':'Only booking_list with explicit empty arguments is supported.'}]}
++                    raise ValueError('Unknown tool or invalid arguments')
+                 else:
+                     try:
+                         state = execute(db, 'list')
