@@ -38,8 +38,9 @@ fn storage_open(path,create,writing):IO
  end
  return ok(fd)
 end
+# Caller owns limit+1 bytes; the requested budget is explicit, at most16MiB.
 fn storage_read(fd,data,limit):IO
- if limit>1048576
+ if limit>16777216
   return err(22)
  end
  let rc=syscall6(199,fd,0,0,0,0,0)

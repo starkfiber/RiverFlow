@@ -409,7 +409,14 @@ fn writer_json(out:Writer,p,n)
       if c==9
        do writer_text(out,"\\t")
       else
-       do writer_bytes(out,p+i,1)
+       if c<32
+        let hex="0123456789abcdef"
+        do writer_text(out,"\\u00")
+        do writer_bytes(out,hex+(c>>4),1)
+        do writer_bytes(out,hex+(c&15),1)
+       else
+        do writer_bytes(out,p+i,1)
+       end
       end
      end
     end
