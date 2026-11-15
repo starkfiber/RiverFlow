@@ -1,0 +1,23 @@
+profile RF2_SYSTEM_A64_V1
+result IO(u64,u64)
+fn checked(n):IO
+ if n==0
+  return err(73)
+ end
+ return ok(n)
+end
+fn work(n):IO
+ let value=try checked(n)
+ set value=try checked(value+1)
+ do try checked(value)
+ return ok(value)
+end
+fn main(argc,argv)
+ handle work(argc-1)
+ ok answer
+  return answer
+ err cause
+  return cause
+ end
+ return 201
+end
