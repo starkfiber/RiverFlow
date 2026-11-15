@@ -46,6 +46,11 @@ for opt in(False,True):
   check('CSP and response protection',"default-src 'none'"in headers['Content-Security-Policy']and"frame-ancestors 'none'"in headers['Content-Security-Policy']and headers['X-Content-Type-Options']=='nosniff'and headers['Cache-Control']=='no-store')
   for h in({'Host':'evil.example'},{'Origin':'https://evil.example'}):
    code,_,_=s.request('POST','/action',init,headers=h);check('foreign host/origin rejected',code==400 and not db.exists())
+  # More than the initial header read leaves unread body bytes on rejection.
+  # The complete error response must survive closing, and the next request works.
+  for attempt in range(40):
+   code,_,body=s.request('POST','/action',body='x'*32768,headers={'Host':'evil.example'});check('rejected large body complete response '+str(attempt),code==400 and bool(body)and not db.exists())
+  code,_,page=s.request();check('server recovers after unread-body refusals',code==200 and'Create booking workspace'in page and not db.exists())
   wrong=init.copy();wrong['token']='0'*32;code,_,_=s.request('POST','/action',wrong);check('wrong token refused',code==403 and not db.exists())
   code,_,page=s.request('POST','/action',init);check('native GUI creates workspace',code==200 and db.is_file()and'Saved to your workspace'in page)
   check('bookings navigation selected','href=/ aria-current=page'in page);parsed=Page(page);theme=parsed.form('appearance');theme['appearance']='light';before=digest(db);code,h,page=s.request('POST','/action',theme);cookie=h.get('Set-Cookie','');check('appearance only sets bounded preference',code==200 and'class="light"'in page and'rf2_booking_theme=light;'in cookie and'HttpOnly'in cookie and'SameSite=Strict'in cookie and digest(db)==before)

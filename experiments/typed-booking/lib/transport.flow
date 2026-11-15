@@ -208,3 +208,49 @@ fn respond(fd,status,mime)
  end
  return send(fd,buffer("documents_web_body",1048576),n,start)
 end
+# Finish the response before bounded disposal of unread rejected request bytes.
+# Closing a TCP socket with unread input can otherwise reset the response.
+fn finish_connection(fd)
+ if syscall6(134,fd,1,0,0,0,0)!=0
+  return close(fd)
+ end
+ let start=vm_clock_ticks()
+ let drained=0
+ let poll=buffer("booking_close_poll",8)
+ let data=buffer("booking_close_discard",4096)
+ do store32(poll,fd)
+ let age=elapsed(start)
+ while (drained<36864)&(age<50000000)
+  let remaining=(50000000-age)//1000000
+  if remaining==0
+   set remaining=1
+  end
+  do store32(poll+4,1)
+  let ready=syscall6(230,poll,1,remaining,0,0,0)
+  if ready>>63
+   return close(fd)
+  end
+  if ready
+   if ((load32(poll+4)>>16)&17)==0
+    return close(fd)
+   end
+   let wanted=36864-drained
+   if wanted>4096
+    set wanted=4096
+   end
+   let got=read(fd,data,wanted)
+   if got==0
+    return close(fd)
+   end
+   if got>>63
+    if (got!=-35)&(got!=-4)
+     return close(fd)
+    end
+   else
+    set drained=drained+got
+   end
+  end
+  set age=elapsed(start)
+ end
+ return close(fd)
+end

@@ -1,0 +1,126 @@
+{
+  "schema": "rf2.owned-rows.qualification.v1",
+  "edition": "0.46.0-dev",
+  "recordedUTC": "2026-11-15T14:21:38.528436+00:00",
+  "baselineCommit": "50bb5933bdf43052521b16c4a311efbcb5b02dad",
+  "qualifiedOn": "One Apple Silicon Mac, macOS26.5.1",
+  "sources": {
+    "experiments/owned-rows/prepare.py": "2e23fc7fa5afc9f0d978e1f32afe99db479da787d8dc69cffcd2fdf4922a05f8",
+    "experiments/owned-rows/compiler-extension.flow": "21eb56516d9c5318bb01e808bc74a8724030331eff13c7a75d6892fbdaa84ff5",
+    "experiments/owned-rows/runtime.flow": "3092009847546b5917e69c8fe203dac3768a1dedd1dcdbebde306d2d231a2352",
+    "experiments/owned-rows/catalog.flow": "851e11979a7d6e34169fc021b7c169c7ef3196cd3644e36ad4ed3f1363726aaf",
+    "tests/standalone/owned_rows_verify.py": "e598f84b624d673de4703cd6de25dfd6fd3097f4b3532e245a0372a7f292a161",
+    "tests/standalone/nested_owned_verify.py": "c39c39661661cd616cd56d603db068b1592f6d8cd9714404d85635fbd2b6f07a",
+    "tests/standalone/booking_package_verify.py": "f562aa78b680aad43248b89f7648b7ca0a84145b838ae56cfce5e7ab61d93f36",
+    "tools/package-owned-rows.py": "0e32a564498a562ff46f48f5148e4766af43dda818723dcdd1b6cea3aa0c3a36",
+    "experiments/typed-booking/lib/transport.flow": "1054378225bdb8d4dc2ac50333c33e2b1efdb5f3617514997cec43d321bdebbc",
+    "experiments/typed-booking/lib/app-server.flow": "3d1c095ab801572499de29fc5f84444de4300fa81683e5559472cb945a3e1ed1",
+    "tests/standalone/booking_web_verify.py": "cf66335e851e945841c9340b84a8c5368f2c5265c178ae45ad8a11d22196422d"
+  },
+  "preparedCompilerSHA256": "514b95528cef244f9255801075f5ad333c36eb7a17101cf20a7e32f97332edf8",
+  "compilerSHA256": "2ea72481993820e264c356325380fb01e225d4f4d5ec144a8023228d7c37ac3b",
+  "bootstrapCompilerSHA256": "85798b5c4e91cc5f80894f7f88bfcd23c00ef2eaf2800c63114ce7870a9372c8",
+  "selfGeneration": {
+    "passed": true,
+    "rebuiltSHA256": "2ea72481993820e264c356325380fb01e225d4f4d5ec144a8023228d7c37ac3b"
+  },
+  "evidence": [
+    {
+      "name": "ownedRows",
+      "checks": 480,
+      "path": "artifacts/owned-rows-_7w7fd08/report.json",
+      "sha256": "bfd30950f4137eae3f5d4add132839125eaa36535673bf74d78dbb228c05f564"
+    },
+    {
+      "name": "nestedAndRows",
+      "checks": 452,
+      "path": "artifacts/nested-owned-2c7p7ate/report.json",
+      "sha256": "5f30c59e43830f08f14db5f98f54f12ca91a885b1330ec87228ab7e27eef6d15"
+    },
+    {
+      "name": "ownedFunctions",
+      "checks": 432,
+      "path": "artifacts/owned-functions-o97z_abs/report.json",
+      "sha256": "862e1807a551339d6bb4f4e62aa8620ef9eac8a303e9aad82dd0f2d5a4da3235"
+    },
+    {
+      "name": "ownedValues",
+      "checks": 460,
+      "path": "artifacts/owned-values-5isk3ktt/report.json",
+      "sha256": "b07567745fcb7c1ec59ea860fe81be43b70f6a4c9ce22b7e2ba368f2c254e66d"
+    },
+    {
+      "name": "borrowedValues",
+      "checks": 687,
+      "path": "artifacts/application-values-h4g0kj4c/report.json",
+      "sha256": "38600638ec24b976829aaf992ce6184de922193d007bee82532f92c45ddec341"
+    },
+    {
+      "name": "heapAdversary",
+      "checks": 78,
+      "path": "artifacts/sprint-033/heap-redteam-1794752575084698000/report.json",
+      "sha256": "a765c19127d7c0fdb9f5dc929c9e7bba84968cb2f9b57648b2328616d485b4a9"
+    },
+    {
+      "name": "persistence",
+      "checks": 1350,
+      "path": "artifacts/typed-booking-540ec5l5/report.json",
+      "sha256": "8c7adefd747a5bdc28152f614d563008541c41032d29c323ed92339c252d10d8"
+    },
+    {
+      "name": "HTTP",
+      "checks": 178,
+      "path": "artifacts/booking-web-cx821ba6/report.json",
+      "sha256": "36b74bde842eaeff1145fdebfc1c0f437e3afca8cf5791732954c73eed148bda"
+    },
+    {
+      "name": "agent",
+      "checks": 794,
+      "path": "artifacts/booking-agent-q42mn4ra/report.json",
+      "sha256": "ab15e6d57ce06a7fe0e39b673f4ed382a9f761507fa924f19b32203b09422c1e"
+    },
+    {
+      "name": "localArchive",
+      "checks": 93,
+      "path": "artifacts/booking-package-hrlw7abg/report.json",
+      "sha256": "ab65a687731ae56fd0804332b4e072b70c48e5f8ce30d6f22c2f407017bd5d32"
+    }
+  ],
+  "unchangedRuntime": {
+    "sha256": "df714d688e5b96577abb294a192432ed2f57f07c080ab23e32eee46cf94b0b89",
+    "existingNineToolSDKPassed": true
+  },
+  "archive": {
+    "file": "RF2-0.46-dev-macos-arm64.tar.gz",
+    "sha256": "671c2a1b36055550ed85cd24bc9ad3284691807f4955581720ace0e67d75ea08",
+    "files": 30,
+    "publiclyPublished": false,
+    "downloadVerified": false
+  },
+  "failures": {
+    "initialCandidateSHA256": "d17ae20336bada523f09f727efbac6366fbca3c615578ee54d9cecbc0da180fb",
+    "obsoleteRefusal": "artifacts/nested-owned-f8y1rkf3/FAILED.json",
+    "deadRootReplay": "artifacts/owned-rows-046-b/pre-fix-controls/REPORT.json",
+    "deadRootReplaySHA256": "b86c577698ff41702777b03a4fff417dadce3ce5e1ccac018f97c7c0aa50a06d",
+    "privateHelperNamespace": {
+      "report": "artifacts/owned-rows-046-c/helper-guard-controls/REPORT.json",
+      "sha256": "6fa72554c4ea957b45021b21a65bc79126933e6841abcf69ac098ed230bfdeed",
+      "unprotectedImageExecuted": false
+    },
+    "HTTPReset": {
+      "report": "artifacts/http-close-control-xp9w3pro/REPORT.json",
+      "sha256": "d4b9e9adc14befad9e692911821b7ebc141d4ea6e092ff6c2972955c278a0f72",
+      "observedResets": 33,
+      "attempts": 40,
+      "fileCreated": false
+    }
+  },
+  "limits": [
+    "255 inline words per row;65536 collection words;acyclic prior declarations",
+    "No borrowed indexed row views, threads, panic/signal cleanup, owned file fields or universal safety proof",
+    "rows_push consumes the static source binding even when reserve fails; runtime owner remains for scope cleanup if not transferred",
+    "Controlled disposable-image faults/probes only; no actual host OOM or hardware failure claim",
+    "No new speed, energy, actual AI usage, learner or independent reviewer claim",
+    "Current local archive not yet published/download-qualified; existing0.45 is unchanged"
+  ]
+}

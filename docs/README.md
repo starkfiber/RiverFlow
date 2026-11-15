@@ -10,7 +10,7 @@
 | Follow the platform ambition | [RF2 everywhere](RF2-EVERYWHERE.md) · [evolution specification](RF2-EVOLUTION.md) |
 | Work on the implementation | [Codebase map](CODEBASE.md) · [compiler](../native/compiler/README.md) |
 | Connect an AI host | [Native MCP setup](START-HERE.md#connect-an-ai-host) · [tool contracts](../plugin/skills/rf2/SKILL.md) |
-| Evaluate research and comparisons | [Latest source candidate](NESTED-OWNERS-0.44.md) · [platform research](RF2-PLATFORM-RESEARCH.md) · [measurement tools](../tools/README.md) |
+| Evaluate research and comparisons | [Latest owned-row candidate](OWNED-ROWS-0.46.md) · [platform research](RF2-PLATFORM-RESEARCH.md) · [measurement tools](../tools/README.md) |
 | Understand the GitHub language chart | [Language reporting](LANGUAGE-REPORTING.md) · [source inventory](SOURCE-INVENTORY.json) |
 | Review earlier evidence | [Research history](RESEARCH-HISTORY.md) · [external review brief](EXTERNAL-REVIEW-BRIEF.md) |
 

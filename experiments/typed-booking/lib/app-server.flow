@@ -79,7 +79,7 @@ fn app_serve():IO
        do app_bad(client,"400 Bad Request")
       end
      end
-     do close(client)
+     do finish_connection(client)
      do store32(poll+i*8,4294967295)
      set requests = requests+1
     end

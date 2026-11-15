@@ -23,6 +23,11 @@ q=run([P/'rf2','status']);check('unchanged runtime executes without search path'
 q=run([P/'rf2c',P/'source/compiler.flow',rebuilt_compiler,'--opt']);check('native compiler rebuild',q.returncode==0,q.stderr.decode());subprocess.run(['/usr/bin/codesign','-s','-',str(rebuilt_compiler)],check=True,capture_output=True);check('native compiler source self-reproduces exact signed image',sha(rebuilt_compiler)==sha(P/'rf2c'))
 for entry,name in [('main','booking'),('web','booking-web'),('agent','booking-agent')]:
  q=run([rebuilt_compiler,P/f'source/booking/{entry}.flow',D/name,'--opt']);check('native app rebuild '+name,q.returncode==0,q.stderr.decode());subprocess.run(['/usr/bin/codesign','-s','-',str(D/name)],check=True,capture_output=True);check('application exact signed image '+name,sha(D/name)==sha(P/name))
+if manifest.get('edition')=='0.46.0-dev':
+ q=subprocess.run(['/usr/bin/codesign','--verify',str(P/'rf2-labels')],capture_output=True);check('extracted signature rf2-labels',q.returncode==0)
+ q=run([rebuilt_compiler,P/'source/catalog/main.flow',D/'rf2-labels','--opt']);check('native owned catalog rebuild',q.returncode==0,q.stderr.decode());subprocess.run(['/usr/bin/codesign','-s','-',str(D/'rf2-labels')],check=True,capture_output=True);check('owned catalog exact signed image',sha(D/'rf2-labels')==sha(P/'rf2-labels'))
+ q=run([P/'rf2-labels','தமிழ்','Jitra']);check('extracted owned catalog Unicode output',q.returncode==0 and json.loads(q.stdout)==[dict(id=1,label='தமிழ்',scalars=5,scalar_sum=14994),dict(id=2,label='Jitra',scalars=5,scalar_sum=506)])
+ q=run([D/'rf2-labels','ok','x'*257]);check('rebuilt catalog rejects before publishing',q.returncode==2 and q.stdout==b'')
 db=D/'new.db';q=run([P/'booking',db,'init']);check('extracted CLI creates actual file',q.returncode==0 and json.loads(q.stdout)==dict(revision=1,version=2,bookings=[]))
 q=run([P/'booking',db,'add',1,1,1,739938,540,600]);check('extracted app persists typed row',q.returncode==0 and json.loads(q.stdout)['revision']==2)
 q=run([D/'booking',db,'list']);check('rebuilt app reads same durable data',q.returncode==0 and json.loads(q.stdout)['bookings']==[dict(id='1',room=1,day=739938,start=540,finish=600)])
