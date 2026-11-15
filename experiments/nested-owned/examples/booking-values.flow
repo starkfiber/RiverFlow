@@ -1,0 +1,101 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/booking.flow"
+# Input is comma-separated groups of id,room,Gregorian-day-ordinal,start,finish.
+# This app tests in-memory typed data; it does not save reservations.
+fn booking_process():IO
+ own values=Numbers()
+ let input=buffer("booking_rows_input",1048577)
+ let bytes=0
+ handle read_input(input)
+ ok read
+  set bytes=read
+ err input_error
+  return err(input_error)
+ end
+ handle parse_numbers(input,bytes,values)
+ ok parsed
+ err parse_error
+  return err(parse_error)
+ end
+ if (values.length//5)*5!=values.length
+  return err(22)
+ end
+ let row=Booking(0,0,0,0,0)
+ let accepted=0
+ let conflicts=0
+ let refused=0
+ handle calendar_create()
+ ok own calendar:Calendar
+  let i=0
+  while i<values.length
+   handle collection_get(values,i)
+   ok id
+    set row.id=id
+   err id_error
+    return err(id_error)
+   end
+   handle collection_get(values,i+1)
+   ok room
+    set row.room=room
+   err room_error
+    return err(room_error)
+   end
+   handle collection_get(values,i+2)
+   ok day
+    set row.day=day
+   err day_error
+    return err(day_error)
+   end
+   handle collection_get(values,i+3)
+   ok start
+    set row.start=start
+   err start_error
+    return err(start_error)
+   end
+   handle collection_get(values,i+4)
+   ok finish
+    set row.finish=finish
+   err finish_error
+    return err(finish_error)
+   end
+   handle booking_add(calendar.bookings,row)
+   ok added
+    set accepted=accepted+added
+    set conflicts=conflicts+(added==0)
+   err rejected
+    if (rejected!=17)&(rejected!=22)
+     return err(rejected)
+    end
+    set refused=refused+1
+   end
+   set i=i+5
+  end
+  let good=output_text("{\"accepted\":")
+  set good=good&output_number(accepted)
+  set good=good&output_text(",\"conflicts\":")
+  set good=good&output_number(conflicts)
+  set good=good&output_text(",\"refused\":")
+  set good=good&output_number(refused)
+  set good=good&output_text(",\"stored\":")
+  set good=good&output_number(calendar.bookings.length)
+  set good=good&output_text("}\n")
+  if good==0
+   return err(5)
+  end
+ err creation_error
+  return err(creation_error)
+ end
+ return ok(0)
+end
+fn main(argc,argv)
+ if argc!=1
+  return 2
+ end
+ handle booking_process()
+ ok complete
+  return 0
+ err failure
+  return 2
+ end
+ return 3
+end

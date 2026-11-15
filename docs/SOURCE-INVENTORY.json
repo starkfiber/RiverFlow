@@ -37,8 +37,8 @@
     "site/learn/index.html"
   ],
   "bytesByLanguage": {
-    "Python": 930453,
-    "RiverFlow": 917622,
+    "Python": 985170,
+    "RiverFlow": 947523,
     "JavaScript": 82568,
     "HTML": 23891,
     "CSS": 12629,
@@ -52,8 +52,8 @@
     "CSS": 3,
     "HTML": 6,
     "JavaScript": 29,
-    "Python": 156,
-    "RiverFlow": 170,
+    "Python": 161,
+    "RiverFlow": 177,
     "Shell": 6
   },
   "bytesByArea": {
@@ -67,7 +67,7 @@
     },
     "Build and publishing tools": {
       "JavaScript": 10300,
-      "Python": 217467,
+      "Python": 217357,
       "Shell": 4855
     },
     "Compiler and native runtime": {
@@ -87,14 +87,14 @@
       "RiverFlow": 2388
     },
     "Unreleased experiments": {
-      "Python": 17212,
-      "RiverFlow": 10417
+      "Python": 31479,
+      "RiverFlow": 40318
     },
     "Verification and independent oracles": {
       "Assembly": 6795,
       "C": 3567,
       "JavaScript": 25875,
-      "Python": 660887,
+      "Python": 701447,
       "RiverFlow": 262069
     },
     "Website and documentation source": {
@@ -946,6 +946,36 @@
       "bytes": 360
     },
     {
+      "path": "experiments/nested-owned/compiler-extension.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 10171
+    },
+    {
+      "path": "experiments/nested-owned/examples/booking-values.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 2243
+    },
+    {
+      "path": "experiments/nested-owned/examples/lib/booking.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 1489
+    },
+    {
+      "path": "experiments/nested-owned/prepare.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 7605
+    },
+    {
+      "path": "experiments/nested-owned/records-runtime.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 1637
+    },
+    {
       "path": "experiments/nested-records/examples/booking-conflict.flow",
       "language": "RiverFlow",
       "area": "Unreleased experiments",
@@ -962,6 +992,30 @@
       "language": "Python",
       "area": "Unreleased experiments",
       "bytes": 1989
+    },
+    {
+      "path": "experiments/owned-functions/compiler-extension.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 9671
+    },
+    {
+      "path": "experiments/owned-functions/examples/batch-pipeline.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 1925
+    },
+    {
+      "path": "experiments/owned-functions/examples/lib/batch.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 2765
+    },
+    {
+      "path": "experiments/owned-functions/prepare.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 6662
     },
     {
       "path": "experiments/owned-values/compiler-extension.flow",
@@ -1708,6 +1762,12 @@
       "bytes": 2876
     },
     {
+      "path": "tests/standalone/nested_owned_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 19655
+    },
+    {
       "path": "tests/standalone/number_lab_verify.py",
       "language": "Python",
       "area": "Verification and independent oracles",
@@ -1738,6 +1798,12 @@
       "bytes": 495
     },
     {
+      "path": "tests/standalone/owned_functions_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 18339
+    },
+    {
       "path": "tests/standalone/owned_values_verify.py",
       "language": "Python",
       "area": "Verification and independent oracles",
@@ -1766,6 +1832,12 @@
       "language": "Python",
       "area": "Verification and independent oracles",
       "bytes": 2948
+    },
+    {
+      "path": "tests/standalone/progress_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 2566
     },
     {
       "path": "tests/standalone/register_abi_verify.py",
@@ -2317,7 +2389,7 @@
       "path": "tools/project-progress.py",
       "language": "Python",
       "area": "Build and publishing tools",
-      "bytes": 3875
+      "bytes": 3765
     },
     {
       "path": "tools/qualify-foundation.py",

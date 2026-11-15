@@ -44,3 +44,7 @@ For compact images, use compact_image_verify.py with RF2_TEST_COMPILER. To rerun
 ## Borrowed application-value boundary, source 0.41
 
 `standalone/application_values_verify.py` requires explicit RF2_NESTED_COMPILER and RF2_TEST_COMPILER. It copies reviewed Booking date/time dependencies into a fresh fixture, compares actual conflict outputs with an independent date/interval oracle and tests failures and nominal/escape/deep-field rules in both modes. It never writes a Booking journal. See [qualification and harness corrections](../docs/APPLICATION-VALUES-0.41.md); this is not general owned-value or released compiler qualification.
+
+## Owned application values, source candidates 0.42–0.44
+
+`owned_values_verify.py` selects RF2_OWNED_COMPILER, `owned_functions_verify.py` selects RF2_FUNCTION_OWNER_COMPILER and `nested_owned_verify.py` selects RF2_NESTED_OWNER_COMPILER. They execute explicit isolated compiler candidates, default and optimized behavior, real JSON applications, nominal/move/escape refusals and labelled disposable-image allocation/retirement faults. The latter adds recursive tree/layout checks, typed scalar rows and in-memory Booking against an independent interval oracle. Candidate construction is documented under experiments/owned-values, experiments/owned-functions and experiments/nested-owned; released packages remain unchanged. `progress_verify.py` protects the fixed twelve-item delivery ledger from denominator changes, stale rendering and unsupported done states. See versioned receipts for actual checks and preserved failures.

@@ -8,38 +8,39 @@ STATES = {'pending', 'active', 'done'}
 
 
 def render(data):
-    assert data['schema'] == 'rf2.pipeline.v1', 'Unsupported pipeline schema'
-    lines = ['# RF2 development progress', '',
-             'Generated from [PIPELINE.json](PIPELINE.json). Progress counts the declared acceptance checks below, not language coverage, market leadership or universal platform readiness.', '',
-             '[Mission and continuity](PROJECT-CONTINUITY.md) · [RF2 everywhere](RF2-EVERYWHERE.md) · [Typed application values](APPLICATION-VALUES.md)', '']
-    for title, rows in [('Platform expansion gates', data['platformGates']),
-                        ('Current sprint: '+data['sprint']['title'], data['sprint']['checks'])]:
-        assert rows, 'A progress group must contain acceptance checks'
-        ids = [r['id'] for r in rows]
-        assert len(ids) == len(set(ids)), 'Duplicate acceptance ID'
-        for row in rows:
-            assert row['state'] in STATES, 'Unknown progress state'
-            assert row.get('acceptance'), 'Missing acceptance condition'
-            if row['state'] == 'done':
-                assert row.get('evidence'), 'Completed checks require evidence'
-            for evidence in row.get('evidence', []):
-                p = (ROOT/evidence).resolve()
-                assert p.is_relative_to(ROOT) and p.is_file(), 'Missing/outside project evidence: '+evidence
-        done = sum(r['state'] == 'done' for r in rows)
-        percent = 100*done//len(rows)
-        bar = '█'*(percent//10)+'░'*(10-percent//10)
-        lines += ['## '+title, '', f'`{bar}` **{done}/{len(rows)} complete ({percent}%)**', '',
-                  '| ID | State | Acceptance condition | Evidence / current boundary |',
-                  '| --- | --- | --- | --- |']
-        for row in rows:
-            links = ', '.join(f'[{Path(p).name}]({Path(p).relative_to("docs") if p.startswith("docs/") else "../"+p})' for p in row.get('evidence', []))
-            note = row.get('note', '')
-            lines.append('| '+ ' | '.join([row['id'], row['state'], row['acceptance'], links+(' · '+note if note else '')])+' |')
-        lines.append('')
-    lines += ['## Read these counters correctly', '',
-              'Platform expansion counts the eight new gates from the roadmap. Its zero completed gates does not erase the existing compiler, applications, libraries, MCP tools or emulator evidence. Active work is visible but earns no completed-gate credit.', '',
-              'The current sprint counts only its named deliverables. A design/documentation check is labelled as such. Passing borrowed-record examples does not complete general owned values. Reaching 100% of this sprint does not mean RF2 runs everywhere.', '',
-              'The generator validates IDs, states and local evidence-file existence. It does not independently endorse the evidence or inspect every claim. Reviewers must inspect the linked result and its limitations. Run `python3 tools/project-progress.py --check` from the repository root to detect stale rendering.', '']
+    if data['schema']!='rf2.pipeline.v2':
+        raise ValueError('Unsupported pipeline schema')
+    scope=data['deliveryScope']
+    rows=scope['requirements']
+    if scope['id']!='rf2-owner-delivery-2026-11-15' or scope['lockedRequirementCount']!=12 or len(rows)!=12:
+        raise ValueError('The agreed twelve-item delivery scope must not be silently replaced')
+    if [r['id'] for r in rows]!=[f'R{i:02}' for i in range(1,13)]:
+        raise ValueError('Delivery requirement IDs/order changed')
+    for row in rows:
+        if row['state'] not in STATES or not row.get('acceptance'):
+            raise ValueError('Invalid acceptance state or condition')
+        if row['state']=='done' and not row.get('evidence'):
+            raise ValueError('Completed checks require evidence')
+        for evidence in row.get('evidence',[]):
+            p=(ROOT/evidence).resolve()
+            if not p.is_relative_to(ROOT) or not p.is_file():
+                raise ValueError('Missing/outside project evidence: '+evidence)
+    done=sum(row['state']=='done' for row in rows)
+    percent=100*done//len(rows)
+    bar='█'*(percent//10)+'░'*(10-percent//10)
+    lines=['# RF2 delivery progress','',
+           f'`{bar}` **{done}/12 requested requirements complete ({percent}%)**','',
+           'This is the fixed delivery checklist reviewed with the owner on 15 November 2026. It counts accepted requirements equally, not engineering hours or universal language coverage. Partial implementations earn no completed-item credit. No sprint percentage is presented as product completion.','',
+           '[Mission](PROJECT-CONTINUITY.md) · [Canonical ledger](PIPELINE.json) · [Current owned-field evidence](OWNED-VALUES-0.42.md)','',
+           '| ID | State | Acceptance condition | Evidence and boundary |',
+           '| --- | --- | --- | --- |']
+    for row in rows:
+        links=', '.join(f'[{Path(p).name}]({Path(p).relative_to("docs") if p.startswith("docs/") else "../"+p})' for p in row.get('evidence',[]))
+        note=row.get('note','')
+        lines.append('| '+' | '.join([row['id'],row['state'],row['acceptance'],links+(' · '+note if note else '')])+' |')
+    lines+=['','## Active implementation','',data['activeWork']['requirement']+': '+data['activeWork']['description'],'',
+            'The eight longer-term platform gates and historical sprint evidence remain in PIPELINE.json. They do not produce extra completion badges. GitHub recognition depends on real external adoption and review; implementing a grammar or documenting requirements does not complete R12.','',
+            'The renderer checks the fixed scope, states and local evidence-file existence. It does not independently validate every claim. Reaching the final item requires reviewing its actual acceptance evidence. Run `python3 tools/project-progress.py --check` to detect stale rendering.','']
     return '\n'.join(lines)
 
 

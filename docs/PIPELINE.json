@@ -1,5 +1,5 @@
 {
-  "schema": "rf2.pipeline.v1",
+  "schema": "rf2.pipeline.v2",
   "updatedOn": "2026-11-15",
   "mission": "One readable language and SDK for humans, AI, applications, devices and system software. Competitor benchmarks and the universal-platform ambition remain in scope.",
   "platformGates": [
@@ -9,9 +9,11 @@
       "acceptance": "Qualified nested owned application values, transfer and cleanup",
       "evidence": [
         "docs/APPLICATION-VALUES.md",
-        "docs/OWNED-VALUES-0.42.md"
+        "docs/OWNED-VALUES-0.42.md",
+        "docs/OWNED-FUNCTIONS-0.43.md",
+        "docs/NESTED-OWNERS-0.44.md"
       ],
-      "note": "Owned text/collection fields and local moves now have isolated native evidence. Owner returns, transfer parameters and release qualification remain open."
+      "note": "Function transfer/return and bounded recursive owned composition now have isolated native evidence. Release qualification and broader value/collection forms remain open."
     },
     {
       "id": "G2",
@@ -77,65 +79,6 @@
       "note": "References describe current boundaries; this gate is not complete."
     }
   ],
-  "sprint": {
-    "title": "Owned text and collection fields, isolated candidate",
-    "scope": "Bounded local ownership and aggregate transfer. Cross-function owner return and a release-qualified G1 remain incomplete.",
-    "checks": [
-      {
-        "id": "O1",
-        "state": "done",
-        "acceptance": "Implement nominal Unicode text and explicitly owned text/collection fields",
-        "evidence": [
-          "experiments/owned-values/compiler-extension.flow",
-          "experiments/owned-values/prepare.py",
-          "docs/OWNED-VALUES-0.42.json"
-        ]
-      },
-      {
-        "id": "O2",
-        "state": "done",
-        "acceptance": "Implement local aggregate transfer and per-field automatic cleanup without duplicate owners",
-        "evidence": [
-          "experiments/owned-values/compiler-extension.flow",
-          "docs/OWNED-VALUES-0.42.json"
-        ]
-      },
-      {
-        "id": "O3",
-        "state": "done",
-        "acceptance": "Run a real labelled-batch application against independent text/numeric expectations",
-        "evidence": [
-          "experiments/owned-values/examples/owned-batch.flow",
-          "docs/OWNED-VALUES-0.42.json"
-        ]
-      },
-      {
-        "id": "O4",
-        "state": "done",
-        "acceptance": "Execute invalid Unicode, ownership refusals and allocation/retirement/partial-construction faults in both modes",
-        "evidence": [
-          "docs/OWNED-VALUES-0.42.json"
-        ]
-      },
-      {
-        "id": "O5",
-        "state": "done",
-        "acceptance": "Run relevant prior regressions and verify bounded MCP authority",
-        "evidence": [
-          "docs/OWNED-VALUES-0.42.json"
-        ]
-      },
-      {
-        "id": "O6",
-        "state": "done",
-        "acceptance": "Record source-bound findings and remaining promotion gates, then review for SFE publication",
-        "evidence": [
-          "docs/OWNED-VALUES-0.42.json",
-          "docs/OWNED-VALUES-0.42.md"
-        ]
-      }
-    ]
-  },
   "completedSprints": [
     {
       "title": "Durable pipeline and borrowed Booking values",
@@ -194,6 +137,175 @@
         }
       ],
       "scope": "Six named documentation/design/tool/native-acceptance deliverables only. General owned values and the eight expansion gates remain incomplete."
+    },
+    {
+      "title": "Owned text and collection fields, isolated candidate",
+      "scope": "Bounded local ownership and aggregate transfer. Cross-function owner return and a release-qualified G1 remain incomplete.",
+      "checks": [
+        {
+          "id": "O1",
+          "state": "done",
+          "acceptance": "Implement nominal Unicode text and explicitly owned text/collection fields",
+          "evidence": [
+            "experiments/owned-values/compiler-extension.flow",
+            "experiments/owned-values/prepare.py",
+            "docs/OWNED-VALUES-0.42.json"
+          ]
+        },
+        {
+          "id": "O2",
+          "state": "done",
+          "acceptance": "Implement local aggregate transfer and per-field automatic cleanup without duplicate owners",
+          "evidence": [
+            "experiments/owned-values/compiler-extension.flow",
+            "docs/OWNED-VALUES-0.42.json"
+          ]
+        },
+        {
+          "id": "O3",
+          "state": "done",
+          "acceptance": "Run a real labelled-batch application against independent text/numeric expectations",
+          "evidence": [
+            "experiments/owned-values/examples/owned-batch.flow",
+            "docs/OWNED-VALUES-0.42.json"
+          ]
+        },
+        {
+          "id": "O4",
+          "state": "done",
+          "acceptance": "Execute invalid Unicode, ownership refusals and allocation/retirement/partial-construction faults in both modes",
+          "evidence": [
+            "docs/OWNED-VALUES-0.42.json"
+          ]
+        },
+        {
+          "id": "O5",
+          "state": "done",
+          "acceptance": "Run relevant prior regressions and verify bounded MCP authority",
+          "evidence": [
+            "docs/OWNED-VALUES-0.42.json"
+          ]
+        },
+        {
+          "id": "O6",
+          "state": "done",
+          "acceptance": "Record source-bound findings and remaining promotion gates, then review for SFE publication",
+          "evidence": [
+            "docs/OWNED-VALUES-0.42.json",
+            "docs/OWNED-VALUES-0.42.md"
+          ]
+        }
+      ]
     }
-  ]
+  ],
+  "deliveryScope": {
+    "id": "rf2-owner-delivery-2026-11-15",
+    "lockedRequirementCount": 12,
+    "description": "The twelve items explicitly reviewed with the owner: language ownership/composition, storage and multi-room application delivery, packages, matched comparison and GitHub recognition. This is not universal RF2 feature coverage.",
+    "requirements": [
+      {
+        "id": "R01",
+        "state": "done",
+        "acceptance": "Owned text and u64 collection fields implemented and executed in an explicit candidate",
+        "evidence": [
+          "docs/OWNED-VALUES-0.42.md"
+        ],
+        "note": "Candidate scope only; stable compiler unchanged."
+      },
+      {
+        "id": "R02",
+        "state": "done",
+        "acceptance": "Local aggregate/field transfer and partial-failure cleanup executed in both compiler modes",
+        "evidence": [
+          "docs/OWNED-VALUES-0.42.json"
+        ],
+        "note": "Candidate scope only; stable compiler unchanged."
+      },
+      {
+        "id": "R03",
+        "state": "done",
+        "acceptance": "Ownership transfer and returns across function boundaries, including failure cleanup and escape refusals",
+        "evidence": [
+          "docs/OWNED-FUNCTIONS-0.43.md",
+          "docs/OWNED-FUNCTIONS-0.43.json"
+        ],
+        "note": "Bounded isolated candidate; conservative alias refusals and ordinary-return cleanup limitations remain explicit."
+      },
+      {
+        "id": "R04",
+        "state": "done",
+        "acceptance": "General nested owned records and collections of structured values with lifetime/cleanup tests",
+        "evidence": [
+          "docs/NESTED-OWNERS-0.44.md",
+          "docs/NESTED-OWNERS-0.44.json"
+        ],
+        "note": "Bounded recursive owned records and nominal flat-u64 structured rows; pointer-bearing row collections remain unimplemented."
+      },
+      {
+        "id": "R05",
+        "state": "active",
+        "acceptance": "Typed persistence, schemas and migrations with reopen/corruption/recovery tests",
+        "evidence": [],
+        "note": ""
+      },
+      {
+        "id": "R06",
+        "state": "done",
+        "acceptance": "Single-room Booking baseline operating through CLI and browser GUI",
+        "evidence": [
+          "docs/BOOKING-STUDIO.md",
+          "docs/WORKBENCH-0.38-VERIFICATION.json"
+        ],
+        "note": ""
+      },
+      {
+        "id": "R07",
+        "state": "pending",
+        "acceptance": "Transactional multi-room Booking with overlap, simultaneous writers, failed saves and restart tests",
+        "evidence": [],
+        "note": ""
+      },
+      {
+        "id": "R08",
+        "state": "pending",
+        "acceptance": "Reusable polished accessible UI components demonstrated in the real application",
+        "evidence": [],
+        "note": ""
+      },
+      {
+        "id": "R09",
+        "state": "pending",
+        "acceptance": "Bounded Booking agent interface using the same typed business/storage logic as CLI and GUI",
+        "evidence": [],
+        "note": ""
+      },
+      {
+        "id": "R10",
+        "state": "pending",
+        "acceptance": "Qualified downloadable compiler/application packages with fresh extraction and source-build checks",
+        "evidence": [],
+        "note": ""
+      },
+      {
+        "id": "R11",
+        "state": "pending",
+        "acceptance": "Executed matched complete-development comparison against an established stack, retaining actual effort/usage and failures",
+        "evidence": [],
+        "note": ""
+      },
+      {
+        "id": "R12",
+        "state": "pending",
+        "acceptance": "RiverFlow accepted in upstream GitHub Linguist; actual external acceptance verified",
+        "evidence": [
+          "docs/LANGUAGE-REPORTING.md"
+        ],
+        "note": "External adoption/review dependency; do not fabricate usage or acceptance."
+      }
+    ]
+  },
+  "activeWork": {
+    "requirement": "R05",
+    "description": "Build versioned typed persistence for the actual Booking row model: strict schema/payload validation, reopen, migration, failed/uncertain commit and recovery controls. Then transactional multi-room CLI/GUI/agent delivery."
+  }
 }
