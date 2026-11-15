@@ -1,0 +1,48 @@
+module booking_values
+use "lib/numbers.rf2"
+use "lib/output.rf2"
+text CalendarTitle(IO,64)
+record Booking(id:u64,room:u64,day:u64,start:u64,finish:u64)
+collection Bookings(IO,256,Booking)
+record CalendarMeta(title:own CalendarTitle)
+record Calendar(meta:own CalendarMeta,bookings:own Bookings,revision:u64)
+result CalendarReady(own Calendar,u64)
+fn calendar_create():CalendarReady
+ own calendar=Calendar(CalendarMeta(CalendarTitle()),Bookings(),1)
+ handle text_append(calendar.meta.title,0xb85)
+ ok count
+ err cause
+  return err(cause)
+ end
+ return ok(move(calendar))
+end
+# Adjacent half-open intervals are allowed. Distinct rooms/days do not conflict.
+# Day is a Gregorian ordinal, with 1 representing 0001-01-01.
+fn booking_add(bookings:Bookings,requested:Booking):IO
+ if (requested.id==0)|(requested.room==0)|(requested.room>16)|(requested.day==0)|(requested.day>3652059)|(requested.start>=requested.finish)|(requested.finish>1440)
+  return err(22)
+ end
+ let existing=Booking(0,0,0,0,0)
+ let i=0
+ while i<bookings.length
+  handle records_read(bookings,i,existing)
+  ok fields
+  err read_error
+   return err(read_error)
+  end
+  if existing.id==requested.id
+   return err(17)
+  end
+  if (existing.room==requested.room)&(existing.day==requested.day)&(existing.start<requested.finish)&(requested.start<existing.finish)
+   return ok(0)
+  end
+  set i=i+1
+ end
+ handle records_push(bookings,requested)
+ ok count
+  return ok(1)
+ err push_error
+  return err(push_error)
+ end
+ return err(22)
+end
