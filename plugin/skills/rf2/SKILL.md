@@ -2,9 +2,13 @@
 name: rf2
 description: Check and execute RiverFlow Core/compact programs, lower checked kernels, use the versioned attendance exporter, and develop native compiler evidence.
 ---
-# RiverFlow RF²: stable 0.17, Documents 0.37 and embedded 0.36
+# RiverFlow RF²: stable 0.17, Workbench 0.38 and embedded 0.36
 
 Use rf2_status first. Read docs/NATIVE-CORE.md and docs/STANDALONE.md for current profiles/effects. Nine native tools exist: rf2_status, rf2_check, rf2_run, rf2_lower, attendance_export, invoice_total, invoice_prepare, invoice_apply and invoice_release. Users require no Node/npm/Python/C++ runtime. The host provides AI intelligence; the executable has no embedded model.
+
+## Booking and learning IDE
+
+Read docs/BOOKING-STUDIO.md. Workbench 0.38 adds explicit CLI/local GUI booking and a Core-only learning editor. Use a user-selected new journal and private project directory. Preserve uncertain-save errors; never report a failed or uncertain write as completed. Cooperative file locking is not hostile same-user isolation. No timezone, production reservation or full IDE claim. The nine MCP tools are unchanged; never route arbitrary systems source or filesystem/network authority through Core.
 
 ## Developer onboarding
 
