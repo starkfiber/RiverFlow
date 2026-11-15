@@ -118,7 +118,12 @@ for opt in (False,True):
  ('owned-row-shape',N+'collection Rows(IO,16,Envelope)\n',' return ok(0)','record collection requires flat scalar row'),
  ('private-record-helper',ROWS_HEADER,' do __rf2heap_records(0,0,0,0,5,64)\n return ok(0)','reserved compiler collection helper'),
  ]
- for name,header,body,error in invalid:build(name,wrap(body,header=header),opt,refuse=error)
+ for name,header,body,error in invalid:
+  if name=='owned-row-shape' and os.environ.get('RF2_OWNED_ROWS_EXTENSION')=='1':
+   # 0.46 deliberately admits this declaration. Original 0.44 mode retains refusal.
+   # Full consuming/extraction/failure behavior is qualified in owned_rows_verify.py.
+   execute('owned-row-shape-now-admitted',wrap(body,header=header),opt)
+  else:build(name,wrap(body,header=header),opt,refuse=error)
  print('nested/row mode',opt,'core controls passed',flush=True)
 
 # Deep shape boundaries and failure paths are executed, not inferred from syntax.
@@ -177,5 +182,5 @@ for opt in (False,True):
   q=call([exe],input=bad);check('booking invalid input '+str(opt)+' '+bad.decode(),q.returncode==2 and q.stdout==b'')
  q=call([exe],input=b'1,1,739935,540,600',preexec_fn=lambda:os.close(1));check('booking closed output '+str(opt),q.returncode==2)
 
-(D/'report.json').write_text(json.dumps(dict(checks=len(ROWS),compilerSHA256=sha(C),results=ROWS),indent=2)+'\n')
+(D/'report.json').write_text(json.dumps(dict(checks=len(ROWS),compilerSHA256=sha(C),ownedRowsExtension=os.environ.get('RF2_OWNED_ROWS_EXTENSION')=='1',controllerSHA256=sha(Path(__file__)),results=ROWS),indent=2)+'\n')
 print(json.dumps(dict(checks=len(ROWS),report=str(D/'report.json'))))
