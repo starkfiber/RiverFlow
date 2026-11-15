@@ -1,0 +1,96 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/text.flow"
+use "lib/collections.flow"
+# Second independent app, sharing the exact text/collection modules with workspace.
+fn line_report(path,query,fold):IO
+ let n=0
+ let data=buffer("text_lines_input",65537)
+ handle io_regular(path,data,65536)
+ ok bytes1
+  set n=bytes1
+ err code2
+  return err(code2)
+ end
+ let info=TextInfo(0,0,0,0)
+ do text_measure(data,n,info)
+ if info.status
+  return err(info.status)
+ end
+ let m=io_size(query)
+ do text_measure(query,m,info)
+ if (info.status!=0)|(m>256)
+  return err(22)
+ end
+ own lines=Items()
+ let span=TextSpan(0,0)
+ let cursor=TextCursor(0,0,0,0)
+ let found=TextMatches(0,0,0,0)
+ let prefix=TextPrefix()
+ let i=0
+ while text_next_line(data,n,cursor,span)
+  do text_search(data+span.start,span.length,query,m,fold,prefix,found)
+  if found.count
+   handle items_insert_unique(lines,cursor.line)
+   ok added3
+   err code4
+    return err(code4)
+   end
+  end
+  set i=i+1
+ end
+ let out=Writer(buffer("text_lines_output",32768),32768,0,0)
+ do writer_text(out,"{\"bytes\":")
+ do writer_number(out,n)
+ do writer_text(out,",\"lines\":")
+ do writer_number(out,i)
+ do writer_text(out,",\"matching_lines\":[")
+ set i=0
+ while i<lines.length
+  if i!=0
+   do writer_text(out,",")
+  end
+  handle collection_get(lines,i)
+  ok line5
+   do writer_number(out,line5)
+  err code6
+   return err(code6)
+  end
+  set i=i+1
+ end
+ do writer_text(out,"]}\n")
+ if out.error
+  return err(out.error)
+ end
+ handle io_write_all(1,out.data,out.used)
+ ok written7
+ err code8
+  return err(code8)
+ end
+ return ok(lines.length)
+end
+fn main(argc,argv)
+ if (argc!=3)&(argc!=4)
+  do write(2,"Usage: text-lines FILE QUERY [--fold]\n",io_size("Usage: text-lines FILE QUERY [--fold]\n"))
+  return 2
+ end
+ let fold=0
+ if argc==4
+  let flag=load64(argv+24)
+  if text_equal(flag,io_size(flag),"--fold",6)==0
+   return 2
+  end
+  set fold=1
+ end
+ let status=0
+ let diagnostic=Writer(buffer("text-lines.flow_diagnostic",128),128,0,0)
+ handle line_report(load64(argv+8),load64(argv+16),fold)
+ ok matches9
+ err code10
+  do writer_text(diagnostic,"Text operation refused: ")
+  do writer_number(diagnostic,code10)
+  do writer_text(diagnostic,"\n")
+  do write(2,diagnostic.data,diagnostic.used)
+  set status=1
+ end
+ return status
+end

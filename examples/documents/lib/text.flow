@@ -1,0 +1,422 @@
+module doc_text
+use "lib/io.flow"
+array TextPrefix(u64,256)
+record TextInfo(status:u64,scalars:u64,lines:u64,words:u64)
+record TextMatches(status:u64,count:u64,first:u64,last:u64)
+record TextSpan(start:u64,length:u64)
+record TextCursor(next:u64,line:u64,done:u64,status:u64)
+fn text_space(c)
+ return (c==9)|(c==10)|(c==13)|(c==32)
+end
+fn text_equal(a,n,b,m)
+ if n!=m
+  return 0
+ end
+ let i=0
+ while i<n
+  if load8(a+i)!=load8(b+i)
+   return 0
+  end
+  set i=i+1
+ end
+ return 1
+end
+fn text_trim(p,n,out:TextSpan)
+ let a=0
+ let b=n
+ while all(a<b,text_space(load8(p+a)))
+  set a=a+1
+ end
+ while all(b>a,text_space(load8(p+b-1)))
+  set b=b-1
+ end
+ set out.start=a
+ set out.length=b-a
+ return 0
+end
+# Strict UTF-8; NUL and non-text C0 controls reject. LF lines; ASCII word breaks.
+fn text_measure(p,n,out:TextInfo)
+ set out.status=84
+ set out.scalars=0
+ set out.lines=0
+ set out.words=0
+ if n>1048576
+  set out.status=22
+  return 0
+ end
+ let i=0
+ let scalars=0
+ let lines=0
+ let words=0
+ let in_word=0
+ while i<n
+  let lead=load8(p+i)
+  set i=i+1
+  let cp=lead
+  let need=0
+  let minimum=0
+  if (lead<32)&(text_space(lead)==0)
+   return 0
+  end
+  if lead>=128
+   if lead<194
+    return 0
+   end
+   if lead<224
+    set cp=lead&31
+    set need=1
+    set minimum=128
+   else
+    if lead<240
+     set cp=lead&15
+     set need=2
+     set minimum=2048
+    else
+     if lead>244
+      return 0
+     end
+     set cp=lead&7
+     set need=3
+     set minimum=65536
+    end
+   end
+  end
+  while need!=0
+   if i>=n
+    return 0
+   end
+   let c=load8(p+i)
+   if (c<128)|(c>=192)
+    return 0
+   end
+   set cp=(cp<<6)|(c&63)
+   set i=i+1
+   set need=need-1
+  end
+  if (cp<minimum)|(cp>1114111)|((cp>=55296)&(cp<=57343))
+   return 0
+  end
+  if cp==10
+   set lines=lines+1
+  end
+  if text_space(cp)
+   set in_word=0
+  else
+   if in_word==0
+    set words=words+1
+   end
+   set in_word=1
+  end
+  set scalars=scalars+1
+ end
+ if all(n>0,load8(p+n-1)!=10)
+  set lines=lines+1
+ end
+ set out.status=0
+ set out.scalars=scalars
+ set out.lines=lines
+ set out.words=words
+ return 1
+end
+fn text_fold(c,fold)
+ if fold&((c>=65)&(c<=90))
+  return c+32
+ end
+ return c
+end
+# KMP, nonoverlapping byte matches; ASCII-only optional case folding.
+fn text_search(p,n,q,m,fold,prefix:TextPrefix,out:TextMatches)
+ set out.status=22
+ set out.count=0
+ set out.first=18446744073709551615
+ set out.last=18446744073709551615
+ if (n>1048576)|(m>256)|(fold>1)
+  return 0
+ end
+ set out.status=0
+ if m==0
+  set out.count=n+1
+  set out.first=0
+  set out.last=n
+  return 1
+ end
+ set prefix[0]=0
+ let i=1
+ let j=0
+ while i<m
+  while all(j>0,text_fold(load8(q+i),fold)!=text_fold(load8(q+j),fold))
+   set j=prefix[j-1]
+  end
+  if text_fold(load8(q+i),fold)==text_fold(load8(q+j),fold)
+   set j=j+1
+  end
+  set prefix[i]=j
+  set i=i+1
+ end
+ set i=0
+ set j=0
+ while i<n
+  while all(j>0,text_fold(load8(p+i),fold)!=text_fold(load8(q+j),fold))
+   set j=prefix[j-1]
+  end
+  if text_fold(load8(p+i),fold)==text_fold(load8(q+j),fold)
+   set j=j+1
+  end
+  if j==m
+   if out.count==0
+    set out.first=i+1-m
+   end
+   set out.last=i+1-m
+   set out.count=out.count+1
+   set j=0
+  end
+  set i=i+1
+ end
+ return 1
+end
+# 0-based LF line lookup, including final unterminated line; no phantom trailing line.
+fn text_line(p,n,index,out:TextSpan)
+ if n>1048576
+  return 0
+ end
+ let i=0
+ let line=0
+ let start=0
+ while i<n
+  if load8(p+i)==10
+   if line==index
+    set out.start=start
+    set out.length=i-start
+    if all(out.length>0,load8(p+i-1)==13)
+     set out.length=out.length-1
+    end
+    return 1
+   end
+   set line=line+1
+   set start=i+1
+  end
+  set i=i+1
+ end
+ if (start<n)&(line==index)
+  set out.start=start
+  set out.length=n-start
+  return 1
+ end
+ return 0
+end
+# Forward line iterator: one pass over the input across successive calls.
+fn text_next_line(p,n,cursor:TextCursor,out:TextSpan)
+ if (n>1048576)|(cursor.next>n)
+  set cursor.status=22
+  set cursor.done=1
+  return 0
+ end
+ if cursor.done|(cursor.next==n)
+  set cursor.done=1
+  return 0
+ end
+ let start=cursor.next
+ let end=start
+ while all(end<n,load8(p+end)!=10)
+  set end=end+1
+ end
+ set out.start=start
+ set out.length=end-start
+ if all(end<n,all(out.length>0,load8(p+end-1)==13))
+  set out.length=out.length-1
+ end
+ set cursor.next=end
+ if end<n
+  set cursor.next=end+1
+ end
+ set cursor.line=cursor.line+1
+ set cursor.status=0
+ return 1
+end
+fn text_hex(c)
+ if (c>=48)&(c<=57)
+  return c-48
+ end
+ if (c>=65)&(c<=70)
+  return c-55
+ end
+ if (c>=97)&(c<=102)
+  return c-87
+ end
+ return 256
+end
+fn text_parse_u64(p,n,maximum):IO
+ if (n==0)|(n>20)
+  return err(22)
+ end
+ if (n>1)&(load8(p)==48)
+  return err(22)
+ end
+ let i=0
+ let value=0
+ while i<n
+  let digit=load8(p+i)
+  if (digit<48)|(digit>57)
+   return err(22)
+  end
+  set digit=digit-48
+  if value>(18446744073709551615-digit)//10
+   return err(75)
+  end
+  set value=value*10+digit
+  if value>maximum
+   return err(75)
+  end
+  set i=i+1
+ end
+ return ok(value)
+end
+# Two-pass form decode: refusal leaves destination unchanged; space for NUL required.
+fn text_decode(p,n,dst,cap):IO
+ if n>4096
+  return err(22)
+ end
+ let pass=0
+ let used=0
+ while pass<2
+  let i=0
+  set used=0
+  while i<n
+   let c=load8(p+i)
+   if c==43
+    set c=32
+   else
+    if c==37
+     if i+2>=n
+      return err(22)
+     end
+     let a=text_hex(load8(p+i+1))
+     let b=text_hex(load8(p+i+2))
+     if (a>15)|(b>15)
+      return err(22)
+     end
+     set c=a*16+b
+     set i=i+2
+    end
+   end
+   if (c<32)|(c==127)
+    return err(22)
+   end
+   if all(used<cap,cap-used>1)==0
+    return err(28)
+   end
+   if pass
+    do store8(dst+used,c)
+   end
+   set used=used+1
+   set i=i+1
+  end
+  if used>=cap
+   return err(28)
+  end
+  set pass=pass+1
+ end
+ do store8(dst+used,0)
+ return ok(used)
+end
+# HTML escaping for validated text. Capacity failure leaves destination unchanged.
+fn text_html(p,n,dst,cap):IO
+ if n>1048576
+  return err(22)
+ end
+ let used=0
+ let i=0
+ let c=0
+ while i<n
+  set c=load8(p+i)
+  let width=1
+  if (c==38)|(c==39)
+   set width=5
+  end
+  if (c==60)|(c==62)
+   set width=4
+  end
+  if c==34
+   set width=6
+  end
+  if all(used<=cap,width<=cap-used)==0
+   return err(28)
+  end
+  set used=used+width
+  set i=i+1
+ end
+ let pos=0
+ set i=0
+ while i<n
+  set c=load8(p+i)
+  let escaped=0
+  if c==38
+   set escaped="&amp;"
+  end
+  if c==39
+   set escaped="&#39;"
+  end
+  if c==60
+   set escaped="&lt;"
+  end
+  if c==62
+   set escaped="&gt;"
+  end
+  if c==34
+   set escaped="&quot;"
+  end
+  if escaped
+   let len=io_size(escaped)
+   do io_copy(dst+pos,escaped,len)
+   set pos=pos+len
+  else
+   do store8(dst+pos,c)
+   set pos=pos+1
+  end
+  set i=i+1
+ end
+ return ok(used)
+end
+fn writer_html(out:Writer,p,n)
+ if out.error
+  return 0
+ end
+ handle text_html(p,n,out.data+out.used,out.capacity-out.used)
+ ok used1
+  set out.used=out.used+used1
+ err code2
+  set out.error=code2
+ end
+ return out.error==0
+end
+fn writer_json(out:Writer,p,n)
+ do writer_text(out,"\"")
+ let i=0
+ while i<n
+  let c=load8(p+i)
+  if c==34
+   do writer_text(out,"\\\"")
+  else
+   if c==92
+    do writer_text(out,"\\\\")
+   else
+    if c==10
+     do writer_text(out,"\\n")
+    else
+     if c==13
+      do writer_text(out,"\\r")
+     else
+      if c==9
+       do writer_text(out,"\\t")
+      else
+       do writer_bytes(out,p+i,1)
+      end
+     end
+    end
+   end
+  end
+  set i=i+1
+ end
+ do writer_text(out,"\"")
+ return out.error==0
+end

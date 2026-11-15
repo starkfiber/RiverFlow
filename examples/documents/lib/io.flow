@@ -1,0 +1,106 @@
+module doc_io
+result IO(u64,u64)
+record Writer(data:u64,capacity:u64,used:u64,error:u64)
+fn io_size(p)
+ let n=0
+ while load8(p+n)!=0
+  set n=n+1
+ end
+ return n
+end
+fn io_copy(dst,src,n)
+ let i=0
+ while i<n
+  do store8(dst+i,load8(src+i))
+  set i=i+1
+ end
+ return n
+end
+# Caller supplies limit+1 writable bytes. Darwin regular-file read, no symlinks.
+fn io_regular(path,data,limit):IO
+ if limit>1048576
+  return err(22)
+ end
+ let fd=open(path,260,0)
+ if fd>>63
+  return err(0-fd)
+ end
+ let stat=buffer("documents_file_stat",144)
+ let error=0
+ let count=0
+ let got=1
+ let rc=syscall6(339,fd,stat,0,0,0,0)
+ if rc>>63
+  set error=0-rc
+ else
+  if (load32(stat+4)&61440)!=32768
+   set error=79
+  end
+ end
+ while all(error==0,got!=0)
+  set got=read(fd,data+count,limit+1-count)
+  if got>>63
+   set error=0-got
+  else
+   set count=count+got
+   if count>limit
+    set error=27
+   end
+  end
+ end
+ set rc=close(fd)
+ if error!=0
+  return err(error)
+ end
+ if rc>>63
+  return err(65536-rc)
+ end
+ return ok(count)
+end
+fn io_write_all(fd,p,n):IO
+ let used=0
+ while used<n
+  let got=write(fd,p+used,n-used)
+  if got>>63
+   return err(0-got)
+  end
+  if got==0
+   return err(5)
+  end
+  set used=used+got
+ end
+ return ok(used)
+end
+fn writer_reset(out:Writer)
+ set out.used=0
+ set out.error=0
+ return 0
+end
+fn writer_bytes(out:Writer,p,n)
+ if out.error
+  return 0
+ end
+ if all(out.used<=out.capacity,n<=out.capacity-out.used)
+  do io_copy(out.data+out.used,p,n)
+  set out.used=out.used+n
+  return 1
+ end
+ set out.error=28
+ return 0
+end
+fn writer_text(out:Writer,p)
+ return writer_bytes(out,p,io_size(p))
+end
+fn writer_number(out:Writer,value)
+ let digits=buffer("documents_format_digits",24)
+ let i=24
+ if value==0
+  return writer_text(out,"0")
+ end
+ while value!=0
+  set i=i-1
+  do store8(digits+i,48+value-(value//10)*10)
+  set value=value//10
+ end
+ return writer_bytes(out,digits+i,24-i)
+end

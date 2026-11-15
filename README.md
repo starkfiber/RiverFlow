@@ -12,6 +12,18 @@ RiverFlow is a programming language with a compiler written in RiverFlow. Its Ma
 
 The goal is one readable language for application and systems work, with explicit effects and recoverable failures. The current implementation is a foundation for that goal. Its [capability map](docs/CAPABILITY-MAP.md) states what works and what remains missing.
 
+## Try the document workspace
+
+[Download RF2 Documents](dist/documents-0.37/README.md), extract it and run this from the extracted folder:
+
+```sh
+./workspace examples/documents/fixtures/documents.txt --serve
+```
+
+Open the printed local URL. Search your explicitly supplied UTF-8 files, read previews, inspect source paths and export the in-memory catalogue. Originals stay untouched. A separate line-search CLI shares the same text/collection modules. This is a read-only Mac workspace, with 64-file/1-MiB corpus bounds; PDF extraction, editing and persistent indexing remain work. [Application guide](examples/documents/README.md) · [Reusable APIs](examples/documents/LIBRARIES.md).
+
+![Native RF2 document workspace, tested at 1440 pixels](docs/assets/rf2-documents-037.png)
+
 ## Start with a native application
 
 Use the [first .flow application walkthrough](docs/FIRST-APP.md) for the exact download, checksum, setup and expected outputs. With the 0.36 native bundle extracted and this source checkout open:
@@ -45,7 +57,9 @@ For AI integration, [configure the native MCP host](docs/START-HERE.md#connect-a
 
 **Stable package: 0.17.** Bounded Core computation, local modules, records, checked arrays, UTF-8 scalar views, typed outcomes, owned files, bounded growing bytes and nine defined MCP tools.
 
-**Development source: 0.36 ESP32-C3 candidate.** The native RF2-written cross-compiler adds a bounded interrupt dispatcher, a private interrupt stack, register preservation and checked timer/watchdog leases. Two 600-second virtual-time firmware runs each handled over 60000 timer interrupts while preserving the expected foreground result. Thirty interrupt/lease controls and the existing compiler, UART, sensor and timer regressions passed. **Physical board and sensor validation remain pending.** See [contracts, failures and exact evidence](docs/ESP32C3-INTERRUPTS-0.36.md) and the [native development bundle](dist/0.36-candidate/README.md).
+**Development libraries and apps: 0.37 Documents.** The new text and collection modules power a native read-only document workspace and an independent CLI. Functional tests, actual browser journeys, package extraction/source rebuild and MCP checks have separate [records](docs/DOCUMENTS-0.37-VERIFICATION.json). The [new bundle](dist/documents-0.37/README.md) reuses the qualified Mac compiler and unchanged 0.17 runtime.
+
+**Embedded development bundle: 0.36 ESP32-C3 candidate.** The native RF2-written cross-compiler adds a bounded interrupt dispatcher, a private interrupt stack, register preservation and checked timer/watchdog leases. Two 600-second virtual-time firmware runs each handled over 60000 timer interrupts while preserving the expected foreground result. Thirty interrupt/lease controls and the existing compiler, UART, sensor and timer regressions passed. **Physical board and sensor validation remain pending.** See [contracts, failures and exact evidence](docs/ESP32C3-INTERRUPTS-0.36.md) and the [native development bundle](dist/0.36-candidate/README.md).
 
 The new bundle includes the shared timer/watchdog libraries and interrupt heartbeat. Earlier [0.34 images and evidence](docs/ESP32C3-0.34.md), [timer qualification](docs/ESP32C3-TIMERS.md) and [Arduino MCP reference lessons](docs/ARDUINO-MCP-REVIEW.md) are retained. The emulator protection gap and unmodeled RTC watchdog remain explicit. Checked library leases are not a raw-MMIO sandbox, linear ownership types or universal MCU support.
 

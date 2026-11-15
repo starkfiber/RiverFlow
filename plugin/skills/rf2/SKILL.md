@@ -2,7 +2,7 @@
 name: rf2
 description: Check and execute RiverFlow Core/compact programs, lower checked kernels, use the versioned attendance exporter, and develop native compiler evidence.
 ---
-# RiverFlow RF²: stable 0.17 and development 0.36
+# RiverFlow RF²: stable 0.17, Documents 0.37 and embedded 0.36
 
 Use rf2_status first. Read docs/NATIVE-CORE.md and docs/STANDALONE.md for current profiles/effects. Nine native tools exist: rf2_status, rf2_check, rf2_run, rf2_lower, attendance_export, invoice_total, invoice_prepare, invoice_apply and invoice_release. Users require no Node/npm/Python/C++ runtime. The host provides AI intelligence; the executable has no embedded model.
 
@@ -227,3 +227,9 @@ Read docs/ESP32C3-INTERRUPTS-0.36.md. Use the 0.36 native bundle for `interrupt 
 The new development ABI reserves DRAM 0x3FCA8100..0x3FCA83FF and stack0x3FCAC000..0x3FCAFFFF. Startup resets boot-local runtime state. Plain integer generation leases cover only SYSTIMER0/target0/CPU line 1 and TIMG0 watchdog; release quiesces before revoke and retains ownership on readback failure. Mutations mask/restore interrupts and cannot be called from handler paths. Tokens can be copied/guessed and raw MMIO can bypass guards: no unforgeability, linear type proof, sandbox, multicore or cross-boot replay protection is claimed.
 
 Thirty interrupt/lease controls passed, including two 600-second virtual-time runs at shifts8/10, with 60068/60176 deliveries. A600-second shift6 run exceeded a30-second host observation budget and remains uncompleted, not a speed failure/success claim. Preserve the initial zero-delivery bug/fix and explicit binary/hook fixtures. Independent GNU encoding and baseline regressions passed; physical board, RTC watchdog, electrical/timing/power recovery remain unqualified. The 0.36 package includes new libraries; earlier0.34 downloads are unchanged. Nine bounded MCP tools retain the same authority and do not execute this trusted source.
+
+## Documents 0.37 application and shared libraries
+
+Read examples/documents/README.md and LIBRARIES.md. The native workspace accepts an explicit manifest of regular UTF-8 files, builds a bounded in-memory snapshot, and exposes a read-only local browser search/preview/catalogue export. The separate text-lines CLI shares the same physical text/collection modules. Limits: 64 documents, 64 KiB each, 1 MiB corpus, 256-byte query; no PDF/DOCX extraction, edits, persisted index, watched updates or general language-type extension. Paths resolve from process cwd; final-component symlinks/nonregular files refuse, but this is not filesystem containment. Library raw byte ranges require valid nonoverlapping storage and documented lifetimes.
+
+Only launch/read explicitly requested local inputs through the trusted CLI route. The loopback reader checks Host/optional Origin, escapes content and has finite connection/request budgets; it is not authenticated against local processes or a public service. Source paths are included in the local catalogue/export. The package reuses the qualified Mac compiler and unchanged 0.17 native runtime. MCP still has nine tools and no caller-chosen filesystem paths, arbitrary systems compilation, HTTP listener or device authority. Use separate executed functional, browser, package and MCP records; no new speed/token/learner-study/security-certification claim.

@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "zipSHA256": "d02f27460e678ac78faedef7d99eec460a322d2ccaf329ddfb8ab6443076a910",
+  "manifestFiles": 23,
+  "nativeSignatures": 4,
+  "executableModesVerified": true,
+  "applicationSmoke": true,
+  "sourceRebuildIdentical": true,
+  "tools": 9,
+  "rawSystemsSourceRejected": true,
+  "followingBoundedSum": 6,
+  "runtimeSHA256": "df714d688e5b96577abb294a192432ed2f57f07c080ab23e32eee46cf94b0b89",
+  "compilerSHA256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37",
+  "scope": "Fresh native Mac extraction, execution and source rebuild with no language toolchain on PATH. Existing native MCP contract unchanged. No SDK/physical hardware/performance claim."
+}

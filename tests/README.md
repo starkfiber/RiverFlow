@@ -36,3 +36,7 @@ For compact images, use compact_image_verify.py with RF2_TEST_COMPILER. To rerun
 ## Native onboarding journey
 
 `standalone/onboarding_verify.py` downloads the pinned published 0.36 bundle to a new local artifact directory, checks all manifest entries and exercises the exact `tools/dev.sh` workflow against actual native tools. It covers paths with spaces, explicit selection, source checking, two shared-library apps, invalid/overflow input, existing/symlink outputs, compiler refusals, firmware image equality and native MCP boundaries. It does not run device or flash operations, change the published package or claim a fresh hardware/performance result. Python is developer test tooling only.
+
+## Shared text, collections and document workspace
+
+`standalone/documents_verify.py` requires explicit `RF2_TEST_COMPILER`. It builds real Mac programs in both modes, compares UTF-8/byte/numeric/collection outputs with independent oracles and tests failed imports, file types, limits, closed output, in-process descriptor balance, shared-library mutations and bounded HTTP behavior. Browser forms/download/responsive acceptance and package/MCP/source-rebuild checks are recorded separately in `docs/DOCUMENTS-0.37-*`. No performance or physical-hardware inference follows.

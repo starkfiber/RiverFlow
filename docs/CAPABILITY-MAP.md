@@ -1,8 +1,12 @@
 # What can RF2 build today?
 
-RiverFlow is an implemented language with a native compiler, useful applications and a bounded MCP server. It is not yet a replacement for every Java, C++, Python or assembly workflow. The stable runtime is **0.17**; the current development bundle is **0.36**, with a later Mac compiler and a separate ESP32-C3 compiler. The table below labels development-only capabilities explicitly. Qualification receipts define its exact tested scope.
+RiverFlow is an implemented language with a native compiler, useful applications and a bounded MCP server. It is not yet a replacement for every Java, C++, Python or assembly workflow. The stable runtime is **0.17**; the **0.37 Documents** bundle adds Mac libraries/apps while the separate **0.36 embedded** bundle contains the ESP32-C3 compiler. Both reuse the qualified Mac compiler and unchanged bounded runtime. The table below labels development-only capabilities explicitly. Qualification receipts define its exact tested scope.
 
 The long-term direction is one readable language across application and systems work. Each additional target needs its own implementation, contract and executed tests.
+
+## Development 0.37: reusable text, tables and document reading
+
+[Shared text/collection APIs](../examples/documents/LIBRARIES.md) add validated text statistics, exact/ASCII-folded KMP matching, line iteration, canonical integer parsing, bounded form decoding/HTML escaping, sorted unique items and four-field row tables. Two real apps consume the same physical modules: [a browser document workspace and a line-search CLI](../examples/documents/README.md). The workspace imports explicit regular UTF-8 files read-only into a bounded in-memory snapshot. PDF extraction, editing, persistent indexing and watched updates remain missing. These are trusted systems libraries, not new generic types or a whole-language memory-safety proof. Nine MCP tools retain their previous authority.
 
 ## Development 0.36: ESP32-C3 interrupts and peripheral leases
 

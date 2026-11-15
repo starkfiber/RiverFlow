@@ -25,6 +25,7 @@ The compiler and MCP runtime are separate execution routes. Never expose the tru
 | Runtime entry | `native/rf2.rf2` | CLI/MCP transport and dispatch |
 | Checked execution | `native/core.rf2` | Bounded Core semantics |
 | Application capabilities | `native/attendance.rf2`, `native/invoice.rf2`, `native/prepared.rf2` | Schemas, checked totals and prepared handles |
+| Read-only document workspace | `examples/documents/workspace.flow`, `examples/documents/lib/` | Shared text/table libraries, explicit corpus snapshot, bounded native browser reader and CLI |
 | Document UI | `native/workspace.rf2`, `native/editor.rf2`, `native/studio/` | Explicit file edits, PDF and local browser workspace |
 | Reference tools | `bootstrap/`, `src/`, `bin/rf2.mjs` | Historical seed and independent developer controls |
 | Native contracts | `examples/evidence-contract/` | Bounded research application, receipts and separate verifier |

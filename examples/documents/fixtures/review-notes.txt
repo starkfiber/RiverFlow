@@ -1,0 +1,5 @@
+Review notes
+
+A passing test supports the tested case.
+It does not establish every possible behaviour.
+Keep evidence, input limits and remaining questions together.
