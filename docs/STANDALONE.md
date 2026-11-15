@@ -1,72 +1,85 @@
-# Standalone RiverFlow 0.12
+# Standalone RiverFlow tools
 
-Experimental native tools for Apple Silicon Mac. Users need no Node, npm, Python or C++ runtime. The minimum encoded OS target is macOS 14; actual execution is qualified on the recorded local Apple Silicon Mac, not every OS version or device. Binaries are ad-hoc signed, not notarized.
+Native user tools run on Apple Silicon macOS without Node, npm, Python or C++ runtimes. The encoded minimum OS target is macOS 14; execution qualification is on the recorded local Mac, not every OS/device. Binaries are ad-hoc signed, not notarized.
 
-Release 0.12 also includes ready-to-run rf2-text-audit and rf2-latency executables. The compiler supports checked u64/u8 arrays and trusted typed byte I/O; recoverable text operations are explicit libraries. See TEXT-BYTES.md and CHECKED-ARRAYS.md. These do not expand bounded Core/MCP effects.
+Use [Start here](START-HERE.md) for package selection and [the first .flow application](FIRST-APP.md) for the tested installation/build journey. The stable 0.17 release, current 0.36 development bundle and historical release receipts remain separate. No frozen package is replaced by a documentation change.
 
-## Use the runtime
+## Developer helper
+
+From the source checkout, explicitly select an extracted native bundle:
 
 ```sh
-./rf2 status
-./rf2 check examples/sum.flow
-./rf2 run examples/sum.flow '[1,2,3]'
-./rf2 run book/examples/example-4.flow '[2,3,4]'
-./rf2 run examples/compact/sum.rf2 '[1,2,3]'
-./rf2 mcp
+export RF2_HOME="$HOME/Downloads/RF2-0.36-dev-macos-arm64"
+sh tools/dev.sh doctor
+sh tools/dev.sh check examples/collection-tools/telemetry-summary.flow
+sh tools/dev.sh build examples/collection-tools/telemetry-summary.flow summary-build --opt
+printf '9,1,9,3,2' | ./summary-build/program
 ```
 
-General Core, scalar helpers, forward calls, named arguments, checked/wrap arithmetic and bounded loops are supported by the native parser/runtime. Compact V1's four short reductions remain available. `NATIVE-CORE.md` distinguishes native IR execution from per-program machine-code emission and records the exact compatibility boundary.
+`--home DIRECTORY` before the subcommand overrides `RF2_HOME`. Spaces in paths are supported. Output directories/prefixes must be new. Builds compile and locally sign; they never execute the resulting application. A failure may leave newly created output for inspection. The helper uses shell and ordinary Mac utilities around native RF2; it adds no compiler feature or MCP effect.
 
-## Build directly from Core
+`doctor` verifies the selected native executable signatures and reads runtime status. It is not a manifest verifier, publisher authenticator or notarization check. The unchanged runtime reports 0.17.0 inside the 0.36 package. Follow normal macOS approval processes; no security setting is changed by the helper.
+
+## Direct Mac application build
+
+The helper delegates to the existing direct route:
 
 ```sh
-./tools/build-core.sh ./rf2 ./rf2c examples/sum.flow sum-build
+sh tools/build-program.sh "$RF2_HOME/rf2c" examples/collection-tools/telemetry-summary.flow another-build --opt
+./another-build/program
+```
+
+Source is trusted local systems code. It may use raw OS/memory effects and is not a sandbox. Relative local imports resolve under the documented [module contract](MODULES-TYPES.md). The development compiler accepts `.flow` and `.rf2`; older stable compilers need not understand later syntax.
+
+## Bounded runtime and Core
+
+From the source checkout, using an explicitly selected native runtime:
+
+```sh
+"$RF2_HOME/rf2" status
+"$RF2_HOME/rf2" check examples/compact/sum.rf2
+"$RF2_HOME/rf2" run examples/compact/sum.rf2 '[1,2,3]'
+"$RF2_HOME/rf2" mcp
+```
+
+The sum returns 6. `rf2 run` executes bounded native IR; it is not a fresh standalone compilation per call. General Core has checked/wrapping u32 arithmetic, helpers and bounded loops. The compact profile provides four reductions. See [Core semantics](NATIVE-CORE.md).
+
+For an explicit per-program Core executable:
+
+```sh
+sh tools/build-core.sh "$RF2_HOME/rf2" "$RF2_HOME/rf2c" examples/sum.flow sum-build
 ./sum-build/program '[1,2,3]'
 ```
 
-`rf2 lower` returns a checked systems-profile kernel fragment. The script combines it with the trusted input harness, invokes the native compiler and signs the resulting ARM64 program. It creates a new directory rather than overwriting an old build. The same effect/work/error contract is tested against the reference. No new speed claim follows from compilation.
+This route combines checked lowered source with a trusted input harness, compiles it and signs it. No speed claim follows from the existence of a native image.
 
-## Application export
+## MCP and fixed capabilities
+
+The native service retains nine bounded tools: status, check, run, lower, attendance export, invoice totals and prepared-plan lifecycle. Stdio uses JSON-RPC lines with protocol baseline 2024-11-05. Request limits include 1 MiB, depth 32, 64 object fields and 70,000 tokens. Oversized input drains before the next line; duplicate keys and malformed UTF-8 reject. These finite checks are not an independent security certification.
+
+The plugin uses `RF2_BIN` or its documented local path. It never silently builds or falls back to Node. The host supplies AI intelligence. Raw systems compilation, caller-controlled filesystem/network paths and firmware/device operations are not MCP permissions. Internal OS entropy only seeds process-local prepared handles.
+
+The explicit CLI attendance export and invoice workspace have separate file contracts: named inputs and new output paths, with existing targets refused. See [attendance](../capabilities/attendance.local.v1/README.md), [prepared plans](PREPARED-PLANS.md), [invoice workspace](INVOICE-WORKSPACE.md) and [capability measurements](CAPABILITY-MEASUREMENTS.md). The graphical invoice editor uses RF2-generated loopback browser forms, not a native widget toolkit; see [Studio](GRAPHICAL-EDITOR.md).
+
+## ESP32-C3 firmware
 
 ```sh
-./rf2 attendance capabilities/attendance.local.v1/test-records.json register.csv
+sh tools/dev.sh firmware examples/esp32c3/interrupt-heartbeat.flow NEW-PREFIX
 ```
 
-See the versioned capability's README. CLI export reads the explicit input file and writes only the explicit new CSV path. Through MCP, `attendance_export` returns CSV text/counts and accepts no filesystem path. Its counts use a compiled Core helper program. Tests use fictional programming inputs, not real student study data.
+The separately selected ESP32-C3 compiler emits `.elf`, `.bin` and `.map` files. It does not flash, enumerate or open hardware. The Mac collection analyser is not an embedded program. Read [board and compiler contracts](../examples/esp32c3/README.md) and [interrupt qualification](ESP32C3-INTERRUPTS-0.36.md). Physical board/sensor/timing verification is pending.
 
-## Native rebuild
+## Native toolchain rebuild
+
+From a source checkout with a suitable explicit prior compiler:
 
 ```sh
-./rf2c native/compiler/compiler.rf2 next-rf2c
+"$RF2_HOME/rf2c" native/compiler/compiler.rf2 next-rf2c
 /usr/bin/codesign -s - --force next-rf2c
-./tools/build-runtime.sh ./next-rf2c next-runtime
+sh tools/build-runtime.sh ./next-rf2c next-runtime
 ./next-runtime/rf2 status
 ```
 
-The runtime is composed from native/rf2.rf2, core.rf2, attendance.rf2, the generated attendance-kernel.rf2 and fingerprint.rf2. Compiling only the first module is no longer a complete runtime build. The systems compiler emits ARM64/Mach-O directly without invoking Python, Node, C/C++, an assembler or a linker. The shell scripts use OS file utilities and signing. Historical Python and JavaScript implementations remain development oracles/initial-bootstrap routes.
+The runtime's composition order is authoritative in `tools/build-runtime.sh`; compiling only `native/rf2.rf2` is not a full runtime build. The compiler emits ARM64/Mach-O directly. Shell/build/test tools may use other languages as development tooling, distinct from native user runtime dependencies. Historical Python seeds and JavaScript references remain available as developer oracles. See [release history](RESEARCH-HISTORY.md), [compiler map](../native/compiler/README.md) and [test guidance](../tests/README.md).
 
-## MCP
-
-The native server exposes nine tools: status, check, run, lower, attendance export, invoice totals and three prepared-plan lifecycle tools. stdio uses JSON-RPC lines and protocol baseline 2024-11-05. Source/data are supplied directly. There is no arbitrary path, network, process-launch or machine-source execution tool. The client provides AI intelligence.
-
-The launcher uses RF2_BIN or output/bin/rf2. It never auto-builds, installs dependencies or falls back to Node. Fresh source/plugin checkouts need an explicit native binary. Use one registration route per client.
-
-Request limits: 1 MiB, nesting depth 32, object fields 64, tokens 70,000. Oversized requests drain before the next line. Duplicate object keys and malformed UTF-8 reject. This is a bounded native implementation, not an independent security audit or process sandbox.
-
-## Evidence and history
-
-Read the native Core, direct-kernel, attendance, compact and compiler 0.7 verification reports in docs/. Release 0.4 established four native reductions; release 0.5 established bounded systems-compiler self-reproduction. Their frozen release artifacts remain separate. The JavaScript server retains research catalog, batch execution and C emission not all migrated to native tools.
-
-No speed, energy, token-saving, fieldwork or phone claim is established by this release.
-
-RF2_APP_V1 is a separate fixed application-plan profile. `rf2 app plan.rf2 lines.json` reads only those explicit inputs and returns invoice totals on stdout. It is not a general Core source accepted by check/run/lower. See capabilities/invoice.total.v1/README.md and docs/CAPABILITY-MEASUREMENTS.md for the exact contract and measured limitations.
-
-Release 0.8: nine runtime modules; 256-function systems compiler; explicit CLI invoice document/edit/PDF operations. See INVOICE-WORKSPACE.md and PREPARED-PLANS.md. MCP has no caller-controlled file access; internal OS entropy is used only to initialize process-local handle numbering.
-
-## Graphical workspace and platform layer
-
-Run `./rf2 editor --open` or open RiverFlow Studio.app. The RF2 controller renders standard browser forms, validates exact cents and exports the same document/PDF format. See GRAPHICAL-EDITOR.md, PLATFORM-ABI.md and STUDIO-MEASUREMENTS.md. The trusted systems syscall and fork primitives do not expand bounded MCP permissions. Ten RF2 modules form the runtime.
-
-## Local modules and records
-
-Read MODULES-TYPES.md. Build examples/workload/main.rf2 with tools/build-program.sh and the supplied compiler. The new records/module grammar belongs to the trusted systems compiler, not bounded Core/MCP. Optional --opt changes code generation; the distributed runtime uses it. Optional mcp --compact retains structured data and errors while omitting redundant successful Core summaries. See COMPACT-MCP.md and LANGUAGE-MEASUREMENTS.md.
+There is no universal speed, energy, model-token, hardware or cross-platform result implied by these tools.

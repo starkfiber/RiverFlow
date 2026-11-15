@@ -1,0 +1,567 @@
+{
+  "schema": "rf2.onboarding.v1",
+  "passed": true,
+  "checks": 136,
+  "checkedAt": "2026-11-15T02:09:12.684604+00:00",
+  "sourceCommit": "28b65ea9053925d98611bcda4b9818726c4239d9",
+  "sourceWorkingTree": "onboarding changes under review; controller/helper hashes identify tested changes",
+  "packageURL": "https://raw.githubusercontent.com/starkfiber/RiverFlow/28b65ea9053925d98611bcda4b9818726c4239d9/dist/0.36-candidate/RF2-0.36-dev-macos-arm64.zip",
+  "packageSHA256": "a07f2f7ac7e4895171b7c6a178c9c6817427e76379bf2c6a26e9da40213d0f1d",
+  "manifestFiles": 38,
+  "helperSHA256": "f2b021ac3f0d2c64cf31823a5ff69ac99434da8f7542ea6908c400ebbd92b6bd",
+  "controllerSHA256": "d5eedbc312d59d56067b77e2bd450dc042efec8236dc01b6d1298d0995de0b43",
+  "compilerSHA256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37",
+  "runtimeSHA256": "df714d688e5b96577abb294a192432ed2f57f07c080ab23e32eee46cf94b0b89",
+  "hardwareTested": false,
+  "firmwareEmulatedThisRun": false,
+  "scope": "Fresh package and native developer journey; no speed, AI usage, learning or physical hardware measurement.",
+  "rows": [
+    {
+      "name": "pinned-public-download",
+      "passed": true
+    },
+    {
+      "name": "native-fresh-extraction",
+      "passed": true
+    },
+    {
+      "name": "manifest:LICENSE",
+      "passed": true
+    },
+    {
+      "name": "manifest:README.txt",
+      "passed": true
+    },
+    {
+      "name": "manifest:examples/esp32c3/README.md",
+      "passed": true
+    },
+    {
+      "name": "manifest:examples/esp32c3/board.json",
+      "passed": true
+    },
+    {
+      "name": "manifest:examples/esp32c3/interrupt-heartbeat.flow",
+      "passed": true
+    },
+    {
+      "name": "manifest:examples/esp32c3/lib/peripheral.flow",
+      "passed": true
+    },
+    {
+      "name": "manifest:examples/esp32c3/lib/time.flow",
+      "passed": true
+    },
+    {
+      "name": "manifest:examples/esp32c3/lib/uart.flow",
+      "passed": true
+    },
+    {
+      "name": "manifest:examples/esp32c3/lib/watchdog.flow",
+      "passed": true
+    },
+    {
+      "name": "manifest:examples/esp32c3/register-sources.json",
+      "passed": true
+    },
+    {
+      "name": "manifest:examples/esp32c3/tests/model-hooks.flow",
+      "passed": true
+    },
+    {
+      "name": "manifest:examples/esp32c3/tests/model-main.flow",
+      "passed": true
+    },
+    {
+      "name": "manifest:examples/esp32c3/tests/verify_protocol.py",
+      "passed": true
+    },
+    {
+      "name": "manifest:examples/esp32c3/tests/verify_protocol_rv32.py",
+      "passed": true
+    },
+    {
+      "name": "manifest:examples/esp32c3/timed-heartbeat.flow",
+      "passed": true
+    },
+    {
+      "name": "manifest:examples/esp32c3/tmp102.flow",
+      "passed": true
+    },
+    {
+      "name": "manifest:examples/esp32c3/uart-echo.flow",
+      "passed": true
+    },
+    {
+      "name": "manifest:examples/esp32c3/uart-smoke.flow",
+      "passed": true
+    },
+    {
+      "name": "manifest:firmware/interrupt-heartbeat.bin",
+      "passed": true
+    },
+    {
+      "name": "manifest:firmware/interrupt-heartbeat.elf",
+      "passed": true
+    },
+    {
+      "name": "manifest:firmware/interrupt-heartbeat.map",
+      "passed": true
+    },
+    {
+      "name": "manifest:firmware/timed-heartbeat.bin",
+      "passed": true
+    },
+    {
+      "name": "manifest:firmware/timed-heartbeat.elf",
+      "passed": true
+    },
+    {
+      "name": "manifest:firmware/timed-heartbeat.map",
+      "passed": true
+    },
+    {
+      "name": "manifest:firmware/tmp102.bin",
+      "passed": true
+    },
+    {
+      "name": "manifest:firmware/tmp102.elf",
+      "passed": true
+    },
+    {
+      "name": "manifest:firmware/tmp102.map",
+      "passed": true
+    },
+    {
+      "name": "manifest:firmware/uart-echo.bin",
+      "passed": true
+    },
+    {
+      "name": "manifest:firmware/uart-echo.elf",
+      "passed": true
+    },
+    {
+      "name": "manifest:firmware/uart-echo.map",
+      "passed": true
+    },
+    {
+      "name": "manifest:firmware/uart-smoke.bin",
+      "passed": true
+    },
+    {
+      "name": "manifest:firmware/uart-smoke.elf",
+      "passed": true
+    },
+    {
+      "name": "manifest:firmware/uart-smoke.map",
+      "passed": true
+    },
+    {
+      "name": "manifest:rf2",
+      "passed": true
+    },
+    {
+      "name": "manifest:rf2-esp32c3",
+      "passed": true
+    },
+    {
+      "name": "manifest:rf2c",
+      "passed": true
+    },
+    {
+      "name": "manifest:source/backend.flow",
+      "passed": true
+    },
+    {
+      "name": "manifest:source/embedded-compiler.rf2",
+      "passed": true
+    },
+    {
+      "name": "help-without-bundle",
+      "passed": true
+    },
+    {
+      "name": "missing-bundle",
+      "passed": true
+    },
+    {
+      "name": "unknown-command",
+      "passed": true
+    },
+    {
+      "name": "missing-home-value",
+      "passed": true
+    },
+    {
+      "name": "missing-check-source",
+      "passed": true
+    },
+    {
+      "name": "extra-status-argument",
+      "passed": true
+    },
+    {
+      "name": "extra-doctor-argument",
+      "passed": true
+    },
+    {
+      "name": "extra-mcp-argument",
+      "passed": true
+    },
+    {
+      "name": "missing-build-output",
+      "passed": true
+    },
+    {
+      "name": "bad-build-flag",
+      "passed": true
+    },
+    {
+      "name": "missing-firmware-prefix",
+      "passed": true
+    },
+    {
+      "name": "missing-bundle-directory",
+      "passed": true
+    },
+    {
+      "name": "missing-compiler",
+      "passed": true
+    },
+    {
+      "name": "bad-signature-refused",
+      "passed": true
+    },
+    {
+      "name": "doctor-real-tools-spaced-path",
+      "passed": true
+    },
+    {
+      "name": "doctor-without-language-toolchain-path",
+      "passed": true
+    },
+    {
+      "name": "explicit-home-overrides-environment",
+      "passed": true
+    },
+    {
+      "name": "relative-bundle-path",
+      "passed": true
+    },
+    {
+      "name": "check-without-image",
+      "passed": true
+    },
+    {
+      "name": "source-error-visible",
+      "passed": true
+    },
+    {
+      "name": "missing-source-visible",
+      "passed": true
+    },
+    {
+      "name": "build-summary",
+      "passed": true
+    },
+    {
+      "name": "signature-summary",
+      "passed": true
+    },
+    {
+      "name": "existing-output-refused-summary",
+      "passed": true
+    },
+    {
+      "name": "symlink-output-refused-summary",
+      "passed": true
+    },
+    {
+      "name": "build-frequency",
+      "passed": true
+    },
+    {
+      "name": "signature-frequency",
+      "passed": true
+    },
+    {
+      "name": "existing-output-refused-frequency",
+      "passed": true
+    },
+    {
+      "name": "symlink-output-refused-frequency",
+      "passed": true
+    },
+    {
+      "name": "build-does-not-execute",
+      "passed": true
+    },
+    {
+      "name": "explicit-execution-separate",
+      "passed": true
+    },
+    {
+      "name": "build-without-language-toolchain-path",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-0",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-0",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-1",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-1",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-2",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-2",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-3",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-3",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-4",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-4",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-5",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-5",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-6",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-6",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-7",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-7",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-8",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-8",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-9",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-9",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-10",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-10",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-11",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-11",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-12",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-12",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-13",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-13",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-14",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-14",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-15",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-15",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-16",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-16",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-17",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-17",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-18",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-18",
+      "passed": true
+    },
+    {
+      "name": "summary-oracle-19",
+      "passed": true
+    },
+    {
+      "name": "frequency-oracle-19",
+      "passed": true
+    },
+    {
+      "name": "invalid-input-summary-0",
+      "passed": true
+    },
+    {
+      "name": "invalid-input-summary-1",
+      "passed": true
+    },
+    {
+      "name": "invalid-input-summary-2",
+      "passed": true
+    },
+    {
+      "name": "invalid-input-summary-3",
+      "passed": true
+    },
+    {
+      "name": "invalid-input-summary-4",
+      "passed": true
+    },
+    {
+      "name": "invalid-input-frequency-0",
+      "passed": true
+    },
+    {
+      "name": "invalid-input-frequency-1",
+      "passed": true
+    },
+    {
+      "name": "invalid-input-frequency-2",
+      "passed": true
+    },
+    {
+      "name": "invalid-input-frequency-3",
+      "passed": true
+    },
+    {
+      "name": "invalid-input-frequency-4",
+      "passed": true
+    },
+    {
+      "name": "tutorial-exact-error",
+      "passed": true
+    },
+    {
+      "name": "checked-sum-overflow",
+      "passed": true
+    },
+    {
+      "name": "firmware-without-flash",
+      "passed": true
+    },
+    {
+      "name": "firmware-equality-elf",
+      "passed": true
+    },
+    {
+      "name": "firmware-equality-bin",
+      "passed": true
+    },
+    {
+      "name": "firmware-equality-map",
+      "passed": true
+    },
+    {
+      "name": "existing-firmware-refused",
+      "passed": true
+    },
+    {
+      "name": "mcp-nine-tools",
+      "passed": true
+    },
+    {
+      "name": "mcp-boundary-0",
+      "passed": true
+    },
+    {
+      "name": "mcp-boundary-1",
+      "passed": true
+    },
+    {
+      "name": "mcp-boundary-2",
+      "passed": true
+    },
+    {
+      "name": "mcp-boundary-3",
+      "passed": true
+    },
+    {
+      "name": "mcp-process-clean-exit",
+      "passed": true
+    },
+    {
+      "name": "published-tools-unchanged",
+      "passed": true
+    }
+  ],
+  "relativeMarkdownLinksChecked": 128,
+  "relativeMarkdownLinksPassed": true,
+  "instructions": "Run python3 tests/standalone/onboarding_verify.py from a checkout on an Apple Silicon Mac. It fetches the pinned package and writes a new local artifact directory."
+}

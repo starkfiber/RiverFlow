@@ -3,7 +3,7 @@
 ## Execution and trust boundaries
 
 ```text
-Trusted developer source (.rf2)
+Trusted developer source (.flow / .rf2)
     -> native/compiler/compiler.rf2
     -> ARM64 Mach-O executable
     -> explicit OS signing -> local execution
@@ -35,7 +35,7 @@ Paths in this table are relative to the repository root. The runtime build scrip
 ## Build and verify
 
 1. Select an explicit qualified compiler, never an implicit download.
-2. Use `tools/build-program.sh` for one program or `tools/build-runtime.sh` for the composed runtime.
+2. Start with `sh tools/dev.sh doctor` and [the first-app tutorial](FIRST-APP.md). The helper selects native binaries explicitly and delegates to existing routes. Use `tools/build-program.sh` for one program or `tools/build-runtime.sh` for the composed runtime.
 3. Build into a new directory. Refusing overwrites is deliberate.
 4. Run the relevant native acceptance tests with `RF2_TEST_COMPILER` set to the exact candidate.
 5. For compiler changes, run `tests/standalone/compiler_verify.py` with `RF2_BOOTSTRAP_COMPILER` set to a qualified prior generator. Require fixed-point and independent reference agreement.

@@ -1,16 +1,16 @@
 # What can RF2 build today?
 
-RiverFlow is an implemented language with a native compiler, useful applications and a bounded MCP server. It is not yet a replacement for every Java, C++, Python or assembly workflow. The stable inventory describes the **0.17** release, with owned files and visible cleanup errors. Qualification receipts define its exact tested scope.
+RiverFlow is an implemented language with a native compiler, useful applications and a bounded MCP server. It is not yet a replacement for every Java, C++, Python or assembly workflow. The stable runtime is **0.17**; the current development bundle is **0.36**, with a later Mac compiler and a separate ESP32-C3 compiler. The table below labels development-only capabilities explicitly. Qualification receipts define its exact tested scope.
 
 The long-term direction is one readable language across application and systems work. Each additional target needs its own implementation, contract and executed tests.
 
-## Development 0.34: ESP32-C3 subset
+## Development 0.36: ESP32-C3 interrupts and peripheral leases
 
-[A native cross-compiler](ESP32C3-0.34.md) now emits RV32 machine code, ELF32 and ROM-loaded RAM images. Vendor QEMU boot/UART and explicitly scripted TMP102 bus controls pass. The compiler host remains Apple Silicon macOS; physical board and sensor validation are pending. This is a bounded u32 embedded profile, not complete Mac-language, Arduino, x86 or Linux parity.
+[A native cross-compiler](ESP32C3-INTERRUPTS-0.36.md) emits RV32 machine code, ELF32 and ROM-loaded RAM images. One bounded interrupt dispatcher, register preservation, a private stack and checked timer/watchdog leases have emulator controls and two 600-second virtual runs. Vendor QEMU boot/UART and explicitly scripted TMP102 bus controls pass. The compiler host remains Apple Silicon macOS; physical board and sensor validation are pending. This is a bounded u32 embedded profile, not complete Mac-language, Arduino, x86 or Linux parity.
 
 ## Development 0.33: owned u64 collections
 
-[Relocating heap collections](HEAP-COLLECTIONS-0.33.md) support recoverable growth/access, checked local moves and typed mutable borrows, with explicit retirement retry and partial-release rules. Two `.flow` apps share parsing/sorting libraries and handle up to65536 values. No owner returns, concurrency or general raw-pointer safety is established. [Embedded firmware](EMBEDDED-DIRECTION.md) remains a proposed target, not current support.
+[Relocating heap collections](HEAP-COLLECTIONS-0.33.md) support recoverable growth/access, checked local moves and typed mutable borrows, with explicit retirement retry and partial-release rules. Two `.flow` apps share parsing/sorting libraries and handle up to65536 values. No owner returns, concurrency or general raw-pointer safety is established. The separately implemented [ESP32-C3 subset](EMBEDDED-DIRECTION.md) does not make these Mac heap applications portable firmware.
 
 ## Development 0.32: structured fixed arrays
 
@@ -22,7 +22,9 @@ These are source-development capabilities with scoped evidence, separate from th
 
 RF2 is **not at 100% Python, C or assembly coverage**. It still lacks major foundations such as floating-point types, arbitrary-precision arithmetic, general heap/ownership transfer, comprehensive libraries, concurrency, broad FFI, every CPU instruction/ABI and every machine target. Existing native applications do not establish ecosystem parity. Its AI host can write source, but RF2 has no embedded general model and no measured complete AI-task superiority.
 
-See [the current benchmark report](BENCHMARKS-0.21.md), including losses and the historical inventory. No single speed score summarizes these workloads.
+See [the retained 0.21 benchmark report](BENCHMARKS-0.21.md), including losses and the historical inventory. No single speed score summarizes these workloads.
+
+Start with the [tested .flow tutorial](FIRST-APP.md) and [package choices](START-HERE.md#choose-a-package).
 
 ## Choose the execution contract
 
@@ -37,7 +39,7 @@ See [the current benchmark report](BENCHMARKS-0.21.md), including losses and the
 
 ## Working capabilities
 
-| Area | Released behavior | Present boundary | Contract or example |
+| Area | Implemented behavior (versioned contracts apply) | Present boundary | Contract or example |
 | --- | --- | --- | --- |
 | Native compiler | Compiler and runtime written in RF2; direct ARM64/Mach-O emission; self-reproduction checks | Qualified on Apple Silicon macOS; OS signing remains external | [Compiler](NATIVE-COMPILER.md) |
 | Logical decisions | true/false, short-circuit all/any, not; normalized scalar truthiness | Trusted systems profile only; no separate Boolean type | [Logical guards](LOGICAL-GUARDS.md), [file inspector](../examples/file-kind/) |

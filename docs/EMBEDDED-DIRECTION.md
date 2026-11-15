@@ -2,7 +2,7 @@
 
 ## Current executable scope
 
-Development0.34 adds a separate native RF2-written ESP32-C3 cross-compiler. It emits RV32/ELF32 and a direct-ROM-load RAM image; actual Espressif QEMU ROM/SPI/UART and scripted sensor-bus controls pass. [Exact scope and evidence](ESP32C3-0.34.md). No physical board/sensor has been tested. The compiler host remains Apple Silicon macOS. The existing Mac systems compiler and stable bounded MCP runtime retain their contracts.
+Development 0.36 includes a separate native RF2-written ESP32-C3 cross-compiler. It emits RV32/ELF32 and a direct-ROM-load RAM image; actual Espressif QEMU ROM/SPI/UART and scripted sensor-bus controls pass. [Base scope](ESP32C3-0.34.md) and [current interrupt/ownership evidence](ESP32C3-INTERRUPTS-0.36.md). Timer/watchdog libraries, one bounded interrupt dispatcher and checked peripheral leases have emulator tests. No physical board/sensor has been tested. The compiler host remains Apple Silicon macOS. The existing Mac systems compiler and stable bounded MCP runtime retain their contracts.
 
 The .flow extension does not choose a target. x86, Linux applications, arbitrary ESP32 variants, Arduino and Pico support require their own implementations and qualification. The 0.33 collection apps remain Mac host applications, not physical sensor integrations.
 
@@ -21,6 +21,6 @@ Printer firmware adds time-critical queues, peripheral behaviour and fault handl
 3. Define linker layout, startup/reset contract, runtime support and the exact vendor SDK boundary. An optional C/SDK bridge must be labelled a bridge, not an RF2 native backend.
 4. Pure-computation, failure and UART emulator tests now run; retain ELF/disassembly/toolchain identities and expand coverage as implementation grows. Emulation does not prove GPIO, timing, radio or physical energy behaviour.
 5. Build an actual board image and qualify UART/read-only sensor behaviour on identified hardware. Record build, flash, boot, reset and observed outputs before support claims.
-6. Add peripherals and interrupts individually. Printer motor/heater deployment requires actual timing, limits, watchdog and fault/recovery acceptance on the identified machine.
+6. Extend the implemented bounded timer interrupt and two peripheral-lease bundles individually; nested asynchronous interrupts, broader drivers and RTOS coexistence remain open. Printer motor/heater deployment requires actual timing, limits, watchdog and fault/recovery acceptance on the identified machine.
 
 Host heap collections do not justify dynamic allocation inside an interrupt or a hard real-time control loop. Embedded targets need their own budgets and lifecycle rules. No universal hardware, speed, token, power or safety claim follows from current Mac tests.
