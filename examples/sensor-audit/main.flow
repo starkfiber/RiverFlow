@@ -1,0 +1,75 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/sensor.flow"
+fn audit(path,limits:SensorLimits):IO
+ let data=buffer("sensor_audit_input",1048577)
+ let n=try io_regular(path,data,1048576)
+ let cursor=TextCursor(0,0,0,0)
+ let span=TextSpan(0,0)
+ let sample=SensorSample(0,0,0)
+ let states=SensorStates()
+ let out=Writer(buffer("sensor_audit_output",32768),32768,0,0)
+ do store64(buffer("sensor_audit_error_line",8),1)
+ if text_next_line(data,n,cursor,span)==0
+  return err(22)
+ end
+ let header="sensor_id,timestamp_ms,temperature_mC"
+ if text_equal(data+span.start,span.length,header,io_size(header))==0
+  return err(22)
+ end
+ let total=0
+ while text_next_line(data,n,cursor,span)
+  do store64(buffer("sensor_audit_error_line",8),cursor.line)
+  if total>=4096
+   return err(27)
+  end
+  do try sensor_parse(data+span.start,span.length,sample)
+  do try sensor_add(states,sample,limits)
+  set total=total+1
+ end
+ if cursor.status
+  return err(cursor.status)
+ end
+ do sensor_report(states,total,limits,out)
+ if out.error
+  return err(out.error)
+ end
+ do store64(buffer("sensor_audit_error_line",8),0)
+ do try io_write_all(1,out.data,out.used)
+ return ok(total)
+end
+fn run(argc,argv):IO
+ let limits=SensorLimits(100000,150000)
+ if argc==4
+  let low=load64(argv+16)
+  let high=load64(argv+24)
+  set limits.low=try sensor_temperature(low,io_size(low))
+  set limits.high=try sensor_temperature(high,io_size(high))
+  if limits.low>limits.high
+   return err(22)
+  end
+ end
+ return audit(load64(argv+8),limits)
+end
+fn main(argc,argv)
+ if (argc!=2)&(argc!=4)
+  do write(2,"Usage: sensor-audit FILE [LOW_MC HIGH_MC]\n",io_size("Usage: sensor-audit FILE [LOW_MC HIGH_MC]\n"))
+  return 2
+ end
+ let diagnostic=Writer(buffer("sensor_audit_diagnostic",128),128,0,0)
+ handle run(argc,argv)
+ ok rows
+  return 0
+ err cause
+  do writer_text(diagnostic,"Sensor audit refused: ")
+  do writer_number(diagnostic,cause)
+  let line=load64(buffer("sensor_audit_error_line",8))
+  if line
+   do writer_text(diagnostic," at input line ")
+   do writer_number(diagnostic,line)
+  end
+  do writer_text(diagnostic,"\n")
+  do write(2,diagnostic.data,diagnostic.used)
+  return 2
+ end
+ return 2
+end
