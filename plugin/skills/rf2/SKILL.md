@@ -241,3 +241,9 @@ Only launch/read explicitly requested local inputs through the trusted CLI route
 ## Source sprint0.40: collection lookup and record experiment
 
 Read docs/PLATFORM-SPRINT-0.40.md. examples/collection-tools/lookup.flow shares a sorted equal-range library with existing numeric modules. The library requires ascending sorted borrowed Numbers; the CLI sorts before searching. This is bounded u64 lookup, not generic maps/SQL. An isolated hash-pinned compiler experiment supports borrowed nested records and scalar leaf updates; it is not the maintained compiler, inline value layout, owned nested collections or a new MCP effect. Preserve qualified downloads. Keep 72 role/target briefs planning-only until their own artifact/oracle executes. Thousands of local assertions are not thousands of programmers or hardware tests.
+
+## Durable direction and foundation progress
+
+Read docs/PROJECT-CONTINUITY.md and docs/PROGRESS.md before choosing a development task. docs/PIPELINE.json is the declared acceptance ledger; tools/project-progress.py renders/checks it without inventing completion. Keep the universal-language/SDK ambition and competitor benchmarks, with typed values/ownership/persistence as the current foundation sequence. Sprint completion is separate from platform readiness.
+
+The source-only Booking conflict prototype in experiments/nested-records/examples uses borrowed nested records and the actual date/time libraries. It is not a journal writer, released compiler capability or new MCP tool. General owned aggregates remain proposed in docs/APPLICATION-VALUES.md. Store SFE continuity locally, never in Kanika Memory or retained shared jobs; no unrelated thesis/PDF work.
