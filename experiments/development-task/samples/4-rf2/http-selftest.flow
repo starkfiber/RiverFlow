@@ -1,0 +1,31 @@
+profile RF2_SYSTEM_A64_V1
+use "application.flow"
+fn main(argc,argv)
+ if argc!=3
+  return 2
+ end
+ do store64(buffer("app_config",8),load64(argv+8))
+ let fd=0
+ handle number(load64(argv+16),io_size(load64(argv+16)))
+ ok parsed_fd
+  set fd=parsed_fd
+ err bad_fd
+  return 2
+ end
+ do copy(buffer("documents_web_host",64),"127.0.0.1:12345",15)
+ do copy(buffer("documents_web_url",96),"http://127.0.0.1:12345",22)
+ do copy(form_token(),"0123456789abcdef0123456789abcdef",32)
+ if clock_timebase(buffer("documents_web_timebase",8))!=0
+  return 2
+ end
+ if form_request(fd)
+  handle app_dispatch(fd)
+  ok dispatched
+  err dispatch_error
+   return 2
+  end
+ else
+  do app_bad(fd,"400 Bad Request")
+ end
+ return 0
+end

@@ -1,0 +1,102 @@
+--- a/lib/app-server.flow
++++ b/lib/app-server.flow
+@@ -57,15 +57,14 @@
+  end
+  let option = buffer("documents_web_socket_option",8)
+  let client = 0
+- let requests = 0
+  let flags = 0
+- while (load64(globals()+40)==0)&(requests<4096)
++ while load64(globals()+40)==0
+   set got = syscall6(230,poll,9,1000,0,0,0)
+   if got>>63
+    do store64(globals()+40,1)
+   else
+    set i = 1
+-   while (i<9)&(load64(globals()+40)==0)&(requests<4096)
++   while (i<9)&(load64(globals()+40)==0)
+     set client = load32(poll+i*8)
+     if (client!=4294967295)&((load32(poll+i*8+4)>>16)!=0)
+      if form_request(client)
+@@ -81,7 +80,6 @@
+      end
+      do close(client)
+      do store32(poll+i*8,4294967295)
+-     set requests = requests+1
+     end
+     set i = i+1
+    end
+--- a/lib/storage.flow
++++ b/lib/storage.flow
+@@ -39,7 +39,7 @@
+  return ok(fd)
+ end
+ fn storage_read(fd,data,limit):IO
+- if limit>1048576
++ if limit>4194304
+   return err(22)
+  end
+  let rc=syscall6(199,fd,0,0,0,0,0)
+@@ -68,7 +68,7 @@
+ end
+ # Caller holds the exclusive lock. Rollback uncertainty has a distinct outcome.
+ fn storage_append(fd,data,n,previous):IO
+- if (n==0)|(n>1048576)
++ if (n==0)|(n>4194304)
+   return err(22)
+  end
+  let rc=syscall6(199,fd,0,2,0,0,0)
+--- a/lib/store.flow
++++ b/lib/store.flow
+@@ -6,7 +6,7 @@
+ record StoreRequest(action:u64,expected:u64,id:u64,room:u64,day:u64,start:u64,finish:u64)
+ result StoredRows(own Bookings,u64)
+ fn store_data()
+- return buffer("typed_booking_file",1048577)
++ return buffer("typed_booking_file",4194305)
+ end
+ fn store_equal(a,b,n)
+  let i=0
+@@ -99,7 +99,7 @@
+  set state.version=0
+  set state.tail=0
+  set state.digest=0
+- if (n==0)|(n>1048576)
++ if (n==0)|(n>4194304)
+   return err(9001)
+  end
+  let position=0
+@@ -186,13 +186,13 @@
+ end
+ # Serialize only declared fields, with explicit schema identity and digest chaining.
+ fn store_snapshot(fd,rows:Bookings,state:StoreState,version):IO
+- if ((version!=1)&(version!=2))|(state.bytes>1048576)|(state.revision==18446744073709551615)
++ if ((version!=1)&(version!=2))|(state.bytes>4194304)|(state.revision==18446744073709551615)
+   return err(22)
+  end
+  let count=rows.length
+  let width=32+(version==2)*8
+  let size=120+count*width
+- if (count>256)|(size>1048576-state.bytes)
++ if (count>256)|(size>4194304-state.bytes)
+   return err(27)
+  end
+  let frame=buffer("typed_booking_snapshot",10360)
+@@ -335,7 +335,7 @@
+ fn store_locked(fd,request:StoreRequest,state:StoreState,out:Writer):IO
+  own empty=Bookings()
+  let bytes=0
+- handle storage_read(fd,store_data(),1048576)
++ handle storage_read(fd,store_data(),4194304)
+  ok loaded
+   set bytes=loaded
+  err read_error
+@@ -534,7 +534,7 @@
+  end
+  let bytes=0
+  let error=0
+- handle storage_read(fd,store_data(),1048576)
++ handle storage_read(fd,store_data(),4194304)
+  ok loaded
+   set bytes=loaded
+  err read_error

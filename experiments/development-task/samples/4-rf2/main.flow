@@ -1,0 +1,11 @@
+profile RF2_SYSTEM_A64_V1
+use "application.flow"
+fn main(argc,argv)
+ handle cli(argc,argv)
+ ok completed
+  return 0
+ err code
+  return failure(code)
+ end
+ return 2
+end

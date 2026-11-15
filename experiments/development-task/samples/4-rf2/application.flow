@@ -1,0 +1,524 @@
+module study_rooms
+use "lib/store.flow"
+use "lib/ui.flow"
+use "lib/app-server.flow"
+use "lib/json.flow"
+fn selected_path()
+ return load64(buffer("app_config",8))
+end
+fn normalized(code)
+ if code==2
+  return 404
+ end
+ if (code==75)|(code==28)|(code==84)
+  return 22
+ end
+ return code
+end
+fn emit(out:Writer):IO
+ if out.error
+  return err(out.error)
+ end
+ handle io_write_all(1,out.data,out.used)
+ ok wrote
+ err code
+  return err(code)
+ end
+ return ok(0)
+ return err(5)
+end
+fn failure(code)
+ let out=Writer(buffer("cli_error",128),128,0,0)
+ do writer_text(out,"{\"error\":")
+ do writer_number(out,normalized(code))
+ do writer_text(out,"}\n")
+ handle emit(out)
+ ok sent
+ err ignored
+ end
+ return 2
+end
+fn number(p,n):IO
+ handle text_parse_u64(p,n,18446744073709551615)
+ ok v
+  if v==0
+   return err(22)
+  end
+  return ok(v)
+ err cause1
+  return err(22)
+ end
+ return err(22)
+ return err(5)
+end
+fn parse_request(values:FormValues,request:StoreRequest):IO
+ handle number(values[2],values[3])
+ ok revision
+  set request.expected=revision
+ err cause2
+  return err(cause2)
+ end
+ handle number(values[14],values[15])
+ ok id
+  set request.id=id
+ err cause3
+  return err(cause3)
+ end
+ if request.action==3
+  return ok(0)
+ end
+ handle number(values[20],values[21])
+ ok room
+  if room>16
+   return err(22)
+  end
+  set request.room=room
+ err cause4
+  return err(cause4)
+ end
+ let date=0
+ handle date_parse(values[6],values[7])
+ ok key
+  set date=key
+ err cause5
+  return err(cause5)
+ end
+ handle date_ordinal(date)
+ ok ordinal
+  set request.day=ordinal
+ err cause6
+  return err(cause6)
+ end
+ handle time_parse(values[8],values[9],0)
+ ok minute
+  set request.start=minute
+ err cause7
+  return err(cause7)
+ end
+ handle time_parse(values[10],values[11],1)
+ ok finish_minute
+  set request.finish=finish_minute
+ err cause8
+  return err(cause8)
+ end
+ if request.start>=request.finish
+  return err(22)
+ end
+ return ok(0)
+ return err(5)
+end
+fn cli(argc,argv):IO
+ let request=StoreRequest(0,0,0,0,0,0,0)
+ let out=Writer(buffer("cli_output",65536),65536,0,0)
+ let values=FormValues()
+ if argc<3
+  return err(22)
+ end
+ let command=load64(argv+8)
+ let path=load64(argv+16)
+ do store64(buffer("app_config",8),path)
+ if same(command,io_size(command),"reserve")|same(command,io_size(command),"cancel")
+  set request.action=3
+  if same(command,io_size(command),"reserve")
+   set request.action=2
+   if argc!=9
+    return err(22)
+   end
+  else
+   if argc!=5
+    return err(22)
+   end
+  end
+  set values[2]=load64(argv+24)
+  set values[3]=io_size(values[2])
+  set values[14]=load64(argv+32)
+  set values[15]=io_size(values[14])
+  if request.action==2
+   set values[20]=load64(argv+40)
+   set values[21]=io_size(values[20])
+   set values[6]=load64(argv+48)
+   set values[7]=io_size(values[6])
+   set values[8]=load64(argv+56)
+   set values[9]=io_size(values[8])
+   set values[10]=load64(argv+64)
+   set values[11]=io_size(values[10])
+  end
+  handle parse_request(values,request)
+  ok parsed
+  err cause9
+   return err(cause9)
+  end
+ else
+  if argc!=3
+   return err(22)
+  end
+  if same(command,io_size(command),"init")
+   set request.action=1
+  else
+   if same(command,io_size(command),"list")==0
+    if same(command,io_size(command),"serve")|same(command,io_size(command),"mcp")
+     handle store_operation(path,request,out)
+     ok loaded
+     err cause10
+      return err(cause10)
+     end
+     if same(command,io_size(command),"mcp")
+      handle mcp_loop()
+      ok returned1
+       return ok(returned1)
+      err returned_error1
+       return err(returned_error1)
+      end
+     end
+     handle form_session()
+     ok session
+     err cause11
+      return err(cause11)
+     end
+     handle app_serve()
+     ok returned2
+      return ok(returned2)
+     err returned_error2
+      return err(returned_error2)
+     end
+    end
+    return err(22)
+   end
+  end
+ end
+ handle store_operation(path,request,out)
+ ok saved
+ err cause12
+  return err(cause12)
+ end
+ handle emit(out)
+ ok returned3
+  return ok(returned3)
+ err returned_error3
+  return err(returned_error3)
+ end
+ return err(5)
+end
+fn app_dispatch(fd):IO
+ let values=FormValues()
+ let request=StoreRequest(0,0,0,0,0,0,0)
+ let result=Writer(buffer("web_result",65536),65536,0,0)
+ let state=StoreState(0,0,0,0,0,0,0)
+ let out=Writer(buffer("documents_web_output",1048576),1048576,0,0)
+ let row=Booking(0,0,0,0,0)
+ let error=0
+ let saved=0
+ let post=load64(globals()+8)==2
+ if post
+  if same(buffer("app_target",32),io_size(buffer("app_target",32)),"/action")==0
+   do app_bad(fd,"404 Not Found")
+   return ok(0)
+  end
+  let seen=0
+  handle form_parse(load64(globals()+16),load64(globals()+24),1215,values)
+  ok fields
+   set seen=fields
+  err cause13
+   do app_bad(fd,"400 Bad Request")
+   return ok(0)
+  end
+  if same(values[4],values[5],"reserve")&(seen==1215)
+   set request.action=2
+  else
+   if same(values[4],values[5],"cancel")&(seen==135)
+    set request.action=3
+   else
+    do app_bad(fd,"400 Bad Request")
+    return ok(0)
+   end
+  end
+  handle parse_request(values,request)
+  ok parsed
+   handle store_operation(selected_path(),request,result)
+   ok changed
+    set saved=1
+   err cause14
+    set error=normalized(cause14)
+   end
+  err cause15
+   set error=normalized(cause15)
+  end
+ else
+  if same(buffer("app_target",32),io_size(buffer("app_target",32)),"/")==0
+   do app_bad(fd,"404 Not Found")
+   return ok(0)
+  end
+ end
+ handle store_view(selected_path(),state)
+ ok own rows:Bookings
+  do writer_text(out,"<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content=\"width=device-width,initial-scale=1\"><title>Study Rooms</title><style>")
+  do writer_text(out,ui_css())
+  do writer_text(out,"</style><body><main id=main><header class=topbar>RF² · Study Rooms · Local workspace</header><h1>Study Rooms</h1><p>Reserve one of 16 rooms. Times are on the selected calendar day.</p>")
+  do ui_notice(out,error,saved)
+  do writer_text(out,"<div class=stats>")
+  do ui_stat(out,"Saved reservations",rows.length,"Maximum 256 current reservations")
+  do ui_stat(out,"Revision",state.revision,"Forms use this saved revision")
+  do writer_text(out,"</div><div class=content-grid><section class=panel><h2>Saved reservations</h2>")
+  if rows.length==0
+   do writer_text(out,"<p class=empty>No reservations yet. Choose a room and time to begin.</p>")
+  end
+  let i=0
+  while i<rows.length
+   handle records_read(rows,i,row)
+   ok read
+   err cause16
+    return err(cause16)
+   end
+   do writer_text(out,"<article class=booking><div class=room-icon>")
+   do writer_number(out,row.room)
+   do writer_text(out,"</div><div><h3>Room ")
+   do writer_number(out,row.room)
+   do writer_text(out,"</h3><p class=booking-date>")
+   do date_format(out,ui_date_key(row.day))
+   do writer_text(out,"</p><p class=booking-time>")
+   do time_format(out,row.start)
+   do writer_text(out," – ")
+   do time_format(out,row.finish)
+   do writer_text(out,"</p><span>Reservation ")
+   do writer_number(out,row.id)
+   do writer_text(out,"</span></div><form action=/action method=post class=cancel>")
+   do form_hidden(out,state.revision)
+   do writer_text(out,"<input type=hidden name=action value=cancel><input type=hidden name=id value=\"")
+   do writer_number(out,row.id)
+   do writer_text(out,"\"><button type=submit>Cancel reservation ")
+   do writer_number(out,row.id)
+   do writer_text(out,"</button></form></article>")
+   set i=i+1
+  end
+  do writer_text(out,"</section><section class=\"panel form-panel\"><h2>Reserve a room</h2><form action=/action method=post>")
+  do form_hidden(out,state.revision)
+  do writer_text(out,"<input type=hidden name=action value=reserve><input type=hidden name=id value=\"")
+  if error&post&same(values[4],values[5],"reserve")
+   do writer_html(out,values[14],values[15])
+  else
+   do writer_number(out,ui_next_id(rows))
+  end
+  do writer_text(out,"\"><label class=field for=room>Room</label><input required id=room name=room type=number min=1 max=16 value=\"")
+  if error&post&same(values[4],values[5],"reserve")
+   do writer_html(out,values[20],values[21])
+  else
+   do writer_text(out,"1")
+  end
+  do writer_text(out,"\">")
+  let day=""
+  let start="09:00"
+  let finish="10:00"
+  let dn=0
+  let sn=5
+  let fnn=5
+  if error&post&same(values[4],values[5],"reserve")
+   set day=values[6]
+   set dn=values[7]
+   set start=values[8]
+   set sn=values[9]
+   set finish=values[10]
+   set fnn=values[11]
+  end
+  do ui_input(out,"date","Date","date",day,dn,"Use YYYY-MM-DD, years 0001–9999.")
+  do ui_input(out,"start","Start","text",start,sn,"24-hour HH:MM, from 00:00 through 23:59.")
+  do ui_input(out,"end","End","text",finish,fnn,"HH:MM after start; 24:00 means the end of this day.")
+  do writer_text(out,"<button type=submit>Reserve room</button></form><p class=form-note>Adjacent reservations are allowed. Overlapping reservations for the same room and day are refused.</p></section></div><footer>Local browser interface · <a href=/>Refresh saved state</a></footer></main></body></html>")
+  do ui_response(fd,out,"200 OK")
+ err cause17
+  do app_bad(fd,"503 Service Unavailable")
+ end
+ return ok(0)
+ return err(5)
+end
+fn object_empty(index)
+ if index==0
+  return 0
+ end
+ return (load64(j_token(index))==2)&(load64(j_token(index)+24)==index+1)
+end
+fn mcp_error(out:Writer,code,message)
+ do writer_text(out,",\"error\":{\"code\":")
+ do writer_text(out,code)
+ do writer_text(out,",\"message\":")
+ do writer_json(out,message,io_size(message))
+ return writer_text(out,"}}\n")
+end
+fn mcp_request(p,n,oversize):IO
+ let out=Writer(buffer("mcp_output",131072),131072,0,0)
+ let stateout=Writer(buffer("mcp_state",65536),65536,0,0)
+ let request=StoreRequest(0,0,0,0,0,0,0)
+ if oversize|(j_json_parse(p,n)==0)
+  do writer_text(out,"{\"jsonrpc\":\"2.0\",\"id\":null")
+  do mcp_error(out,"-32700","Malformed JSON or line too long")
+  handle emit(out)
+  ok returned4
+   return ok(returned4)
+  err returned_error4
+   return err(returned_error4)
+  end
+ end
+ if load64(j_token(0))!=2
+  do writer_text(out,"{\"jsonrpc\":\"2.0\",\"id\":null")
+  do mcp_error(out,"-32600","Expected a request object")
+  handle emit(out)
+  ok bad_root_sent
+   return ok(bad_root_sent)
+  err bad_root_error
+   return err(bad_root_error)
+  end
+ end
+ let id=j_field(0,"id")
+ let method=j_field(0,"method")
+ let version=j_field(0,"jsonrpc")
+ let params=j_field(0,"params")
+ let valid=(load64(j_token(0))==2)&j_matches(j_token(version),"2.0")&(load64(j_token(method))==1)
+ let i=1
+ while i<load64(j_token(0)+24)
+  if (j_matches(j_token(i),"id")|j_matches(j_token(i),"method")|j_matches(j_token(i),"jsonrpc")|j_matches(j_token(i),"params"))==0
+   set valid=0
+  end
+  set i=load64(j_token(i+1)+24)
+ end
+ if id
+  let kind=load64(j_token(id))
+  if (kind!=1)&(kind!=7)&(kind!=6)
+   set valid=0
+   set id=0
+  end
+ end
+ if valid&(id==0)
+  return ok(0)
+ end
+ do writer_text(out,"{\"jsonrpc\":\"2.0\",\"id\":")
+ if id
+  let token=j_token(id)
+  if load64(token)==1
+   do writer_bytes(out,load64(token+8)-1,load64(token+16)+2)
+  else
+   do writer_bytes(out,load64(token+8),load64(token+16))
+  end
+ else
+  do writer_text(out,"null")
+ end
+ if valid==0
+  do mcp_error(out,"-32600","Invalid request")
+  handle emit(out)
+  ok returned5
+   return ok(returned5)
+  err returned_error5
+   return err(returned_error5)
+  end
+ end
+ if j_matches(j_token(method),"initialize")
+  if (params==0)|(load64(j_token(params))!=2)
+   do mcp_error(out,"-32602","Initialize requires parameters")
+  else
+   let protocol=j_field(params,"protocolVersion")
+   let init_valid=j_matches(j_token(protocol),"2025-11-25")
+   set i=params+1
+   while i<load64(j_token(params)+24)
+    if (j_matches(j_token(i),"protocolVersion")|j_matches(j_token(i),"capabilities")|j_matches(j_token(i),"clientInfo"))==0
+     set init_valid=0
+    end
+    set i=load64(j_token(i+1)+24)
+   end
+   if init_valid==0
+    do mcp_error(out,"-32602","Supported protocol is 2025-11-25")
+   else
+    do writer_text(out,",\"result\":{\"protocolVersion\":\"2025-11-25\",\"capabilities\":{\"tools\":{\"listChanged\":false}},\"serverInfo\":{\"name\":\"study-rooms\",\"version\":\"1.0\"}}}\n")
+   end
+  end
+ else
+  if j_matches(j_token(method),"ping")|j_matches(j_token(method),"tools/list")
+   if (params!=0)&(object_empty(params)==0)
+    do mcp_error(out,"-32602","Expected empty parameters")
+   else
+    if j_matches(j_token(method),"ping")
+     do writer_text(out,",\"result\":{}}\n")
+    else
+     do writer_text(out,",\"result\":{\"tools\":[{\"name\":\"booking_list\",\"description\":\"Read saved reservations in the selected workspace\",\"inputSchema\":{\"type\":\"object\",\"properties\":{},\"additionalProperties\":false}}]}}\n")
+    end
+   end
+  else
+   if j_matches(j_token(method),"tools/call")
+    let name=j_field(params,"name")
+    let arguments=j_field(params,"arguments")
+    let accepted=j_matches(j_token(name),"booking_list")&object_empty(arguments)
+    if params==0
+     set accepted=0
+    else
+     set i=params+1
+     while i<load64(j_token(params)+24)
+      if (j_matches(j_token(i),"name")|j_matches(j_token(i),"arguments"))==0
+       set accepted=0
+      end
+      set i=load64(j_token(i+1)+24)
+     end
+    end
+    if accepted==0
+     do writer_text(out,",\"result\":{\"isError\":true,\"content\":[{\"type\":\"text\",\"text\":\"Only booking_list with explicit empty arguments is allowed\"}]}}\n")
+    else
+     handle store_operation(selected_path(),request,stateout)
+     ok loaded
+      do writer_text(out,",\"result\":{\"isError\":false,\"structuredContent\":")
+      do writer_bytes(out,stateout.data,stateout.used-1)
+      do writer_text(out,",\"content\":[{\"type\":\"text\",\"text\":\"Current saved study-room reservations\"}]}}\n")
+     err cause18
+      do writer_text(out,",\"result\":{\"isError\":true,\"content\":[{\"type\":\"text\",\"text\":\"Workspace read failed: ")
+      do writer_number(out,normalized(cause18))
+      do writer_text(out,"\"}]}}\n")
+     end
+    end
+   else
+    do mcp_error(out,"-32601","Unknown method")
+   end
+  end
+ end
+ handle emit(out)
+ ok returned6
+  return ok(returned6)
+ err returned_error6
+  return err(returned_error6)
+ end
+ return err(5)
+end
+fn mcp_loop():IO
+ let data=buffer("mcp_line",65537)
+ let one=buffer("mcp_byte",1)
+ let used=0
+ let overflow=0
+ while 1
+  let got=read(0,one,1)
+  if got>>63
+   return err(5)
+  end
+  if got==0
+   if used|overflow
+    handle mcp_request(data,used,overflow)
+    ok sent
+    err cause19
+     return err(cause19)
+    end
+   end
+   return ok(0)
+  end
+  if load8(one)==10
+   handle mcp_request(data,used,overflow)
+   ok delivered
+   err cause20
+    return err(cause20)
+   end
+   set used=0
+   set overflow=0
+  else
+   if used<65536
+    do store8(data+used,load8(one))
+    set used=used+1
+   else
+    set overflow=1
+   end
+  end
+ end
+ return ok(0)
+ return err(5)
+end
