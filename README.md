@@ -71,7 +71,7 @@ For AI integration, [configure the native MCP host](docs/START-HERE.md#connect-a
 
 **Development apps: Workbench 0.38 and Documents 0.37.** Native Mac Booking, a Core learning editor and read-only document search share reusable libraries. [Select a package](docs/START-HERE.md#choose-a-package); each guide links its own acceptance evidence.
 
-**Latest application candidate: 0.45.** [Typed multi-room Booking](docs/TYPED-BOOKING-0.45.md) shares real persistence and room rules across CLI, a light/dark browser GUI and a selected-journal MCP server. It uses the [0.44 recursive-owned-value compiler](docs/NESTED-OWNERS-0.44.md). Default/optimized tests cover independent snapshot decoding, schema migration, overlapping/concurrent writers, controlled failed/uncertain saves and bounded agent permissions. The [native development archive](https://github.com/starkfiber/RiverFlow/releases/tag/v0.45.0-dev) is published and its downloaded bytes were qualified again. Stable packages remain unchanged. The [fixed twelve-item ledger](docs/PROGRESS.md) records the remaining matched task comparison and actual GitHub recognition.
+**Latest application candidate: 0.45.** [Typed multi-room Booking](docs/TYPED-BOOKING-0.45.md) shares real persistence and room rules across CLI, a light/dark browser GUI and a selected-journal MCP server. It uses the [0.44 recursive-owned-value compiler](docs/NESTED-OWNERS-0.44.md). Default/optimized tests cover independent snapshot decoding, schema migration, overlapping/concurrent writers, controlled failed/uncertain saves and bounded agent permissions. The [native development archive](https://github.com/starkfiber/RiverFlow/releases/tag/v0.45.0-dev) is published and its downloaded bytes were qualified again. Stable packages remain unchanged. The [fixed twelve-item ledger](docs/PROGRESS.md) records the remaining actual GitHub recognition gate. The [four-attempt construction comparison](docs/SDK-CONSTRUCTION-0.45.md) retains real usage and failures; no RF2 productivity advantage was established.
 
 **Embedded development: 0.36 ESP32-C3.** A separate RF2-written backend has [emulator evidence](docs/ESP32C3-INTERRUPTS-0.36.md) for boot, UART, sensor-bus controls, timers and interrupts. Physical board and sensor validation remain pending.
 
@@ -89,6 +89,7 @@ MCP does not grant arbitrary filesystem, network or systems-code execution. AI i
 | [`tests/`](tests/README.md) | Native acceptance tests, independent oracles and regressions |
 | [`plugin/`](plugin/) | Native MCP launchers and host skill |
 | [`tools/`](tools/README.md) | Explicit build, measurement and publishing tools |
+| [`editors/`](editors/vscode/README.md) | Declarative language highlighting/snippets and honest Linguist preparation |
 | [`docs/`](docs/README.md) | Documentation index, contracts and retained evidence; Pages publication |
 | [`bootstrap/`](bootstrap/), [`src/`](src/) | Historical seed and JavaScript reference implementation |
 | [`site/`](site/), [`book/`](book/) | Website and book sources |
