@@ -1,0 +1,81 @@
+{
+  "scope": "Private experimental borrowed record composition, not inline values or released compiler",
+  "checks": [
+    {
+      "case": "borrow-and-alias",
+      "optimized": false,
+      "compiled": true,
+      "diagnostic": "RF2 native image emitted; apply macOS code signing before execution.",
+      "runExit": 0
+    },
+    {
+      "case": "borrow-and-alias",
+      "optimized": true,
+      "compiled": true,
+      "diagnostic": "RF2 native image emitted; apply macOS code signing before execution.",
+      "runExit": 0
+    },
+    {
+      "case": "wrong-child",
+      "optimized": false,
+      "compiled": false,
+      "diagnostic": "nested constructor type mismatch\nnear source 5:24 (line:byte-column; entry CHECKOUT/artifacts/nested-039/wrong-child.flow)\n"
+    },
+    {
+      "case": "wrong-child",
+      "optimized": true,
+      "compiled": false,
+      "diagnostic": "nested constructor type mismatch\nnear source 5:24 (line:byte-column; entry CHECKOUT/artifacts/nested-039/wrong-child.flow)\n"
+    },
+    {
+      "case": "rebind-child",
+      "optimized": false,
+      "compiled": false,
+      "diagnostic": "nested child binding is immutable; borrow child to mutate leaves\nnear source 8:13 (line:byte-column; entry CHECKOUT/artifacts/nested-039/rebind-child.flow)\n"
+    },
+    {
+      "case": "rebind-child",
+      "optimized": true,
+      "compiled": false,
+      "diagnostic": "nested child binding is immutable; borrow child to mutate leaves\nnear source 8:13 (line:byte-column; entry CHECKOUT/artifacts/nested-039/rebind-child.flow)\n"
+    },
+    {
+      "case": "escaping-result",
+      "optimized": false,
+      "compiled": false,
+      "diagnostic": "borrowed nested record cannot escape in result\nnear source 4:23 (line:byte-column; entry CHECKOUT/artifacts/nested-039/escaping-result.flow)\n"
+    },
+    {
+      "case": "escaping-result",
+      "optimized": true,
+      "compiled": false,
+      "diagnostic": "borrowed nested record cannot escape in result\nnear source 4:23 (line:byte-column; entry CHECKOUT/artifacts/nested-039/escaping-result.flow)\n"
+    },
+    {
+      "case": "resource-child",
+      "optimized": false,
+      "compiled": false,
+      "diagnostic": "nested field requires plain borrowed record\nnear source 4:25 (line:byte-column; entry CHECKOUT/artifacts/nested-039/resource-child.flow)\n"
+    },
+    {
+      "case": "resource-child",
+      "optimized": true,
+      "compiled": false,
+      "diagnostic": "nested field requires plain borrowed record\nnear source 4:25 (line:byte-column; entry CHECKOUT/artifacts/nested-039/resource-child.flow)\n"
+    },
+    {
+      "case": "self-cycle",
+      "optimized": false,
+      "compiled": false,
+      "diagnostic": "nested record requires earlier type\nnear source 2:22 (line:byte-column; entry CHECKOUT/artifacts/nested-039/self-cycle.flow)\n"
+    },
+    {
+      "case": "self-cycle",
+      "optimized": true,
+      "compiled": false,
+      "diagnostic": "nested record requires earlier type\nnear source 2:22 (line:byte-column; entry CHECKOUT/artifacts/nested-039/self-cycle.flow)\n"
+    }
+  ],
+  "baseline": "954762a199e1fc94e651f39fab87c2642bea71f8",
+  "candidateSourceSha256": "7623c80eb07332bc13f0d36c3278ae3765308c503e66b00a31be4d393ef9ea44"
+}
