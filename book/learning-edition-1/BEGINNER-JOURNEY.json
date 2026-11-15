@@ -1,0 +1,49 @@
+{
+  "scope": "AI-executed fresh extraction, restricted PATH, private folder with spaces; not a real beginner usability study",
+  "checks": [
+    {
+      "step": "status",
+      "exit": 0,
+      "stdout": "{\"version\":\"0.17.0\",\"runtime\":\"RiverFlow systems source compiled to ARM64\",\"target\":\"macos-arm64\",\"syntaxProfiles\":[\"RF2_COMPACT_V1\",\"RF2_U32_CORE_V0\",\"RF2_APP_V1\"],\"operations\":[\"ADD\",\"MUL\",\"LOAD\",\"POPCOUNT\",\"NONZERO\",\"CALL\"],\"coreExecution\":\"bounded native IR runtime\",\"kernelLowering\":\"per-program RiverFlow systems source, compiled with rf2c and trusted harness\",\"coreEffects\":[\"read_input\"],\"applicationCapabilities\":[\"attendance.local@1\",\"invoice.total@1\"],\"mcpFilesystemAccess\":false,\"internalOSEntropyRead\":true,\"preparedPlans\":\"32 immutable process-local plans, explicit release, no rule override\",\"cliAttendanceWrites\":\"explicit new output path only\",\"nodeRequired\":false,\"cppRequired\":false,\"systemsCompilerSelfReproduces\":true,\"generalCoreParser\":true,\"compilerModules\":\"explicit local use imports, CLI only\",\"compilerRecords\":\"nominal u64 records and fixed u64/u8 arrays; typed borrowed parameters; CLI compiler only\",\"compilerOptimization\":\"optional register, instruction and guarded re"
+    },
+    {
+      "step": "check source path with spaces",
+      "exit": 0,
+      "stdout": "{\"schema\":\"rf2.compact.plan.v1\",\"coreProfile\":\"RF2_U32_CORE_V0\",\"operation\":1,\"wrapping\":false,\"effects\":[\"read_input\"],\"maxInput\":65536,\"execution\":\"native ARM64 reduction\"}\n"
+    },
+    {
+      "step": "sum",
+      "exit": 0,
+      "stdout": "{\"value\":6,\"steps\":12,\"profile\":\"RF2_U32_CORE_V0\",\"syntaxProfile\":\"RF2_COMPACT_V1\",\"effects\":[\"read_input\"]}\n"
+    },
+    {
+      "step": "build core standalone package",
+      "exit": 0,
+      "stdout": "RF2 native image emitted; apply macOS code signing before execution."
+    },
+    {
+      "step": "run native path with spaces",
+      "exit": 0,
+      "stdout": "{\"value\":6,\"steps\":12,\"profile\":\"RF2_U32_CORE_V0\",\"syntaxProfile\":\"RF2_U32_CORE_V0\",\"effects\":[\"read_input\"]}\n"
+    },
+    {
+      "step": "new booking file",
+      "exit": 0,
+      "stdout": "{\"saved\":true,\"id\":0}\n"
+    },
+    {
+      "step": "reserve",
+      "exit": 0,
+      "stdout": "{\"saved\":true,\"id\":1}\n"
+    },
+    {
+      "step": "reload",
+      "exit": 0,
+      "stdout": "{\"revision\":1,\"active\":1,\"bookings\":[{\"id\":1,\"date\":\"2027-01-10\",\"start\":\"09:00\",\"end\":\"10:00\",\"name\":\"Test Student\"}]}\n"
+    },
+    {
+      "step": "overlap refused",
+      "exit": 1
+    }
+  ]
+}

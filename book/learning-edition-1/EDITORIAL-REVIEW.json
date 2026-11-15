@@ -1,0 +1,93 @@
+{
+  "project": "RF2 From Zero, First Learning Edition",
+  "artifactType": "Original beginner technical book, not a degree thesis",
+  "author": "Ilangkhumanan Thirunavokkarasu",
+  "edition": "1.0 learning draft",
+  "baseline": "954762a199e1fc94e651f39fab87c2642bea71f8",
+  "mainTopic": "Current RF2 and honest future evolution",
+  "chapterCount": 24,
+  "learnerTrial": "AI-executed fresh installation and nine command steps; real beginner study not conducted",
+  "notebookSync": "No ThesisPro MCP tools available; canonical local project record, no Mac-app sync claimed",
+  "reviews": [
+    {
+      "role": "evidence",
+      "performedBy": "Codex AI-assisted self-review",
+      "decision": "Version-bound examples verified; broad language/hardware claims bounded"
+    },
+    {
+      "role": "methods",
+      "performedBy": "Codex AI-assisted self-review",
+      "decision": "41 executable checks separate from 12 GET smoke probes and prior application tests"
+    },
+    {
+      "role": "practical",
+      "performedBy": "Codex AI-assisted self-review",
+      "decision": "Core-to-systems distinction and install friction explicit; learner trial pending"
+    },
+    {
+      "role": "editor",
+      "performedBy": "Codex AI-assisted self-review",
+      "decision": "20 short chapters, exercises and answers; title corrected; chat-specific status removed from learner prose; original branding retained"
+    }
+  ],
+  "issues": [
+    {
+      "id": "ED-01",
+      "issue": "Proposed syntax could be mistaken for current compiler support",
+      "status": "verified-resolved",
+      "action": "Preserve current syntax; proposals isolated in evolution specification"
+    },
+    {
+      "id": "ED-02",
+      "issue": "An old package could be mistaken for current baseline",
+      "status": "verified-resolved",
+      "action": "Specify Workbench0.38 and runtime0.17 separately"
+    },
+    {
+      "id": "ED-03",
+      "issue": "Fragments mistaken for full programs",
+      "status": "verified-resolved",
+      "action": "Label fragments; complete executable sources in examples"
+    },
+    {
+      "id": "ED-04",
+      "issue": "Real-world educational success unmeasured",
+      "status": "accepted-limitation",
+      "action": "Require Jitra fresh-install task trial before effectiveness claims"
+    },
+    {
+      "id": "ED-05",
+      "issue": "Full language coverage implied by edition1",
+      "status": "accepted-limitation",
+      "action": "Learning edition covers current introductory journey and points to deeper reference; unsupported features explicit"
+    },
+    {
+      "id": "ED-06",
+      "issue": "Plain-text saving and complete fragment sources unclear",
+      "status": "verified-resolved",
+      "action": "Explain TextEdit plain text and extension; link full loop/results lessons; all examples execute in native controllers"
+    },
+    {
+      "id": "ED-07",
+      "issue": "UI and language differentiation too abstract",
+      "status": "accepted-limitation",
+      "action": "Add UI checks and three project acceptance blueprints; no framework superiority or finished general UI toolkit claim"
+    }
+  ],
+  "whatif": {
+    "requests": 12,
+    "errorRate": 0,
+    "scope": "Read-only loopback response-header/status smoke; no capacity/security verdict"
+  },
+  "localLinksChecked": 13,
+  "sources": [
+    "docs/NATIVE-CORE.md",
+    "docs/MODULES-TYPES.md",
+    "docs/HEAP-COLLECTIONS-0.33.md",
+    "docs/BOOKING-STUDIO.md",
+    "docs/WORKBENCH-0.38-VERIFICATION.json",
+    "docs/ESP32C3-INTERRUPTS-0.36.md"
+  ],
+  "manuscriptSha256": "d4a3c60c705065f89b3dfd4ff653a9bf1072c342d6b53874ef4c01c0da7b9de0",
+  "wordCountWhitespaceIncludingCode": 4499
+}

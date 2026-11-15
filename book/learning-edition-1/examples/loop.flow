@@ -1,0 +1,10 @@
+profile RF2_SYSTEM_A64_V1
+fn main(argc,argv)
+ let n=0
+ let total=0
+ while n<5
+  set total=total+n
+  set n=n+1
+ end
+ return total!=10
+end
