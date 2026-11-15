@@ -12,36 +12,21 @@ RiverFlow is a programming language with a compiler written in RiverFlow. Its Ma
 
 The goal is one readable language for application and systems work, with explicit effects and recoverable failures. The current implementation is a foundation for that goal. Its [capability map](docs/CAPABILITY-MAP.md) states what works and what remains missing.
 
-## Start in five minutes
+## Start with a native application
 
-Download and unpack the latest Apple Silicon Mac release, then run these commands from its directory:
-
-```sh
-./rf2 status
-./rf2 run examples/compact/sum.rf2 '[1,2,3]'
-./rf2 mcp
-```
-
-The sum returns `6`. The last command starts the native MCP service over standard input and output. Follow [the host setup guide](docs/START-HERE.md#connect-an-ai-host) to connect it to an AI application.
-
-To compile your own trusted systems program:
-
-```rf2
-profile RF2_SYSTEM_A64_V1
-fn main(argc,argv)
- let answer=20+22
- return answer!=42
-end
-```
-
-Save it as `program.rf2`. From a source checkout with a qualified native compiler:
+Use the [first .flow application walkthrough](docs/FIRST-APP.md) for the exact download, checksum, setup and expected outputs. With the 0.36 native bundle extracted and this source checkout open:
 
 ```sh
-./tools/build-program.sh /absolute/path/to/rf2c program.rf2 program-build --opt
-./program-build/program
+export RF2_HOME="$HOME/Downloads/RF2-0.36-dev-macos-arm64"
+sh tools/dev.sh doctor
+sh tools/dev.sh check examples/collection-tools/telemetry-summary.flow
+sh tools/dev.sh build examples/collection-tools/telemetry-summary.flow summary-build --opt
+printf '9,1,9,3,2' | ./summary-build/program
 ```
 
-The program exits successfully. The build creates a new directory and signs the executable for local macOS execution. It never silently installs a toolchain.
+The result is `{"count":5,"minimum":1,"maximum":9,"sum":24,"median_lower":3}`. Build directories must be new; checking and building never run the source application. The developer helper uses the explicitly selected native tools and ordinary macOS signing. It never downloads software or flashes a device.
+
+For AI integration, [configure the native MCP host](docs/START-HERE.md#connect-an-ai-host). The runtime still reports **0.17.0** inside the 0.36 bundle because the nine-tool contract is unchanged; the development compiler has a separate scope. [Stable and development choices](docs/START-HERE.md#choose-a-package) are explicit.
 
 ## Choose your path
 
