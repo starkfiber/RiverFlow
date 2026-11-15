@@ -1,0 +1,5 @@
+RiverFlow document workspace
+
+Readable source. Native tools. Explicit boundaries.
+This workspace keeps the supplied originals unchanged.
+Search this local snapshot, inspect its sources, and challenge a result.
