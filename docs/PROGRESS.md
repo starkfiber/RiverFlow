@@ -1,6 +1,6 @@
 # RF2 delivery progress
 
-`███████░░░` **9/12 requested requirements complete (75%)**
+`████████░░` **10/12 requested requirements complete (83%)**
 
 This is the fixed delivery checklist reviewed with the owner on 15 November 2026. It counts accepted requirements equally, not engineering hours or universal language coverage. Partial implementations earn no completed-item credit. No sprint percentage is presented as product completion.
 
@@ -17,13 +17,13 @@ This is the fixed delivery checklist reviewed with the owner on 15 November 2026
 | R07 | done | Transactional multi-room Booking with overlap, simultaneous writers, failed saves and restart tests | [TYPED-BOOKING-0.45.md](TYPED-BOOKING-0.45.md), [TYPED-BOOKING-0.45.json](TYPED-BOOKING-0.45.json) · Cooperative single-file lock/CAS transactions across real native processes; no hostile same-user isolation or distributed database claim. |
 | R08 | done | Reusable polished accessible UI components demonstrated in the real application | [TYPED-BOOKING-0.45.md](TYPED-BOOKING-0.45.md), [TYPED-BOOKING-0.45.json](TYPED-BOOKING-0.45.json) · Reusable RF2 HTML/CSS components, actual browser/keyboard inspection; no human learner or screen-reader trial. |
 | R09 | done | Bounded Booking agent interface using the same typed business/storage logic as CLI and GUI | [TYPED-BOOKING-0.45.md](TYPED-BOOKING-0.45.md), [TYPED-BOOKING-0.45.json](TYPED-BOOKING-0.45.json) · Separate selected-journal agent, read-only by default. Existing nine-tool Core runtime unchanged. |
-| R10 | active | Qualified downloadable compiler/application packages with fresh extraction and source-build checks | [TYPED-BOOKING-0.45.json](TYPED-BOOKING-0.45.json) · Fresh local archive extraction and native source rebuild passed; SFE upload and public download verification remain pending. |
-| R11 | pending | Executed matched complete-development comparison against an established stack, retaining actual effort/usage and failures |  |
+| R10 | done | Qualified downloadable compiler/application packages with fresh extraction and source-build checks | [TYPED-BOOKING-0.45.json](TYPED-BOOKING-0.45.json) · Development archive published by starkfiber, downloaded/hash-matched and freshly rebuilt; Apple Silicon Mac only, ad-hoc signed and not notarized. |
+| R11 | active | Executed matched complete-development comparison against an established stack, retaining actual effort/usage and failures |  |
 | R12 | pending | RiverFlow accepted in upstream GitHub Linguist; actual external acceptance verified | [LANGUAGE-REPORTING.md](LANGUAGE-REPORTING.md) · External adoption/review dependency; do not fabricate usage or acceptance. |
 
 ## Active implementation
 
-R10: Publish the exact locally qualified native compiler/Booking development archive through verified SFE, then download and verify its bytes. Next: matched complete-development comparison with actual effort/usage, then genuine external language recognition.
+R11: Freeze an equal complete-app task and available libraries, execute fresh matched development attempts, retain actual usage/effort and failures, then independently grade features. Genuine upstream Linguist recognition remains a separate external gate.
 
 The eight longer-term platform gates and historical sprint evidence remain in PIPELINE.json. They do not produce extra completion badges. GitHub recognition depends on real external adoption and review; implementing a grammar or documenting requirements does not complete R12.
 
