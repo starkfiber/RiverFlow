@@ -1,0 +1,58 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/reader.flow"
+fn main(argc,argv)
+ if argc!=3
+  do write(2,"Usage: workspace MANIFEST --catalog|--serve\n",io_size("Usage: workspace MANIFEST --catalog|--serve\n"))
+  return 2
+ end
+ let flag=load64(argv+16)
+ let mode=0
+ if text_equal(flag,io_size(flag),"--serve",7)
+  set mode=1
+ else
+  if text_equal(flag,io_size(flag),"--catalog",9)==0
+   return 2
+  end
+ end
+ let status=0
+ let diagnostic=Writer(buffer("workspace.flow_diagnostic",128),128,0,0)
+ handle workspace_run(load64(argv+8),mode)
+ ok completed1
+ err code2
+  do writer_text(diagnostic,"Document operation refused: ")
+  do writer_number(diagnostic,code2)
+  do writer_text(diagnostic,"\n")
+  do write(2,diagnostic.data,diagnostic.used)
+  set status=1
+ end
+ return status
+end
+fn workspace_run(path,mode):IO
+ own docs=Items()
+ let corpus=Corpus(0,0,0,0)
+ handle corpus_load(path,docs,corpus)
+ ok count3
+ err code4
+  return err(code4)
+ end
+ if mode
+  handle server_run(docs,corpus)
+  ok served
+   return ok(served)
+  err serve_error
+   return err(serve_error)
+  end
+ end
+ let out=Writer(buffer("documents_catalog",1048576),1048576,0,0)
+ handle corpus_catalog(docs,corpus,out)
+ ok bytes5
+ err code6
+  return err(code6)
+ end
+ handle io_write_all(1,out.data,out.used)
+ ok written7
+ err code8
+  return err(code8)
+ end
+ return ok(0)
+end

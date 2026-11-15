@@ -1,0 +1,214 @@
+profile RF2_SYSTEM_A64_V1
+# Developer probe for shared modules; not a replacement MCP tool.
+use "lib/text.flow"
+use "lib/collections.flow"
+fn probe(path,mode,argument,option):IO
+ let data=buffer("probe_input",65537)
+ let n=0
+ handle io_regular(path,data,65536)
+ ok input_bytes
+  set n=input_bytes
+ err input_error
+  return err(input_error)
+ end
+ let out=Writer(buffer("probe_output",32768),32768,0,0)
+ let info=TextInfo(0,0,0,0)
+ let found=TextMatches(0,0,0,0)
+ let prefix=TextPrefix()
+ let span=TextSpan(0,0)
+ let cursor=TextCursor(0,0,0,0)
+ let row=Row4(0,0,0,0)
+ own values=Items()
+ let i=0
+ if text_equal(mode,io_size(mode),"measure",7)
+  do text_measure(data,n,info)
+  do writer_text(out,"[")
+  do writer_number(out,info.status)
+  do writer_text(out,",")
+  do writer_number(out,info.scalars)
+  do writer_text(out,",")
+  do writer_number(out,info.lines)
+  do writer_text(out,",")
+  do writer_number(out,info.words)
+  do writer_text(out,"]")
+ else
+  if text_equal(mode,io_size(mode),"search",6)
+   do text_search(data,n,argument,io_size(argument),option,prefix,found)
+   do writer_text(out,"[")
+   do writer_number(out,found.status)
+   do writer_text(out,",")
+   do writer_number(out,found.count)
+   do writer_text(out,",")
+   do writer_number(out,found.first)
+   do writer_text(out,",")
+   do writer_number(out,found.last)
+   do writer_text(out,"]")
+  else
+   if text_equal(mode,io_size(mode),"lines",5)
+    do writer_text(out,"[")
+    while text_next_line(data,n,cursor,span)
+     if i
+      do writer_text(out,",")
+     end
+     do writer_text(out,"[")
+     do writer_number(out,span.start)
+     do writer_text(out,",")
+     do writer_number(out,span.length)
+     do writer_text(out,"]")
+     set i=i+1
+    end
+    do writer_text(out,"]")
+   else
+    if text_equal(mode,io_size(mode),"collections",11)
+     while i<n
+      handle items_insert_unique(values,load8(data+i))
+      ok position
+      err insert_error
+       return err(insert_error)
+      end
+      set i=i+1
+     end
+     do writer_text(out,"[")
+     set i=0
+     while i<values.length
+      if i
+       do writer_text(out,",")
+      end
+      handle collection_get(values,i)
+      ok value
+       do writer_number(out,value)
+      err get_error
+       return err(get_error)
+      end
+      set i=i+1
+     end
+     do writer_text(out,"]")
+    else
+     if text_equal(mode,io_size(mode),"rows",4)
+      set row.a=10
+      set row.b=20
+      set row.c=30
+      set row.d=40
+      while i<1024
+       handle items_append_row4(values,row)
+       ok added
+       err append_error
+        return err(append_error)
+       end
+       set i=i+1
+      end
+      let refused=0
+      handle items_append_row4(values,row)
+      ok unexpected
+      err limit_error
+       set refused=limit_error
+      end
+      set row.a=99
+      handle items_row4(values,1024,row)
+      ok unexpected_row
+      err row_error
+       set refused=refused+row_error
+      end
+      do writer_text(out,"[")
+      do writer_number(out,refused)
+      do writer_text(out,",")
+      do writer_number(out,values.length)
+      do writer_text(out,",")
+      do writer_number(out,row.a)
+      do writer_text(out,"]")
+     else
+      if text_equal(mode,io_size(mode),"parse",5)
+       let parsed=0
+       let parse_status=0
+       handle text_parse_u64(data,n,option)
+       ok number
+        set parsed=number
+       err number_error
+        set parse_status=number_error
+       end
+       do writer_text(out,"[")
+       do writer_number(out,parse_status)
+       do writer_text(out,",")
+       do writer_number(out,parsed)
+       do writer_text(out,"]")
+      else
+       let target=buffer("probe_destination",1024)
+       set i=0
+       while i<1024
+        do store8(target+i,170)
+        set i=i+1
+       end
+       let count=0
+       let status=0
+       if option>512
+        return err(22)
+       end
+       if text_equal(mode,io_size(mode),"html",4)
+        handle text_html(data,n,target,option)
+        ok rendered
+         set count=rendered
+        err html_error
+         set status=html_error
+        end
+       else
+        if text_equal(mode,io_size(mode),"decode",6)==0
+         return err(22)
+        end
+        handle text_decode(data,n,target,option)
+        ok decoded
+         set count=decoded
+        err decode_error
+         set status=decode_error
+        end
+       end
+       do writer_text(out,"{\"status\":")
+       do writer_number(out,status)
+       do writer_text(out,",\"count\":")
+       do writer_number(out,count)
+       do writer_text(out,",\"bytes\":[")
+       set i=0
+       while i<514
+        if i
+         do writer_text(out,",")
+        end
+        do writer_number(out,load8(target+i))
+        set i=i+1
+       end
+       do writer_text(out,"]}")
+      end
+     end
+    end
+   end
+  end
+ end
+ do writer_text(out,"\n")
+ if out.error
+  return err(out.error)
+ end
+ handle io_write_all(1,out.data,out.used)
+ ok written
+ err write_error
+  return err(write_error)
+ end
+ return ok(0)
+end
+fn main(argc,argv)
+ if argc!=5
+  return 2
+ end
+ let opt=load64(argv+32)
+ let option=0
+ handle text_parse_u64(opt,io_size(opt),18446744073709551615)
+ ok supplied
+  set option=supplied
+ err option_error
+  return 2
+ end
+ let status=0
+ handle probe(load64(argv+16),load64(argv+8),load64(argv+24),option)
+ ok completed
+ err code
+  set status=1
+ end
+ return status
+end
