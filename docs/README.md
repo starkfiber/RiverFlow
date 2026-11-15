@@ -1,5 +1,7 @@
 # RiverFlow documentation
 
+[Application epochs 0.49](APPLICATION-EPOCHS-0.49.md): two independently built native apps, a reproduced ownership correction, typed request adapters, exact JSON wire contracts and measured sensor CLI comparisons. Practical value and unproven adoption/AI-token claims are kept separate.
+
 [Developer loop 0.48](DEVELOPER-LOOP-0.48.md): native repeat builds preserving the last working image, scalar field propagation and imported-source diagnostics. New failure controls and matched compile timings are distinct from unmeasured model-authoring savings.
 
 | Your next step | Read |

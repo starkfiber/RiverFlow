@@ -23,7 +23,7 @@ This is the fixed delivery checklist reviewed with the owner on 15 November 2026
 
 ## Active implementation
 
-G8 / G4: Application effort remains the priority. Source candidate 0.48B implements repeatable native builds preserving the last image, scalar field propagation and original-source diagnostics. 120 new controls, 15 regression suites/self-generation and 55/55 real app replay checks pass. Native compilation is about 15ms; no new model authoring or token advantage is established. Next: typed form/request adapters and a reusable SDK, then a preregistered second complete-task comparison. R12 Linguist remains pending and nonblocking.
+G8 / G4: Candidate 0.49 corrects the reviewed ownership regression, adds typed request adapters and two independently constructed native apps. 354 request controls,178 browser controls,53 document checks/mode,149 sensor cases/mode,16 sensor API controls and15 regression suites/self-generation pass. A4096-row complete sensor process measured5.24ms versus46.27ms for qualified single-pass Python on one warm Mac; no new AI-authoring/token advantage. Next: shared SDK/package/import roots, target qualification and preregistered authoring comparison. Linguist stays pending/nonblocking.
 
 The eight longer-term platform gates and historical sprint evidence remain in PIPELINE.json. They do not produce extra completion badges. GitHub recognition depends on real external adoption and review; implementing a grammar or documenting requirements does not complete R12.
 
