@@ -1,0 +1,59 @@
+{
+  "baseline": "38fdd87be5dfb3e564afb468500afc70e29be966",
+  "host": {
+    "architecture": "arm64",
+    "macOS": "26.5.1"
+  },
+  "mainChecks": 3048,
+  "allMainChecksPassed": true,
+  "nativeCollectionWorkloads": 2000,
+  "generatedNestedVariants": 256,
+  "nestedExecutions": 512,
+  "mainReportSha256": "da771a0c68dc8b5b4bedaca9b07ed85dacc1008a674f4751401a8cbbae891f94",
+  "qualifiedCompilerSha256": "c1aa22e3303d849691467b3ba5dacfdc651570004afd2e70582ce5dac60e5e37",
+  "experimentalCompilerSha256": "2281b3f501da675372647247e743ab2f1f8ba720c428400a64a063bc7a8ae796",
+  "regressions": [
+    {
+      "name": "collection application regression",
+      "reportSha256": "7ad72361dec00c0f9cf5b67cc8cbc47ebd675c3b697e65984d70ddae0d4d8cee",
+      "passed": true,
+      "localEvidence": "artifacts/collection-apps/verify-1794722604022439000/report.json"
+    },
+    {
+      "name": "heap ownership controls",
+      "reportSha256": "5821e18e00b2ca558bc5402813080f7b8e35c97d857a7c06fb1e1eff21516abe",
+      "passed": true,
+      "localEvidence": "artifacts/sprint-033/heap-redteam-1794722605172574000/report.json"
+    }
+  ],
+  "regressionCounts": {
+    "collectionApps": 308,
+    "heapOwnership": 78
+  },
+  "selfGeneration": {
+    "unsignedImagesMatch": true,
+    "sha256": "901230026777da79f4c0b4cdd88e1a7917c4579bdb6383836ce24358938e5a57",
+    "scope": "Two candidate self-generations, not diverse bootstrap or full semantic validation"
+  },
+  "whatif": {
+    "cases": 3,
+    "GETrequests": 60,
+    "allSmokeStagesPassed": true,
+    "verified": true,
+    "capacity": "NOT_ESTABLISHED",
+    "security": "NOT_ESTABLISHED",
+    "scope": "Existing local Booking page; no new lookup HTTP endpoint or outage injected"
+  },
+  "scenarioBriefs": {
+    "generated": 72,
+    "executedAsCompleteRoleJourneys": 0
+  },
+  "currentRuntimeEffects": "Unchanged nine MCP tools; raw systems source refused and next sum6 passed",
+  "sourceHashes": {
+    "experiments/nested-records/prepare.py": "0f75df5a63893b90dfa65c150c556e85dbc4efe8d6988621e9768dd12aedb80b",
+    "examples/collection-tools/lib/ranges.flow": "fc4e4df1e7a0ea5759291ae3cd03ec96c5d9f31964f775d6853ca94220056a34",
+    "examples/collection-tools/lookup.flow": "8f43f7288023a21e149a8d27a80ecb0812b3a69243cdf52f1e5dd0686c47ad62",
+    "tests/standalone/platform_sprint_verify.py": "dfeef7564f7d5b44a98b80c4cb547134eafb5d39ed5d8ab0f7daa188663ea0e4",
+    "artifacts/sprint-040/nested/compiler.flow": "6ce7ef07fc2d516273331b7c71881b355931bfd03f72e735927c9f802f47e2de"
+  }
+}
