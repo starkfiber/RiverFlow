@@ -1,0 +1,151 @@
+module doc_collections
+use "lib/io.flow"
+collection Items(IO,4096)
+record Row4(a:u64,b:u64,c:u64,d:u64)
+# Requires a sorted ascending sequence. Returns its insertion position.
+fn items_lower_bound(values:Items,key):IO
+ let lo=0
+ let hi=values.length
+ while lo<hi
+  let mid=lo+(hi-lo)//2
+  handle collection_get(values,mid)
+  ok value1
+   if value1<key
+    set lo=mid+1
+   else
+    set hi=mid
+   end
+  err code2
+   return err(code2)
+  end
+ end
+ return ok(lo)
+end
+# Allocation/limit failures happen before mutation; no callback/concurrency.
+fn items_insert_unique(values:Items,key):IO
+ let at=0
+ handle items_lower_bound(values,key)
+ ok index3
+  set at=index3
+ err code4
+  return err(code4)
+ end
+ if at<values.length
+  handle collection_get(values,at)
+  ok present5
+   if present5==key
+    return ok(at)
+   end
+  err code6
+   return err(code6)
+  end
+ end
+ if values.length==values.limit
+  return err(22)
+ end
+ handle collection_reserve(values,values.length+1)
+ ok capacity7
+ err code8
+  return err(code8)
+ end
+ handle collection_push(values,key)
+ ok appended9
+ err code10
+  return err(code10)
+ end
+ let i=values.length-1
+ while i>at
+  let previous=0
+  handle collection_get(values,i-1)
+  ok value11
+   set previous=value11
+  err code12
+   return err(code12)
+  end
+  handle collection_set(values,i,previous)
+  ok stored13
+  err code14
+   return err(code14)
+  end
+  set i=i-1
+ end
+ handle collection_set(values,at,key)
+ ok stored15
+ err code16
+  return err(code16)
+ end
+ return ok(at)
+end
+fn items_append_row4(values:Items,row:Row4):IO
+ if (values.length&3)!=0
+  return err(22)
+ end
+ if values.length>values.limit-4
+  return err(22)
+ end
+ handle collection_reserve(values,values.length+4)
+ ok capacity17
+ err code18
+  return err(code18)
+ end
+ handle collection_push(values,row.a)
+ ok one19
+ err code20
+  return err(code20)
+ end
+ handle collection_push(values,row.b)
+ ok two21
+ err code22
+  return err(code22)
+ end
+ handle collection_push(values,row.c)
+ ok three23
+ err code24
+  return err(code24)
+ end
+ handle collection_push(values,row.d)
+ ok four25
+ err code26
+  return err(code26)
+ end
+ return ok(values.length//4-1)
+end
+# Publish the output record only after all four checked reads succeed.
+fn items_row4(values:Items,index,out:Row4):IO
+ if ((values.length&3)!=0)|(index>=values.length//4)
+  return err(34)
+ end
+ let a=0
+ let b=0
+ let c=0
+ let d=0
+ handle collection_get(values,index*4)
+ ok v27
+  set a=v27
+ err code28
+  return err(code28)
+ end
+ handle collection_get(values,index*4+1)
+ ok v29
+  set b=v29
+ err code30
+  return err(code30)
+ end
+ handle collection_get(values,index*4+2)
+ ok v31
+  set c=v31
+ err code32
+  return err(code32)
+ end
+ handle collection_get(values,index*4+3)
+ ok v33
+  set d=v33
+ err code34
+  return err(code34)
+ end
+ set out.a=a
+ set out.b=b
+ set out.c=c
+ set out.d=d
+ return ok(index)
+end
