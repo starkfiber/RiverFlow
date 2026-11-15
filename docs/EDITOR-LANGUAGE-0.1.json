@@ -1,0 +1,80 @@
+{
+  "edition": "editor-language-0.1.0",
+  "engineReport": "artifacts/rf2-editor-tools/REPORT-final.json",
+  "engineReportSHA256": "39aca6f4f556e4cbc59e4dc8d02d0a4aa4ab783da40bd69fa56f6bbd39105235",
+  "checks": 26,
+  "engineVersions": {
+    "textmate": "9.3.2",
+    "oniguruma": "2.0.1",
+    "vsce": "4.1.1"
+  },
+  "scope": "Lexical highlighting, manifest, source corpus and one expanded native entry",
+  "sources": {
+    "editors/vscode/LICENSE": "439e5b1ea79a6a0a2007acf65173490db2462b238b9805abab0ee820838b23e8",
+    "editors/vscode/README.md": "f968716d82b39589a6bfba3b2432718f83080b0d974ffc31b705c2aaa0163e77",
+    "editors/vscode/language-configuration.json": "9d321069cbe638b060c0d6cc1c2e3a7bf8bdd811afa68974a762ae37ccb49b5b",
+    "editors/vscode/package.json": "afdaeeef88f1eddd0cfe6a52aaf03b6845cb9fbed15f253c39c2c97741c33420",
+    "editors/vscode/snippets/riverflow.json": "abd9e48d21fc170aa0c3cf242b9f702d56c355ec058f6ebb7929bc5f7e77fb97",
+    "editors/vscode/syntaxes/riverflow.tmLanguage.json": "6c4679556a0d27ef4340b364f5ee7d587c40c466c9253992edcb423d6bfd115e"
+  },
+  "testSourceSHA256": "14a393fe53fc889ef686a645000f0ad4fc1bbb10d04b176d4fd844ce22a618a4",
+  "VSIX": {
+    "archiveSHA256": "e51844ebadeeb8ce2432af82a1fe84e5fc763f4958c5f7baf52861290d34969a",
+    "bytes": 6421,
+    "entries": [
+      "extension.vsixmanifest",
+      "[Content_Types].xml",
+      "extension/LICENSE.txt",
+      "extension/readme.md",
+      "extension/language-configuration.json",
+      "extension/package.json",
+      "extension/snippets/riverflow.json",
+      "extension/syntaxes/riverflow.tmLanguage.json"
+    ],
+    "sourceChecks": [
+      {
+        "path": "package.json",
+        "sha256": "afdaeeef88f1eddd0cfe6a52aaf03b6845cb9fbed15f253c39c2c97741c33420",
+        "archiveBytesMatch": true
+      },
+      {
+        "path": "README.md",
+        "sha256": "f968716d82b39589a6bfba3b2432718f83080b0d974ffc31b705c2aaa0163e77",
+        "archiveBytesMatch": true
+      },
+      {
+        "path": "LICENSE",
+        "sha256": "439e5b1ea79a6a0a2007acf65173490db2462b238b9805abab0ee820838b23e8",
+        "archiveBytesMatch": true
+      },
+      {
+        "path": "language-configuration.json",
+        "sha256": "9d321069cbe638b060c0d6cc1c2e3a7bf8bdd811afa68974a762ae37ccb49b5b",
+        "archiveBytesMatch": true
+      },
+      {
+        "path": "snippets/riverflow.json",
+        "sha256": "abd9e48d21fc170aa0c3cf242b9f702d56c355ec058f6ebb7929bc5f7e77fb97",
+        "archiveBytesMatch": true
+      },
+      {
+        "path": "syntaxes/riverflow.tmLanguage.json",
+        "sha256": "6c4679556a0d27ef4340b364f5ee7d587c40c466c9253992edcb423d6bfd115e",
+        "archiveBytesMatch": true
+      }
+    ],
+    "codeEntry": false,
+    "installed": false,
+    "path": "artifacts/rf2-editor-tools/riverflow-rf2-language-0.1.0.vsix"
+  },
+  "VSCodeHostInstalled": false,
+  "marketplacePublished": false,
+  "githubLinguistAccepted": false,
+  "limitations": [
+    "Actual TextMate/Oniguruma engine tested, not an installed VS Code UI session",
+    "No compiler language-server/debugger/automatic source execution",
+    "No external Linguist acceptance or adoption fabricated"
+  ],
+  "packageVerifierSHA256": "236ff85da6e9a04bec4996821d8450f0a1659126355d46a8d64e0bb1301ead1f",
+  "corpusCommit": "55ca9eff7e7aa54f6423cd3d902114aa2b0ee8ec"
+}

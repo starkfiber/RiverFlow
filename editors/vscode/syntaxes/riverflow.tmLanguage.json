@@ -1,0 +1,166 @@
+{
+  "name": "RiverFlow RF2",
+  "scopeName": "source.riverflow",
+  "fileTypes": [
+    "flow",
+    "rf2"
+  ],
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#declarations"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#constants"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#operators"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.number-sign.riverflow",
+          "match": "#.*$"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.riverflow",
+          "begin": "\"",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.begin.riverflow"
+            }
+          },
+          "end": "\"",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.riverflow"
+            }
+          },
+          "patterns": [
+            {
+              "name": "constant.character.escape.riverflow",
+              "match": "\\\\(?:[\"\\\\nrt0]|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4})"
+            }
+          ]
+        }
+      ]
+    },
+    "declarations": {
+      "patterns": [
+        {
+          "match": "^\\s*(fn|FUNCTION)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+          "captures": {
+            "1": {
+              "name": "storage.type.function.riverflow"
+            },
+            "2": {
+              "name": "entity.name.function.riverflow"
+            }
+          }
+        },
+        {
+          "match": "^\\s*(record|result|resource|array|vector|heap|collection|text)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+          "captures": {
+            "1": {
+              "name": "storage.type.riverflow"
+            },
+            "2": {
+              "name": "entity.name.type.riverflow"
+            }
+          }
+        },
+        {
+          "match": "^\\s*(module)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+          "captures": {
+            "1": {
+              "name": "keyword.control.module.riverflow"
+            },
+            "2": {
+              "name": "entity.name.namespace.riverflow"
+            }
+          }
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.riverflow",
+          "match": "\\b(?:profile|use|fn|let|set|if|else|while|end|return|do|handle|ok|err|defer|interrupt|FLOW|PROFILE|ARITHMETIC|FUNCTION|RETURNS|VAR|FOR|FROM|TO|LIMIT|STEP|WITH|RETURN|END|CHECKED|WRAP)\\b"
+        },
+        {
+          "name": "keyword.control.ownership.riverflow",
+          "match": "\\b(?:own|borrow|move|release)\\b"
+        },
+        {
+          "name": "support.function.core.riverflow",
+          "match": "\\b(?:ADD|MUL|LOAD|POPCOUNT|NONZERO)\\b"
+        },
+        {
+          "name": "keyword.control.compact.riverflow",
+          "match": "\\b(?:rf2|v1|app|checked|wrap|sum|squares|bits|nonzero|input)\\b"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "storage.type.numeric.riverflow",
+          "match": "\\b(?:u8|u32|u64)\\b"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.language.boolean.riverflow",
+          "match": "\\b(?:true|false)\\b"
+        },
+        {
+          "name": "constant.language.profile.riverflow",
+          "match": "\\bRF2_[A-Z0-9_]+\\b"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.integer.riverflow",
+          "match": "\\b[0-9]+\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.riverflow",
+          "match": "//|<<|>>|==|!=|<=|>=|[+*/%&|^~<>=!-]"
+        },
+        {
+          "name": "punctuation.section.riverflow",
+          "match": "[()\\[\\]{},:]"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "name": "riverflow-rf2-language",
+  "displayName": "RiverFlow RF2 Language",
+  "description": "Syntax highlighting and explicit snippets for RiverFlow Core and native Systems programs. No automatic execution.",
+  "version": "0.1.0",
+  "publisher": "starkfiber",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/starkfiber/RiverFlow.git",
+    "directory": "editors/vscode"
+  },
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "riverflow",
+        "aliases": [
+          "RiverFlow RF2",
+          "RiverFlow",
+          "RF2"
+        ],
+        "extensions": [
+          ".flow",
+          ".rf2"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "riverflow",
+        "scopeName": "source.riverflow",
+        "path": "./syntaxes/riverflow.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "riverflow",
+        "path": "./snippets/riverflow.json"
+      }
+    ]
+  },
+  "files": [
+    "README.md",
+    "LICENSE",
+    "language-configuration.json",
+    "syntaxes/riverflow.tmLanguage.json",
+    "snippets/riverflow.json"
+  ]
+}

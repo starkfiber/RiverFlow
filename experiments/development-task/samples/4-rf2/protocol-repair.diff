@@ -1,0 +1,11 @@
+--- a/application.flow
++++ b/application.flow
+@@ -456,7 +456,7 @@
+      end
+     end
+     if accepted==0
+-     do writer_text(out,",\"result\":{\"isError\":true,\"content\":[{\"type\":\"text\",\"text\":\"Only booking_list with explicit empty arguments is allowed\"}]}}\n")
++     do mcp_error(out,"-32602","Unknown tool or invalid arguments")
+     else
+      handle store_operation(selected_path(),request,stateout)
+      ok loaded

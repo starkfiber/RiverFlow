@@ -1,0 +1,334 @@
+{
+  "edition": "sdk-construction-0.45",
+  "protocol": "warm-complete-app-sdk-construction-v1",
+  "sourceCommit": "55ca9eff7e7aa54f6423cd3d902114aa2b0ee8ec",
+  "host": "macOS-26.5.1-arm64-arm-64bit",
+  "cli": "codex-cli 0.166.0-alpha.5.1",
+  "model": "CLI default; exact provider/model identity not emitted in retained JSONL. No invented identity.",
+  "configuration": [
+    "exec",
+    "--ignore-user-config",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--json",
+    "--sandbox workspace-write",
+    "approval_policy=never"
+  ],
+  "maxSecondsPerAttempt": 900,
+  "order": [
+    "rf2",
+    "python",
+    "python",
+    "rf2"
+  ],
+  "rawFrozenSHA256": "776b0292aac8ad77a447dff35fb054fbb160eb59da105901579c274480b7a476",
+  "rawResultsSHA256": "141c9e1401964dce59a6add6b163ea0286cc6d8669b4e95db25e1b9919b0ca4c",
+  "trialResults": [
+    {
+      "attempt": 1,
+      "language": "rf2",
+      "seconds": 382.601969042,
+      "usage": {
+        "input_tokens": 1359217,
+        "cached_input_tokens": 1312512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 14953,
+        "reasoning_output_tokens": 1730
+      },
+      "uncachedInputTokens": 46705,
+      "commands": 27,
+      "originalGrade": {
+        "checks": 55,
+        "passed": 54,
+        "allPassed": false
+      },
+      "reviewedGrade": {
+        "checks": 55,
+        "passed": 54,
+        "allPassed": false,
+        "failures": [
+          {
+            "name": "MCP path/write denial and recovery",
+            "passed": false,
+            "detail": null
+          }
+        ]
+      },
+      "sourceDirectory": "experiments/development-task/samples/1-rf2",
+      "traceSHA256": "698226861185eeb48075bb6e31dad4d974960d0a9516a0514d79ed7592c7eee9",
+      "promptSHA256": "21d59c227eb05479c9562c6442bcfd115fe9e67f9881b43912962cfcd01a6af9",
+      "humanRepairsDuringAttempt": 0
+    },
+    {
+      "attempt": 2,
+      "language": "python",
+      "seconds": 232.11238066699997,
+      "usage": {
+        "input_tokens": 229326,
+        "cached_input_tokens": 201088,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9226,
+        "reasoning_output_tokens": 178
+      },
+      "uncachedInputTokens": 28238,
+      "commands": 9,
+      "originalGrade": {
+        "checks": 55,
+        "passed": 53,
+        "allPassed": false
+      },
+      "reviewedGrade": {
+        "checks": 55,
+        "passed": 54,
+        "allPassed": false,
+        "failures": [
+          {
+            "name": "MCP path/write denial and recovery",
+            "passed": false,
+            "detail": null
+          }
+        ]
+      },
+      "sourceDirectory": "experiments/development-task/samples/2-python",
+      "traceSHA256": "e129eddf2eaec8726d00a4bc96d9c69a96791410f48768dc4fe8251356e01369",
+      "promptSHA256": "6db7c1c8f30aa47e36e2e2b6cd0a3958cecabba69c78349d13a54d4dbbe80748",
+      "humanRepairsDuringAttempt": 0
+    },
+    {
+      "attempt": 3,
+      "language": "python",
+      "seconds": 245.76205874999994,
+      "usage": {
+        "input_tokens": 289467,
+        "cached_input_tokens": 265216,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9371,
+        "reasoning_output_tokens": 310
+      },
+      "uncachedInputTokens": 24251,
+      "commands": 10,
+      "originalGrade": {
+        "checks": 55,
+        "passed": 55,
+        "allPassed": true
+      },
+      "reviewedGrade": {
+        "checks": 55,
+        "passed": 55,
+        "allPassed": true,
+        "failures": []
+      },
+      "sourceDirectory": "experiments/development-task/samples/3-python",
+      "traceSHA256": "4384e7711baceedbe7345b80c94c430c012474ed8f0f88ee7e62881d88b285e7",
+      "promptSHA256": "6db7c1c8f30aa47e36e2e2b6cd0a3958cecabba69c78349d13a54d4dbbe80748",
+      "humanRepairsDuringAttempt": 0
+    },
+    {
+      "attempt": 4,
+      "language": "rf2",
+      "seconds": 407.5129469169999,
+      "usage": {
+        "input_tokens": 1433243,
+        "cached_input_tokens": 1386240,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 16473,
+        "reasoning_output_tokens": 2261
+      },
+      "uncachedInputTokens": 47003,
+      "commands": 26,
+      "originalGrade": {
+        "checks": 55,
+        "passed": 54,
+        "allPassed": false
+      },
+      "reviewedGrade": {
+        "checks": 55,
+        "passed": 54,
+        "allPassed": false,
+        "failures": [
+          {
+            "name": "MCP path/write denial and recovery",
+            "passed": false,
+            "detail": null
+          }
+        ]
+      },
+      "sourceDirectory": "experiments/development-task/samples/4-rf2",
+      "traceSHA256": "1a706cd325df3241c3f6d15a9e3e26cac58c230999552a58b5ea465b3f095a83",
+      "promptSHA256": "21d59c227eb05479c9562c6442bcfd115fe9e67f9881b43912962cfcd01a6af9",
+      "humanRepairsDuringAttempt": 0
+    }
+  ],
+  "review": {
+    "originalGraderSHA256": "d34169c27f4f440592aa0264e94da69196998b524ac3e4f7a8ccb366b1df78ca",
+    "reviewedGraderSHA256": "342450b7b6d333c17f8df512736219caf66aade97f7934dcef5d72f7dbc0c1ad",
+    "appliedAfterAllAttempts": true,
+    "corrections": [
+      "Accept the semantically valid revision changed stale-form message",
+      "Input argument validation may use an isError tool result; an unknown tool still requires a JSON-RPC protocol error"
+    ],
+    "reference": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools#error-handling",
+    "originalGradesPreserved": true,
+    "reports": [
+      {
+        "attempt": "1-rf2",
+        "checks": 55,
+        "passed": 54,
+        "allPassed": false,
+        "failures": [
+          {
+            "name": "MCP path/write denial and recovery",
+            "passed": false,
+            "detail": null
+          }
+        ],
+        "reportSHA256": "a9438202160e5c4d12ae5445f75ca9e5e7bf6bbd173bfbe2109424615fe5e93d"
+      },
+      {
+        "attempt": "2-python",
+        "checks": 55,
+        "passed": 54,
+        "allPassed": false,
+        "failures": [
+          {
+            "name": "MCP path/write denial and recovery",
+            "passed": false,
+            "detail": null
+          }
+        ],
+        "reportSHA256": "6922249499b317c934b8adb5097895a2e8edbee38d368cb1abb447303ea4513b"
+      },
+      {
+        "attempt": "3-python",
+        "checks": 55,
+        "passed": 55,
+        "allPassed": true,
+        "failures": [],
+        "reportSHA256": "50519e43cc3cd7f1a44c89060122cd91bb2f031d3273d8b201df082a216c7395"
+      },
+      {
+        "attempt": "4-rf2",
+        "checks": 55,
+        "passed": 54,
+        "allPassed": false,
+        "failures": [
+          {
+            "name": "MCP path/write denial and recovery",
+            "passed": false,
+            "detail": null
+          }
+        ],
+        "reportSHA256": "da97e497b7ef0b5c34fd32392a531b3365b2cbc31215830c8f404f53112810cc"
+      }
+    ]
+  },
+  "repairs": [
+    {
+      "attempt": "1-rf2",
+      "source": "study.flow",
+      "sourceBeforeSHA256": "fd6a2a61f30d900c1bde7b75f8d572d822854aa6ce802034ff0b3f97d5313326",
+      "sourceAfterSHA256": "6a11291f40bcb6f619cc6eb65dfdbe13d75927d9745666bedeaac165aa02f94a",
+      "repair": "One-site protocol refusal classification fix; domain/storage and file authority unchanged",
+      "executionSeconds": 0.819041959,
+      "checks": 55,
+      "passed": 55,
+      "originalAttemptsUnchanged": true,
+      "parentReviewTokens": "Not separately metered; no repaired-success total usage comparison",
+      "gradeSHA256": "1fbc1c2355d210f9ddac4bbd4f42390751d4a02309a26583eb9f39bc74b854b9"
+    },
+    {
+      "attempt": "4-rf2",
+      "source": "application.flow",
+      "sourceBeforeSHA256": "8c36299e00dbfae3a3a302fc20b1488710c6b491a0464d9c81730f848adaaf89",
+      "sourceAfterSHA256": "aa18b4a81296ba8dc57a13e379f10d1c0ad168f8d8c43c71dd9019c3b98adf08",
+      "repair": "One-site protocol refusal classification fix; domain/storage and file authority unchanged",
+      "executionSeconds": 0.6552496250000001,
+      "checks": 55,
+      "passed": 55,
+      "originalAttemptsUnchanged": true,
+      "parentReviewTokens": "Not separately metered; no repaired-success total usage comparison",
+      "gradeSHA256": "1fbc1c2355d210f9ddac4bbd4f42390751d4a02309a26583eb9f39bc74b854b9"
+    },
+    {
+      "attempt": "2-python",
+      "source": "app.py",
+      "sourceBeforeSHA256": "9fea0f6e039225fcbc1634c4e5443188bbcf3a343f9d1e2c919207109b3d35f1",
+      "sourceAfterSHA256": "859c24d5e6c5c6a76a8944be62e2ed71d1e4b9dde4492f1369cf220180455c28",
+      "repair": "One-site protocol refusal classification fix; domain/storage and file authority unchanged",
+      "executionSeconds": 1.0995057080000001,
+      "checks": 55,
+      "passed": 55,
+      "originalAttemptsUnchanged": true,
+      "parentReviewTokens": "Not separately metered; no repaired-success total usage comparison",
+      "gradeSHA256": "c291ad31ae8fbd5703a40c9853fed30166c0555411a7ab7a07626f84ea6647ae"
+    }
+  ],
+  "originalSourcesAndGradesPreserved": true,
+  "sourceRebuild": {
+    "originalNative1And4ByteIdentical": true,
+    "repairedNative1FullGrade": {
+      "checks": 55,
+      "passed": 55
+    },
+    "reportSHA256": "1fbc1c2355d210f9ddac4bbd4f42390751d4a02309a26583eb9f39bc74b854b9"
+  },
+  "rawReports": {
+    "frozen": "artifacts/development-task-yrdcy0_m/FROZEN.json",
+    "results": "artifacts/development-task-yrdcy0_m/RESULTS.json",
+    "review": "artifacts/development-task-yrdcy0_m/REVIEWED-GRADES.json",
+    "repairs": "artifacts/development-task-yrdcy0_m/REPAIRS.json",
+    "protocolWitness": "artifacts/development-task-yrdcy0_m/PROTOCOL-REVIEW.json"
+  },
+  "protocolWitnessSHA256": "739a3494c0fa46c42dd5ff126a98821e84481ebc4d79245a6360a8d1441361e9",
+  "sources": {
+    "experiments/development-task/PROTOCOL.md": "9511721865a48af03e0f5dfff88bec055784591a7ad2e367b4f6e14a2206832e",
+    "experiments/development-task/README.md": "3875b5ad812722aa504bb8a233187b039cf8c919380f6b4b5dadce3b801b4c47",
+    "experiments/development-task/SDK-PYTHON.md": "3ee99a1a85cf69184ec8baca5261426d660016160c2ebe3f2ab4edf4d0e13e5b",
+    "experiments/development-task/SDK-RF2.md": "b318c88f8687b841000498e752a04414578402b6acc6a86a8197f9a262612226",
+    "experiments/development-task/TASK.md": "fabcfad8cc5d300b0effbf24efd7a5f03c5a8b0cfb146b3c4599e71d2fdf0b0a",
+    "experiments/development-task/booking_sdk.py": "852055b8770f69a073daf459a8dc8ddf4efb062be97c2a024961ea4bbbd5c13c",
+    "experiments/development-task/grade.py": "d34169c27f4f440592aa0264e94da69196998b524ac3e4f7a8ccb366b1df78ca",
+    "experiments/development-task/rebuild.py": "6a7397058dc157354de13dc7ce6feb7feb2088d3bd7168a95ef0c9d7fe116f8e",
+    "experiments/development-task/repair.py": "9484f9b462b073c16a26e6c4ead6e11716544215fe3d4b8b9dc16d9e81570266",
+    "experiments/development-task/review.py": "96a0ede3c55715bc1f6b86e2c6fd74043f676795bc74d6322a0f637cfc7475ab",
+    "experiments/development-task/run.py": "2fbe52d875f7a904633b9ec89c60007b5d38220c855cb8e8de83776ca410006b",
+    "experiments/development-task/samples/1-rf2/README.md": "3dfc3f37dc8bf07c2fac377ee427644b870c69f9e63da26b22dd1bd9ac1a789f",
+    "experiments/development-task/samples/1-rf2/build.sh": "60063725187039227617d7f1a15da9e028002ea66f24953eda71b2760a3c3729",
+    "experiments/development-task/samples/1-rf2/http-test.flow": "5c88c763f4988075e6cc059ee8afde5b508196ad1184282fc4e809e71b55df7f",
+    "experiments/development-task/samples/1-rf2/launch.json": "cb72c03268cfd79e1a8ee9f72cb0fce2af478bb6a58cccc26c797ed40fae9b0a",
+    "experiments/development-task/samples/1-rf2/main.flow": "3fa66fa6785953b023c967bd547164c1649e7b62212e4526394766ea07ead087",
+    "experiments/development-task/samples/1-rf2/protocol-repair.diff": "fedcfe0bf31d6a3f335a83bef8d529e35ee186a8f158f6be0fb7b2842d5b23bd",
+    "experiments/development-task/samples/1-rf2/sdk-changes.diff": "4503102ff40171da56878cf2be15c9680e8c732f18b70517fff6f5cca6f20d1c",
+    "experiments/development-task/samples/1-rf2/study.flow": "fd6a2a61f30d900c1bde7b75f8d572d822854aa6ce802034ff0b3f97d5313326",
+    "experiments/development-task/samples/1-rf2/tests/selftest.py": "96d71cd7c0a42578cd7e3a088738c529558d5659bd5eed1e6397118428d1d86d",
+    "experiments/development-task/samples/2-python/README.md": "ee0210c478f531e7641f73c9074123f9cb9f9e67037e31246841a32001e60cb7",
+    "experiments/development-task/samples/2-python/app.py": "9fea0f6e039225fcbc1634c4e5443188bbcf3a343f9d1e2c919207109b3d35f1",
+    "experiments/development-task/samples/2-python/launch.json": "30adb4ef0b305df9d4d10498d450e2370407b97379e6ad870443d7d08a3bc190",
+    "experiments/development-task/samples/2-python/protocol-repair.diff": "53c217e2ba88c76e4ea30e1a756e85e9ed855323f56f864fba93e198c13af6cd",
+    "experiments/development-task/samples/2-python/test_app.py": "5427a3a68b92e5b7d99a8e431d07177685b8de6a7102f2c72a14756f9849a1d1",
+    "experiments/development-task/samples/3-python/README.md": "d2ea131810826cb3192b9f8ae79dd542a7b69670a6ec57a89a2a3957dba567c0",
+    "experiments/development-task/samples/3-python/app.py": "a75c038afc9840ad9cdb1c7a26eb5f31ec6a4cd88f7995d6ac756536e9f4d67e",
+    "experiments/development-task/samples/3-python/launch.json": "30adb4ef0b305df9d4d10498d450e2370407b97379e6ad870443d7d08a3bc190",
+    "experiments/development-task/samples/3-python/test_app.py": "78942d41839aa7becf865f409a0d4d32f0e7b2da35ae7af9dcc2a6dc4285426e",
+    "experiments/development-task/samples/4-rf2/README.md": "a70c7407d66dc7c8a4f2246197a5b62ba905da4738538682e74d15dbfa0bbe41",
+    "experiments/development-task/samples/4-rf2/application.flow": "8c36299e00dbfae3a3a302fc20b1488710c6b491a0464d9c81730f848adaaf89",
+    "experiments/development-task/samples/4-rf2/http-selftest.flow": "f2a1081e3f77fe2ffec8385c7c4ecba056377f88b1a96bc7bf478ac994146b40",
+    "experiments/development-task/samples/4-rf2/launch.json": "cb72c03268cfd79e1a8ee9f72cb0fce2af478bb6a58cccc26c797ed40fae9b0a",
+    "experiments/development-task/samples/4-rf2/main.flow": "7d415e9a9626d7a83601ba9d740d094d54f37688cfdcf82c731708eb8ac027b5",
+    "experiments/development-task/samples/4-rf2/protocol-repair.diff": "4197e3f0a9921e91f914019951f1436d6ede0fd51b7f7246856dcb206d6a6243",
+    "experiments/development-task/samples/4-rf2/sdk-changes.diff": "022f1eb90e09eb420c158b4a4340592aeef01cdb3aa385ee37c53e082a25e043",
+    "experiments/development-task/samples/4-rf2/selftest.py": "ce6f59756a8c89898351d59b366ff1892885ee413a052f3fb0a325c7ab60d165",
+    "experiments/development-task/samples/INDEX.json": "f2a31958678993b7ea52156b6a5452339e62a2056db17423e725929ba9249a79",
+    "experiments/development-task/samples/README.md": "364fc2654b5c3438ca4717cd5ea7e6fc99ed74da78af0503331f5e07207d9e2b"
+  },
+  "conclusion": "No RF2 complete-success speed/token advantage established. Both original RF2 attempts needed a protocol classification repair. Parent repair/review tokens not separately metered.",
+  "limits": [
+    "Two attempts per language, one Mac and one task",
+    "SDK reuse construction, not cold setup or language-only causality",
+    "Same CLI/default configuration; actual served model identity not exposed",
+    "Usage includes cached repeated context, not a dollar bill",
+    "Original agent sandbox denied loopback bind; outside grader exercised live HTTP",
+    "Post-run grader corrections applied to all unchanged originals",
+    "No human learner or independent external reviewer trial"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "Native Systems entry": {
+    "prefix": "rf2main",
+    "body": [
+      "profile RF2_SYSTEM_A64_V1",
+      "",
+      "fn main(argc,argv)",
+      " ${1:return 0}",
+      "end"
+    ],
+    "description": "Native Apple Silicon Systems entry. Trusted source compilation is explicit."
+  },
+  "Exhaustive scalar result": {
+    "prefix": "rf2handle",
+    "body": [
+      "handle ${1:operation()}",
+      "ok ${2:value}",
+      " ${3:do consume(value)}",
+      "err ${4:code}",
+      " ${5:return err(code)}",
+      "end"
+    ],
+    "description": "Handle both success and error. The surrounding function must use a compatible result."
+  },
+  "Owned result handle": {
+    "prefix": "rf2owned",
+    "body": [
+      "handle ${1:produce()}",
+      "ok own ${2:value}:${3:Type}",
+      " ${4:# Use the owned result within this arm.}",
+      "err ${5:code}",
+      " ${6:return err(code)}",
+      "end"
+    ],
+    "description": "0.43+ owned-result candidate syntax. Availability depends on the explicitly selected compiler."
+  },
+  "Bounded Core sum": {
+    "prefix": "rf2core",
+    "body": [
+      "rf2 v1 checked",
+      "sum input"
+    ],
+    "description": "Bounded compact Core computation, not arbitrary filesystem or network access."
+  }
+}

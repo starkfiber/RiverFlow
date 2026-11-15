@@ -1,0 +1,32 @@
+profile RF2_SYSTEM_A64_V1
+use "study.flow"
+# Test-only inherited socket pair; no additional production command.
+fn main(argc,argv)
+ if argc!=5
+  return 2
+ end
+ do store64(buffer("selected_path",8),load64(argv+8))
+ let fd=0
+ handle number(load64(argv+16))
+ ok parsed
+  set fd=parsed
+ err bad
+  return 2
+ end
+ do copy(buffer("documents_web_host",64),"127.0.0.1:43123",15)
+ do copy(buffer("documents_web_url",96),"http://127.0.0.1:43123",22)
+ do copy(form_token(),load64(argv+24),32)
+ if clock_timebase(buffer("documents_web_timebase",8))!=0
+  return 2
+ end
+ if form_request(fd)
+  handle app_dispatch(fd)
+  ok done
+  err bad2
+   return 2
+  end
+ else
+  do app_bad(fd,"400 Bad Request")
+ end
+ return 0
+end

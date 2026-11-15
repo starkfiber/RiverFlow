@@ -23,10 +23,12 @@ The learning HTML copies are produced from `book/learning-edition-1/README.md` b
 
 GitHub uses [Linguist for syntax highlighting and language statistics](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-repository-languages). An upstream language contribution needs a compatible syntax grammar, representative licensed source samples, registry data and evidence of genuine usage. Current [contribution requirements](https://github.com/github-linguist/linguist/blob/main/CONTRIBUTING.md#language-extension-and-filename-usage-requirements) require broad usage across repositories; for normal repeatable source extensions, the stated threshold is at least 2,000 indexed files in the last year excluding forks, with distribution across users and repositories. Owner-generated copies are not a substitute for adoption. These rules can change; recheck them before submitting.
 
-- [ ] Maintain a grammar covering actual Core, Systems and embedded syntax, with positive/negative highlighting examples and a compatible licence.
-- [ ] Distribute a tested editor language integration with the canonical RF2 name and existing extensions.
+- [x] Provide an MIT Core/compact/Systems lexical grammar with actual TextMate/Oniguruma tests. Full embedded semantic/editor coverage is not implied.
+- [ ] Complete installed-editor qualification and distribution. The declarative VS Code source/VSIX now passes native grammar-engine and archive checks; no installed VS Code host/Marketplace trial is claimed.
 - [ ] Collect real, representative independent project usage and licensed samples.
 - [ ] Recheck extension collisions, adoption requirements and classifier tests.
 - [ ] Submit the upstream recognition proposal when evidence satisfies the requirements; retain its actual review outcome.
 
 No upstream proposal or acceptance is claimed by this cleanup. A repository attribute cannot register an unknown language on GitHub. Do not force RF2 into another language or mark real test/reference source as generated to change the sidebar.
+
+[Editor source and qualification](../editors/vscode/README.md) · [Linguist intake preparation](../editors/linguist-candidate/README.md) · [Exact editor receipt](EDITOR-LANGUAGE-0.1.json). These are concrete preparation work; R12 remains pending actual external acceptance. Registry and extension checks were repeated against the current primary registry on15November2026.
