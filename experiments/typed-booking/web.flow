@@ -310,14 +310,14 @@ fn app_dispatch(fd):IO
    return ok(app_bad(fd,"404 Not Found"))
   end
   let mask=0
-  handle form_parse(load64(globals()+16),load64(globals()+24),3263,values)
+  handle app_form(fd,3263,values)
   ok parsed
    set mask=parsed
-  err form_error
-   if form_error==403
-    return ok(app_bad(fd,"403 Forbidden"))
-   end
-   return ok(app_bad(fd,"400 Bad Request"))
+  err response_error
+   return err(response_error)
+  end
+  if mask==0
+   return ok(0)
   end
   if same(values[4],values[5],"appearance")
    if mask!=2055
