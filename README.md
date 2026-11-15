@@ -12,6 +12,12 @@ RiverFlow is a programming language with a compiler written in RiverFlow. Its Ma
 
 The goal is one readable language and SDK across learning, apps, devices and system software, including a future RU’OS integration. We will compete through complete applications and measured comparisons. [RF2 everywhere](docs/RF2-EVERYWHERE.md) connects that ambition to concrete engineering gates; the [capability map](docs/CAPABILITY-MAP.md) records what works today.
 
+## Application SDK source candidate 0.47
+
+[The corrected app kit](experiments/app-effort/README.md) adds concise result propagation, native API lookup, reusable bounded MCP framing, explicit app policies and tested UI/JSON/storage fixes. Both fresh RF2 apps passed all 55 task checks and reproduced their graded executables from source.
+
+[Ten retained construction attempts and native evidence](docs/APP-EFFORT-0.47.md) show the limits too: reported input fell 25.7% against the first revised RF2 SDK, but authoring time did not improve and Python still needed less time and usage. This is a source candidate; the qualified 0.46 download and stable 0.17 remain unchanged. GitHub Linguist stays pending and does not block development.
+
 ## Learn RF2 from zero
 
 [Editor language development download](https://github.com/starkfiber/RiverFlow/releases/tag/rf2-editor-v0.1.0): `.flow`/`.rf2` highlighting and explicit snippets for VS Code. This is lexical editor support; [qualification and limits](editors/vscode/README.md) distinguish it from a debugger, full IDE or GitHub Linguist acceptance.
@@ -66,7 +72,7 @@ For AI integration, [configure the native MCP host](docs/START-HERE.md#connect-a
 | Inspect smaller native images and function changes | [Compact images and working sample](docs/COMPACT-IMAGES-0.27.md) |
 | Reuse unchanged native builds | [Incremental target builds](docs/INCREMENTAL-BUILDS.md) |
 | Work on the compiler | [Compiler map](native/compiler/README.md), [contribution guide](CONTRIBUTING.md) |
-| Test a performance claim | [Measurement guide](tools/README.md), [latest compiler experiment](docs/COMPILER-DISPATCH.md) |
+| Test a performance claim | [Measurement guide](tools/README.md), [compiler dispatch experiment](docs/COMPILER-DISPATCH.md) |
 | Understand platform and library gaps | [Capability map](docs/CAPABILITY-MAP.md), [full-stack direction](docs/RF2-FULL-STACK-DIRECTION.md) |
 
 ## What is available
@@ -75,7 +81,7 @@ For AI integration, [configure the native MCP host](docs/START-HERE.md#connect-a
 
 **Development apps: Workbench 0.38 and Documents 0.37.** Native Mac Booking, a Core learning editor and read-only document search share reusable libraries. [Select a package](docs/START-HERE.md#choose-a-package); each guide links its own acceptance evidence.
 
-**Latest application candidate: 0.45.** [Typed multi-room Booking](docs/TYPED-BOOKING-0.45.md) shares real persistence and room rules across CLI, a light/dark browser GUI and a selected-journal MCP server. It uses the [0.44 recursive-owned-value compiler](docs/NESTED-OWNERS-0.44.md). Default/optimized tests cover independent snapshot decoding, schema migration, overlapping/concurrent writers, controlled failed/uncertain saves and bounded agent permissions. The [native development archive](https://github.com/starkfiber/RiverFlow/releases/tag/v0.45.0-dev) is published and its downloaded bytes were qualified again. Stable packages remain unchanged. The [fixed twelve-item ledger](docs/PROGRESS.md) records the remaining actual GitHub recognition gate. The [four-attempt construction comparison](docs/SDK-CONSTRUCTION-0.45.md) retains real usage and failures; no RF2 productivity advantage was established.
+**Published application foundations: 0.45 and 0.46.** [Typed multi-room Booking](docs/TYPED-BOOKING-0.45.md) shares real persistence and room rules across CLI, a light/dark browser GUI and a selected-journal MCP server. It uses the [0.44 recursive-owned-value compiler](docs/NESTED-OWNERS-0.44.md). Default/optimized tests cover independent snapshot decoding, schema migration, overlapping/concurrent writers, controlled failed/uncertain saves and bounded agent permissions. The [native development archive](https://github.com/starkfiber/RiverFlow/releases/tag/v0.45.0-dev) is published and its downloaded bytes were qualified again. Stable packages remain unchanged. The [fixed twelve-item ledger](docs/PROGRESS.md) tracks GitHub recognition separately from the active application-effort work. The [four-attempt construction comparison](docs/SDK-CONSTRUCTION-0.45.md) retains real usage and failures; no RF2 productivity advantage was established.
 
 **Embedded development: 0.36 ESP32-C3.** A separate RF2-written backend has [emulator evidence](docs/ESP32C3-INTERRUPTS-0.36.md) for boot, UART, sensor-bus controls, timers and interrupts. Physical board and sensor validation remain pending.
 
