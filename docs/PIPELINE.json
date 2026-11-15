@@ -8,9 +8,10 @@
       "state": "active",
       "acceptance": "Qualified nested owned application values, transfer and cleanup",
       "evidence": [
-        "docs/APPLICATION-VALUES.md"
+        "docs/APPLICATION-VALUES.md",
+        "docs/OWNED-VALUES-0.42.md"
       ],
-      "note": "References describe current boundaries; this gate is not complete."
+      "note": "Owned text/collection fields and local moves now have isolated native evidence. Owner returns, transfer parameters and release qualification remain open."
     },
     {
       "id": "G2",
@@ -77,61 +78,122 @@
     }
   ],
   "sprint": {
-    "title": "Durable pipeline and borrowed Booking values",
+    "title": "Owned text and collection fields, isolated candidate",
+    "scope": "Bounded local ownership and aggregate transfer. Cross-function owner return and a release-qualified G1 remain incomplete.",
     "checks": [
       {
-        "id": "S1",
+        "id": "O1",
         "state": "done",
-        "acceptance": "Record owner mission, anti-drift rules and next priorities (documentation)",
+        "acceptance": "Implement nominal Unicode text and explicitly owned text/collection fields",
         "evidence": [
-          "docs/PROJECT-CONTINUITY.md"
+          "experiments/owned-values/compiler-extension.flow",
+          "experiments/owned-values/prepare.py",
+          "docs/OWNED-VALUES-0.42.json"
         ]
       },
       {
-        "id": "S2",
+        "id": "O2",
         "state": "done",
-        "acceptance": "Render progress; reject stale output and unsupported completion states (developer tooling)",
+        "acceptance": "Implement local aggregate transfer and per-field automatic cleanup without duplicate owners",
         "evidence": [
-          "tools/project-progress.py",
-          "docs/APPLICATION-VALUES-0.41.json"
+          "experiments/owned-values/compiler-extension.flow",
+          "docs/OWNED-VALUES-0.42.json"
         ]
       },
       {
-        "id": "S3",
+        "id": "O3",
         "state": "done",
-        "acceptance": "Specify owned application-value acceptance rules without claiming implementation (design)",
+        "acceptance": "Run a real labelled-batch application against independent text/numeric expectations",
         "evidence": [
-          "docs/APPLICATION-VALUES.md"
+          "experiments/owned-values/examples/owned-batch.flow",
+          "docs/OWNED-VALUES-0.42.json"
         ]
       },
       {
-        "id": "S4",
+        "id": "O4",
         "state": "done",
-        "acceptance": "Execute borrowed Booking conflict cases with an independent date/interval oracle",
+        "acceptance": "Execute invalid Unicode, ownership refusals and allocation/retirement/partial-construction faults in both modes",
         "evidence": [
-          "experiments/nested-records/examples/booking-conflict.flow",
-          "docs/APPLICATION-VALUES-0.41.json"
+          "docs/OWNED-VALUES-0.42.json"
         ]
       },
       {
-        "id": "S5",
+        "id": "O5",
         "state": "done",
-        "acceptance": "Execute nominal/escape/init/boundary refusals and closed-output failures in both modes",
+        "acceptance": "Run relevant prior regressions and verify bounded MCP authority",
         "evidence": [
-          "tests/standalone/application_values_verify.py",
-          "docs/APPLICATION-VALUES-0.41.json"
+          "docs/OWNED-VALUES-0.42.json"
         ]
       },
       {
-        "id": "S6",
+        "id": "O6",
         "state": "done",
-        "acceptance": "Record actual results, failures and remaining promotion gates in a source-bound receipt",
+        "acceptance": "Record source-bound findings and remaining promotion gates, then review for SFE publication",
         "evidence": [
-          "docs/APPLICATION-VALUES-0.41.json",
-          "docs/APPLICATION-VALUES-0.41.md"
+          "docs/OWNED-VALUES-0.42.json",
+          "docs/OWNED-VALUES-0.42.md"
         ]
       }
-    ],
-    "scope": "Six named documentation/design/tool/native-acceptance deliverables only. General owned values and the eight expansion gates remain incomplete."
-  }
+    ]
+  },
+  "completedSprints": [
+    {
+      "title": "Durable pipeline and borrowed Booking values",
+      "checks": [
+        {
+          "id": "S1",
+          "state": "done",
+          "acceptance": "Record owner mission, anti-drift rules and next priorities (documentation)",
+          "evidence": [
+            "docs/PROJECT-CONTINUITY.md"
+          ]
+        },
+        {
+          "id": "S2",
+          "state": "done",
+          "acceptance": "Render progress; reject stale output and unsupported completion states (developer tooling)",
+          "evidence": [
+            "tools/project-progress.py",
+            "docs/APPLICATION-VALUES-0.41.json"
+          ]
+        },
+        {
+          "id": "S3",
+          "state": "done",
+          "acceptance": "Specify owned application-value acceptance rules without claiming implementation (design)",
+          "evidence": [
+            "docs/APPLICATION-VALUES.md"
+          ]
+        },
+        {
+          "id": "S4",
+          "state": "done",
+          "acceptance": "Execute borrowed Booking conflict cases with an independent date/interval oracle",
+          "evidence": [
+            "experiments/nested-records/examples/booking-conflict.flow",
+            "docs/APPLICATION-VALUES-0.41.json"
+          ]
+        },
+        {
+          "id": "S5",
+          "state": "done",
+          "acceptance": "Execute nominal/escape/init/boundary refusals and closed-output failures in both modes",
+          "evidence": [
+            "tests/standalone/application_values_verify.py",
+            "docs/APPLICATION-VALUES-0.41.json"
+          ]
+        },
+        {
+          "id": "S6",
+          "state": "done",
+          "acceptance": "Record actual results, failures and remaining promotion gates in a source-bound receipt",
+          "evidence": [
+            "docs/APPLICATION-VALUES-0.41.json",
+            "docs/APPLICATION-VALUES-0.41.md"
+          ]
+        }
+      ],
+      "scope": "Six named documentation/design/tool/native-acceptance deliverables only. General owned values and the eight expansion gates remain incomplete."
+    }
+  ]
 }

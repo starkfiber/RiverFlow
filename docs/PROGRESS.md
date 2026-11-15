@@ -10,7 +10,7 @@ Generated from [PIPELINE.json](PIPELINE.json). Progress counts the declared acce
 
 | ID | State | Acceptance condition | Evidence / current boundary |
 | --- | --- | --- | --- |
-| G1 | active | Qualified nested owned application values, transfer and cleanup | [APPLICATION-VALUES.md](APPLICATION-VALUES.md) · References describe current boundaries; this gate is not complete. |
+| G1 | active | Qualified nested owned application values, transfer and cleanup | [APPLICATION-VALUES.md](APPLICATION-VALUES.md), [OWNED-VALUES-0.42.md](OWNED-VALUES-0.42.md) · Owned text/collection fields and local moves now have isolated native evidence. Owner returns, transfer parameters and release qualification remain open. |
 | G2 | pending | Signed/floating numerical contract and edge-case conformance | [RF2-EVOLUTION.md](RF2-EVOLUTION.md) · References describe current boundaries; this gate is not complete. |
 | G3 | pending | Typed persistence, migration and uncertain-save recovery | [RF2-EVOLUTION.md](RF2-EVOLUTION.md) · References describe current boundaries; this gate is not complete. |
 | G4 | pending | Versioned reusable SDK and repeatable package builds | [RF2-EVERYWHERE.md](RF2-EVERYWHERE.md) · References describe current boundaries; this gate is not complete. |
@@ -19,18 +19,18 @@ Generated from [PIPELINE.json](PIPELINE.json). Progress counts the declared acce
 | G7 | pending | Structured concurrency and a qualified RU’OS component | [RF2-EVERYWHERE.md](RF2-EVERYWHERE.md) · References describe current boundaries; this gate is not complete. |
 | G8 | pending | Matched complete-task comparisons with actual usage and failures | [RF2-PLATFORM-RESEARCH.md](RF2-PLATFORM-RESEARCH.md) · References describe current boundaries; this gate is not complete. |
 
-## Current sprint: Durable pipeline and borrowed Booking values
+## Current sprint: Owned text and collection fields, isolated candidate
 
 `██████████` **6/6 complete (100%)**
 
 | ID | State | Acceptance condition | Evidence / current boundary |
 | --- | --- | --- | --- |
-| S1 | done | Record owner mission, anti-drift rules and next priorities (documentation) | [PROJECT-CONTINUITY.md](PROJECT-CONTINUITY.md) |
-| S2 | done | Render progress; reject stale output and unsupported completion states (developer tooling) | [project-progress.py](../tools/project-progress.py), [APPLICATION-VALUES-0.41.json](APPLICATION-VALUES-0.41.json) |
-| S3 | done | Specify owned application-value acceptance rules without claiming implementation (design) | [APPLICATION-VALUES.md](APPLICATION-VALUES.md) |
-| S4 | done | Execute borrowed Booking conflict cases with an independent date/interval oracle | [booking-conflict.flow](../experiments/nested-records/examples/booking-conflict.flow), [APPLICATION-VALUES-0.41.json](APPLICATION-VALUES-0.41.json) |
-| S5 | done | Execute nominal/escape/init/boundary refusals and closed-output failures in both modes | [application_values_verify.py](../tests/standalone/application_values_verify.py), [APPLICATION-VALUES-0.41.json](APPLICATION-VALUES-0.41.json) |
-| S6 | done | Record actual results, failures and remaining promotion gates in a source-bound receipt | [APPLICATION-VALUES-0.41.json](APPLICATION-VALUES-0.41.json), [APPLICATION-VALUES-0.41.md](APPLICATION-VALUES-0.41.md) |
+| O1 | done | Implement nominal Unicode text and explicitly owned text/collection fields | [compiler-extension.flow](../experiments/owned-values/compiler-extension.flow), [prepare.py](../experiments/owned-values/prepare.py), [OWNED-VALUES-0.42.json](OWNED-VALUES-0.42.json) |
+| O2 | done | Implement local aggregate transfer and per-field automatic cleanup without duplicate owners | [compiler-extension.flow](../experiments/owned-values/compiler-extension.flow), [OWNED-VALUES-0.42.json](OWNED-VALUES-0.42.json) |
+| O3 | done | Run a real labelled-batch application against independent text/numeric expectations | [owned-batch.flow](../experiments/owned-values/examples/owned-batch.flow), [OWNED-VALUES-0.42.json](OWNED-VALUES-0.42.json) |
+| O4 | done | Execute invalid Unicode, ownership refusals and allocation/retirement/partial-construction faults in both modes | [OWNED-VALUES-0.42.json](OWNED-VALUES-0.42.json) |
+| O5 | done | Run relevant prior regressions and verify bounded MCP authority | [OWNED-VALUES-0.42.json](OWNED-VALUES-0.42.json) |
+| O6 | done | Record source-bound findings and remaining promotion gates, then review for SFE publication | [OWNED-VALUES-0.42.json](OWNED-VALUES-0.42.json), [OWNED-VALUES-0.42.md](OWNED-VALUES-0.42.md) |
 
 ## Read these counters correctly
 

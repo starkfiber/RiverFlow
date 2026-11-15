@@ -1,0 +1,75 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/batch.flow"
+fn analyse_batch(argc,argv):IO
+ if argc!=2
+  return err(22)
+ end
+ own label=BatchLabel()
+ let title=load64(argv+8)
+ let bytes=0
+ while load8(title+bytes)
+  set bytes=bytes+1
+  if bytes>1024
+   return err(22)
+  end
+ end
+ handle batch_label_decode(label,title,bytes)
+ ok decoded
+ err label_error
+  return err(label_error)
+ end
+ own readings=Numbers()
+ let input=buffer("owned_batch_input",1048577)
+ let n=0
+ handle read_input(input)
+ ok count
+  set n=count
+ err input_error
+  return err(input_error)
+ end
+ handle parse_numbers(input,n,readings)
+ ok parsed
+ err parse_error
+  return err(parse_error)
+ end
+ own batch=OwnedBatch(move(label),move(readings),1)
+ own report=move(batch)
+ let stats=Stats(0,0,0,0)
+ if report.readings.length!=0
+  handle summarize_numbers(report.readings,stats)
+  ok summarized
+  err summary_error
+   return err(summary_error)
+  end
+ end
+ if output_text("{\"label\":")==0
+  return err(5)
+ end
+ handle batch_label_json(report.label)
+ ok encoded
+ err encoding_error
+  return err(encoding_error)
+ end
+ let good=output_text(",\"characters\":")
+ set good=good&output_number(report.label.length)
+ set good=good&output_text(",\"count\":")
+ set good=good&output_number(stats.count)
+ set good=good&output_text(",\"sum\":")
+ set good=good&output_number(stats.total)
+ set good=good&output_text(",\"revision\":")
+ set good=good&output_number(report.revision)
+ set good=good&output_text("}\n")
+ if good==0
+  return err(5)
+ end
+ return ok(0)
+end
+fn main(argc,argv)
+ handle analyse_batch(argc,argv)
+ ok complete
+  return 0
+ err failure
+  return 2
+ end
+ return 3
+end

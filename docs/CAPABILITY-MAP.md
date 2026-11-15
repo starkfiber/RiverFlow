@@ -4,6 +4,10 @@ RiverFlow is an implemented language with a native compiler, useful applications
 
 The long-term direction is one readable language across application and systems work. Each additional target needs its own implementation, contract and executed tests.
 
+## Source candidate 0.42: owned fields
+
+[Explicit owned text and u64 collection fields](OWNED-VALUES-0.42.md) now have isolated native implementation and failure evidence. Local aggregate and individual-field moves transfer active/pending ownership and disarm consumed sources. Text stores validated Unicode scalars. This is not the maintained compiler or a package update; owner returns, owned nested aggregates, generic elements and concurrency remain unsupported.
+
 ## Foundation sprint 0.41
 
 [Borrowed Booking values](APPLICATION-VALUES-0.41.md) exercise the isolated nested-record candidate with actual date/time libraries and independent expected results. This adds a conflict-calculation prototype and evidence, not general owner transfer or a journal migration. The [progress tracker](PROGRESS.md) distinguishes completed sprint checks from incomplete platform gates.

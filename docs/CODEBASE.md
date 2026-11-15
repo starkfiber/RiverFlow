@@ -27,7 +27,7 @@ The compiler and MCP runtime are separate execution routes. Never expose the tru
 | Application capabilities | `native/attendance.rf2`, `native/invoice.rf2`, `native/prepared.rf2` | Schemas, checked totals and prepared handles |
 | Read-only document workspace | `examples/documents/workspace.flow`, `examples/documents/lib/` | Shared text/table libraries, explicit corpus snapshot, bounded native browser reader and CLI |
 | Booking and learning Studio | `examples/documents/booking.flow`, `booking-web.flow`, `studio.flow` and `lib/` | Shared date/time, journal and forms; bounded Core editor; see [Workbench](BOOKING-STUDIO.md) |
-| Source experiment | `experiments/nested-records/` | Isolated borrowed-record candidate; no automatic release migration |
+| Source experiments | `experiments/nested-records/`, `experiments/owned-values/` | Isolated borrowed/owned-field candidates and complete prototypes; no automatic release migration |
 | Learning and examples | `book/learning-edition-1/`, `examples/README.md` | Runnable lessons and task/profile-based catalogue |
 | Document UI | `native/workspace.rf2`, `native/editor.rf2`, `native/studio/` | Explicit file edits, PDF and local browser workspace |
 | Reference tools | `bootstrap/`, `src/`, `bin/rf2.mjs` | Historical seed and independent developer controls |

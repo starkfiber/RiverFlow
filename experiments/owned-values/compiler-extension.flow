@@ -1,0 +1,132 @@
+# Compiler implementation helpers, appended to the isolated candidate source.
+fn aggregate_field_slot(root,id,field)
+ let slot=root+2+load64(record_info(id)+8)
+ let i=0
+ while i<field
+  if load64(field_type(id,i))
+   set slot=slot+7
+  end
+  set i=i+1
+ end
+ return slot
+end
+fn aggregate_slots(id)
+ let count=1+load64(record_info(id)+8)
+ let i=0
+ while i<load64(record_info(id)+8)
+  if load64(field_type(id,i))
+   set count=count+7
+  end
+  set i=i+1
+ end
+ return count
+end
+fn aggregate_register(f,root,id)
+ let i=0
+ while i<load64(record_info(id)+8)
+  let child=load64(field_type(id,i))
+  if child
+   let slot=aggregate_field_slot(root,id,i)
+   let count=load64(cleanup_count(f))
+   do require(count<16,"aggregate cleanup count bound")
+   do store64(local_type(f,slot),child)
+   do store64(cleanup_slot(f,count),slot+1)
+   do store64(cleanup_owned(f,count),6)
+   do store64(cleanup_count(f),count+1)
+  end
+  set i=i+1
+ end
+ return 0
+end
+fn aggregate_guard(f,root)
+ do access_local(0,root+1,0)
+ do emit(4043309087)
+ return jump(bounds_failure_label(),0)
+end
+# A field selected for owned operations retains its hidden descriptor's nominal type.
+# Whole aggregates cannot be parameters in this first candidate.
+fn owned_field_local(f)
+ let root=local_index(advance())
+ let id=load64(local_type(f,root))
+ if (id!=0)&(load64(record_info(id)+144)==12)
+  do expect(".")
+  let field=field_index(id,advance())
+  let child=load64(field_type(id,field))
+  do require(child!=0,"owned field required")
+  let slot=aggregate_field_slot(root,id,field)
+  do require(load64(local_ready(f,slot)),"owned field was moved")
+  do aggregate_guard(f,root)
+  return slot
+ end
+ return root
+end
+fn aggregate_construct(f,root,id)
+ let source=0
+ let moving=match("move")
+ if moving
+  do advance()
+  do expect("(")
+  set source=local_index(advance())
+  do require(source>=load64(ftable(f)+8),"borrowed aggregate cannot move")
+  do require(load64(local_type(f,source))==id,"aggregate move type mismatch")
+  do expect(")")
+  do aggregate_guard(f,source)
+ else
+  do require(record_index(advance())==id,"aggregate constructor mismatch")
+  do expect("(")
+ end
+ let i=0
+ while i<load64(record_info(id)+8)
+  if (i!=0)&(moving==0)
+   do expect(",")
+  end
+  let child=load64(field_type(id,i))
+  if child
+   let target=aggregate_field_slot(root,id,i)
+   if moving
+    let old=aggregate_field_slot(source,id,i)
+    do require(load64(local_ready(f,old)),"aggregate contains moved field")
+    # Transfer armed/data/length/capacity/pending ownership without a fallible call.
+    let k=0
+    while k<6
+     do access_local(0,old+1+k,0)
+     do access_local(0,target+1+k,1)
+     do imm(0,0)
+     do access_local(0,old+1+k,1)
+     set k=k+1
+    end
+    do local_pointer(0,target+1)
+    do access_local(0,target,1)
+    do store64(local_ready(f,old),0)
+    do store64(local_ready(f,target),1)
+    do require(load64(cleanup_slot(f,load64(state()+224)))==target+1,"aggregate cleanup registration order")
+    do store64(state()+224,load64(state()+224)+1)
+   else
+    do collection_construct_value(f,target,child)
+   end
+   do access_local(0,target,0)
+  else
+   if moving
+    do access_local(0,source+2+i,0)
+   else
+    do scalar_expression(1,0)
+   end
+  end
+  do access_local(0,root+2+i,1)
+  set i=i+1
+ end
+ if moving==0
+  do expect(")")
+ else
+  do store64(local_ready(f,source),0)
+  do imm(0,0)
+  do access_local(0,source+1,1)
+ end
+ do local_pointer(0,root+2)
+ do access_local(0,root,1)
+ do imm(0,1)
+ do access_local(0,root+1,1)
+ do store64(local_ready(f,root),1)
+ do store64(local_scope(f,root),0)
+ return newline()
+end

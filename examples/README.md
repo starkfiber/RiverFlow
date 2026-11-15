@@ -26,6 +26,7 @@ Start with [RF2 From Zero](../book/learning-edition-1/README.md), [package selec
 | Virtual machines | [Hypervisor foundation](hypervisor/), [VM runner](vm-runner/) | Apple Hypervisor development contracts; not proof of a Linux-booting RF2 OS |
 | Browser/edge research | [Browser lab](browser-lab/), [Worker example](cloudflare-worker/) | Narrow supported experiments; not a general browser or cloud SDK |
 | Bounded authenticated operations | [Evidence contract](evidence-contract/), [trust contract](../docs/TRUST-0.18.md) | Separate development server; not extra authority for the stable nine MCP tools |
+| Owned text and collections | [Labelled-batch prototype](../experiments/owned-values/README.md) | Isolated compiler, local aggregate/field moves and ordinary cleanup; no owner returns |
 | Borrowed Booking values | [Conflict prototype and acceptance](../docs/APPLICATION-VALUES-0.41.md) | Candidate-only same-day conflict calculation; no journal or owner transfer |
 | Nested application records | [Isolated experiment](../experiments/nested-records/README.md) | Candidate borrowed composition; not released general nested ownership |
 
