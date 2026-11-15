@@ -1,0 +1,125 @@
+module owned_batch
+use "lib/numbers.rf2"
+use "lib/output.rf2"
+text BatchLabel(IO,256)
+record OwnedBatch(label:own BatchLabel,readings:own Numbers,revision:u64)
+# This app helper appends decoded scalars. Failure may leave a decoded prefix;
+# the caller returns through aggregate/local-owner cleanup instead of publishing it.
+fn batch_label_decode(label:BatchLabel,p,n):IO
+ if n>1024
+  return err(22)
+ end
+ let i=0
+ while i<n
+  let first=load8(p+i)
+  let width=1
+  let scalar=first
+  let minimum=0
+  if first>=128
+   if (first>=194)&(first<=223)
+    set width=2
+    set scalar=first&31
+    set minimum=128
+   else
+    if (first>=224)&(first<=239)
+     set width=3
+     set scalar=first&15
+     set minimum=2048
+    else
+     if (first>=240)&(first<=244)
+      set width=4
+      set scalar=first&7
+      set minimum=65536
+     else
+      return err(84)
+     end
+    end
+   end
+  end
+  if width>n-i
+   return err(84)
+  end
+  let j=1
+  while j<width
+   let tail=load8(p+i+j)
+   if (tail<128)|(tail>191)
+    return err(84)
+   end
+   set scalar=(scalar<<6)|(tail&63)
+   set j=j+1
+  end
+  if (scalar<minimum)|(scalar>1114111)|((scalar>=55296)&(scalar<=57343))
+   return err(84)
+  end
+  handle text_append(label,scalar)
+  ok appended
+  err append_error
+   return err(append_error)
+  end
+  set i=i+width
+ end
+ return ok(label.length)
+end
+fn batch_label_json(label:BatchLabel):IO
+ if output_text("\"")==0
+  return err(5)
+ end
+ let data=buffer("owned_label_encoding",8)
+ let i=0
+ while i<label.length
+  let scalar=0
+  handle text_get(label,i)
+  ok value
+   set scalar=value
+  err get_error
+   return err(get_error)
+  end
+  let count=1
+  if (scalar==34)|(scalar==92)
+   do store8(data,92)
+   do store8(data+1,scalar)
+   set count=2
+  else
+   if scalar<32
+    do store8(data,92)
+    do store8(data+1,117)
+    do store8(data+2,48)
+    do store8(data+3,48)
+    do store8(data+4,load8("0123456789abcdef"+(scalar>>4)))
+    do store8(data+5,load8("0123456789abcdef"+(scalar&15)))
+    set count=6
+   else
+    if scalar<128
+     do store8(data,scalar)
+    else
+     if scalar<2048
+      do store8(data,192|(scalar>>6))
+      do store8(data+1,128|(scalar&63))
+      set count=2
+     else
+      if scalar<65536
+       do store8(data,224|(scalar>>12))
+       do store8(data+1,128|((scalar>>6)&63))
+       do store8(data+2,128|(scalar&63))
+       set count=3
+      else
+       do store8(data,240|(scalar>>18))
+       do store8(data+1,128|((scalar>>12)&63))
+       do store8(data+2,128|((scalar>>6)&63))
+       do store8(data+3,128|(scalar&63))
+       set count=4
+      end
+     end
+    end
+   end
+  end
+  if output_bytes(1,data,count)==0
+   return err(5)
+  end
+  set i=i+1
+ end
+ if output_text("\"")==0
+  return err(5)
+ end
+ return ok(i)
+end
