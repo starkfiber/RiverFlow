@@ -1,0 +1,51 @@
+{
+  "schema": "rf2.owned-functions.v1",
+  "reviewedOn": "2026-11-15",
+  "baselineCommit": "cddd7a81f017eff54898211a5abcbc7a05ad3763",
+  "sourceSHA256": {
+    "experiments/owned-functions/prepare.py": "f80813d534978834424339f7274d026374011ef3f7799c8d469abd3a3c3f3a00",
+    "experiments/owned-functions/compiler-extension.flow": "ca9f3823b0d45193ba7c55ca3b7d95991dfbf53ac2e151c64fd916735a277b1a",
+    "experiments/owned-functions/examples/batch-pipeline.flow": "2e77e2a9c0225365020bcbcf8afb7b117fcc85944b9390055fd2a0ce1c86b8a1",
+    "experiments/owned-functions/examples/lib/batch.flow": "98fa0554ef5d05a2ba033387033bc35460abf27261b0cd10ebcbf98c0992d88f",
+    "tests/standalone/owned_functions_verify.py": "0b5a070052b61936abfbff27ff732d4b0a6d7e4309c852fd4f1c62415a09badd",
+    "tests/standalone/progress_verify.py": "1e82d96ca09a04774598c765b9992f47d28c1ea0a8e7d5ffbb9d2e70ef424616",
+    "tools/project-progress.py": "03ddb2bf654f76d3628633258247f27d8b8c499f60fba0c511aec14162face9e"
+  },
+  "preparedCompilerSHA256": "0049834076477f08e6cf6da3b0696797b686fad07b9497fc798b829afdfd3d62",
+  "compilerSHA256": "2c7061b91ce6d54567aac64ef58e8a2a4ca38f9d697d925876e9e0dea9e40654",
+  "selfSHA256": "2c7061b91ce6d54567aac64ef58e8a2a4ca38f9d697d925876e9e0dea9e40654",
+  "qualification": {
+    "ownedFunctions": {
+      "checks": 432,
+      "reportSHA256": "2ab9f9def9cce7b9dc68bda50a413d213f765b531bde8183ef3357612e4ebf06"
+    },
+    "ownedValues": {
+      "checks": 460,
+      "reportSHA256": "11a42229dd7ed619153ad0222830512e870e82a2d7efc889288137d808784b5c"
+    },
+    "borrowedValues": {
+      "checks": 687,
+      "reportSHA256": "68b9590fcfe903caaacdb042a2efd001bf010a82b80c7e0d35fd19182acdda2c"
+    },
+    "heapAdversary": {
+      "checks": 78,
+      "reportSHA256": "1622457df8e7e558b5f5a2a6e2bcd6814a8557010ac9ecf843df6f0eb3a4365a"
+    }
+  },
+  "mcp": {
+    "tools": 9,
+    "runtimeSHA256": "df714d688e5b96577abb294a192432ed2f57f07c080ab23e32eee46cf94b0b89",
+    "receiptSHA256": "80720c78bb4ca361f5cb0458b66336ffce9e032b39ac8184206cfe79465b65e6",
+    "systemsRefused": true,
+    "compactSum": 6
+  },
+  "progressControls": 13,
+  "failures": {
+    "duplicateLocal": "owned-functions-043-a",
+    "optimizedRootCrash": {
+      "reportSHA256": "171afef894e6eeb97218887415d539e66f006a6ae0c04244944b8d2cdbaa1faa",
+      "sourceSHA256": "7c782016e3628a7da472940c02063b611752b68d0edda474db246f8cfffb0b89"
+    }
+  },
+  "scope": "Isolated Mac ARM64 development candidate; existing MCP and released downloads unchanged. No speed/token/hardware or universal safety claim."
+}

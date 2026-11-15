@@ -1,0 +1,48 @@
+{
+  "schema": "rf2.nested-owners.v1",
+  "reviewedOn": "2026-11-15",
+  "baselineCommit": "cddd7a81f017eff54898211a5abcbc7a05ad3763",
+  "preparedCompilerSHA256": "65d729395929b8766b5f3d96aa0730a558004e74964fb31e9022bdd02065d0c7",
+  "compilerSHA256": "85798b5c4e91cc5f80894f7f88bfcd23c00ef2eaf2800c63114ce7870a9372c8",
+  "selfSHA256": "85798b5c4e91cc5f80894f7f88bfcd23c00ef2eaf2800c63114ce7870a9372c8",
+  "sourceSHA256": {
+    "experiments/nested-owned/prepare.py": "d0e821d40cb5dfad200057739232862082ecd764108bd67743dcacea5813c712",
+    "experiments/nested-owned/compiler-extension.flow": "7cf2d4786c37bd6f4c9d8c0066ad9d519b19a105e22d963ca1ac6436aff1122f",
+    "experiments/nested-owned/records-runtime.flow": "289a3839b56390707e628cb4f0a3f56484160a0571d82407afd2ec2478a9e741",
+    "experiments/nested-owned/examples/booking-values.flow": "81c079b1f38cd573bf573d68414a0d025432520c933247b732fbd0eadcebdaa3",
+    "experiments/nested-owned/examples/lib/booking.flow": "4ddcabb3d27b79a2535b78ed19486ddc45be3b02f3e3ccc0a5559add02e33227",
+    "tests/standalone/nested_owned_verify.py": "d5b120e6934d064af9b31b8c586fd266421db98abaf3763019171f13dff13ea3"
+  },
+  "qualification": {
+    "nestedOwners": {
+      "checks": 452,
+      "reportSHA256": "1fcf65cff2302dfb2efe2f3bb4941f60a8a34c42f0366abe2155cd85e054f2cb"
+    },
+    "ownedFunctions": {
+      "checks": 432,
+      "reportSHA256": "8d9cceca71d9378434e646b8a0d221ba6af0bf7b8863792ec3e9a43827003c77"
+    },
+    "ownedValues": {
+      "checks": 460,
+      "reportSHA256": "9cfb4eca9271bb73671228610b728afff5d02008bb5c4512ab76bdaa703edc78"
+    },
+    "borrowedValues": {
+      "checks": 687,
+      "reportSHA256": "aaa2c3734b4b9f4dfe7edd7d2f87a0591f456a8559c8a2dca5dfba7f6e373b0e"
+    },
+    "heapAdversary": {
+      "checks": 78,
+      "reportSHA256": "87623878f568425f3866f8e1fa1e1263437f0ef90ede931b2db4e6bdf3a068c6"
+    }
+  },
+  "bookingModel": {
+    "workloads": 320,
+    "seed": 44151126,
+    "inMemoryOnly": true
+  },
+  "mcp": {
+    "runtimeUnchanged": true,
+    "receipt": "OWNED-FUNCTIONS-0.43.json"
+  },
+  "scope": "Isolated Mac ARM64 candidate. Recursively owned records plus collections of flat u64 records; no pointer-bearing rows, persistence, concurrent transactions, new GUI/MCP Booking tool, release promotion or performance claim."
+}

@@ -23,6 +23,10 @@ One coherent, readable language and SDK for humans and AI, from a child's first 
 
 Inspect `git status`, `docs/PIPELINE.json`, `docs/PROGRESS.md`, latest versioned evidence and ignored `artifacts/LATEST-RF2-SPRINT.json` if available. Check recorded artifact hashes before relying on old results. A missing local artifact is a reproduction gap, not a successful test.
 
-Update the pipeline after executed outcomes, retaining failures and unknowns. Percentages count explicitly defined acceptance checks; never infer universal completion from word counts, generated cards or a finite test total. A sprint can reach 100% while the platform roadmap remains unfinished.
+Update the pipeline after executed outcomes, retaining failures and unknowns. Only the fixed twelve-item owner delivery checklist may produce the displayed completion percentage. Do not reset its denominator or create a new sprint completion badge. Preserve partial work and historical sprint evidence without presenting them as finished product delivery. Never infer universal completion from word counts, generated cards or a finite test total.
 
 Store raw evidence and a credential-free handover under ignored `artifacts/<sprint>/`; publish reviewed reproducible summaries only. Record the exact revision, compiler/runtime hashes, tests, failures/fixes, current package status and next decisive test. A new chat must not assume code from another chat was applied. No continuous unattended worker or automatic memory service is implied by these files.
+
+## Verified implementation milestone, 15 November 2026
+
+The isolated 0.43 candidate qualifies caller-owned results and consuming ownership parameters. The 0.44 candidate adds recursive owned records and nominal flat-u64 row collections. See the versioned receipts for exact source identities, tests and preserved failures. The fixed delivery ledger now advances only the accepted items; remaining work is typed persistence/migration and transactional multi-room Booking, then shared polished UI, bounded agent access, package qualification, matched complete-task comparison and actual external language recognition. No released package was silently replaced. Raw local handovers are under artifacts/owned-functions-043-f/ and artifacts/nested-owned-044-f/. Do not mistake the in-memory Booking decisions for durable reservations.

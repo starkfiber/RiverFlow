@@ -1,6 +1,6 @@
 # Typed application values: contract before promotion
 
-Foundation draft, 15 November 2026. This specifies acceptance behavior for G1; it does not enable new owned fields in released compilers. The [isolated candidate](../experiments/nested-records/README.md) provides borrowed composition. The separate [owned-field candidate](OWNED-VALUES-0.42.md) now adds bounded text/collection fields and local moves, while cross-function ownership remains unimplemented. The full-platform [pipeline](PROGRESS.md) keeps these states separate.
+Foundation draft, 15 November 2026. This specifies acceptance behavior for G1; it does not enable new owned fields in released compilers. The [isolated candidate](../experiments/nested-records/README.md) provides borrowed composition. The [owned-field candidate](OWNED-VALUES-0.42.md) adds bounded text/collection fields and local moves. Later isolated candidates qualify [cross-function ownership](OWNED-FUNCTIONS-0.43.md) and [recursive owned records with flat structured-row collections](NESTED-OWNERS-0.44.md). The fixed delivery [pipeline](PROGRESS.md) keeps candidate evidence, pending persistence and release promotion separate.
 
 ## Current borrowed composition
 
@@ -12,9 +12,9 @@ The Booking conflict prototype uses the real date/time/text/I/O library snapshot
 
 ## Owned-value acceptance rules
 
-The 0.42 candidate implements scoped parts of V1–V3 and V6–V9, with finite evidence linked above. It does not complete these requirements generally or satisfy V4/V5/V10/V11 as a full application-value model.
+Candidates through 0.44 implement bounded parts of V1–V4 and V6–V9, with finite evidence linked above. V5 remains conservative nonescaping borrowing, without general alias/concurrency proof. V10/V11 persistence remains unimplemented. V12 has the recorded subset of regressions, not full release promotion.
 
-These rules are design requirements. Exact surface syntax, representation and ABI remain unapproved until a candidate implements and qualifies them.
+These rules are acceptance requirements. Versioned candidate documents specify and qualify their exact implemented surface syntax, representation, ABI and limits. Remaining requirements cannot be inferred from those tests.
 
 | ID | Required behavior | Acceptance pair |
 | --- | --- | --- |
