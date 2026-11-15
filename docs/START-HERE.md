@@ -2,11 +2,14 @@
 
 ![Write, compile, run, inspect and improve](assets/developer-flow.svg)
 
+Start with [RF2 From Zero](../book/learning-edition-1/README.md) if you have never programmed. Then choose a package and a complete program from the [example catalogue](../examples/README.md).
+
 ## Choose a package
 
 | Choice | Use it for | What it contains |
 | --- | --- | --- |
 | [Stable 0.17 release](https://github.com/starkfiber/RiverFlow/releases/tag/v0.17.0) | The frozen native runtime and its supported compiler examples | The release's original Mac tools and examples; not later collection or interrupt syntax |
+| [Workbench 0.38 bundle](../dist/workbench-0.38/README.md) | Booking CLI/GUI and Core learning Studio | Native Mac apps, source and the qualified tools; no general Systems IDE |
 | [Documents 0.37 bundle](../dist/documents-0.37/README.md) | Read-only document search/preview and reusable libraries | Two native Mac apps, source, the existing Mac compiler and unchanged 0.17 MCP runtime; no embedded compiler |
 | [Development 0.36 bundle](../dist/0.36-candidate/README.md) | This checkout's collection-app tutorial and ESP32-C3 interrupt examples | A development Mac compiler, ESP32-C3 compiler, the unchanged 0.17 MCP runtime and embedded examples |
 | Source checkout | Reusable libraries, tutorials, build helpers and developer tests | Source files; a fresh clone does not build or install a native binary automatically |
@@ -25,7 +28,7 @@ The helper is shell developer tooling around the existing native binaries. It do
 
 ## Learn the language
 
-Start with the [byte reference](BYTE-REFERENCE.md), [Core contract](NATIVE-CORE.md), [modules and records](MODULES-TYPES.md) and [online book](https://starkfiber.github.io/RiverFlow/book/). The book retains its edition's coverage; current versioned contracts describe subsequent additions.
+Read [RF2 From Zero online](https://starkfiber.github.io/RiverFlow/learn/) first. Keep the [first technical book](https://starkfiber.github.io/RiverFlow/book/) as an edition-specific reference. Then consult the [byte reference](BYTE-REFERENCE.md), [Core contract](NATIVE-CORE.md), [modules and records](MODULES-TYPES.md) and [online book](https://starkfiber.github.io/RiverFlow/book/). The book retains its edition's coverage; current versioned contracts describe subsequent additions.
 
 Core/compact computation is deliberately bounded. Trusted Mac systems source supports different effects and uses the native compiler. Embedded source has another profile and compiler. Do not interchange their syntax or permissions.
 

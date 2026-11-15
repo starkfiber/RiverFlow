@@ -1,6 +1,6 @@
 {
-  "schema": "rf2.source.inventory.v1",
-  "method": "Tracked and unignored source files by the explicit supported-suffix map, excluding explicitly generated book HTML and kernels. Includes developer tools, references and website source. Bytes, not runtime dependencies or quality. GitHub Linguist has its own supported-language list.",
+  "schema": "rf2.source.inventory.v2",
+  "method": "Tracked source files in the working tree, using the explicit suffix map. Excludes source-suffix files marked linguist-generated in .gitattributes. Includes tests, references, experiments and website source. Counts bytes, not runtime dependencies, interoperability or quality. GitHub Linguist uses its own recognized-language list. Markdown prose, archives, images and other unlisted suffixes are outside this inventory.",
   "supportedSuffixes": {
     ".rf2": "RiverFlow",
     ".flow": "RiverFlow",
@@ -18,1652 +18,2304 @@
     ".rs": "Rust"
   },
   "generatedExcluded": [
+    "book/learning-edition-1/RF2-From-Zero.html",
     "docs/book/index.html",
+    "docs/lab/app.css",
+    "docs/lab/app.js",
+    "docs/lab/index.html",
+    "docs/lab/sum.flow",
+    "docs/learn/index.html",
     "examples/evidence-contract/lib/json_transport.rf2",
     "examples/sha40/rounds.rf2",
     "native/attendance-kernel.rf2",
     "native/invoice-kernel.rf2",
-    "site/book/index.html"
+    "site/book/index.html",
+    "site/lab/app.css",
+    "site/lab/app.js",
+    "site/lab/index.html",
+    "site/lab/sum.flow",
+    "site/learn/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 793126,
-    "Python": 790894,
-    "JavaScript": 85144,
-    "HTML": 30503,
-    "CSS": 17035,
+    "RiverFlow": 907205,
+    "Python": 885646,
+    "JavaScript": 82568,
+    "HTML": 23891,
+    "CSS": 12629,
     "Assembly": 6795,
-    "C": 3957,
-    "Shell": 2683
+    "Shell": 5706,
+    "C": 3957
+  },
+  "filesByLanguage": {
+    "Assembly": 4,
+    "C": 3,
+    "CSS": 3,
+    "HTML": 6,
+    "JavaScript": 29,
+    "Python": 152,
+    "RiverFlow": 166,
+    "Shell": 6
+  },
+  "bytesByArea": {
+    "Application and target examples": {
+      "C": 390,
+      "CSS": 2203,
+      "HTML": 7173,
+      "JavaScript": 4587,
+      "Python": 21709,
+      "RiverFlow": 282746
+    },
+    "Build and publishing tools": {
+      "JavaScript": 10300,
+      "Python": 213592,
+      "Shell": 4855
+    },
+    "Compiler and native runtime": {
+      "RiverFlow": 358046
+    },
+    "Historical seeds and references": {
+      "JavaScript": 21536,
+      "Python": 13178
+    },
+    "MCP integration": {
+      "Shell": 851
+    },
+    "Other development source": {
+      "RiverFlow": 1286
+    },
+    "Teaching source": {
+      "RiverFlow": 2388
+    },
+    "Unreleased experiments": {
+      "Python": 5374
+    },
+    "Verification and independent oracles": {
+      "Assembly": 6795,
+      "C": 3567,
+      "JavaScript": 25875,
+      "Python": 631793,
+      "RiverFlow": 262069
+    },
+    "Website and documentation source": {
+      "CSS": 10426,
+      "HTML": 16718,
+      "JavaScript": 20270,
+      "RiverFlow": 670
+    }
   },
   "files": [
     {
       "path": "bin/rf2.mjs",
       "language": "JavaScript",
+      "area": "Historical seeds and references",
       "bytes": 962
     },
     {
       "path": "book/examples/example-1.flow",
       "language": "RiverFlow",
+      "area": "Teaching source",
       "bytes": 191
     },
     {
       "path": "book/examples/example-2.flow",
       "language": "RiverFlow",
+      "area": "Teaching source",
       "bytes": 192
     },
     {
       "path": "book/examples/example-3.flow",
       "language": "RiverFlow",
+      "area": "Teaching source",
       "bytes": 328
     },
     {
       "path": "book/examples/example-4.flow",
       "language": "RiverFlow",
+      "area": "Teaching source",
       "bytes": 524
     },
     {
       "path": "book/examples/example-5.flow",
       "language": "RiverFlow",
+      "area": "Teaching source",
       "bytes": 386
+    },
+    {
+      "path": "book/learning-edition-1/examples/bits.flow",
+      "language": "RiverFlow",
+      "area": "Teaching source",
+      "bytes": 26
+    },
+    {
+      "path": "book/learning-edition-1/examples/functions.flow",
+      "language": "RiverFlow",
+      "area": "Teaching source",
+      "bytes": 139
+    },
+    {
+      "path": "book/learning-edition-1/examples/loop.flow",
+      "language": "RiverFlow",
+      "area": "Teaching source",
+      "bytes": 137
+    },
+    {
+      "path": "book/learning-edition-1/examples/nonzero.flow",
+      "language": "RiverFlow",
+      "area": "Teaching source",
+      "bytes": 29
+    },
+    {
+      "path": "book/learning-edition-1/examples/results.flow",
+      "language": "RiverFlow",
+      "area": "Teaching source",
+      "bytes": 360
+    },
+    {
+      "path": "book/learning-edition-1/examples/squares.flow",
+      "language": "RiverFlow",
+      "area": "Teaching source",
+      "bytes": 29
+    },
+    {
+      "path": "book/learning-edition-1/examples/sum.flow",
+      "language": "RiverFlow",
+      "area": "Teaching source",
+      "bytes": 25
+    },
+    {
+      "path": "book/learning-edition-1/examples/wrap.flow",
+      "language": "RiverFlow",
+      "area": "Teaching source",
+      "bytes": 22
     },
     {
       "path": "bootstrap/seed.py",
       "language": "Python",
+      "area": "Historical seeds and references",
       "bytes": 13178
     },
     {
       "path": "capabilities/attendance.local.v1/tally.flow",
       "language": "RiverFlow",
+      "area": "Other development source",
       "bytes": 462
     },
     {
       "path": "capabilities/invoice.total.v1/quote.rf2",
       "language": "RiverFlow",
+      "area": "Other development source",
       "bytes": 50
     },
     {
       "path": "capabilities/invoice.total.v1/total.flow",
       "language": "RiverFlow",
+      "area": "Other development source",
       "bytes": 774
     },
     {
       "path": "docs/app.mjs",
       "language": "JavaScript",
+      "area": "Website and documentation source",
       "bytes": 2478
     },
     {
       "path": "docs/example.flow",
       "language": "RiverFlow",
+      "area": "Website and documentation source",
       "bytes": 335
     },
     {
       "path": "docs/index.html",
       "language": "HTML",
+      "area": "Website and documentation source",
       "bytes": 202
-    },
-    {
-      "path": "docs/lab/app.css",
-      "language": "CSS",
-      "bytes": 2203
-    },
-    {
-      "path": "docs/lab/app.js",
-      "language": "JavaScript",
-      "bytes": 3096
-    },
-    {
-      "path": "docs/lab/index.html",
-      "language": "HTML",
-      "bytes": 3306
-    },
-    {
-      "path": "docs/lab/sum.flow",
-      "language": "RiverFlow",
-      "bytes": 335
     },
     {
       "path": "docs/rf2/index.html",
       "language": "HTML",
+      "area": "Website and documentation source",
       "bytes": 8157
     },
     {
       "path": "docs/riverflow.mjs",
       "language": "JavaScript",
+      "area": "Website and documentation source",
       "bytes": 7469
     },
     {
       "path": "docs/style.css",
       "language": "CSS",
+      "area": "Website and documentation source",
       "bytes": 5213
     },
     {
       "path": "docs/worker.mjs",
       "language": "JavaScript",
+      "area": "Website and documentation source",
       "bytes": 188
     },
     {
       "path": "examples/browser-lab/app.css",
       "language": "CSS",
+      "area": "Application and target examples",
       "bytes": 2203
     },
     {
       "path": "examples/browser-lab/app.js",
       "language": "JavaScript",
+      "area": "Application and target examples",
       "bytes": 3096
     },
     {
       "path": "examples/browser-lab/assets.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1048
     },
     {
       "path": "examples/browser-lab/index.html",
       "language": "HTML",
+      "area": "Application and target examples",
       "bytes": 3306
     },
     {
       "path": "examples/browser-lab/sum.flow",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 335
     },
     {
       "path": "examples/buffer-audit/lib/audit.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1324
     },
     {
       "path": "examples/buffer-audit/lib/output.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 598
     },
     {
       "path": "examples/buffer-audit/main.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 739
     },
     {
       "path": "examples/cloudflare-worker/handler.mjs",
       "language": "JavaScript",
+      "area": "Application and target examples",
       "bytes": 1371
     },
     {
       "path": "examples/cloudflare-worker/worker.mjs",
       "language": "JavaScript",
+      "area": "Application and target examples",
       "bytes": 120
     },
     {
       "path": "examples/collection-tools/lib/numbers.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 3840
     },
     {
       "path": "examples/collection-tools/lib/output.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 856
+    },
+    {
+      "path": "examples/collection-tools/lib/ranges.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 867
+    },
+    {
+      "path": "examples/collection-tools/lookup.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 1484
     },
     {
       "path": "examples/collection-tools/telemetry-summary.flow",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1515
     },
     {
       "path": "examples/collection-tools/value-frequency.flow",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 2032
     },
     {
       "path": "examples/compact/bits-checked.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 26
     },
     {
       "path": "examples/compact/bits-wrap.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 23
     },
     {
       "path": "examples/compact/nonzero-checked.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 29
     },
     {
       "path": "examples/compact/nonzero-wrap.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 26
     },
     {
       "path": "examples/compact/squares-checked.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 29
     },
     {
       "path": "examples/compact/squares-wrap.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 26
     },
     {
       "path": "examples/compact/sum-checked.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 25
     },
     {
       "path": "examples/compact/sum-wrap.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 22
     },
     {
       "path": "examples/compact/sum.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 25
+    },
+    {
+      "path": "examples/documents/booking-web.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 6550
+    },
+    {
+      "path": "examples/documents/booking.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 2662
+    },
+    {
+      "path": "examples/documents/lib/app-server.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 3264
+    },
+    {
+      "path": "examples/documents/lib/booking.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 5941
+    },
+    {
+      "path": "examples/documents/lib/collections.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 2816
+    },
+    {
+      "path": "examples/documents/lib/corpus.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 4454
+    },
+    {
+      "path": "examples/documents/lib/datetime.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 2660
+    },
+    {
+      "path": "examples/documents/lib/forms.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 6591
+    },
+    {
+      "path": "examples/documents/lib/http.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 7408
+    },
+    {
+      "path": "examples/documents/lib/io.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 1874
+    },
+    {
+      "path": "examples/documents/lib/process.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 2282
+    },
+    {
+      "path": "examples/documents/lib/reader.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 14128
+    },
+    {
+      "path": "examples/documents/lib/storage.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 2012
+    },
+    {
+      "path": "examples/documents/lib/studio.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 6341
+    },
+    {
+      "path": "examples/documents/lib/text.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 7339
+    },
+    {
+      "path": "examples/documents/lib/workbench-ui.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 3532
+    },
+    {
+      "path": "examples/documents/library-probe.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 5316
+    },
+    {
+      "path": "examples/documents/studio.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 3166
+    },
+    {
+      "path": "examples/documents/text-lines.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 2257
+    },
+    {
+      "path": "examples/documents/workspace.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 1319
+    },
+    {
+      "path": "examples/esp32c3/interrupt-heartbeat.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 2085
+    },
+    {
+      "path": "examples/esp32c3/lib/peripheral.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 4491
+    },
+    {
+      "path": "examples/esp32c3/lib/time.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 1615
+    },
+    {
+      "path": "examples/esp32c3/lib/uart.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 595
+    },
+    {
+      "path": "examples/esp32c3/lib/watchdog.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 1797
     },
     {
       "path": "examples/esp32c3/tests/model-hooks.flow",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1483
     },
     {
       "path": "examples/esp32c3/tests/model-main.flow",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1437
     },
     {
       "path": "examples/esp32c3/tests/verify_protocol.py",
       "language": "Python",
+      "area": "Application and target examples",
       "bytes": 9833
     },
     {
       "path": "examples/esp32c3/tests/verify_protocol_rv32.py",
       "language": "Python",
-      "bytes": 7808
+      "area": "Application and target examples",
+      "bytes": 8996
+    },
+    {
+      "path": "examples/esp32c3/timed-heartbeat.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 1330
     },
     {
       "path": "examples/esp32c3/tmp102.flow",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 6243
     },
     {
       "path": "examples/esp32c3/uart-echo.flow",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1017
     },
     {
       "path": "examples/esp32c3/uart-smoke.flow",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1191
     },
     {
       "path": "examples/evidence-contract/guest.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 9185
     },
     {
       "path": "examples/evidence-contract/lib/auth.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 3126
     },
     {
       "path": "examples/evidence-contract/lib/build_identity.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 173
     },
     {
       "path": "examples/evidence-contract/lib/contract_mcp.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 6552
     },
     {
       "path": "examples/evidence-contract/lib/engine.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 3886
     },
     {
       "path": "examples/evidence-contract/lib/issuer.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1195
     },
     {
       "path": "examples/evidence-contract/lib/output.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 881
     },
     {
       "path": "examples/evidence-contract/lib/parser.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 3367
     },
     {
       "path": "examples/evidence-contract/lib/sha256.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 9050
     },
     {
       "path": "examples/evidence-contract/lib/verifier.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 3964
     },
     {
       "path": "examples/evidence-contract/lib/wire.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 4711
     },
     {
       "path": "examples/evidence-contract/main.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 5021
     },
     {
       "path": "examples/evidence-contract/trust.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1608
     },
     {
       "path": "examples/evidence-contract/verify.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 213
     },
     {
       "path": "examples/file-checksum.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1832
     },
     {
       "path": "examples/file-kind/main.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 2062
     },
     {
       "path": "examples/function-changes/main.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 219
     },
     {
       "path": "examples/hex/lib/hex.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1977
     },
     {
       "path": "examples/hex/main.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 303
     },
     {
       "path": "examples/hypervisor/main.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 5351
     },
     {
       "path": "examples/latency/lib/io.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 557
     },
     {
       "path": "examples/latency/lib/samples.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 745
     },
     {
       "path": "examples/latency/main.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1345
     },
     {
       "path": "examples/native-driver.c",
       "language": "C",
+      "area": "Application and target examples",
       "bytes": 390
     },
     {
       "path": "examples/number-audit/lib/audit.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 2186
     },
     {
       "path": "examples/number-audit/lib/bytes.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1708
     },
     {
       "path": "examples/number-audit/lib/io.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 557
     },
     {
       "path": "examples/number-audit/lib/parse.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 883
     },
     {
       "path": "examples/number-audit/main.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 860
     },
     {
       "path": "examples/number-lab-web/main.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 26148
     },
     {
       "path": "examples/number-lab/main.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 7929
     },
     {
       "path": "examples/sha40/main.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1105
     },
     {
       "path": "examples/stack-lab/index.html",
       "language": "HTML",
+      "area": "Application and target examples",
       "bytes": 3867
     },
     {
       "path": "examples/stack-lab/python_server.py",
       "language": "Python",
+      "area": "Application and target examples",
       "bytes": 2880
     },
     {
       "path": "examples/stack-lab/server.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 11134
     },
     {
       "path": "examples/stack-lab/vm.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1917
     },
     {
       "path": "examples/sum.flow",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 335
     },
     {
       "path": "examples/systems/conditional-sum.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1039
     },
     {
       "path": "examples/systems/hello-os.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 362
     },
     {
       "path": "examples/text-audit/lib/audit.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 849
     },
     {
       "path": "examples/text-audit/lib/bytes.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1708
     },
     {
       "path": "examples/text-audit/lib/io.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 557
     },
     {
       "path": "examples/text-audit/lib/utf8.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1711
     },
     {
       "path": "examples/text-audit/main.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1085
     },
     {
       "path": "examples/text-search/lib/search.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1868
     },
     {
       "path": "examples/text-search/log-scan.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 2722
     },
     {
       "path": "examples/text-search/main.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 2541
     },
     {
       "path": "examples/unicode-lines/lib/audit.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 2510
     },
     {
       "path": "examples/unicode-lines/lib/bytes.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1708
     },
     {
       "path": "examples/unicode-lines/lib/io.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 557
     },
     {
       "path": "examples/unicode-lines/lib/text.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 986
     },
     {
       "path": "examples/unicode-lines/main.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 1065
     },
     {
       "path": "examples/vm-runner/main.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 5223
     },
     {
       "path": "examples/workload/lib/csv.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 2211
     },
     {
       "path": "examples/workload/lib/io.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 557
     },
     {
       "path": "examples/workload/lib/workload.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 977
     },
     {
       "path": "examples/workload/main.rf2",
       "language": "RiverFlow",
+      "area": "Application and target examples",
       "bytes": 360
+    },
+    {
+      "path": "experiments/nested-records/prepare.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 3385
+    },
+    {
+      "path": "experiments/nested-records/verify.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 1989
     },
     {
       "path": "native/attendance.rf2",
       "language": "RiverFlow",
+      "area": "Compiler and native runtime",
       "bytes": 6832
     },
     {
       "path": "native/build/incremental.rf2",
       "language": "RiverFlow",
+      "area": "Compiler and native runtime",
       "bytes": 14332
     },
     {
       "path": "native/compiler/compiler.rf2",
       "language": "RiverFlow",
+      "area": "Compiler and native runtime",
       "bytes": 167767
     },
     {
       "path": "native/core.rf2",
       "language": "RiverFlow",
+      "area": "Compiler and native runtime",
       "bytes": 24384
     },
     {
       "path": "native/editor.rf2",
       "language": "RiverFlow",
+      "area": "Compiler and native runtime",
       "bytes": 31838
     },
     {
       "path": "native/embedded/compiler.flow",
       "language": "RiverFlow",
-      "bytes": 18602
+      "area": "Compiler and native runtime",
+      "bytes": 26408
     },
     {
       "path": "native/fingerprint.rf2",
       "language": "RiverFlow",
+      "area": "Compiler and native runtime",
       "bytes": 5202
     },
     {
       "path": "native/hello.rf2",
       "language": "RiverFlow",
+      "area": "Compiler and native runtime",
       "bytes": 99
     },
     {
       "path": "native/invoice.rf2",
       "language": "RiverFlow",
+      "area": "Compiler and native runtime",
       "bytes": 6065
     },
     {
       "path": "native/lowered-harness.rf2",
       "language": "RiverFlow",
+      "area": "Compiler and native runtime",
       "bytes": 14639
     },
     {
       "path": "native/prepared.rf2",
       "language": "RiverFlow",
+      "area": "Compiler and native runtime",
       "bytes": 4117
     },
     {
       "path": "native/rf2.rf2",
       "language": "RiverFlow",
+      "area": "Compiler and native runtime",
       "bytes": 38587
     },
     {
       "path": "native/studio/launcher.rf2",
       "language": "RiverFlow",
+      "area": "Compiler and native runtime",
       "bytes": 1142
     },
     {
       "path": "native/wasm/backend.rf2",
       "language": "RiverFlow",
+      "area": "Compiler and native runtime",
       "bytes": 8308
     },
     {
       "path": "native/workspace.rf2",
       "language": "RiverFlow",
+      "area": "Compiler and native runtime",
       "bytes": 8326
     },
     {
       "path": "plugin/launch-contract-mcp.sh",
       "language": "Shell",
+      "area": "MCP integration",
       "bytes": 476
     },
     {
       "path": "plugin/launch-mcp.sh",
       "language": "Shell",
+      "area": "MCP integration",
       "bytes": 375
     },
     {
       "path": "site/app.mjs",
       "language": "JavaScript",
+      "area": "Website and documentation source",
       "bytes": 2478
     },
     {
       "path": "site/example.flow",
       "language": "RiverFlow",
+      "area": "Website and documentation source",
       "bytes": 335
     },
     {
       "path": "site/index.html",
       "language": "HTML",
+      "area": "Website and documentation source",
       "bytes": 202
-    },
-    {
-      "path": "site/lab/app.css",
-      "language": "CSS",
-      "bytes": 2203
-    },
-    {
-      "path": "site/lab/app.js",
-      "language": "JavaScript",
-      "bytes": 3096
-    },
-    {
-      "path": "site/lab/index.html",
-      "language": "HTML",
-      "bytes": 3306
-    },
-    {
-      "path": "site/lab/sum.flow",
-      "language": "RiverFlow",
-      "bytes": 335
     },
     {
       "path": "site/rf2/index.html",
       "language": "HTML",
+      "area": "Website and documentation source",
       "bytes": 8157
     },
     {
       "path": "site/riverflow.mjs",
       "language": "JavaScript",
+      "area": "Website and documentation source",
       "bytes": 7469
     },
     {
       "path": "site/style.css",
       "language": "CSS",
+      "area": "Website and documentation source",
       "bytes": 5213
     },
     {
       "path": "site/worker.mjs",
       "language": "JavaScript",
+      "area": "Website and documentation source",
       "bytes": 188
     },
     {
       "path": "src/mcp.mjs",
       "language": "JavaScript",
+      "area": "Historical seeds and references",
       "bytes": 3779
     },
     {
       "path": "src/native-c.mjs",
       "language": "JavaScript",
+      "area": "Historical seeds and references",
       "bytes": 5449
     },
     {
       "path": "src/research-bridge.mjs",
       "language": "JavaScript",
+      "area": "Historical seeds and references",
       "bytes": 3877
     },
     {
       "path": "src/riverflow.mjs",
       "language": "JavaScript",
+      "area": "Historical seeds and references",
       "bytes": 7469
     },
     {
       "path": "tests/comparators/text_search.c",
       "language": "C",
+      "area": "Verification and independent oracles",
       "bytes": 1059
     },
     {
       "path": "tests/comparators/text_search_kmp.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 1345
     },
     {
       "path": "tests/fixtures/compiler-0.23-reference.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 117109
     },
     {
       "path": "tests/fixtures/compiler-0.24-reference.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 118048
     },
     {
       "path": "tests/fixtures/sha-0.23-reference.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 9356
     },
     {
       "path": "tests/fixtures/sha-0.24-reference.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 9789
     },
     {
       "path": "tests/fixtures/sha256_direct_armv8.c",
       "language": "C",
+      "area": "Verification and independent oracles",
       "bytes": 2508
     },
     {
       "path": "tests/language.test.mjs",
       "language": "JavaScript",
+      "area": "Verification and independent oracles",
       "bytes": 3110
     },
     {
       "path": "tests/mcp.test.mjs",
       "language": "JavaScript",
+      "area": "Verification and independent oracles",
       "bytes": 1510
     },
     {
       "path": "tests/native.test.mjs",
       "language": "JavaScript",
+      "area": "Verification and independent oracles",
       "bytes": 4303
     },
     {
       "path": "tests/research-bridge.test.mjs",
       "language": "JavaScript",
+      "area": "Verification and independent oracles",
       "bytes": 1057
     },
     {
       "path": "tests/standalone/arrays_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 7442
     },
     {
       "path": "tests/standalone/attendance_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 5806
     },
     {
       "path": "tests/standalone/auth_vm_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 10001
+    },
+    {
+      "path": "tests/standalone/booking_faults_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 2119
+    },
+    {
+      "path": "tests/standalone/booking_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 4102
     },
     {
       "path": "tests/standalone/browser_worker_verify.mjs",
       "language": "JavaScript",
+      "area": "Verification and independent oracles",
       "bytes": 3154
     },
     {
       "path": "tests/standalone/bswap32_copy.s",
       "language": "Assembly",
+      "area": "Verification and independent oracles",
       "bytes": 340
     },
     {
       "path": "tests/standalone/buffer_audit_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 4971
     },
     {
       "path": "tests/standalone/check_only_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 5338
     },
     {
       "path": "tests/standalone/cleanup_adversarial.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 7905
     },
     {
       "path": "tests/standalone/collection_apps_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 6101
     },
     {
       "path": "tests/standalone/compact_image_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 6828
     },
     {
       "path": "tests/standalone/compiler_bounds_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 1391
     },
     {
       "path": "tests/standalone/compiler_dispatch_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 4101
     },
     {
       "path": "tests/standalone/compiler_hash_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 3884
     },
     {
       "path": "tests/standalone/compiler_store_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 5142
     },
     {
       "path": "tests/standalone/compiler_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 8817
     },
     {
       "path": "tests/standalone/conditional_reduction_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 5351
     },
     {
       "path": "tests/standalone/contract_benchmark.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 4070
     },
     {
       "path": "tests/standalone/contract_capsule_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 6931
     },
     {
       "path": "tests/standalone/contract_cli_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 9602
     },
     {
       "path": "tests/standalone/contract_common_mode.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 2486
     },
     {
       "path": "tests/standalone/contract_engine_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 8864
     },
     {
       "path": "tests/standalone/contract_exhaustive_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 3133
     },
     {
       "path": "tests/standalone/control_optimizer_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 3891
     },
     {
       "path": "tests/standalone/core_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 8399
     },
     {
       "path": "tests/standalone/diagnostics_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 6137
+    },
+    {
+      "path": "tests/standalone/documents_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 17645
     },
     {
       "path": "tests/standalone/editor_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 8563
     },
     {
       "path": "tests/standalone/embedded_verify.py",
       "language": "Python",
-      "bytes": 16918
+      "area": "Verification and independent oracles",
+      "bytes": 16953
+    },
+    {
+      "path": "tests/standalone/esp32c3_irq_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 15940
+    },
+    {
+      "path": "tests/standalone/esp32c3_time_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 13266
     },
     {
       "path": "tests/standalone/esp32c3_uart_verify.py",
       "language": "Python",
-      "bytes": 3678
+      "area": "Verification and independent oracles",
+      "bytes": 4350
     },
     {
       "path": "tests/standalone/fill_zero.s",
       "language": "Assembly",
+      "area": "Verification and independent oracles",
       "bytes": 291
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/abi-payload.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 477
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/after.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 252
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/coalesce-outside.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 352
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/err.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 257
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/fallthrough.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 298
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/loop-handle.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 374
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/missing-arm.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 225
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/ok.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 258
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/opposite.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 248
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/result-ignore.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 195
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/result-index.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 193
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/result-length.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 197
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/self-init.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 68
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/view-alias.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 286
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/view-call.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 279
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/view-empty.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 292
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/view-escape.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 221
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/view-length-not-owner.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 288
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/view-overflow.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 304
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/view.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 243
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/while-inplace-outside.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 334
     },
     {
       "path": "tests/standalone/fixtures/results-views-critic/while.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 275
     },
     {
       "path": "tests/standalone/fixtures/vm-ownership/repeat-release.rf2",
       "language": "RiverFlow",
+      "area": "Verification and independent oracles",
       "bytes": 506
     },
     {
       "path": "tests/standalone/flow_modules_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 2981
     },
     {
       "path": "tests/standalone/foundation_redteam_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 13783
     },
     {
       "path": "tests/standalone/function_pack_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 13673
     },
     {
       "path": "tests/standalone/function_reuse_extended_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 17385
     },
     {
       "path": "tests/standalone/function_reuse_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 14271
     },
     {
       "path": "tests/standalone/heap_collection_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 6261
     },
     {
       "path": "tests/standalone/heap_ownership_redteam_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 22210
     },
     {
       "path": "tests/standalone/hex_app_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 5266
     },
     {
       "path": "tests/standalone/hypervisor_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 3979
     },
     {
       "path": "tests/standalone/incremental_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 12014
     },
     {
       "path": "tests/standalone/instruction_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 2671
     },
     {
       "path": "tests/standalone/intrinsic_leaf_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 2764
     },
     {
       "path": "tests/standalone/invoice_reference.mjs",
       "language": "JavaScript",
+      "area": "Verification and independent oracles",
       "bytes": 2829
     },
     {
       "path": "tests/standalone/invoice_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 8581
+    },
+    {
+      "path": "tests/standalone/learning_edition_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 2463
     },
     {
       "path": "tests/standalone/logic_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 5954
     },
     {
       "path": "tests/standalone/lowering_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 5228
     },
     {
       "path": "tests/standalone/mapping_fault_injection.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 2639
     },
     {
       "path": "tests/standalone/memory_intrinsics_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 6257
     },
     {
       "path": "tests/standalone/module_bounds_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 2336
     },
     {
       "path": "tests/standalone/modules_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 7579
     },
     {
       "path": "tests/standalone/multiple_views_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 2851
     },
     {
       "path": "tests/standalone/narrowing_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 2876
     },
     {
       "path": "tests/standalone/number_lab_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 7537
     },
     {
       "path": "tests/standalone/number_lab_web_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 14381
+    },
+    {
+      "path": "tests/standalone/onboarding_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 10548
     },
     {
       "path": "tests/standalone/optimizer_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 4484
     },
     {
       "path": "tests/standalone/oracle.mjs",
       "language": "JavaScript",
+      "area": "Verification and independent oracles",
       "bytes": 495
     },
     {
       "path": "tests/standalone/ownership_adversarial.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 12053
+    },
+    {
+      "path": "tests/standalone/platform_sprint_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 4861
     },
     {
       "path": "tests/standalone/platform_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 2235
     },
     {
       "path": "tests/standalone/prepared_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 2948
     },
     {
       "path": "tests/standalone/register_abi_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 1857
     },
     {
       "path": "tests/standalone/results_views_app_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 5252
     },
     {
       "path": "tests/standalone/results_views_critic.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 1546
     },
     {
       "path": "tests/standalone/results_views_redteam.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 12225
     },
     {
       "path": "tests/standalone/rotate32_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 3973
     },
     {
       "path": "tests/standalone/sdk.mjs",
       "language": "JavaScript",
+      "area": "Verification and independent oracles",
       "bytes": 3822
     },
     {
       "path": "tests/standalone/sha256_blocks_armv8.s",
       "language": "Assembly",
+      "area": "Verification and independent oracles",
       "bytes": 3024
     },
     {
       "path": "tests/standalone/sha256_chain_armv8.s",
       "language": "Assembly",
+      "area": "Verification and independent oracles",
       "bytes": 3140
     },
     {
       "path": "tests/standalone/sha40_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 3425
     },
     {
       "path": "tests/standalone/sha_acceleration_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 5837
     },
     {
       "path": "tests/standalone/sha_chain_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 4097
     },
     {
       "path": "tests/standalone/sha_preparation_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 6017
     },
     {
       "path": "tests/standalone/sha_reference.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 737
     },
     {
       "path": "tests/standalone/shared_search_apps_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 7292
     },
     {
       "path": "tests/standalone/structured_results_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 11695
     },
     {
       "path": "tests/standalone/structured_storage_redteam_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 15622
     },
     {
       "path": "tests/standalone/structured_storage_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 5410
     },
     {
       "path": "tests/standalone/text_search_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 8085
     },
     {
       "path": "tests/standalone/text_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 8413
     },
     {
       "path": "tests/standalone/trust_hmac_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 3560
     },
     {
       "path": "tests/standalone/trust_mcp_measurements.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 2970
     },
     {
       "path": "tests/standalone/trust_overhead_benchmark.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 4525
     },
     {
       "path": "tests/standalone/trust_protocol_keys.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 4280
     },
     {
       "path": "tests/standalone/trust_sdk.mjs",
       "language": "JavaScript",
+      "area": "Verification and independent oracles",
       "bytes": 1677
     },
     {
       "path": "tests/standalone/trust_shared_fault.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 3037
     },
     {
       "path": "tests/standalone/trust_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 9475
     },
     {
       "path": "tests/standalone/unicode_lines_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 5336
     },
     {
       "path": "tests/standalone/unicode_view_adversarial.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 9147
     },
     {
       "path": "tests/standalone/vector_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 10556
     },
     {
       "path": "tests/standalone/verifier_exhaustive.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 3448
     },
     {
       "path": "tests/standalone/verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 9791
     },
     {
       "path": "tests/standalone/vm_ownership_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 8387
     },
     {
       "path": "tests/standalone/wasm_measure.mjs",
       "language": "JavaScript",
+      "area": "Verification and independent oracles",
       "bytes": 3014
     },
     {
       "path": "tests/standalone/wasm_peer.mjs",
       "language": "JavaScript",
+      "area": "Verification and independent oracles",
       "bytes": 904
     },
     {
       "path": "tests/standalone/wasm_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 5740
+    },
+    {
+      "path": "tests/standalone/workbench_http_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 4206
     },
     {
       "path": "tests/standalone/workspace_verify.py",
       "language": "Python",
+      "area": "Verification and independent oracles",
       "bytes": 3254
     },
     {
       "path": "tools/benchmark-check-only.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 2708
     },
     {
       "path": "tools/benchmark-checksum-files.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 5489
     },
     {
       "path": "tools/benchmark-compact-builds.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 4905
     },
     {
       "path": "tools/benchmark-compiler-dispatch.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 3376
     },
     {
       "path": "tools/benchmark-compiler-store.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 3814
     },
     {
       "path": "tools/benchmark-function-reuse.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 3870
     },
     {
       "path": "tools/benchmark-incremental.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 3835
     },
     {
       "path": "tools/benchmark-mcp.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 3482
     },
     {
       "path": "tools/benchmark-native.mjs",
       "language": "JavaScript",
+      "area": "Build and publishing tools",
       "bytes": 3711
     },
     {
       "path": "tools/benchmark-packed-reuse.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 3488
     },
     {
       "path": "tools/benchmark-real-apps.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 9957
     },
     {
       "path": "tools/benchmark-reuse-edit.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 3467
     },
     {
       "path": "tools/benchmark-sha-acceleration.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 5358
     },
     {
       "path": "tools/benchmark-sha-rotate.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 3589
     },
     {
       "path": "tools/benchmark-sha-steady.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 7186
     },
     {
       "path": "tools/benchmark-text-search.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 3569
     },
     {
       "path": "tools/benchmark.mjs",
       "language": "JavaScript",
+      "area": "Build and publishing tools",
       "bytes": 2115
+    },
+    {
+      "path": "tools/book/build-learning.mjs",
+      "language": "JavaScript",
+      "area": "Build and publishing tools",
+      "bytes": 3616
     },
     {
       "path": "tools/build-auth-vm.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 1557
     },
     {
       "path": "tools/build-book.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 18701
     },
     {
       "path": "tools/build-browser-lab.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 2237
     },
     {
       "path": "tools/build-contract.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 1548
     },
     {
       "path": "tools/build-core.sh",
       "language": "Shell",
+      "area": "Build and publishing tools",
       "bytes": 586
     },
     {
       "path": "tools/build-embedded.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 2534
     },
     {
       "path": "tools/build-foundation.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 1378
     },
     {
       "path": "tools/build-incremental.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 2407
     },
     {
       "path": "tools/build-program.sh",
       "language": "Shell",
+      "area": "Build and publishing tools",
       "bytes": 475
     },
     {
       "path": "tools/build-runtime.sh",
       "language": "Shell",
+      "area": "Build and publishing tools",
       "bytes": 771
     },
     {
       "path": "tools/build-stack-lab.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 1281
     },
     {
       "path": "tools/build-studio.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 1666
     },
     {
       "path": "tools/build-trust.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 1723
     },
     {
       "path": "tools/build-vm-runner.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 1389
     },
     {
       "path": "tools/build-wasm.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 1342
     },
     {
       "path": "tools/check-book-examples.mjs",
       "language": "JavaScript",
+      "area": "Build and publishing tools",
       "bytes": 858
+    },
+    {
+      "path": "tools/dev.sh",
+      "language": "Shell",
+      "area": "Build and publishing tools",
+      "bytes": 3023
     },
     {
       "path": "tools/function-impact.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 2844
     },
     {
       "path": "tools/generate-sha40.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 2125
     },
     {
       "path": "tools/macho-empty-dyld.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 1185
     },
     {
       "path": "tools/measure-capability.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 6280
     },
     {
       "path": "tools/measure-collections.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 5439
     },
     {
       "path": "tools/measure-conditional-reduction.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 4659
     },
     {
       "path": "tools/measure-language.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 7105
     },
     {
       "path": "tools/measure-optimizer.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 5509
     },
     {
       "path": "tools/measure-reuse.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 5170
     },
     {
       "path": "tools/measure-stack-lab.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 5243
     },
     {
       "path": "tools/measure-studio.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 6374
+    },
+    {
+      "path": "tools/package-documents.py",
+      "language": "Python",
+      "area": "Build and publishing tools",
+      "bytes": 4622
     },
     {
       "path": "tools/package-embedded.py",
       "language": "Python",
-      "bytes": 3310
+      "area": "Build and publishing tools",
+      "bytes": 4043
     },
     {
       "path": "tools/package-foundation.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 4180
     },
     {
       "path": "tools/package-heap.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 3739
     },
     {
       "path": "tools/package-storage.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 3421
     },
     {
       "path": "tools/package-trust-candidate.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 2370
     },
     {
       "path": "tools/prepare-vm-lab.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 2081
     },
     {
       "path": "tools/profile-invoice.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 3183
     },
     {
       "path": "tools/qualify-foundation.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 2165
     },
     {
       "path": "tools/qualify-packaged-candidate.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 3915
     },
     {
       "path": "tools/qualify-second-host.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 3687
+    },
+    {
+      "path": "tools/research-scenarios.py",
+      "language": "Python",
+      "area": "Build and publishing tools",
+      "bytes": 3566
     },
     {
       "path": "tools/source-inventory.py",
       "language": "Python",
-      "bytes": 2446
+      "area": "Build and publishing tools",
+      "bytes": 5858
     },
     {
       "path": "tools/stop-stack-showcase.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 653
     },
     {
       "path": "tools/stress-function-reuse.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 7264
     },
     {
       "path": "tools/sync-contract-json.py",
       "language": "Python",
+      "area": "Build and publishing tools",
       "bytes": 1056
     }
   ]
