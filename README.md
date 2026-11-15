@@ -20,7 +20,7 @@ The goal is one readable language and SDK across learning, apps, devices and sys
 
 ## Build a booking app. Try the learning IDE.
 
-[Typed multi-room Booking0.45](https://github.com/starkfiber/RiverFlow/releases/tag/v0.45.0-dev) shares native storage rules across CLI, browser and a bounded agent. [Owned structured-row candidate0.46](docs/OWNED-ROWS-0.46.md) adds collections of records owning text/collections, with an executed Unicode catalog and explicit qualification. New candidate package publication is tracked separately.
+[Typed multi-room Booking0.45](https://github.com/starkfiber/RiverFlow/releases/tag/v0.45.0-dev) shares native storage rules across CLI, browser and a bounded agent. [Native0.46 development download](https://github.com/starkfiber/RiverFlow/releases/tag/v0.46.0-dev) adds collections of records owning text/collections and an executed Unicode catalog. [Qualification and explicit limits](docs/OWNED-ROWS-0.46.md) include actual public-download and native rebuild checks.
 
 The [Workbench 0.38 development edition](dist/workbench-0.38/README.md) adds a native one-room Booking app and RF2 Studio: edit, check, run and build supported Core programs in your browser. Booking shares reusable date/time, locked storage and form libraries with the local workspace. Overlaps, stale forms and failed saves have explicit outcomes. [Beginner walkthrough and tested limits](docs/BOOKING-STUDIO.md).
 
