@@ -26,12 +26,12 @@
     },
     {
       "id": "G3",
-      "state": "pending",
+      "state": "active",
       "acceptance": "Typed persistence, migration and uncertain-save recovery",
       "evidence": [
-        "docs/RF2-EVOLUTION.md"
+        "docs/TYPED-BOOKING-0.45.md"
       ],
-      "note": "References describe current boundaries; this gate is not complete."
+      "note": "Executed versioned Booking persistence/transactions; broader reusable schema/migration framework is not claimed."
     },
     {
       "id": "G4",
@@ -243,10 +243,13 @@
       },
       {
         "id": "R05",
-        "state": "active",
+        "state": "done",
         "acceptance": "Typed persistence, schemas and migrations with reopen/corruption/recovery tests",
-        "evidence": [],
-        "note": ""
+        "evidence": [
+          "docs/TYPED-BOOKING-0.45.md",
+          "docs/TYPED-BOOKING-0.45.json"
+        ],
+        "note": "Two strict Booking-specific codecs, explicit migration/recovery; no import of the older Workbench event journal."
       },
       {
         "id": "R06",
@@ -260,31 +263,42 @@
       },
       {
         "id": "R07",
-        "state": "pending",
+        "state": "done",
         "acceptance": "Transactional multi-room Booking with overlap, simultaneous writers, failed saves and restart tests",
-        "evidence": [],
-        "note": ""
+        "evidence": [
+          "docs/TYPED-BOOKING-0.45.md",
+          "docs/TYPED-BOOKING-0.45.json"
+        ],
+        "note": "Cooperative single-file lock/CAS transactions across real native processes; no hostile same-user isolation or distributed database claim."
       },
       {
         "id": "R08",
-        "state": "pending",
+        "state": "done",
         "acceptance": "Reusable polished accessible UI components demonstrated in the real application",
-        "evidence": [],
-        "note": ""
+        "evidence": [
+          "docs/TYPED-BOOKING-0.45.md",
+          "docs/TYPED-BOOKING-0.45.json"
+        ],
+        "note": "Reusable RF2 HTML/CSS components, actual browser/keyboard inspection; no human learner or screen-reader trial."
       },
       {
         "id": "R09",
-        "state": "pending",
+        "state": "done",
         "acceptance": "Bounded Booking agent interface using the same typed business/storage logic as CLI and GUI",
-        "evidence": [],
-        "note": ""
+        "evidence": [
+          "docs/TYPED-BOOKING-0.45.md",
+          "docs/TYPED-BOOKING-0.45.json"
+        ],
+        "note": "Separate selected-journal agent, read-only by default. Existing nine-tool Core runtime unchanged."
       },
       {
         "id": "R10",
-        "state": "pending",
+        "state": "active",
         "acceptance": "Qualified downloadable compiler/application packages with fresh extraction and source-build checks",
-        "evidence": [],
-        "note": ""
+        "evidence": [
+          "docs/TYPED-BOOKING-0.45.json"
+        ],
+        "note": "Fresh local archive extraction and native source rebuild passed; SFE upload and public download verification remain pending."
       },
       {
         "id": "R11",
@@ -305,7 +319,7 @@
     ]
   },
   "activeWork": {
-    "requirement": "R05",
-    "description": "Build versioned typed persistence for the actual Booking row model: strict schema/payload validation, reopen, migration, failed/uncertain commit and recovery controls. Then transactional multi-room CLI/GUI/agent delivery."
+    "requirement": "R10",
+    "description": "Publish the exact locally qualified native compiler/Booking development archive through verified SFE, then download and verify its bytes. Next: matched complete-development comparison with actual effort/usage, then genuine external language recognition."
   }
 }
