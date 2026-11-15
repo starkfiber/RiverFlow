@@ -1,8 +1,14 @@
 # What can RF2 build today?
 
-RiverFlow is an implemented language with a native compiler, useful applications and a bounded MCP server. It is not yet a replacement for every Java, C++, Python or assembly workflow. The stable runtime is **0.17**; the **0.37 Documents** bundle adds Mac libraries/apps while the separate **0.36 embedded** bundle contains the ESP32-C3 compiler. Both reuse the qualified Mac compiler and unchanged bounded runtime. The table below labels development-only capabilities explicitly. Qualification receipts define its exact tested scope.
+RiverFlow is an implemented language with a native compiler, useful applications and a bounded MCP server. It is not yet a replacement for every Java, C++, Python or assembly workflow. The stable runtime is **0.17**. **Workbench 0.38** adds Booking and a bounded learning editor; **Documents 0.37** adds read-only Mac document apps; **embedded 0.36** contains the separate ESP32-C3 compiler. These packages reuse qualified Mac tools and the unchanged bounded runtime. The table below labels development-only capabilities explicitly. Qualification receipts define its exact tested scope.
 
 The long-term direction is one readable language across application and systems work. Each additional target needs its own implementation, contract and executed tests.
+
+## Source sprint 0.40 and Workbench 0.38
+
+The [source sprint](PLATFORM-SPRINT-0.40.md) qualifies shared lower/upper-bound lookup and an isolated borrowed-record candidate with typed nested scalar updates. The candidate does not add general owned nested values to released compilers. Its 72 role/failure briefs are planning cards, not 72 executed application tests.
+
+[Workbench 0.38](BOOKING-STUDIO.md) provides one-room Booking CLI/GUI with cooperative locking, stale-form checks and explicit uncertain-save outcomes. Studio checks, runs and builds bounded Core lessons. It is not a general Systems IDE; Booking is not a production multi-room service. [Qualification](WORKBENCH-0.38-VERIFICATION.json) is separate from source experiments.
 
 ## Development 0.37: reusable text, tables and document reading
 
@@ -49,7 +55,7 @@ Start with the [tested .flow tutorial](FIRST-APP.md) and [package choices](START
 | Logical decisions | true/false, short-circuit all/any, not; normalized scalar truthiness | Trusted systems profile only; no separate Boolean type | [Logical guards](LOGICAL-GUARDS.md), [file inspector](../examples/file-kind/) |
 | Integer programming | u64 systems scalars; arithmetic, comparisons, branches, loops and functions | Systems integer behavior differs from checked u32 Core; no floating-point type | [Core](NATIVE-CORE.md), [source](../native/compiler/compiler.rf2) |
 | Hex and bytes | Decimal and lowercase `0x` hex spelling; packed u8 arrays; byte I/O; bitwise operators | No `0b` binary spelling, uppercase `0X` prefix or numeric separators | [Byte reference](BYTE-REFERENCE.md) |
-| Modules and records | Explicit local imports; nominal records with u64 fields; typed borrowed parameters | Shared namespace, bounded source graph; no package registry, nested records or generic types | [Modules](MODULES-TYPES.md), [workload app](../examples/workload/) |
+| Modules and records | Explicit local imports; nominal records with u64 fields; typed borrowed parameters | Shared namespace, bounded source graph; no package registry, released general nested records or generic types; borrowed nesting is an isolated experiment | [Modules](MODULES-TYPES.md), [workload app](../examples/workload/) |
 | Growable bytes | Noncopyable reservation-backed byte vectors; capacity grows within declared maximum | Max 1 MiB, function-local, no transfer, vector views or general heap | [Storage/results](STORAGE-RESULTS.md) |
 | Checked arrays | Nominal fixed u64/u8 arrays, bounds checks and typed byte I/O | Function/frame bounds; bounded byte vectors available; separate bounded heap collections; no general heap transfer | [Arrays](CHECKED-ARRAYS.md), [bytes](TEXT-BYTES.md) |
 | Results | Nominal scalar `ok`/`err` returns and mandatory exhaustive handlers | Structured ok records up to 4 scalar fields; errors u64 only; no generic payloads/resultlocals/params | [Results](RESULTS-VIEWS.md) |

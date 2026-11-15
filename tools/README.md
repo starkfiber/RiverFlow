@@ -27,7 +27,7 @@ Read a controller and its input manifest before running it. Preserve the previou
 
 ## Documentation and packaging
 
-`source-inventory.py` records source bytes without pretending GitHub Linguist recognizes RF2. `build-book.py` generates the book and website mirror when requested. `package-trust-candidate.py` and qualification tools apply only to their explicitly versioned package. They do not publish a stable release automatically.
+`source-inventory.py` records tracked source bytes by language and architectural area, using `.gitattributes` for generated exclusions. Run it after staging reviewed new source; `--check` refuses drift without writing. See [language reporting](../docs/LANGUAGE-REPORTING.md). `build-book.py` generates the book and website mirror when requested. `package-trust-candidate.py` and qualification tools apply only to their explicitly versioned package. They do not publish a stable release automatically.
 
 ## Compact image and function-change work
 

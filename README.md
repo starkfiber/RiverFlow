@@ -4,13 +4,13 @@
 
 Created by **Ilangkhumanan Thirunavokkarasu** · Published by **SFE** · **MIT licence**
 
-[Download](https://github.com/starkfiber/RiverFlow/releases/latest) · [Start here](docs/START-HERE.md) · [Codebase map](docs/CODEBASE.md) · [Read the book](https://starkfiber.github.io/RiverFlow/book/) · [MCP](plugin/skills/rf2/SKILL.md)
+[Download](https://github.com/starkfiber/RiverFlow/releases/latest) · [Start here](docs/START-HERE.md) · [Codebase map](docs/CODEBASE.md) · [Learn RF2](https://starkfiber.github.io/RiverFlow/learn/) · [Platform direction](docs/RF2-EVERYWHERE.md) · [MCP](plugin/skills/rf2/SKILL.md)
 
 ![RiverFlow](site/assets/riverflow-hero.png)
 
 RiverFlow is a programming language with a compiler written in RiverFlow. Its Mac compiler emits ARM64 machine code directly. A separate development cross-compiler now emits ESP32-C3 RV32 machine code and ROM-loadable RAM images, qualified in Espressif QEMU. Native programs run without a Node, npm, Python or C++ runtime. An AI host can use the bounded MCP interface to check and run supported computations.
 
-The goal is one readable language for application and systems work, with explicit effects and recoverable failures. The current implementation is a foundation for that goal. Its [capability map](docs/CAPABILITY-MAP.md) states what works and what remains missing.
+The goal is one readable language and SDK across learning, apps, devices and system software, including a future RU’OS integration. We will compete through complete applications and measured comparisons. [RF2 everywhere](docs/RF2-EVERYWHERE.md) connects that ambition to concrete engineering gates; the [capability map](docs/CAPABILITY-MAP.md) records what works today.
 
 ## Learn RF2 from zero
 
@@ -57,7 +57,7 @@ For AI integration, [configure the native MCP host](docs/START-HERE.md#connect-a
 | You want to… | Start here |
 | --- | --- |
 | Learn the syntax | [Language and byte guide](docs/START-HERE.md#learn-the-language), [book](https://starkfiber.github.io/RiverFlow/book/) |
-| Write a native file or text tool | [Examples](examples/), [ownership](docs/RESOURCE-OWNERSHIP.md), [text and bytes](docs/TEXT-BYTES.md) |
+| Write a native file or text tool | [Example catalogue](examples/README.md), [ownership](docs/RESOURCE-OWNERSHIP.md), [text and bytes](docs/TEXT-BYTES.md) |
 | Connect an AI assistant | [Native MCP setup](docs/START-HERE.md#connect-an-ai-host), [tool contracts](plugin/skills/rf2/SKILL.md) |
 | Inspect smaller native images and function changes | [Compact images and working sample](docs/COMPACT-IMAGES-0.27.md) |
 | Reuse unchanged native builds | [Incremental target builds](docs/INCREMENTAL-BUILDS.md) |
@@ -69,13 +69,13 @@ For AI integration, [configure the native MCP host](docs/START-HERE.md#connect-a
 
 **Stable package: 0.17.** Bounded Core computation, local modules, records, checked arrays, UTF-8 scalar views, typed outcomes, owned files, bounded growing bytes and nine defined MCP tools.
 
-**Development libraries and apps: 0.37 Documents.** The new text and collection modules power a native read-only document workspace and an independent CLI. Functional tests, actual browser journeys, package extraction/source rebuild and MCP checks have separate [records](docs/DOCUMENTS-0.37-VERIFICATION.json). The [new bundle](dist/documents-0.37/README.md) reuses the qualified Mac compiler and unchanged 0.17 runtime.
+**Development apps: Workbench 0.38 and Documents 0.37.** Native Mac Booking, a Core learning editor and read-only document search share reusable libraries. [Select a package](docs/START-HERE.md#choose-a-package); each guide links its own acceptance evidence.
 
-**Embedded development bundle: 0.36 ESP32-C3 candidate.** The native RF2-written cross-compiler adds a bounded interrupt dispatcher, a private interrupt stack, register preservation and checked timer/watchdog leases. Two 600-second virtual-time firmware runs each handled over 60000 timer interrupts while preserving the expected foreground result. Thirty interrupt/lease controls and the existing compiler, UART, sensor and timer regressions passed. **Physical board and sensor validation remain pending.** See [contracts, failures and exact evidence](docs/ESP32C3-INTERRUPTS-0.36.md) and the [native development bundle](dist/0.36-candidate/README.md).
+**Latest source qualification: sprint 0.40.** A shared sorted-collection lookup library and isolated borrowed-record leaf updates have [executed default/optimized checks](docs/PLATFORM-SPRINT-0.40.md). The record extension is an unreleased experiment, not general nested ownership. Stable downloads are unchanged.
 
-The new bundle includes the shared timer/watchdog libraries and interrupt heartbeat. Earlier [0.34 images and evidence](docs/ESP32C3-0.34.md), [timer qualification](docs/ESP32C3-TIMERS.md) and [Arduino MCP reference lessons](docs/ARDUINO-MCP-REVIEW.md) are retained. The emulator protection gap and unmodeled RTC watchdog remain explicit. Checked library leases are not a raw-MMIO sandbox, linear ownership types or universal MCU support.
+**Embedded development: 0.36 ESP32-C3.** A separate RF2-written backend has [emulator evidence](docs/ESP32C3-INTERRUPTS-0.36.md) for boot, UART, sensor-bus controls, timers and interrupts. Physical board and sensor validation remain pending.
 
-[0.33 heap collections and shared applications](docs/HEAP-COLLECTIONS-0.33.md) and [0.32 larger fixed arrays](docs/STRUCTURED-STORAGE-0.32.md) remain available. Stable downloads are separate and unchanged. The cross-compiler host is still Apple Silicon macOS; x86, Linux applications, other ESP32 variants and arbitrary Arduino/Pico firmware are not implemented.
+The compiler host and qualified desktop target are Apple Silicon macOS. Windows, Linux/x86 applications, general mobile SDKs and arbitrary Arduino/Pico firmware remain work. The [target matrix](docs/RF2-EVERYWHERE.md#present-target-matrix) gives the next gate for each destination.
 
 MCP does not grant arbitrary filesystem, network or systems-code execution. AI intelligence comes from the connected host. There is no embedded model or automatic proof of correctness.
 
@@ -84,15 +84,22 @@ MCP does not grant arbitrary filesystem, network or systems-code execution. AI i
 | Directory | Purpose |
 | --- | --- |
 | [`native/`](native/) | RF2 compiler, runtime and native application code |
-| [`examples/`](examples/) | Complete programs and capability demonstrations |
+| [`examples/`](examples/README.md) | Catalogued learning, application, systems and embedded programs |
+| [`experiments/`](experiments/nested-records/README.md) | Isolated unreleased compiler experiments |
 | [`tests/`](tests/README.md) | Native acceptance tests, independent oracles and regressions |
 | [`plugin/`](plugin/) | Native MCP launchers and host skill |
 | [`tools/`](tools/README.md) | Explicit build, measurement and publishing tools |
-| [`docs/`](docs/CODEBASE.md) | Contracts, current guides and retained evidence |
+| [`docs/`](docs/README.md) | Documentation index, contracts and retained evidence; Pages publication |
 | [`bootstrap/`](bootstrap/), [`src/`](src/) | Historical seed and JavaScript reference implementation |
 | [`site/`](site/), [`book/`](book/) | Website and book sources |
 
-Existing paths stay compatible. Developer test and publishing tools use other languages; those are distinct from native user runtime dependencies. [Full map and build flow](docs/CODEBASE.md) · [Source inventory](docs/SOURCE-INVENTORY.json).
+Existing paths stay compatible. Developer tests and publishing tools use other languages; those are distinct from native user runtime dependencies. [Full map and build flow](docs/CODEBASE.md).
+
+### Why GitHub shows Python
+
+GitHub Linguist does not yet recognize RiverFlow. The compiler and runtime are RF2; many verification tools are Python. We keep both visible. Our inventory counts RF2 explicitly alongside the real development languages, excluding declared generated outputs. It is not a compatibility or performance score. [Method and upstream recognition path](docs/LANGUAGE-REPORTING.md) · [file and area breakdown](docs/SOURCE-INVENTORY.json).
+
+![Tracked source bytes, including development tools and excluding generated outputs](docs/SOURCE-INVENTORY.svg)
 
 ## Make an improvement we can verify
 

@@ -1,6 +1,6 @@
 # Contributing to RiverFlow
 
-Start with [the codebase map](docs/CODEBASE.md). Choose a bounded capability or reproduced defect; describe the expected result, target and failure behavior before implementation.
+Start with [the codebase map](docs/CODEBASE.md), [platform direction](docs/RF2-EVERYWHERE.md) and [example catalogue](examples/README.md). Choose a bounded capability or reproduced defect; describe the expected result, target and failure behavior before implementation.
 
 ## Change checklist
 
@@ -9,7 +9,7 @@ Start with [the codebase map](docs/CODEBASE.md). Choose a bounded capability or 
 - Keep raw systems effects out of bounded MCP. A new tool or permission needs an explicit contract and separate acceptance tests.
 - Measure identical tasks against retained controls. Report startup, I/O, warmup, trial count and target. Keep regressions and uncertainty visible. Shorter source is not proof of fewer billed model tokens.
 - Do not commit credentials, receipt keys, private thesis content, participant records, local environment files or raw personal data.
-- Document the final behavior and evidence, then run `git diff --check` and check documentation links.
+- Document the final behavior and evidence, then run `git diff --check` and check documentation links. Add complete examples to the catalogue. After staging reviewed new source, regenerate `python3 tools/source-inventory.py` and verify with `--check`. Mark only actual generated output as generated; retain real tests and reference implementations under their real languages.
 
 Use an existing qualified native compiler. Build scripts require new output directories. Development controllers may require Python, Node or C tools; native user binaries do not inherit those dependencies.
 

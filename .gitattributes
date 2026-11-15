@@ -1,6 +1,10 @@
 # Generated outputs retain readable source elsewhere. Do not relabel source languages.
 docs/book/index.html linguist-generated=true
 site/book/index.html linguist-generated=true
+# Learning HTML is emitted by tools/book/build-learning.mjs from the Markdown edition.
+book/learning-edition-1/RF2-From-Zero.html linguist-generated=true
+docs/learn/index.html linguist-generated=true
+site/learn/index.html linguist-generated=true
 book/RiverFlow-First-Edition-expanded.md linguist-generated=true
 native/attendance-kernel.rf2 linguist-generated=true
 native/invoice-kernel.rf2 linguist-generated=true
