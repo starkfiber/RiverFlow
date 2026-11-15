@@ -1,5 +1,7 @@
 # RF2 0.48: remove repair work without hiding the Python gap
 
+**Correction after independent review:** the owned-field `try` route admitted consumption of its own destination during the RHS. [Candidate 0.49](APPLICATION-EPOCHS-0.49.md) reproduces and corrects that ownership regression; use its corrected compiler for new field-propagation development. The historical0.48 evidence is retained, not treated as proof that this interaction was tested then.
+
 The earlier app study measured minutes of authoring and repair, not minutes spent in the native compiler. This source candidate addresses the actual failures: repeated output-path refusal, indirect imported-source diagnostics, and temporary variables needed before assigning propagated scalar results to record fields.
 
 The new RF2-native `rf2-dev` compiles, validates, signs and atomically publishes a replaceable program in an explicit private build directory. Compilation/signing failure preserves the previous exact signed image. Cooperating simultaneous builds refuse safely; an existing running process keeps its old image while a later launch sees the newly committed program. Existing outputs are not silently overwritten by the compiler itself.

@@ -11,6 +11,10 @@ def build(name,opt,entry):
  for p in(R/'experiments/typed-booking/lib').iterdir():shutil.copy2(p,root/'lib'/p.name)
  for p in('io.flow','storage.flow','text.flow','datetime.flow'):shutil.copy2(R/'examples/documents/lib'/p,root/'lib'/p)
  shutil.copy2(R/'examples/evidence-contract/lib/sha256.rf2',root/'lib/sha256.rf2');shutil.copy2(R/'examples/collection-tools/lib/output.rf2',root/'lib/output.rf2');shutil.copy2(R/'experiments/typed-booking'/entry,root/entry)
+ if entry=='web.flow'and os.environ.get('RF2_REQUEST_SDK'):
+  overlay=Path(os.environ['RF2_REQUEST_SDK']).resolve()
+  for p in(overlay/'lib').iterdir():shutil.copy2(p,root/'lib'/p.name)
+  shutil.copy2(overlay/'web.flow',root/entry)
  exe=root/'program';q=subprocess.run(list(map(str,[C,root/entry,exe,*(['--opt']if opt else[])])),capture_output=True,timeout=20);check('build '+name,q.returncode==0,(q.stdout+q.stderr).decode(errors='replace')[:600]);subprocess.run(['/usr/bin/codesign','-s','-',str(exe)],capture_output=True,check=True);return exe
 class Page(html.parser.HTMLParser):
  def __init__(self,s):

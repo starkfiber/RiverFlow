@@ -1,0 +1,191 @@
+module doc_corpus
+use "lib/text.flow"
+use "lib/collections.flow"
+record Corpus(bytes:u64,documents:u64,manifest_bytes:u64,error_document:u64)
+fn corpus_data()
+ return buffer("documents_corpus",1048576)
+end
+fn corpus_names()
+ return buffer("documents_manifest",32769)
+end
+# Explicit LF-separated paths, relative to process cwd. Entire load precedes serving.
+fn corpus_load(path,rows:Items,state:Corpus):IO
+ if rows.length!=0
+  return err(22)
+ end
+ let n=0
+ handle io_regular(path,corpus_names(),32768)
+ ok bytes1
+  set n=bytes1
+ err code2
+  return err(code2)
+ end
+ let info=TextInfo(0,0,0,0)
+ do text_measure(corpus_names(),n,info)
+ if (info.status!=0)|(n==0)
+  return err(84)
+ end
+ set state.bytes=0
+ set state.documents=0
+ set state.manifest_bytes=n
+ set state.error_document=0
+ let pos=0
+ let previous=Row4(0,0,0,0)
+ let row=Row4(0,0,0,0)
+ while pos<n
+  set state.error_document=state.documents+1
+  if state.documents>=64
+   return err(22)
+  end
+  let end=pos
+  while all(end<n,load8(corpus_names()+end)!=10)
+   set end=end+1
+  end
+  let length=end-pos
+  if all(length>0,load8(corpus_names()+pos+length-1)==13)
+   set length=length-1
+  end
+  if (length==0)|(length>1023)
+   return err(22)
+  end
+  let i=0
+  while i<length
+   if load8(corpus_names()+pos+i)<32
+    return err(22)
+   end
+   set i=i+1
+  end
+  set i=0
+  while i<state.documents
+   handle items_row4(rows,i,previous)
+   ok got3
+   err code4
+    return err(code4)
+   end
+   if text_equal(corpus_names()+pos,length,corpus_names()+previous.c,previous.d)
+    return err(17)
+   end
+   set i=i+1
+  end
+  # A NUL ends only this path. Store offsets, never heap raw pointers.
+  do store8(corpus_names()+pos+length,0)
+  let bytes=0
+  let staging=buffer("documents_staging",65537)
+  handle io_regular(corpus_names()+pos,staging,65536)
+  ok got5
+   set bytes=got5
+  err code6
+   return err(code6)
+  end
+  do text_measure(staging,bytes,info)
+  if info.status
+   return err(info.status)
+  end
+  if bytes>1048576-state.bytes
+   return err(27)
+  end
+  do io_copy(corpus_data()+state.bytes,staging,bytes)
+  set row.a=state.bytes
+  set row.b=bytes
+  set row.c=pos
+  set row.d=length
+  handle items_append_row4(rows,row)
+  ok added7
+  err code8
+   return err(code8)
+  end
+  set state.bytes=state.bytes+bytes
+  set state.documents=state.documents+1
+  set pos=end+1
+ end
+ return ok(state.documents)
+end
+fn corpus_label(row:Row4,out:TextSpan)
+ let i=0
+ let start=0
+ while i<row.d
+  if load8(corpus_names()+row.c+i)==47
+   set start=i+1
+  end
+  set i=i+1
+ end
+ set out.start=row.c+start
+ set out.length=row.d-start
+ return 0
+end
+fn corpus_hits(rows:Items,q,m,fold,hits:Items):IO
+ handle collection_clear(hits)
+ ok cleared9
+ err code10
+  return err(code10)
+ end
+ let prefix=TextPrefix()
+ let found=TextMatches(0,0,0,0)
+ let row=Row4(0,0,0,0)
+ let i=0
+ while i<rows.length//4
+  handle items_row4(rows,i,row)
+  ok got11
+  err code12
+   return err(code12)
+  end
+  do text_search(corpus_data()+row.a,row.b,q,m,fold,prefix,found)
+  if found.status
+   return err(found.status)
+  end
+  if found.count
+   handle items_insert_unique(hits,i)
+   ok added13
+   err code14
+    return err(code14)
+   end
+  end
+  set i=i+1
+ end
+ return ok(hits.length)
+end
+fn corpus_catalog(rows:Items,state:Corpus,out:Writer):IO
+ do writer_reset(out)
+ do writer_text(out,"{\"documents\":")
+ do writer_number(out,state.documents)
+ do writer_text(out,",\"bytes\":")
+ do writer_number(out,state.bytes)
+ do writer_text(out,",\"snapshot\":true,\"items\":[")
+ let row=Row4(0,0,0,0)
+ let label=TextSpan(0,0)
+ let info=TextInfo(0,0,0,0)
+ let i=0
+ while i<state.documents
+  handle items_row4(rows,i,row)
+  ok got15
+  err code16
+   return err(code16)
+  end
+  do corpus_label(row,label)
+  do text_measure(corpus_data()+row.a,row.b,info)
+  if i!=0
+   do writer_text(out,",")
+  end
+  do writer_text(out,"{\"id\":")
+  do writer_number(out,i)
+  do writer_text(out,",\"name\":")
+  do writer_json(out,corpus_names()+label.start,label.length)
+  do writer_text(out,",\"source\":")
+  do writer_json(out,corpus_names()+row.c,row.d)
+  do writer_text(out,",\"bytes\":")
+  do writer_number(out,row.b)
+  do writer_text(out,",\"scalars\":")
+  do writer_number(out,info.scalars)
+  do writer_text(out,",\"lines\":")
+  do writer_number(out,info.lines)
+  do writer_text(out,",\"words_ascii_breaks\":")
+  do writer_number(out,info.words)
+  do writer_text(out,"}")
+  set i=i+1
+ end
+ do writer_text(out,"]}\n")
+ if out.error
+  return err(out.error)
+ end
+ return ok(out.used)
+end

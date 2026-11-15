@@ -1,0 +1,160 @@
+module sensor_audit
+use "lib/text.flow"
+array SensorStates(u64,256)
+record SensorSample(id:u64,stamp:u64,encoded:u64)
+record SensorLimits(low:u64,high:u64)
+# The compiler profile is unsigned. Internal temperature is mC + 100000;
+# encoded values and their bounded sums never rely on signed reinterpretation.
+fn sensor_unsigned(p,n,maximum):IO
+ handle text_parse_u64(p,n,maximum)
+ ok number
+  return ok(number)
+ err parse_error
+  return err(22)
+ end
+ return err(22)
+end
+fn sensor_temperature(p,n):IO
+ if n==0
+  return err(22)
+ end
+ if load8(p)==45
+  let magnitude=try sensor_unsigned(p+1,n-1,100000)
+  if magnitude==0
+   return err(22)
+  end
+  return ok(100000-magnitude)
+ end
+ let positive=try sensor_unsigned(p,n,200000)
+ return ok(100000+positive)
+end
+fn sensor_parse(p,n,sample:SensorSample):IO
+ if (n==0)|(n>128)
+  return err(22)
+ end
+ let first=n
+ let second=n
+ let i=0
+ while i<n
+  if load8(p+i)==44
+   if first==n
+    set first=i
+   else
+    if second==n
+     set second=i
+    else
+     return err(22)
+    end
+   end
+  end
+  set i=i+1
+ end
+ if (first==n)|(second==n)
+  return err(22)
+ end
+ let id=try sensor_unsigned(p,first,32)
+ if id==0
+  return err(22)
+ end
+ let stamp=try sensor_unsigned(p+first+1,second-first-1,18446744073709551615)
+ let temperature=try sensor_temperature(p+second+1,n-second-1)
+ # Publish parsed record only after every field was admitted.
+ set sample.id=id
+ set sample.stamp=stamp
+ set sample.encoded=temperature
+ return ok(1)
+end
+fn sensor_add(states:SensorStates,sample:SensorSample,limits:SensorLimits):IO
+ if (sample.id<1)|(sample.id>32)|(sample.encoded>300000)
+  return err(22)
+ end
+ if (limits.low>limits.high)|(limits.high>300000)
+  return err(22)
+ end
+ let base=(sample.id-1)*8
+ let count=states[base]
+ if count>=4096
+  return err(27)
+ end
+ if count
+  if sample.stamp<=states[base+2]
+   return err(22)
+  end
+ end
+ if count==0
+  set states[base+1]=sample.stamp
+  set states[base+3]=sample.encoded
+  set states[base+4]=sample.encoded
+ else
+  if sample.encoded<states[base+3]
+   set states[base+3]=sample.encoded
+  end
+  if sample.encoded>states[base+4]
+   set states[base+4]=sample.encoded
+  end
+ end
+ set states[base]=count+1
+ set states[base+2]=sample.stamp
+ set states[base+5]=states[base+5]+sample.encoded
+ if sample.encoded<limits.low
+  set states[base+6]=states[base+6]+1
+ end
+ if sample.encoded>limits.high
+  set states[base+7]=states[base+7]+1
+ end
+ return ok(1)
+end
+fn sensor_signed(out:Writer,encoded,count)
+ let offset=count*100000
+ if encoded<offset
+  do writer_text(out,"-")
+  return writer_number(out,offset-encoded)
+ end
+ return writer_number(out,encoded-offset)
+end
+fn sensor_report(states:SensorStates,total,limits:SensorLimits,out:Writer)
+ do writer_text(out,"{\"schema\":\"rf2.sensor-audit.v2\",\"rows\":")
+ do writer_number(out,total)
+ do writer_text(out,",\"low_mC\":")
+ do sensor_signed(out,limits.low,1)
+ do writer_text(out,",\"high_mC\":")
+ do sensor_signed(out,limits.high,1)
+ do writer_text(out,",\"sensors\":[")
+ let id=1
+ let emitted=0
+ while id<=32
+  let base=(id-1)*8
+  let count=states[base]
+  if count
+   if emitted
+    do writer_text(out,",")
+   end
+   set emitted=1
+   do writer_text(out,"{\"id\":")
+   do writer_number(out,id)
+   do writer_text(out,",\"count\":")
+   do writer_number(out,count)
+   do writer_text(out,",\"first_ms\":\"")
+   do writer_number(out,states[base+1])
+   do writer_text(out,"\",\"last_ms\":\"")
+   do writer_number(out,states[base+2])
+   do writer_text(out,"\",\"minimum_mC\":")
+   do sensor_signed(out,states[base+3],1)
+   do writer_text(out,",\"maximum_mC\":")
+   do sensor_signed(out,states[base+4],1)
+   do writer_text(out,",\"sum_mC\":")
+   do sensor_signed(out,states[base+5],count)
+   do writer_text(out,",\"mean\":{\"numerator_mC\":")
+   do sensor_signed(out,states[base+5],count)
+   do writer_text(out,",\"denominator\":")
+   do writer_number(out,count)
+   do writer_text(out,"},\"below_low\":")
+   do writer_number(out,states[base+6])
+   do writer_text(out,",\"above_high\":")
+   do writer_number(out,states[base+7])
+   do writer_text(out,"}")
+  end
+  set id=id+1
+ end
+ return writer_text(out,"]}\n")
+end

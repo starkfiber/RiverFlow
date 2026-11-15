@@ -1,0 +1,56 @@
+module booking_request
+use "lib/store.flow"
+use "lib/request-fields.flow"
+# Parse to a local value and commit every scalar field only after all checks.
+# Input must come from the successful form parser; this does not authenticate it.
+fn booking_request(values:FormValues,mask,request:StoreRequest):IO
+ let parsed=StoreRequest(0,0,0,0,0,0,0)
+ if request_is(values,2,"reserve")
+  if mask!=1215
+   return err(22)
+  end
+  set parsed.action=2
+  set parsed.id=try request_positive(values,7,18446744073709551615)
+  set parsed.room=try request_positive(values,10,16)
+  set parsed.day=try request_day(values,3)
+  set parsed.start=try request_time(values,4,0)
+  set parsed.finish=try request_time(values,5,1)
+  if parsed.start>=parsed.finish
+   return err(22)
+  end
+ else
+  if request_is(values,2,"cancel")
+   if mask!=135
+    return err(22)
+   end
+   set parsed.action=3
+   set parsed.id=try request_positive(values,7,18446744073709551615)
+  else
+   if mask!=7
+    return err(22)
+   end
+   if request_is(values,2,"migrate")
+    set parsed.action=4
+   else
+    if request_is(values,2,"recover")
+     set parsed.action=5
+    else
+     if request_is(values,2,"initialize")
+      set parsed.action=1
+     else
+      return err(22)
+     end
+    end
+   end
+  end
+ end
+ set parsed.expected=try request_u64(values,1,18446744073709551615)
+ set request.action=parsed.action
+ set request.expected=parsed.expected
+ set request.id=parsed.id
+ set request.room=parsed.room
+ set request.day=parsed.day
+ set request.start=parsed.start
+ set request.finish=parsed.finish
+ return ok(0)
+end

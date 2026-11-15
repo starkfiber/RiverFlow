@@ -1,0 +1,43 @@
+module request_fields
+use "lib/forms.flow"
+use "lib/datetime.flow"
+# Bounds and error normalization live here, not in every application handler.
+# Like FormValues itself, these are trusted-process borrowed pointers.
+fn request_u64(values:FormValues,key,maximum):IO
+ if key>=16
+  return err(22)
+ end
+ handle text_parse_u64(values[key*2],values[key*2+1],maximum)
+ ok value
+  return ok(value)
+ err invalid_number
+  return err(22)
+ end
+ return err(22)
+end
+fn request_positive(values:FormValues,key,maximum):IO
+ let value=try request_u64(values,key,maximum)
+ if value==0
+  return err(22)
+ end
+ return ok(value)
+end
+fn request_day(values:FormValues,key):IO
+ if key>=16
+  return err(22)
+ end
+ let date=try date_parse(values[key*2],values[key*2+1])
+ return date_ordinal(date)
+end
+fn request_time(values:FormValues,key,allow_end):IO
+ if (key>=16)|(allow_end>1)
+  return err(22)
+ end
+ return time_parse(values[key*2],values[key*2+1],allow_end)
+end
+fn request_is(values:FormValues,key,literal)
+ if key>=16
+  return 0
+ end
+ return text_equal(values[key*2],values[key*2+1],literal,io_size(literal))
+end
