@@ -12,6 +12,10 @@ RiverFlow is a programming language with a compiler written in RiverFlow. Its Ma
 
 The goal is one readable language for application and systems work, with explicit effects and recoverable failures. The current implementation is a foundation for that goal. Its [capability map](docs/CAPABILITY-MAP.md) states what works and what remains missing.
 
+## Learn RF2 from zero
+
+[First Learning Edition](book/learning-edition-1/README.md): 24 short chapters, runnable examples, exercises, answers and a clear boundary between working features and proposals. [Evolution specification](docs/RF2-EVOLUTION.md) records the next engineering gates.
+
 ## Build a booking app. Try the learning IDE.
 
 The [Workbench 0.38 development edition](dist/workbench-0.38/README.md) adds a native one-room Booking app and RF2 Studio: edit, check, run and build supported Core programs in your browser. Booking shares reusable date/time, locked storage and form libraries with the local workspace. Overlaps, stale forms and failed saves have explicit outcomes. [Beginner walkthrough and tested limits](docs/BOOKING-STUDIO.md).
