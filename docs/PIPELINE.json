@@ -1,0 +1,137 @@
+{
+  "schema": "rf2.pipeline.v1",
+  "updatedOn": "2026-11-15",
+  "mission": "One readable language and SDK for humans, AI, applications, devices and system software. Competitor benchmarks and the universal-platform ambition remain in scope.",
+  "platformGates": [
+    {
+      "id": "G1",
+      "state": "active",
+      "acceptance": "Qualified nested owned application values, transfer and cleanup",
+      "evidence": [
+        "docs/APPLICATION-VALUES.md"
+      ],
+      "note": "References describe current boundaries; this gate is not complete."
+    },
+    {
+      "id": "G2",
+      "state": "pending",
+      "acceptance": "Signed/floating numerical contract and edge-case conformance",
+      "evidence": [
+        "docs/RF2-EVOLUTION.md"
+      ],
+      "note": "References describe current boundaries; this gate is not complete."
+    },
+    {
+      "id": "G3",
+      "state": "pending",
+      "acceptance": "Typed persistence, migration and uncertain-save recovery",
+      "evidence": [
+        "docs/RF2-EVOLUTION.md"
+      ],
+      "note": "References describe current boundaries; this gate is not complete."
+    },
+    {
+      "id": "G4",
+      "state": "pending",
+      "acceptance": "Versioned reusable SDK and repeatable package builds",
+      "evidence": [
+        "docs/RF2-EVERYWHERE.md"
+      ],
+      "note": "References describe current boundaries; this gate is not complete."
+    },
+    {
+      "id": "G5",
+      "state": "pending",
+      "acceptance": "General Systems Studio and first-time learner acceptance",
+      "evidence": [
+        "docs/BOOKING-STUDIO.md"
+      ],
+      "note": "References describe current boundaries; this gate is not complete."
+    },
+    {
+      "id": "G6",
+      "state": "pending",
+      "acceptance": "A second qualified general application platform",
+      "evidence": [
+        "docs/CAPABILITY-MAP.md"
+      ],
+      "note": "References describe current boundaries; this gate is not complete."
+    },
+    {
+      "id": "G7",
+      "state": "pending",
+      "acceptance": "Structured concurrency and a qualified RU\u2019OS component",
+      "evidence": [
+        "docs/RF2-EVERYWHERE.md"
+      ],
+      "note": "References describe current boundaries; this gate is not complete."
+    },
+    {
+      "id": "G8",
+      "state": "pending",
+      "acceptance": "Matched complete-task comparisons with actual usage and failures",
+      "evidence": [
+        "docs/RF2-PLATFORM-RESEARCH.md"
+      ],
+      "note": "References describe current boundaries; this gate is not complete."
+    }
+  ],
+  "sprint": {
+    "title": "Durable pipeline and borrowed Booking values",
+    "checks": [
+      {
+        "id": "S1",
+        "state": "done",
+        "acceptance": "Record owner mission, anti-drift rules and next priorities (documentation)",
+        "evidence": [
+          "docs/PROJECT-CONTINUITY.md"
+        ]
+      },
+      {
+        "id": "S2",
+        "state": "done",
+        "acceptance": "Render progress; reject stale output and unsupported completion states (developer tooling)",
+        "evidence": [
+          "tools/project-progress.py",
+          "docs/APPLICATION-VALUES-0.41.json"
+        ]
+      },
+      {
+        "id": "S3",
+        "state": "done",
+        "acceptance": "Specify owned application-value acceptance rules without claiming implementation (design)",
+        "evidence": [
+          "docs/APPLICATION-VALUES.md"
+        ]
+      },
+      {
+        "id": "S4",
+        "state": "done",
+        "acceptance": "Execute borrowed Booking conflict cases with an independent date/interval oracle",
+        "evidence": [
+          "experiments/nested-records/examples/booking-conflict.flow",
+          "docs/APPLICATION-VALUES-0.41.json"
+        ]
+      },
+      {
+        "id": "S5",
+        "state": "done",
+        "acceptance": "Execute nominal/escape/init/boundary refusals and closed-output failures in both modes",
+        "evidence": [
+          "tests/standalone/application_values_verify.py",
+          "docs/APPLICATION-VALUES-0.41.json"
+        ]
+      },
+      {
+        "id": "S6",
+        "state": "done",
+        "acceptance": "Record actual results, failures and remaining promotion gates in a source-bound receipt",
+        "evidence": [
+          "docs/APPLICATION-VALUES-0.41.json",
+          "docs/APPLICATION-VALUES-0.41.md"
+        ]
+      }
+    ],
+    "scope": "Six named documentation/design/tool/native-acceptance deliverables only. General owned values and the eight expansion gates remain incomplete."
+  }
+}

@@ -37,8 +37,8 @@
     "site/learn/index.html"
   ],
   "bytesByLanguage": {
-    "RiverFlow": 907205,
-    "Python": 885646,
+    "RiverFlow": 909719,
+    "Python": 897463,
     "JavaScript": 82568,
     "HTML": 23891,
     "CSS": 12629,
@@ -52,8 +52,8 @@
     "CSS": 3,
     "HTML": 6,
     "JavaScript": 29,
-    "Python": 152,
-    "RiverFlow": 166,
+    "Python": 154,
+    "RiverFlow": 167,
     "Shell": 6
   },
   "bytesByArea": {
@@ -67,7 +67,7 @@
     },
     "Build and publishing tools": {
       "JavaScript": 10300,
-      "Python": 213592,
+      "Python": 217467,
       "Shell": 4855
     },
     "Compiler and native runtime": {
@@ -87,13 +87,14 @@
       "RiverFlow": 2388
     },
     "Unreleased experiments": {
-      "Python": 5374
+      "Python": 5374,
+      "RiverFlow": 2514
     },
     "Verification and independent oracles": {
       "Assembly": 6795,
       "C": 3567,
       "JavaScript": 25875,
-      "Python": 631793,
+      "Python": 639735,
       "RiverFlow": 262069
     },
     "Website and documentation source": {
@@ -945,6 +946,12 @@
       "bytes": 360
     },
     {
+      "path": "experiments/nested-records/examples/booking-conflict.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 2514
+    },
+    {
       "path": "experiments/nested-records/prepare.py",
       "language": "Python",
       "area": "Unreleased experiments",
@@ -1189,6 +1196,12 @@
       "language": "JavaScript",
       "area": "Verification and independent oracles",
       "bytes": 1057
+    },
+    {
+      "path": "tests/standalone/application_values_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 7942
     },
     {
       "path": "tests/standalone/arrays_verify.py",
@@ -2269,6 +2282,12 @@
       "language": "Python",
       "area": "Build and publishing tools",
       "bytes": 3183
+    },
+    {
+      "path": "tools/project-progress.py",
+      "language": "Python",
+      "area": "Build and publishing tools",
+      "bytes": 3875
     },
     {
       "path": "tools/qualify-foundation.py",

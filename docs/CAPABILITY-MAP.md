@@ -4,6 +4,10 @@ RiverFlow is an implemented language with a native compiler, useful applications
 
 The long-term direction is one readable language across application and systems work. Each additional target needs its own implementation, contract and executed tests.
 
+## Foundation sprint 0.41
+
+[Borrowed Booking values](APPLICATION-VALUES-0.41.md) exercise the isolated nested-record candidate with actual date/time libraries and independent expected results. This adds a conflict-calculation prototype and evidence, not general owner transfer or a journal migration. The [progress tracker](PROGRESS.md) distinguishes completed sprint checks from incomplete platform gates.
+
 ## Source sprint 0.40 and Workbench 0.38
 
 The [source sprint](PLATFORM-SPRINT-0.40.md) qualifies shared lower/upper-bound lookup and an isolated borrowed-record candidate with typed nested scalar updates. The candidate does not add general owned nested values to released compilers. Its 72 role/failure briefs are planning cards, not 72 executed application tests.
