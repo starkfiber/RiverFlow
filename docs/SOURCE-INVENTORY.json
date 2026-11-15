@@ -37,8 +37,8 @@
     "site/learn/index.html"
   ],
   "bytesByLanguage": {
-    "Python": 1128945,
-    "RiverFlow": 1074998,
+    "Python": 1158025,
+    "RiverFlow": 1086511,
     "JavaScript": 89568,
     "HTML": 23891,
     "CSS": 12629,
@@ -52,8 +52,8 @@
     "CSS": 3,
     "HTML": 6,
     "JavaScript": 31,
-    "Python": 179,
-    "RiverFlow": 193,
+    "Python": 182,
+    "RiverFlow": 196,
     "Shell": 8
   },
   "bytesByArea": {
@@ -67,7 +67,7 @@
     },
     "Build and publishing tools": {
       "JavaScript": 10300,
-      "Python": 222869,
+      "Python": 227727,
       "Shell": 6213
     },
     "Compiler and native runtime": {
@@ -87,15 +87,15 @@
       "RiverFlow": 2388
     },
     "Unreleased experiments": {
-      "Python": 122462,
-      "RiverFlow": 167793,
+      "Python": 127427,
+      "RiverFlow": 179306,
       "Shell": 269
     },
     "Verification and independent oracles": {
       "Assembly": 6795,
       "C": 3567,
       "JavaScript": 32875,
-      "Python": 748727,
+      "Python": 767984,
       "RiverFlow": 262069
     },
     "Website and documentation source": {
@@ -1133,6 +1133,30 @@
       "bytes": 6662
     },
     {
+      "path": "experiments/owned-rows/catalog.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 2752
+    },
+    {
+      "path": "experiments/owned-rows/compiler-extension.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 4712
+    },
+    {
+      "path": "experiments/owned-rows/prepare.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 4965
+    },
+    {
+      "path": "experiments/owned-rows/runtime.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 2996
+    },
+    {
       "path": "experiments/owned-values/compiler-extension.flow",
       "language": "RiverFlow",
       "area": "Unreleased experiments",
@@ -1166,7 +1190,7 @@
       "path": "experiments/typed-booking/lib/app-server.flow",
       "language": "RiverFlow",
       "area": "Unreleased experiments",
-      "bytes": 3264
+      "bytes": 3276
     },
     {
       "path": "experiments/typed-booking/lib/booking.flow",
@@ -1196,7 +1220,7 @@
       "path": "experiments/typed-booking/lib/transport.flow",
       "language": "RiverFlow",
       "area": "Unreleased experiments",
-      "bytes": 4046
+      "bytes": 5087
     },
     {
       "path": "experiments/typed-booking/lib/ui.flow",
@@ -1496,7 +1520,7 @@
       "path": "tests/standalone/booking_package_verify.py",
       "language": "Python",
       "area": "Verification and independent oracles",
-      "bytes": 4539
+      "bytes": 5439
     },
     {
       "path": "tests/standalone/booking_sdk.mjs",
@@ -1514,7 +1538,7 @@
       "path": "tests/standalone/booking_web_verify.py",
       "language": "Python",
       "area": "Verification and independent oracles",
-      "bytes": 10329
+      "bytes": 10856
     },
     {
       "path": "tests/standalone/browser_worker_verify.mjs",
@@ -1970,7 +1994,7 @@
       "path": "tests/standalone/nested_owned_verify.py",
       "language": "Python",
       "area": "Verification and independent oracles",
-      "bytes": 19655
+      "bytes": 20091
     },
     {
       "path": "tests/standalone/number_lab_verify.py",
@@ -2007,6 +2031,12 @@
       "language": "Python",
       "area": "Verification and independent oracles",
       "bytes": 18339
+    },
+    {
+      "path": "tests/standalone/owned_rows_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 17394
     },
     {
       "path": "tests/standalone/owned_values_verify.py",
@@ -2577,6 +2607,12 @@
       "language": "Python",
       "area": "Build and publishing tools",
       "bytes": 3739
+    },
+    {
+      "path": "tools/package-owned-rows.py",
+      "language": "Python",
+      "area": "Build and publishing tools",
+      "bytes": 4858
     },
     {
       "path": "tools/package-storage.py",

@@ -1,6 +1,6 @@
 # RF2 delivery progress
 
-`█████████░` **11/12 requested requirements complete (91%)**
+`████████░░` **10/12 requested requirements complete (83%)**
 
 This is the fixed delivery checklist reviewed with the owner on 15 November 2026. It counts accepted requirements equally, not engineering hours or universal language coverage. Partial implementations earn no completed-item credit. No sprint percentage is presented as product completion.
 
@@ -11,7 +11,7 @@ This is the fixed delivery checklist reviewed with the owner on 15 November 2026
 | R01 | done | Owned text and u64 collection fields implemented and executed in an explicit candidate | [OWNED-VALUES-0.42.md](OWNED-VALUES-0.42.md) · Candidate scope only; stable compiler unchanged. |
 | R02 | done | Local aggregate/field transfer and partial-failure cleanup executed in both compiler modes | [OWNED-VALUES-0.42.json](OWNED-VALUES-0.42.json) · Candidate scope only; stable compiler unchanged. |
 | R03 | done | Ownership transfer and returns across function boundaries, including failure cleanup and escape refusals | [OWNED-FUNCTIONS-0.43.md](OWNED-FUNCTIONS-0.43.md), [OWNED-FUNCTIONS-0.43.json](OWNED-FUNCTIONS-0.43.json) · Bounded isolated candidate; conservative alias refusals and ordinary-return cleanup limitations remain explicit. |
-| R04 | done | General nested owned records and collections of structured values with lifetime/cleanup tests | [NESTED-OWNERS-0.44.md](NESTED-OWNERS-0.44.md), [NESTED-OWNERS-0.44.json](NESTED-OWNERS-0.44.json) · Bounded recursive owned records and nominal flat-u64 structured rows; pointer-bearing row collections remain unimplemented. |
+| R04 | active | General nested owned records and collections of structured values with lifetime/cleanup tests | [OWNED-ROWS-0.46.md](OWNED-ROWS-0.46.md), [OWNED-ROWS-0.46.json](OWNED-ROWS-0.46.json) · Audit reopened and implementation completed: owned text/collection/nested rows pass480 checks and prior regressions; public package promotion/download verification still pending. |
 | R05 | done | Typed persistence, schemas and migrations with reopen/corruption/recovery tests | [TYPED-BOOKING-0.45.md](TYPED-BOOKING-0.45.md), [TYPED-BOOKING-0.45.json](TYPED-BOOKING-0.45.json) · Two strict Booking-specific codecs, explicit migration/recovery; no import of the older Workbench event journal. |
 | R06 | done | Single-room Booking baseline operating through CLI and browser GUI | [BOOKING-STUDIO.md](BOOKING-STUDIO.md), [WORKBENCH-0.38-VERIFICATION.json](WORKBENCH-0.38-VERIFICATION.json) |
 | R07 | done | Transactional multi-room Booking with overlap, simultaneous writers, failed saves and restart tests | [TYPED-BOOKING-0.45.md](TYPED-BOOKING-0.45.md), [TYPED-BOOKING-0.45.json](TYPED-BOOKING-0.45.json) · Cooperative single-file lock/CAS transactions across real native processes; no hostile same-user isolation or distributed database claim. |
@@ -23,7 +23,7 @@ This is the fixed delivery checklist reviewed with the owner on 15 November 2026
 
 ## Active implementation
 
-R12: Actual upstream Linguist acceptance remains missing. The editor grammar/VSIX is published and downloaded/hash-verified, and the construction comparison is published. Recognition requires genuine distributed adoption and upstream review; local tests or generated files cannot substitute for acceptance.
+R04: Publish and freshly download/rebuild the qualified0.46 owned-row package through SFE. The audit reopened the earlier broad R04 badge; local implementation and package checks now pass. R12 actual upstream acceptance remains open.
 
 The eight longer-term platform gates and historical sprint evidence remain in PIPELINE.json. They do not produce extra completion badges. GitHub recognition depends on real external adoption and review; implementing a grammar or documenting requirements does not complete R12.
 

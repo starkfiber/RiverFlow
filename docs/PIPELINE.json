@@ -233,13 +233,13 @@
       },
       {
         "id": "R04",
-        "state": "done",
+        "state": "active",
         "acceptance": "General nested owned records and collections of structured values with lifetime/cleanup tests",
         "evidence": [
-          "docs/NESTED-OWNERS-0.44.md",
-          "docs/NESTED-OWNERS-0.44.json"
+          "docs/OWNED-ROWS-0.46.md",
+          "docs/OWNED-ROWS-0.46.json"
         ],
-        "note": "Bounded recursive owned records and nominal flat-u64 structured rows; pointer-bearing row collections remain unimplemented."
+        "note": "Audit reopened and implementation completed: owned text/collection/nested rows pass480 checks and prior regressions; public package promotion/download verification still pending."
       },
       {
         "id": "R05",
@@ -323,7 +323,7 @@
     ]
   },
   "activeWork": {
-    "requirement": "R12",
-    "description": "Actual upstream Linguist acceptance remains missing. The editor grammar/VSIX is published and downloaded/hash-verified, and the construction comparison is published. Recognition requires genuine distributed adoption and upstream review; local tests or generated files cannot substitute for acceptance."
+    "requirement": "R04",
+    "description": "Publish and freshly download/rebuild the qualified0.46 owned-row package through SFE. The audit reopened the earlier broad R04 badge; local implementation and package checks now pass. R12 actual upstream acceptance remains open."
   }
 }
