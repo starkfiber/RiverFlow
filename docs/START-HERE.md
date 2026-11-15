@@ -7,10 +7,15 @@
 | Choice | Use it for | What it contains |
 | --- | --- | --- |
 | [Stable 0.17 release](https://github.com/starkfiber/RiverFlow/releases/tag/v0.17.0) | The frozen native runtime and its supported compiler examples | The release's original Mac tools and examples; not later collection or interrupt syntax |
+| [Documents 0.37 bundle](../dist/documents-0.37/README.md) | Read-only document search/preview and reusable libraries | Two native Mac apps, source, the existing Mac compiler and unchanged 0.17 MCP runtime; no embedded compiler |
 | [Development 0.36 bundle](../dist/0.36-candidate/README.md) | This checkout's collection-app tutorial and ESP32-C3 interrupt examples | A development Mac compiler, ESP32-C3 compiler, the unchanged 0.17 MCP runtime and embedded examples |
 | Source checkout | Reusable libraries, tutorials, build helpers and developer tests | Source files; a fresh clone does not build or install a native binary automatically |
 
 The compiler host is Apple Silicon macOS. The Mac compiler emits ARM64 Mach-O applications; the separate ESP32-C3 compiler emits RV32 firmware. The `.flow` filename does not select a processor. Native compilers/runtime need no Node, npm, Python or C++ runtime. Binaries are ad-hoc signed, not notarized; actual qualification is on the recorded local Mac.
+
+## Use a document workspace
+
+[RF2 Documents](../examples/documents/README.md) loads an explicit text-file list, searches an in-memory snapshot and renders a local browser reader. Its [native bundle](../dist/documents-0.37/README.md) runs without a language runtime installation. It does not edit originals, extract PDFs or persist an index. The separate line-search CLI uses the same modules.
 
 ## Build your first application
 

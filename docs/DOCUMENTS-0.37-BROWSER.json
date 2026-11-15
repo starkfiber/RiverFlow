@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "packageSHA256": "d02f27460e678ac78faedef7d99eec460a322d2ccaf329ddfb8ab6443076a910",
+  "actualNativePackage": true,
+  "documentSelection": true,
+  "tamilSearch": true,
+  "asciiCaseSearch": true,
+  "noResultRecovery": true,
+  "keyboardEnterSearch": true,
+  "actualCatalogueDownloaded": true,
+  "downloadedDocuments": 3,
+  "downloadedBytes": 541,
+  "responsive": [
+    {
+      "previewVisible": true,
+      "scrollWidth": 375,
+      "searchVisible": true,
+      "width": 375
+    },
+    {
+      "previewVisible": true,
+      "scrollWidth": 768,
+      "searchVisible": true,
+      "width": 768
+    },
+    {
+      "previewVisible": true,
+      "scrollWidth": 1024,
+      "searchVisible": true,
+      "width": 1024
+    },
+    {
+      "previewVisible": true,
+      "scrollWidth": 1440,
+      "searchVisible": true,
+      "width": 1440
+    }
+  ],
+  "viewportRestored": true,
+  "notes": "The browser download event timed out, but the actual named download was found and its JSON verified. Full-page screenshot capture timed out after navigation; native browser capture succeeded. These are automation limits, not claimed application fixes. A correct 1440px responsive screenshot was captured; overrides were reset.",
+  "screenshotViewport": {
+    "width": 1440,
+    "height": 900
+  }
+}
