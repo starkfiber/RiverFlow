@@ -1,0 +1,95 @@
+# Internal diagnostic map only; never changes language admission or generated code.
+fn source_map_line(index,offset,n)
+ let start=load64(module_state()+24)
+ let state=buffer("source_origin_state",8)
+ let count=load64(state)
+ let map=buffer("source_origin_ranges",1572864)
+ let encoded=((index+1)<<20)|offset
+ if count
+  let previous=map+(count-1)*24
+  if (load64(previous+8)==start)&(load64(previous+16)+start-load64(previous)==encoded)
+   do store64(previous+8,start+n)
+   return 0
+  end
+ end
+ # Every new run needs an omitted header/import. The 512 KiB aggregate input
+ # and minimum import-line length bound runs below this 65536-entry budget.
+ do require(count<65536,"diagnostic origin range bound")
+ do store64(map+count*24,start)
+ do store64(map+count*24+8,start+n)
+ do store64(map+count*24+16,encoded)
+ do store64(state,count+1)
+ return 0
+end
+fn diagnostic_path(path)
+ let i=0
+ while (i<1024)&(load8(path+i)!=0)
+  let c=load8(path+i)
+  if (c<32)|(c>126)
+   do write(2,"?",1)
+  else
+   do write(2,path+i,1)
+  end
+  set i=i+1
+ end
+ return 0
+end
+fn source_map_diagnostic(offset)
+ if load64(module_state())==0
+  return 0
+ end
+ if offset>=load64(module_state()+24)
+  return 0
+ end
+ let low=0
+ let high=load64(buffer("source_origin_state",8))
+ let map=buffer("source_origin_ranges",1572864)
+ let value=0
+ while low<high
+  let middle=low+(high-low)//2
+  let range=map+middle*24
+  if offset<load64(range)
+   set high=middle
+  else
+   if offset>=load64(range+8)
+    set low=middle+1
+   else
+    set value=load64(range+16)+offset-load64(range)
+    set low=high
+   end
+  end
+ end
+ if value==0
+  return 0
+ end
+ let index=(value>>20)-1
+ if index>=load64(module_state())
+  return 0
+ end
+ let raw=load64(module_info(index))
+ let at=value&1048575
+ if at>load64(module_info(index)+8)
+  return 0
+ end
+ let line=1
+ let column=1
+ let i=0
+ while i<at
+  if load8(raw+i)==10
+   set line=line+1
+   set column=1
+  else
+   set column=column+1
+  end
+  set i=i+1
+ end
+ do write(2,"at ",3)
+ do diagnostic_path(buffer("module_root",1024))
+ do diagnostic_path(module_path(index))
+ do write(2,":",1)
+ do diagnostic_number(line)
+ do write(2,":",1)
+ do diagnostic_number(column)
+ do write(2," (source line:byte-column)\n",26)
+ return 1
+end
