@@ -233,13 +233,13 @@
       },
       {
         "id": "R04",
-        "state": "active",
+        "state": "done",
         "acceptance": "General nested owned records and collections of structured values with lifetime/cleanup tests",
         "evidence": [
           "docs/OWNED-ROWS-0.46.md",
           "docs/OWNED-ROWS-0.46.json"
         ],
-        "note": "Audit reopened and implementation completed: owned text/collection/nested rows pass480 checks and prior regressions; public package promotion/download verification still pending."
+        "note": "Audit corrected by0.46: recursive owned text/collection/nested rows now pass480 checks and regressions; public native download/hash and93 fresh package/rebuild checks verified. Explicit acyclic/bounded ownership contract remains."
       },
       {
         "id": "R05",
@@ -296,9 +296,10 @@
         "state": "done",
         "acceptance": "Qualified downloadable compiler/application packages with fresh extraction and source-build checks",
         "evidence": [
-          "docs/TYPED-BOOKING-0.45.json"
+          "docs/TYPED-BOOKING-0.45.json",
+          "docs/OWNED-ROWS-0.46.json"
         ],
-        "note": "Development archive published by starkfiber, downloaded/hash-matched and freshly rebuilt; Apple Silicon Mac only, ad-hoc signed and not notarized."
+        "note": "SFE0.46 download includes the owned-row compiler, Unicode catalog and rebuilt Booking frontends; downloaded bytes/hash and exact source rebuilds verified. Mac ARM64 only, ad-hoc signed/not notarized. Prior0.45 retained."
       },
       {
         "id": "R11",
@@ -323,7 +324,7 @@
     ]
   },
   "activeWork": {
-    "requirement": "R04",
-    "description": "Publish and freshly download/rebuild the qualified0.46 owned-row package through SFE. The audit reopened the earlier broad R04 badge; local implementation and package checks now pass. R12 actual upstream acceptance remains open."
+    "requirement": "R12",
+    "description": "Actual upstream Linguist acceptance remains missing. The owned-row scope audit is resolved in the published and download-verified0.46 edition. Recognition still requires genuine independent adoption and upstream review; local tests and generated files cannot substitute for external acceptance."
   }
 }
