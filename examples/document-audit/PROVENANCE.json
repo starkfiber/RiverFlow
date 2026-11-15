@@ -1,0 +1,42 @@
+{
+  "upstream": "https://github.com/starkfiber/RiverFlow",
+  "commit": "20dcf1d35dd13cc1adb24381b972c25536f59573",
+  "license": "MIT",
+  "unchangedInternalSnapshots": [
+    {
+      "snapshot": "lib/io.flow",
+      "original": "examples/documents/lib/io.flow",
+      "sha256": "3c7be52f4314ab613af53271a0bd00dd2e9e04d4c198275d47a3fe34f4af023f"
+    },
+    {
+      "snapshot": "lib/text.flow",
+      "original": "examples/documents/lib/text.flow",
+      "sha256": "d0b082ad7a1df031b8a6290251192fde08231788bdc26e97cdc09c882f9f2020"
+    },
+    {
+      "snapshot": "lib/collections.flow",
+      "original": "examples/documents/lib/collections.flow",
+      "sha256": "0ca4ba7e18df8e5020eef4b7a83bf2c9090ec0dd2ea8b7f8f8d6438b0e6f8b62"
+    },
+    {
+      "snapshot": "lib/corpus.flow",
+      "original": "examples/documents/lib/corpus.flow",
+      "sha256": "d72d1d9e93d8844a6d7e548d225d64bf3fc3ecbca17dda1c6f9a7236bddf4fc0"
+    },
+    {
+      "snapshot": "lib/mcp.flow",
+      "original": "experiments/app-effort/lib/mcp.flow",
+      "sha256": "0e0a035b775a4f72b77de4bd2ed9bb4e27b997f5dc7f76a06197e0d1d5b33a9e"
+    },
+    {
+      "snapshot": "lib/json.flow",
+      "original": "experiments/typed-booking/lib/json.flow",
+      "sha256": "036a185eaa932a10f41e7da973e35373eee7fc8b9c86bb030c3da80899911e6a"
+    },
+    {
+      "snapshot": "lib/sha256.rf2",
+      "original": "examples/evidence-contract/lib/sha256.rf2",
+      "sha256": "b79e7217db169985a5b2262ad4e4c5a550dc7741a60aaff816176a7324a0ffb5"
+    }
+  ]
+}

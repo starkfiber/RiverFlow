@@ -1,0 +1,192 @@
+profile RF2_SYSTEM_A64_V1
+use "lib/corpus.flow"
+use "lib/sha256.rf2"
+use "lib/mcp.flow"
+record AuditSummary(documents:u64,bytes:u64,digest:u64)
+fn audit_hex(out:Writer,digest)
+ let i=0
+ let alphabet="0123456789abcdef"
+ while i<32
+  let value=load8(digest+i)
+  do writer_bytes(out,alphabet+(value>>4),1)
+  do writer_bytes(out,alphabet+(value&15),1)
+  set i=i+1
+ end
+ return out.used
+end
+fn audit_snapshot(path,query,query_bytes,out:Writer,summary:AuditSummary):IO
+ own docs=Items()
+ let corpus=Corpus(0,0,0,0)
+ let row=Row4(0,0,0,0)
+ let text=TextInfo(0,0,0,0)
+ let prefix=TextPrefix()
+ let matches=TextMatches(0,0,0,0)
+ let receipt=Writer(buffer("audit_receipt",131072),131072,0,0)
+ let integers=buffer("audit_integers",16)
+ if query_bytes>128
+  return err(22)
+ end
+ do text_measure(query,query_bytes,text)
+ if text.status
+  return err(text.status)
+ end
+ do try corpus_load(path,docs,corpus)
+ do writer_reset(out)
+ do writer_text(receipt,"RF2-DOCUMENT-AUDIT-V1")
+ do writer_text(out,"{\"schema\":\"rf2.document-audit.v2\",\"snapshot\":true,\"documents\":")
+ do writer_number(out,corpus.documents)
+ do writer_text(out,",\"bytes\":")
+ do writer_number(out,corpus.bytes)
+ do writer_text(out,",\"items\":[")
+ let i=0
+ while i<corpus.documents
+  do try items_row4(docs,i,row)
+  let digest=sha256(corpus_data()+row.a,row.b)
+  do store64(integers,row.d)
+  do store64(integers+8,row.b)
+  do writer_bytes(receipt,integers,8)
+  do writer_bytes(receipt,corpus_names()+row.c,row.d)
+  do writer_bytes(receipt,integers+8,8)
+  do writer_bytes(receipt,digest,32)
+  if i
+   do writer_text(out,",")
+  end
+  do writer_text(out,"{\"path\":")
+  do writer_json(out,corpus_names()+row.c,row.d)
+  do writer_text(out,",\"bytes\":")
+  do writer_number(out,row.b)
+  do writer_text(out,",\"sha256\":\"")
+  do audit_hex(out,digest)
+  do writer_text(out,"\"")
+  if query_bytes
+   do text_search(corpus_data()+row.a,row.b,query,query_bytes,0,prefix,matches)
+   if matches.status
+    return err(matches.status)
+   end
+   do writer_text(out,",\"matches\":")
+   do writer_number(out,matches.count)
+   do writer_text(out,",\"first_byte\":")
+   if matches.count
+    do writer_number(out,matches.first)
+   else
+    do writer_text(out,"null")
+   end
+  end
+  do writer_text(out,"}")
+  set i=i+1
+ end
+ if receipt.error
+  return err(receipt.error)
+ end
+ let final_digest=sha256(receipt.data,receipt.used)
+ let hex=Writer(buffer("audit_final_hex",65),65,0,0)
+ do audit_hex(hex,final_digest)
+ do store8(hex.data+64,0)
+ do writer_text(out,"],\"corpus_sha256\":\"")
+ do writer_bytes(out,hex.data,64)
+ do writer_text(out,"\"}")
+ if out.error
+  return err(out.error)
+ end
+ set summary.documents=corpus.documents
+ set summary.bytes=corpus.bytes
+ set summary.digest=hex.data
+ return ok(out.used)
+end
+fn audit_checked(path,expected,out:Writer,summary:AuditSummary):IO
+ if io_size(expected)!=64
+  return err(22)
+ end
+ let i=0
+ while i<64
+  let c=load8(expected+i)
+  if ((c<48)|(c>57))&((c<97)|(c>102))
+   return err(22)
+  end
+  set i=i+1
+ end
+ do try audit_snapshot(path,"",0,out,summary)
+ if text_equal(expected,64,buffer("audit_final_hex",65),64)==0
+  return err(409)
+ end
+ return ok(out.used)
+end
+fn mcp_execute(out:Writer):IO
+ let summary=AuditSummary(0,0,0)
+ let full=Writer(buffer("audit_mcp_full",131072),131072,0,0)
+ do try audit_snapshot(load64(buffer("audit_selected_path",8)),"",0,full,summary)
+ do writer_text(out,"{\"schema\":\"rf2.document-audit.v2\",\"snapshot\":true,\"documents\":")
+ do writer_number(out,summary.documents)
+ do writer_text(out,",\"bytes\":")
+ do writer_number(out,summary.bytes)
+ do writer_text(out,",\"corpus_sha256\":\"")
+ do writer_bytes(out,summary.digest,64)
+ do writer_text(out,"\",\"index_via_cli\":true}")
+ if out.error
+  return err(out.error)
+ end
+ return ok(out.used)
+end
+fn audit_cli(mode,path,argument,out:Writer):IO
+ let summary=AuditSummary(0,0,0)
+ if text_equal(mode,io_size(mode),"check",5)
+  return audit_checked(path,argument,out,summary)
+ end
+ if text_equal(mode,io_size(mode),"search",6)
+  if io_size(argument)==0
+   return err(22)
+  end
+  return audit_snapshot(path,argument,io_size(argument),out,summary)
+ end
+ if text_equal(mode,io_size(mode),"catalog",7)
+  return audit_snapshot(path,"",0,out,summary)
+ end
+ return err(22)
+end
+fn main(argc,argv)
+ if (argc<3)|(argc>4)
+  do write(2,"usage: document-audit catalog|mcp MANIFEST | search|check MANIFEST VALUE\n",io_size("usage: document-audit catalog|mcp MANIFEST | search|check MANIFEST VALUE\n"))
+  return 2
+ end
+ let mode=load64(argv+8)
+ let path=load64(argv+16)
+ let argument=""
+ if argc==4
+  set argument=load64(argv+24)
+ end
+ if text_equal(mode,io_size(mode),"mcp",3)
+  if argc!=3
+   return 2
+  end
+  do store64(buffer("audit_selected_path",8),path)
+  handle mcp_serve("rf2-document-audit","0.49-experiment","audit_snapshot","Fingerprint the launch-selected text corpus without changing files")
+  ok served
+   return 0
+  err server_error
+   return 2
+  end
+  return 2
+ end
+ if (text_equal(mode,io_size(mode),"catalog",7)&(argc!=3))|(text_equal(mode,io_size(mode),"search",6)&(argc!=4))|(text_equal(mode,io_size(mode),"check",5)&(argc!=4))
+  return 2
+ end
+ let out=Writer(buffer("audit_output",131072),131072,0,0)
+ let status=0
+ handle audit_cli(mode,path,argument,out)
+ ok complete
+  do writer_text(out,"\n")
+  handle io_write_all(1,out.data,out.used)
+  ok written
+  err output_error
+   set status=1
+  end
+ err failed
+  do writer_reset(out)
+  do writer_text(out,"{\"error\":")
+  do writer_number(out,failed)
+  do writer_text(out,"}\n")
+  do write(2,out.data,out.used)
+  set status=1
+ end
+ return status
+end
