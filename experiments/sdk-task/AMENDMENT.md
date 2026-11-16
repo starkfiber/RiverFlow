@@ -1,0 +1,11 @@
+# Retained interruption in the first Passage Desk execution
+
+The first execution stopped after the planned first Python and first RF2 attempts, both graded 80/80. Its source-inventory controller treated the RF2 author's own FIFO/symlink test fixtures as fatal inventory failures. Those fixtures were created to test the task's explicit nonregular-file refusals and bidirectional stdio. Read-only review confirmed that the relative symlink pointed to the attempt's own input, all three FIFOs belonged to its self-tests, protected inputs were unchanged, and no completed attempt needed replacement or score correction.
+
+The original stopped results, original controller and original frozen inputs remain under the study directory. A separately recorded controller amendment allows inventories to skip and record FIFO fixtures and within-root links without following them. Out-of-root links, unexpected inventory errors and changes to protected task/SDK/compiler inputs still stop the continuation. The continuation checks the exact original CLI/Python identities, compiler, SDK, guide, task and grader; refuses pre-existing remaining attempt directories; and allows only one continuation of the original unexecuted slots 3 (RF2) and 4 (Python).
+
+`AMENDMENT.json` is written before those calls and binds the original frozen manifest, stopped report and amended controller. Completed attempts 1 and 2 are never rerun, repaired or replaced. The actual author prompt template, requested model/effort, 600-second limit and external grader remain unchanged. No author feedback or warm SDK repair is applied between calls.
+
+This is an explicitly **interrupted and amended exploratory execution**, not an uninterrupted preregistered four-call experiment. The original controller was retained and hash-bound at the interruption; its hash was not included in the initial frozen input map. Task, grader, guides, compiler and SDK were bound before calls. Future clean runs also freeze the controller source itself.
+
+Use the original elapsed/usage/grades for each call. Do not present the controller interruption as an RF2 application failure, silently pool away the interruption, infer a provider bill, or turn any later library repair/replay into newly measured authoring savings.

@@ -11,6 +11,7 @@ Start with [RF2 From Zero](../book/learning-edition-1/README.md), [package selec
 | Edit and execute Core lessons | [Studio walkthrough](../docs/BOOKING-STUDIO.md) | Workbench 0.38; not a general Systems IDE |
 | Parse, sort and summarize numeric input | [Collection tools](collection-tools/README.md) | Trusted Mac programs sharing bounded heap collection/parser libraries |
 | Find duplicate numeric values | [Sorted lookup](collection-tools/LOOKUP.md) | Source addition qualified in sprint 0.40; borrowed lower/upper-bound lookup |
+| Build a text-review report with one shared SDK | [Passage Desk](passage-desk/README.md) | Native JSON/HTML/read-only MCP; post-study transport repair, no measured authoring advantage |
 | Read and search text documents | [Documents workspace](documents/README.md), [shared APIs](documents/LIBRARIES.md) | Explicit UTF-8 corpus, read-only originals; no PDF extraction or persistent index |
 | Fingerprint a selected corpus through CLI and MCP | [Document Audit](document-audit/README.md) | Native text-corpus integrity/search; bounded agent summary, sequential capture and no authenticity claim |
 | Validate and summarize recorded sensor logs | [Sensor Audit](sensor-audit/README.md) | Native fixed-point CSV analysis, exact JSON-safe timestamps; no physical sensor or field measurement |

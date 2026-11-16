@@ -1,0 +1,155 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/text.flow"
+use "@rf2/v1/io.flow"
+use "@rf2/v1/mcp.flow"
+record Passage(bytes:u64,scalars:u64,lines:u64,words:u64,matches:u64,first:u64)
+fn passage_query(q):IO
+ let size=io_size(q)
+ let info=TextInfo(0,0,0,0)
+ if (size==0)|(size>128)
+  return err(22)
+ end
+ do text_measure(q,size,info)
+ if info.status!=0
+  return err(84)
+ end
+ return ok(size)
+end
+fn passage_read(path,q,out:Passage):IO
+ let qsize=try passage_query(q)
+ let data=buffer("passage_input",1048577)
+ let n=try io_regular(path,data,1048576)
+ let info=TextInfo(0,0,0,0)
+ let prefix=TextPrefix()
+ let found=TextMatches(0,0,0,0)
+ do text_measure(data,n,info)
+ if info.status!=0
+  return err(84)
+ end
+ let searched=text_search_overlapping(data,n,q,qsize,0,prefix,found)
+ if (searched==0)|(found.status!=0)
+  return err(22)
+ end
+ set out.bytes=n
+ set out.scalars=info.scalars
+ set out.lines=info.lines
+ set out.words=info.words
+ set out.matches=found.count
+ set out.first=found.first
+ return ok(n)
+end
+fn passage_json(out:Writer,q,r:Passage):IO
+ do writer_reset(out)
+ do writer_text(out,"{\"schema\":\"passage-desk.v1\",\"bytes\":")
+ do writer_number(out,r.bytes)
+ do writer_text(out,",\"scalars\":")
+ do writer_number(out,r.scalars)
+ do writer_text(out,",\"lines\":")
+ do writer_number(out,r.lines)
+ do writer_text(out,",\"words_ascii_breaks\":")
+ do writer_number(out,r.words)
+ do writer_text(out,",\"query\":")
+ do writer_json(out,q,io_size(q))
+ do writer_text(out,",\"matches\":")
+ do writer_number(out,r.matches)
+ do writer_text(out,",\"first_byte\":")
+ if r.matches==0
+  do writer_text(out,"null")
+ else
+  do writer_number(out,r.first)
+ end
+ do writer_text(out,"}")
+ if out.error!=0
+  return err(out.error)
+ end
+ return ok(out.used)
+end
+fn passage_row(out:Writer,label,id,value)
+ do writer_text(out,"<tr><th scope=\"row\">")
+ do writer_text(out,label)
+ do writer_text(out,"</th><td id=\"")
+ do writer_text(out,id)
+ do writer_text(out,"\">")
+ do writer_number(out,value)
+ do writer_text(out,"</td></tr>")
+ return 0
+end
+fn passage_html(out:Writer,q,r:Passage):IO
+ do writer_reset(out)
+ do writer_text(out,"<!doctype html>\n<html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>Passage Desk — Text review</title><style>body{margin:0;background:#f4f2eb;color:#20332e;font:18px/1.6 system-ui,sans-serif}main{max-width:760px;margin:6vh auto;padding:24px}a{color:#145b49}a:focus-visible{outline:3px solid #a24616;outline-offset:5px}h1{font-size:clamp(2rem,7vw,3.5rem);line-height:1.1}h1:focus{outline:3px solid #a24616}p{overflow-wrap:anywhere}.eyebrow{letter-spacing:.12em;font-size:.75rem;text-transform:uppercase}table{width:100%;border-collapse:collapse;background:#fffdf6}caption{text-align:left;font-weight:600;padding:16px 0}th,td{padding:12px 16px;border-bottom:1px solid #d4dacf;text-align:left}td{font-variant-numeric:tabular-nums;text-align:right}footer{margin-top:24px;font-size:.85rem}@media(max-width:480px){main{margin:0;padding:20px}th,td{padding:10px}}</style></head><body><main><a href=\"#report\">Go to report</a><p class=\"eyebrow\">Passage Desk / Read-only review</p><h1 id=\"report\" tabindex=\"-1\">Text at a glance</h1><p>Exact query: <span id=\"query\">")
+ do writer_html(out,q,io_size(q))
+ do writer_text(out,"</span></p><table><caption>Text measurements and overlapping matches</caption><tbody>")
+ do passage_row(out,"Bytes","bytes",r.bytes)
+ do passage_row(out,"Unicode scalars","scalars",r.scalars)
+ do passage_row(out,"Lines","lines",r.lines)
+ do passage_row(out,"Words (ASCII breaks)","words",r.words)
+ do passage_row(out,"Overlapping matches","matches",r.matches)
+ do writer_text(out,"<tr><th scope=\"row\">First byte offset</th><td id=\"first_byte\">")
+ if r.matches==0
+  do writer_text(out,"none")
+ else
+  do writer_number(out,r.first)
+ end
+ do writer_text(out,"</td></tr></tbody></table><footer>Exact UTF-8 byte matching. Offsets start at zero. This report reflects a sequential file capture.</footer></main></body></html>\n")
+ if out.error!=0
+  return err(out.error)
+ end
+ return ok(out.used)
+end
+fn mcp_execute(out:Writer):IO
+ let selected=buffer("passage_selection",16)
+ let path=load64(selected)
+ let query=load64(selected+8)
+ let report=Passage(0,0,0,0,0,0)
+ do try passage_read(path,query,report)
+ return passage_json(out,query,report)
+end
+fn passage_run(command,path,query):IO
+ let valid=try passage_query(query)
+ let selected=buffer("passage_selection",16)
+ if text_equal(command,io_size(command),"mcp",3)
+  do store64(selected,path)
+  do store64(selected+8,query)
+  return mcp_serve("passage-desk","1.0.0","passage_report","Review the launch-selected text file using exact overlapping query matches.")
+ end
+ let report=Passage(0,0,0,0,0,0)
+ let out=Writer(buffer("passage_output",16384),16384,0,0)
+ if text_equal(command,io_size(command),"report",6)
+  do try passage_read(path,query,report)
+  do try passage_json(out,query,report)
+  do writer_text(out,"\n")
+ else
+  if text_equal(command,io_size(command),"html",4)
+   do try passage_read(path,query,report)
+   do try passage_html(out,query,report)
+  else
+   return err(22)
+  end
+ end
+ if out.error!=0
+  return err(out.error)
+ end
+ return io_write_no_sigpipe(1,out.data,out.used)
+end
+fn passage_diagnostic()
+ let message="Passage Desk: invalid arguments, unreadable regular file, invalid UTF-8/control, size limit, or output failure.\n"
+ handle io_write_no_sigpipe(2,message,io_size(message))
+ ok sent
+  return 2
+ err failed
+  return 2
+ end
+ return 2
+end
+fn main(argc,argv)
+ if argc!=4
+  return passage_diagnostic()
+ end
+ handle passage_run(load64(argv+8),load64(argv+16),load64(argv+24))
+ ok completed
+  return 0
+ err cause
+  return passage_diagnostic()
+ end
+ return 2
+end

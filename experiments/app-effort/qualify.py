@@ -25,5 +25,11 @@ for name in files:
  if name=='application_values_verify.py':jobenv['RF2_TEST_COMPILER']=str(R/'artifacts/sprint-036/RF2-0.36-dev-macos-arm64/rf2c')
  q=subprocess.run([sys.executable,str(p)],cwd=R,env=jobenv,capture_output=True,timeout=600);(D/(name+'.stdout')).write_bytes(q.stdout);(D/(name+'.stderr')).write_bytes(q.stderr);row=dict(name=name,sourceSHA256=sha(p),exit=q.returncode,seconds=time.monotonic()-t,stdoutSHA256=sha(D/(name+'.stdout')),stderrSHA256=sha(D/(name+'.stderr')));rows.append(row);(D/'RESULTS.json').write_text(json.dumps(dict(compilerSHA256=sha(C),results=rows),indent=2)+'\n');print(json.dumps(row),flush=True)
  if q.returncode:print(q.stderr.decode(errors='replace')[-1800:],flush=True);raise SystemExit(1)
-selfdir=D/'self';selfdir.mkdir();q=subprocess.run([str(C),str(C.parent.parent/'compiler.flow'),str(selfdir/'program'),'--opt'],capture_output=True,timeout=60);q.check_returncode();subprocess.run(['/usr/bin/codesign','-s','-',str(selfdir/'program')],check=True,capture_output=True);assert sha(C)==sha(selfdir/'program'),'Self-generation mismatch'
-print(json.dumps(dict(selfGenerationSHA256=sha(selfdir/'program'),passed=True)),flush=True);(D/'SELF.json').write_text(json.dumps(dict(compilerSHA256=sha(C),selfSHA256=sha(selfdir/'program'),passed=True),indent=2)+'\n')
+flags=json.loads(os.environ.get('RF2_QUAL_SELF_FLAGS','["--opt"]'))
+assert isinstance(flags,list)and all(x in('--opt','--compact')for x in flags)and len(flags)==len(set(flags)), 'Explicit self-build image flags only'
+selfdir=D/'self'
+if selfdir.exists():selfdir=Path(tempfile.mkdtemp(prefix='self-resume-',dir=D))
+else:selfdir.mkdir()
+command=[str(C),str(C.parent.parent/'compiler.flow'),str(selfdir/'program'),*flags]
+q=subprocess.run(command,capture_output=True,timeout=60);(selfdir/'BUILD.stdout').write_bytes(q.stdout);(selfdir/'BUILD.stderr').write_bytes(q.stderr);q.check_returncode();subprocess.run(['/usr/bin/codesign','-s','-',str(selfdir/'program')],check=True,capture_output=True);assert sha(C)==sha(selfdir/'program'),'Self-generation mismatch'
+print(json.dumps(dict(selfGenerationSHA256=sha(selfdir/'program'),passed=True)),flush=True);(D/'SELF.json').write_text(json.dumps(dict(compilerSHA256=sha(C),selfSHA256=sha(selfdir/'program'),passed=True,command=command,imageFlags=flags),indent=2)+'\n')

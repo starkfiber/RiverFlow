@@ -1,0 +1,201 @@
+# Stable categories are deliberately narrower than the full set of compiler errors.
+# Unknown messages retain RF2E_COMPILE; hints do not assert an automatic repair.
+fn diagnostic_category(text)
+ if same(text,length(text),"unknown local",13)
+  return 1
+ end
+ if same(text,length(text),"unknown function",16)
+  return 2
+ end
+ if same(text,length(text),"function arity",14)|same(text,length(text),"builtin arity",13)|same(text,length(text),"syscall arity",13)
+  return 3
+ end
+ if same(text,length(text),"argument type mismatch",22)|same(text,length(text),"owned argument type mismatch",28)
+  return 4
+ end
+ if same(text,length(text),"unknown parameter type",22)|same(text,length(text),"result return type required",27)
+  return 5
+ end
+ if same(text,length(text),"unknown record field",20)
+  return 6
+ end
+ if same(text,length(text),"local used before initialization or outside scope",49)|same(text,length(text),"assignment destination was consumed by its right-hand side",58)
+  return 7
+ end
+ if same(text,length(text),"source open failed",18)|same(text,length(text),"module open failed",18)
+  return 8
+ end
+ return 0
+end
+fn diagnostic_code(category)
+ if category==1
+  return "RF2E_LOCAL"
+ end
+ if category==2
+  return "RF2E_FUNCTION"
+ end
+ if category==3
+  return "RF2E_ARITY"
+ end
+ if category==4
+  return "RF2E_ARGUMENT_TYPE"
+ end
+ if category==5
+  return "RF2E_TYPE"
+ end
+ if category==6
+  return "RF2E_FIELD"
+ end
+ if category==7
+  return "RF2E_LIFETIME"
+ end
+ if category==8
+  return "RF2E_SOURCE_IO"
+ end
+ return "RF2E_COMPILE"
+end
+fn diagnostic_hint(category)
+ if category==1
+  return "Check spelling and declare the local with let/own before use in this scope. A record field needs its owner.field path."
+ end
+ if category==2
+  return "Check the function name and its use import. Imports share one namespace; qualified package names are not function prefixes."
+ end
+ if category==3
+  return "Match the declared parameter count exactly. Related values can be grouped in a record; arguments have no implicit defaults."
+ end
+ if category==4
+  return "Match the declared nominal argument type; equal-looking record layouts are not interchangeable. Scalar parameters take u64 values."
+ end
+ if category==5
+  return "Declare or import the named type before this signature. A return annotation names a declared result type, not an arbitrary scalar type."
+ end
+ if category==6
+  return "Check this record declaration and field spelling. Access a nested field through each owner.field component."
+ end
+ if category==7
+  return "Keep the owner initialized and in scope. Do not move or release a value before the last access or consume an assignment destination in its RHS."
+ end
+ if category==8
+  return "Check the selected source/import path exists and is readable. Package imports also require the explicit matching --sdk-root directory."
+ end
+ return ""
+end
+# Strings use escaped bytes for a reversible, always valid JSON wire value.
+# Decode JSON, then encode its code points as Latin-1 to recover original bytes.
+fn diagnostic_json_bytes(text,n)
+ let i=0
+ let one=buffer("diagnostic_one",1)
+ let hex="0123456789abcdef"
+ while (i<n)&(load8(text+i)!=0)
+  let c=load8(text+i)
+  if (c>=32)&(c<127)&(c!=34)&(c!=92)
+   do write(2,text+i,1)
+  else
+   do write(2,"\\u00",4)
+   do store8(one,load8(hex+(c>>4)))
+   do write(2,one,1)
+   do store8(one,load8(hex+(c&15)))
+   do write(2,one,1)
+  end
+  set i=i+1
+ end
+ return 0
+end
+fn diagnostic_json_location()
+ let d=buffer("diagnostic_state",64)
+ let phase=load64(d)
+ if phase==0
+  return write(2,"null",4)
+ end
+ let source=load64(state())
+ let size=load64(state()+8)
+ let offset=load64(d+8)
+ if phase==2
+  let cursor=load64(state()+24)
+  if cursor<load64(state()+16)
+   set offset=load32(buffer("token_positions",262144)+cursor*4)
+  else
+   set offset=size
+  end
+ end
+ if offset>size
+  set offset=size
+ end
+ let root=""
+ let path=load64(d+16)
+ let kind="entry"
+ if load64(d+24)
+  set kind="expanded"
+ end
+ if (load64(buffer("heap_lowering_state",32))!=0)&(offset>=load64(buffer("heap_lowering_state",32)))
+  set kind="generated"
+ end
+ if offset<load64(module_state()+24)
+  let map=buffer("source_origin_ranges",1572864)
+  let low=0
+  let high=load64(buffer("source_origin_state",8))
+  let value=0
+  while low<high
+   let middle=low+(high-low)//2
+   let range=map+middle*24
+   if offset<load64(range)
+    set high=middle
+   else
+    if offset>=load64(range+8)
+     set low=middle+1
+    else
+     set value=load64(range+16)+offset-load64(range)
+     set low=high
+    end
+   end
+  end
+  if value
+   let index=(value>>20)-1
+   let at=value&1048575
+   if (index<load64(module_state()))&(at<=load64(module_info(index)+8))
+    set root=module_diagnostic_root(index)
+    set path=module_diagnostic_path(index)
+    set source=load64(module_info(index))
+    set offset=at
+    set kind="source"
+   end
+  end
+ end
+ let line=1
+ let column=1
+ let i=0
+ while i<offset
+  if load8(source+i)==10
+   set line=line+1
+   set column=1
+  else
+   set column=column+1
+  end
+  set i=i+1
+ end
+ do write(2,"{\"path\":\"",length("{\"path\":\""))
+ do diagnostic_json_bytes(root,1024)
+ do diagnostic_json_bytes(path,1024)
+ do write(2,"\",\"line\":",length("\",\"line\":"))
+ do diagnostic_number(line)
+ do write(2,",\"byteColumn\":",length(",\"byteColumn\":"))
+ do diagnostic_number(column)
+ do write(2,",\"origin\":\"",length(",\"origin\":\""))
+ do write(2,kind,length(kind))
+ return write(2,"\"}",2)
+end
+fn diagnostic_json_error(text)
+ let category=diagnostic_category(text)
+ let code=diagnostic_code(category)
+ let hint=diagnostic_hint(category)
+ do write(2,"{\"schema\":\"rf2.diagnostic.v1\",\"severity\":\"error\",\"code\":\"",length("{\"schema\":\"rf2.diagnostic.v1\",\"severity\":\"error\",\"code\":\""))
+ do write(2,code,length(code))
+ do write(2,"\",\"message\":\"",length("\",\"message\":\""))
+ do diagnostic_json_bytes(text,512)
+ do write(2,"\",\"hint\":\"",length("\",\"hint\":\""))
+ do diagnostic_json_bytes(hint,512)
+ do write(2,"\",\"stringEncoding\":\"escaped-bytes\",\"location\":",length("\",\"stringEncoding\":\"escaped-bytes\",\"location\":"))
+ do diagnostic_json_location()
+ return write(2,"}\n",2)
+end

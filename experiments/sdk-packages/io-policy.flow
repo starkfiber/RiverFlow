@@ -1,0 +1,32 @@
+# Explicit Darwin descriptor policy. Never changes the process signal handler.
+# The descriptor is borrowed exclusively for this ordinary call; callers must
+# not concurrently close it or change its no-SIGPIPE flag.
+fn io_write_no_sigpipe(fd,p,n):IO
+ if n==0
+  return ok(0)
+ end
+ let previous=syscall6(92,fd,74,0,0,0,0)
+ if previous>>63
+  return err(0-previous)
+ end
+ let quiet=syscall6(92,fd,73,1,0,0,0)
+ if quiet>>63
+  return err(0-quiet)
+ end
+ let failure=0
+ let count=0
+ handle io_write_all(fd,p,n)
+ ok written
+  set count=written
+ err write_error
+  set failure=write_error
+ end
+ let restored=syscall6(92,fd,73,previous,0,0,0)
+ if failure
+  return err(failure)
+ end
+ if restored>>63
+  return err(65536-restored)
+ end
+ return ok(count)
+end

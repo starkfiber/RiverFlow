@@ -12,6 +12,12 @@ RiverFlow is a programming language with a compiler written in RiverFlow. Its Ma
 
 The goal is one readable language and SDK across learning, apps, devices and system software, including a future RU’OS integration. We will compete through complete applications and measured comparisons. [RF2 everywhere](docs/RF2-EVERYWHERE.md) connects that ambition to concrete engineering gates; the [capability map](docs/CAPABILITY-MAP.md) records what works today.
 
+## Reusable SDK and native diagnostics, source candidate 0.50
+
+Share the [versioned source SDK](sdk/README.md) across apps with explicit `@rf2/v1/` imports and a selected package root. Native errors now offer structured source locations and repair hints. [Passage Desk](examples/passage-desk/README.md) uses the shared package for text review, HTML reports and bounded read-only MCP.
+
+[Four fresh authoring attempts and the retained failures](docs/SDK-PACKAGES-0.50.md) show the current limit: Python median185.8seconds, RF2 346.3seconds, with higher reported RF2 usage. All original80-check grades passed, but extra output faults found gaps in three deliveries. The separately tested SDK B transport repair receives no retroactive token/time credit. This is source-candidate work; existing downloads are unchanged.
+
 ## Working application evidence, source candidate 0.49
 
 [Document Audit](examples/document-audit/README.md) fingerprints/searches a selected corpus and exposes a bounded read-only MCP summary. [Sensor Audit](examples/sensor-audit/README.md) validates recorded logs and computes exact fixed-point summaries with JSON-safe timestamps. Independent application tasks and a read-only review found real failures; [the fixes and receipts](docs/APPLICATION-EPOCHS-0.49.md) retain them, including an ownership regression corrected after0.48. A measured 4096-record CLI job took 5.24ms median versus 46.27ms for a qualified single-pass Python reference on one Mac, including startup. This is not an AI-authoring/token win or a universal speed claim. Downloads remain unchanged.

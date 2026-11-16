@@ -4,6 +4,12 @@ description: Check and execute RiverFlow Core/compact programs, lower checked ke
 ---
 # RiverFlow RF²: stable 0.17, Workbench 0.38 and embedded 0.36
 
+## SDK and diagnostics source candidate0.50
+
+Read docs/SDK-PACKAGES-0.50.md/json, sdk/README.md and experiments/sdk-packages/README.md. Explicit --sdk-root absolute-directory admits versioned @rf2/v1 source imports with bounded manifests/imported-moduleSHA256, no downloads/searchfallback. 512 inventoried function slots, local256/type32/module32/source512KiB bounds separate. --diagnostic-json emits one bounded escaped-byte source-location/error/hint object, not source redaction or automatic repair. Public0.46/native stable0.17 downloads remain unchanged; build.py pins actual public0.46 reproduction.
+
+Timed SDK A and final SDK B are distinct. Four actual authoring calls scored80/80, but poststudy descriptor faults found gaps in three; Python185.8s median versusRF2346.3s and lower reported usage. The controller interruption/amendment and alloriginalresults remain; noauthoringwin. B's explicit io_write_no_sigpipe and mcp_serve ordinaryIOerror/descriptorflagrestore passed41controls per mode; repaired PassageDesk passed80+3 per mode. No stream rollback, fatal/cancellation/concurrentFDcleanup, TTY, general modernMCP or newCoreauthority claim. Source/compiler tests and hostAIusage are separate; no embedded intelligence or notebook/thesis/PDF changes.
+
 ## Application source candidate 0.49
 
 Read docs/APPLICATION-EPOCHS-0.49.md/json and experiments/typed-requests/README.md. The0.48 owned-field try route admitted consuming its destination during RHS;0.49 now rechecks readiness before store, including containing ancestors. Existing0.48 evidence did not test this case; preserve it and use the corrected candidate for new development. Typed request adapters parse to a local record then commit all fields, preserving caller state on failure. New Document Audit CLI/MCP and Sensor Audit recorded-log CLI have explicit bounded contracts and v2 JSON-safe wire values.53 document checks/mode,149 sensor cases/mode,354 request controls,178 browser checks,16 sensor API controls and 15 existing suites/self-generation pass. Sensor process-inclusive runtime5.24ms versus 46.27ms Python single-pass is one4096-row job on one warm Mac, not AI-authoring/token savings, persistent compute, hardware or universal speed. Packages/nine Core tools unchanged. Source snapshots expose SDK/package/import-root gaps; Linguist pending/nonblocking.
