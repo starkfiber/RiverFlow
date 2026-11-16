@@ -1,0 +1,138 @@
+# Explicit SDK source admission only. No downloads, search paths or runtime effects.
+fn sdk_state()
+ return buffer("sdk_state",32)
+end
+fn sdk_root()
+ return buffer("sdk_root",1024)
+end
+fn sdk_entry(i)
+ do require(i<32,"SDK manifest entry bound")
+ return buffer("sdk_entries",768)+i*24
+end
+fn sdk_select(root)
+ do require(load64(sdk_state())==0,"duplicate SDK root option")
+ let n=length(root)
+ do require((n>0)&(n<768),"SDK root path bound")
+ do require(load8(root)==47,"SDK root must be an explicit absolute directory")
+ do cp(sdk_root(),root,n)
+ if load8(root+n-1)!=47
+  do store8(sdk_root()+n,47)
+  set n=n+1
+ end
+ do store8(sdk_root()+n,0)
+ do store64(sdk_state(),n)
+ return 0
+end
+fn sdk_initialize()
+ let root=load64(sdk_state())
+ if root==0
+  return 0
+ end
+ let full=buffer("sdk_manifest_path",1024)
+ do cp(full,sdk_root(),root)
+ do cp(full+root,"rf2-sdk.manifest",16)
+ do store8(full+root+16,0)
+ let fd=open(full,260,0)
+ do require((fd>>63)==0,"SDK manifest open failed: select a valid package root")
+ let metadata=buffer("sdk_manifest_stat",144)
+ let rc=syscall6(339,fd,metadata,0,0,0,0)
+ if (rc>>63)|((load32(metadata+4)&61440)!=32768)
+  do close(fd)
+  do die("SDK manifest must be a regular file")
+ end
+ let p=buffer("sdk_manifest",32769)
+ let used=0
+ let done=0
+ while done==0
+  do require(used<32769,"SDK manifest size bound")
+  let got=read(fd,p+used,32769-used)
+  do require((got>>63)==0,"SDK manifest read failed")
+  if got==0
+   set done=1
+  else
+   set used=used+got
+  end
+ end
+ do require(close(fd)==0,"SDK manifest close failed")
+ do require((used>=11)&(used<=32768),"SDK manifest size bound")
+ do require(same(p,11,"rf2-sdk-v1\n",11),"SDK manifest version: expected rf2-sdk-v1")
+ let cursor=11
+ let count=0
+ while cursor<used
+  let stop=line_end(p,used,cursor)
+  do require(stop<used,"SDK manifest requires final newline")
+  do require(stop>cursor+65,"SDK manifest needs SHA256 and module path")
+  let h=0
+  while h<64
+   let c=load8(p+cursor+h)
+   do require(((c>=48)&(c<=57))|((c>=97)&(c<=102)),"SDK manifest SHA256 must be 64 lowercase hex digits")
+   set h=h+1
+  end
+  do require(load8(p+cursor+64)==32,"SDK manifest digest separator")
+  let path=p+cursor+65
+  let n=stop-cursor-65
+  do module_path_check(path,n)
+  let previous=0
+  while previous<count
+   let previous_entry=sdk_entry(previous)
+   do require(same(load64(previous_entry),load64(previous_entry+8),path,n)==0,"duplicate SDK manifest path")
+   set previous=previous+1
+  end
+  let entry=sdk_entry(count)
+  do store64(entry,path)
+  do store64(entry+8,n)
+  do store64(entry+16,p+cursor)
+  set count=count+1
+  set cursor=stop+1
+ end
+ do require(count>0,"SDK manifest must list at least one module")
+ do store64(sdk_state()+8,count)
+ return 0
+end
+fn sdk_import(name,n)
+ if (n>=8)&same(name,8,"@rf2/v1/",8)
+  do require(load64(sdk_state())!=0,"SDK import requires --sdk-root absolute-directory")
+  do module_path_check(name+8,n-8)
+  return 1
+ end
+ if n
+  do require(load8(name)!=64,"SDK import version: expected @rf2/v1/module.flow")
+ end
+ do module_path_check(name,n)
+ return 0
+end
+fn sdk_verify(name,n,source,bytes)
+ let i=0
+ let expected=0
+ while i<load64(sdk_state()+8)
+  let entry=sdk_entry(i)
+  if same(load64(entry),load64(entry+8),name,n)
+   set expected=load64(entry+16)
+  end
+  set i=i+1
+ end
+ do require(expected!=0,"SDK module is not listed in selected manifest")
+ let digest=sha256(source,bytes)
+ set i=0
+ while i<32
+  let value=load8(digest+i)
+  let high=hex(load8(expected+i*2))
+  let low=hex(load8(expected+i*2+1))
+  do require(value==high*16+low,"SDK module SHA256 mismatch: restore the selected package")
+  set i=i+1
+ end
+ return 0
+end
+fn module_diagnostic_root(index)
+ if load64(buffer("module_sdk_kind",256)+index*8)
+  return sdk_root()
+ end
+ return buffer("module_root",1024)
+end
+fn module_diagnostic_path(index)
+ let name=module_path(index)
+ if load64(buffer("module_sdk_kind",256)+index*8)
+  return name+8
+ end
+ return name
+end
