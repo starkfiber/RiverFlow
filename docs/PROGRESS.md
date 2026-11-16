@@ -23,7 +23,7 @@ This is the fixed delivery checklist reviewed with the owner on 15 November 2026
 
 ## Active implementation
 
-G8 / G4: Candidate 0.49 corrects the reviewed ownership regression, adds typed request adapters and two independently constructed native apps. 354 request controls,178 browser controls,53 document checks/mode,149 sensor cases/mode,16 sensor API controls and15 regression suites/self-generation pass. A4096-row complete sensor process measured5.24ms versus46.27ms for qualified single-pass Python on one warm Mac; no new AI-authoring/token advantage. Next: shared SDK/package/import roots, target qualification and preregistered authoring comparison. Linguist stays pending/nonblocking.
+G8 / G4: 0.50 source compiler adds explicit versioned shared SDK roots, structured source diagnostics and512 inventoried function slots. 96 SDK,169 diagnostic,354 request controls and15 suites/self-generation pass. Timed four-call Passage Desk comparison is interrupted/amended, not an uninterrupted preregistration: all80 original checks pass but three apps fail supplementary output faults. Python185.8s median vsRF2346.3s with lower usage; no RF2 authoring advantage. Post-study SDK B returns transport errors/restores descriptor flags;41 controls and repaired80+3 app checks per mode pass. Native compile+sign35.4ms separate. Next: typed JSON/HTML/report composition and separately frozen authoring test. Linguist pending/nonblocking.
 
 The eight longer-term platform gates and historical sprint evidence remain in PIPELINE.json. They do not produce extra completion badges. GitHub recognition depends on real external adoption and review; implementing a grammar or documenting requirements does not complete R12.
 

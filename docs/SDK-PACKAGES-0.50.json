@@ -1,0 +1,2675 @@
+{
+  "schema": "rf2.sdk-packages-evidence.v1",
+  "edition": "0.50-source-compiler / SDK0.50B",
+  "recordedUTC": "2026-11-16T00:00:22.975503+00:00",
+  "baselineCommit": "b57952d2f4169b5af916b0e54759d86167e84eb6",
+  "compilerSHA256": "4e47ea8be4bfd81ba12eae606f3ea9321f940957a33d67a88559c1f99f65597c",
+  "compilerSourceSHA256": "5ec6f9f43d1f76e838cb4485f7f6b60dcc0319c8d381e15541a4f14552b76c82",
+  "sdkAManifestSHA256": "12fb05d90a3ce3f32a1bd0f8905d4cd5558b88cdbeef16d747b4887917d5a9ab",
+  "sdkBManifestSHA256": "2ef96552a55f51d76c4cb3febb0f2d8b3e2577fe88c41fd7eeb666a9cc4be625",
+  "sourceSHA256": {
+    "experiments/diagnostics-050/README.md": "ca2d5dcc8e0d7d773c2c23c8617791d3b9bbb572cd56438bbf7bcf7c34f9c292",
+    "experiments/diagnostics-050/bootstrap.py": "16a7cc8fb5d96879a5fe2493db355e893b4a6945949a5360efcef29eee517a49",
+    "experiments/diagnostics-050/diagnostics.flow": "630ca48d0c6f065901c3be1b58ac1c4abc13251c53089489242497ae576a7cbe",
+    "experiments/diagnostics-050/prepare.py": "24a2e631e1008ce5309ab31e499296322a40b81a8d37dcb37126381be69f678b",
+    "experiments/sdk-packages/README.md": "ec01c252fdf1e0dd32c7657dea3bd5e33375d252aa840667fa78e304c04ec817",
+    "experiments/sdk-packages/build.py": "3e28b48bb2b09952afdd3ee0a070e0778ac91b5ccc306d5b02e50cd29c322f6b",
+    "experiments/sdk-packages/compose.py": "24259a0fcde615f751f46a55672d766255cd32524fce22f224606d2e1468b6ef",
+    "experiments/sdk-packages/io-policy.flow": "ad16fde09781afb033ef5b03267286b990cfaed4644421d524cad8d2daac4942",
+    "experiments/sdk-packages/package.py": "d8cb2c0f95861f54d746891f29d1c675cc7b7cdb21e1eb4b6ba131b37098cf93",
+    "experiments/sdk-packages/prepare.py": "b4d739b247dde614dff334ea4d32ea987c78fc9aa77c51236a42f910a9c6815b",
+    "experiments/sdk-packages/sdk.flow": "8c6f780bc302b7f8380ba5bad6dcf754c16772b645c79a1c232a363af17bcdd6",
+    "experiments/sdk-packages/transport.py": "dcfaa0113c334fd65d99f266883a6bfa6cd175b7111f07418df2204914c3a1e2",
+    "experiments/sdk-task/AMENDMENT.md": "f7596e7fc17018905c8604a2aa3045b929601363997303078cb65534f42b0aac",
+    "experiments/sdk-task/PROTOCOL.md": "3c1d92182d491c44e5c0cc9b139947f8a8b973c1b2ee759cf2d6e5647de511ef",
+    "experiments/sdk-task/SDK-PYTHON.md": "bc19deb7105f3ba47adbb7a0120bec341e57d78812220b45378c8ab112c582ac",
+    "experiments/sdk-task/SDK-RF2.md": "2f1ee89648885e8a768700209313097efa30c7d4ff57e7efc7adbf4dc882e530",
+    "experiments/sdk-task/TASK.md": "66b2cd9906f58d35d4611404251239e3c2c15d51e98b5dacd20822a422f53933",
+    "experiments/sdk-task/grade.py": "ff2573e91ad03803c67da903c785cc04fad6e8b53f96e46102f21564b548c8e5",
+    "experiments/sdk-task/output_faults.py": "45b97b0be3b40dc3142b0a72e5132c694e6b4337e608bffad5ca8c0a7895184d",
+    "experiments/sdk-task/run.py": "1ced2f3bc0a92f3499cbc9095efcc5e803519c97fe8376f3c04427ed466d41db",
+    "experiments/sdk-task/text_sdk.py": "72d9237b544290dd97f2c8fe9362821e564bf85e7edd95931a8cb29b11fe3395",
+    "examples/passage-desk/README.md": "48816544613cf82967c6ae874a1303e646fa2ae361305fc1172ade8dac2675fe",
+    "examples/passage-desk/build.sh": "9f110456db4e3797827c155ea290400c372c169e1b70ffe6bc5c60d75cc99bdf",
+    "examples/passage-desk/fixtures/brief.txt": "7246f39fa894a2999ebcb49c9c7eeb31a75f59fe185ffe3dacde1d63415edbdc",
+    "examples/passage-desk/main.flow": "65b97352fe2ec8f9a2b79617c939a29ccca5b5b35efd908537513f081e305224",
+    "sdk/README.md": "e1dd68a175a158e46e9e300b5fb26d04b9949a958b279b9b536bad2378aa2981",
+    "sdk/v1/PROVENANCE.json": "a5ed63a19f78aa251e883016d2e9373b3321496e335606b201f9f73d7103ec92",
+    "sdk/v1/collections.flow": "84ab50af498a71430903b6cf8e980a55e4672018370abbf177cf014a647b2144",
+    "sdk/v1/io.flow": "c4b7d01a681b619a20adaccff698a353185ba4bfbe80272b5c60cf72f871d264",
+    "sdk/v1/json.flow": "036a185eaa932a10f41e7da973e35373eee7fc8b9c86bb030c3da80899911e6a",
+    "sdk/v1/mcp.flow": "b30124ab9fed356594ee4da17a74f2363a50cd93ac2bcd7016996fa1f29626a9",
+    "sdk/v1/rf2-sdk.manifest": "2ef96552a55f51d76c4cb3febb0f2d8b3e2577fe88c41fd7eeb666a9cc4be625",
+    "sdk/v1/sha256.rf2": "b79e7217db169985a5b2262ad4e4c5a550dc7741a60aaff816176a7324a0ffb5",
+    "sdk/v1/text.flow": "5d0ef4fd5cd34d40c3be21b5b334e607227fe80fd5c036bf2abefc144e209b5b",
+    "tests/standalone/diagnostics_050_verify.py": "8695c9e27c3745cacbccb6e05f3fd9ccdc96637f72efebe23a22076cd73abfd1",
+    "tests/standalone/sdk_packages_verify.py": "de42c1cf2e2d2de644d08d7458441460e71cff3f72e84e80db98feefff767985",
+    "tests/standalone/sdk_transport_verify.py": "ec578c7782109fbd849e9d53d8604757eee44eca246c2750de115bcbefcd6edd",
+    "tests/standalone/sdk_task_controller_verify.py": "8610ae36a3de8dacbd2ee1dbd3119e2fbde86326d93587c9de544b488224fb89",
+    "tests/standalone/sdk_build_controller_verify.py": "829f5e0fa6fceb2e87c1b3aae70e6976194513927a6c0f149d7df0ab1de70d52",
+    "experiments/app-effort/qualify.py": "2c77dc73315f29d309da2b2f3ccc79c5b0ef49caa4a008b0914547a61bd9bbc1"
+  },
+  "trials": [
+    {
+      "attempt": 1,
+      "arm": "python",
+      "seconds": 208.71059441600002,
+      "input": 222522,
+      "cached": 203648,
+      "uncached": 18874,
+      "output": 8659,
+      "reasoningOutput": 1151,
+      "commands": 7,
+      "grade": "80/80",
+      "extraOutputFaultsPassed": 1,
+      "traceSHA256": "988994ca757ff706dd4c89cea20720ecb8e7e79118b89369cd1ded959207b6fd",
+      "sourceSHA256": {
+        "AGENTS.md": "4a63ce8f72268f0088f024bcd07e00eb63d2f1accd67307470e3fe54d768a574",
+        "README.md": "778d0da8481ceba55689d305f5ee729f6e85d90ddf25b2a8377b5df9780d21c6",
+        "SDK.md": "bc19deb7105f3ba47adbb7a0120bec341e57d78812220b45378c8ab112c582ac",
+        "TASK.md": "66b2cd9906f58d35d4611404251239e3c2c15d51e98b5dacd20822a422f53933",
+        "VALIDATION.md": "5b752c15897f967833b4cf13847fd8a06e29e96ccfb5e556561bd83855200633",
+        "app.py": "44d4510a71d0906d0a10c232e982f73a14b65924c78e3fe6f60c78075afdcfef",
+        "mcp_sdk.py": "433e418a37eec225f2ac5effb31ffb04b301583454bd1d19fa51e4055a87b015",
+        "test_app.py": "4a66b83d16b61e36ae34fe89e9caa20b6e2b6788c366121baaf4ab2cf77d18d0",
+        "text_sdk.py": "72d9237b544290dd97f2c8fe9362821e564bf85e7edd95931a8cb29b11fe3395"
+      }
+    },
+    {
+      "attempt": 2,
+      "arm": "rf2",
+      "seconds": 397.85156575,
+      "input": 637262,
+      "cached": 616192,
+      "uncached": 21070,
+      "output": 14252,
+      "reasoningOutput": 3160,
+      "commands": 21,
+      "grade": "80/80",
+      "extraOutputFaultsPassed": 3,
+      "traceSHA256": "ca70150ab8b315272b32a287d62b7fc7bf6f7d46ed807afd6aab5f46d13848e4",
+      "sourceSHA256": {
+        "AGENTS.md": "4a63ce8f72268f0088f024bcd07e00eb63d2f1accd67307470e3fe54d768a574",
+        "README.md": "96fd822b00f084e033a6764c6a331a7d1b5ded2c4991ce458826d95d32ca6726",
+        "SDK.md": "2f1ee89648885e8a768700209313097efa30c7d4ff57e7efc7adbf4dc882e530",
+        "TASK.md": "66b2cd9906f58d35d4611404251239e3c2c15d51e98b5dacd20822a422f53933",
+        "main.flow": "88b2509538194da8a4ef49a3c587bd27f85606cb2cc3e4849d43856071f85ea8",
+        "transport.flow": "9c49ca7f25b8dc0f02cdcf95fbce02af93f6bfbc26d4a97dfbdabaafedce5f79",
+        "artifacts/HANDOVER.md": "6d43a3ecb8759a32c27b3ba8da505fc9b135e62d0d16479a0dc68aed91db5340",
+        "sdk/collections.flow": "84ab50af498a71430903b6cf8e980a55e4672018370abbf177cf014a647b2144",
+        "sdk/io.flow": "3c7be52f4314ab613af53271a0bd00dd2e9e04d4c198275d47a3fe34f4af023f",
+        "sdk/json.flow": "036a185eaa932a10f41e7da973e35373eee7fc8b9c86bb030c3da80899911e6a",
+        "sdk/mcp.flow": "8c36e2b91707ec18c74659cc74cf2414866ce07c95864b578c18b3e948ce63e4",
+        "sdk/sha256.rf2": "b79e7217db169985a5b2262ad4e4c5a550dc7741a60aaff816176a7324a0ffb5",
+        "sdk/text.flow": "5d0ef4fd5cd34d40c3be21b5b334e607227fe80fd5c036bf2abefc144e209b5b"
+      }
+    },
+    {
+      "attempt": 3,
+      "arm": "rf2",
+      "seconds": 294.772270333,
+      "input": 530952,
+      "cached": 492416,
+      "uncached": 38536,
+      "output": 10716,
+      "reasoningOutput": 2237,
+      "commands": 18,
+      "grade": "80/80",
+      "extraOutputFaultsPassed": 1,
+      "traceSHA256": "ff8623e296528ed704c28d02acde9eefa8dcd2afc392f2ec5166163f85c1c980",
+      "sourceSHA256": {
+        "AGENTS.md": "4a63ce8f72268f0088f024bcd07e00eb63d2f1accd67307470e3fe54d768a574",
+        "README.md": "d661c6d9bde3e2365a5b0bc023b2d0739d7683b8dadcca1a4d9913d55f3ec56a",
+        "SDK.md": "2f1ee89648885e8a768700209313097efa30c7d4ff57e7efc7adbf4dc882e530",
+        "TASK.md": "66b2cd9906f58d35d4611404251239e3c2c15d51e98b5dacd20822a422f53933",
+        "main.flow": "ba68ce0701c9a441716f92e143fc3680642b29ec49a3196bae108be785a5d820",
+        "artifacts/HANDOVER.md": "47baa9a5e7348244a83599357be6c818d49159cd35558d42084f86a3d44e62c1",
+        "sdk/collections.flow": "84ab50af498a71430903b6cf8e980a55e4672018370abbf177cf014a647b2144",
+        "sdk/io.flow": "3c7be52f4314ab613af53271a0bd00dd2e9e04d4c198275d47a3fe34f4af023f",
+        "sdk/json.flow": "036a185eaa932a10f41e7da973e35373eee7fc8b9c86bb030c3da80899911e6a",
+        "sdk/mcp.flow": "8c36e2b91707ec18c74659cc74cf2414866ce07c95864b578c18b3e948ce63e4",
+        "sdk/sha256.rf2": "b79e7217db169985a5b2262ad4e4c5a550dc7741a60aaff816176a7324a0ffb5",
+        "sdk/text.flow": "5d0ef4fd5cd34d40c3be21b5b334e607227fe80fd5c036bf2abefc144e209b5b"
+      }
+    },
+    {
+      "attempt": 4,
+      "arm": "python",
+      "seconds": 162.93244495899995,
+      "input": 195061,
+      "cached": 165888,
+      "uncached": 29173,
+      "output": 7146,
+      "reasoningOutput": 529,
+      "commands": 12,
+      "grade": "80/80",
+      "extraOutputFaultsPassed": 1,
+      "traceSHA256": "899e18a4ba80d10e75779ad9816612e8fdaf00fbbc1cf48521f1e4fb603102e4",
+      "sourceSHA256": {
+        "AGENTS.md": "4a63ce8f72268f0088f024bcd07e00eb63d2f1accd67307470e3fe54d768a574",
+        "HANDOVER.md": "d76a98bda41f73fb93c010f7e7c1609f19f7a60ab8e98f562562381d9005cda9",
+        "README.md": "4b31a9cb9962e684d0327da5209072a26cb9d427ec371baf45735e931899a557",
+        "SDK.md": "bc19deb7105f3ba47adbb7a0120bec341e57d78812220b45378c8ab112c582ac",
+        "TASK.md": "66b2cd9906f58d35d4611404251239e3c2c15d51e98b5dacd20822a422f53933",
+        "app.py": "e08e776a4dba4d1d9aee86ee72b461728c5cc23b273d9d208e67e96933e4e142",
+        "mcp_sdk.py": "433e418a37eec225f2ac5effb31ffb04b301583454bd1d19fa51e4055a87b015",
+        "test_app.py": "bfbba749bfa325f0f79c4cff6bba36d4b9844bfc68660c1f4574377c0330d9b9",
+        "text_sdk.py": "72d9237b544290dd97f2c8fe9362821e564bf85e7edd95931a8cb29b11fe3395"
+      }
+    }
+  ],
+  "medians": {
+    "rf2": {
+      "seconds": 346.3119180415,
+      "input": 584107.0,
+      "cached": 554304.0,
+      "uncached": 29803.0,
+      "output": 12484.0,
+      "commands": 19.5
+    },
+    "python": {
+      "seconds": 185.82151968749997,
+      "input": 208791.5,
+      "cached": 184768.0,
+      "uncached": 24023.5,
+      "output": 7902.5,
+      "commands": 9.5
+    }
+  },
+  "originalStudy": {
+    "schema": "rf2.passage-construction.v1",
+    "protocol": "PROTOCOL.md",
+    "baseRevision": "b57952d2f4169b5af916b0e54759d86167e84eb6",
+    "host": "macOS-26.5.1-arm64-arm-64bit",
+    "python": "3.9.6 (default, Apr 17 2026, 18:15:52) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+    "pythonExecutable": "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+    "cli": "codex-cli 0.166.0-alpha.5.1",
+    "requestedModel": "gpt-6.1-sol",
+    "requestedReasoningEffort": "low",
+    "servedModelIdentity": "not inferred; only emitted identity is evidence",
+    "order": [
+      "python",
+      "rf2",
+      "rf2",
+      "python"
+    ],
+    "secondsPerAttempt": 600,
+    "expectedGradeChecks": 80,
+    "frozenSHA256": {
+      "PROTOCOL.md": "3c1d92182d491c44e5c0cc9b139947f8a8b973c1b2ee759cf2d6e5647de511ef",
+      "SDK-PYTHON.md": "bc19deb7105f3ba47adbb7a0120bec341e57d78812220b45378c8ab112c582ac",
+      "SDK-RF2.md": "2f1ee89648885e8a768700209313097efa30c7d4ff57e7efc7adbf4dc882e530",
+      "TASK.md": "66b2cd9906f58d35d4611404251239e3c2c15d51e98b5dacd20822a422f53933",
+      "grade.py": "ff2573e91ad03803c67da903c785cc04fad6e8b53f96e46102f21564b548c8e5",
+      "mcp_sdk.py": "433e418a37eec225f2ac5effb31ffb04b301583454bd1d19fa51e4055a87b015",
+      "rf2c": "4e47ea8be4bfd81ba12eae606f3ea9321f940957a33d67a88559c1f99f65597c",
+      "text_sdk.py": "72d9237b544290dd97f2c8fe9362821e564bf85e7edd95931a8cb29b11fe3395",
+      "sdk/PROVENANCE.json": "ebba411f9ff4823b00fb42f335c8d55a1a04dc69da914856d40e3a12bfdfb8cb",
+      "sdk/collections.flow": "84ab50af498a71430903b6cf8e980a55e4672018370abbf177cf014a647b2144",
+      "sdk/io.flow": "3c7be52f4314ab613af53271a0bd00dd2e9e04d4c198275d47a3fe34f4af023f",
+      "sdk/json.flow": "036a185eaa932a10f41e7da973e35373eee7fc8b9c86bb030c3da80899911e6a",
+      "sdk/mcp.flow": "8c36e2b91707ec18c74659cc74cf2414866ce07c95864b578c18b3e948ce63e4",
+      "sdk/rf2-sdk.manifest": "12fb05d90a3ce3f32a1bd0f8905d4cd5558b88cdbeef16d747b4887917d5a9ab",
+      "sdk/sha256.rf2": "b79e7217db169985a5b2262ad4e4c5a550dc7741a60aaff816176a7324a0ffb5",
+      "sdk/text.flow": "5d0ef4fd5cd34d40c3be21b5b334e607227fe80fd5c036bf2abefc144e209b5b"
+    },
+    "constructionScope": "Warm-SDK complete app composition. Timed author reads/writes/own compile/sign/self-tests; excludes prior SDK/compiler development and external grading.",
+    "trials": [
+      {
+        "attempt": 1,
+        "arm": "python",
+        "exit": 0,
+        "timedOut": false,
+        "seconds": 208.71059441600002,
+        "providerReportedUsage": [
+          {
+            "input_tokens": 222522,
+            "cached_input_tokens": 203648,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8659,
+            "reasoning_output_tokens": 1151
+          }
+        ],
+        "usageAvailable": true,
+        "JSONLErrors": 0,
+        "completedCommands": 7,
+        "immutableInputsIntact": true,
+        "integrityIssues": [],
+        "inventoryIssues": [],
+        "packageSHA256": {},
+        "sourceSHA256": {
+          "AGENTS.md": "4a63ce8f72268f0088f024bcd07e00eb63d2f1accd67307470e3fe54d768a574",
+          "README.md": "778d0da8481ceba55689d305f5ee729f6e85d90ddf25b2a8377b5df9780d21c6",
+          "SDK.md": "bc19deb7105f3ba47adbb7a0120bec341e57d78812220b45378c8ab112c582ac",
+          "TASK.md": "66b2cd9906f58d35d4611404251239e3c2c15d51e98b5dacd20822a422f53933",
+          "VALIDATION.md": "5b752c15897f967833b4cf13847fd8a06e29e96ccfb5e556561bd83855200633",
+          "app.py": "44d4510a71d0906d0a10c232e982f73a14b65924c78e3fe6f60c78075afdcfef",
+          "mcp_sdk.py": "433e418a37eec225f2ac5effb31ffb04b301583454bd1d19fa51e4055a87b015",
+          "test_app.py": "4a66b83d16b61e36ae34fe89e9caa20b6e2b6788c366121baaf4ab2cf77d18d0",
+          "text_sdk.py": "72d9237b544290dd97f2c8fe9362821e564bf85e7edd95931a8cb29b11fe3395"
+        },
+        "traceSHA256": "988994ca757ff706dd4c89cea20720ecb8e7e79118b89369cd1ded959207b6fd",
+        "promptSHA256": "e89d7975fe4c307cfd6b37eb8d13e20c3e79a8678dcadbccbdaf224d2bd076f3",
+        "graderExit": 0,
+        "graderPath": "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/grades/1-python.json",
+        "grade": {
+          "schema": "rf2.passage-grade.v1",
+          "checks": 80,
+          "passed": 80,
+          "allPassed": true,
+          "results": [
+            {
+              "name": "launch",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:empty",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 126,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:empty",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:ascii",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 129,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:ascii",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:overlap",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 124,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:overlap",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:absent",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 126,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:absent",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:crlf",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 126,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:crlf",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:whitespace",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 123,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:whitespace",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:unicode",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 130,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:unicode",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:multibyte-offset",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 124,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:multibyte-offset",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:no-normalization",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 125,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:no-normalization",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:nonascii-space",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 124,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:nonascii-space",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:query128",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 254,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:query128",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:bounded1MiB",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 142,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:bounded1MiB",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:bad-utf8",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:bad-utf8",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:bad-utf8",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:nul",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:nul",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:nul",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:control",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:control",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:control",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:too-large",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:too-large",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:too-large",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:empty-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:empty-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:empty-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:long-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:long-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:long-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:byte-query-limit",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:byte-query-limit",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:byte-query-limit",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:control-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:control-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:control-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "file-policy:missing",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "file-policy:directory",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "file-policy:symlink",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "file-policy:fifo",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "arguments:missing-args",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "arguments:extra-args",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "arguments:unknown-command",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:values",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:escaped-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:semantics",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:no-active-remote-content",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:focus-link",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:absent-offset",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:initialize",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:exact-tool-schema",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:actual-selected-file",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:fresh-read",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:callback-error",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:callback-recovery",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:path-denial",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:unknown-tool",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:explicit-empty-required",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:unknown-method",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:malformed",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:duplicate-key",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:decoded-duplicate-key",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:oversize",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:notification-silence-and-recovery",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:clean-eof",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "all-input-bytes-preserved",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "readme",
+              "passed": true,
+              "detail": null
+            }
+          ]
+        },
+        "humanRepairs": 0
+      },
+      {
+        "attempt": 2,
+        "arm": "rf2",
+        "exit": 0,
+        "timedOut": false,
+        "seconds": 397.85156575,
+        "providerReportedUsage": [
+          {
+            "input_tokens": 637262,
+            "cached_input_tokens": 616192,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 14252,
+            "reasoning_output_tokens": 3160
+          }
+        ],
+        "usageAvailable": true,
+        "JSONLErrors": 0,
+        "completedCommands": 21,
+        "immutableInputsIntact": true,
+        "integrityIssues": [],
+        "inventoryIssues": [
+          "nonregular artifact:artifacts/selftest/fifo",
+          "nonregular artifact:artifacts/selftest/requests",
+          "nonregular artifact:artifacts/selftest/responses",
+          "symlink file:artifacts/selftest/symlink"
+        ],
+        "packageSHA256": {
+          "PROVENANCE.json": "ebba411f9ff4823b00fb42f335c8d55a1a04dc69da914856d40e3a12bfdfb8cb",
+          "collections.flow": "84ab50af498a71430903b6cf8e980a55e4672018370abbf177cf014a647b2144",
+          "io.flow": "3c7be52f4314ab613af53271a0bd00dd2e9e04d4c198275d47a3fe34f4af023f",
+          "json.flow": "036a185eaa932a10f41e7da973e35373eee7fc8b9c86bb030c3da80899911e6a",
+          "mcp.flow": "8c36e2b91707ec18c74659cc74cf2414866ce07c95864b578c18b3e948ce63e4",
+          "rf2-sdk.manifest": "12fb05d90a3ce3f32a1bd0f8905d4cd5558b88cdbeef16d747b4887917d5a9ab",
+          "sha256.rf2": "b79e7217db169985a5b2262ad4e4c5a550dc7741a60aaff816176a7324a0ffb5",
+          "text.flow": "5d0ef4fd5cd34d40c3be21b5b334e607227fe80fd5c036bf2abefc144e209b5b"
+        },
+        "sourceSHA256": {
+          "AGENTS.md": "4a63ce8f72268f0088f024bcd07e00eb63d2f1accd67307470e3fe54d768a574",
+          "README.md": "96fd822b00f084e033a6764c6a331a7d1b5ded2c4991ce458826d95d32ca6726",
+          "SDK.md": "2f1ee89648885e8a768700209313097efa30c7d4ff57e7efc7adbf4dc882e530",
+          "TASK.md": "66b2cd9906f58d35d4611404251239e3c2c15d51e98b5dacd20822a422f53933",
+          "main.flow": "88b2509538194da8a4ef49a3c587bd27f85606cb2cc3e4849d43856071f85ea8",
+          "transport.flow": "9c49ca7f25b8dc0f02cdcf95fbce02af93f6bfbc26d4a97dfbdabaafedce5f79",
+          "artifacts/HANDOVER.md": "6d43a3ecb8759a32c27b3ba8da505fc9b135e62d0d16479a0dc68aed91db5340",
+          "sdk/collections.flow": "84ab50af498a71430903b6cf8e980a55e4672018370abbf177cf014a647b2144",
+          "sdk/io.flow": "3c7be52f4314ab613af53271a0bd00dd2e9e04d4c198275d47a3fe34f4af023f",
+          "sdk/json.flow": "036a185eaa932a10f41e7da973e35373eee7fc8b9c86bb030c3da80899911e6a",
+          "sdk/mcp.flow": "8c36e2b91707ec18c74659cc74cf2414866ce07c95864b578c18b3e948ce63e4",
+          "sdk/sha256.rf2": "b79e7217db169985a5b2262ad4e4c5a550dc7741a60aaff816176a7324a0ffb5",
+          "sdk/text.flow": "5d0ef4fd5cd34d40c3be21b5b334e607227fe80fd5c036bf2abefc144e209b5b"
+        },
+        "traceSHA256": "ca70150ab8b315272b32a287d62b7fc7bf6f7d46ed807afd6aab5f46d13848e4",
+        "promptSHA256": "8ddc1b7014d5f995ef6fa2b0602d2782a0376adc0bf740ea787bef2029a74b70",
+        "graderExit": 0,
+        "graderPath": "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/grades/2-rf2.json",
+        "grade": {
+          "schema": "rf2.passage-grade.v1",
+          "checks": 80,
+          "passed": 80,
+          "allPassed": true,
+          "results": [
+            {
+              "name": "launch",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:empty",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 126,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:empty",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:ascii",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 129,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:ascii",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:overlap",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 124,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:overlap",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:absent",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 126,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:absent",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:crlf",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 126,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:crlf",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:whitespace",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 123,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:whitespace",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:unicode",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 130,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:unicode",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:multibyte-offset",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 124,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:multibyte-offset",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:no-normalization",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 125,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:no-normalization",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:nonascii-space",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 124,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:nonascii-space",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:query128",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 254,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:query128",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:bounded1MiB",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 142,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:bounded1MiB",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:bad-utf8",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:bad-utf8",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:bad-utf8",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:nul",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:nul",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:nul",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:control",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:control",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:control",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:too-large",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:too-large",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:too-large",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:empty-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:empty-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:empty-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:long-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:long-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:long-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:byte-query-limit",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:byte-query-limit",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:byte-query-limit",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:control-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:control-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:control-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "file-policy:missing",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "file-policy:directory",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "file-policy:symlink",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "file-policy:fifo",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "arguments:missing-args",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "arguments:extra-args",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "arguments:unknown-command",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:values",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:escaped-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:semantics",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:no-active-remote-content",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:focus-link",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:absent-offset",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:initialize",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:exact-tool-schema",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:actual-selected-file",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:fresh-read",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:callback-error",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:callback-recovery",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:path-denial",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:unknown-tool",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:explicit-empty-required",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:unknown-method",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:malformed",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:duplicate-key",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:decoded-duplicate-key",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:oversize",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:notification-silence-and-recovery",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:clean-eof",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "all-input-bytes-preserved",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "readme",
+              "passed": true,
+              "detail": null
+            }
+          ]
+        },
+        "humanRepairs": 0
+      },
+      {
+        "attempt": 3,
+        "arm": "rf2",
+        "exit": 0,
+        "timedOut": false,
+        "seconds": 294.772270333,
+        "providerReportedUsage": [
+          {
+            "input_tokens": 530952,
+            "cached_input_tokens": 492416,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 10716,
+            "reasoning_output_tokens": 2237
+          }
+        ],
+        "usageAvailable": true,
+        "JSONLErrors": 0,
+        "completedCommands": 18,
+        "immutableInputsIntact": true,
+        "integrityIssues": [],
+        "inventoryIssues": [
+          "excluded FIFO fixture:artifacts/selftest/fifo",
+          "excluded FIFO fixture:artifacts/selftest/input",
+          "symlink file:artifacts/selftest/link"
+        ],
+        "packageSHA256": {
+          "PROVENANCE.json": "ebba411f9ff4823b00fb42f335c8d55a1a04dc69da914856d40e3a12bfdfb8cb",
+          "collections.flow": "84ab50af498a71430903b6cf8e980a55e4672018370abbf177cf014a647b2144",
+          "io.flow": "3c7be52f4314ab613af53271a0bd00dd2e9e04d4c198275d47a3fe34f4af023f",
+          "json.flow": "036a185eaa932a10f41e7da973e35373eee7fc8b9c86bb030c3da80899911e6a",
+          "mcp.flow": "8c36e2b91707ec18c74659cc74cf2414866ce07c95864b578c18b3e948ce63e4",
+          "rf2-sdk.manifest": "12fb05d90a3ce3f32a1bd0f8905d4cd5558b88cdbeef16d747b4887917d5a9ab",
+          "sha256.rf2": "b79e7217db169985a5b2262ad4e4c5a550dc7741a60aaff816176a7324a0ffb5",
+          "text.flow": "5d0ef4fd5cd34d40c3be21b5b334e607227fe80fd5c036bf2abefc144e209b5b"
+        },
+        "sourceSHA256": {
+          "AGENTS.md": "4a63ce8f72268f0088f024bcd07e00eb63d2f1accd67307470e3fe54d768a574",
+          "README.md": "d661c6d9bde3e2365a5b0bc023b2d0739d7683b8dadcca1a4d9913d55f3ec56a",
+          "SDK.md": "2f1ee89648885e8a768700209313097efa30c7d4ff57e7efc7adbf4dc882e530",
+          "TASK.md": "66b2cd9906f58d35d4611404251239e3c2c15d51e98b5dacd20822a422f53933",
+          "main.flow": "ba68ce0701c9a441716f92e143fc3680642b29ec49a3196bae108be785a5d820",
+          "artifacts/HANDOVER.md": "47baa9a5e7348244a83599357be6c818d49159cd35558d42084f86a3d44e62c1",
+          "sdk/collections.flow": "84ab50af498a71430903b6cf8e980a55e4672018370abbf177cf014a647b2144",
+          "sdk/io.flow": "3c7be52f4314ab613af53271a0bd00dd2e9e04d4c198275d47a3fe34f4af023f",
+          "sdk/json.flow": "036a185eaa932a10f41e7da973e35373eee7fc8b9c86bb030c3da80899911e6a",
+          "sdk/mcp.flow": "8c36e2b91707ec18c74659cc74cf2414866ce07c95864b578c18b3e948ce63e4",
+          "sdk/sha256.rf2": "b79e7217db169985a5b2262ad4e4c5a550dc7741a60aaff816176a7324a0ffb5",
+          "sdk/text.flow": "5d0ef4fd5cd34d40c3be21b5b334e607227fe80fd5c036bf2abefc144e209b5b"
+        },
+        "traceSHA256": "ff8623e296528ed704c28d02acde9eefa8dcd2afc392f2ec5166163f85c1c980",
+        "promptSHA256": "8ddc1b7014d5f995ef6fa2b0602d2782a0376adc0bf740ea787bef2029a74b70",
+        "graderExit": 0,
+        "graderPath": "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/grades/3-rf2.json",
+        "grade": {
+          "schema": "rf2.passage-grade.v1",
+          "checks": 80,
+          "passed": 80,
+          "allPassed": true,
+          "results": [
+            {
+              "name": "launch",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:empty",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 126,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:empty",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:ascii",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 129,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:ascii",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:overlap",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 124,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:overlap",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:absent",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 126,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:absent",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:crlf",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 126,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:crlf",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:whitespace",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 123,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:whitespace",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:unicode",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 130,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:unicode",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:multibyte-offset",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 124,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:multibyte-offset",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:no-normalization",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 125,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:no-normalization",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:nonascii-space",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 124,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:nonascii-space",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:query128",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 254,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:query128",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:bounded1MiB",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 142,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:bounded1MiB",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:bad-utf8",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:bad-utf8",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:bad-utf8",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:nul",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:nul",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:nul",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:control",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:control",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:control",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:too-large",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:too-large",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:too-large",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:empty-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:empty-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:empty-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:long-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:long-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:long-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:byte-query-limit",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:byte-query-limit",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:byte-query-limit",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:control-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:control-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:control-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "file-policy:missing",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "file-policy:directory",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "file-policy:symlink",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "file-policy:fifo",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "arguments:missing-args",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "arguments:extra-args",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "arguments:unknown-command",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:values",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:escaped-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:semantics",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:no-active-remote-content",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:focus-link",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:absent-offset",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:initialize",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:exact-tool-schema",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:actual-selected-file",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:fresh-read",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:callback-error",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:callback-recovery",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:path-denial",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:unknown-tool",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:explicit-empty-required",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:unknown-method",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:malformed",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:duplicate-key",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:decoded-duplicate-key",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:oversize",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:notification-silence-and-recovery",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:clean-eof",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "all-input-bytes-preserved",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "readme",
+              "passed": true,
+              "detail": null
+            }
+          ]
+        },
+        "humanRepairs": 0
+      },
+      {
+        "attempt": 4,
+        "arm": "python",
+        "exit": 0,
+        "timedOut": false,
+        "seconds": 162.93244495899995,
+        "providerReportedUsage": [
+          {
+            "input_tokens": 195061,
+            "cached_input_tokens": 165888,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 7146,
+            "reasoning_output_tokens": 529
+          }
+        ],
+        "usageAvailable": true,
+        "JSONLErrors": 0,
+        "completedCommands": 12,
+        "immutableInputsIntact": true,
+        "integrityIssues": [],
+        "inventoryIssues": [],
+        "packageSHA256": {},
+        "sourceSHA256": {
+          "AGENTS.md": "4a63ce8f72268f0088f024bcd07e00eb63d2f1accd67307470e3fe54d768a574",
+          "HANDOVER.md": "d76a98bda41f73fb93c010f7e7c1609f19f7a60ab8e98f562562381d9005cda9",
+          "README.md": "4b31a9cb9962e684d0327da5209072a26cb9d427ec371baf45735e931899a557",
+          "SDK.md": "bc19deb7105f3ba47adbb7a0120bec341e57d78812220b45378c8ab112c582ac",
+          "TASK.md": "66b2cd9906f58d35d4611404251239e3c2c15d51e98b5dacd20822a422f53933",
+          "app.py": "e08e776a4dba4d1d9aee86ee72b461728c5cc23b273d9d208e67e96933e4e142",
+          "mcp_sdk.py": "433e418a37eec225f2ac5effb31ffb04b301583454bd1d19fa51e4055a87b015",
+          "test_app.py": "bfbba749bfa325f0f79c4cff6bba36d4b9844bfc68660c1f4574377c0330d9b9",
+          "text_sdk.py": "72d9237b544290dd97f2c8fe9362821e564bf85e7edd95931a8cb29b11fe3395"
+        },
+        "traceSHA256": "899e18a4ba80d10e75779ad9816612e8fdaf00fbbc1cf48521f1e4fb603102e4",
+        "promptSHA256": "e89d7975fe4c307cfd6b37eb8d13e20c3e79a8678dcadbccbdaf224d2bd076f3",
+        "graderExit": 0,
+        "graderPath": "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/grades/4-python.json",
+        "grade": {
+          "schema": "rf2.passage-grade.v1",
+          "checks": 80,
+          "passed": 80,
+          "allPassed": true,
+          "results": [
+            {
+              "name": "launch",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:empty",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 141,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:empty",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:ascii",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 144,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:ascii",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:overlap",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 139,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:overlap",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:absent",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 141,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:absent",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:crlf",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 141,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:crlf",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:whitespace",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 138,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:whitespace",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:unicode",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 145,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:unicode",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:multibyte-offset",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 139,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:multibyte-offset",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:no-normalization",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 140,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:no-normalization",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:nonascii-space",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 139,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:nonascii-space",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:query128",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 269,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:query128",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "report:bounded1MiB",
+              "passed": true,
+              "detail": {
+                "exit": 0,
+                "outputBytes": 157,
+                "stderr": ""
+              }
+            },
+            {
+              "name": "preserved:bounded1MiB",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:bad-utf8",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:bad-utf8",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:bad-utf8",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:nul",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:nul",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:nul",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:control",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:control",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:control",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:too-large",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:too-large",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:too-large",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:empty-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:empty-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:empty-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:long-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:long-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:long-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:byte-query-limit",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:byte-query-limit",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:byte-query-limit",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:report:control-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "refusal:html:control-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "preserved:control-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "file-policy:missing",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "file-policy:directory",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "file-policy:symlink",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "file-policy:fifo",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "arguments:missing-args",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "arguments:extra-args",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "arguments:unknown-command",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:values",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:escaped-query",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:semantics",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:no-active-remote-content",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:focus-link",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "html:absent-offset",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:initialize",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:exact-tool-schema",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:actual-selected-file",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:fresh-read",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:callback-error",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:callback-recovery",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:path-denial",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:unknown-tool",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:explicit-empty-required",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:unknown-method",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:malformed",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:duplicate-key",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:decoded-duplicate-key",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:oversize",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:notification-silence-and-recovery",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "mcp:clean-eof",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "all-input-bytes-preserved",
+              "passed": true,
+              "detail": null
+            },
+            {
+              "name": "readme",
+              "passed": true,
+              "detail": null
+            }
+          ]
+        },
+        "humanRepairs": 0
+      }
+    ],
+    "frozenInputsIntact": true,
+    "frozenIntegrityIssues": [],
+    "priorStopReason": "input integrity, controller or provider failure; no substitute attempt",
+    "resumed": {
+      "schema": "rf2.passage-controller-amendment.v1",
+      "originalFrozenSHA256": "7c747508f4efdfd319dc50b4276f59f23beff7d88f84b8388282decebc0985dc",
+      "stoppedReportSHA256": "bdff1728b9d4badd3cda2a18f9753314ec6761beb962720f5ba5ee8a7d919fdc",
+      "controllerSHA256": "1ced2f3bc0a92f3499cbc9095efcc5e803519c97fe8376f3c04427ed466d41db",
+      "preservedAttempts": 2,
+      "remainingOriginalSlots": [
+        3,
+        4
+      ],
+      "correction": "Skip and record nonregular/symlink self-test artifacts without following them. Protected task/SDK/compiler integrity still fails closed. No grader, SDK, task, model, budget, order or completed result changes.",
+      "limitation": "The four attempts were interrupted by a reviewed controller correction. They are not an uninterrupted preregistered execution; no replacement calls or repaired original scores."
+    }
+  },
+  "supplementaryFaults": {
+    "schema": "rf2.passage-supplementary-output.v1",
+    "controllerSHA256": "45b97b0be3b40dc3142b0a72e5132c694e6b4337e608bffad5ca8c0a7895184d",
+    "scope": "Read-only fault probes after all original calls. Not part of the frozen80-check grader. No original app, grade or usage repaired.",
+    "sampleSHA256": "eafe93271f4305e122bf99a9374fed08eea7f4aaff5a296cc60cab26512bc424",
+    "frozenTaskSHA256": "66b2cd9906f58d35d4611404251239e3c2c15d51e98b5dacd20822a422f53933",
+    "results": [
+      {
+        "attempt": "1-python",
+        "kind": "closed-reader-report",
+        "expectedExit": 2,
+        "actualExit": 2,
+        "passed": true,
+        "stderr": "passage-desk: [Errno 32] Broken pipe\n",
+        "entrySHA256": "44d4510a71d0906d0a10c232e982f73a14b65924c78e3fe6f60c78075afdcfef"
+      },
+      {
+        "attempt": "1-python",
+        "kind": "closed-descriptor-report",
+        "expectedExit": 2,
+        "actualExit": 1,
+        "passed": false,
+        "stderr": "Traceback (most recent call last):\n  File \"/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/1-python/app.py\", line 132, in <module>\n    sys.exit(main(sys.argv))\n  File \"/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/1-python/app.py\", line 117, in main\n    sys.stdout.buffer.write(output.encode(\"utf-8\", \"strict\"))\nAttributeError: 'NoneType' object has no attribute 'buffer'\n",
+        "entrySHA256": "44d4510a71d0906d0a10c232e982f73a14b65924c78e3fe6f60c78075afdcfef"
+      },
+      {
+        "attempt": "1-python",
+        "kind": "closed-descriptor-mcp",
+        "expectedExit": 2,
+        "actualExit": 0,
+        "passed": false,
+        "stderr": "",
+        "entrySHA256": "44d4510a71d0906d0a10c232e982f73a14b65924c78e3fe6f60c78075afdcfef"
+      },
+      {
+        "attempt": "2-rf2",
+        "kind": "closed-reader-report",
+        "expectedExit": 2,
+        "actualExit": 2,
+        "passed": true,
+        "stderr": "Passage Desk: read, UTF-8 validation, query bounds or output failed\n",
+        "entrySHA256": "c57695c0e1aadee7bd47459a7d96109ab97b4af81488e28f894b14811c8af30f"
+      },
+      {
+        "attempt": "2-rf2",
+        "kind": "closed-descriptor-report",
+        "expectedExit": 2,
+        "actualExit": 2,
+        "passed": true,
+        "stderr": "Passage Desk: read, UTF-8 validation, query bounds or output failed\n",
+        "entrySHA256": "c57695c0e1aadee7bd47459a7d96109ab97b4af81488e28f894b14811c8af30f"
+      },
+      {
+        "attempt": "2-rf2",
+        "kind": "closed-descriptor-mcp",
+        "expectedExit": 2,
+        "actualExit": 2,
+        "passed": true,
+        "stderr": "Passage Desk: MCP transport failed\n",
+        "entrySHA256": "c57695c0e1aadee7bd47459a7d96109ab97b4af81488e28f894b14811c8af30f"
+      },
+      {
+        "attempt": "3-rf2",
+        "kind": "closed-reader-report",
+        "expectedExit": 2,
+        "actualExit": -13,
+        "passed": false,
+        "stderr": "",
+        "entrySHA256": "fefba98c3ea17b1d575122d772bd653aa5e6d6a258b96b22a9d3352c3f7f4f16"
+      },
+      {
+        "attempt": "3-rf2",
+        "kind": "closed-descriptor-report",
+        "expectedExit": 2,
+        "actualExit": 2,
+        "passed": true,
+        "stderr": "Passage Desk: invalid arguments, unreadable regular file, invalid UTF-8/control, size limit, or output failure.\n",
+        "entrySHA256": "fefba98c3ea17b1d575122d772bd653aa5e6d6a258b96b22a9d3352c3f7f4f16"
+      },
+      {
+        "attempt": "3-rf2",
+        "kind": "closed-descriptor-mcp",
+        "expectedExit": 2,
+        "actualExit": 1,
+        "passed": false,
+        "stderr": "",
+        "entrySHA256": "fefba98c3ea17b1d575122d772bd653aa5e6d6a258b96b22a9d3352c3f7f4f16"
+      },
+      {
+        "attempt": "4-python",
+        "kind": "closed-reader-report",
+        "expectedExit": 2,
+        "actualExit": 2,
+        "passed": true,
+        "stderr": "Passage Desk: [Errno 32] Broken pipe\n",
+        "entrySHA256": "e08e776a4dba4d1d9aee86ee72b461728c5cc23b273d9d208e67e96933e4e142"
+      },
+      {
+        "attempt": "4-python",
+        "kind": "closed-descriptor-report",
+        "expectedExit": 2,
+        "actualExit": 1,
+        "passed": false,
+        "stderr": "Traceback (most recent call last):\n  File \"/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/4-python/app.py\", line 107, in <module>\n    sys.exit(main())\n  File \"/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/4-python/app.py\", line 89, in main\n    sys.stdout.buffer.write(output.encode('utf-8', 'strict'))\nAttributeError: 'NoneType' object has no attribute 'buffer'\n",
+        "entrySHA256": "e08e776a4dba4d1d9aee86ee72b461728c5cc23b273d9d208e67e96933e4e142"
+      },
+      {
+        "attempt": "4-python",
+        "kind": "closed-descriptor-mcp",
+        "expectedExit": 2,
+        "actualExit": 0,
+        "passed": false,
+        "stderr": "",
+        "entrySHA256": "e08e776a4dba4d1d9aee86ee72b461728c5cc23b273d9d208e67e96933e4e142"
+      }
+    ],
+    "inputUnchanged": true
+  },
+  "nativeBuildStage": {
+    "schema": "rf2.native-build-stage.v1",
+    "scope": "Post-study clean native compilation and ad-hoc signing; oneMac,warmOS/files. Excludesauthoring/tests/modelusage; Pythonhasnoahead-of-timebuildrequirement; not an equivalentPythoncompilebenchmark.",
+    "results": [
+      {
+        "attempt": "2-rf2",
+        "trial": 0,
+        "compilerMS": 20.948709,
+        "signMS": 17.166042,
+        "totalMS": 38.114751,
+        "exactOriginalImage": true,
+        "sha256": "c57695c0e1aadee7bd47459a7d96109ab97b4af81488e28f894b14811c8af30f",
+        "command": [
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/2-rf2/rf2c",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/2-rf2/main.flow",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/native-build-stage/2-rf2-0/app",
+          "--compact",
+          "--opt",
+          "--sdk-root",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/2-rf2/sdk"
+        ]
+      },
+      {
+        "attempt": "2-rf2",
+        "trial": 1,
+        "compilerMS": 8.397542,
+        "signMS": 15.795417,
+        "totalMS": 24.192959,
+        "exactOriginalImage": true,
+        "sha256": "c57695c0e1aadee7bd47459a7d96109ab97b4af81488e28f894b14811c8af30f",
+        "command": [
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/2-rf2/rf2c",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/2-rf2/main.flow",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/native-build-stage/2-rf2-1/app",
+          "--compact",
+          "--opt",
+          "--sdk-root",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/2-rf2/sdk"
+        ]
+      },
+      {
+        "attempt": "2-rf2",
+        "trial": 2,
+        "compilerMS": 8.563,
+        "signMS": 16.862542,
+        "totalMS": 25.425542,
+        "exactOriginalImage": true,
+        "sha256": "c57695c0e1aadee7bd47459a7d96109ab97b4af81488e28f894b14811c8af30f",
+        "command": [
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/2-rf2/rf2c",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/2-rf2/main.flow",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/native-build-stage/2-rf2-2/app",
+          "--compact",
+          "--opt",
+          "--sdk-root",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/2-rf2/sdk"
+        ]
+      },
+      {
+        "attempt": "2-rf2",
+        "trial": 3,
+        "compilerMS": 11.199792,
+        "signMS": 22.295375,
+        "totalMS": 33.495167,
+        "exactOriginalImage": true,
+        "sha256": "c57695c0e1aadee7bd47459a7d96109ab97b4af81488e28f894b14811c8af30f",
+        "command": [
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/2-rf2/rf2c",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/2-rf2/main.flow",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/native-build-stage/2-rf2-3/app",
+          "--compact",
+          "--opt",
+          "--sdk-root",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/2-rf2/sdk"
+        ]
+      },
+      {
+        "attempt": "2-rf2",
+        "trial": 4,
+        "compilerMS": 10.011334,
+        "signMS": 15.0655,
+        "totalMS": 25.076834,
+        "exactOriginalImage": true,
+        "sha256": "c57695c0e1aadee7bd47459a7d96109ab97b4af81488e28f894b14811c8af30f",
+        "command": [
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/2-rf2/rf2c",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/2-rf2/main.flow",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/native-build-stage/2-rf2-4/app",
+          "--compact",
+          "--opt",
+          "--sdk-root",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/2-rf2/sdk"
+        ]
+      },
+      {
+        "attempt": "3-rf2",
+        "trial": 0,
+        "compilerMS": 18.251292,
+        "signMS": 19.059,
+        "totalMS": 37.310292,
+        "exactOriginalImage": true,
+        "sha256": "fefba98c3ea17b1d575122d772bd653aa5e6d6a258b96b22a9d3352c3f7f4f16",
+        "command": [
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/3-rf2/rf2c",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/3-rf2/main.flow",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/native-build-stage/3-rf2-0/app",
+          "--compact",
+          "--opt",
+          "--sdk-root",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/3-rf2/sdk"
+        ]
+      },
+      {
+        "attempt": "3-rf2",
+        "trial": 1,
+        "compilerMS": 19.130417,
+        "signMS": 21.15725,
+        "totalMS": 40.287667,
+        "exactOriginalImage": true,
+        "sha256": "fefba98c3ea17b1d575122d772bd653aa5e6d6a258b96b22a9d3352c3f7f4f16",
+        "command": [
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/3-rf2/rf2c",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/3-rf2/main.flow",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/native-build-stage/3-rf2-1/app",
+          "--compact",
+          "--opt",
+          "--sdk-root",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/3-rf2/sdk"
+        ]
+      },
+      {
+        "attempt": "3-rf2",
+        "trial": 2,
+        "compilerMS": 12.340042,
+        "signMS": 26.120125,
+        "totalMS": 38.460167,
+        "exactOriginalImage": true,
+        "sha256": "fefba98c3ea17b1d575122d772bd653aa5e6d6a258b96b22a9d3352c3f7f4f16",
+        "command": [
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/3-rf2/rf2c",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/3-rf2/main.flow",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/native-build-stage/3-rf2-2/app",
+          "--compact",
+          "--opt",
+          "--sdk-root",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/3-rf2/sdk"
+        ]
+      },
+      {
+        "attempt": "3-rf2",
+        "trial": 3,
+        "compilerMS": 12.204583,
+        "signMS": 18.852291,
+        "totalMS": 31.056874,
+        "exactOriginalImage": true,
+        "sha256": "fefba98c3ea17b1d575122d772bd653aa5e6d6a258b96b22a9d3352c3f7f4f16",
+        "command": [
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/3-rf2/rf2c",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/3-rf2/main.flow",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/native-build-stage/3-rf2-3/app",
+          "--compact",
+          "--opt",
+          "--sdk-root",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/3-rf2/sdk"
+        ]
+      },
+      {
+        "attempt": "3-rf2",
+        "trial": 4,
+        "compilerMS": 31.775459,
+        "signMS": 31.1345,
+        "totalMS": 62.909959,
+        "exactOriginalImage": true,
+        "sha256": "fefba98c3ea17b1d575122d772bd653aa5e6d6a258b96b22a9d3352c3f7f4f16",
+        "command": [
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/3-rf2/rf2c",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/3-rf2/main.flow",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/native-build-stage/3-rf2-4/app",
+          "--compact",
+          "--opt",
+          "--sdk-root",
+          "/Users/ik/Projects/RiverFlow/artifacts/sdk-050-pea3vyjl/construction/3-rf2/sdk"
+        ]
+      }
+    ],
+    "medianCompilerMS": 12.2723125,
+    "medianSignMS": 18.955645500000003,
+    "medianTotalMS": 35.4027295,
+    "allExact": true
+  },
+  "evidence": [
+    {
+      "name": "sdkControls",
+      "path": "artifacts/sdk-packages-checks-tfp1b1el/RESULTS.json",
+      "sha256": "546742005cae17c0ee402d38b7c29a15d9d19b844911dd9c21cf8ab6d6b3d45a"
+    },
+    {
+      "name": "sdkBControls",
+      "path": "artifacts/sdk-packages-checks-yrmyzcog/RESULTS.json",
+      "sha256": "936ac4b2b356a8a3a95539f180fa06d8a1fda07a37d34323acf48dc9a2970874"
+    },
+    {
+      "name": "diagnostics",
+      "path": "artifacts/diagnostics-050-checks-u8pc914_/RESULTS.json",
+      "sha256": "fe802622557c56a3a1a28310f64961f593db338842a42d53cbea5a520cdeff32"
+    },
+    {
+      "name": "requests",
+      "path": "artifacts/typed-requests-6wde_xja/RESULTS.json",
+      "sha256": "e254d80f38923a503bf00955c253bb157de5e10c6da6dcec66897a90cb021415"
+    },
+    {
+      "name": "regressions",
+      "path": "artifacts/app-effort-qualification-rwipdirt/RESULTS.json",
+      "sha256": "f7185f868b991df14c7f784c379dc8fdca2cd47a60e21d07266abb7f7529bbbe"
+    },
+    {
+      "name": "selfGeneration",
+      "path": "artifacts/app-effort-qualification-rwipdirt/SELF.json",
+      "sha256": "1d25675985c14a49e9ea549084e52e5fa85694b92932d45ce240d271d51e6da0"
+    },
+    {
+      "name": "transportPlain",
+      "path": "artifacts/sdk-transport-tfwrm6ef/RESULTS.json",
+      "sha256": "154ac21a651d69e87f8c386f130ad60539a5c4f5cb870d289895798d464bba46"
+    },
+    {
+      "name": "transportOptimized",
+      "path": "artifacts/sdk-transport-uqhemy3v/RESULTS.json",
+      "sha256": "534f37598b1905b4c4338e0128573fa11970d53ed0e3700c735bec148b704cd2"
+    },
+    {
+      "name": "postStudyExemplar",
+      "path": "artifacts/sdk-050-pea3vyjl/exemplar-replay/RESULTS.json",
+      "sha256": "91800b41207b2b22c8ed8d1d419fc588865ad0a9abca8679a865dd8b3a918e63"
+    },
+    {
+      "name": "documentB",
+      "path": "artifacts/sdk-050-pea3vyjl/document-B/RESULTS.json",
+      "sha256": "e0a49722fdca38a93731c531064053074c1b9f2bd0caaeb65d5ce07716415310"
+    },
+    {
+      "name": "supplementaryFaults",
+      "path": "artifacts/sdk-050-pea3vyjl/supplementary-output-source-bound/RESULTS.json",
+      "sha256": "0b11703e8dba140c60e3d90829b7ca3e5b279a959869aa7487a053ddf1cce023"
+    },
+    {
+      "name": "nativeBuildStage",
+      "path": "artifacts/sdk-050-pea3vyjl/native-build-stage/RESULTS.json",
+      "sha256": "84dccab237d3e552b0575b54fda3f0e0c1d022cc5de02fe49e2f8ff08011aa02"
+    },
+    {
+      "name": "frozenConstruction",
+      "path": "artifacts/sdk-050-pea3vyjl/construction/FROZEN.json",
+      "sha256": "7c747508f4efdfd319dc50b4276f59f23beff7d88f84b8388282decebc0985dc"
+    },
+    {
+      "name": "completedConstruction",
+      "path": "artifacts/sdk-050-pea3vyjl/construction/RESULTS.json",
+      "sha256": "fdd6490e68e8dbee31ecb3f7f3f4970f65c9902d0fa956eb97163e80bbdec4be"
+    },
+    {
+      "name": "controllerAmendment",
+      "path": "artifacts/sdk-050-pea3vyjl/construction/AMENDMENT.json",
+      "sha256": "07eb1712424c37ee93884620d7c9e3c508f457ab738b60c1c26181b5d521ce98"
+    },
+    {
+      "name": "graderPreflight",
+      "path": "artifacts/sdk-050-pea3vyjl/GRADER-SELFTEST-FINAL.json",
+      "sha256": "c39b97d61437d7e713ccb30c040f0a782077ad02e33051e71af182b9130c0704"
+    },
+    {
+      "name": "controllerChecks",
+      "path": "artifacts/sdk-050-pea3vyjl/CONTROLLER-CHECKS-RESUME.json",
+      "sha256": "4c236880b9456e0a073652da2fcc644568fe5436dfdb33aa7bdc18a92794197b"
+    },
+    {
+      "name": "builderFreshClone",
+      "path": "artifacts/sdk-050-fresh-build-zg7ove0y/FINAL-BUILDER-REPLAY.json",
+      "sha256": "1f8edca74131f125403cf6122343f00d9c1b0f6040fab8b34ca922a18ec6a30d"
+    },
+    {
+      "name": "builderTimeoutMock",
+      "path": "artifacts/sdk-build-controller-wcu_f7e9/RESULTS.json",
+      "sha256": "81c620522f92e4867f13e2aa468d8fe73cf1c99b74cbc7166555818f9647878a"
+    },
+    {
+      "name": "whatifSourceReview",
+      "path": "artifacts/sdk-050-pea3vyjl/WHATIF-SOURCE-REVIEW.json",
+      "sha256": "46b7e8f07da80e8514df6c5af29e50e097eeff564275519669c6f13830bacffb"
+    }
+  ],
+  "archive": {
+    "path": "docs/evidence/SDK-PACKAGES-0.50-SOURCES.tar.gz",
+    "sha256": "879adc420b61118d3de27f6e51893d334c044c6b878154bcac2fafe0d18359dc",
+    "files": 124,
+    "sourceOnly": true
+  },
+  "limits": [
+    "OneMacARM64,twoattemptsperlanguage,fixedorder,warmSDKcostexcluded",
+    "Interrupted/amendedcontrollerexecution; originaltworesultsretained; onlyremainingoriginalslotscontinued",
+    "InitialFrozenboundtask/grader/guides/compiler/SDK, notoriginalcontrollercode; controllerretained/hashboundatinterruption",
+    "Providerreportedusage is not a bill; cachedinput is subset; reasoningoutput notaddedagain; servedmodelidentitynotinferred",
+    "Alloriginal80checkgradespassbutthreeoriginaldeliveriesfailadditionaloutputfaults",
+    "PoststudySDK B/exemplarrepairhasnotimedauthoring/tokenadvantagecredit",
+    "Nohumantrial,universalproductivity/speed/security,hardwarequalification,newCoreMCPauthority,notarization,thesisorPDFchange"
+  ]
+}
