@@ -1,0 +1,421 @@
+module bounded_readonly_mcp
+use "@rf2/v1/json.flow"
+use "@rf2/v1/text.flow"
+# Legacy2025-11-25 stdio, one no-argument tool. The application supplies
+# mcp_execute(out:Writer):IO. Its effects must be reviewed separately.
+fn mcp_bytes(p,n)
+ let state=buffer("sdk_mcp_transport_error",8)
+ if load64(state)!=0
+  return 0
+ end
+ handle io_write_all(1,p,n)
+ ok written
+  return written
+ err write_error
+  do store64(state,write_error)
+ end
+ return 0
+end
+fn mcp_say(text)
+ return mcp_bytes(text,j_slen(text))
+end
+fn mcp_number(n)
+ let digits=buffer("booking_mcp_digits",24)
+ let i=24
+ if n==0
+  return mcp_say("0")
+ end
+ while n
+  set i=i-1
+  do store8(digits+i,48+n-(n//10)*10)
+  set n=n//10
+ end
+ return mcp_bytes(digits+i,24-i)
+end
+fn mcp_quote(p,n)
+ do mcp_say("\"")
+ let i=0
+ let hex="0123456789abcdef"
+ while i<n
+  let c=load8(p+i)
+  if (c==34)|(c==92)
+   do mcp_say("\\")
+   do mcp_bytes(p+i,1)
+  else
+   if c<32
+    do mcp_say("\\u00")
+    do mcp_bytes(hex+(c>>4),1)
+    do mcp_bytes(hex+(c&15),1)
+   else
+    do mcp_bytes(p+i,1)
+   end
+  end
+  set i=i+1
+ end
+ return mcp_say("\"")
+end
+fn mcp_line()
+ let state=buffer("booking_mcp_stream",24)
+ let chunk=buffer("booking_mcp_chunk",8192)
+ let output=buffer("booking_mcp_line",65537)
+ let pos=load64(state)
+ let size=load64(state+8)
+ let used=0
+ let oversized=0
+ while 1
+  if pos==size
+   set size=read(0,chunk,8192)
+   set pos=0
+   if size>>63
+    do store64(buffer("sdk_mcp_transport_error",8),0-size)
+    return 0
+   end
+   if size==0
+    do store64(state,0)
+    do store64(state+8,0)
+    if used|oversized
+     return 65537
+    end
+    return 0
+   end
+  end
+  let c=load8(chunk+pos)
+  set pos=pos+1
+  if c==10
+   do store64(state,pos)
+   do store64(state+8,size)
+   if oversized
+    return 65537
+   end
+   if used
+    return used
+   end
+  else
+   if used<65536
+    do store8(output+used,c)
+    set used=used+1
+   else
+    set oversized=1
+   end
+  end
+ end
+ return 0
+end
+fn mcp_id_valid(id)
+ if id==0
+  return 1
+ end
+ let t=j_token(id)
+ if load64(t)==1
+  return load64(t+40)<=256
+ end
+ if load64(t)!=7
+  return 0
+ end
+ let p=load64(t+8)
+ let n=load64(t+16)
+ if n>21
+  return 0
+ end
+ let i=0
+ if load8(p)==45
+  set i=1
+ end
+ while i<n
+  if j_digit(load8(p+i))==0
+   return 0
+  end
+  set i=i+1
+ end
+ return 1
+end
+fn mcp_object(t,names)
+ if load64(j_token(t))!=2
+  return 0
+ end
+ let count=0
+ let i=t+1
+ let end=load64(j_token(t)+24)
+ while i<end
+  let name=load64(j_token(i)+32)
+  let bytes=load64(j_token(i)+40)
+  let allowed=0
+  let a=0
+  let length=j_slen(names)
+  while a<length
+   let b=a
+   while all(b<length,load8(names+b)!=44)
+    set b=b+1
+   end
+   if b-a==bytes
+    if mcp_equal(name,names+a,bytes)
+     set allowed=1
+    end
+   end
+   set a=b+1
+  end
+  if allowed==0
+   return 0
+  end
+  set count=count+1
+  set i=load64(j_token(i+1)+24)
+ end
+ return count+1
+end
+fn mcp_equal(a,b,n)
+ let i=0
+ while i<n
+  if load8(a+i)!=load8(b+i)
+   return 0
+  end
+  set i=i+1
+ end
+ return 1
+end
+fn mcp_id_capture(id)
+ let out=Writer(buffer("readonly_mcp_id",2048),2048,0,0)
+ if id==0
+  do writer_text(out,"null")
+ else
+  let t=j_token(id)
+  if load64(t)==1
+   do writer_json(out,load64(t+32),load64(t+40))
+  else
+   do writer_bytes(out,load64(t+8),load64(t+16))
+  end
+ end
+ do store64(buffer("readonly_mcp_id_size",8),out.used)
+ return out.error==0
+end
+fn mcp_reply()
+ do mcp_say("{\"jsonrpc\":\"2.0\",\"id\":")
+ return mcp_bytes(buffer("readonly_mcp_id",2048),load64(buffer("readonly_mcp_id_size",8)))
+end
+fn mcp_error(code,message)
+ do mcp_reply()
+ do mcp_say(",\"error\":{\"code\":-")
+ do mcp_number(code)
+ do mcp_say(",\"message\":")
+ do mcp_quote(message,io_size(message))
+ return mcp_say("}}\n")
+end
+# Callback JSON may be pretty printed. Strip only whitespace outside strings
+# after validation so each protocol response occupies exactly one physical line.
+fn mcp_compact(p,n)
+ let dst=buffer("readonly_mcp_compact",65536)
+ let i=0
+ let used=0
+ let quoted=0
+ let escaped=0
+ while i<n
+  let c=load8(p+i)
+  if quoted
+   do store8(dst+used,c)
+   set used=used+1
+   if escaped
+    set escaped=0
+   else
+    if c==92
+     set escaped=1
+    else
+     if c==34
+      set quoted=0
+     end
+    end
+   end
+  else
+   if j_whitespace(c)==0
+    do store8(dst+used,c)
+    set used=used+1
+   end
+   if c==34
+    set quoted=1
+   end
+  end
+  set i=i+1
+ end
+ return used
+end
+fn mcp_tool_result()
+ let out=Writer(buffer("readonly_mcp_result",65536),65536,0,0)
+ let error=0
+ handle mcp_execute(out)
+ ok completed
+ err callback_error
+  set error=callback_error
+ end
+ if error==0
+  if out.error
+   set error=out.error
+  end
+ end
+ if (out.used>out.capacity)|(out.used>65536)
+  set error=28
+ end
+ if error==0
+  if j_json_parse(out.data,out.used)==0
+   set error=22
+  else
+   if load64(j_token(0))!=2
+    set error=22
+   end
+  end
+ end
+ do mcp_reply()
+ if error
+  do mcp_say(",\"result\":{\"isError\":true,\"content\":[{\"type\":\"text\",\"text\":\"Tool execution failed. Error ")
+  do mcp_number(error)
+  return mcp_say(".\"}]}}\n")
+ end
+ do mcp_say(",\"result\":{\"isError\":false,\"content\":[{\"type\":\"text\",\"text\":\"Read completed.\"}],\"structuredContent\":")
+ let compact_bytes=mcp_compact(out.data,out.used)
+ do mcp_bytes(buffer("readonly_mcp_compact",65536),compact_bytes)
+ return mcp_say("}}\n")
+end
+fn mcp_request(bytes,server,version,tool,description)
+ if bytes>65536
+  do mcp_id_capture(0)
+  return mcp_error(32700,"Request framing or size limit")
+ end
+ if j_json_parse(buffer("booking_mcp_line",65537),bytes)==0
+  do mcp_id_capture(0)
+  return mcp_error(32700,"Invalid JSON or parser limit")
+ end
+ if load64(j_token(0))!=2
+  do mcp_id_capture(0)
+  return mcp_error(32600,"Expected one JSON RPC object")
+ end
+ let id=j_field(0,"id")
+ if mcp_id_valid(id)==0
+  do mcp_id_capture(0)
+  return mcp_error(32600,"Expected a bounded string or integer id")
+ end
+ do mcp_id_capture(id)
+ let method=j_field(0,"method")
+ if (j_matches(j_token(j_field(0,"jsonrpc")),"2.0")==0)|(method==0)|(load64(j_token(method))!=1)
+  return mcp_error(32600,"Expected jsonrpc2.0 and a string method")
+ end
+ let params=j_field(0,"params")
+ let session=buffer("readonly_mcp_session",16)
+ # Notifications never invoke application code, including tool notifications.
+ if id==0
+  if j_matches(j_token(method),"notifications/initialized")&(load64(session)==1)
+   if params==0
+    do store64(session+8,1)
+   else
+    if mcp_object(params,"")==1
+     do store64(session+8,1)
+    end
+   end
+  end
+  return 0
+ end
+ if params
+  if load64(j_token(params))!=2
+   return mcp_error(32602,"Params must be an object")
+  end
+ end
+ if j_matches(j_token(method),"initialize")
+  if load64(session)
+   return mcp_error(32600,"Session is already initialized")
+  end
+  if (params==0)|(load64(j_token(j_field(params,"protocolVersion")))!=1)|(load64(j_token(j_field(params,"capabilities")))!=2)|(load64(j_token(j_field(params,"clientInfo")))!=2)
+   return mcp_error(32602,"Initialize version, capabilities and clientInfo required")
+  end
+  let info=j_field(params,"clientInfo")
+  let client_name=j_field(info,"name")
+  let client_version=j_field(info,"version")
+  if (load64(j_token(client_name))!=1)|(load64(j_token(client_version))!=1)
+   return mcp_error(32602,"Client name and version must be strings")
+  end
+  do store64(session,1)
+  do mcp_reply()
+  do mcp_say(",\"result\":{\"protocolVersion\":\"2025-11-25\",\"capabilities\":{\"tools\":{}},\"serverInfo\":{\"name\":")
+  do mcp_quote(server,io_size(server))
+  do mcp_say(",\"version\":")
+  do mcp_quote(version,io_size(version))
+  return mcp_say("}}}\n")
+ end
+ if j_matches(j_token(method),"ping")
+  do mcp_reply()
+  return mcp_say(",\"result\":{}}\n")
+ end
+ if load64(session+8)==0
+  return mcp_error(32600,"Initialize the session first")
+ end
+ if j_matches(j_token(method),"tools/list")
+  if params
+   if mcp_object(params,"")!=1
+    return mcp_error(32602,"Expected empty params")
+   end
+  end
+  do mcp_reply()
+  do mcp_say(",\"result\":{\"tools\":[{\"name\":")
+  do mcp_quote(tool,io_size(tool))
+  do mcp_say(",\"description\":")
+  do mcp_quote(description,io_size(description))
+  return mcp_say(",\"inputSchema\":{\"type\":\"object\",\"properties\":{},\"additionalProperties\":false},\"annotations\":{\"readOnlyHint\":true,\"destructiveHint\":false,\"idempotentHint\":true,\"openWorldHint\":false}}]}}\n")
+ end
+ if j_matches(j_token(method),"tools/call")
+  if params==0
+   return mcp_error(32602,"Explicit tool name and arguments required")
+  end
+  if mcp_object(params,"name,arguments")!=3
+   return mcp_error(32602,"Expected name and empty arguments only")
+  end
+  if j_matches(j_token(j_field(params,"name")),tool)==0
+   return mcp_error(32602,"Unknown tool")
+  end
+  if mcp_object(j_field(params,"arguments"),"")!=1
+   return mcp_error(32602,"Arguments must be an explicit empty object")
+  end
+  return mcp_tool_result()
+ end
+ return mcp_error(32601,"Unknown method")
+end
+fn mcp_serve(server,version,tool,description):IO
+ if (io_size(server)==0)|(io_size(server)>64)|(io_size(version)>64)|(io_size(tool)==0)|(io_size(tool)>64)|(io_size(description)>1024)
+  return err(22)
+ end
+ if (j_utf8(server,io_size(server))==0)|(j_utf8(version,io_size(version))==0)|(j_utf8(description,io_size(description))==0)
+  return err(22)
+ end
+ let i=0
+ while i<io_size(tool)
+  let c=load8(tool+i)
+  if ((c<65)|(c>90))&((c<97)|(c>122))&((c<48)|(c>57))&(c!=95)&(c!=45)&(c!=46)
+   return err(22)
+  end
+  set i=i+1
+ end
+ # Borrow stdout's descriptor policy only for this ordinary serving call.
+ # Darwin fcntl92: GETNOSIGPIPE74, SETNOSIGPIPE73. No global signal handler.
+ let transport=buffer("sdk_mcp_transport_error",8)
+ do store64(transport,0)
+ let previous=syscall6(92,1,74,0,0,0,0)
+ if previous>>63
+  return err(0-previous)
+ end
+ let quiet=syscall6(92,1,73,1,0,0,0)
+ if quiet>>63
+  return err(0-quiet)
+ end
+ let bytes=mcp_line()
+ while bytes
+  do mcp_request(bytes,server,version,tool,description)
+  if load64(transport)==0
+   set bytes=mcp_line()
+  else
+   set bytes=0
+  end
+ end
+ let failure=load64(transport)
+ let restored=syscall6(92,1,73,previous,0,0,0)
+ if failure
+  return err(failure)
+ end
+ if restored>>63
+  return err(65536-restored)
+ end
+ return ok(0)
+end

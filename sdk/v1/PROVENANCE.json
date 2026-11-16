@@ -1,0 +1,67 @@
+{
+  "schema": "rf2.sdk-source-package.v1",
+  "version": 1,
+  "edition": "0.50B-transport",
+  "namespace": "@rf2/v1/",
+  "transformation": "Version exact SDK imports; separate overlapping search and explicit checked output helpers; recoverable MCP transport; no application entry or renderer",
+  "files": [
+    {
+      "path": "io.flow",
+      "source": "examples/document-audit/lib/io.flow",
+      "sourceSHA256": "3c7be52f4314ab613af53271a0bd00dd2e9e04d4c198275d47a3fe34f4af023f",
+      "packageSHA256": "c4b7d01a681b619a20adaccff698a353185ba4bfbe80272b5c60cf72f871d264",
+      "transformation": "Version package imports; append explicit Darwin descriptor-scoped io_write_no_sigpipe; retain io_write_all body",
+      "additionalInputs": [
+        {
+          "path": "experiments/sdk-packages/io-policy.flow",
+          "SHA256": "ad16fde09781afb033ef5b03267286b990cfaed4644421d524cad8d2daac4942"
+        }
+      ]
+    },
+    {
+      "path": "text.flow",
+      "source": "examples/document-audit/lib/text.flow",
+      "sourceSHA256": "d0b082ad7a1df031b8a6290251192fde08231788bdc26e97cdc09c882f9f2020",
+      "packageSHA256": "5d0ef4fd5cd34d40c3be21b5b334e607227fe80fd5c036bf2abefc144e209b5b",
+      "transformation": "Version package imports; append separately named 1..128-byte overlapping KMP derived from text_search; retain original body",
+      "additionalInputs": []
+    },
+    {
+      "path": "json.flow",
+      "source": "examples/document-audit/lib/json.flow",
+      "sourceSHA256": "036a185eaa932a10f41e7da973e35373eee7fc8b9c86bb030c3da80899911e6a",
+      "packageSHA256": "036a185eaa932a10f41e7da973e35373eee7fc8b9c86bb030c3da80899911e6a",
+      "transformation": "Version package import lines only",
+      "additionalInputs": []
+    },
+    {
+      "path": "mcp.flow",
+      "source": "examples/document-audit/lib/mcp.flow",
+      "sourceSHA256": "0e0a035b775a4f72b77de4bd2ed9bb4e27b997f5dc7f76a06197e0d1d5b33a9e",
+      "packageSHA256": "b30124ab9fed356594ee4da17a74f2363a50cd93ac2bcd7016996fa1f29626a9",
+      "transformation": "Version imports; typed first transport error and descriptor-scoped no-SIGPIPE/restore; unchanged JSON protocol/parser/schema",
+      "additionalInputs": [
+        {
+          "path": "experiments/sdk-packages/transport.py",
+          "SHA256": "dcfaa0113c334fd65d99f266883a6bfa6cd175b7111f07418df2204914c3a1e2"
+        }
+      ]
+    },
+    {
+      "path": "collections.flow",
+      "source": "examples/document-audit/lib/collections.flow",
+      "sourceSHA256": "0ca4ba7e18df8e5020eef4b7a83bf2c9090ec0dd2ea8b7f8f8d6438b0e6f8b62",
+      "packageSHA256": "84ab50af498a71430903b6cf8e980a55e4672018370abbf177cf014a647b2144",
+      "transformation": "Version package import lines only",
+      "additionalInputs": []
+    },
+    {
+      "path": "sha256.rf2",
+      "source": "examples/document-audit/lib/sha256.rf2",
+      "sourceSHA256": "b79e7217db169985a5b2262ad4e4c5a550dc7741a60aaff816176a7324a0ffb5",
+      "packageSHA256": "b79e7217db169985a5b2262ad4e4c5a550dc7741a60aaff816176a7324a0ffb5",
+      "transformation": "Version package import lines only",
+      "additionalInputs": []
+    }
+  ]
+}
