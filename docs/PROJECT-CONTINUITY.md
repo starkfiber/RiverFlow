@@ -169,3 +169,25 @@ Separate worktree RiverFlow-next-20261117 starts at verified SFE main 53ec257. R
 Fresh matched C/D provider study failed 0/4 complete tasks: six calls, 37,690 known tokens and one unknown-usage request. The independent prompt-contract pilot failed before returning source, with unknown usage. No token-saving or corrected-prompt effectiveness claim follows. Frozen inputs, placeholder outputs, completion limits, timeouts and earlier successful studies remain separate. Next: reliable structured transport diagnostics and a separately reviewed output-contract test, plus remaining platform/network gates. Raw receipts/handover stay under artifacts/refinement-20261117, not Kanika Memory/KHC/Chain. The active owner checkout and default/stable packages are untouched; fixed delivery remains 11/12.
 
 New opt-in provider transport passes 63 offline controls with no real calls or credentials. It refuses redirects/reflected credentials and emits safe error categories/status instead of tracebacks; explicit output flush/write failures are separate from network failures. This does not recover historical unknown causes or qualify live connectivity. The tracked pure pilot-payload builder reproduces the reviewed bytes. See experiments/refinement-20261117/ai/PROVIDER-TRANSPORT.md before selecting the new transport in a separately frozen future run.
+
+## Scoped embedded 0.36 interrupt/lease repair — 2026-11-17
+
+This chat's user explicitly scoped work to embedded0.36 on one existing branch,
+leaving RF2Ship/RF2Net and other chats' application work alone. Native execution
+reproduced enabled-MIE rejection and orphaned-claim failures. The backend now
+masks before enable/replenish validation; failed claims revoke unpublished tokens
+without rewinding generations. All9 focused+30 IRQ/lease+34 compiler controls pass
+with actual generated RV32IM execution in vendor QEMU and GNU encoding checks.
+The original baseline fails6/9 focused controls. See
+ESP32C3-IRQ-RESTORATION-0.36.md/json and project-local
+artifacts/irq-036-restoration-20261117/HANDOVER.md. Preserve the earlier duplicate
+local test-fixture refusals as harness errors, not product regressions. Physical
+board, OnePlus, performance, release promotion and broader application milestones
+are not advanced by these tests. Installed packages and nine-tool Core stay unchanged.
+
+
+## Useful AI output recovery,17November2026
+
+Read AI-OUTPUT-RECOVERY-20261117.md/json and its per-request CSV before resuming. Four Codex-engineered utilities pass808/808 in both modes, independently rebuilt and replayed from actual model catalogue selections. Raw provider code generation still0/4;50041known DeepSeek tokens plus1unknown across7calls. Finite two-algorithm/four-variant routing3/4initial,4/4after one declared logical repair;5calls4488tokens including rejection. Combined12requests reached;54529known+1unknown, Codex engineering tokens unavailable. No further provider calls without new reviewed scope/budget. This is capability reuse, not arbitrary code synthesis or causal token saving.
+
+Actual corrected source in experiments/useful-report-programs-20261117. New source-hashed lexical advice23methods, phase-aware transport12offline methods+4actual response deliveries; old136s timeout cause remainsunknown, current DNS/TCP/TLS healthy. Original freezes/failures/oracles retained. Do not reclassify engineering assistance as DeepSeek-alone success. Stable47file hashes unchanged; owner checkout/defaults/downloads untouched; broader gates and fixed11/12 unchanged. No Memory/KHC retention. Project-local raw evidence and reviewed handover under artifacts/ai-completion-20261117. New phase publication not yet verified.
