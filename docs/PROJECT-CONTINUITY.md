@@ -127,3 +127,7 @@ grammar-aware mutations and resource-state oracles without relabelling lexical
 coverage as security verification. Fixed11/12 requirements and all published
 release identities remain unchanged. Raw receipts stay project-local under
 artifacts/intelligence-051/; publication uses verified SFE identity only.
+
+## Measured SDK/Net/Ship sprint,17November2026
+
+Three independent agents produced native source candidates; see [executed results](MEASURED-EVOLUTION-20261117.md). JSON serialization1.27–1.42× on tested ordinary/mixed inputs; Net normal/max parser1.20–1.35× with short-packet loss retained; Ship existing envelope5.11× matching-Oz host AEAD, with80guest checks per implementation. These are component results, not whole-network or universal speed. Added bounded typed JSON/HTML reports and native-checked context. Four original DeepSeek apps failed; separate V4-Pro repair passes37checks, no token advantage. Use opt-in combined source package; stable runtime/downloads untouched. Active uncommitted RF2Net/Ship work was read only and source-bound patches prepared. Raw local receipts artifacts/evolution-20261117; no remote Memory/KHC retention. Fixed11/12 ledger unchanged.

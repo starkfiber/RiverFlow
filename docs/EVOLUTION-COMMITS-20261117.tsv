@@ -1,0 +1,375 @@
+commit	date	subject
+31872be60985f0b84efeec1090b526d9bb13621e	2026-11-11	Start RiverFlow RF2 language, MCP plugin and interactive website
+7cb767de4bc711263f4ad65897f7a0e45ff5cc6d	2026-11-11	Keep language bootstrap dependencies focused
+564026c308747b0e422cfa9ce5b232f741dbe985	2026-11-11	Add SFE research MCP bridge and measured prepared RF2 execution
+166e6b48b76b59d105744de6c9d082a6539bfc32	2026-11-11	Release RF2 0.3 native C11 backend and first technical book
+e5e4ab95c1eb3e9608ab8c05c03da57c33380b5c	2026-11-11	Publish the book through the configured Pages folder
+5b5bced97da089cedbfbc0b0037e9796bf90ea03	2026-11-11	Clarify RiverFlow compact intent and token-economy direction
+2077fe48421852b40c83e1428022c08b7ae01f46	2026-11-11	Build standalone RF2 ARM64 runtime and MCP in RiverFlow systems source
+39ee1d1198f3848e9c7e411752014141767ced4a	2026-11-11	Keep the native plugin launcher independent of PATH utilities
+7a7e7b545e5533601eeda748c344de4aee437ead	2026-11-11	Link native 0.4 downloads and distinguish the browser reference
+1e0197db1f28bccf10b9241b2ccdc0a5556d3050	2026-11-12	Add RiverFlow native compiler with verified self-reproducing ARM64 builds
+b5e466fb11c9fabf85d35423c0cb1119808749e5	2026-11-12	Add native general Core, direct kernel builds and attendance capability
+8b7358844aab4017bf8dc3ebedc6b4e19cdafe03	2026-11-12	Include versioned attendance capability contract and programming fixtures
+f92eb0887e23eff6491a8bd1e8a87d3538d64422	2026-11-12	Add readable invoice plans, native capability and measured interface evidence
+dee0bf5820c75657bc90932f3607cceeb8ccd518	2026-11-12	Add bounded plan reuse, native invoice workspace and measured 0.8 improvements
+6c6f20b28826cb8654dc6764d2593163d4ef7bc2	2026-11-12	Build RF2 graphical workspace and trusted platform ABI with 0.9 evidence
+713d763abb3c81787bba597a40d7061362c70cab	2026-11-12	Add RF2 source modules, nominal records and measured optional native optimisation
+81d6c59125b9ec2390f9309dc1bb8839e0e26fd9	2026-11-12	Improve native RF2 optimization with guarded reductions and verified register code
+ba2e08d8e5b27d77eab6bc502daf522f39d6ae3d	2026-11-12	Publish 0.11 book and native optimizer landing page
+c7e928aa177dad90721994fe9fb249d2f8220661	2026-11-12	Add guarded conditional reductions and evidence-led full-stack direction
+cf357f05af77cff59ad617b0f1e06711f0c15a6f	2026-11-12	Add checked native arrays and a typed latency analysis application
+06230989784657e03126fdda87ba0b0fd067ad69	2026-11-12	Release RF2 0.12 with typed bytes, recoverable text libraries and native audit tools
+de839db39eaec20a68ad0bb63189b2d12fb1df7a	2026-11-12	Add exhaustive typed results and immutable byte views
+01c95712ad719da2a5e29ec100ac1bd86327ae71	2026-11-12	Add Unicode scalar text views and deferred file cleanup
+18d276c2c456d706150dc9c7a85a519d66c0d16e	2026-11-12	Add owned files, cleanup outcomes and native hex inspector
+83bd22eb3e82f3e616354bd6f8cc5edbafd265b0	2026-11-12	Add short-circuit logical guards and native file header inspector
+b6fae621368f16e4d23cb37975b6b122bb961e39	2026-11-12	Add growable byte vectors, record results and external review roadmap
+6676080901abe00e7e161ab8361f92aab2ebc118	2026-11-12	Add native evidence-contract research runner and ten-language source audit
+525cc6dee97832bb8d22f4a8662d8c197a6b2b4a	2026-11-12	Add native replay capsules and audit shared faults and verification overhead
+5f6f831bb3349a4364ca4f3800d6d2ad8cd126fc	2026-11-13	Build RF2 0.18 development trust verifier, authenticated receipts and bounded MCP
+d0e5b43a9a7909cb58ee68c082f918e8fe82e0fc	2026-11-13	Add read-only native second-host qualification
+bd083c1031191db76ce75e3172d0cad15ccb0a02	2026-11-13	Add bounded public ARM Mac second-host qualification
+905653c28c0493dd8affb94ccb1dd75105569748	2026-11-13	Preserve compiler failure diagnostics on second host
+35718474a138acf43d68648d6801a5f0cf8410d0	2026-11-13	Capture native bootstrap crash backtrace on qualification failure
+6b5516a599d3a2254766d7255b3e5c4aac3343c6	2026-11-13	Emit explicit empty dyld fixups for macOS 15 loader compatibility
+16540b0b63bd622abfdcf55300d449dd68f8d1b7	2026-11-13	Qualify candidate compiler emitted by the repaired pinned bootstrap
+05b2250f7758f58a6aec27e61a0d12468cf55c2c	2026-11-13	Repair first-generation container emitted by the older bootstrap
+7ec7638121ba0dfe476bfeae88d7b6f02ff7a77a	2026-11-13	Add native RF2 web and VM-controller lab with matched deployment tests
+001bbea95d3770968122bea3053ceb1608354d22	2026-11-13	Record second-host repair, deployment measurements and 0.18 candidate evidence
+482e816b52c9b3a484506b10a30fc0ec68d6463e	2026-11-13	Pin corrected native candidate archive and qualify its exact bytes
+6f1deb2d843ffd685b5d4328e02e8fce9d548168	2026-11-13	Check exact native HTTP service and fix truncated diagnostic messages
+4b85594f54ad7b1e8c7db062af406b4c329bf80f	2026-11-13	Publish exact two-host qualification and stronger Python baseline findings
+d65016746632ef17b98b65ae914300bcc880112a	2026-11-13	Add direct RF2 VMM foundation and bounded WebAssembly code generation
+b6a0fdfd15ec83dd3944afbe2c6da057f7a9a1da	2026-11-13	Repair retained baseline container on macOS15 and distinguish crashes from overflow
+7d6f94a6abb0994d9f92883c0d3759cd85c5ab5b	2026-11-13	Document qualified RF2 0.19 foundation and update research book
+ca3d1bb0f2f6acd7dbea569252c4b2c2d534d57b	2026-11-13	Add typed VM ownership, admitted guest images and timer cancellation
+79577baa8676362681206d80c9ae15279955a5f0	2026-11-13	Add owned guest mappings, authenticated boot contracts and scoped benchmarks
+3ecbf7f4ab1fb7c262810cb39ddb784613186ebf	2026-11-13	Add native 32-bit rotation and measured SHA improvements
+6419ddde048cad177fa946a09d4779e8887f8357	2026-11-13	Retain native compiler and SHA benchmark controls
+5372335b614ca379e8ca568cfebe22e1f4b4d2ff	2026-11-13	Add guarded native memory operations and scalar frame optimisation
+b92e601dc9da8f5ee9bdcea004d064db700ffd11	2026-11-13	Integrate native memory operations and two-span SHA chaining
+493fae9b5bb5861a620a0dd5ffbf82ce8e0732eb	2026-11-13	Add native bounded file checksum application
+33ec0b124b3ba4db276ae43a62e868c01a913d09	2026-11-13	Document checksum input limits and failure handling
+80d606b7dca48801fd935be8f3bec291f64f8480	2026-11-13	Add independent native memory SHA and ABI verification
+88cef869d91966c1ade2d18df955fa8d306e719b	2026-11-13	Publish reproducible API and file workload benchmark controllers
+1ece19d497a05f9540364818d28e28b833c59ffe	2026-11-13	Identify 0.25 source development candidate
+f46bde204fe702fe23c60ccd792afa61a19a140c	2026-11-13	Document guarded native memory contracts for RF2 skill
+c8899aa84f0e542bf362bc86c3bbb1153d4f04a7	2026-11-13	Publish matched performance receipts limitations and retained failures
+71f00c576557aa2654043ee4243800d5bee4881a	2026-11-13	Revise RiverFlow book with native memory research and matched controls
+e571fa8e04942838c80b252410844f67cb1e3c06	2026-11-13	Update readable research book
+e352c1000dc4e881f2b8303a91395100042f0f30	2026-11-13	Synchronise website book with tested source candidate
+abf67d73ba105cd57c31c82f4ffe261362c359b2	2026-11-13	Summarise guarded native memory candidate and measured limits
+cfa898018cbe8681e42c2baa610ef76cc617e640	2026-11-13	Merge pull request #1 from starkfiber/rf2-0.25-native-memory
+c232b05aca84f7705b8480d95867fa2a5778ca50	2026-11-13	Reorganize RiverFlow overview and contribution workflow
+cc0a19b9d255334048ea8762479bcbe935bdf0c7	2026-11-13	Centralize intrinsic policy with conservative length-filtered dispatch
+75a9720e2622222850a9aa3e1a05e68e750dfe26	2026-11-13	Document native verification routes and compiler selection
+cddc0cb5eb6a0334dd83d3db5288b47b9657f856	2026-11-13	Add independent intrinsic classification and lookalike controls
+183926f305c361a5395b2ddb896e5763011f128d	2026-11-13	Organize build tooling and add matched compiler measurements
+0350f45ba9e068591c1f0433fd87707ddeb780ef	2026-11-13	Publish codebase guides measured outcomes and preserved research history
+8c9ee42141ef3828eba565a83494a45b20ed2920	2026-11-13	Merge pull request #2 from starkfiber/rf2-codebase-refresh
+7f9c3f71fc8d6307bc42200b1c04d13efdec566e	2026-11-13	Introduce native dependency-aware target build workflow
+d1c8a1253ce86d23cfc9d854e7dd9f86e1bb110f	2026-11-13	Add native snapshot-based incremental target driver
+dafc277c7889e8e7b652dfdad4f9c440afd2d80d	2026-11-13	Add explicit native driver build and matched rebuild measurement tools
+1669ec31c6cd44bbece6d144975039d9a9780691	2026-11-13	Challenge stale inputs cache corruption snapshots and output publication
+335fa368a8a838c2fe06601de8a01c9b7b025371	2026-11-13	Record native rebuild results scope and failure evidence
+e55a187ecd9cc020f7a0e685d42ce09b6f632e70	2026-11-13	Document incremental native test configuration
+d685d8502530446330021bfffd80c7b37927cce4	2026-11-13	Document explicit CLI cache boundary without expanding MCP
+75872415b527fc46a7aad85cb5cab8cbe20ffa58	2026-11-13	Mark 0.26 incremental source development candidate
+8800c6793411efcfb2abe633a2f63c2654dfaf77	2026-11-13	Merge pull request #3 from starkfiber/rf2-0.26-incremental
+81a8a6758838bf673600ac8ccfaf937073fb6f53	2026-11-13	Introduce RF2 0.27 compact native build candidate
+2786ed600f21ac085424b49818944f0879653010	2026-11-13	Implement compact native segments and function change sidecars
+7f186ce1b9ec135389dcfdabed8e7d0a323e21a7	2026-11-13	Support compact target cache and avoid compiler snapshot flush
+3ce692accbe74c8582e42a16110c9c5e046689e3	2026-11-13	Add function impact review and matched cold/warm build measurements
+f4d4a3cd06829fc70115d3b1213368e03e107e3c	2026-11-13	Verify compact images and both incremental cache layouts
+bfd96544f41a32e53187babdef28f684a213fb00	2026-11-13	Document measured build gains, remaining cold cost and qualification receipts
+8338df63bfc4b3087ce496b779a202b3006729cd	2026-11-13	Add executable function-change developer example
+af7e9297138d96bcf724deb81014192ebea08c9c	2026-11-13	Link compact image and cache regression checks
+c3b4ccb49a4c68415e9b9d2ba0a38bf3d83a5796	2026-11-13	Teach RF2 skill the compact build and diagnostic map boundary
+0547667fe3dc91ae23c907e37f1746013d27d9bb	2026-11-13	Mark source candidate 0.27.0-dev
+4efe938d6c7f6c1c98e75fef163105fe5c029791	2026-11-13	Merge pull request #4 from starkfiber/rf2-0.27-compact-images
+3d06cc50b00416cf906dea3ebeabb466d60fa457	2026-11-13	Introduce RF2 0.28 opt-in reuse candidate
+a7b1adcbd56f475fd3c2326d31a9a4e197db084b	2026-11-13	Implement guarded scalar template reuse with current relocation replay
+aeac5ee9004295fdd586deac4c77cb3e3f9903d6	2026-11-13	Retain checked compiler snapshots across explicit private project stores
+5eb817ed1a1f980f2e16b834bacfc2146fcbda86	2026-11-13	Add independent clean-image, corruption and store recovery controls
+641c9e560b63e02de0c08ea636bfff2825175250	2026-11-13	Measure complete reuse and new-project builds including overhead
+b22bb66ef0c9a08321bb27186553e5325b8bc339	2026-11-13	Record compiler-store gains, function-reuse regression and exact native gates
+aa1b504e4558daca2642243e00a8d05962a44ce5	2026-11-13	Link 0.28 independent native regression controllers
+e80b4bc7ead97e0fa7e4700e7281b90861ee58ba	2026-11-13	Mark 0.28.0-dev source candidate
+51d9e8d165eda42019ecf8d2d43f6aa5b97e2126	2026-11-13	Document opt-in reuse boundaries and measured store workflow
+e77fdc2802927be86d3b62dc4fb135eef5c9dd25	2026-11-13	Merge pull request #5 from starkfiber/rf2-0.28-function-reuse
+80220009ab59c4653ff4c939754457245e9e4e82	2026-11-13	Introduce RF2 0.29 checked reuse and native learning apps
+a3b0742cd67b3a4c21de211d91ffa8362665e9ed	2026-11-13	Implement guarded SHA hashing and memoized linear scalar reuse
+bb5e77c5a4d120748973da872a11dafcbeaa3eb3	2026-11-13	Independently encode SHA block instructions in maintained bootstrap oracle
+e28864c29f79fc59c6820764e0a795b5a203548a	2026-11-13	Add reproducible partial-edit and bounded fresh-workload experiments
+035a206805526841ca6a2ab817007d03c8bde8e9	2026-11-13	Qualify digest fallback, eligibility records, apps and preserved regression reports
+56a99be9e218c8aa171e88f16949b1d86185f240	2026-11-13	Add native interactive binary and logic learning game
+20840dd1fcd62aa1c1531c33eaa94c246d2567c2	2026-11-13	Add private native RF2 browser playground with validated form handling
+76470ea84e6d7f224a80109298c720efb1d3d6cb	2026-11-13	Add independently checked fixed-input SHA teaching and rebuild workload
+711dfcf23f8e1c9787b5156d2c3270584fe64064	2026-11-13	Show the actual RF2 Number Lab browser interface
+84d3da9551aba57e096731fe30a6d669ee55ec5d	2026-11-13	Publish scoped build gains, regressions, 792 fresh programs and native application evidence
+b23c797f2c15e82eae93b87c1f03857ce0b5b4db	2026-11-13	Document current checked eligibility and scoped performance
+cc28d76e17381e509d508419519b4a90b3c0c330	2026-11-13	Link new native correctness and application controllers
+b1fce80ce9e79d1e3e61d00f1afc20abe3ac8551	2026-11-13	Update RF2 source candidate to 0.29.0-dev
+3c38f2aa54d35f18fe5a9200a85fde33ef0d36f6	2026-11-13	Merge pull request #6 from starkfiber/rf2-0.29-reuse-apps
+b822b089fb04248c277ffb39a6f1c6ebb283a223	2026-11-13	Document measured packed native function reuse
+8e774fe69736f8fc4ee630ae455ba92c9ed76e43	2026-11-13	Add checked packed-reuse implementation and evidence
+453b542aa41effa1052dc1854743310f634fddfc	2026-11-13	Add checked packed-reuse implementation and evidence
+2e41993985c5ae75ab1bd35cd111593386c7956c	2026-11-13	Add checked packed-reuse implementation and evidence
+b8b5cbdfd134a59bad2873cd093b5e31383c32d2	2026-11-13	Add checked packed-reuse implementation and evidence
+c85bab55a1186c86983d184ff85114e953600c65	2026-11-13	Add checked packed-reuse implementation and evidence
+d11803387f9aeaf2afca6f18877daf403becd149	2026-11-13	Add checked packed-reuse implementation and evidence
+6548aebc6e11e52d8512c76fe898788ab0aad546	2026-11-13	Merge pull request #7 from starkfiber/rf2-0.30-packed-reuse
+aa1a2c989f82500e3278cd4c64996f24e614b824	2026-11-13	Explain RF2 foundations and application evidence
+22151a6c0929cc35125c4450b2639180a0435f40	2026-11-13	Add native foundation mechanisms and reproducible controls
+479b0a26f8c62e97e2f36749e486d600aebe6ba3	2026-11-13	Add native foundation mechanisms and reproducible controls
+44b92a747a961720fd4ae13eab66cae6c8dbd29c	2026-11-13	Add native foundation mechanisms and reproducible controls
+1bd5132f065f04cf3af7f0ce3a822fb021da9bcd	2026-11-13	Add native foundation mechanisms and reproducible controls
+b78632f8222c0028466138edbbc86210981a303f	2026-11-13	Add native foundation mechanisms and reproducible controls
+c134b6d00044d3729e7abb7bd50d4ff051248ad2	2026-11-13	Add native foundation mechanisms and reproducible controls
+50daa4daa59b44401c906dfd3c61648c9f6b1a16	2026-11-13	Add native foundation mechanisms and reproducible controls
+7f9240f894054ec44d8bfdb0d479d09b79cfb299	2026-11-13	Add native foundation mechanisms and reproducible controls
+0b1e04a330039e2089d1431b512cb6657431bab8	2026-11-13	Add native foundation mechanisms and reproducible controls
+e5e3b88a52748d58597b0d5d5d04c879758995e3	2026-11-13	Add native foundation mechanisms and reproducible controls
+152e36624ae3a4a1ef1da8c75f372a3549ed021b	2026-11-13	Add native foundation mechanisms and reproducible controls
+0141b5035ecef4ed950212aeca8b896b8518ce79	2026-11-13	Add native foundation mechanisms and reproducible controls
+64d59d592b43d8af1859496224b31aad8648f335	2026-11-13	Add native foundation mechanisms and reproducible controls
+0fbb313e86c9954b1d88a22b4749cea430d7c465	2026-11-13	Qualify RF2 foundation candidate with exact evidence
+e7b163582f9ff0fbbf64932442e4552f3ea6b700	2026-11-13	Qualify RF2 foundation candidate with exact evidence
+927430e0f2f8829824202ecf4a45a5733be0ee4d	2026-11-13	Qualify RF2 foundation candidate with exact evidence
+07615a03ffdedf4f6e5034f2f8bbf05510fee32b	2026-11-13	Qualify RF2 foundation candidate with exact evidence
+1fe295fdccd04b75190434c71b70c4ac09cfd1df	2026-11-13	Qualify RF2 foundation candidate with exact evidence
+f87f672032e4aef114b23cc721bdca799d364aef	2026-11-13	Qualify RF2 foundation candidate with exact evidence
+8ff916e5d782a027c68d13de5eda0e36a1c1893c	2026-11-13	Qualify RF2 foundation candidate with exact evidence
+f0a8c06ab6490dd23b729cd48d3016ce144425f2	2026-11-13	Qualify RF2 foundation candidate with exact evidence
+3886fd9023d59a4d9c9da6f145da785997e9db74	2026-11-13	Qualify RF2 foundation candidate with exact evidence
+6c5df20ea4df4e6cdd5f53586066b8347d01d830	2026-11-13	Merge pull request #8 from starkfiber/rf2-0.31-foundations
+71ba58b406808ff48fe51b1a9aa8305d2d5c00cd	2026-11-13	Introduce qualified structured storage and shared native applications
+44247ac44d3c55947662e285529d9f716ac58829	2026-11-13	Add tested storage implementation and exact qualification evidence
+1e64f5b181a59f44c2f410eb96d8961bcdec9576	2026-11-13	Add tested storage implementation and exact qualification evidence
+4ea499ff428b00a44e21bfd88cd1abb0b86d2236	2026-11-13	Add tested storage implementation and exact qualification evidence
+39e40188f58a2dc90c043acd73603c9ddcc99523	2026-11-13	Add tested storage implementation and exact qualification evidence
+e3d0804c3978a7081358911a7bd015730edf782c	2026-11-13	Add tested storage implementation and exact qualification evidence
+d0f77db7b9caeb28795f14401dd9c9b00e60c915	2026-11-13	Add tested storage implementation and exact qualification evidence
+2516e218b1e2b93d34bf3afa288740d62c30422b	2026-11-13	Add tested storage implementation and exact qualification evidence
+7cb868c963b4b7331208d2dacaf17fb294190f37	2026-11-13	Add tested storage implementation and exact qualification evidence
+5f5a3e7a0703993ad8c9a0fe013f8e56e11c13ce	2026-11-13	Add tested storage implementation and exact qualification evidence
+9e7de7325546c06639e6e90df2a9dd12bb3e166f	2026-11-13	Add tested storage implementation and exact qualification evidence
+e9080ae1d48d31c54dcacc63cfeeedcf129a4d63	2026-11-13	Add tested storage implementation and exact qualification evidence
+f913f975e438b069a58aa771da3e976cf9c1a65b	2026-11-13	Add tested storage implementation and exact qualification evidence
+2dbd93e69c7a9dcf5cb2ab725b127ec686f975d4	2026-11-13	Add tested storage implementation and exact qualification evidence
+8944cb2d0438fd5b1ca6e05b2d085f58fbb1587e	2026-11-13	Merge pull request #9 from starkfiber/rf2-0.32-structured-storage
+1b679f0dba5f04c29c361c05837107173923d87d	2026-11-13	Document owned heap collections and native .flow applications
+8b15fb4673c21da18b632b26bad4559b24b651f7	2026-11-13	Add qualified RF2 heap collections: native/compiler
+0b1073c63853c90c1896b887cf48fa2af77f6363	2026-11-13	Add qualified RF2 heap collections: docs
+71a5f5e8349c7071aaf8c2315e493176d9fbed26	2026-11-13	Add qualified RF2 heap collections: examples/collection-tools
+d15a328d9081ca7125e1de229bd7b202d15c4ea9	2026-11-13	Add qualified RF2 heap collections: examples/collection-tools/lib
+e7b7a6879d76ab66743837752f375cada5378448	2026-11-13	Add qualified RF2 heap collections: tests/standalone
+b1b4e63e30a4c5e99cd87e6e7e5e24869891edc9	2026-11-13	Add qualified RF2 heap collections: tools
+ea9b0e6af744ea285a00619a878be8a40e2df032	2026-11-13	Add qualified RF2 heap collections: tests
+84e0e9067df0cfa8c8c331cf898609a2a49a5d63	2026-11-13	Add qualified RF2 heap collections: plugin/skills/rf2
+a39ba06bc2d29d724dd32f2a48b4b36d4f7fd713	2026-11-13	Add qualified RF2 heap collections: .codex-plugin
+ee8defe52a8a2b9bba465012216fc4d649dea0d4	2026-11-13	Add qualified RF2 heap collections: dist/0.33-candidate
+27f4020ac906f1aeabf886ba276e9544ed006c42	2026-11-13	Merge pull request #10 from starkfiber/rf2-0.33-heap-collections
+52414db11b3c2fdd1617d9018b5715293f0a2317	2026-11-14	Introduce qualified ESP32-C3 development target
+5481bea7448e1380daf588f965bf90bab2ebeca9	2026-11-14	Add tested ESP32-C3 target: native/embedded
+4d5ac4de40eb4076c1d4756aef50766811c3fe57	2026-11-14	Add tested ESP32-C3 target: docs
+c65f48f084b80a61609f1c1fc9599821c70e291c	2026-11-14	Add tested ESP32-C3 target: examples/esp32c3
+c71ed2901dae3ec2ce407dd1813c252e8b19a916	2026-11-14	Add tested ESP32-C3 target: examples/esp32c3/tests
+1b0923290a770238d64b56ef3072838941fff5d4	2026-11-14	Add tested ESP32-C3 target: tests/standalone
+0abc9a30ea4277a3a3cbe476240cb68e10fe85e9	2026-11-14	Add tested ESP32-C3 target: tests
+e5f54cbdb3b2e97247523787e862058767bb1438	2026-11-14	Add tested ESP32-C3 target: tools
+bfd1595d22d6df98953e59966151692ebb5bf863	2026-11-14	Add tested ESP32-C3 target: plugin/skills/rf2
+dc01de61f3da9ad9566c648a993115c356191c85	2026-11-14	Add tested ESP32-C3 target: .codex-plugin
+f8786616091c9b09e3c699641e00afadb4605f16	2026-11-14	Add tested ESP32-C3 target: dist/0.34-candidate
+ab2fe3a766688a445e6d5d4c37d8a9b34f1ee386	2026-11-14	Merge pull request #11 from starkfiber/rf2-0.34-esp32c3
+b9b11f336315b76bef92192a2e41f4389cbea24e	2026-11-14	Test ESP32-C3 UART across every byte value
+65c5385ee93befac3f7e6fb5872b972c362ffd7d	2026-11-14	Challenge TMP102 RV32 conversion and bus failure boundaries
+e27122cf11d7deba885bfacc12d3cdc12a794b8e	2026-11-14	Record extended ESP32-C3 emulator qualification
+89a4b7340d87a7af3945ef946097cafa17b79e09	2026-11-14	Add native RF2 timer and watchdog libraries
+a9f6fbffc4ab96fa6c92d9f3431d2a74a6d22e6b	2026-11-14	Add timed RF2 heartbeat with explicit supervision
+5871c524611ab2c973ae39136df41614bdc5ef59	2026-11-14	Test RF2 timer, watchdog and reset failure paths
+261eda9af2f642dd4bba670250ddb2ed7c22d914	2026-11-14	Document timer evidence and emulator limits
+3117abcafae69b48188a3144d247fb6d3d38987e	2026-11-14	Teach RF2 timer contracts and evidence limits
+23a7758d8c80783ac7f3132afe60ff811baeb664	2026-11-14	Show tested RF2 timers and watchdog support
+6c05efd5360a9ad7e8ee3e764be91b8e2041edbb	2026-11-14	Merge pull request #12 from starkfiber/rf2-timers-watchdog
+3c64d2aa9ee73f07caa2e60567e10c8eda1e8809	2026-11-14	Emit native interrupt entry and bounded handlers
+205c3965c44b9a601eca949f5dfd568d1980c829	2026-11-14	Add checked boot-local peripheral leases
+0723f79bd4a7079a9da00f083cd31df8badbab7a	2026-11-14	Add interrupt-driven RF2 heartbeat and instructions
+e016280a4dc2cd7a8b79b44416dd1216c27ea2be	2026-11-14	Verify interrupt ABI, fault quarantine and lease failures
+d72b14328ae70ea15a5b4549a4ebc52d47b185a5	2026-11-14	Package native RF2 0.36 compilers and firmware
+4233863ef873b58d94b5c40e6089b21c3b3570ce	2026-11-14	Record RF2 interrupt evidence and retained limitations
+c6490de513e2cc9abad580fcb269295291b17ce3	2026-11-14	Publish verified native RF2 0.36 development bundle
+e5bf53ac689f714a49437420acf955247ac0c731	2026-11-14	Document bounded interrupt and lease contracts in RF2 skill
+d1b963e331604b95739cf1553f51c8681340ce6b	2026-11-14	Identify RF2 0.36 development plugin accurately
+8ffd07109cb3f23ed98eccc2bf218b50d92c79f2	2026-11-14	Show tested RF2 interrupt and ownership support
+28b65ea9053925d98611bcda4b9818726c4239d9	2026-11-14	Merge pull request #13 from starkfiber/rf2-0.36-interrupt-leases
+1a266fe7059ed40efc5ccf83c7efebd3ac4bbb71	2026-11-15	Add explicit native developer check and build helper
+6d346a586b2667a5ee1b6d624d9823bc7bd8acfe	2026-11-15	Document the tested native first-app journey
+4be6ab9932f703bd54adaf918762ea1cfa6b6896	2026-11-15	Verify the actual native onboarding workflow
+4174f7fa2e9a8c4e72a7768b6e3a44a693197d6f	2026-11-15	Describe native onboarding acceptance checks
+869a385b23efe18a4e930c029fcf7104ea5d558a	2026-11-15	Keep RF2 host guidance aligned with native setup
+d323ce3c1a58a5c907d6c653f87669199b7038a1	2026-11-15	Lead with the tested native application tutorial
+ed4a8ecd8c927430e2801d5b559d91b3b088c37f	2026-11-15	Merge pull request #14 from starkfiber/native-onboarding-036
+80bba037989236f75fc2dcf17ccf98e4f4eb74fe	2026-11-15	Package qualified native RF2 document tools
+70af86a7c4f9553f35bfbc1440be24f524b14fe6	2026-11-15	Add shared native text, tables and reader libraries
+04b21bb76186aed38a1faf37cb88f4fff4da657a	2026-11-15	Add native document workspace and line-search app
+a1cef83950105d2c3c4202fca470bf3b70b5f681	2026-11-15	Include explicit English and Tamil example inputs
+a60e7d8c1fe87af11901676a94ead54528779c78	2026-11-15	Verify text, collections and document failures
+f72d42cc80a791651a0580575a6a877d8397ab29	2026-11-15	Document native document-workspace verification
+1b4b0c39e2e2e2a1ccafb5e50b7c3b6f9ee56653	2026-11-15	Record document-workspace evidence and boundaries
+f6b6938bf59bc0bc4bb6d6d70cdc60a033248709	2026-11-15	Show the verified native document reader
+80529a3299f8fa7e25bbaf016c5ed4aac652a68c	2026-11-15	Publish the verified native Documents bundle
+0bdc2ee46001bbfdc98ab3c95c4d0c15b1514d4e	2026-11-15	Describe document tools without expanding MCP authority
+588e8539f7cf329fe5f037ec5cce9ed6a41cad01	2026-11-15	Identify RF2 Documents development capabilities
+12e8387e250b566ad9042aa4fe0f852361b02a45	2026-11-15	Show the native RF2 Documents application
+1bef874088229e1a87bf7f69adbe418215f45cc6	2026-11-15	Merge pull request #15 from starkfiber/documents-037
+7b87ca00ee2af9dc5a2b3797d6f8f1c622896419	2026-11-15	Add native Booking and bounded RF2 Studio applications
+92e80310742fe9810d717244d3b01c3f6d7bb338	2026-11-15	Add shared booking storage and workbench libraries
+ad66f39a25582ad736a95100653c05f5acc0f637	2026-11-15	Test booking races failed writes and native IDE parity
+391dd2eb8fef5dd41d5062d0953694d63c65d117	2026-11-15	Document Booking Studio and qualified failure boundaries
+6822d38f4b145bc10ccdb4cc5a4778488e787e22	2026-11-15	Show actual RF2 Booking and native Studio execution
+c1ec4656fb378ca8569f88d530bf582a4f14553a	2026-11-15	Publish qualified native RF2 Workbench development bundle
+f6c30897af1d2cc120d3ed3f352f02122d1825d9	2026-11-15	Identify Booking and Studio development capabilities
+90bc85150dfc9aec08eb66c998c44fa568a225e7	2026-11-15	Describe bounded Studio use without expanding MCP authority
+dd000c1ea8e0b96f95fc9e5a13dbd4fbdfcf4910	2026-11-15	Introduce the native Booking app and RF2 learning IDE
+954762a199e1fc94e651f39fab87c2642bea71f8	2026-11-15	Merge pull request #16 from starkfiber/workbench-038
+2b80b5f936afb15c82d0df8dba5969b032d20968	2026-11-15	Teach RF2 through tested beginner journeys
+2c2e82b170b80a809bd4796f30eea10227a4b1e1	2026-11-15	Include eight executable RF2 learning examples
+d4639f78156302f71b7be8e6dd5cfd0f885b99be	2026-11-15	Specify RF2 evolution without resetting working semantics
+66e5720c6bb2d500e4d8329c308a63287fc21911	2026-11-15	Retain bounded borrowed record experiment and refusal evidence
+2272b37629db15e26302bad1153a73a4f77fc102	2026-11-15	Reproduce checked native and refusal learning outcomes
+ee6b402d7541f5f9752645617c12fea245bbd7bc	2026-11-15	Build the readable learning edition from its canonical source
+c79591ec20784fcf72a2d64a82afb249e16862ed	2026-11-15	Publish the readable RF2 learning web edition
+0888542f45103ee752d45f1548dd8c8313df4df0	2026-11-15	Link RF2 beginner education and honest evolution gates
+156dfc9fb956b1d9173107451df7cfae4e16ee0c	2026-11-15	Merge pull request #17 from starkfiber/learning-edition-1
+6b24f55f03cf19098fbd6abda668ece70cf77a6c	2026-11-15	Serve the learning edition from the configured Pages source
+38fdd87be5dfb3e564afb468500afc70e29be966	2026-11-15	Keep Pages and source mirrors aligned when rebuilding the book
+b232cc85a61fc8a310f7b6edaf92f7ec80a5e575	2026-11-15	Qualify application foundations and explicit scenario gaps
+b92243e8938d5049479c2c654d1ab55ad0dedb47	2026-11-15	Add native lookup application over shared numeric libraries
+3fbcdb5d3cfdaed276fda22c3de1f911bf72b212	2026-11-15	Add borrowed sorted collection equal-range API
+8213c1770b8e76db74deee6616ee6ac9d1d6310a	2026-11-15	Extend isolated borrowed records with typed nested leaf updates
+46a5a63d3fc62ab3d8335c010aa46a7dafbaff22	2026-11-15	Reproduce generated native composition and lookup oracle checks
+a963915c063b477e425fe7f902df5d10cae6bd94	2026-11-15	Generate concrete role target and failure coverage briefs
+adfd044c49a22e3ad66cf8718e40802900df738e	2026-11-15	Describe source sprint capabilities without widening tool authority
+5802f49ea261e8ddcdf610fb8072b6a7650f71e5	2026-11-15	Merge pull request #18 from starkfiber/platform-sprint-040
+94ac0f45736ce61f68cc195cde0ab69f7008b98a	2026-11-15	Clarify RF2 platform direction and native entry points
+62d33358f55a6f267f9af2c6016a542fdbce2589	2026-11-15	Map RF2 targets examples and truthful source reporting
+812f28e224fb2266c5cc2cd71af1f2bed016c881	2026-11-15	Audit tracked source by language and engineering area
+cbd1c38b3d6825ae4fe23a80f780a0f97b3c3499	2026-11-15	Catalogue RF2 learning application and device examples
+60d301537c6c7fb3cd25153eb56d478bf4d1fca3	2026-11-15	Merge pull request #19 from starkfiber/repository-direction-20261115
+27e94e8c81a5d8cb022fa12e29b462da7965fd49	2026-11-15	Preserve RF2 mission and evidence-based pipeline
+f291e0c5c1da67a318b47f2a547649c00047efef	2026-11-15	Record RF2 foundation evidence and durable progress
+605ca47d10bd0bb5b429784a3e483cf235126581	2026-11-15	Track explicit RF2 acceptance checks
+b17724d9056ce07b1f43273c77a5fe332b7e5aec	2026-11-15	Add borrowed typed Booking conflict prototype
+f17921f7c5aec53e456ce5bb346194d78daee6f6	2026-11-15	Document candidate-only Booking values
+962c44b7c269cfa367f8587bde7b756f43d18616	2026-11-15	Verify borrowed values against date and interval oracles
+4cca3d186a46b19b1f64c7ab9d8304dee048b533	2026-11-15	Describe application-value acceptance scope
+dcda583c53a1e2b8a6716f4f2dd125194d023a0e	2026-11-15	Link borrowed Booking values from the example catalogue
+d4b793b8bf74f0798ec1308ee229715d2d163dfd	2026-11-15	Keep RF2 development aligned with explicit evidence gates
+43b1dd5708829b5e98ee530ffc894feb5eba54fb	2026-11-15	Merge pull request #20 from starkfiber/foundation-values-041
+67b59ea56ff42ddd740a532dc5d413b705cb707e	2026-11-15	Introduce isolated native owned-field candidate
+427877bb1fe714697b719b9fc5ae3af827b954a4	2026-11-15	Implement native owned text and aggregate field transfer
+1c908fca03663b3058fea25d17f267584e333769	2026-11-15	Exercise owned fields and moves in a real batch application
+11d87dc4328df8fbe928c2566d1f9216d7c0b6e4	2026-11-15	Add borrowed text decoding and lossless scalar JSON rendering
+2f814392231de3d3b4ecb4e0118c77d8665362a1	2026-11-15	Verify owned values cleanup faults Unicode and cached rebuilds
+3bc81515ce09ac5b85f032df43509e5474df9cb1	2026-11-15	Document verified owned-field scope and open ownership gates
+29c57e9aa567085bc9296098e6ea190c6d942c6b	2026-11-15	Catalogue the owned text and collection prototype
+33fee08224ee9cba52c86d474b71b4e9be408f14	2026-11-15	Teach RF2 hosts the isolated owned-field contract
+cddd7a81f017eff54898211a5abcbc7a05ad3763	2026-11-15	Merge pull request #21 from starkfiber/owned-fields-042
+2ed4ace2218028bdf2fb65a7d4c0527adfbf3271	2026-11-15	Document verified ownership candidates and full delivery status
+9e78bed9ed907df08805460cc69c0782dd20e672	2026-11-15	Record owned-value qualification and fixed delivery ledger
+70aa5dd27a9d680b53c475440f6b41716d4f6a3d	2026-11-15	Keep one fixed evidence-based delivery counter
+246d9e0ca6017cec7b31393531bc121f5e1abdc3	2026-11-15	Describe owned candidates without expanding bounded MCP
+0a169ec96e64bfbae30dab6ff1f7b660356c2d65	2026-11-15	Explain bounded ownership and progress acceptance suites
+c6480ca64275e2c0c3b5f69b1757f72996324c53	2026-11-15	Qualify ownership boundaries nested rows and fixed progress
+f5ea415e1c1316d8411e7b8e99c021cffe7137df	2026-11-15	Implement caller-owned results and consuming ownership parameters
+39f8d175005c89799ce68ee6cf4a9bf69b6c5acb	2026-11-15	Demonstrate returned Unicode batch and consuming renderer
+025bb9bff00b64be2220d4d319f7ead515406505	2026-11-15	Share checked UTF-8 batch decoding and output
+ccb45b7faf234a2f5dbc36175379e670b78b6409	2026-11-15	Implement recursive owned layouts and nominal structured rows
+114097d9c9c0672870f21a4bb5afc7338312ca72	2026-11-15	Exercise nested Calendar values in native Booking input processing
+712bb2b9e139ce3d39b652f45c32349bd939077b	2026-11-15	Share typed booking validation duplicate and interval decisions
+6fed648e49a55d602d1fcaafd73ed5ba05987164	2026-11-15	Merge pull request #22 from starkfiber/owned-delivery-044
+4d6bf7d2a72c8db7f0d4960dea70f0ae4a8e8094	2026-11-15	Introduce typed multi-room Booking and shared bounded agent delivery
+e97f8919364815bea50ea5550d89eaaad0adcf4e	2026-11-15	Implement typed journal transactions and reusable native UI components
+cf94b1f031e40f4a3381124717adad49947d5ddc	2026-11-15	Add native CLI browser and selected-journal MCP frontends
+a5acfcdc730604db358024418e16b698d839b755	2026-11-15	Verify typed storage faults concurrency GUI and independent MCP clients
+c09d59c6b753bd43d8b765bd5d69bae731919b94	2026-11-15	Add explicit native source build and development packaging workflow
+aa7047fe4688098d7dfbaf2bfffdc1b1db0ed066	2026-11-15	Record executed Booking evidence and fixed nine-of-twelve delivery status
+a0360ad8edff0e46df54ab3079b3b59739f4b1fe	2026-11-15	Show the actual qualified native Booking browser interface
+6d74bece1dab45d3ec9561706b9b97928c4aefd7	2026-11-15	Teach agent hosts the selected-journal Booking contract and uncertainty rules
+97bacd347ca86d55ad2353aab29fd280328f99c5	2026-11-15	Document typed Booking acceptance and fresh archive qualification
+e0d347f2d76aa452c34967b2a6beb0a06c099689	2026-11-15	Merge pull request #23 from starkfiber/typed-booking-045
+6cfde5cf9f719a08579d955442937324817784ea	2026-11-15	Verify published archive download and close packaging delivery gate
+607fff1bd28a5e322eda98387eab17ea61e039a7	2026-11-15	Link the verified native Booking development download
+69f0fd6ccab728f3bd9f65a952493f17e5800f43	2026-11-15	Record verified development download while preserving remaining gates
+55ca9eff7e7aa54f6423cd3d902114aa2b0ee8ec	2026-11-15	Merge pull request #24 from starkfiber/typed-booking-045
+c1a299d8d4f15b1292fd09e03005daab33dc1bc7	2026-11-15	Publish frozen complete-app construction task and reproducible review tools
+d5a97ba37ab6734c1a81640f8e4c0f03e69d2a95	2026-11-15	Preserve original RF2 attempt one and explicit protocol repair
+f0332e2d29fc272b587dc786022605717809e81b	2026-11-15	Retain the first RF2 attempt self-tests as delivered
+8cea003281df57af0d37ca0bab5d274d46f37e4b	2026-11-15	Preserve first conventional attempt with its original defect and fix
+0f39a3e2dddf931e92f7a583cb4f0f58dca84dbf	2026-11-15	Preserve the complete unassisted conventional attempt and tests
+ef56329607ce7915686b88de6ace2362dfc83fed	2026-11-15	Retain second RF2 attempt SDK adaptations and explicit repair
+6cb26c95892677721c34ad917700cd62873a67ce	2026-11-15	Bind original trial sources compiler and SDK identities for reproduction
+76094965828d831529b59f901ab2d6743de745c6	2026-11-15	Add declarative RiverFlow editor language support without automatic execution
+9ab7454fec27d7f0fc45376846c19e6d6c01d943	2026-11-15	Add tested Core compact and Systems TextMate grammar
+2e5244339ce7c11e9f73c6f8a3b0f36dae5b8b28	2026-11-15	Provide explicit native entry result handling and bounded Core snippets
+283ba27431db144a11cd8fa8d85b933e42931f07	2026-11-15	Prepare Linguist intake without fabricated adoption or acceptance
+de18b1b771c557ecae152b9f6209d4c910bafe37	2026-11-15	Verify actual TextMate scopes corpus handling native snippet and archive source identity
+fe43bb403094c1f64b0a326cedaf8cca58cedcf4	2026-11-15	Verify declarative VSIX source bytes without installing or running extensions
+b8275c23c169305fcebe416ae972f0f0c9d7d585	2026-11-15	Record actual construction results editor qualification and eleven-of-twelve status
+6e8174135e056dfa95b7a68f68d5dabb3de1a9f3	2026-11-15	Connect honest measured results and editor sources from the repository overview
+f558ca2b8a72c53fdb6702e5b4a487eaf6d55a4d	2026-11-15	Merge pull request #25 from starkfiber/typed-booking-045
+af613fc5e5ce18fd9bc84d44a6931653be225778	2026-11-15	Verify the public editor download and preserve the actual external recognition gap
+baaae967abc6d88e04cf60f7d96c0390d9e57fc7	2026-11-15	Link the separately qualified RiverFlow editor development download
+c64bce5f97d71e6d3dc64f787a54dfcce2eff1fd	2026-11-15	Align host guidance with actual construction findings and unchanged release boundaries
+50bb5933bdf43052521b16c4a311efbcb5b02dad	2026-11-15	Merge pull request #26 from starkfiber/typed-booking-045
+23182085b5f73979268a1a66f9df9b294edfeab1	2026-11-15	Implement consuming owned-row collections and Unicode catalog
+0d32cfc6a0ecae64919d561c5136c4b0e3dd73e7	2026-11-15	Qualify owned rows and preserve HTTP rejection failures
+ee3a024a55cb09a412a2c953a255d55fd31f7962	2026-11-15	Finish HTTP responses before bounded unread body cleanup
+9e52c8dca5eb2c11cb569fc41abe41b576f28cf9	2026-11-15	Package the native owned-row compiler and reproducible apps
+2d23e7cd9cb9a768a41fe650f274dc13ac207ecf	2026-11-15	Record owned-row qualification and reopen the audited scope until promotion
+6c0d3d5877b8576855e114f1add77ff9b0897228	2026-11-15	Document owned-row authority and failure rules for AI hosts
+7051eb2fe9a12fe453ad5c89cc855f4823d9416e	2026-11-15	Link typed Booking and the audited owned-row source candidate
+2764e7abf4bdb6b6d8578cdb5174d0d7b4ca5e74	2026-11-15	Merge pull request #27 from starkfiber/typed-booking-045
+cf811b0bd2f1f8ea53eec6fabee9d6f02487c4d1	2026-11-15	Verify public release bytes and close the owned-row delivery gate
+a949f2841ee1fc9ddeb0c5a47e41d2de0c83c414	2026-11-15	Link the verified native0.46 development download
+c58c08be77a77c6fcacddcfc413516c8bba8edb0	2026-11-15	Align host guidance with the qualified0.46 download and remaining external gate
+8d440214aeef70c901d09649af55ac6bdb62cc13	2026-11-15	Merge pull request #28 from starkfiber/typed-booking-045
+40b860fffe3b9c333f47b95f6c4e58430562086a	2026-11-16	Add scalar propagation, result forwarding and targeted native SDK help
+ba21604d2c48ad7add5517c88a1a71ac50aceff6	2026-11-16	Add strict reusable legacy read-only MCP framing and callback validation
+80a943b2fec64981fdbabc6838f46def6a1fcdaf	2026-11-16	Make app policies explicit and fix standalone UI dependencies and replies
+3adbefad51c1ab260166517c515c63b419de1800	2026-11-16	Bound larger explicit reads and escape every JSON control byte
+d3b3d284743e5217eaac9564fec9e5d41d696dd3	2026-11-16	Use shared form admission in the real Booking browser app
+78cd85fc51693ac9b9c26af549cb440e50212252	2026-11-16	Qualify result cleanup, bounded protocols, real journal capacity and long HTTP runs
+863d79fe238acb16727208861b0c94536f03b199	2026-11-16	Document measured SDK limits and preserve exact study reconstruction
+d4e4a028b5a91369b97f865597311c04961b6544	2026-11-16	Record all ten construction attempts, source replays and nonblocking development priorities
+19a0352cc018f4611bbbbc356f78b06fa3446702	2026-11-16	Preserve source-only frozen setups, final apps and original failure grades
+5fe2b9373ea211e7989d77767fa1b8d25affc01a	2026-11-16	Teach the tested application kit, retained losses and next development gates
+69ee8bf9b45b64c8b728e2cf1c6230bc490952cb	2026-11-16	Show the corrected app kit and measured Python gap on the landing page
+995d65a3c4a1966dfccc8eda86233aa00072a5f1	2026-11-16	Merge pull request #29 from starkfiber/typed-booking-045
+55c0faa8125106e906f5bc924a6bd4092f7f9041	2026-11-16	Add native safe rebuilds, field propagation and source-range diagnostics
+c9ff862fd39208605fc3028113014527aa3c0d89	2026-11-16	Test failed builds, live image replacement and scalar cleanup invariants
+aeab9365d429d634b953365b6890ec5508d935e3	2026-11-16	Record native developer-loop evidence and retain the actual authoring gap
+a3e639a826b1c7b184d24fa9d019f3c126c703d3	2026-11-16	Preserve exact diagnostic candidate sources and checksums
+edc2a75e91da401a5f071bd5572305779202daa9	2026-11-16	Teach the safe local build contract and measured limits
+36a4941e16be1429a7dae99775a47d0f3cbedaa5	2026-11-16	Link the tested developer loop without overstating productivity
+20dcf1d35dd13cc1adb24381b972c25536f59573	2026-11-16	Merge pull request #30 from starkfiber/typed-booking-045
+a4372ad85deae0106ff8f793d3be2940af14bf5d	2026-11-16	Add native Document Audit with bounded MCP and JSON-safe v2 offsets
+04934574e6082f23f73d0d26661be29c8245e4b4	2026-11-16	Pin the internal corpus, text, hash and MCP module snapshots
+fc9c2c46236219ec2040db349a2e44d60e851405	2026-11-16	Add strict native Sensor Audit and qualified Python batch and single-pass references
+42ba0381ff2a068b671e27aefb9ee52932435796	2026-11-16	Add reusable strict fixed-point sensor parsing and accumulation
+f4c8d921adc6b3f55243d83a8440e72d3e3c76ae	2026-11-16	Add small signed-temperature and rejected-order example fixtures
+610493704c62bb76d9f29602217f9ef8191880c9	2026-11-16	Fix consumed assignment destinations and stage the typed request SDK
+61c5bf2e1f6284d697ef02dc02407338b3232b38	2026-11-16	Add failure-preserving typed form and Booking request adapters
+110e82e662ff342ca03894d5ded72b77a5709807	2026-11-16	Test destination/ancestor consumption and failure-preserving request decoding
+f9e470dd0a9af96f3bbd1870c7512eaf4e41da86	2026-11-16	Retain rotated whole-process sensor runtime comparisons and invariants
+82efaf5135be4a9a03a1bdea846d2ed9cc1e3dd9	2026-11-16	Record RF2 application epochs, reproduced failures and bounded measurements
+2ff01d2bb9c964de847f9b643a55fdf672bd8e80	2026-11-16	Index Document Audit and Sensor Audit native applications
+00188c679528e3dafc31bb8ed9c72c1eba674511	2026-11-16	Document RF2 0.49 candidate contracts and executed qualification
+915b3f6600531024f0b01efdd6b8da5c83ef8cea	2026-11-16	Show native application results with reproducible evidence and explicit limits
+b57952d2f4169b5af916b0e54759d86167e84eb6	2026-11-16	Merge pull request #31 from starkfiber/typed-booking-045
+34c29bca4b86c91d108290ad0536e785c249ad89	2026-11-16	RF2 0.50: shared SDK, source diagnostics and measured app construction (#32)
+cfaacda216c3be826533eb6446a2e3f58c8b59bb	2026-11-17	Fix local import liveness and add source-bound intelligence tools
+9f2f244b6668f9d5827ba653a930f1be74dfd1fb	2026-11-17	Record current compiler evidence and correct the paper scope
+73bf1a6c1cbb7c0d6b84c40aa2e4a184d528a292	2026-11-17	Refresh the tracked source inventory after verified changes
