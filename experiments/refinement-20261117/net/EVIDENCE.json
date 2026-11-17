@@ -1,0 +1,713 @@
+{
+  "schema": "rf2.net.refinement-evidence.v1",
+  "baseCommit": "53ec2577a04f3b3c5ecf71b1316add3d3671a245",
+  "scope": "Measurement refinement of unchanged opt-in parser candidate; not default/stable/live promotion.",
+  "preparedSHA256": "256cfda1666e3f1ea33bfce3810576902d9b6a0fff6f79eaa1b8beeeef7977c1",
+  "compilerSHA256": "4e47ea8be4bfd81ba12eae606f3ea9321f940957a33d67a88559c1f99f65597c",
+  "sourceSHA256": {
+    "experiments/refinement-20261117/net/PLAN.json": "3a6ecf1d545d4de14b934f469fade894e0f4e5b7fb5af1dce6ad4217d7092c8b",
+    "experiments/refinement-20261117/net/analyze.py": "f1737d7b05daadc405ccc193350469cb64f8c96e0a9dd1b7ac276c84105812a7",
+    "experiments/refinement-20261117/net/clock-controls.flow": "8a6a235a52cf1776794e94076cd6e266c28f1b733700606800f5ec08e60a850d",
+    "experiments/refinement-20261117/net/clock.flow": "419eb755b24b8a333ee07f50a1e4c9f9e02d78a7c9e64c4446876c6bded196a4",
+    "experiments/refinement-20261117/net/controller.py": "fb1de85b01dfd2ee70cbfc945593abf652ab2c6527f0df29a9da264312793280",
+    "experiments/refinement-20261117/net/diagnose.py": "5f732dfcc9979a2674dadaa1b1b1ad779263d6227a4825e2ba84c13f47a875a4",
+    "experiments/refinement-20261117/net/io-result.flow": "b48f13b7bc3a0325e9c8ec4a8e6b647a47319031649dc76f4fd7a0ed19bc0466",
+    "experiments/refinement-20261117/net/logic_controls.py": "e027cefe654a06260e61bd27250dc4adbd7fd16e986bc626477148bc14761fe1",
+    "experiments/refinement-20261117/net/probe.flow": "1580ff79d829e86f0427cd173d39afff36560ba458575bc679a5ce14e0b4f06f"
+  },
+  "parserVariants": [
+    {
+      "family": "dhcp",
+      "variant": "baseline",
+      "mode": "plain",
+      "parserSHA256": "a97e44b3b52c6c584e0cf5c256e30fdcf2bfbafbc8bcb38c1d7b089d9e4570cb",
+      "binarySHA256": "6b0929a6a29511fdd826eac583cae999301ddbd7cb92bb240966b02c03826b1c"
+    },
+    {
+      "family": "dhcp",
+      "variant": "baseline",
+      "mode": "opt",
+      "parserSHA256": "a97e44b3b52c6c584e0cf5c256e30fdcf2bfbafbc8bcb38c1d7b089d9e4570cb",
+      "binarySHA256": "fb0d5a99cd52e0930513a3869af03f4061d3d993d320d51273dc3523e1b288d0"
+    },
+    {
+      "family": "dhcp",
+      "variant": "candidate",
+      "mode": "plain",
+      "parserSHA256": "ddfea2e07811ef42ba14428b3edc5d68c4ea5f387416cb82df1805e5110945ad",
+      "binarySHA256": "085a1b80707d7c5c72f09b3f8b55de681fbedcaec1b05281e8aebfa59c693f85"
+    },
+    {
+      "family": "dhcp",
+      "variant": "candidate",
+      "mode": "opt",
+      "parserSHA256": "ddfea2e07811ef42ba14428b3edc5d68c4ea5f387416cb82df1805e5110945ad",
+      "binarySHA256": "06f0dcba0cf2e56ca2cfb75f0bf4a9b4de06710c28185e9e5e4fe3bceb075151"
+    },
+    {
+      "family": "dhcp-durable",
+      "variant": "baseline",
+      "mode": "plain",
+      "parserSHA256": "0b4e9f166823185b63957d965a2318c7649ff6e7f314cf3c7cbf697dad41982c",
+      "binarySHA256": "2959c88684f0914ddcc10e3110f6e20b4490a0ca4b9c2f9757fb70c5f19bd48f"
+    },
+    {
+      "family": "dhcp-durable",
+      "variant": "baseline",
+      "mode": "opt",
+      "parserSHA256": "0b4e9f166823185b63957d965a2318c7649ff6e7f314cf3c7cbf697dad41982c",
+      "binarySHA256": "e79f5aa532a254cb2497a28406022365c3d975f94d5b8f5ececf7ad557ab4032"
+    },
+    {
+      "family": "dhcp-durable",
+      "variant": "candidate",
+      "mode": "plain",
+      "parserSHA256": "0dd7483d90d2fffab33e5066d8e99c67f73c49e9ae7266f1cf2f19cb7aac369a",
+      "binarySHA256": "1929ff802c1ef3c782071095b324fdebba45a502b8b0b7ddee40505f41d251e7"
+    },
+    {
+      "family": "dhcp-durable",
+      "variant": "candidate",
+      "mode": "opt",
+      "parserSHA256": "0dd7483d90d2fffab33e5066d8e99c67f73c49e9ae7266f1cf2f19cb7aac369a",
+      "binarySHA256": "0297f704d511fe39e56ff52c99f6aed2213d206f834b59e50300747c7b03c59a"
+    }
+  ],
+  "correctness": {
+    "clockArithmeticControlsPerMode": 11,
+    "clockModes": 2,
+    "liveMonotonicControlsPerMode": 1,
+    "validWholeFragmentedChecks": 80,
+    "framingRefusals": 48,
+    "invalidClockOutputControls": 12,
+    "allPassed": true
+  },
+  "analysis": {
+    "schema": "rf2.net.native-region-analysis.v1",
+    "complete": true,
+    "nativeExecution": false,
+    "comparativeCampaignsAddedByAnalysis": 0,
+    "productParserChanged": false,
+    "preparedSHA256": "256cfda1666e3f1ea33bfce3810576902d9b6a0fff6f79eaa1b8beeeef7977c1",
+    "measuredProcesses": 1240,
+    "separateWarmupProcesses": 80,
+    "rows": [
+      {
+        "family": "dhcp",
+        "mode": "plain",
+        "profile": "short-valid",
+        "repetitions": 1500000,
+        "nativeRatios": {
+          "point": 0.9863419178411515,
+          "lower95": 0.9799851686504221,
+          "upper95": 0.994739771141927,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.9875066834348714
+        },
+        "processRatios": {
+          "point": 0.9857435853551196,
+          "lower95": 0.9810186884401774,
+          "upper95": 0.9941023327665719,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.9854921596786232
+        },
+        "baselineMedianUs": 132791,
+        "candidateMedianUs": 131132,
+        "minimumNativeUs": 128721,
+        "gatePassed": true,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": true
+        }
+      },
+      {
+        "family": "dhcp",
+        "mode": "plain",
+        "profile": "normal-300",
+        "repetitions": 750000,
+        "nativeRatios": {
+          "point": 0.8724168056548328,
+          "lower95": 0.8453358853709759,
+          "upper95": 0.8909500512241527,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.876000961759602
+        },
+        "processRatios": {
+          "point": 0.8739448934316364,
+          "lower95": 0.8482845486623501,
+          "upper95": 0.8938593298892019,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.8759416271128112
+        },
+        "baselineMedianUs": 191316,
+        "candidateMedianUs": 167593,
+        "minimumNativeUs": 154390,
+        "gatePassed": true,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": true
+        }
+      },
+      {
+        "family": "dhcp",
+        "mode": "plain",
+        "profile": "max-576",
+        "repetitions": 250000,
+        "nativeRatios": {
+          "point": 0.9024234017740397,
+          "lower95": 0.8867809134436145,
+          "upper95": 0.9226606296707882,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.9028211080100366
+        },
+        "processRatios": {
+          "point": 0.9029967030014544,
+          "lower95": 0.8909648477746395,
+          "upper95": 0.9209610401815901,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.9045296609362399
+        },
+        "baselineMedianUs": 255467,
+        "candidateMedianUs": 230641,
+        "minimumNativeUs": 190121,
+        "gatePassed": true,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": true
+        }
+      },
+      {
+        "family": "dhcp",
+        "mode": "plain",
+        "profile": "bad-last-byte",
+        "repetitions": 250000,
+        "nativeRatios": {
+          "point": 0.8915749143901353,
+          "lower95": 0.8635755118370738,
+          "upper95": 0.9146772698595674,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.8871087086899968
+        },
+        "processRatios": {
+          "point": 0.8930255601233642,
+          "lower95": 0.8655194343781527,
+          "upper95": 0.9168356266970498,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.889265041754163
+        },
+        "baselineMedianUs": 256778,
+        "candidateMedianUs": 227790,
+        "minimumNativeUs": 189411,
+        "gatePassed": true,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": true
+        }
+      },
+      {
+        "family": "dhcp",
+        "mode": "plain",
+        "profile": "early-reject",
+        "repetitions": 30000000,
+        "nativeRatios": {
+          "point": 0.9971579624988015,
+          "lower95": 0.995520241112405,
+          "upper95": 0.9993549272577545,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.9977383295069422
+        },
+        "processRatios": {
+          "point": 0.9964949684052908,
+          "lower95": 0.9933812340960824,
+          "upper95": 0.9996762616333734,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.994193482038311
+        },
+        "baselineMedianUs": 146352,
+        "candidateMedianUs": 146021,
+        "minimumNativeUs": 145010,
+        "gatePassed": true,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": true
+        }
+      },
+      {
+        "family": "dhcp",
+        "mode": "opt",
+        "profile": "short-valid",
+        "repetitions": 1500000,
+        "nativeRatios": {
+          "point": 0.9936982857940858,
+          "lower95": 0.9901864915834323,
+          "upper95": 0.9955637062265305,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.9933614017924215
+        },
+        "processRatios": {
+          "point": 0.9967952302139864,
+          "lower95": 0.9913002311777346,
+          "upper95": 1.0026359079906175,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.9952719799679947
+        },
+        "baselineMedianUs": 57241,
+        "candidateMedianUs": 56861,
+        "minimumNativeUs": 56327,
+        "gatePassed": true,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": true
+        }
+      },
+      {
+        "family": "dhcp",
+        "mode": "opt",
+        "profile": "normal-300",
+        "repetitions": 750000,
+        "nativeRatios": {
+          "point": 0.802791542781632,
+          "lower95": 0.7939043771935633,
+          "upper95": 0.8063645356538068,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.7974306337328654
+        },
+        "processRatios": {
+          "point": 0.8116650451008414,
+          "lower95": 0.8047694638324874,
+          "upper95": 0.81417627546991,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.8087157163165377
+        },
+        "baselineMedianUs": 60404,
+        "candidateMedianUs": 48168,
+        "minimumNativeUs": 47850,
+        "gatePassed": false,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": false
+        }
+      },
+      {
+        "family": "dhcp",
+        "mode": "opt",
+        "profile": "max-576",
+        "repetitions": 250000,
+        "nativeRatios": {
+          "point": 0.7230049642744412,
+          "lower95": 0.7201502663943208,
+          "upper95": 0.7273489811560877,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.7237436699327183
+        },
+        "processRatios": {
+          "point": 0.737156104608505,
+          "lower95": 0.7322069453789267,
+          "upper95": 0.7412799410780886,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.7359025144082424
+        },
+        "baselineMedianUs": 69707,
+        "candidateMedianUs": 50450,
+        "minimumNativeUs": 50294,
+        "gatePassed": true,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": true
+        }
+      },
+      {
+        "family": "dhcp",
+        "mode": "opt",
+        "profile": "bad-last-byte",
+        "repetitions": 250000,
+        "nativeRatios": {
+          "point": 0.7019726733977173,
+          "lower95": 0.6729909554007694,
+          "upper95": 0.7191509739573797,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.7009135859962471
+        },
+        "processRatios": {
+          "point": 0.709578883251694,
+          "lower95": 0.6842083244886481,
+          "upper95": 0.7276993626814605,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.7117559072612427
+        },
+        "baselineMedianUs": 73009,
+        "candidateMedianUs": 51173,
+        "minimumNativeUs": 50837,
+        "gatePassed": true,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": true
+        }
+      },
+      {
+        "family": "dhcp",
+        "mode": "opt",
+        "profile": "early-reject",
+        "repetitions": 30000000,
+        "nativeRatios": {
+          "point": 0.9993617653744601,
+          "lower95": 0.9984231689048908,
+          "upper95": 1.0007618480507199,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 1.0002977024376576
+        },
+        "processRatios": {
+          "point": 1.000998986103656,
+          "lower95": 0.9988789679979583,
+          "upper95": 1.0033764813936772,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 1.0018337568367064
+        },
+        "baselineMedianUs": 114208,
+        "candidateMedianUs": 114242,
+        "minimumNativeUs": 113973,
+        "gatePassed": true,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": true
+        }
+      },
+      {
+        "family": "dhcp-durable",
+        "mode": "plain",
+        "profile": "short-valid",
+        "repetitions": 1500000,
+        "nativeRatios": {
+          "point": 0.9969966370325974,
+          "lower95": 0.9718811475709553,
+          "upper95": 1.013728159745859,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.9706747710264523
+        },
+        "processRatios": {
+          "point": 0.9862560509059775,
+          "lower95": 0.9710246909841013,
+          "upper95": 1.0173356857633447,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.9794440938042447
+        },
+        "baselineMedianUs": 144449,
+        "candidateMedianUs": 140213,
+        "minimumNativeUs": 132048,
+        "gatePassed": true,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": true
+        }
+      },
+      {
+        "family": "dhcp-durable",
+        "mode": "plain",
+        "profile": "normal-300",
+        "repetitions": 750000,
+        "nativeRatios": {
+          "point": 0.8796163395143145,
+          "lower95": 0.8403898981853088,
+          "upper95": 0.9134752988128112,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.8792957490980187
+        },
+        "processRatios": {
+          "point": 0.8741993707373209,
+          "lower95": 0.8404669568263314,
+          "upper95": 0.9056072058281155,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.8739946044465298
+        },
+        "baselineMedianUs": 198452,
+        "candidateMedianUs": 174498,
+        "minimumNativeUs": 160966,
+        "gatePassed": true,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": true
+        }
+      },
+      {
+        "family": "dhcp-durable",
+        "mode": "plain",
+        "profile": "max-576",
+        "repetitions": 250000,
+        "nativeRatios": {
+          "point": 0.8692564824802467,
+          "lower95": 0.8192305778512675,
+          "upper95": 0.9098479997560678,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.8888968078322518
+        },
+        "processRatios": {
+          "point": 0.8864281628504227,
+          "lower95": 0.8295900174796376,
+          "upper95": 0.911778747536982,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.8887244990868524
+        },
+        "baselineMedianUs": 266590,
+        "candidateMedianUs": 236971,
+        "minimumNativeUs": 191618,
+        "gatePassed": true,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": true
+        }
+      },
+      {
+        "family": "dhcp-durable",
+        "mode": "plain",
+        "profile": "bad-last-byte",
+        "repetitions": 250000,
+        "nativeRatios": {
+          "point": 0.8921038044112498,
+          "lower95": 0.8533602782886389,
+          "upper95": 0.9080351766695687,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.8949003658794714
+        },
+        "processRatios": {
+          "point": 0.8964007136586333,
+          "lower95": 0.8560839899399236,
+          "upper95": 0.9087394378731449,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.8982506651547402
+        },
+        "baselineMedianUs": 264568,
+        "candidateMedianUs": 236762,
+        "minimumNativeUs": 192693,
+        "gatePassed": true,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": true
+        }
+      },
+      {
+        "family": "dhcp-durable",
+        "mode": "plain",
+        "profile": "early-reject",
+        "repetitions": 30000000,
+        "nativeRatios": {
+          "point": 1.0108930645636383,
+          "lower95": 0.9695162039410591,
+          "upper95": 1.117821216475925,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 1.057700058097845
+        },
+        "processRatios": {
+          "point": 1.007941508388131,
+          "lower95": 0.9696402894572901,
+          "upper95": 1.116939539284354,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 1.0749726212220654
+        },
+        "baselineMedianUs": 191057,
+        "candidateMedianUs": 202081,
+        "minimumNativeUs": 160739,
+        "gatePassed": false,
+        "gateComponents": {
+          "point": true,
+          "upper95": false,
+          "minimumDuration": true
+        }
+      },
+      {
+        "family": "dhcp-durable",
+        "mode": "opt",
+        "profile": "short-valid",
+        "repetitions": 1500000,
+        "nativeRatios": {
+          "point": 1.0059411701655259,
+          "lower95": 0.9848698473340307,
+          "upper95": 1.0211203218334755,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.9978628897083474
+        },
+        "processRatios": {
+          "point": 1.0126245962299123,
+          "lower95": 1.00167822015848,
+          "upper95": 1.0293315833839405,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 1.0123706148151075
+        },
+        "baselineMedianUs": 71592,
+        "candidateMedianUs": 71439,
+        "minimumNativeUs": 64791,
+        "gatePassed": true,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": true
+        }
+      },
+      {
+        "family": "dhcp-durable",
+        "mode": "opt",
+        "profile": "normal-300",
+        "repetitions": 750000,
+        "nativeRatios": {
+          "point": 0.8242070216118196,
+          "lower95": 0.791196986407322,
+          "upper95": 0.8441881984482882,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.7986412221437935
+        },
+        "processRatios": {
+          "point": 0.8337874458824679,
+          "lower95": 0.7772972962096154,
+          "upper95": 0.8583073253368128,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.8020161242481079
+        },
+        "baselineMedianUs": 79336,
+        "candidateMedianUs": 63361,
+        "minimumNativeUs": 54150,
+        "gatePassed": true,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": true
+        }
+      },
+      {
+        "family": "dhcp-durable",
+        "mode": "opt",
+        "profile": "max-576",
+        "repetitions": 250000,
+        "nativeRatios": {
+          "point": 0.7361026337913006,
+          "lower95": 0.7163657257423685,
+          "upper95": 0.7432814353125237,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.7348238131190769
+        },
+        "processRatios": {
+          "point": 0.7482460777222562,
+          "lower95": 0.7343440703444911,
+          "upper95": 0.7594540225806748,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.7482460777222562
+        },
+        "baselineMedianUs": 88741,
+        "candidateMedianUs": 65209,
+        "minimumNativeUs": 56564,
+        "gatePassed": true,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": true
+        }
+      },
+      {
+        "family": "dhcp-durable",
+        "mode": "opt",
+        "profile": "bad-last-byte",
+        "repetitions": 250000,
+        "nativeRatios": {
+          "point": 0.7371770458370701,
+          "lower95": 0.7208687834400491,
+          "upper95": 0.7544607521653588,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.7349250239285334
+        },
+        "processRatios": {
+          "point": 0.7486585764258405,
+          "lower95": 0.7391327255328437,
+          "upper95": 0.7772363179682016,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.7484350247143352
+        },
+        "baselineMedianUs": 94030,
+        "candidateMedianUs": 69105,
+        "minimumNativeUs": 60004,
+        "gatePassed": true,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": true
+        }
+      },
+      {
+        "family": "dhcp-durable",
+        "mode": "opt",
+        "profile": "early-reject",
+        "repetitions": 30000000,
+        "nativeRatios": {
+          "point": 1.00099591012907,
+          "lower95": 0.9792581731361876,
+          "upper95": 1.0158629564722543,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.9940884919200784
+        },
+        "processRatios": {
+          "point": 0.9958564079061182,
+          "lower95": 0.9816443422536234,
+          "upper95": 1.0096175884283962,
+          "method": "median paired C/B ratios; percentile bootstrap of whole ratios",
+          "historicalRatioOfMedians": 0.9959882287823288
+        },
+        "baselineMedianUs": 154952,
+        "candidateMedianUs": 154036,
+        "minimumNativeUs": 144846,
+        "gatePassed": true,
+        "gateComponents": {
+          "point": true,
+          "upper95": true,
+          "minimumDuration": true
+        }
+      }
+    ],
+    "smallGates": {
+      "passed": 7,
+      "total": 8
+    },
+    "optimizedSmallGates": {
+      "passed": 4,
+      "total": 4
+    },
+    "allModeSmallPromotion": false,
+    "decision": "Optimized-only native small-case qualification; no default/stable/live promotion. Plain durable early-reject remains inconclusive.",
+    "limits": [
+      "Native elapsed is monotonic wall time, not CPU cycles or exclusive hardware time.",
+      "A shared Mac with user applications is not a dedicated benchmark host.",
+      "Original optimized normal-300 includes a 47850us native sample, below the fixed 50000us duration floor; preserve its nonqualifying row.",
+      "Bootstrap intervals are preserved from the frozen controller, not recomputed or selected by this analysis.",
+      "Historical launch-inclusive measurements and decisions remain unchanged; estimator diagnostic is separate."
+    ],
+    "evidenceSHA256": {
+      "prepared-2/PREPARED.json": "256cfda1666e3f1ea33bfce3810576902d9b6a0fff6f79eaa1b8beeeef7977c1",
+      "verify-2/RESULTS.json": "46b23436006336c73b160fc6ec5cf8ce443156cda0ea5828ca8f22cd8956f941",
+      "logic-controls-1/RESULTS.json": "de79c99e797722d7c3f9caff5adb2887f6de265b17aaf9e30aa24157eb1a6183",
+      "historical-estimator-1/RESULTS.json": "fee5ba5b1da6ff83a21b88f82eafbd08f0dca366b876e10fdb7e21c5f6c1138e",
+      "timing-1/RESULTS.json": "94424a174cd5152645883382fd2810e1a71a84ab5ed2a899d474f11f0378a681",
+      "timing-1/SAMPLES.jsonl": "bbc2c5afa46587818576af19b8974ea2e82bd141481b3f8411e987a90a12999e",
+      "timing-1/STARTED.json": "b5be6cbc53ad38b3eaf0c0fb5938dd33f392d66fb6c6673b3c9f11091fcbfd0e"
+    },
+    "analysisSourceSHA256": "f1737d7b05daadc405ccc193350469cb64f8c96e0a9dd1b7ac276c84105812a7"
+  },
+  "receipts": {
+    "analysisPath": "artifacts/refinement-20261117/net/analysis-1/ANALYSIS.json",
+    "rowsPath": "artifacts/refinement-20261117/net/analysis-1/ROWS.tsv",
+    "analysisSHA256": "8f6e86d06218e9b5d33578c086c11155163f391e9bb5f54d18b37b6ea8e476df"
+  },
+  "failedPreparationPreserved": {
+    "path": "artifacts/refinement-20261117/net/prepared-1/BUILD.json",
+    "reason": "Clock-control fixture declared result IO before its use/import. Compiler rejected imports must precede declarations. Prepared-2 imports io-result.flow before clock.flow; no parser change."
+  }
+}

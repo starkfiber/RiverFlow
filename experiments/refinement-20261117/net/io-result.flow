@@ -1,0 +1,2 @@
+module benchmark_result
+result IO(u64,u64)
