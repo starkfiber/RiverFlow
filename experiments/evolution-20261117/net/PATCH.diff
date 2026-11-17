@@ -1,0 +1,16 @@
+--- a/experiments/rf2net/dhcp/dhcp.flow
++++ b/experiments/rf2net/dhcp/dhcp.flow
+@@ -55,6 +55,13 @@
+   else
+    if kind==255
+     set ended=1
++    # END forbids further options. Scan its padding directly, without parser redispatch.
++    while i<n
++     if p[i]!=0
++      return 10
++     end
++     set i=i+1
++    end
+    else
+     if kind!=0
+      if i==n
