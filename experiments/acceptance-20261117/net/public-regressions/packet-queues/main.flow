@@ -1,0 +1,70 @@
+profile RF2_SYSTEM_A64_V1
+use "packets.flow"
+fn main(argc, argv)
+ do p_init()
+ let input = buffer("packet_input", 128)
+ let output = buffer("packet_output", 192)
+ let count = 0
+ while count < 100000
+  let got = 0
+  while got < 128
+   let n = read(0, input + got, 128 - got)
+   if n == 0
+    if got == 0
+     return 0
+    end
+    return 2
+   end
+   if n > 128 - got
+    return 3
+   end
+   set got = got + n
+  end
+  let op = load64(input)
+  let s = load64(input + 8)
+  let result = 99
+  if op == 0
+   set result = p_bind(s, load64(input + 16), load64(input + 24), load64(input + 32), load64(input + 56), load64(input + 64))
+  end
+  if op == 1
+   set result = p_revoke(s)
+  end
+  if op == 2
+   set result = p_submit(s, input + 16, input + 96)
+  end
+  if op == 3
+   set result = p_dispatch()
+  end
+  if op == 4
+   set result = p_commit(s, load64(input + 80))
+  end
+  if op == 5
+   set result = p_complete(s, load64(input + 80))
+  end
+  if op == 6
+   set result = p_tick(load64(input + 80))
+  end
+  do fill_zero(output, 192)
+  do store64(output, result)
+  do store64(output + 8, load64(p_meta()))
+  do store64(output + 16, load64(p_meta() + 8))
+  do store64(output + 24, load64(p_meta() + 16))
+  if s < 4
+   let i = 0
+   while i < 128
+    do store8(output + 32 + i, load8(p_slot(s) + i))
+    set i = i + 1
+   end
+   set i = 0
+   while i < 32
+    do store8(output + 160 + i, load8(p_data(s) + 32 + i))
+    set i = i + 1
+   end
+  end
+  if write(1, output, 192) != 192
+   return 4
+  end
+  set count = count + 1
+ end
+ return 5
+end

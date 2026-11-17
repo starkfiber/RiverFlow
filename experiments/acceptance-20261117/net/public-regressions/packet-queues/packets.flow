@@ -1,0 +1,190 @@
+module packets
+# Trusted single-owner queue component. Authenticated ingress is an adapter boundary.
+fn p_meta()
+ return buffer("packet_meta", 40)
+end
+fn p_slot(s)
+ return buffer("packet_slots", 512) + s * 128
+end
+fn p_data(s)
+ return buffer("packet_data", 256) + s * 64
+end
+fn p_init()
+ do fill_zero(p_meta(), 40)
+ do fill_zero(buffer("packet_slots", 512), 512)
+ do fill_zero(buffer("packet_data", 256), 256)
+ do store64(p_meta(), 1)
+ return 0
+end
+fn p_clear_pending(s)
+ do store64(p_slot(s) + 56, 0)
+ do store64(p_slot(s) + 64, 0)
+ do fill_zero(p_data(s), 32)
+ return 0
+end
+fn p_clear_dispatch(s)
+ do fill_zero(p_data(s) + 32, 32)
+ do store64(p_slot(s) + 72, 0)
+ do store64(p_slot(s) + 80, 0)
+ do store64(p_slot(s) + 88, 0)
+ do store64(p_slot(s) + 96, 0)
+ do store64(p_slot(s) + 104, 0)
+ return 0
+end
+fn p_tick(now)
+ if any(now < load64(p_meta() + 8), now > 1000000000)
+  return 1
+ end
+ do store64(p_meta() + 8, now)
+ let i = 0
+ while i < 4
+  let p = p_slot(i)
+  if all(load64(p + 56) != 0, any(now >= load64(p + 64), now >= load64(p + 32)))
+   do p_clear_pending(i)
+  end
+  if all(load64(p + 96) == 1, any(now >= load64(p + 80), now >= load64(p + 32)))
+   do p_clear_dispatch(i)
+  end
+  set i = i + 1
+ end
+ return 0
+end
+fn p_bind(s, peer, channel, session, deadline, mode)
+ if any(s >= 4, any(peer == 0, any(channel == 0, any(session == 0, any(deadline <= load64(p_meta() + 8), any(deadline > 1000000000, mode > 1))))))
+  return 1
+ end
+ if load64(p_slot(s) + 96) == 2
+  return 6
+ end
+ let i = 0
+ while i < 4
+  if all(i != s, all(load64(p_slot(i)) != 0, all(load64(p_slot(i) + 8) == peer, load64(p_slot(i) + 16) == channel)))
+   return 3
+  end
+  set i = i + 1
+ end
+ if load64(p_meta()) >= 4294967295
+  return 9
+ end
+ do store64(p_meta(), load64(p_meta()) + 1)
+ do fill_zero(p_slot(s), 128)
+ do fill_zero(p_data(s), 64)
+ let p = p_slot(s)
+ do store64(p, 1)
+ do store64(p + 8, peer)
+ do store64(p + 16, channel)
+ do store64(p + 24, session)
+ do store64(p + 32, deadline)
+ do store64(p + 40, mode)
+ return 0
+end
+fn p_revoke(s)
+ if s >= 4
+  return 1
+ end
+ do store64(p_slot(s), 0)
+ do p_clear_pending(s)
+ if load64(p_slot(s) + 96) != 2
+  do p_clear_dispatch(s)
+ end
+ if load64(p_meta()) >= 4294967295
+  return 9
+ end
+ do store64(p_meta(), load64(p_meta()) + 1)
+ return 0
+end
+fn p_submit(s, h, payload)
+ if s >= 4
+  return 1
+ end
+ let p = p_slot(s)
+ if any(load64(p) == 0, any(load64(h) != load64(p + 8), any(load64(h + 8) != load64(p + 16), load64(h + 16) != load64(p + 24))))
+  return 3
+ end
+ if load64(h + 24) != load64(p_meta())
+  return 2
+ end
+ let now = load64(p_meta() + 8)
+ let retention = load64(h + 40)
+ if any(now >= load64(p + 32), any(retention == 0, retention > 1000))
+  return 7
+ end
+ let size = load64(h + 56)
+ if any(size == 0, size > 32)
+  return 8
+ end
+ if any(load64(h + 32) == 0, load64(h + 32) <= load64(p + 48))
+  return 4
+ end
+ if all(load64(p + 56) != 0, load64(p + 40) == 0)
+  return 5
+ end
+ do fill_zero(p_data(s), 32)
+ let i = 0
+ while i < size
+  do store8(p_data(s) + i, load8(payload + i))
+  set i = i + 1
+ end
+ do store64(p + 48, load64(h + 32))
+ do store64(p + 56, size)
+ let deadline = now + retention
+ if deadline > load64(p + 32)
+  set deadline = load64(p + 32)
+ end
+ do store64(p + 64, deadline)
+ return 0
+end
+fn p_dispatch()
+ let i = 0
+ while i < 4
+  let sum = load64(p_meta() + 16) + i
+  let s = sum - (sum // 4) * 4
+  let p = p_slot(s)
+  if all(load64(p) != 0, all(load64(p + 56) != 0, load64(p + 96) == 0))
+   if load64(p_meta() + 24) >= 4294967295
+    return 0
+   end
+   do store64(p_meta() + 24, load64(p_meta() + 24) + 1)
+   do store64(p + 88, load64(p_meta() + 24))
+   do store64(p + 96, 1)
+   do store64(p + 104, load64(p_meta()))
+   do store64(p + 72, load64(p + 56))
+   do store64(p + 80, load64(p + 64))
+   let k = 0
+   while k < 32
+    do store8(p_data(s) + 32 + k, load8(p_data(s) + k))
+    set k = k + 1
+   end
+   do p_clear_pending(s)
+   do store64(p_meta() + 16, (s + 1) - ((s + 1) // 4) * 4)
+   return s + 1
+  end
+  set i = i + 1
+ end
+ return 0
+end
+fn p_commit(s, ticket)
+ if s >= 4
+  return 1
+ end
+ let p = p_slot(s)
+ if any(load64(p + 96) != 1, load64(p + 88) != ticket)
+  return 4
+ end
+ if any(load64(p) == 0, any(load64(p + 104) != load64(p_meta()), any(load64(p_meta() + 8) >= load64(p + 80), load64(p_meta() + 8) >= load64(p + 32))))
+  do p_clear_dispatch(s)
+  return 2
+ end
+ do store64(p + 96, 2)
+ return 0
+end
+fn p_complete(s, ticket)
+ if s >= 4
+  return 1
+ end
+ if any(load64(p_slot(s) + 96) != 2, load64(p_slot(s) + 88) != ticket)
+  return 4
+ end
+ do p_clear_dispatch(s)
+ return 0
+end
