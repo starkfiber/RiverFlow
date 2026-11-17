@@ -1,0 +1,15 @@
+{
+  "schema": "rf2.cli-supplement.proposal.v1",
+  "status": "source reviewed for syntax only; native and provider unexecuted",
+  "files": {
+    "PROTOCOL.md": "799287cceae8fc10bc50c1337c3ae8dbcc5a7aa0d41f2ba7bd20bde9148dea2d",
+    "REVIEW.md": "551303e944c80ea67e0d09911ff93abf05c490169c3fe35426a601f37f653591",
+    "boundary_grade.py": "c9745170f20704de162aa3bd4bb88e3b0244544a56d7ed716f050ef34a46494f",
+    "callback-error.flow": "d137dae371efd91f160965e5631e444de2005142ca9a4fd40d998d6bcf7453c7",
+    "study.py": "2b956230abfcb7f69f429e24c2db3c6203169547963acbec092c99dcc81853f6",
+    "writer-error.flow": "59695d19391005eec31ad3b2c811d13464e31c3efe1893c901057c31afab9c36"
+  },
+  "frozenInputsChanged": false,
+  "providerCalls": 0,
+  "nativeRuns": 0
+}

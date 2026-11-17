@@ -1,0 +1,34 @@
+module rf2net_dhcp_clock
+# Exact unsigned division for a nonzero u32 denominator; bounded64 steps.
+fn dhcp_div(value,den)
+ let q=0
+ let rem=0
+ let bit=64
+ while bit>0
+  set bit=bit-1
+  set rem=(rem<<1)|((value>>bit)&1)
+  if rem>=den
+   set rem=rem-den
+   set q=q|(1<<bit)
+  end
+ end
+ return q
+end
+# Exact floor(delta*numer/denom/1e9) when the intermediate nanoseconds fit u64.
+# Return max-u64 on an invalid timebase or overflow; callers must fail closed.
+fn dhcp_seconds(delta,numer,denom)
+ if any(numer==0,any(denom==0,any(numer>4294967295,denom>4294967295)))
+  return 18446744073709551615
+ end
+ let whole=dhcp_div(delta,denom)
+ let rem=delta-whole*denom
+ if whole>dhcp_div(18446744073709551615,numer)
+  return 18446744073709551615
+ end
+ let large=whole*numer
+ let small=dhcp_div(rem*numer,denom)
+ if large>18446744073709551615-small
+  return 18446744073709551615
+ end
+ return dhcp_div(large+small,1000000000)
+end

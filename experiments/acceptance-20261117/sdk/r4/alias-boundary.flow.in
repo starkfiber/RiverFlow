@@ -1,0 +1,141 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/text.flow"
+use "json_spans.flow"
+fn main(argc,argv)
+ let a=Writer(buffer("alias_a",1024),0,0,0)
+ let b=Writer(buffer("alias_b",1024),0,0,0)
+ let status=Writer(buffer("alias_status",64),64,0,0)
+ let source=0
+ let checks=0
+ while source<16
+  let target=0
+  while target<16
+   let length_case=0
+   while length_case<21
+    let n=0
+    if length_case==0
+     set n=0
+    end
+    if length_case==1
+     set n=2
+    end
+    if length_case==2
+     set n=4
+    end
+    if length_case==3
+     set n=6
+    end
+    if length_case==4
+     set n=8
+    end
+    if length_case==5
+     set n=10
+    end
+    if length_case==6
+     set n=12
+    end
+    if length_case==7
+     set n=14
+    end
+    if length_case==8
+     set n=16
+    end
+    if length_case==9
+     set n=31
+    end
+    if length_case==10
+     set n=32
+    end
+    if length_case==11
+     set n=33
+    end
+    if length_case==12
+     set n=63
+    end
+    if length_case==13
+     set n=64
+    end
+    if length_case==14
+     set n=65
+    end
+    if length_case==15
+     set n=127
+    end
+    if length_case==16
+     set n=128
+    end
+    if length_case==17
+     set n=129
+    end
+    if length_case==18
+     set n=255
+    end
+    if length_case==19
+     set n=256
+    end
+    if length_case==20
+     set n=257
+    end
+
+    let cap=0
+    while cap<24
+     let initial=0
+     while initial<4
+      let basea=buffer("alias_a",1024)
+      let baseb=buffer("alias_b",1024)
+      let k=0
+      while k<1024
+       let c=97+(k&15)
+       if (k&7)==0
+        set c=34
+       end
+       if (k&7)==2
+        set c=10
+       end
+       if (k&7)==4
+        set c=92
+       end
+       do store8(basea+k,c)
+       do store8(baseb+k,c)
+       set k=k+1
+      end
+      set a.data=basea+target
+      set b.data=baseb+target
+      set a.capacity=cap
+      set b.capacity=cap
+      set a.used=initial
+      set b.used=initial
+      set a.error=0
+      set b.error=0
+      do writer_json(a,basea+source,n)
+      do writer_json_spans(b,baseb+source,n)
+      if (a.used!=b.used)|(a.error!=b.error)
+       return 2
+      end
+      set k=0
+      while k<1024
+       if load8(basea+k)!=load8(baseb+k)
+        return 3
+       end
+       set k=k+1
+      end
+      set checks=checks+1
+      set initial=initial+1
+     end
+     set cap=cap+3
+    end
+    set length_case=length_case+1
+   end
+   set target=target+1
+  end
+  set source=source+1
+ end
+ do writer_number(status,checks)
+ handle io_write_no_sigpipe(1,status.data,status.used)
+ ok sent
+  return 0
+ err code
+  return 4
+ end
+ return 4
+end

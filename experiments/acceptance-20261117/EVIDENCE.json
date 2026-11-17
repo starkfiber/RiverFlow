@@ -1,0 +1,81 @@
+{
+  "schema": "rf2.reviewed-acceptance-evidence.v1",
+  "qualifiedCompilerSHA256": "4e47ea8be4bfd81ba12eae606f3ea9321f940957a33d67a88559c1f99f65597c",
+  "sourceBaseline": "14ea21469e2ff584c9676ebea9fac4bdf45132f5",
+  "ship": {
+    "all31StagesPassed": true,
+    "fixedClientSHA256": "ba26053fd5453235fa1161094dfa5cefacd5f7f642e632f36523950a729e74a2",
+    "candidateImageSHA256": "4ac4f627c82f403865facf94235bf58ea4952c1ce4d9c594f0c20f659d9e2450",
+    "sameCandidateBuildAndFullAcceptance": true,
+    "actualLossControls": 94,
+    "actualForcedNeighborExpiryTCPControls": 134,
+    "independentFixtureAdmissionControls": 7,
+    "pendingFirewallGates": 13,
+    "fullyQualifiedFirewallGates": 0
+  },
+  "net": {
+    "correctnessVerified": true,
+    "performancePromotionGate": "INCONCLUSIVE_NOT_PASSED",
+    "smallCaseProfilesPassing": 2,
+    "smallCaseProfiles": 8,
+    "timingCompleted": true,
+    "timingRows": 20,
+    "measuredProcesses": 1240,
+    "warmupProcesses": 80,
+    "sameParserIdentitiesAcrossServicePaddingTiming": {
+      "baseline/dhcp": "a97e44b3b52c6c584e0cf5c256e30fdcf2bfbafbc8bcb38c1d7b089d9e4570cb",
+      "candidate/dhcp": "ddfea2e07811ef42ba14428b3edc5d68c4ea5f387416cb82df1805e5110945ad",
+      "baseline/dhcp-durable": "0b4e9f166823185b63957d965a2318c7649ff6e7f314cf3c7cbf697dad41982c",
+      "candidate/dhcp-durable": "0dd7483d90d2fffab33e5066d8e99c67f73c49e9ae7266f1cf2f19cb7aac369a"
+    },
+    "owner19SourceHashesStillMatch": true
+  },
+  "sdkR3": {
+    "candidateSHA256": "77fa0ef6c3d4b6cc95f1073882050127f2951b5acd8d34d36aab3b65c3617f45",
+    "smallGatesPassed": true,
+    "correctness": 8040,
+    "originalAliasStatesPerMode": 73728,
+    "expandedAliasStatesPerMode": 172032,
+    "passageChecksPerMode": 80,
+    "programsMatchPreparation": true
+  },
+  "sdkR4": {
+    "status": "unpromoted; four small gates and targeted gate fail",
+    "benchmarkReliability": "Monotonic native clock arithmetic and enclosing bounds verified",
+    "all26ProfilesRetained": true
+  },
+  "usefulAI": {
+    "newCondition": "two later nonrandomized CLI-library calls, no repairs",
+    "workingTasks": 2,
+    "completeTaskChecks": [
+      46,
+      160
+    ],
+    "actualModelSupplementaryChecks": [
+      16,
+      40
+    ],
+    "providerTokens": 14128,
+    "historicalAmendedManualTokens": 33099,
+    "historicalAllKnownTokens": 40373,
+    "historicalUnknownUsageTransports": 2,
+    "totalAllKnownTokensIncludingNewCondition": 54501,
+    "causalSavingsEstablished": false,
+    "rawHistoricalFailuresRetained": true,
+    "invalidUTF8ExistingFilename": "unavailable on APFS EILSEQ; not counted passed"
+  },
+  "rawProjectLocalReceipts": {
+    "artifacts/acceptance-20261117/ship/SUMMARY.json": "354b5a198673ad650a36280952dab7a33dec58a789ba68a718fb6ded881749c2",
+    "artifacts/acceptance-20261117/ship/EVIDENCE-INDEX.json": "14ab2fea5aef5fa6a0de429987607abc72c2e1760d6b1fd6b32b635db0183195",
+    "artifacts/acceptance-20261117/net/FINAL-RESULTS.json": "652aa076587c9cd8c8f7443fcfb8c716ea8b74a11562e304207b659da8ac80f5",
+    "artifacts/acceptance-20261117/net/EVIDENCE-MANIFEST.json": "be0c1b5d778a2f8a102ecc83411e71e7b933f2fb0587d3527eb858f5eb9088f2",
+    "artifacts/acceptance-20261117/sdk/SUMMARY.json": "c6f0acd951d74b5f6664c60df05b0c5229dc3a8f7c9a193e2864cc11b5050628",
+    "artifacts/acceptance-20261117/sdk/r4-SUMMARY.json": "a98af7de99634b89a827a8fd204ad9873de5ff8635ef75b3f70045d61df4bde3",
+    "artifacts/acceptance-20261117/ai/CLI-SUPPLEMENT-QUALIFIED.json": "4dfdfc7a34911432acfe666ace8ecfde6309c2d89726a30b02812cefecba8437",
+    "artifacts/acceptance-20261117/ai/cli-cost-ledger-final.json": "370bcf55028642a2ff6a27f13eb77e867302e0235332004b6eed3e987e290ee9"
+  },
+  "stableReleaseFilesChanged": false,
+  "activeExternalOwnerTreeChanged": false,
+  "liveNetworkOrProductionChanged": false,
+  "scope": "Implemented local source contracts only; repeated controls overlap. No hardware/whole-firewall/crypto certification or universal speed/token claim."
+}

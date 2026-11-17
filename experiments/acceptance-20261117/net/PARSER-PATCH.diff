@@ -1,0 +1,278 @@
+--- a/experiments/rf2net/dhcp/dhcp.flow
++++ b/experiments/rf2net/dhcp/dhcp.flow
+@@ -48,72 +48,73 @@
+  while i<n
+   let kind=p[i]
+   set i=i+1
+-  if ended==1
++  if kind==255
++   set ended=1
++   # END switches permanently to padding validation; no parser redispatch.
++   while i<n
++    if p[i]!=0
++     return 10
++    end
++    set i=i+1
++   end
++  else
+    if kind!=0
+-    return 10
+-   end
+-  else
+-   if kind==255
+-    set ended=1
+-   else
+-    if kind!=0
+-     if i==n
+-      return 10
+-     end
+-     let size=p[i]
+-     set i=i+1
+-     if any(size==0,i+size>n)
+-      return 10
+-     end
+-     if kind==52
+-      return 10
+-     end
+-     if kind==53
+-      if any(size!=1,(seen&1)!=0)
++    if i==n
++     return 10
++    end
++    let size=p[i]
++    set i=i+1
++    if any(size==0,i+size>n)
++     return 10
++    end
++    if kind==52
++     return 10
++    end
++    if kind==53
++     if any(size!=1,(seen&1)!=0)
++      return 10
++     end
++     set seen=seen|1
++     set m[1]=p[i]
++    end
++    if kind==50
++     if any(size!=4,(seen&2)!=0)
++      return 10
++     end
++     set seen=seen|2
++     set m[2]=dhcp_ip(p,i)
++     if m[2]==0
++      return 10
++     end
++    end
++    if kind==54
++     if any(size!=4,(seen&4)!=0)
++      return 10
++     end
++     set seen=seen|4
++     set m[3]=dhcp_ip(p,i)
++     if m[3]==0
++      return 10
++     end
++    end
++    if kind==61
++     if any(size!=7,(seen&8)!=0)
++      return 10
++     end
++     if p[i]!=1
++      return 10
++     end
++     let j=0
++     while j<6
++      if p[i+j+1]!=p[28+j]
+        return 10
+       end
+-      set seen=seen|1
+-      set m[1]=p[i]
+-     end
+-     if kind==50
+-      if any(size!=4,(seen&2)!=0)
+-       return 10
+-      end
+-      set seen=seen|2
+-      set m[2]=dhcp_ip(p,i)
+-      if m[2]==0
+-       return 10
+-      end
+-     end
+-     if kind==54
+-      if any(size!=4,(seen&4)!=0)
+-       return 10
+-      end
+-      set seen=seen|4
+-      set m[3]=dhcp_ip(p,i)
+-      if m[3]==0
+-       return 10
+-      end
+-     end
+-     if kind==61
+-      if any(size!=7,(seen&8)!=0)
+-       return 10
+-      end
+-      if p[i]!=1
+-       return 10
+-      end
+-      let j=0
+-      while j<6
+-       if p[i+j+1]!=p[28+j]
+-        return 10
+-       end
+-       set j=j+1
+-      end
+-      set seen=seen|8
+-      set m[8]=1
+-     end
+-     set i=i+size
+-    end
++      set j=j+1
++     end
++     set seen=seen|8
++     set m[8]=1
++    end
++    set i=i+size
+    end
+   end
+  end
+--- a/experiments/rf2net/dhcp-durable/dhcp.flow
++++ b/experiments/rf2net/dhcp-durable/dhcp.flow
+@@ -49,72 +49,73 @@
+  while i<n
+   let kind=p[i]
+   set i=i+1
+-  if ended==1
++  if kind==255
++   set ended=1
++   # END switches permanently to padding validation; no parser redispatch.
++   while i<n
++    if p[i]!=0
++     return 10
++    end
++    set i=i+1
++   end
++  else
+    if kind!=0
+-    return 10
+-   end
+-  else
+-   if kind==255
+-    set ended=1
+-   else
+-    if kind!=0
+-     if i==n
+-      return 10
+-     end
+-     let size=p[i]
+-     set i=i+1
+-     if any(size==0,i+size>n)
+-      return 10
+-     end
+-     if kind==52
+-      return 10
+-     end
+-     if kind==53
+-      if any(size!=1,(seen&1)!=0)
++    if i==n
++     return 10
++    end
++    let size=p[i]
++    set i=i+1
++    if any(size==0,i+size>n)
++     return 10
++    end
++    if kind==52
++     return 10
++    end
++    if kind==53
++     if any(size!=1,(seen&1)!=0)
++      return 10
++     end
++     set seen=seen|1
++     set m[1]=p[i]
++    end
++    if kind==50
++     if any(size!=4,(seen&2)!=0)
++      return 10
++     end
++     set seen=seen|2
++     set m[2]=dhcp_ip(p,i)
++     if m[2]==0
++      return 10
++     end
++    end
++    if kind==54
++     if any(size!=4,(seen&4)!=0)
++      return 10
++     end
++     set seen=seen|4
++     set m[3]=dhcp_ip(p,i)
++     if m[3]==0
++      return 10
++     end
++    end
++    if kind==61
++     if any(size!=7,(seen&8)!=0)
++      return 10
++     end
++     if p[i]!=1
++      return 10
++     end
++     let j=0
++     while j<6
++      if p[i+j+1]!=p[28+j]
+        return 10
+       end
+-      set seen=seen|1
+-      set m[1]=p[i]
+-     end
+-     if kind==50
+-      if any(size!=4,(seen&2)!=0)
+-       return 10
+-      end
+-      set seen=seen|2
+-      set m[2]=dhcp_ip(p,i)
+-      if m[2]==0
+-       return 10
+-      end
+-     end
+-     if kind==54
+-      if any(size!=4,(seen&4)!=0)
+-       return 10
+-      end
+-      set seen=seen|4
+-      set m[3]=dhcp_ip(p,i)
+-      if m[3]==0
+-       return 10
+-      end
+-     end
+-     if kind==61
+-      if any(size!=7,(seen&8)!=0)
+-       return 10
+-      end
+-      if p[i]!=1
+-       return 10
+-      end
+-      let j=0
+-      while j<6
+-       if p[i+j+1]!=p[28+j]
+-        return 10
+-       end
+-       set j=j+1
+-      end
+-      set seen=seen|8
+-      set m[8]=1
+-     end
+-     set i=i+size
+-    end
++      set j=j+1
++     end
++     set seen=seen|8
++     set m[8]=1
++    end
++    set i=i+size
+    end
+   end
+  end

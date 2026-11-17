@@ -1,0 +1,4 @@
+# Retained, unpromoted local source experiments; identities recorded in SDK manifests.
+/sdk/candidate-64.flow
+/sdk/qualify-r1.py
+/sdk/r4/timer-probe.flow

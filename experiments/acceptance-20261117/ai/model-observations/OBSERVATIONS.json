@@ -1,0 +1,66 @@
+{
+  "schema": "rf2.synthetic-model-observations.v1",
+  "condition": "new nonrandomized two-call CLI-library trial",
+  "rows": [
+    {
+      "task": "A",
+      "sourceSHA256": "fef69c58f09a2fed315c3d3f05b3f665e9ccf90cbfec4fe1f7768e5adc4c49d8",
+      "requestSHA256": "1e9ed4efe2e59b858139db3062aaa80f8eb91d7ba32a222c663f81ce2fcf66a1",
+      "frozenSHA256": "c3f54057b7c567802caa0df3f3fbda4e73c4d93c8937f9feb7b9ad7b6ed37f8b",
+      "servedModel": "deepseek-v4-pro",
+      "usage": {
+        "prompt_tokens": 3089,
+        "completion_tokens": 3798,
+        "total_tokens": 6887,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3436
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 3089
+      },
+      "finishReason": "stop",
+      "requestSeconds": 45.601039332999996,
+      "compiled": true,
+      "passed": 46,
+      "total": 46,
+      "binarySHA256": "55686ad4589ff9fd30cab6acdbcd7e5856d48c9fb10dabf1e60ffba2420b5442",
+      "buildTestSeconds": 1.101219333
+    },
+    {
+      "task": "B",
+      "sourceSHA256": "bb72978547c7b70b02bec4bae284b2a70e786fc62100579004b1a1451ed978a7",
+      "requestSHA256": "85a43a59e644be48032d6cbd8f47c2852a8f55fa77d9f9f0596b2296b5020d47",
+      "frozenSHA256": "c3f54057b7c567802caa0df3f3fbda4e73c4d93c8937f9feb7b9ad7b6ed37f8b",
+      "servedModel": "deepseek-v4-pro",
+      "usage": {
+        "prompt_tokens": 3094,
+        "completion_tokens": 4147,
+        "total_tokens": 7241,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3749
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 3094
+      },
+      "finishReason": "stop",
+      "requestSeconds": 54.963508125,
+      "compiled": true,
+      "passed": 160,
+      "total": 160,
+      "binarySHA256": "031d7a107bd147df5f7ffdc799cc63e7e7169e264d5e557a113e8d21d0447a56",
+      "buildTestSeconds": 1.360736083
+    }
+  ],
+  "limits": [
+    "Not matched causal token proof",
+    "Historical manual attempts and failed transports remain separate",
+    "Exact source copied from preserved proposals after review; no repair",
+    "Synthetic files only; stable/runtime unchanged"
+  ]
+}
