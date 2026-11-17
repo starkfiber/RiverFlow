@@ -1,0 +1,107 @@
+module structured_report
+use "@rf2/v1/text.flow"
+# format 0: typed JSON fields; format 1: HTML description list.
+# This source library creates bytes only. The caller checks error before I/O.
+record Report(format:u64,fields:u64,state:u64)
+fn report_fail(out:Writer)
+ if out.error==0
+  set out.error=22
+ end
+ return 0
+end
+fn report_valid(p,n)
+ let info=TextInfo(0,0,0,0)
+ do text_measure(p,n,info)
+ return info.status==0
+end
+fn report_begin(r:Report,out:Writer,format,title,n)
+ if (format>1)|(r.state!=0)|out.error
+  return report_fail(out)
+ end
+ if report_valid(title,n)==0
+  return report_fail(out)
+ end
+ set r.format=format
+ set r.fields=0
+ set r.state=1
+ if format==0
+  do writer_text(out,"{\"title\":")
+  do writer_json(out,title,n)
+  do writer_text(out,",\"fields\":[")
+ else
+  do writer_text(out,"<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>")
+  do writer_html(out,title,n)
+  do writer_text(out,"</title><main><h1>")
+  do writer_html(out,title,n)
+  do writer_text(out,"</h1><dl>")
+ end
+ return out.error==0
+end
+fn report_field(r:Report,out:Writer,name,n)
+ if (r.state!=1)|(r.fields>=1024)|out.error
+  return report_fail(out)
+ end
+ if report_valid(name,n)==0
+  return report_fail(out)
+ end
+ if r.format==0
+  if r.fields!=0
+   do writer_text(out,",")
+  end
+  do writer_text(out,"{\"name\":")
+  do writer_json(out,name,n)
+  do writer_text(out,",\"value\":")
+ else
+  do writer_text(out,"<dt>")
+  do writer_html(out,name,n)
+  do writer_text(out,"</dt><dd>")
+ end
+ set r.fields=r.fields+1
+ set r.state=3
+ return out.error==0
+end
+fn report_field_end(r:Report,out:Writer)
+ if (r.state!=3)|out.error
+  return report_fail(out)
+ end
+ if r.format==0
+  do writer_text(out,"}")
+ else
+  do writer_text(out,"</dd>")
+ end
+ set r.state=1
+ return out.error==0
+end
+fn report_text(r:Report,out:Writer,name,n,value,m)
+ if report_valid(value,m)==0
+  return report_fail(out)
+ end
+ if report_field(r,out,name,n)==0
+  return 0
+ end
+ if r.format==0
+  do writer_json(out,value,m)
+ else
+  do writer_html(out,value,m)
+ end
+ return report_field_end(r,out)
+end
+fn report_number(r:Report,out:Writer,name,n,value)
+ if report_field(r,out,name,n)==0
+  return 0
+ end
+ do writer_number(out,value)
+ return report_field_end(r,out)
+end
+fn report_end(r:Report,out:Writer)
+ if (r.state!=1)|out.error
+  return report_fail(out)
+ end
+ if r.format==0
+  do writer_text(out,"]}\n")
+ else
+  do writer_text(out,"</dl></main></html>\n")
+ end
+ set r.state=2
+ return out.error==0
+end
