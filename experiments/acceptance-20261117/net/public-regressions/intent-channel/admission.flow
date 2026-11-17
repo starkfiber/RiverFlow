@@ -1,0 +1,183 @@
+profile RF2_SYSTEM_A64_V1
+# Single-channel offline ownership experiment. Inputs are trusted model events.
+# No authentication, network transport, sockets or cryptography is implemented.
+# Fields: op,epoch,id,now,retention,length,payload,mode. Allu64 little endian.
+fn main(argc,argv)
+ let epoch=0
+ let seen=0
+ let pending=0
+ let length=0
+ let value=0
+ let deadline=0
+ let clock=0
+ let mode=0
+ let maxretention=0
+ let configured=0
+ let records=0
+ let p=buffer("event",64)
+ let out=buffer("result",48)
+ while records<512
+  let n=0
+  while n<64
+   let got=read(0,p+n,64-n)
+   if got==0
+    if n==0
+     return 0
+    end
+    return 2
+   end
+   if got>>63
+    return 2
+   end
+   set n=n+got
+  end
+  let op=load64(p)
+  let e=load64(p+8)
+  let id=load64(p+16)
+  let now=load64(p+24)
+  let ttl=load64(p+32)
+  let size=load64(p+40)
+  let payload=load64(p+48)
+  let requestedmode=load64(p+56)
+  let result=8
+  if op==0
+   set result=1
+   if e>epoch
+    if e<=4294967295
+     if ttl>0
+      if ttl<=1000
+       if requestedmode<=1
+        if now>=clock
+         if now<=1000000000
+          set epoch=e
+          set seen=0
+          set pending=0
+          set length=0
+          set value=0
+          set deadline=0
+          set clock=now
+          set mode=requestedmode
+          set maxretention=ttl
+          set configured=1
+          set result=13
+         end
+        end
+       end
+      end
+     end
+    end
+   end
+  else
+   set result=2
+   if configured==1
+    if e==epoch
+     set result=9
+     if now>=clock
+      if now<=1000000000
+       set clock=now
+       let expired=0
+       if pending!=0
+        if now>=deadline
+         set pending=0
+         set length=0
+         set value=0
+         set deadline=0
+         set expired=1
+        end
+       end
+       set result=8
+       if op==1
+        set result=3
+        if id>seen
+         if id<=4294967295
+          set result=4
+          if size>0
+           if size<=8
+            set result=5
+            if ttl>0
+             if ttl<=maxretention
+              set result=6
+              let allowed=0
+              if pending==0
+               set allowed=1
+              end
+              if mode==0
+               set allowed=1
+              end
+              if allowed==1
+               set pending=id
+               set seen=id
+               set length=size
+               set value=payload
+               # Canonical small payload: bytes beyond length must be zero.
+               if size<8
+                set value=payload&((1<<(size*8))-1)
+               end
+               set deadline=now+ttl
+               set result=0
+              end
+             end
+            end
+           end
+          end
+         end
+        end
+       end
+       let completion=0
+       if op==2
+        set completion=1
+       end
+       if op==3
+        set completion=1
+       end
+       if completion==1
+        set result=7
+        if pending!=0
+         if id==pending
+          set pending=0
+          set length=0
+          set value=0
+          set deadline=0
+          set result=12
+          if op==3
+           set result=11
+          end
+         end
+        end
+       end
+       if op==4
+        set result=0
+        if expired==1
+         set result=10
+        end
+       end
+      end
+     end
+    end
+   end
+  end
+  do store64(out,result)
+  do store64(out+8,pending)
+  do store64(out+16,length)
+  do store64(out+24,value)
+  do store64(out+32,seen)
+  do store64(out+40,deadline)
+  let written=0
+  while written<48
+   let sent=write(1,out+written,48-written)
+   if sent==0
+    return 3
+   end
+   if sent>>63
+    return 3
+   end
+   set written=written+sent
+  end
+  set records=records+1
+ end
+ let extra=read(0,p,1)
+ if extra!=0
+  return 2
+ end
+ return 0
+end
