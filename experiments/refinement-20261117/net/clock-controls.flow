@@ -1,0 +1,61 @@
+profile RF2_SYSTEM_A64_V1
+use "io-result.flow"
+use "clock.flow"
+fn check(a,b,c,d,want,wanted_error)
+ handle bench_scale_ticks(a,b,c,d)
+ ok value
+  return (wanted_error!=0)|(value!=want)
+ err cause
+  return (wanted_error==0)|(cause!=wanted_error)
+ end
+ return 1
+end
+fn main(argc,argv)
+ if check(0,3000000,125,3,125000,0)
+  return 1
+ end
+ if check(10,10,125,3,0,0)
+  return 2
+ end
+ if check(10,9,125,3,0,84)
+  return 3
+ end
+ if check(0,1,0,3,0,22)
+  return 4
+ end
+ if check(0,1,125,0,0,22)
+  return 5
+ end
+ if check(0,147573952589676412,125,3,6148914691236517,0)
+  return 6
+ end
+ if check(0,147573952589676413,125,3,0,75)
+  return 7
+ end
+ if check(0,18446744073709551615,1,1,18446744073709551,0)
+  return 8
+ end
+ if check(0,23,125,3,0,0)
+  return 9
+ end
+ if check(0,24,125,3,1,0)
+  return 10
+ end
+ if check(0,123456789,4294967295,4294967295,123456,0)
+  return 11
+ end
+ let started=vm_clock_ticks()
+ if started==0
+  return 24
+ end
+ let finished=vm_clock_ticks()
+ handle bench_elapsed_us(started,finished)
+ ok value
+  if value>1000000
+   return 22
+  end
+ err cause
+  return 23
+ end
+ return 0
+end

@@ -1,0 +1,23 @@
+module benchmark_clock
+# Explicit benchmark helper, not a new Core/MCP effect. The native platform
+# intrinsics use mach_absolute_time and mach_timebase_info on this Mac target.
+fn bench_scale_ticks(started,finished,numerator,denominator):IO
+ if finished<started
+  return err(84)
+ end
+ if (numerator==0)|(denominator==0)
+  return err(22)
+ end
+ let delta=finished-started
+ if delta>18446744073709551615//numerator
+  return err(75)
+ end
+ return ok(delta*numerator//denominator//1000)
+end
+fn bench_elapsed_us(started,finished):IO
+ let timebase=buffer("native_benchmark_timebase",8)
+ if clock_timebase(timebase)!=0
+  return err(22)
+ end
+ return bench_scale_ticks(started,finished,load32(timebase),load32(timebase+4))
+end

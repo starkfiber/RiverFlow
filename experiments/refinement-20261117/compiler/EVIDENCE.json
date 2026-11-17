@@ -1,0 +1,29 @@
+{
+  "schema": "rf2.refinement.compiler-evidence.v1",
+  "candidateSourceSHA256": "111284af4398765d15ee85f131b0dc2b102cce85da592d3e018db52265524ac4",
+  "candidateBinarySHA256": "92d7546234a6fe4baa2408d2a79009f67798d0739c64a9c2a2a6f07edfc2d429",
+  "signedSelfGenerationMatched": true,
+  "focusedChecks": 40,
+  "focusedPassed": true,
+  "existingDiagnosticChecks": 169,
+  "existingDiagnosticPassed": true,
+  "stableChanged": false,
+  "defaultCompilerChanged": false,
+  "AIUsageMeasuredWithCandidate": false,
+  "scope": "Source-context advisory codes/hints for actual parser tokens; no grammar or successful lowering change. Explicit candidate builder only.",
+  "sourceSHA256": {
+    "experiments/refinement-20261117/compiler/README.md": "60cf2937c444304db9c1da5887aaec8b3f82851a8d459528c410ec8d9f0c7c82",
+    "experiments/refinement-20261117/compiler/build.py": "95c48cf92bab1f01601c58d93eff60f0acfdeec206cdc244c00aa3259b900fbc",
+    "experiments/refinement-20261117/compiler/prepare.py": "05f245caea66e36ef62fe5ff44a0ddb8d300cf7ccaf7c3a56d2469bc2db0d974",
+    "experiments/refinement-20261117/compiler/regression.py": "1cfca0d18058430b2a448fb1efefdbea2a59af51561540700735f9349464f305",
+    "experiments/refinement-20261117/compiler/verify.py": "338130ef7297883251e57079b38b002dc6a75d745354c0e5d3ee1d965f25c20c"
+  },
+  "receiptSHA256": {
+    "artifacts/refinement-20261117/compiler/source-1/SOURCE.json": "c8b9d763e30e1631d808593f28bd97dff464a76f38f10eb057899e93c6eae58b",
+    "artifacts/refinement-20261117/compiler/build-2/BUILD.json": "9591638b115351d7713798d719e6b5a2dbf546122dec606ac74617eb5a0fe7d6",
+    "artifacts/refinement-20261117/compiler/controls-1/RESULTS.json": "17279218744c2e0f65d686144c2783307921470dc4e10e6d15103f3f7c3a81cd",
+    "artifacts/refinement-20261117/compiler/regression-1/oracle/RESULTS.json": "a9ac8f0a9282aff32a430a5b922bb3265b13db504ca5916dd0599e137d42bb4a",
+    "artifacts/refinement-20261117/compiler/build-1/SIGNING-IDENTIFIER-FAILURE.json": "a7c3bf4979516eb27297fee5dced879d56693cb21d79190ac2fb37fda540e82b"
+  },
+  "preservedFailure": "First signing comparison used distinct output basenames; differences confined to Mach-O LC_CODE_SIGNATURE. Same basename replay self-generates exactly; neither product source nor grammar was changed for that correction."
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "rf2.net.native-refinement-plan.v1",
+  "pairs": 31,
+  "separateWarmupPairs": 2,
+  "warmupParsesPerProcess": 32,
+  "orderSeed": 1711202617,
+  "bootstrapSeed": 171117,
+  "bootstrapSamples": 10000,
+  "families": [
+    "dhcp",
+    "dhcp-durable"
+  ],
+  "modes": [
+    "plain",
+    "opt"
+  ],
+  "profiles": {
+    "short-valid": 1500000,
+    "normal-300": 750000,
+    "max-576": 250000,
+    "bad-last-byte": 250000,
+    "early-reject": 30000000
+  },
+  "primaryEstimator": "median of within-pair candidate/baseline native-microsecond ratios",
+  "interval": "paired bootstrap resamples whole paired ratios;10000resamples;fixedseed;percentile95",
+  "secondaryEstimator": "historical ratio of medians, reported diagnostic only",
+  "smallCaseProfiles": [
+    "short-valid",
+    "early-reject"
+  ],
+  "gate": {
+    "candidateBaselinePointMaximum": 1.03,
+    "upperPairedBootstrap95Maximum": 1.05,
+    "minimumNativeMicrosecondsEveryMeasuredProcess": 50000
+  },
+  "processClock": "Python monotonic_ns including startup,framing,warmup,parse,output",
+  "nativeClock": "Darwin mach_absolute_time around parse/consume loop only, checked mach_timebase_info conversion",
+  "noRetriesOrTrimming": true,
+  "noProductParserChange": true,
+  "notes": [
+    "Samecountsaspreviouscorrectedcampaign;nocandidate-basedcalibration",
+    "NativeelapsediswallmonotonicnotCPUtimeorcycles",
+    "Gateinconclusiveonanyshortsampleorwideinterval;donotreruntowin",
+    "Permissionrequiredfromrootforexclusivecomparativetiming"
+  ]
+}

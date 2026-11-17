@@ -1,0 +1,394 @@
+{
+  "schema": "rf2.refinement.provider-transport-offline.v1",
+  "allPassed": true,
+  "unittestMethods": 14,
+  "controls": 63,
+  "rows": [
+    {
+      "name": "standalone malformed invocation offline",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "standalone malformed invocation offline",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "standalone malformed invocation offline",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "missing key",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "empty key",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "duplicate key",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "bad key",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "unmatched quote",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "config size",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "config read missing",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "config read opaque",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "unquoted",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "single quotes",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "export",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "comments",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "success explicitly flushed within guarded call",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "flush failure sanitized after bytes written; success refused",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "HTTP 401",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "HTTP 429",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "HTTP 500",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "invalid timeout 0",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "invalid timeout 181",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "invalid timeout True",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "invalid timeout 180",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "explicit SSH command only, no dispatch",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "invalid host rejected",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "invalid host rejected",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "invalid host rejected",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "invalid host rejected",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "invalid config reference rejected",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "invalid config reference rejected",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "invalid config reference rejected",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "timeout direct",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "timeout URL",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "DNS URL",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "DNS direct",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "TLS",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "connection refused",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "opaque URL reason",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "unexpected exception",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "short output detected",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "broken output sanitized as output write failure",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "broken error stream does not traceback",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "reviewed payload exactly recreated",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "bad JSON",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "UTF8",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "array",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "NaN",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "empty",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "too large",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "recursion",
+      "passed": true,
+      "networkCalls": 0,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "redirect 301",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "redirect 302",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "redirect 303",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "redirect 307",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "redirect 308",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "response malformed",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "response array",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "response UTF8",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "response too large",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "credential body",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "credential escaped",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    },
+    {
+      "name": "success exact bytes",
+      "passed": true,
+      "networkCalls": 1,
+      "stderrCredentialFree": true
+    }
+  ],
+  "elapsedSeconds": 0.10532525000000001,
+  "sourceSHA256": "ee0607ae3e221e510848cbffd4c69304a530d328e861f5cbefa4b0c83b586743",
+  "testSHA256": "b9b3a14db6d506d96eb923369d7c40a94cec5d56857e6f1e1c7df57a2b1c97fa",
+  "payloadBuilderSHA256": "4b1121a4d5b6deb202921c5c000b3e050088aa7a42e8896ca329729438faea20",
+  "realNetworkCalls": 0,
+  "realCredentialsRead": false,
+  "existingFrozenTransportsModified": false,
+  "scope": "Offline fake urlopen/config/streams only. Candidate not wired into closed studies; no historical root cause or live provider qualification."
+}

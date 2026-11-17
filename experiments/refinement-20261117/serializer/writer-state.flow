@@ -1,0 +1,59 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/text.flow"
+fn main(argc,argv)
+ let a=Writer(buffer("state_a",64),0,0,0)
+ let b=Writer(buffer("state_b",64),0,0,0)
+ let input=buffer("state_input",1024)
+ let i=0
+ while i<1024
+  do store8(input+i,i&31)
+  set i=i+1
+ end
+ let k=0
+ while k<16
+  let cap=18446744073709551615
+  let used=18446744073709551615
+  let failure=0
+  if k&1
+   set cap=0
+  end
+  if k&2
+   set used=18446744073709551614
+   if (k&1)==0
+    set cap=18446744073709551614
+   end
+  end
+  if k&4
+   set failure=7
+  end
+  if k&8
+   set cap=1
+  end
+  set a.capacity=cap
+  set b.capacity=cap
+  set a.used=used
+  set b.used=used
+  set a.error=failure
+  set b.error=failure
+  let j=0
+  while j<64
+   do store8(a.data+j,170)
+   do store8(b.data+j,170)
+   set j=j+1
+  end
+  do writer_json_scalar(a,input,257)
+  do writer_json_dense(b,input,257)
+  if (a.used!=b.used)|(a.error!=b.error)
+   return 2
+  end
+  set j=0
+  while j<64
+   if load8(a.data+j)!=load8(b.data+j)
+    return 3
+   end
+   set j=j+1
+  end
+  set k=k+1
+ end
+ return 0
+end

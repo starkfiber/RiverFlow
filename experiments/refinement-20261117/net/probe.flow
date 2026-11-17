@@ -1,0 +1,80 @@
+profile RF2_SYSTEM_A64_V1
+use "io-result.flow"
+use "dhcp.flow"
+use "clock.flow"
+fn consume(p:DhcpPacket,n,m:DhcpMeta)
+ let result=dhcp_parse(p,n,m)
+ if result==0
+  return m[0]+m[1]+m[5]
+ end
+ return result
+end
+fn main(argc,argv)
+ let input=buffer("bench_input",587)
+ let got=0
+ let eof=0
+ while eof==0
+  let count=read(0,input+got,587-got)
+  if count>>63
+   return 2
+  end
+  if count==0
+   set eof=1
+  else
+   set got=got+count
+   if got==587
+    return 2
+   end
+  end
+ end
+ if got<10
+  return 2
+ end
+ let repetitions=load64(input)
+ let n=load8(input+8)+load8(input+9)*256
+ if any(n>576,any(n+10!=got,any(repetitions==0,repetitions>100000000)))
+  return 2
+ end
+ let p=DhcpPacket()
+ let m=DhcpMeta()
+ let j=0
+ while j<n
+  set p[j]=load8(input+10+j)
+  set j=j+1
+ end
+ let warm=0
+ let warm_checksum=0
+ while warm<32
+  set warm_checksum=warm_checksum+consume(p,n,m)
+  set warm=warm+1
+ end
+ let i=0
+ let checksum=0
+ let started=vm_clock_ticks()
+ while i<repetitions
+  set checksum=checksum+consume(p,n,m)
+  set i=i+1
+ end
+ let finished=vm_clock_ticks()
+ let elapsed=0
+ handle bench_elapsed_us(started,finished)
+ ok value
+  set elapsed=value
+ err cause
+  return 4
+ end
+ let out=buffer("bench_out",56)
+ do store64(out,checksum)
+ do store64(out+8,elapsed)
+ do store64(out+16,repetitions)
+ do store64(out+24,started)
+ do store64(out+32,finished)
+ if clock_timebase(out+40)!=0
+  return 4
+ end
+ do store64(out+48,warm_checksum)
+ if write(1,out,56)!=56
+  return 3
+ end
+ return 0
+end

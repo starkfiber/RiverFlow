@@ -1,0 +1,136 @@
+{
+  "schema": "rf2.refinement.composition-evidence.v1",
+  "baseCommit": "53ec2577a04f3b3c5ecf71b1316add3d3671a245",
+  "allPassed": true,
+  "compilerSHA256": "92d7546234a6fe4baa2408d2a79009f67798d0739c64a9c2a2a6f07edfc2d429",
+  "verifierSHA256": "4a42296ec24c1903956166896a5de4cfb86f54879f624df6e1c0260527d83750",
+  "sourceContextCompilerAndR5Together": true,
+  "goldenBuilds": 8,
+  "completeTaskChecksPassed": 808,
+  "completeTaskChecksTotal": 808,
+  "protectedPathRefusals": 14,
+  "runs": [
+    {
+      "label": "C-manual-plain",
+      "sourceSHA256": "c74b42975cb556d794cf47a88acbf64e259a206a773413af5ecec1e2eeb78913",
+      "compileExit": 0,
+      "passed": true,
+      "binarySHA256": "2944ea37aec8c787c609d474eae4a695dc25526bb5db13fc73fd9cd9b5519821",
+      "gradeExit": 0,
+      "checksPassed": 86,
+      "checksTotal": 86,
+      "receiptSHA256": "e7c6a3e0cf011dcfdd52daa6e2cf72b705183d82779d986ced50eebf286ecff4",
+      "seconds": 0.326829
+    },
+    {
+      "label": "C-manual-opt",
+      "sourceSHA256": "c74b42975cb556d794cf47a88acbf64e259a206a773413af5ecec1e2eeb78913",
+      "compileExit": 0,
+      "passed": true,
+      "binarySHA256": "646d87eb493d37204754bc2d02274461cf1254c6f3b9cfebf4a82e1be6816214",
+      "gradeExit": 0,
+      "checksPassed": 86,
+      "checksTotal": 86,
+      "receiptSHA256": "f5556238f60ab4914fc8e78669215902d2ecbced7aea733d467c00578a454faa",
+      "seconds": 0.335178833
+    },
+    {
+      "label": "C-cli-plain",
+      "sourceSHA256": "c5842d53b699f613e7e3227a591525969ae2d3a014702d68891ffc8be5e2dc17",
+      "compileExit": 0,
+      "passed": true,
+      "binarySHA256": "d1b5e739169f4df07398796f613c11ae4548d6511c23230f2da7cac99a440229",
+      "gradeExit": 0,
+      "checksPassed": 86,
+      "checksTotal": 86,
+      "receiptSHA256": "b937585d3e54a71a8bb4a43ec7353cbd02a33713dcf8a064bb91c399b50e6546",
+      "seconds": 0.3305323339999999
+    },
+    {
+      "label": "C-cli-opt",
+      "sourceSHA256": "c5842d53b699f613e7e3227a591525969ae2d3a014702d68891ffc8be5e2dc17",
+      "compileExit": 0,
+      "passed": true,
+      "binarySHA256": "4f521de58d0886705ea4e90a8ee5d1007e4fce234cced247b826ec916f0afb89",
+      "gradeExit": 0,
+      "checksPassed": 86,
+      "checksTotal": 86,
+      "receiptSHA256": "a0a7d63f6c3ddf2b02cae687073b8415ec4282b3f1d57eb439433945c732a337",
+      "seconds": 0.33089587499999995
+    },
+    {
+      "label": "D-manual-plain",
+      "sourceSHA256": "baf6cf1008a8f670148bb0f3d41809ec7025bcecfbfd682212c3e293fe3b7544",
+      "compileExit": 0,
+      "passed": true,
+      "binarySHA256": "9eb04d10ead348478bb0fb58a24172ed161117ab9153fa7f42019440dad02cb9",
+      "gradeExit": 0,
+      "checksPassed": 116,
+      "checksTotal": 116,
+      "receiptSHA256": "cb052752fc545b4a2882e86ee095659d973634fa756ee4e2d16335d12a88922b",
+      "seconds": 0.38782041599999983
+    },
+    {
+      "label": "D-manual-opt",
+      "sourceSHA256": "baf6cf1008a8f670148bb0f3d41809ec7025bcecfbfd682212c3e293fe3b7544",
+      "compileExit": 0,
+      "passed": true,
+      "binarySHA256": "33139b53966e59ba5f1f7cb7ea3d8b1c8a1f6a06b5ce61ad89885d158b425622",
+      "gradeExit": 0,
+      "checksPassed": 116,
+      "checksTotal": 116,
+      "receiptSHA256": "75013e6b3bc72a365327a97de1b144e18396321fc1f6cba7819e6176bb97d842",
+      "seconds": 0.38264720800000007
+    },
+    {
+      "label": "D-cli-plain",
+      "sourceSHA256": "4a2ab64f9dece4c6b08c8ac728311b1493bd5e3fefc7126e87cbb4c4911799b9",
+      "compileExit": 0,
+      "passed": true,
+      "binarySHA256": "c69c5d57c2b9794bdafa22ab8b845b4f19c7d0b843b7bc68c3a92d8921bb70dc",
+      "gradeExit": 0,
+      "checksPassed": 116,
+      "checksTotal": 116,
+      "receiptSHA256": "1aa4b130c0dbfbe169799a1aff9a7c788d3ceba95a96905fb46645c5879e3839",
+      "seconds": 0.3964839590000002
+    },
+    {
+      "label": "D-cli-opt",
+      "sourceSHA256": "4a2ab64f9dece4c6b08c8ac728311b1493bd5e3fefc7126e87cbb4c4911799b9",
+      "compileExit": 0,
+      "passed": true,
+      "binarySHA256": "a31eccf175f58275ce50225d8b53921eaface93776a7ce975b0a1b513a4d15e9",
+      "gradeExit": 0,
+      "checksPassed": 116,
+      "checksTotal": 116,
+      "receiptSHA256": "0934702b5f1772a557e33595215661589882f9f8af6990ec1602c98a8d0f1cc7",
+      "seconds": 0.38569883299999974
+    }
+  ],
+  "SDKfiles": {
+    "io.flow": "c4b7d01a681b619a20adaccff698a353185ba4bfbe80272b5c60cf72f871d264",
+    "text.flow": "5746e82e8e1aa0d854a7522a75aef2d7ff6db2296622caef4f2e9a6ca9eef3e1",
+    "json.flow": "036a185eaa932a10f41e7da973e35373eee7fc8b9c86bb030c3da80899911e6a",
+    "mcp.flow": "b30124ab9fed356594ee4da17a74f2363a50cd93ac2bcd7016996fa1f29626a9",
+    "collections.flow": "84ab50af498a71430903b6cf8e980a55e4672018370abbf177cf014a647b2144",
+    "sha256.rf2": "b79e7217db169985a5b2262ad4e4c5a550dc7741a60aaff816176a7324a0ffb5",
+    "report.flow": "8f272ebf7604989be3844267c0adc283295acdae34839079ba609a9f80c37ba8",
+    "text-report-cli.flow": "7d4e4c2cef46bfccf78ed6d8cb0f1db9456f7ec87ac651723c1228e0ef52b1a9"
+  },
+  "receiptSHA256": {
+    "composition-1/RESULTS.json": "e1e74534fa941b1a4a1de5e9caedcdcfa63c3200aaa66604e15705a200a91116",
+    "composition-2/RESULTS.json": "aee39a49445124a023cf6bc899f293b9dc8c6d0bc7db39effa8e5476c6f9e17e",
+    "PACKAGE-BOUNDARIES.json": "b6c5d970f2ac3ee95706ce6f17f1d8102a822cdf0eee13a879d4f154613b293d"
+  },
+  "preservedCorrection": "Independent review found a new descendant of SDK source could be selected, causing recursive self-copy. Resolved destination guards now reject protected source/release descendants before copying.",
+  "scope": "Explicit experimental source package only. Functional composition checks do not grant R5 performance promotion. Default/stable and external active owner checkout untouched.",
+  "measuredPackageBuilderSHA256": "ea75a5e97eac8e6178b60db6ad097f5ded2d7b8c8081206f780172b283584b3a",
+  "currentPackageBuilderSHA256": "c0ca7aab1225b5e99be9b25df854b4cc9f2426a92cc143ed5e65f58835da3a21",
+  "postPackagingGuard": {
+    "guardChecksPassed": 17,
+    "identicalSDKBytes": true,
+    "receiptSHA256": "921417ac87625b4c35e282c72b030e878fc8ff49547f1018240a741f22ab6b81",
+    "directStageGuardEvidence": "serializer/STAGING-GUARD.json",
+    "nativeTestsRerun": false
+  }
+}

@@ -1,0 +1,170 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/text.flow"
+fn emit_begin(out:Writer,format,title,n)
+ if format==0
+  do writer_text(out,"{\"title\":")
+  do writer_json(out,title,n)
+  do writer_text(out,",\"fields\":[")
+ else
+  do writer_text(out,"<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>")
+  do writer_html(out,title,n)
+  do writer_text(out,"</title><main><h1>")
+  do writer_html(out,title,n)
+  do writer_text(out,"</h1><dl>")
+ end
+ return 0
+end
+fn emit_start(out:Writer,format,index,name,n)
+ if format==0
+  if index
+   do writer_text(out,",")
+  end
+  do writer_text(out,"{\"name\":")
+  do writer_json(out,name,n)
+  do writer_text(out,",\"value\":")
+ else
+  do writer_text(out,"<dt>")
+  do writer_html(out,name,n)
+  do writer_text(out,"</dt><dd>")
+ end
+ return 0
+end
+fn emit_finish(out:Writer,format)
+ if format==0
+  do writer_text(out,"}")
+ else
+  do writer_text(out,"</dd>")
+ end
+ return 0
+end
+fn emit_number(out:Writer,format,index,name,n,value)
+ do emit_start(out,format,index,name,n)
+ do writer_number(out,value)
+ return emit_finish(out,format)
+end
+fn emit_text(out:Writer,format,index,name,n,value,m)
+ do emit_start(out,format,index,name,n)
+ if format==0
+  do writer_json(out,value,m)
+ else
+  do writer_html(out,value,m)
+ end
+ return emit_finish(out,format)
+end
+fn emit_end(out:Writer,format)
+ if format==0
+  do writer_text(out,"]}\n")
+ else
+  do writer_text(out,"</dl></main></html>\n")
+ end
+ return 0
+end
+fn identifier_valid(data,span:TextSpan)
+ if span.length>32
+  return 0
+ end
+ let at=0
+ while at<span.length
+  let c=load8(data+span.start+at)
+  if ((c>=65)&(c<=90))|((c>=48)&(c<=57))|(c==95)|(c==45)
+   set at=at+1
+  else
+   return 0
+  end
+ end
+ return 1
+end
+fn identifier_seen(data,n,item:TextSpan)
+ let prior=TextCursor(0,0,0,0)
+ let span=TextSpan(0,0)
+ let more=text_next_line(data,n,prior,span)
+ while all(more,span.start<item.start)
+  if span.length
+   if text_equal(data+span.start,span.length,data+item.start,item.length)
+    return 1
+   end
+  end
+  set more=text_next_line(data,n,prior,span)
+ end
+ if prior.status
+  return 2
+ end
+ return 0
+end
+fn work(path,format):IO
+ let info=TextInfo(0,0,0,0)
+ let cursor=TextCursor(0,0,0,0)
+ let span=TextSpan(0,0)
+ let out=Writer(buffer("golden_output",32768),32768,0,0)
+ let data=buffer("golden_input",4097)
+ let n=try io_regular(path,data,4096)
+ do text_measure(data,n,info)
+ if info.status
+  return err(info.status)
+ end
+ let identifiers=0
+ let distinct=0
+ let duplicates=0
+ let first=0
+ let more=text_next_line(data,n,cursor,span)
+ while more
+  if span.length
+   if identifier_valid(data,span)==0
+    return err(22)
+   end
+   set identifiers=identifiers+1
+   let seen=identifier_seen(data,n,span)
+   if seen==2
+    return err(22)
+   end
+   if seen
+    set duplicates=duplicates+1
+    if first==0
+     set first=cursor.line
+    end
+   else
+    set distinct=distinct+1
+   end
+  end
+  set more=text_next_line(data,n,cursor,span)
+ end
+ if cursor.status
+  return err(cursor.status)
+ end
+ do emit_begin(out,format,"Identifier audit",16)
+ do emit_text(out,format,0,"Path",4,path,io_size(path))
+ do emit_number(out,format,1,"Identifiers",11,identifiers)
+ do emit_number(out,format,2,"Distinct",8,distinct)
+ do emit_number(out,format,3,"Duplicate occurrences",21,duplicates)
+ if first
+  do emit_number(out,format,4,"First duplicate line",20,first)
+ else
+  do emit_text(out,format,4,"First duplicate line",20,"none",4)
+ end
+ do emit_end(out,format)
+ if out.error
+  return err(out.error)
+ end
+ do try io_write_no_sigpipe(1,out.data,out.used)
+ return ok(0)
+end
+fn main(argc,argv)
+ if argc!=3
+  return 2
+ end
+ let mode=load64(argv+8)
+ let format=0
+ if text_equal(mode,io_size(mode),"json",4)==0
+  if text_equal(mode,io_size(mode),"html",4)==0
+   return 2
+  end
+  set format=1
+ end
+ handle work(load64(argv+16),format)
+ ok value
+  return 0
+ err cause
+  return 2
+ end
+ return 2
+end

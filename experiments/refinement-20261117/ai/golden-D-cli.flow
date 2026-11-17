@@ -1,0 +1,86 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/text-report-cli.flow"
+fn identifier_valid(data,span:TextSpan)
+ if span.length>32
+  return 0
+ end
+ let at=0
+ while at<span.length
+  let c=load8(data+span.start+at)
+  if ((c>=65)&(c<=90))|((c>=48)&(c<=57))|(c==95)|(c==45)
+   set at=at+1
+  else
+   return 0
+  end
+ end
+ return 1
+end
+fn identifier_seen(data,n,item:TextSpan)
+ let prior=TextCursor(0,0,0,0)
+ let span=TextSpan(0,0)
+ let more=text_next_line(data,n,prior,span)
+ while all(more,span.start<item.start)
+  if span.length
+   if text_equal(data+span.start,span.length,data+item.start,item.length)
+    return 1
+   end
+  end
+  set more=text_next_line(data,n,prior,span)
+ end
+ if prior.status
+  return 2
+ end
+ return 0
+end
+fn text_report_fields(input:TextReportInput,report:Report,out:Writer):IO
+ let cursor=TextCursor(0,0,0,0)
+ let span=TextSpan(0,0)
+ let data=input.data
+ let n=input.size
+ let path=input.path
+ let identifiers=0
+ let distinct=0
+ let duplicates=0
+ let first=0
+ let more=text_next_line(data,n,cursor,span)
+ while more
+  if span.length
+   if identifier_valid(data,span)==0
+    return err(22)
+   end
+   set identifiers=identifiers+1
+   let seen=identifier_seen(data,n,span)
+   if seen==2
+    return err(22)
+   end
+   if seen
+    set duplicates=duplicates+1
+    if first==0
+     set first=cursor.line
+    end
+   else
+    set distinct=distinct+1
+   end
+  end
+  set more=text_next_line(data,n,cursor,span)
+ end
+ if cursor.status
+  return err(cursor.status)
+ end
+ do report_text(report,out,"Path",4,path,io_size(path))
+ do report_number(report,out,"Identifiers",11,identifiers)
+ do report_number(report,out,"Distinct",8,distinct)
+ do report_number(report,out,"Duplicate occurrences",21,duplicates)
+ if first
+  do report_number(report,out,"First duplicate line",20,first)
+ else
+  do report_text(report,out,"First duplicate line",20,"none",4)
+ end
+ if out.error
+  return err(out.error)
+ end
+ return ok(0)
+end
+fn main(argc,argv)
+ return text_report_entry(argc,argv,"Identifier audit",16,0)
+end
