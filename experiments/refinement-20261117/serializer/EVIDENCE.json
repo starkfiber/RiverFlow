@@ -19,7 +19,7 @@
   "sourceSHA256": {
     "alias-boundary.flow.in": "5038c6647802847bd542fb44e08a9a3e25f10614fe89b8fe8cf3a0f308fafcd6",
     "alias.flow.in": "4f76f4df21171bdd2c1f37c1f677a436147b3af09904a756bd120bca599342e3",
-    "analyze.py": "a0efbffd88a41efb36f2cc6d4e1a22e8731d0c6b9164cd30ea3b7bca0271a61a",
+    "analyze.py": "ea4f10f38d842b0240aad66b2030041ddd2bea32257b4e21a53799e7ff8c5835",
     "bench-task.flow.in": "b150adc12aef5a55e6595f791e37f83a8186e362bed90fb168746dd4b8d44758",
     "benchmark.py": "c76313743aedb83bd6c5ba96bb7e60a5285f4ce921e1844ac2b44d1023ace001",
     "clock-controls.flow": "974e04ffc2d0c727ff39e5b035bd2e372e700f1962faacebfb148096fa02237e",
@@ -29,8 +29,9 @@
     "json_spans.flow": "8bb2ab48faceed5934ee2d6f676d14a6a7ffe5769dd2740ac9acceaf84532abe",
     "maps.py": "0f3a3a6d86e3344915d9287110ece6c0e61d6036e43a21482061077df12b1ae5",
     "qualify.py": "a0f7294247f0c67455f59bec4e5e1e8d93d1544a6b636a745261033cc584c27f",
-    "stage_sdk.py": "1328fc4a351abcc1e647496650731fa35ee51996eae5e25f19be838d1e612be7",
+    "stage_sdk.py": "cf793227dfd68d0faf859c513afecef5f9ba7f7b6074362d8fa577c1e657f906",
     "task.flow.in": "10313877b565c402e552d795f8c00a81df728a645bae539388364cda1275a251",
+    "verify_staging.py": "b74097bdd1cb1377c167aa05e945be00e43436c17e4b44648d33962fa52e098e",
     "writer-state.flow": "36edbb01ccc8cbde49bc6fa8b220094469eaa2eff27aba18bde7b0e683abd166"
   },
   "rawSHA256": {
@@ -752,5 +753,23 @@
         "small minimum native duration below 50ms"
       ]
     }
-  ]
+  ],
+  "postCampaignChange": {
+    "schema": "rf2.serializer.post-campaign-staging-guard.v1",
+    "change": "Packaging-only resolved destination guards added inside direct stage() helper after the frozen timing campaign. Protected source/release descendants, existing outputs and leaf symlinks refuse before copy.",
+    "measuredStageSHA256": "1328fc4a351abcc1e647496650731fa35ee51996eae5e25f19be838d1e612be7",
+    "currentStageSHA256": "cf793227dfd68d0faf859c513afecef5f9ba7f7b6074362d8fa577c1e657f906",
+    "beforeEvidenceSHA256": "aa7213d8de3166b73b3974c80ac2d9d81e4706e4d379bd9ab18db3cbc3dd9bdf",
+    "candidateSourceSHA256": "8bb2ab48faceed5934ee2d6f676d14a6a7ffe5769dd2740ac9acceaf84532abe",
+    "verificationControllerSHA256": "b74097bdd1cb1377c167aa05e945be00e43436c17e4b44648d33962fa52e098e",
+    "verificationReceiptSHA256": "8c843dd291362b7e883c521ff7e396386eaad05ff55556709bb5850e4a5878f3",
+    "checkCount": 37,
+    "forbiddenCopyCalls": 0,
+    "allowedSDKBytesMatchFrozenCandidate": true,
+    "nativeTimingRerun": false,
+    "nativeSamplesRun": 0,
+    "protectedSourceUnchanged": true,
+    "scope": "Resolved path guard for ordinary reviewed local use; no concurrent-filesystem attacker isolation claim."
+  },
+  "postCampaignReceiptSHA256": "44114e5bc49beeb2f3f42ca71b44bc65d5ab84c4bd26828db2665d47e148ee38"
 }

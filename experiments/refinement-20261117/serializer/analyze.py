@@ -128,6 +128,16 @@ def main():
         "scope": "Isolated Darwin ARM64 source candidate. All rows retained; no retries or recalibration after comparison. Unrelated Mac load not controlled. Default SDK and stable release unchanged.",
         "rows": rows, "rejectedRows": rejected,
     }
+    guard_path = HERE / "STAGING-GUARD.json"
+    if guard_path.exists():
+        guard = json.loads(guard_path.read_text())
+        assert guard["schema"] == "rf2.serializer.post-campaign-staging-guard.v1"
+        assert guard["currentStageSHA256"] == sha(HERE / "stage_sdk.py")
+        assert guard["verificationControllerSHA256"] == sha(HERE / "verify_staging.py")
+        assert guard["candidateSourceSHA256"] == frozen["candidateSourceSHA256"]
+        assert guard["nativeTimingRerun"] is False
+        result["postCampaignChange"] = guard
+        result["postCampaignReceiptSHA256"] = sha(guard_path)
     destination = args.out.resolve()
     destination.mkdir(parents=True, exist_ok=False)
     (destination / "EVIDENCE.json").write_text(json.dumps(result, indent=2) + "\n")
