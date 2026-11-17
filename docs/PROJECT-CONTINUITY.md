@@ -170,21 +170,6 @@ Fresh matched C/D provider study failed 0/4 complete tasks: six calls, 37,690 kn
 
 New opt-in provider transport passes 63 offline controls with no real calls or credentials. It refuses redirects/reflected credentials and emits safe error categories/status instead of tracebacks; explicit output flush/write failures are separate from network failures. This does not recover historical unknown causes or qualify live connectivity. The tracked pure pilot-payload builder reproduces the reviewed bytes. See experiments/refinement-20261117/ai/PROVIDER-TRANSPORT.md before selecting the new transport in a separately frozen future run.
 
-## Scoped embedded 0.36 interrupt/lease repair — 2026-11-17
-
-This chat's user explicitly scoped work to embedded0.36 on one existing branch,
-leaving RF2Ship/RF2Net and other chats' application work alone. Native execution
-reproduced enabled-MIE rejection and orphaned-claim failures. The backend now
-masks before enable/replenish validation; failed claims revoke unpublished tokens
-without rewinding generations. All9 focused+30 IRQ/lease+34 compiler controls pass
-with actual generated RV32IM execution in vendor QEMU and GNU encoding checks.
-The original baseline fails6/9 focused controls. See
-ESP32C3-IRQ-RESTORATION-0.36.md/json and project-local
-artifacts/irq-036-restoration-20261117/HANDOVER.md. Preserve the earlier duplicate
-local test-fixture refusals as harness errors, not product regressions. Physical
-board, OnePlus, performance, release promotion and broader application milestones
-are not advanced by these tests. Installed packages and nine-tool Core stay unchanged.
-
 
 ## Useful AI output recovery,17November2026
 
