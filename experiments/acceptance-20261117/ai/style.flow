@@ -1,0 +1,24 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/text.flow"
+fn byte_count(path):IO
+ let data=buffer("style_data",4097)
+ let info=TextInfo(0,0,0,0)
+ let n=try io_regular(path,data,4096)
+ do text_measure(data,n,info)
+ if info.status
+  return err(info.status)
+ end
+ return ok(n)
+end
+fn main(argc,argv)
+ if argc!=2
+  return 2
+ end
+ handle byte_count(load64(argv+8))
+ ok value
+  return 0
+ err cause
+  return 2
+ end
+ return 2
+end

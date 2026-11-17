@@ -1,0 +1,72 @@
+module text_report_cli
+use "@rf2/v1/report.flow"
+# One synchronous trusted Systems CLI invocation; no implicit Core/MCP effects.
+record TextReportInput(path:u64,query:u64,data:u64,size:u64,format:u64,lines:u64,words:u64)
+fn text_report_run(path,query,format,title,title_size,query_required):IO
+ let info=TextInfo(0,0,0,0)
+ let qi=TextInfo(0,0,0,0)
+ let input=TextReportInput(0,0,0,0,0,0,0)
+ let report=Report(0,0,0)
+ let out=Writer(buffer("rf2_text_report_output",32768),32768,0,0)
+ let data=buffer("rf2_text_report_input",4097)
+ if query_required
+  let m=io_size(query)
+  if (m==0)|(m>128)
+   return err(22)
+  end
+  do text_measure(query,m,qi)
+  if qi.status
+   return err(qi.status)
+  end
+ end
+ let n=try io_regular(path,data,4096)
+ do text_measure(data,n,info)
+ if info.status
+  return err(info.status)
+ end
+ set input.path=path
+ set input.query=query
+ set input.data=data
+ set input.size=n
+ set input.format=format
+ set input.lines=info.lines
+ set input.words=info.words
+ do report_begin(report,out,format,title,title_size)
+ if out.error
+  return err(out.error)
+ end
+ do try text_report_fields(input,report,out)
+ do report_end(report,out)
+ if out.error
+  return err(out.error)
+ end
+ do try io_write_no_sigpipe(1,out.data,out.used)
+ return ok(0)
+end
+fn text_report_entry(argc,argv,title,title_size,query_required)
+ if query_required>1
+  return 2
+ end
+ if argc!=3+query_required
+  return 2
+ end
+ let mode=load64(argv+8)
+ let format=0
+ if text_equal(mode,io_size(mode),"json",4)==0
+  if text_equal(mode,io_size(mode),"html",4)==0
+   return 2
+  end
+  set format=1
+ end
+ let query=0
+ if query_required
+  set query=load64(argv+24)
+ end
+ handle text_report_run(load64(argv+16),query,format,title,title_size,query_required)
+ ok completed_report
+  return 0
+ err report_error
+  return 2
+ end
+ return 2
+end

@@ -1,0 +1,30 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/text-report-cli.flow"
+fn text_report_fields(input:TextReportInput,report:Report,out:Writer):IO
+ let prefix=TextPrefix()
+ let matches=TextMatches(0,0,0,0)
+ let m=io_size(input.query)
+ if text_search_overlapping(input.data,input.size,input.query,m,0,prefix,matches)==0
+  return err(22)
+ end
+ if matches.status
+  return err(matches.status)
+ end
+ do report_text(report,out,"Path",4,input.path,io_size(input.path))
+ do report_text(report,out,"Query",5,input.query,m)
+ do report_number(report,out,"Matches",7,matches.count)
+ if matches.count
+  do report_number(report,out,"First byte",10,matches.first)
+  do report_number(report,out,"Last byte",9,matches.last)
+ else
+  do report_text(report,out,"First byte",10,"none",4)
+  do report_text(report,out,"Last byte",9,"none",4)
+ end
+ if out.error
+  return err(out.error)
+ end
+ return ok(0)
+end
+fn main(argc,argv)
+ return text_report_entry(argc,argv,"Match metrics",13,1)
+end
