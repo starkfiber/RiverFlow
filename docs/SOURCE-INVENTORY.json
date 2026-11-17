@@ -37,12 +37,12 @@
     "site/learn/index.html"
   ],
   "bytesByLanguage": {
-    "Python": 1158025,
-    "RiverFlow": 1086511,
-    "JavaScript": 89568,
+    "Python": 1410910,
+    "RiverFlow": 1243167,
+    "JavaScript": 90656,
     "HTML": 23891,
     "CSS": 12629,
-    "Shell": 7333,
+    "Shell": 7792,
     "Assembly": 6795,
     "C": 3957
   },
@@ -51,23 +51,24 @@
     "C": 3,
     "CSS": 3,
     "HTML": 6,
-    "JavaScript": 31,
-    "Python": 182,
-    "RiverFlow": 196,
-    "Shell": 8
+    "JavaScript": 32,
+    "Python": 229,
+    "RiverFlow": 227,
+    "Shell": 9
   },
   "bytesByArea": {
     "Application and target examples": {
       "C": 390,
       "CSS": 2203,
       "HTML": 7173,
-      "JavaScript": 4587,
-      "Python": 21709,
-      "RiverFlow": 282746
+      "JavaScript": 5675,
+      "Python": 49359,
+      "RiverFlow": 357951,
+      "Shell": 459
     },
     "Build and publishing tools": {
       "JavaScript": 10300,
-      "Python": 227727,
+      "Python": 232044,
       "Shell": 6213
     },
     "Compiler and native runtime": {
@@ -81,21 +82,21 @@
       "Shell": 851
     },
     "Other development source": {
-      "RiverFlow": 1286
+      "RiverFlow": 47344
     },
     "Teaching source": {
       "RiverFlow": 2388
     },
     "Unreleased experiments": {
-      "Python": 127427,
-      "RiverFlow": 179306,
+      "Python": 267099,
+      "RiverFlow": 214699,
       "Shell": 269
     },
     "Verification and independent oracles": {
       "Assembly": 6795,
       "C": 3567,
       "JavaScript": 32875,
-      "Python": 767984,
+      "Python": 849230,
       "RiverFlow": 262069
     },
     "Website and documentation source": {
@@ -407,6 +408,66 @@
       "bytes": 25
     },
     {
+      "path": "examples/document-audit/lib/collections.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 2816
+    },
+    {
+      "path": "examples/document-audit/lib/corpus.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 4454
+    },
+    {
+      "path": "examples/document-audit/lib/io.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 1874
+    },
+    {
+      "path": "examples/document-audit/lib/json.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 12875
+    },
+    {
+      "path": "examples/document-audit/lib/mcp.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 9367
+    },
+    {
+      "path": "examples/document-audit/lib/sha256.rf2",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 9050
+    },
+    {
+      "path": "examples/document-audit/lib/text.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 7533
+    },
+    {
+      "path": "examples/document-audit/main.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 5565
+    },
+    {
+      "path": "examples/document-audit/test-wire.mjs",
+      "language": "JavaScript",
+      "area": "Application and target examples",
+      "bytes": 1088
+    },
+    {
+      "path": "examples/document-audit/test.py",
+      "language": "Python",
+      "area": "Application and target examples",
+      "bytes": 9786
+    },
+    {
       "path": "examples/documents/booking-web.flow",
       "language": "RiverFlow",
       "area": "Application and target examples",
@@ -482,7 +543,7 @@
       "path": "examples/documents/lib/storage.flow",
       "language": "RiverFlow",
       "area": "Application and target examples",
-      "bytes": 2012
+      "bytes": 2090
     },
     {
       "path": "examples/documents/lib/studio.flow",
@@ -494,7 +555,7 @@
       "path": "examples/documents/lib/text.flow",
       "language": "RiverFlow",
       "area": "Application and target examples",
-      "bytes": 7339
+      "bytes": 7533
     },
     {
       "path": "examples/documents/lib/workbench-ui.flow",
@@ -791,6 +852,66 @@
       "bytes": 7929
     },
     {
+      "path": "examples/passage-desk/build.sh",
+      "language": "Shell",
+      "area": "Application and target examples",
+      "bytes": 459
+    },
+    {
+      "path": "examples/passage-desk/main.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 5735
+    },
+    {
+      "path": "examples/sensor-audit/api_verify.py",
+      "language": "Python",
+      "area": "Application and target examples",
+      "bytes": 2981
+    },
+    {
+      "path": "examples/sensor-audit/lib/io.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 1874
+    },
+    {
+      "path": "examples/sensor-audit/lib/sensor.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 4113
+    },
+    {
+      "path": "examples/sensor-audit/lib/text.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 7533
+    },
+    {
+      "path": "examples/sensor-audit/main.flow",
+      "language": "RiverFlow",
+      "area": "Application and target examples",
+      "bytes": 2144
+    },
+    {
+      "path": "examples/sensor-audit/reference.py",
+      "language": "Python",
+      "area": "Application and target examples",
+      "bytes": 3199
+    },
+    {
+      "path": "examples/sensor-audit/reference_stream.py",
+      "language": "Python",
+      "area": "Application and target examples",
+      "bytes": 3383
+    },
+    {
+      "path": "examples/sensor-audit/verify.py",
+      "language": "Python",
+      "area": "Application and target examples",
+      "bytes": 8301
+    },
+    {
       "path": "examples/sha40/main.rf2",
       "language": "RiverFlow",
       "area": "Application and target examples",
@@ -947,6 +1068,126 @@
       "bytes": 360
     },
     {
+      "path": "experiments/app-effort/api-index.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 591
+    },
+    {
+      "path": "experiments/app-effort/audit-apps.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 4555
+    },
+    {
+      "path": "experiments/app-effort/booking-read.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 638
+    },
+    {
+      "path": "experiments/app-effort/build-docs.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 3602
+    },
+    {
+      "path": "experiments/app-effort/compiler-extension.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 1503
+    },
+    {
+      "path": "experiments/app-effort/lib/mcp.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 9367
+    },
+    {
+      "path": "experiments/app-effort/mcp_sdk.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 4033
+    },
+    {
+      "path": "experiments/app-effort/prepare.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 2586
+    },
+    {
+      "path": "experiments/app-effort/qualify.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 4536
+    },
+    {
+      "path": "experiments/app-effort/report.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 9654
+    },
+    {
+      "path": "experiments/app-effort/run-v3.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 8020
+    },
+    {
+      "path": "experiments/app-effort/run.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 6754
+    },
+    {
+      "path": "experiments/app-effort/stage.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 760
+    },
+    {
+      "path": "experiments/app-effort/status.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 325
+    },
+    {
+      "path": "experiments/app-effort/try-demo.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 342
+    },
+    {
+      "path": "experiments/developer-loop/benchmark.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 3374
+    },
+    {
+      "path": "experiments/developer-loop/dev.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 5392
+    },
+    {
+      "path": "experiments/developer-loop/diagnostics.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 2213
+    },
+    {
+      "path": "experiments/developer-loop/prepare.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 3291
+    },
+    {
+      "path": "experiments/developer-loop/replay.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 3020
+    },
+    {
       "path": "experiments/development-task/booking_sdk.py",
       "language": "Python",
       "area": "Unreleased experiments",
@@ -1059,6 +1300,54 @@
       "language": "Python",
       "area": "Unreleased experiments",
       "bytes": 9866
+    },
+    {
+      "path": "experiments/diagnostics-050/bootstrap.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 1761
+    },
+    {
+      "path": "experiments/diagnostics-050/diagnostics.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 6132
+    },
+    {
+      "path": "experiments/diagnostics-050/prepare.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 4239
+    },
+    {
+      "path": "experiments/intelligence/build.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 2741
+    },
+    {
+      "path": "experiments/intelligence/harness.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 8861
+    },
+    {
+      "path": "experiments/intelligence/import_verify.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 3359
+    },
+    {
+      "path": "experiments/intelligence/prepare.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 2601
+    },
+    {
+      "path": "experiments/intelligence/test_harness.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 5621
     },
     {
       "path": "experiments/nested-owned/compiler-extension.flow",
@@ -1181,6 +1470,72 @@
       "bytes": 11838
     },
     {
+      "path": "experiments/sdk-packages/build.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 5450
+    },
+    {
+      "path": "experiments/sdk-packages/compose.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 2351
+    },
+    {
+      "path": "experiments/sdk-packages/io-policy.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 743
+    },
+    {
+      "path": "experiments/sdk-packages/package.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 3991
+    },
+    {
+      "path": "experiments/sdk-packages/prepare.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 4259
+    },
+    {
+      "path": "experiments/sdk-packages/sdk.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 3932
+    },
+    {
+      "path": "experiments/sdk-packages/transport.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 1768
+    },
+    {
+      "path": "experiments/sdk-task/grade.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 15736
+    },
+    {
+      "path": "experiments/sdk-task/output_faults.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 2845
+    },
+    {
+      "path": "experiments/sdk-task/run.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 15494
+    },
+    {
+      "path": "experiments/sdk-task/text_sdk.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 1644
+    },
+    {
       "path": "experiments/typed-booking/agent.flow",
       "language": "RiverFlow",
       "area": "Unreleased experiments",
@@ -1190,19 +1545,19 @@
       "path": "experiments/typed-booking/lib/app-server.flow",
       "language": "RiverFlow",
       "area": "Unreleased experiments",
-      "bytes": 3276
+      "bytes": 4330
     },
     {
       "path": "experiments/typed-booking/lib/booking.flow",
       "language": "RiverFlow",
       "area": "Unreleased experiments",
-      "bytes": 1469
+      "bytes": 1576
     },
     {
       "path": "experiments/typed-booking/lib/forms.flow",
       "language": "RiverFlow",
       "area": "Unreleased experiments",
-      "bytes": 7568
+      "bytes": 7573
     },
     {
       "path": "experiments/typed-booking/lib/json.flow",
@@ -1214,7 +1569,7 @@
       "path": "experiments/typed-booking/lib/store.flow",
       "language": "RiverFlow",
       "area": "Unreleased experiments",
-      "bytes": 13297
+      "bytes": 13919
     },
     {
       "path": "experiments/typed-booking/lib/transport.flow",
@@ -1226,7 +1581,7 @@
       "path": "experiments/typed-booking/lib/ui.flow",
       "language": "RiverFlow",
       "area": "Unreleased experiments",
-      "bytes": 20997
+      "bytes": 21452
     },
     {
       "path": "experiments/typed-booking/main.flow",
@@ -1238,7 +1593,31 @@
       "path": "experiments/typed-booking/web.flow",
       "language": "RiverFlow",
       "area": "Unreleased experiments",
-      "bytes": 13169
+      "bytes": 13081
+    },
+    {
+      "path": "experiments/typed-requests/lib/booking-request.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 1561
+    },
+    {
+      "path": "experiments/typed-requests/lib/request-fields.flow",
+      "language": "RiverFlow",
+      "area": "Unreleased experiments",
+      "bytes": 1090
+    },
+    {
+      "path": "experiments/typed-requests/prepare.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 1134
+    },
+    {
+      "path": "experiments/typed-requests/stage.py",
+      "language": "Python",
+      "area": "Unreleased experiments",
+      "bytes": 1041
     },
     {
       "path": "native/attendance.rf2",
@@ -1341,6 +1720,42 @@
       "language": "Shell",
       "area": "MCP integration",
       "bytes": 375
+    },
+    {
+      "path": "sdk/v1/collections.flow",
+      "language": "RiverFlow",
+      "area": "Other development source",
+      "bytes": 2820
+    },
+    {
+      "path": "sdk/v1/io.flow",
+      "language": "RiverFlow",
+      "area": "Other development source",
+      "bytes": 2618
+    },
+    {
+      "path": "sdk/v1/json.flow",
+      "language": "RiverFlow",
+      "area": "Other development source",
+      "bytes": 12875
+    },
+    {
+      "path": "sdk/v1/mcp.flow",
+      "language": "RiverFlow",
+      "area": "Other development source",
+      "bytes": 10107
+    },
+    {
+      "path": "sdk/v1/sha256.rf2",
+      "language": "RiverFlow",
+      "area": "Other development source",
+      "bytes": 9050
+    },
+    {
+      "path": "sdk/v1/text.flow",
+      "language": "RiverFlow",
+      "area": "Other development source",
+      "bytes": 8588
     },
     {
       "path": "site/app.mjs",
@@ -1481,6 +1896,18 @@
       "bytes": 1057
     },
     {
+      "path": "tests/standalone/app_effort_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 6784
+    },
+    {
+      "path": "tests/standalone/app_policy_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 5409
+    },
+    {
       "path": "tests/standalone/application_values_verify.py",
       "language": "Python",
       "area": "Verification and independent oracles",
@@ -1538,7 +1965,7 @@
       "path": "tests/standalone/booking_web_verify.py",
       "language": "Python",
       "area": "Verification and independent oracles",
-      "bytes": 10856
+      "bytes": 11088
     },
     {
       "path": "tests/standalone/browser_worker_verify.mjs",
@@ -1665,6 +2092,18 @@
       "language": "Python",
       "area": "Verification and independent oracles",
       "bytes": 8399
+    },
+    {
+      "path": "tests/standalone/developer_loop_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 12694
+    },
+    {
+      "path": "tests/standalone/diagnostics_050_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 11175
     },
     {
       "path": "tests/standalone/diagnostics_verify.py",
@@ -2111,6 +2550,30 @@
       "bytes": 3822
     },
     {
+      "path": "tests/standalone/sdk_build_controller_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 3297
+    },
+    {
+      "path": "tests/standalone/sdk_packages_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 11671
+    },
+    {
+      "path": "tests/standalone/sdk_task_controller_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 2394
+    },
+    {
+      "path": "tests/standalone/sdk_transport_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 12592
+    },
+    {
       "path": "tests/standalone/sha256_blocks_armv8.s",
       "language": "Assembly",
       "area": "Verification and independent oracles",
@@ -2231,10 +2694,22 @@
       "bytes": 9475
     },
     {
+      "path": "tests/standalone/try_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 7300
+    },
+    {
       "path": "tests/standalone/typed_booking_verify.py",
       "language": "Python",
       "area": "Verification and independent oracles",
       "bytes": 19460
+    },
+    {
+      "path": "tests/standalone/typed_requests_verify.py",
+      "language": "Python",
+      "area": "Verification and independent oracles",
+      "bytes": 7698
     },
     {
       "path": "tests/standalone/unicode_lines_verify.py",
@@ -2373,6 +2848,12 @@
       "language": "Python",
       "area": "Build and publishing tools",
       "bytes": 3467
+    },
+    {
+      "path": "tools/benchmark-sensor-audit.py",
+      "language": "Python",
+      "area": "Build and publishing tools",
+      "bytes": 4317
     },
     {
       "path": "tools/benchmark-sha-acceleration.py",
