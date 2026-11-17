@@ -1,0 +1,16 @@
+{
+  "schema": "rf2.ai-completion.engineering-descendant.v1",
+  "task": "D",
+  "condition": "cli",
+  "engineerAssisted": true,
+  "AIAlonePassed": false,
+  "parentSource": null,
+  "basis": "Independent implementation of frozen TASK-D contract; provider length-capped incomplete output is not an accepted source proposal",
+  "failedProviderReceipt": "/Users/ik/Downloads/Varuna/RiverFlow-next-20261117/artifacts/ai-completion-20261117/campaign-1/attempt-2-D-cli/round-1/RECEIPT.json",
+  "failedProviderReceiptSHA256": "cf3e7ba7a905c74c9751e3330bcec3eaf01d55602a816ae448c22e13bc738fcb",
+  "sourceSHA256": "332f27ea23224fd6049c986b92e61d06ee6666a1559086517ee8afb9a26811df",
+  "algorithm": "Validate each nonempty1..32byte ID; bounded pairwise scan of earlier physical lines for exact duplicates; count physical firstrepeat; append typedreportonlyafterallvalidation",
+  "goldenSourceCopied": false,
+  "providerCalls": 0,
+  "rootReviewPending": true
+}

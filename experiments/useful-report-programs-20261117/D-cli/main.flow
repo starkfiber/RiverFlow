@@ -1,0 +1,80 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/text-report-cli.flow"
+
+fn identifier_seen_before(data,offset,length)
+ let prior_cursor=TextCursor(0,0,0,0)
+ let prior_span=TextSpan(0,0)
+ while text_next_line(data,offset,prior_cursor,prior_span)
+  if prior_span.length==length
+   if text_equal(data+prior_span.start,prior_span.length,data+offset,length)
+    return 1
+   end
+  end
+ end
+ return 0
+end
+
+fn text_report_fields(input:TextReportInput,report:Report,out:Writer):IO
+ let cursor=TextCursor(0,0,0,0)
+ let span=TextSpan(0,0)
+ let physical_line=0
+ let identifiers=0
+ let distinct=0
+ let duplicates=0
+ let first_duplicate=0
+ while text_next_line(input.data,input.size,cursor,span)
+  set physical_line=physical_line+1
+  if span.length
+   if span.length>32
+    return err(2)
+   end
+   let position=0
+   while position<span.length
+    let symbol=load8(input.data+span.start+position)
+    let valid=0
+    if all(symbol>=65,symbol<=90)
+     set valid=1
+    end
+    if all(symbol>=48,symbol<=57)
+     set valid=1
+    end
+    if symbol==95
+     set valid=1
+    end
+    if symbol==45
+     set valid=1
+    end
+    if valid==0
+     return err(2)
+    end
+    set position=position+1
+   end
+   set identifiers=identifiers+1
+   if identifier_seen_before(input.data,span.start,span.length)
+    set duplicates=duplicates+1
+    if first_duplicate==0
+     set first_duplicate=physical_line
+    end
+   else
+    set distinct=distinct+1
+   end
+  end
+ end
+ if cursor.status
+  return err(2)
+ end
+ do report_text(report,out,"Path",4,input.path,io_size(input.path))
+ do report_number(report,out,"Identifiers",11,identifiers)
+ do report_number(report,out,"Distinct",8,distinct)
+ do report_number(report,out,"Duplicate occurrences",21,duplicates)
+ if first_duplicate
+  do report_number(report,out,"First duplicate line",20,first_duplicate)
+ else
+  do report_text(report,out,"First duplicate line",20,"none",4)
+ end
+ return ok(0)
+end
+
+fn main(argc,argv)
+ return text_report_entry(argc,argv,"Identifier audit",16,0)
+end
