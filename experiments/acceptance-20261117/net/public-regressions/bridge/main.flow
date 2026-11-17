@@ -1,0 +1,92 @@
+profile RF2_SYSTEM_A64_V1
+use "bridge.flow"
+# stdin: repeated lengthLE16, ingress8, flags8=0, logical_tickLE32, frame[length].
+# stdout: resultLE16, lengthLE16, unchanged frame only when result low2 !=0.
+# At most4096 frames; clean EOF only between records; short I/O is handled.
+fn read_exact(fd,p,n)
+ let at=0
+ while at<n
+  let got=read(fd,p+at,n-at)
+  if any(got==0,got>>63)
+   return 0
+  end
+  set at=at+got
+ end
+ return 1
+end
+fn write_exact(fd,p,n)
+ let at=0
+ while at<n
+  let wrote=write(fd,p+at,n-at)
+  if any(wrote==0,wrote>>63)
+   return 0
+  end
+  set at=at+wrote
+ end
+ return 1
+end
+fn main(argc,argv)
+ # Darwin adapter: report EPIPE through write_exact instead of process SIGPIPE.
+ # fcntl(F_SETNOSIGPIPE) affects only this process descriptor, no global signal change.
+ if syscall6(92,1,73,1,0,0,0)!=0
+  return 3
+ end
+ let frame=BridgeFrame()
+ let meta=BridgeMeta()
+ let mac=BridgeMac()
+ let ports=BridgePort()
+ let seen=BridgeSeen()
+ let clock=BridgeClock()
+ let header=buffer("bridge_header",8)
+ let bytes=buffer("bridge_frame",1514)
+ let out=buffer("bridge_out",4)
+ let count=0
+ while 1
+  let got=read(0,header,1)
+  if got==0
+   return 0
+  end
+  if got>>63
+   return 2
+  end
+  if count==4096
+   return 2
+  end
+  if read_exact(0,header+1,7)==0
+   return 2
+  end
+  let n=load8(header)+load8(header+1)*256
+  if any(n>1514,load8(header+3)!=0)
+   return 2
+  end
+  if read_exact(0,bytes,n)==0
+   return 2
+  end
+  let i=0
+  while i<n
+   set frame[i]=load8(bytes+i)
+   set i=i+1
+  end
+  set meta[0]=load8(header+2)
+  set meta[1]=load8(header+4)+load8(header+5)*256+load8(header+6)*65536+load8(header+7)*16777216
+  let result=bridge_frame(frame,n,meta,mac,ports,seen,clock)
+  let size=0
+  if (result&3)!=0
+   set size=n
+  end
+  do store8(out,result&255)
+  do store8(out+1,(result>>8)&255)
+  do store8(out+2,size&255)
+  do store8(out+3,(size>>8)&255)
+  if write_exact(1,out,4)==0
+   return 3
+  end
+  if size!=0
+   if write_exact(1,bytes,size)==0
+    return 3
+   end
+  end
+  set count=count+1
+ end
+ return 0
+end

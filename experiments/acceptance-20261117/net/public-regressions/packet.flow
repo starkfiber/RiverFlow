@@ -1,0 +1,141 @@
+module rf2net_packet
+
+array Packet(u8,2048)
+fn decide(p:Packet,n)
+ if n<20
+  return 0
+ end
+ if p[0]!=69
+  return 0
+ end
+ let total=p[2]*256+p[3]
+ if any(total!=n,total<28)
+  return 0
+ end
+ # Reject reserved flag, MF and all fragment offsets; DF is supported.
+ if (p[6]&191)!=0
+  return 0
+ end
+ if p[7]!=0
+  return 0
+ end
+ if p[8]==0
+  return 0
+ end
+ let sum=0
+ let i=0
+ while i<20
+  set sum=sum+p[i]*256+p[i+1]
+  set i=i+2
+ end
+ while sum>65535
+  set sum=(sum&65535)+(sum>>16)
+ end
+ if sum!=65535
+  return 0
+ end
+ # Only a lab DNS request: explicit private source, fixed destination.
+ if any(p[9]!=17,p[12]!=10)
+  return 0
+ end
+ if any(p[16]!=192,any(p[17]!=0,any(p[18]!=2,p[19]!=53)))
+  return 0
+ end
+ if any(p[22]!=0,p[23]!=53)
+  return 0
+ end
+ if p[24]*256+p[25]!=n-20
+  return 0
+ end
+ # IPv4 permits an absent UDP checksum. Verify every supplied checksum.
+ if any(p[26]!=0,p[27]!=0)
+  let udp_sum=17+n-20
+  let j=12
+  while j<20
+   set udp_sum=udp_sum+p[j]*256+p[j+1]
+   set j=j+2
+  end
+  set j=20
+  while j+1<n
+   set udp_sum=udp_sum+p[j]*256+p[j+1]
+   set j=j+2
+  end
+  if j<n
+   set udp_sum=udp_sum+p[j]*256
+  end
+  while udp_sum>65535
+   set udp_sum=(udp_sum&65535)+(udp_sum>>16)
+  end
+  if udp_sum!=65535
+   return 0
+  end
+ end
+ return 1
+end
+fn frame(p:Packet,n)
+ if n<14
+  return 0
+ end
+ let kind=p[12]*256+p[13]
+ let base=14
+ if kind==33024
+  if n<18
+   return 0
+  end
+  if ((p[14]*256+p[15])&4095)!=500
+   return 0
+  end
+  set kind=p[16]*256+p[17]
+  set base=18
+ end
+ let size=0
+ if kind==2048
+  if n<base+20
+   return 0
+  end
+  set size=p[base+2]*256+p[base+3]
+  if size>1500
+   return 0
+  end
+ else
+  if kind!=34916
+   return 0
+  end
+  if n<base+8
+   return 0
+  end
+  if any(p[base]!=17,p[base+1]!=0)
+   return 0
+  end
+  let session=p[base+2]*256+p[base+3]
+  if any(session==0,session==65535)
+   return 0
+  end
+  let length=p[base+4]*256+p[base+5]
+  if any(length<22,length>1494)
+   return 0
+  end
+  if any(p[base+6]!=0,p[base+7]!=33)
+   return 0
+  end
+  set size=length-2
+  set base=base+8
+ end
+ if any(size<20,size>n-base)
+  return 0
+ end
+ # Ethernet padding is accepted only up to the minimum FCS-free frame size.
+ let expected=base+size
+ if n!=expected
+  if any(expected>=60,n!=60)
+   return 0
+  end
+ end
+ let ip=Packet()
+ let i=0
+ while i<size
+  set ip[i]=p[base+i]
+  set i=i+1
+ end
+ return decide(ip,size)
+end

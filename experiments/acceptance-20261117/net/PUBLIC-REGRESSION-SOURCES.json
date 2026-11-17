@@ -1,0 +1,31 @@
+{
+  "sources": {
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/main.flow": "2524b436e2cecbb02dbf19b768e08a4b66dfe853a1ca6a09444f3f2da7a2a33a",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/packet.flow": "9e22aafd9699778d24e88729dee386b411b278c8858b8cb5183cb221dc549fc2",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/ethernet.flow": "99836339b87dec79fb4f813ad1587c56c98f2ee19725c53215bb5e1b0e7c814c",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/binding.flow": "7198cbbc1dd9f7d5283e8831b1556d13c3a2bf1ab56d2af8fb945c25262b8273",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/bound_main.flow": "015a55937c05644f7c381e4d19f6b088b6e270377015304c2a42df6cc7ceda24",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/verify.py": "650453186dcfad566c4d59d8841476f2240ae5c67846c966b6c1f5d22f773a89",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/frames_verify.py": "365ca64e719d6bed947910679a8dd4d689568e19901bcb90635c405d3b85c3d0",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/checksum_verify.py": "f9f3539f1f0f9cce369a97bc2c72060f16d82c573a15db17163ac3ae20a6c8d3",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/binding_verify.py": "05eb621cb05cf4ae93553bff7c04ab7b444dc3d1fd726955c0f2090865108c63",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/bridge/main.flow": "6d81506c5d1bd22414d8cbe4f64f033a99e2947d45d202d0c34f1547618e2fcc",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/bridge/bridge.flow": "fec3bc81fbe98d0f80b759bc8cfc0c43c49fae6dab4a21e99b6304b0262400a5",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/bridge/verify.py": "ae0a89179b6005976b3296f701317ec3c37ac0b5805f697f3e7f5fd5fab20669",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/bridge/mutation_verify.py": "ff5d623fe27fec9477b3c0519f45cd1c0dda73c3054cb9e10927a6a08bdf34b6",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/owned-queues/main.flow": "0147274c1f3ab797da4bcd92ae52b3ca7e2ecc3144652f85f12055e96f691a16",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/owned-queues/queues.flow": "6c9abef3616eaa531d0bfe8c34ab9c7ea574877fd2f4a0a24eb204d2bc194c55",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/owned-queues/verify.py": "ab16376a31b0c34a13b08cfb8f4462989cf0bbdfa50b8c24b2ba46bf76b3904e",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/intent-channel/admission.flow": "47af6b182efde17b4aa0da0d6f79e5deaec83b98d8b47b971251bc42b839a3bb",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/intent-channel/verify.py": "2a4eaf0a5e37d26e6dfb074bd0a96879311a90ac43ed25deb474ac589d04419d",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/packet-queues/main.flow": "45b77219bf01aefa67eedbcaab615e772a5cb1261b3b20e41e2b4ca53ee51d87",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/packet-queues/packets.flow": "44864e11c6a4434ac8c5df3b0f33f17ab739be8c0f3f11db5bbee9401fb44ca7",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/packet-queues/verify_v2.py": "d4e1d9fa52f7d2216504e58eb3e8fe596ed954d995ff71e50b0b912d6a8c41dc"
+  },
+  "privateSourcesExcluded": [
+    "control/private-recovered health kernels",
+    "recovery_probes.py recovered company modules",
+    "management historical company-derived health adapter"
+  ],
+  "scope": "Self-contained source-only offline public-role kernel fixtures; no company records/credentials or remote calls"
+}

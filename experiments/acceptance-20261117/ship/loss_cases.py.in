@@ -1,0 +1,66 @@
+   # Additional local transport fault controls; the guest and authenticated
+   # request bytes are real, while delivery/drop policy is owned by this fixture.
+   probe=Client(store,exchange);probe.connect()
+   event={'calls':0}
+   def drop_request_once(wire):
+    event['calls']+=1
+    if event['calls']==1:raise TimeoutError('fixture dropped before guest')
+    return exchange(wire,'request-after-drop')
+   probe.exchange=drop_request_once
+   seq_before=memory(0x5b058,8)
+   response=probe.call(4)
+   assert event['calls']==2 and response[2]==0
+   assert int.from_bytes(memory(0x5b058,8),'little')>=int.from_bytes(seq_before,'little')+2
+   remember('lost-request-observation-retries-with-fresh-nonce')
+   event={'calls':0}
+   def drop_reply_once(wire):
+    event['calls']+=1;answer=exchange(wire,'reply-drop-after-guest')
+    if event['calls']==1:raise TimeoutError('fixture dropped authenticated reply')
+    return answer
+   probe.exchange=drop_reply_once
+   start_capture=len(captures);response=probe.call(4)
+   assert event['calls']==2 and response[2]==0
+   pairs=captures[start_capture:];assert len(pairs)==2 and pairs[0]['RXcipher']!=pairs[1]['RXcipher']
+   remember('lost-reply-observation-retries-without-nonce-reuse')
+   probe.exchange=exchange;old_response=bytes.fromhex(captures[-1]['TXcipher'])
+   event={'calls':0}
+   def delayed_reply(wire):
+    event['calls']+=1;exchange(wire,'fresh-query-stale-response-delivered');return old_response
+   probe.exchange=delayed_reply
+   try:probe.call(4);raise AssertionError('stale-sequence-response-accepted')
+   except ValueError as reply_error:assert str(reply_error)=='reply correlation'
+   assert event['calls']==1;remember('delayed-older-reply-is-not-misassociated-or-retried')
+   event={'calls':0}
+   def dropped_forever(wire):
+    event['calls']+=1;raise TimeoutError('fixture discards request')
+   probe.exchange=dropped_forever;admitted=memory(0x5b058,8)
+   try:probe.call(4);raise AssertionError('exhausted-retries-accepted')
+   except ConnectionError as transport_error:assert str(transport_error)=='bounded reconnect exhausted'
+   assert event['calls']==3 and memory(0x5b058,8)==admitted
+   remember('reconnect-exhaustion-stops-after-three-attempts')
+   probe.exchange=exchange;assert probe.call(4)[2]==0
+   preserve=Client(store,exchange,mode=1);preserve.connect()
+   assert preserve.call(1,55,1000,b'hold')[2]==0
+   event={'calls':0}
+   def uncertain_completion(wire):
+    event['calls']+=1;answer=exchange(wire,'preserve-completion-reply-lost')
+    if event['calls']==1:raise TimeoutError('fixture loses mutation reply')
+    return answer
+   preserve.exchange=uncertain_completion
+   unknown=False;returned=None
+   try:returned=preserve.call(2,55)
+   except UnknownOutcome:unknown=True
+   assert unknown and event['calls']==1,('unsafe-mutation-replayed',event['calls'],returned)
+   preserve.exchange=exchange;assert preserve.call(4)[3:6]==(0,0,0)
+   remember('uncertain-preserve-mutation-never-retransmits')
+   event={'calls':0}
+   preserve.exchange=dropped_forever;unchanged=memory(0x5a000,96);admitted=memory(0x5b058,8)
+   try:preserve.call(1,56,1000,b'next');raise AssertionError('uncertain-preserve-submit-accepted')
+   except UnknownOutcome:pass
+   assert event['calls']==1 and memory(0x5a000,96)==unchanged and memory(0x5b058,8)==admitted
+   remember('preserve-submit-timeout-stops-before-another-send')
+   latest=Client(store,exchange);latest.connect();event={'calls':0};latest.exchange=drop_reply_once
+   response=latest.call(1,71,1000,b'latest')
+   assert event['calls']==2 and response[2:6]==(3,71,6,int.from_bytes(b'latest','little'))
+   latest.exchange=exchange;assert latest.call(4)[3:6]==(71,6,int.from_bytes(b'latest','little'))
+   remember('latest-reply-loss-retains-one-correct-value')

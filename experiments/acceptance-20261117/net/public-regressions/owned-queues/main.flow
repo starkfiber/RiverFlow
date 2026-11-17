@@ -1,0 +1,56 @@
+profile RF2_SYSTEM_A64_V1
+use "queues.flow"
+fn main(argc, argv)
+ do q_init()
+ let input = buffer("queue_input", 64)
+ let output = buffer("queue_output", 64)
+ let count = 0
+ while count < 100000
+  let got = 0
+  while got < 64
+   let n = read(0, input + got, 64 - got)
+   if n == 0
+    if got != 0
+     return 2
+    end
+    return 0
+   end
+   if n > 64 - got
+    return 3
+   end
+   set got = got + n
+  end
+  let op = load64(input)
+  let slot = load64(input + 8)
+  let result = 99
+  if op == 0
+   set result = q_bind(slot, load64(input + 16), load64(input + 24), load64(input + 48))
+  end
+  if op == 1
+   set result = q_revoke(slot)
+  end
+  if op == 2
+   set result = q_submit(slot, load64(input + 16), load64(input + 24), load64(input + 32), load64(input + 40), load64(input + 56))
+  end
+  if op == 3
+   set result = q_take()
+  end
+  do fill_zero(output, 64)
+  do store64(output, result)
+  do store64(output + 8, q_generation())
+  do store64(output + 16, load64(q_meta() + 24))
+  if slot < 4
+   let p = q_base(slot)
+   do store64(output + 24, load64(p + 16))
+   do store64(output + 32, load64(p + 24))
+   do store64(output + 40, load64(p + 40))
+   do store64(output + 48, load64(p + 48))
+  end
+  do store64(output + 56, load64(q_meta() + 16))
+  if write(1, output, 64) != 64
+   return 4
+  end
+  set count = count + 1
+ end
+ return 5
+end

@@ -1,0 +1,21 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/report.flow"
+# This unused helper demonstrates checked IO syntax, not implicit startup IO.
+fn read_size(path):IO
+ let data=buffer("style_read",4097)
+ let info=TextInfo(0,0,0,0)
+ let n=try io_regular(path,data,4096)
+ do text_measure(data,n,info)
+ if info.status
+  return err(info.status)
+ end
+ return ok(n)
+end
+fn main(argc,argv)
+ let out=Writer(buffer("style_report",512),512,0,0)
+ let report=Report(0,0,0)
+ do report_begin(report,out,0,"Example",7)
+ do report_number(report,out,"Arguments",9,argc)
+ do report_end(report,out)
+ return out.error
+end

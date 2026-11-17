@@ -1,0 +1,100 @@
+module json_spans
+# Candidate for sdk/v1/text.flow writer_json; no production override.
+# Ordinary-byte spans avoid one Writer bounds check and function call per byte.
+# A short remaining capacity still emits the exact prefix the scalar writer did.
+# Escapes retain the existing atomic writer_text/writer_bytes failure semantics.
+fn json_span_prefix(out:Writer,p,n)
+ if out.error
+  return 0
+ end
+ if out.used>out.capacity
+  return writer_bytes(out,p,n)
+ end
+ let available=out.capacity-out.used
+ if n>available
+  do writer_bytes(out,p,available)
+  set out.error=28
+  return 0
+ end
+ return writer_bytes(out,p,n)
+end
+fn writer_json_spans(out:Writer,p,n)
+ # Preserve the original forward-copy semantics if source aliases output.
+ if p>=out.data
+  if p-out.data<out.capacity
+   return writer_json(out,p,n)
+  end
+ else
+  if out.data-p<n
+   return writer_json(out,p,n)
+  end
+ end
+ # Dense escaping has no useful spans. A bounded prefix probe selects the
+ # original scalar implementation rather than paying span bookkeeping per byte.
+ if n<32
+  return writer_json(out,p,n)
+ end
+ let sampled=0
+ let escapes=0
+ while sampled<32
+  let byte=load8(p+sampled)
+  if (byte<32)|(byte==34)|(byte==92)
+   set escapes=escapes+1
+  end
+  set sampled=sampled+1
+ end
+ if escapes>=8
+  return writer_json(out,p,n)
+ end
+ return writer_json_disjoint_spans(out,p,n)
+end
+fn writer_json_disjoint_spans(out:Writer,p,n)
+ do writer_text(out,"\"")
+ let i=0
+ let c=0
+ while all(i<n,out.error==0)
+  let start=i
+  let plain=1
+  while all(i<n,plain)
+   set c=load8(p+i)
+   if (c<32)|(c==34)|(c==92)
+    set plain=0
+   else
+    set i=i+1
+   end
+  end
+  if i>start
+   do json_span_prefix(out,p+start,i-start)
+  end
+  if all(i<n,out.error==0)
+   set c=load8(p+i)
+   if c==34
+    do writer_text(out,"\\\"")
+   else
+    if c==92
+     do writer_text(out,"\\\\")
+    else
+     if c==10
+      do writer_text(out,"\\n")
+     else
+      if c==13
+       do writer_text(out,"\\r")
+      else
+       if c==9
+        do writer_text(out,"\\t")
+       else
+        let hex="0123456789abcdef"
+        do writer_text(out,"\\u00")
+        do writer_bytes(out,hex+(c>>4),1)
+        do writer_bytes(out,hex+(c&15),1)
+       end
+      end
+     end
+    end
+   end
+   set i=i+1
+  end
+ end
+ do writer_text(out,"\"")
+ return out.error==0
+end

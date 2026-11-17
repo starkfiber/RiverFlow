@@ -1,0 +1,247 @@
+module rf2net_lease_store
+use "dhcp.flow"
+# Original fixed256-byte append-only snapshots. FNV64 detects accidental corruption,
+# not malicious edits. Private user-owned files; no hostile same-user isolation.
+fn lease_read(fd,p,n)
+ let at=0
+ while at<n
+  let got=read(fd,p+at,n-at)
+  if any(got==0,got>>63)
+   return 0
+  end
+  set at=at+got
+ end
+ return 1
+end
+fn lease_write(fd,p,n)
+ let at=0
+ while at<n
+  let got=write(fd,p+at,n-at)
+  if any(got==0,got>>63)
+   return 0
+  end
+  set at=at+got
+ end
+ return 1
+end
+fn lease_sync(fd)
+ return syscall6(95,fd,0,0,0,0,0)
+end
+fn lease_truncate(fd,n)
+ return syscall6(201,fd,n,0,0,0,0)
+end
+fn lease_hash(p,n)
+ let hash=14695981039346656037
+ let i=0
+ while i<n
+  set hash=(hash^load8(p+i))*1099511628211
+  set i=i+1
+ end
+ return hash
+end
+fn lease_mac_valid(mac)
+ if any(mac==0,mac>281474976710655)
+  return 0
+ end
+ if ((mac>>40)&1)!=0
+  return 0
+ end
+ return 1
+end
+fn lease_pack(p,gen,reserved:LeaseReserve,states:LeaseState,owners:LeaseOwner,until:LeaseUntil,xids:LeaseXid,clock:LeaseClock)
+ do store64(p,0x2131304844324652)
+ do store64(p+8,gen)
+ do store64(p+16,clock[0])
+ do store64(p+24,clock[1])
+ let i=0
+ while i<5
+  do store64(p+32+i*8,reserved[i])
+  do store64(p+72+i*32,states[i])
+  do store64(p+80+i*32,owners[i])
+  do store64(p+88+i*32,until[i])
+  do store64(p+96+i*32,xids[i])
+  set i=i+1
+ end
+ do store64(p+232,0)
+ do store64(p+240,lease_hash(p,240))
+ do store64(p+248,0x2131444e45324652)
+ return 256
+end
+# Validate all bytes and semantics before copying a record into active state.
+fn lease_unpack(p,gen,reserved:LeaseReserve,states:LeaseState,owners:LeaseOwner,until:LeaseUntil,xids:LeaseXid,clock:LeaseClock)
+ if any(load64(p)!=0x2131304844324652,any(load64(p+8)!=gen,load64(p+248)!=0x2131444e45324652))
+  return 0
+ end
+ if any(load64(p+232)!=0,load64(p+240)!=lease_hash(p,240))
+  return 0
+ end
+ let now=load64(p+16)
+ let known=load64(p+24)
+ if any(known>1,any(now>4294967295,all(known==0,now!=0)))
+  return 0
+ end
+ if gen>1
+  if any(now<clock[0],known<clock[1])
+   return 0
+  end
+ end
+ if gen==1
+  if any(now!=0,known!=0)
+   return 0
+  end
+ end
+ let i=0
+ while i<5
+  let reserve=load64(p+32+i*8)
+  let state=load64(p+72+i*32)
+  let owner=load64(p+80+i*32)
+  let expiry=load64(p+88+i*32)
+  let xid=load64(p+96+i*32)
+  if gen>1
+   if reserve!=reserved[i]
+    return 0
+   end
+  end
+  if all(reserve!=0,lease_mac_valid(reserve)==0)
+   return 0
+  end
+  if state>3
+   return 0
+  end
+  if state==0
+   if any(owner!=0,any(expiry!=0,xid!=0))
+    return 0
+   end
+  else
+   if any(known==0,any(expiry==0,any(expiry>now+600,xid>4294967295)))
+    return 0
+   end
+   if state==3
+    if any(owner!=0,xid!=0)
+     return 0
+    end
+   else
+    if lease_mac_valid(owner)==0
+     return 0
+    end
+    if all(reserve!=0,reserve!=owner)
+     return 0
+    end
+   end
+  end
+  let k=0
+  while k<5
+   if all(owner!=0,all(k!=i,load64(p+32+k*8)==owner))
+    return 0
+   end
+   set k=k+1
+  end
+  let j=0
+  while j<i
+   if all(reserve!=0,load64(p+32+j*8)==reserve)
+    return 0
+   end
+   if all(owner!=0,load64(p+80+j*32)==owner)
+    return 0
+   end
+   set j=j+1
+  end
+  set i=i+1
+ end
+ set i=0
+ while i<5
+  set reserved[i]=load64(p+32+i*8)
+  set states[i]=load64(p+72+i*32)
+  set owners[i]=load64(p+80+i*32)
+  set until[i]=load64(p+88+i*32)
+  set xids[i]=load64(p+96+i*32)
+  set i=i+1
+ end
+ set clock[0]=now
+ set clock[1]=known
+ return 1
+end
+fn lease_parent_sync(path)
+ let parent=buffer("lease_parent",1024)
+ let n=0
+ let slash=0
+ while load8(path+n)!=0
+  if n==1023
+   return 0
+  end
+  if load8(path+n)==47
+   set slash=n+1
+  end
+  set n=n+1
+ end
+ if slash==0
+  do store8(parent,46)
+  do store8(parent+1,0)
+ else
+  let size=slash-1
+  if size==0
+   set size=1
+  end
+  let i=0
+  while i<size
+   do store8(parent+i,load8(path+i))
+   set i=i+1
+  end
+  do store8(parent+size,0)
+ end
+ let fd=open(parent,1048836,0)
+ if fd>>63
+  return 0
+ end
+ let rc=syscall6(95,fd,0,0,0,0,0)
+ let closed=close(fd)
+ if any(rc!=0,closed!=0)
+  return 0
+ end
+ return 1
+end
+fn lease_file_open(path,create)
+ let flags=262
+ if create==1
+  set flags=2822
+ end
+ let fd=open(path,flags,384)
+ if fd>>63
+  return 18446744073709551615
+ end
+ let st=buffer("lease_stat",144)
+ if any(syscall6(131,fd,6,0,0,0,0)!=0,syscall6(339,fd,st,0,0,0,0)!=0)
+  do close(fd)
+  return 18446744073709551615
+ end
+ if any((load32(st+4)&61440)!=32768,any((load32(st+4)>>16)!=1,any((load32(st+4)&511)!=384,load32(st+16)!=syscall6(25,0,0,0,0,0,0))))
+  do close(fd)
+  return 18446744073709551615
+ end
+ return fd
+end
+# Commit before replying. A failed append attempts truncate+sync rollback; any
+# uncertainty still returns failure and the caller must stop, never emit an ACK.
+fn lease_commit(fd,p,previous)
+ let end=syscall6(199,fd,0,2,0,0,0)
+ if any(end>>63,end!=previous)
+  return 0
+ end
+ let wrote=lease_write(fd,p,256)
+ let synced=1
+ if wrote==1
+  if lease_sync(fd)!=0
+   set synced=0
+  end
+ end
+ if all(wrote==1,synced==1)
+  return 1
+ end
+ if lease_truncate(fd,previous)!=0
+  return 0
+ end
+ if lease_sync(fd)!=0
+  return 0
+ end
+ return 0
+end

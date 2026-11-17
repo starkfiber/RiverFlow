@@ -1,0 +1,57 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/report.flow"
+fn work(path,format):IO
+ let info=TextInfo(0,0,0,0)
+ let cursor=TextCursor(0,0,0,0)
+ let span=TextSpan(0,0)
+ let out=Writer(buffer("reference_output",32768),32768,0,0)
+ let report=Report(0,0,0)
+ let data=buffer("reference_data",4097)
+ let n=try io_regular(path,data,4096)
+ do text_measure(data,n,info)
+ if info.status
+  return err(info.status)
+ end
+ let longest=0
+ let more=text_next_line(data,n,cursor,span)
+ while more
+  if span.length>longest
+   set longest=span.length
+  end
+  set more=text_next_line(data,n,cursor,span)
+ end
+ if cursor.status
+  return err(cursor.status)
+ end
+ do report_begin(report,out,format,"Line metrics",12)
+ do report_text(report,out,"Path",4,path,io_size(path))
+ do report_number(report,out,"Lines",5,info.lines)
+ do report_number(report,out,"Words",5,info.words)
+ do report_number(report,out,"Longest bytes",13,longest)
+ do report_end(report,out)
+ if out.error
+  return err(out.error)
+ end
+ do try io_write_no_sigpipe(1,out.data,out.used)
+ return ok(0)
+end
+fn main(argc,argv)
+ if argc!=3
+  return 2
+ end
+ let mode=load64(argv+8)
+ let format=0
+ if text_equal(mode,io_size(mode),"json",4)==0
+  if text_equal(mode,io_size(mode),"html",4)==0
+   return 2
+  end
+  set format=1
+ end
+ handle work(load64(argv+16),format)
+ ok value
+  return 0
+ err cause
+  return 2
+ end
+ return 2
+end

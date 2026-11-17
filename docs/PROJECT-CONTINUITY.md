@@ -104,3 +104,59 @@ Extra post-study descriptor faults: Python1 and4 report exit1/MCP exit0 on absen
 Canonical examples/passage-desk is a COPY of timed attempt3 with one explicit IO import and2checked writer substitutions against B. Parent graded80/80+3/3 both modes; Document Audit shared B passed53/mode. No usage/time credit for later repair. Native original app compile/sign10samples median35.4ms; construction minutes remains next SDK/API problem. Originalsourcearchive contains four deliveries, frozenA, currentB, controller amendment and no provider traces/native images/private documents. Published SDK bytes must match B manifest, frozen A never overwritten.
 
 Next: higher-level typed JSON/HTML/report composition to remove manual writing/transport work; qualified native package promotion and independent user trials remain separate. Linguist R12 pending/nonblocking. Existing public0.46/stable0.17 downloads unchanged; no thesis/PDF/Memory/shared-compute work. Verify actual starkfiber browser identity before upstream writes; retain terminal push lock. Raw local handover under artifacts/sdk-050-pea3vyjl; finalpublicationreceipt must be checked at resume.
+
+
+## 17 November 2026: compiler import maintenance and host evidence tools
+
+The separate intelligence candidate builds from exact0.50 source/compiler and
+extends nonblocking regular-file admission to local imports, preserving the
+SDK-specific refusals. Baseline local FIFO waits and fixed replays,24 import
+controls,96 SDK,169 diagnostics,354 request and82 storage controls pass, with
+exact signed self-generation. The existing stable Core regression also passes.
+Read docs/INTELLIGENCE-IMPORT-GUARD.md/json before reusing these results.
+
+Host-only development controllers now expose actual runtime capability context,
+233-file lexical source context, source-bound proposal acceptance and paired
+build-route advice.21 unittest methods pass. No inference, automatic model
+commands, new MCP effects, retained shared jobs or release replacement occurs.
+The earlier22-page paper reviewed205 commits at28b65ea, not the371-commit0.50
+upstream baseline; its reviewed correction is docs/PAPER-AUDIT-20261117.md.
+
+Maintain the existing typed JSON/HTML/report product priority. Next extend
+grammar-aware mutations and resource-state oracles without relabelling lexical
+coverage as security verification. Fixed11/12 requirements and all published
+release identities remain unchanged. Raw receipts stay project-local under
+artifacts/intelligence-051/; publication uses verified SFE identity only.
+
+## Measured SDK/Net/Ship sprint,17November2026
+
+Three independent agents produced native source candidates; see [executed results](MEASURED-EVOLUTION-20261117.md). JSON serialization1.27–1.42× on tested ordinary/mixed inputs; Net normal/max parser1.20–1.35× with short-packet loss retained; Ship existing envelope5.11× matching-Oz host AEAD, with80guest checks per implementation. These are component results, not whole-network or universal speed. Added bounded typed JSON/HTML reports and native-checked context. Four original DeepSeek apps failed; separate V4-Pro repair passes37checks, no token advantage. Use opt-in combined source package; stable runtime/downloads untouched. Active uncommitted RF2Net/Ship work was read only and source-bound patches prepared. Raw local receipts artifacts/evolution-20261117; no remote Memory/KHC retention. Fixed11/12 ledger unchanged.
+
+
+## Implemented acceptance and useful output, 17 November 2026
+
+Read ACCEPTANCE-USEFUL-OUTPUT-20261117.md and the reviewed source evidence under
+experiments/acceptance-20261117. Ship31/31 stages pass; actual unsafe uncertain
+mutation replay reproduced/fixed on PC/Q35,94 loss controls. Strict expired-ARP
+fixture+seven negatives and actual TCP replay pass; guest code/timeouts unchanged.
+Net original/durable parser, full public service/state/mutation/loopback regression
+passes. Revised timing fixes a benchmark-only584/586-byte framing error,152
+framing controls; all20profiles finish. Padding wins retained; small promotion
+intervals inconclusive. R3 small gates pass, large dense loss retained; R4 leaf
+hypothesis failed four small gates and targeted gate, unpromoted. Monotonic clock
+proof and all failed timing campaigns persist, not silently retried.
+
+New typed CLI-report library owns shared validation/IO, callback owns task logic.
+Actual fresh DeepSeek A/B source passes46/160 complete tasks and16/40 supplements,
+no repairs,14,128reportedtokens. Manual initial+repairs used33,099 and still fail;
+original capped7274 and two unknown transport usages retained. New condition is
+nonrandomized, not a general causal savings result. Combined R3+Report+CLI golden
+and boundary tests pass plain/opt. APFSinvalidUTF8existingfilename is unavailable,
+explicitly excluded. Frozen study hashes unchanged. Published model observations
+are exact synthetic source, not task solutions silently inserted into prompts.
+
+Use explicit reviewed development package builder; default SDK/releases/live
+services unchanged. Broader Ship24gates remain11tested subsets/13pending/0fully
+qualified; fixed delivery ledger11/12 unchanged. Source/Git/unique receipts remain
+project-owned; guarded disposable bank only rebuildable native output. No Memory,
+Chain or shared retained KHC work. Do not disturb the separate active owner tree.

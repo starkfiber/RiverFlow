@@ -1,0 +1,177 @@
+{
+  "schema": "rf2.measured-evolution.v1",
+  "date": "2026-11-17",
+  "baseCommit": "73bf1a6c1cbb7c0d6b84c40aa2e4a184d528a292",
+  "historyCommits": 374,
+  "status": "verified isolated candidates; stable packages and active external tree untouched",
+  "compilerSHA256": "4e47ea8be4bfd81ba12eae606f3ea9321f940957a33d67a88559c1f99f65597c",
+  "net": {
+    "optimizedNormalSpeedup": 1.198,
+    "optimizedMaxSpeedup": 1.352,
+    "optimizedMalformedTailSpeedup": 1.431,
+    "optimizedShortSpeedup": 0.991,
+    "parsesPerProcess": 150000,
+    "pairedRuns": 15,
+    "stateCasesPerVariantMode": 2078,
+    "streamControlsPerVariantMode": 312,
+    "paddingControlsPerVariantMode": 55611,
+    "negativeMutantDetectedBothModes": true
+  },
+  "sdk": {
+    "optimizedOrdinaryMixedSpeedupRange": [
+      1.27,
+      1.42
+    ],
+    "tinyEscapedSpeedupRange": [
+      0.906,
+      0.95
+    ],
+    "controls": 8760,
+    "aliasStatesPerMode": 73728,
+    "unchangedPassageChecksPerMode": 80,
+    "additionalDistributionControls": 208,
+    "distributionCases": 8
+  },
+  "ship": {
+    "envelopeDataBytes": 72,
+    "envelopeAADBytes": 40,
+    "matchingOzSpeedup": 5.106372897417674,
+    "matchingO2Speedup": 10.796916533758639,
+    "cryptoKitChecks": 15348,
+    "modularCasesPerImplementation": 12024,
+    "sanitizerComparisons": 10000,
+    "guestControlsPerImplementation": 80,
+    "scope": "host-native bounded AEAD performance; local x86 guest correctness, not network throughput"
+  },
+  "report": {
+    "nativeControlsPerSDKVariant": 1356,
+    "completeTaskControlsPerCompilerMode": 37,
+    "independentBoundaryControls": 20,
+    "helpersFixed": 12,
+    "contextNativeCheckedBytes": 2029
+  },
+  "provider": {
+    "order": [
+      "manual",
+      "report",
+      "report",
+      "manual"
+    ],
+    "originalAttempts": [
+      {
+        "condition": "manual",
+        "elapsedSeconds": 97.046,
+        "model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 1962,
+          "completion_tokens": 1225,
+          "total_tokens": 3187,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1962
+        },
+        "compileSuccess": false
+      },
+      {
+        "condition": "report",
+        "elapsedSeconds": 5.677,
+        "model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 2307,
+          "completion_tokens": 1087,
+          "total_tokens": 3394,
+          "prompt_tokens_details": {
+            "cached_tokens": 1280
+          },
+          "prompt_cache_hit_tokens": 1280,
+          "prompt_cache_miss_tokens": 1027
+        },
+        "compileSuccess": false
+      },
+      {
+        "condition": "report",
+        "elapsedSeconds": 4.163,
+        "model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 2307,
+          "completion_tokens": 648,
+          "total_tokens": 2955,
+          "prompt_tokens_details": {
+            "cached_tokens": 2173
+          },
+          "prompt_cache_hit_tokens": 2173,
+          "prompt_cache_miss_tokens": 134
+        },
+        "compileSuccess": false
+      },
+      {
+        "condition": "manual",
+        "elapsedSeconds": 4.451,
+        "model": "deepseek-flash",
+        "usage": {
+          "prompt_tokens": 1962,
+          "completion_tokens": 825,
+          "total_tokens": 2787,
+          "prompt_tokens_details": {
+            "cached_tokens": 1792
+          },
+          "prompt_cache_hit_tokens": 1792,
+          "prompt_cache_miss_tokens": 170
+        },
+        "compileSuccess": false
+      }
+    ],
+    "originalSuccesses": 0,
+    "repair": {
+      "model": "deepseek-v4-pro",
+      "thinking": "enabled-low",
+      "usage": {
+        "prompt_tokens": 3234,
+        "completion_tokens": 4340,
+        "total_tokens": 7574,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3786
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 3234
+      },
+      "compiled": true,
+      "functionalChecksPassed": 37,
+      "functionalChecksTotal": 37
+    },
+    "review": {
+      "model": "deepseek-v4-pro",
+      "thinking": "enabled-low",
+      "usage": {
+        "prompt_tokens": 9956,
+        "completion_tokens": 4217,
+        "total_tokens": 14173,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 2473
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 9956
+      }
+    },
+    "tokenAdvantageEstablished": false,
+    "OpenClawDeepClawExecuted": false,
+    "calls": 6
+  },
+  "fixedOwnerChecklist": "11/12 unchanged; no new completion percentage",
+  "limits": [
+    "No universal speed or hardware claim",
+    "No verified constant-time/sidechannel or cryptographic certification",
+    "Cross-platform backend not implemented by these changes",
+    "No actual AI token reduction established",
+    "WhatIF source heuristics do not cover .flow/native/C directly",
+    "All raw project evidence remains local; no Kanika Memory writes/shared retained KHC jobs"
+  ]
+}
