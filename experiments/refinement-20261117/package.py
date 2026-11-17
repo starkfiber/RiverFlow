@@ -14,6 +14,9 @@ def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 def safe_destination(destination):
+    destination = Path(destination)
+    if destination.is_symlink():
+        raise ValueError('Use a fresh destination, not a symlink')
     destination = destination.resolve()
     for name in ['sdk/v1', 'native/compiler', 'dist', 'bin', 'plugin', '.codex-plugin', 'site/downloads']:
         protected = (ROOT / name).resolve()

@@ -3,7 +3,6 @@
   "baseCommit": "53ec2577a04f3b3c5ecf71b1316add3d3671a245",
   "allPassed": true,
   "compilerSHA256": "92d7546234a6fe4baa2408d2a79009f67798d0739c64a9c2a2a6f07edfc2d429",
-  "packageBuilderSHA256": "ea75a5e97eac8e6178b60db6ad097f5ded2d7b8c8081206f780172b283584b3a",
   "verifierSHA256": "4a42296ec24c1903956166896a5de4cfb86f54879f624df6e1c0260527d83750",
   "sourceContextCompilerAndR5Together": true,
   "goldenBuilds": 8,
@@ -124,5 +123,14 @@
     "PACKAGE-BOUNDARIES.json": "b6c5d970f2ac3ee95706ce6f17f1d8102a822cdf0eee13a879d4f154613b293d"
   },
   "preservedCorrection": "Independent review found a new descendant of SDK source could be selected, causing recursive self-copy. Resolved destination guards now reject protected source/release descendants before copying.",
-  "scope": "Explicit experimental source package only. Functional composition checks do not grant R5 performance promotion. Default/stable and external active owner checkout untouched."
+  "scope": "Explicit experimental source package only. Functional composition checks do not grant R5 performance promotion. Default/stable and external active owner checkout untouched.",
+  "measuredPackageBuilderSHA256": "ea75a5e97eac8e6178b60db6ad097f5ded2d7b8c8081206f780172b283584b3a",
+  "currentPackageBuilderSHA256": "c0ca7aab1225b5e99be9b25df854b4cc9f2426a92cc143ed5e65f58835da3a21",
+  "postPackagingGuard": {
+    "guardChecksPassed": 17,
+    "identicalSDKBytes": true,
+    "receiptSHA256": "921417ac87625b4c35e282c72b030e878fc8ff49547f1018240a741f22ab6b81",
+    "directStageGuardEvidence": "serializer/STAGING-GUARD.json",
+    "nativeTestsRerun": false
+  }
 }
