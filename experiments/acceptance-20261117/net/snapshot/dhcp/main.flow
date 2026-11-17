@@ -1,0 +1,106 @@
+profile RF2_SYSTEM_A64_V1
+use "dhcp.flow"
+fn read_exact(fd,p,n)
+ let at=0
+ while at<n
+  let got=read(fd,p+at,n-at)
+  if any(got==0,got>>63)
+   return 0
+  end
+  set at=at+got
+ end
+ return 1
+end
+fn write_exact(fd,p,n)
+ let at=0
+ while at<n
+  let wrote=write(fd,p+at,n-at)
+  if any(wrote==0,wrote>>63)
+   return 0
+  end
+  set at=at+wrote
+ end
+ return 1
+end
+# Stream: LEu16 payload length + LEu32 logical seconds + BOOTP payload.
+# Output: LEu16 result + LEu16 response length + reply +176-byte state snapshot.
+fn main(argc,argv)
+ if syscall6(92,1,73,1,0,0,0)!=0
+  return 3
+ end
+ let p=DhcpPacket()
+ let m=DhcpMeta()
+ let states=LeaseState()
+ let owners=LeaseOwner()
+ let until=LeaseUntil()
+ let xids=LeaseXid()
+ let clock=LeaseClock()
+ let h=buffer("dhcp_header",6)
+ let raw=buffer("dhcp_raw",576)
+ let out=buffer("dhcp_output",4)
+ let snap=buffer("dhcp_state",176)
+ let count=0
+ while 1
+  let got=read(0,h,1)
+  if got==0
+   return 0
+  end
+  if any(got>>63,count==4096)
+   return 2
+  end
+  if read_exact(0,h+1,5)==0
+   return 2
+  end
+  let n=load8(h)+load8(h+1)*256
+  if n>576
+   return 2
+  end
+  let now=load8(h+2)+load8(h+3)*256+load8(h+4)*65536+load8(h+5)*16777216
+  if read_exact(0,raw,n)==0
+   return 2
+  end
+  let i=0
+  while i<n
+   set p[i]=load8(raw+i)
+   set i=i+1
+  end
+  let answer=dhcp_parse(p,n,m)
+  if answer==0
+   set answer=dhcp_lease(m,now,states,owners,until,xids,clock)
+  end
+  let size=0
+  if any(answer==2,any(answer==5,answer==6))
+   set size=dhcp_reply(p,m,answer)
+  end
+  do store8(out,answer&255)
+  do store8(out+1,(answer>>8)&255)
+  do store8(out+2,size&255)
+  do store8(out+3,(size>>8)&255)
+  if write_exact(1,out,4)==0
+   return 3
+  end
+  set i=0
+  while i<size
+   do store8(raw+i,p[i])
+   set i=i+1
+  end
+  if write_exact(1,raw,size)==0
+   return 3
+  end
+  set i=0
+  while i<5
+   do store64(snap+i*32,states[i])
+   do store64(snap+i*32+8,owners[i])
+   do store64(snap+i*32+16,until[i])
+   do store64(snap+i*32+24,xids[i])
+   set i=i+1
+  end
+  do store64(snap+160,clock[0])
+  do store64(snap+168,clock[1])
+  if write_exact(1,snap,176)==0
+   return 3
+  end
+  set count=count+1
+ end
+ return 0
+end

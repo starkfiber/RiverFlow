@@ -1,0 +1,343 @@
+module rf2net_dhcp_lab
+# Direct Ethernet BOOTP/DHCP payload subset. No sockets, relay, persistence or HA.
+array DhcpPacket(u8,576)
+# mac,type,requestedIP,serverID,ciaddr,xid,flags,offeredIP,echoEthernetCID
+array DhcpMeta(u64,9)
+array LeaseState(u64,5)
+array LeaseOwner(u64,5)
+array LeaseUntil(u64,5)
+array LeaseXid(u64,5)
+array LeaseClock(u64,2)
+fn dhcp_ip(p:DhcpPacket,at)
+ return p[at]*16777216+p[at+1]*65536+p[at+2]*256+p[at+3]
+end
+fn dhcp_parse(p:DhcpPacket,n,m:DhcpMeta)
+ if any(n<241,n>576)
+  return 10
+ end
+ if any(p[0]!=1,any(p[1]!=1,any(p[2]!=6,p[3]!=0)))
+  return 10
+ end
+ if any(p[11]!=0,all(p[10]!=0,p[10]!=128))
+  return 10
+ end
+ if any(dhcp_ip(p,24)!=0,dhcp_ip(p,236)!=1669485411)
+  return 10
+ end
+ let mac=0
+ let i=0
+ while i<6
+  set mac=mac*256+p[28+i]
+  set i=i+1
+ end
+ if any(mac==0,(p[28]&1)!=0)
+  return 10
+ end
+ set i=0
+ while i<9
+  set m[i]=0
+  set i=i+1
+ end
+ set m[0]=mac
+ set m[4]=dhcp_ip(p,12)
+ set m[5]=dhcp_ip(p,4)
+ set m[6]=p[10]*256+p[11]
+ let seen=0
+ let ended=0
+ set i=240
+ while i<n
+  let kind=p[i]
+  set i=i+1
+  if ended==1
+   if kind!=0
+    return 10
+   end
+  else
+   if kind==255
+    set ended=1
+   else
+    if kind!=0
+     if i==n
+      return 10
+     end
+     let size=p[i]
+     set i=i+1
+     if any(size==0,i+size>n)
+      return 10
+     end
+     if kind==52
+      return 10
+     end
+     if kind==53
+      if any(size!=1,(seen&1)!=0)
+       return 10
+      end
+      set seen=seen|1
+      set m[1]=p[i]
+     end
+     if kind==50
+      if any(size!=4,(seen&2)!=0)
+       return 10
+      end
+      set seen=seen|2
+      set m[2]=dhcp_ip(p,i)
+      if m[2]==0
+       return 10
+      end
+     end
+     if kind==54
+      if any(size!=4,(seen&4)!=0)
+       return 10
+      end
+      set seen=seen|4
+      set m[3]=dhcp_ip(p,i)
+      if m[3]==0
+       return 10
+      end
+     end
+     if kind==61
+      if any(size!=7,(seen&8)!=0)
+       return 10
+      end
+      if p[i]!=1
+       return 10
+      end
+      let j=0
+      while j<6
+       if p[i+j+1]!=p[28+j]
+        return 10
+       end
+       set j=j+1
+      end
+      set seen=seen|8
+      set m[8]=1
+     end
+     set i=i+size
+    end
+   end
+  end
+ end
+ if any(ended==0,(seen&1)==0)
+  return 10
+ end
+ # Admit complete message shapes before any lease state changes.
+ if m[1]==1
+  if any(m[3]!=0,m[4]!=0)
+   return 10
+  end
+  return 0
+ end
+ if m[1]==3
+  if m[4]!=0
+   if any(m[2]!=0,m[3]!=0)
+    return 10
+   end
+  else
+   if m[2]==0
+    return 10
+   end
+  end
+  return 0
+ end
+ if m[1]==4
+  if any(m[2]==0,any(m[3]==0,m[4]!=0))
+   return 10
+  end
+  return 0
+ end
+ if m[1]==7
+  if any(m[4]==0,any(m[3]==0,m[2]!=0))
+   return 10
+  end
+  return 0
+ end
+ return 11
+end
+# Caller provides monotonic logical seconds; not a native clock or source authentication.
+# Return2=OFFER,5=ACK,6=NAK,0=silent,10=malformed,11=unsupported,12=poolfull,13=clock.
+fn dhcp_lease(m:DhcpMeta,now,states:LeaseState,owners:LeaseOwner,until:LeaseUntil,xids:LeaseXid,clock:LeaseClock)
+ if now>4294967295
+  return 13
+ end
+ if clock[1]==1
+  if now<clock[0]
+   return 13
+  end
+ end
+ # Another server selected: do not act as that server or mutate our lease table.
+ if all(m[3]!=0,m[3]!=172818434)
+  return 0
+ end
+ set clock[0]=now
+ set clock[1]=1
+ let i=0
+ let own=5
+ let empty=5
+ while i<5
+  if states[i]!=0
+   if until[i]<=now
+    set states[i]=0
+    set owners[i]=0
+    set until[i]=0
+    set xids[i]=0
+   end
+  end
+  if all(owners[i]==m[0],states[i]!=3)
+   set own=i
+  end
+  if all(states[i]==0,empty==5)
+   set empty=i
+  end
+  set i=i+1
+ end
+ if m[1]==1
+  if own==5
+   set own=empty
+  end
+  if own==5
+   return 12
+  end
+  # A live bound lease is offered without shortening its lifetime.
+  if states[own]!=2
+   set states[own]=1
+   set owners[own]=m[0]
+   set until[own]=now+60
+   set xids[own]=m[5]
+  end
+  set m[7]=172818532+own
+  return 2
+ end
+ if m[1]==3
+  let wanted=m[2]
+  if m[4]!=0
+   set wanted=m[4]
+  end
+  if own==5
+   return 6
+  end
+  if wanted!=172818532+own
+   return 6
+  end
+  # SELECTING requires a live offer with matching transaction, or owned bound lease.
+  if states[own]==1
+   if any(m[3]==0,xids[own]!=m[5])
+    return 6
+   end
+  end
+  set states[own]=2
+  set until[own]=now+600
+  set xids[own]=m[5]
+  set m[7]=wanted
+  return 5
+ end
+ if own==5
+  return 0
+ end
+ if m[1]==7
+  if m[4]!=172818532+own
+   return 0
+  end
+  if states[own]!=2
+   return 0
+  end
+  set states[own]=0
+  set owners[own]=0
+  set until[own]=0
+  set xids[own]=0
+  return 0
+ end
+ if m[1]==4
+  if m[2]!=172818532+own
+   return 0
+  end
+  # Bounded quarantine. DHCP identity is spoofable: this is not authentication.
+  set states[own]=3
+  set owners[own]=0
+  set until[own]=now+600
+  set xids[own]=0
+ end
+ return 0
+end
+fn dhcp_reply(p:DhcpPacket,m:DhcpMeta,kind)
+ let i=0
+ while i<576
+  set p[i]=0
+  set i=i+1
+ end
+ set p[0]=2
+ set p[1]=1
+ set p[2]=6
+ set p[4]=(m[5]>>24)&255
+ set p[5]=(m[5]>>16)&255
+ set p[6]=(m[5]>>8)&255
+ set p[7]=m[5]&255
+ set p[10]=(m[6]>>8)&255
+ set p[11]=m[6]&255
+ if kind==6
+  set p[10]=128
+ else
+  set p[12]=(m[4]>>24)&255
+  set p[13]=(m[4]>>16)&255
+  set p[14]=(m[4]>>8)&255
+  set p[15]=m[4]&255
+  set p[16]=10
+  set p[17]=77
+  set p[18]=0
+  set p[19]=m[7]&255
+ end
+ # siaddr stays zero: no boot/TFTP server is configured.
+ set i=0
+ while i<6
+  set p[28+i]=(m[0]>>((5-i)*8))&255
+  set i=i+1
+ end
+ set p[236]=99
+ set p[237]=130
+ set p[238]=83
+ set p[239]=99
+ set p[240]=53
+ set p[241]=1
+ set p[242]=kind
+ set p[243]=54
+ set p[244]=4
+ set p[245]=10
+ set p[246]=77
+ set p[248]=2
+ if kind==6
+  set p[249]=255
+ else
+  set p[249]=51
+  set p[250]=4
+  set p[253]=2
+  set p[254]=88
+  set p[255]=1
+  set p[256]=4
+  set p[257]=255
+  set p[258]=255
+  set p[259]=255
+  set p[261]=3
+  set p[262]=4
+  set p[263]=10
+  set p[264]=77
+  set p[266]=2
+  # DNS service is not implemented: do not advertise a fictional resolver.
+  set p[267]=255
+ end
+ # RFC6842: echo the supported Ethernet client identifier when supplied.
+ let at=267
+ if kind==6
+  set at=249
+ end
+ if m[8]==1
+  set p[at]=61
+  set p[at+1]=7
+  set p[at+2]=1
+  set i=0
+  while i<6
+   set p[at+3+i]=(m[0]>>((5-i)*8))&255
+   set i=i+1
+  end
+  set p[at+9]=255
+ end
+ return 300
+end
