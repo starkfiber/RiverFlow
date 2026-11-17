@@ -1,0 +1,268 @@
+{
+  "schema": "rf2.ai-completion.final-critic-review.v1",
+  "rawGeneration": {
+    "programsPassed": 0,
+    "programsDeclared": 4,
+    "calls": 7,
+    "knownTokens": 50041,
+    "unknownUsageCalls": 1
+  },
+  "groundedRouting": {
+    "initialMatches": 3,
+    "declaredArms": 4,
+    "matchesAfterOneDeclaredLogicalRepair": 4,
+    "callsIncludingWrongFirstChoice": 5,
+    "knownTokens": 4488,
+    "unknownUsageCalls": 0,
+    "seconds": 17.685917708999998
+  },
+  "combinedCurrent": {
+    "calls": 12,
+    "maximumCalls": 12,
+    "stopFurtherProviderCalls": true,
+    "knownTokens": 54529,
+    "knownPromptTokens": 31537,
+    "knownCompletionTokens": 22992,
+    "unknownUsageCalls": 1,
+    "seconds": 341.908418542
+  },
+  "native": {
+    "allPassed": true,
+    "checks": 808,
+    "builds": 8,
+    "receiptSHA256": "dfb377a314ef487819f0ffec4bae7d8fcfa66223fa77ab2b593d6be22f8146d2",
+    "manifestSHA256": "3961fe57dc1dee39e95234ef0243044a19b34cbe00a69a4e5a93fc0c9b231fcf",
+    "actualOrigins": "All four algorithms are Codex engineering-assisted; model selected catalogue entries only",
+    "frozenVerifierScopeCorrectedByManifest": true
+  },
+  "allFrozenInputsUnchanged": true,
+  "firstWrongChoicePreserved": true,
+  "causalTokenSavingEstablished": false,
+  "CodexEngineeringTokens": "unavailable, not in DeepSeek totals",
+  "receiptSHA256": {
+    "campaign-1/attempt-1-C-manual/round-1/RECEIPT.json": "03e55455c431a6799fbac4013544ab591083ac705eb8704f38b4e96def4d45f7",
+    "campaign-1/attempt-1-C-manual/round-2/RECEIPT.json": "7bf4cdcd6170755c71858457cf07a94fe65862db8f788f37e4152f3426b46620",
+    "campaign-1/attempt-1-C-manual/round-3/RECEIPT.json": "e025baa9ed7082691d081b06e8ea87553d056eba55abe5228de51cc4d193a92d",
+    "campaign-1/attempt-2-D-cli/round-1/RECEIPT.json": "cf3e7ba7a905c74c9751e3330bcec3eaf01d55602a816ae448c22e13bc738fcb",
+    "campaign-1/attempt-3-C-cli/round-1/RECEIPT.json": "6f9634500a1c3cd3178ccf87ab52b5b8de56f501b8539d346e65326189cacada",
+    "campaign-1/attempt-3-C-cli/round-2/RECEIPT.json": "c9720b4f1a704d71dfd4e3bc5e235f7bf67b603c81c38d75c4992fe5a707c97a",
+    "campaign-1/attempt-4-D-manual/round-1/RECEIPT.json": "52cfe0287ebdfc5bd125523b7389a78a330896607c7acafa5186558f61d57f74",
+    "grounded-routing-1/attempt-1/RECEIPT.json": "14e7d25d6a651cea77319e9e96b4a79d2058b4f775a7a1a81b98e9eb0ae9e084",
+    "grounded-routing-1/attempt-2/RECEIPT.json": "e9caba6d8b11384f58b55729ed2fb55a21e06ba723f7706eacc958f7cd7477a0",
+    "grounded-routing-1/attempt-3/RECEIPT.json": "ba7a3835f44aa958eb872a0747abb3c612796099bca0ed4e927ca6fed31c2b04",
+    "grounded-routing-1/attempt-4/RECEIPT.json": "d09424f0c0a5224715d27560c0c10d65446ecfe88c76321dc51181b63eff0a22",
+    "grounded-routing-1/choice-1-repair/RECEIPT.json": "c7dfdcbe430ed51236abf08f97bd9b4c7d3d9a6dab3631b46e06512a9b28c058"
+  },
+  "keyEvidenceSHA256": {
+    "grounded-routing-1/AMENDED-SUMMARY-1794920772796667000.json": "d8cdc3ba7f4b3604a9d336303a7f03c1e1b133a2edd9dc5481472da9465e3552",
+    "ROUTED-REVIEWED-SOURCES.json": "3961fe57dc1dee39e95234ef0243044a19b34cbe00a69a4e5a93fc0c9b231fcf",
+    "routed-native-1/RESULTS.json": "dfb377a314ef487819f0ffec4bae7d8fcfa66223fa77ab2b593d6be22f8146d2",
+    "ROUTING-COMPLETION-AMENDMENT.json": "fece66ecac5fa8bbbc15ffbb6c14e0012946d666d8c280a895f013706f101c31",
+    "BASELINE.json": "e99c9e776d47ec30835c925c780109c35e379491dbc7f6f5cb00c943fd089782"
+  },
+  "scope": "Synthetic finite two-capability catalogue routing plus engineering-assisted native programs; not arbitrary program generation or universal transport SLA",
+  "date": "2026-11-17",
+  "baseline": {
+    "rawProgramsPassed": 0,
+    "rawProgramsDeclared": 4,
+    "calls": 6,
+    "knownTokens": 37690,
+    "unknownUsageCalls": 1,
+    "seconds": 564.001257374,
+    "separateFailedOutputContractPilot": {
+      "calls": 1,
+      "unknownUsageCalls": 1,
+      "seconds": 134.977875,
+      "note": "Separate historical pilot, not added to matched study denominator."
+    }
+  },
+  "programs": [
+    {
+      "task": "C",
+      "condition": "manual",
+      "source": "experiments/useful-report-programs-20261117/C-manual/main.flow",
+      "sourceSHA256": "ea072f6482aaf550121040bd85ac7df32b6c4013c586cf486ea424cd5d89f1a5",
+      "sourceKind": "Codex-agent engineering-assisted",
+      "checks": 172
+    },
+    {
+      "task": "D",
+      "condition": "cli",
+      "source": "experiments/useful-report-programs-20261117/D-cli/main.flow",
+      "sourceSHA256": "332f27ea23224fd6049c986b92e61d06ee6666a1559086517ee8afb9a26811df",
+      "sourceKind": "Codex-agent engineering-assisted",
+      "checks": 232
+    },
+    {
+      "task": "C",
+      "condition": "cli",
+      "source": "experiments/useful-report-programs-20261117/C-cli/main.flow",
+      "sourceSHA256": "a333cd11693c8aba036acf232f44ec6c625b544c04e4a6edf81dc2f411dcb7e9",
+      "sourceKind": "Codex-agent engineering-assisted",
+      "checks": 172
+    },
+    {
+      "task": "D",
+      "condition": "manual",
+      "source": "experiments/useful-report-programs-20261117/D-manual/main.flow",
+      "sourceSHA256": "78f07afc3cd6c5f5015e3086fe60673022bf186e88b86f0efdd6ecc277715380",
+      "sourceKind": "Codex-agent engineering-assisted",
+      "checks": 232
+    }
+  ],
+  "stable": {
+    "protectedFilesChecked": 47,
+    "drift": [],
+    "stableChanged": false
+  },
+  "transport": {
+    "phaseAwareLiveRequests": 4,
+    "phaseAwareLiveResponsesReceived": 4,
+    "offlineTestMethods": 12,
+    "automaticRetries": false,
+    "TCPAndTLSSocketTimeoutSecondsEach": 8,
+    "postConnectSocketTimeoutSeconds": 180,
+    "providerSHA256": "07e103bea393ba57bc95eebabb49b2543f2035e35d964a95adc4d366cbab3453",
+    "supervisorSHA256": "7192ff3fa35f1c73f2837cc858849e6e41a4eaa9987f5fb7ddc59d9a3290fb5e",
+    "historicalTimeoutCause": "Unresolved; present DNS/TCP/TLS healthy. No permanent router or DNS fault established.",
+    "SLAEstablished": false
+  },
+  "repairContext": {
+    "offlineTestMethods": 23,
+    "advisoriesOnActualInitialCcliSource": 18,
+    "advisoryOnly": true,
+    "automaticSourceRewriting": false
+  },
+  "boundaries": {
+    "nativeQualification": "Mac ARM64 only",
+    "stableChanged": false,
+    "MemoryWrites": false,
+    "retainedKHCJobs": false,
+    "fixedDeliveryChecklist": "11/12 unchanged",
+    "broaderNetShipGatesCompletedThisPhase": false,
+    "R5SerializerPromotionChanged": false,
+    "upstreamPublication": "Measurements do not assert publication; verify Git history and separate publication receipt"
+  },
+  "attemptsIncludingFailures": [
+    {
+      "phase": "raw source generation",
+      "attempt": 1,
+      "round": 1,
+      "outcome": "compiler/native failure",
+      "knownProviderTokens": 5282,
+      "usageKnown": true,
+      "observedSeconds": 14.531890541000001,
+      "receiptSHA256": "03e55455c431a6799fbac4013544ab591083ac705eb8704f38b4e96def4d45f7"
+    },
+    {
+      "phase": "raw source generation",
+      "attempt": 1,
+      "round": 2,
+      "outcome": "compiler/native failure",
+      "knownProviderTokens": 7383,
+      "usageKnown": true,
+      "observedSeconds": 13.411979125,
+      "receiptSHA256": "7bf4cdcd6170755c71858457cf07a94fe65862db8f788f37e4152f3426b46620"
+    },
+    {
+      "phase": "raw source generation",
+      "attempt": 1,
+      "round": 3,
+      "outcome": "compiler/native failure",
+      "knownProviderTokens": 7820,
+      "usageKnown": true,
+      "observedSeconds": 13.703569791,
+      "receiptSHA256": "e025baa9ed7082691d081b06e8ea87553d056eba55abe5228de51cc4d193a92d"
+    },
+    {
+      "phase": "raw source generation",
+      "attempt": 2,
+      "round": 1,
+      "outcome": "incomplete completion; arm stops without automatic retry",
+      "knownProviderTokens": 20156,
+      "usageKnown": true,
+      "observedSeconds": 120.505382459,
+      "receiptSHA256": "cf3e7ba7a905c74c9751e3330bcec3eaf01d55602a816ae448c22e13bc738fcb"
+    },
+    {
+      "phase": "raw source generation",
+      "attempt": 3,
+      "round": 1,
+      "outcome": "compiler/native failure",
+      "knownProviderTokens": 4486,
+      "usageKnown": true,
+      "observedSeconds": 8.04884275,
+      "receiptSHA256": "6f9634500a1c3cd3178ccf87ab52b5b8de56f501b8539d346e65326189cacada"
+    },
+    {
+      "phase": "raw source generation",
+      "attempt": 3,
+      "round": 2,
+      "outcome": "transport failure",
+      "knownProviderTokens": null,
+      "usageKnown": false,
+      "observedSeconds": 137.327006834,
+      "receiptSHA256": "c9720b4f1a704d71dfd4e3bc5e235f7bf67b603c81c38d75c4992fe5a707c97a"
+    },
+    {
+      "phase": "raw source generation",
+      "attempt": 4,
+      "round": 1,
+      "outcome": "compiler/native failure",
+      "knownProviderTokens": 4914,
+      "usageKnown": true,
+      "observedSeconds": 16.693829333,
+      "receiptSHA256": "52cfe0287ebdfc5bd125523b7389a78a330896607c7acafa5186558f61d57f74"
+    },
+    {
+      "phase": "catalogue selection",
+      "attempt": 1,
+      "round": "initial",
+      "outcome": "rejected wrong implementation",
+      "knownProviderTokens": 763,
+      "usageKnown": true,
+      "observedSeconds": 2.92389525,
+      "receiptSHA256": "14e7d25d6a651cea77319e9e96b4a79d2058b4f775a7a1a81b98e9eb0ae9e084"
+    },
+    {
+      "phase": "catalogue selection",
+      "attempt": 2,
+      "round": "initial",
+      "outcome": "matched",
+      "knownProviderTokens": 924,
+      "usageKnown": true,
+      "observedSeconds": 4.761616125,
+      "receiptSHA256": "e9caba6d8b11384f58b55729ed2fb55a21e06ba723f7706eacc958f7cd7477a0"
+    },
+    {
+      "phase": "catalogue selection",
+      "attempt": 3,
+      "round": "initial",
+      "outcome": "matched",
+      "knownProviderTokens": 896,
+      "usageKnown": true,
+      "observedSeconds": 3.734097167,
+      "receiptSHA256": "ba7a3835f44aa958eb872a0747abb3c612796099bca0ed4e927ca6fed31c2b04"
+    },
+    {
+      "phase": "catalogue selection",
+      "attempt": 4,
+      "round": "initial",
+      "outcome": "matched",
+      "knownProviderTokens": 918,
+      "usageKnown": true,
+      "observedSeconds": 3.577334042,
+      "receiptSHA256": "d09424f0c0a5224715d27560c0c10d65446ecfe88c76321dc51181b63eff0a22"
+    },
+    {
+      "phase": "catalogue selection",
+      "attempt": 1,
+      "round": "logical repair",
+      "outcome": "matched",
+      "knownProviderTokens": 987,
+      "usageKnown": true,
+      "observedSeconds": 2.6889751250000002,
+      "receiptSHA256": "c7dfdcbe430ed51236abf08f97bd9b4c7d3d9a6dab3631b46e06512a9b28c058"
+    }
+  ]
+}

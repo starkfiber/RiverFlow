@@ -1,0 +1,13 @@
+phase,attempt,round,outcome,knownProviderTokens,usageKnown,observedSeconds,receiptSHA256
+raw source generation,1,1,compiler/native failure,5282,True,14.531890541000001,03e55455c431a6799fbac4013544ab591083ac705eb8704f38b4e96def4d45f7
+raw source generation,1,2,compiler/native failure,7383,True,13.411979125,7bf4cdcd6170755c71858457cf07a94fe65862db8f788f37e4152f3426b46620
+raw source generation,1,3,compiler/native failure,7820,True,13.703569791,e025baa9ed7082691d081b06e8ea87553d056eba55abe5228de51cc4d193a92d
+raw source generation,2,1,incomplete completion; arm stops without automatic retry,20156,True,120.505382459,cf3e7ba7a905c74c9751e3330bcec3eaf01d55602a816ae448c22e13bc738fcb
+raw source generation,3,1,compiler/native failure,4486,True,8.04884275,6f9634500a1c3cd3178ccf87ab52b5b8de56f501b8539d346e65326189cacada
+raw source generation,3,2,transport failure,,False,137.327006834,c9720b4f1a704d71dfd4e3bc5e235f7bf67b603c81c38d75c4992fe5a707c97a
+raw source generation,4,1,compiler/native failure,4914,True,16.693829333,52cfe0287ebdfc5bd125523b7389a78a330896607c7acafa5186558f61d57f74
+catalogue selection,1,initial,rejected wrong implementation,763,True,2.92389525,14e7d25d6a651cea77319e9e96b4a79d2058b4f775a7a1a81b98e9eb0ae9e084
+catalogue selection,2,initial,matched,924,True,4.761616125,e9caba6d8b11384f58b55729ed2fb55a21e06ba723f7706eacc958f7cd7477a0
+catalogue selection,3,initial,matched,896,True,3.734097167,ba7a3835f44aa958eb872a0747abb3c612796099bca0ed4e927ca6fed31c2b04
+catalogue selection,4,initial,matched,918,True,3.577334042,d09424f0c0a5224715d27560c0c10d65446ecfe88c76321dc51181b63eff0a22
+catalogue selection,1,logical repair,matched,987,True,2.6889751250000002,c7dfdcbe430ed51236abf08f97bd9b4c7d3d9a6dab3631b46e06512a9b28c058

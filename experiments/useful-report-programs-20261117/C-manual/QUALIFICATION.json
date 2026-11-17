@@ -1,0 +1,28 @@
+{
+  "schema": "rf2.useful-program.qualification.v1",
+  "program": "C-manual",
+  "sourceSHA256": "ea072f6482aaf550121040bd85ac7df32b6c4013c586cf486ea424cd5d89f1a5",
+  "sourceKind": "Codex-agent engineering-assisted",
+  "rootSourceReviewApproved": true,
+  "independentNativeRebuildPassed": true,
+  "historicalProvenanceNote": "PROVENANCE.json preserves the initial pre-review proposal snapshot; its rootReviewPending field is historical, not current qualification status. Original raw provenance bytes unchanged.",
+  "runs": [
+    {
+      "mode": "plain",
+      "passed": 86,
+      "total": 86,
+      "gradeReceiptSHA256": "0cc6649238c3abad950e87f8ba6603db0fa4ba2de7945eaf886d804c75d6e3c2"
+    },
+    {
+      "mode": "opt",
+      "passed": 86,
+      "total": 86,
+      "gradeReceiptSHA256": "935b306b991b14c055006b6d776d2c7ea85beec0927dbbd899961f905e980e26"
+    }
+  ],
+  "compilerSHA256": "4e47ea8be4bfd81ba12eae606f3ea9321f940957a33d67a88559c1f99f65597c",
+  "oracleSHA256": "f481949423fcfaa62da6e7084b7b39320ac898b9bb501ef0db23ea9524f1ab8e",
+  "qualifiedPlatform": "Mac ARM64",
+  "stableChanged": false,
+  "nativeReceiptSHA256": "dfb377a314ef487819f0ffec4bae7d8fcfa66223fa77ab2b593d6be22f8146d2"
+}

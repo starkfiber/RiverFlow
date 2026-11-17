@@ -1,0 +1,22 @@
+{
+  "schema": "rf2.ai-completion.engineering-descendant.v1",
+  "task": "C",
+  "condition": "manual",
+  "engineerAssisted": true,
+  "AIAlonePassed": false,
+  "parentSource": "/Users/ik/Downloads/Varuna/RiverFlow-next-20261117/artifacts/ai-completion-20261117/campaign-1/attempt-1-C-manual/round-3/main.flow",
+  "parentSourceSHA256": "feacf56488c0ae24656fce5a2f9f5379bc4352e6e36d3bfcac034c7b41d27fcf",
+  "source": "/Users/ik/Downloads/Varuna/RiverFlow-next-20261117/artifacts/ai-completion-20261117/engineering-assist/C-manual-v1/main.flow",
+  "sourceSHA256": "ea072f6482aaf550121040bd85ac7df32b6c4013c586cf486ea424cd5d89f1a5",
+  "diffSHA256": "295961916bef8b01787c39059742cfc2fa4edb0d298633c6a4347b3dcd6fad89",
+  "changes": [
+    "Typed IO processing function with handled numeric main",
+    "Exact mode argument size check",
+    "Replace destructive whitespace loop stop with scanning flag",
+    "Rename local end to line_end"
+  ],
+  "goldenSourceCopied": false,
+  "providerCalls": 0,
+  "testsRun": false,
+  "rootReviewPending": true
+}
