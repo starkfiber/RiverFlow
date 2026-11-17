@@ -1,0 +1,356 @@
+{
+  "schema": "rf2.refinement.complete-utility.evidence.v1",
+  "study": "Frozen matched C/D study-1; complete and closed",
+  "frozenSHA256": "53cbb7eeb6c71c98315605f734a9bda53c96602e5fd9113cdefc1afd3d71464e",
+  "compilerSHA256": "4e47ea8be4bfd81ba12eae606f3ea9321f940957a33d67a88559c1f99f65597c",
+  "conditions": {
+    "manual": {
+      "tasksPassed": 0,
+      "tasksDeclared": 2,
+      "costIncludingFailures": {
+        "knownRequests": 2,
+        "unknownUsageRequests": 1,
+        "knownPromptTokens": 6809,
+        "knownCompletionTokens": 10228,
+        "knownProviderTotalTokens": 17037,
+        "reasoningSubsetOfCompletion": 9378,
+        "cacheSubsetOfPrompt": 3200,
+        "observedRequestSeconds": 390.155236374,
+        "buildTestSeconds": 5.839999999979195e-07
+      },
+      "knownTokensPerPassingTask": null
+    },
+    "cli": {
+      "tasksPassed": 0,
+      "tasksDeclared": 2,
+      "costIncludingFailures": {
+        "knownRequests": 3,
+        "unknownUsageRequests": 0,
+        "knownPromptTokens": 10190,
+        "knownCompletionTokens": 10463,
+        "knownProviderTotalTokens": 20653,
+        "reasoningSubsetOfCompletion": 10445,
+        "cacheSubsetOfPrompt": 5888,
+        "observedRequestSeconds": 173.846021,
+        "buildTestSeconds": 4.999999999970306e-07
+      },
+      "knownTokensPerPassingTask": null
+    }
+  },
+  "aggregate": {
+    "providerRequests": 6,
+    "completeTasksPassed": 0,
+    "tasksDeclared": 4,
+    "knownUsageRequests": 5,
+    "unknownUsageRequests": 1,
+    "knownProviderTotalTokens": 37690,
+    "observedRequestSeconds": 564.001257374,
+    "nativeProviderSourceCompilations": 0,
+    "placeholderProposals": 3,
+    "completionLimitFailures": 2,
+    "transportTimeouts": 1
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "task": "C",
+      "condition": "manual",
+      "closed": true,
+      "passed": false,
+      "allRoundsCost": {
+        "knownRequests": 2,
+        "unknownUsageRequests": 0,
+        "knownPromptTokens": 6809,
+        "knownCompletionTokens": 10228,
+        "knownProviderTotalTokens": 17037,
+        "reasoningSubsetOfCompletion": 9378,
+        "cacheSubsetOfPrompt": 3200,
+        "observedRequestSeconds": 195.14870183300002,
+        "buildTestSeconds": 5.839999999979195e-07
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "receipt": "artifacts/refinement-20261117/ai/study-1/attempt-1-C-manual/round-1/RECEIPT.json",
+          "receiptSHA256": "846fb209c698f5fa3bfec113f8c30805ca773692e2e15b423eefc918d0110493",
+          "finishReason": "stop",
+          "usage": {
+            "prompt_tokens": 3327,
+            "completion_tokens": 228,
+            "total_tokens": 3555,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 219
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 3327
+          },
+          "elapsedSeconds": 7.291220249999999,
+          "sourceSHA256": "c59e2e70f54057d5c85bd0fe4fd1a9a5ed47678ccc6bffd0bd1e7b6c54292763",
+          "failureKind": "literal-placeholder-proposal",
+          "assessment": {
+            "sourceSHA256": "c59e2e70f54057d5c85bd0fe4fd1a9a5ed47678ccc6bffd0bd1e7b6c54292763",
+            "manualReviewConfirmed": true,
+            "allPassed": false,
+            "conditionErrors": [
+              "Condition requires exactly the documented @rf2/v1/text.flow import; no local/additional imports"
+            ],
+            "feedback": [
+              "Condition requires exactly the documented @rf2/v1/text.flow import; no local/additional imports"
+            ],
+            "buildAndTestSeconds": 5.839999999979195e-07
+          }
+        },
+        {
+          "round": 2,
+          "receipt": "artifacts/refinement-20261117/ai/study-1/attempt-1-C-manual/round-2/RECEIPT.json",
+          "receiptSHA256": "dcc6baf07c69cd5628a723ad049c2aa887b4256dd974bd2fa13587cad8d8324a",
+          "finishReason": "length",
+          "usage": {
+            "prompt_tokens": 3482,
+            "completion_tokens": 10000,
+            "total_tokens": 13482,
+            "prompt_tokens_details": {
+              "cached_tokens": 3200
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 9159
+            },
+            "prompt_cache_hit_tokens": 3200,
+            "prompt_cache_miss_tokens": 282
+          },
+          "elapsedSeconds": 187.857481583,
+          "sourceSHA256": null,
+          "failureKind": "incomplete-completion",
+          "assessment": null
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "task": "D",
+      "condition": "cli",
+      "closed": true,
+      "passed": false,
+      "allRoundsCost": {
+        "knownRequests": 1,
+        "unknownUsageRequests": 0,
+        "knownPromptTokens": 3357,
+        "knownCompletionTokens": 10000,
+        "knownProviderTotalTokens": 13357,
+        "reasoningSubsetOfCompletion": 10000,
+        "cacheSubsetOfPrompt": 0,
+        "observedRequestSeconds": 161.56599862500002,
+        "buildTestSeconds": 0
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "receipt": "artifacts/refinement-20261117/ai/study-1/attempt-2-D-cli/round-1/RECEIPT.json",
+          "receiptSHA256": "3cf67e46f24cc3b1b74ff71ccafe30d3968740cf383343b3ba3f15f816243824",
+          "finishReason": "length",
+          "usage": {
+            "prompt_tokens": 3357,
+            "completion_tokens": 10000,
+            "total_tokens": 13357,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 10000
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 3357
+          },
+          "elapsedSeconds": 161.56599862500002,
+          "sourceSHA256": null,
+          "failureKind": "incomplete-completion",
+          "assessment": null
+        }
+      ]
+    },
+    {
+      "attempt": 3,
+      "task": "C",
+      "condition": "cli",
+      "closed": true,
+      "passed": false,
+      "allRoundsCost": {
+        "knownRequests": 2,
+        "unknownUsageRequests": 0,
+        "knownPromptTokens": 6833,
+        "knownCompletionTokens": 463,
+        "knownProviderTotalTokens": 7296,
+        "reasoningSubsetOfCompletion": 445,
+        "cacheSubsetOfPrompt": 5888,
+        "observedRequestSeconds": 12.280022375000001,
+        "buildTestSeconds": 4.999999999970306e-07
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "receipt": "artifacts/refinement-20261117/ai/study-1/attempt-3-C-cli/round-1/RECEIPT.json",
+          "receiptSHA256": "70be26cd043b6fe24e15bef4430d207b158c9dcd9ab74d0860b6b73f98c5ca9b",
+          "finishReason": "stop",
+          "usage": {
+            "prompt_tokens": 3326,
+            "completion_tokens": 156,
+            "total_tokens": 3482,
+            "prompt_tokens_details": {
+              "cached_tokens": 2688
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 147
+            },
+            "prompt_cache_hit_tokens": 2688,
+            "prompt_cache_miss_tokens": 638
+          },
+          "elapsedSeconds": 3.878607,
+          "sourceSHA256": "c59e2e70f54057d5c85bd0fe4fd1a9a5ed47678ccc6bffd0bd1e7b6c54292763",
+          "failureKind": "literal-placeholder-proposal",
+          "assessment": {
+            "sourceSHA256": "c59e2e70f54057d5c85bd0fe4fd1a9a5ed47678ccc6bffd0bd1e7b6c54292763",
+            "manualReviewConfirmed": true,
+            "allPassed": false,
+            "conditionErrors": [
+              "Condition requires exactly the documented @rf2/v1/text-report-cli.flow import; no local/additional imports",
+              "CLI condition requires callback plus main delegation"
+            ],
+            "feedback": [
+              "Condition requires exactly the documented @rf2/v1/text-report-cli.flow import; no local/additional imports",
+              "CLI condition requires callback plus main delegation"
+            ],
+            "buildAndTestSeconds": 3.330000000016653e-07
+          }
+        },
+        {
+          "round": 2,
+          "receipt": "artifacts/refinement-20261117/ai/study-1/attempt-3-C-cli/round-2/RECEIPT.json",
+          "receiptSHA256": "67aced03e211418208d06a04de2bce280e75191afd60f152e7020090d2fef704",
+          "finishReason": "stop",
+          "usage": {
+            "prompt_tokens": 3507,
+            "completion_tokens": 307,
+            "total_tokens": 3814,
+            "prompt_tokens_details": {
+              "cached_tokens": 3200
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 298
+            },
+            "prompt_cache_hit_tokens": 3200,
+            "prompt_cache_miss_tokens": 307
+          },
+          "elapsedSeconds": 8.401415375000001,
+          "sourceSHA256": "c59e2e70f54057d5c85bd0fe4fd1a9a5ed47678ccc6bffd0bd1e7b6c54292763",
+          "failureKind": "literal-placeholder-proposal",
+          "assessment": {
+            "sourceSHA256": "c59e2e70f54057d5c85bd0fe4fd1a9a5ed47678ccc6bffd0bd1e7b6c54292763",
+            "manualReviewConfirmed": true,
+            "allPassed": false,
+            "conditionErrors": [
+              "Condition requires exactly the documented @rf2/v1/text-report-cli.flow import; no local/additional imports",
+              "CLI condition requires callback plus main delegation"
+            ],
+            "feedback": [
+              "Condition requires exactly the documented @rf2/v1/text-report-cli.flow import; no local/additional imports",
+              "CLI condition requires callback plus main delegation"
+            ],
+            "buildAndTestSeconds": 1.669999999953653e-07
+          }
+        }
+      ]
+    },
+    {
+      "attempt": 4,
+      "task": "D",
+      "condition": "manual",
+      "closed": true,
+      "passed": false,
+      "allRoundsCost": {
+        "knownRequests": 0,
+        "unknownUsageRequests": 1,
+        "knownPromptTokens": 0,
+        "knownCompletionTokens": 0,
+        "knownProviderTotalTokens": 0,
+        "reasoningSubsetOfCompletion": 0,
+        "cacheSubsetOfPrompt": 0,
+        "observedRequestSeconds": 195.006534541,
+        "buildTestSeconds": 0
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "receipt": "artifacts/refinement-20261117/ai/study-1/attempt-4-D-manual/round-1/RECEIPT.json",
+          "receiptSHA256": "1b790d4ea42fc2804cdfa26893ce57b5d4560fba43101fd438aebc5c8b4fc727",
+          "finishReason": null,
+          "usage": null,
+          "elapsedSeconds": 195.006534541,
+          "sourceSHA256": null,
+          "failureKind": "transport-observation-timeout",
+          "assessment": null
+        }
+      ]
+    }
+  ],
+  "goldenControls": {
+    "passed": 808,
+    "total": 808,
+    "builds": 8,
+    "receipt": "artifacts/refinement-20261117/ai/golden-2/RESULTS.json",
+    "receiptSHA256": "a95b82286af520bb9288e4b2c04549077fbb4c5fc2d408b6b6d34efcae0ce9b6",
+    "priorFailedQualificationPreserved": true,
+    "priorFailureCause": "unresolved"
+  },
+  "conclusions": [
+    "Neither condition completed a task in this ordered sample.",
+    "Usage unknown for one transport timeout; known total is a lower bound, not complete spend or billing.",
+    "Literal-placeholder and length failures are not valid apps or savings.",
+    "The repeated placeholder output motivates a separate output-contract pilot; cause is unproven."
+  ],
+  "scope": "Two tasks, four ordered attempts, six total calls including permitted repairs; not randomized or causal generalization. Stable unchanged; no Memory/KHC.",
+  "separatePromptContractPilot": {
+    "frozenSHA256": "1ce6afb9ceb4baad185e1812aafe4c470c76cabe92b013808eccb7d83c29dde8",
+    "requestSHA256": "014d18a700642dab98a1f71da790af16d8eead7ae10d327f143e6c30b88ef442",
+    "closed": {
+      "schema": "rf2.refinement.prompt-contract-pilot.closed.v1",
+      "allPassed": false,
+      "rounds": 1,
+      "costIncludingFailures": {
+        "knownRequests": 0,
+        "unknownUsageRequests": 1,
+        "knownPromptTokens": 0,
+        "knownCompletionTokens": 0,
+        "knownProviderTotalTokens": 0,
+        "reasoningSubsetOfCompletion": 0,
+        "cacheSubsetOfPrompt": 0,
+        "observedRequestSeconds": 134.977875375,
+        "buildTestSeconds": 0
+      },
+      "declinedRepairReason": null,
+      "scope": "Separate prompt-contract repair pilot, no manual/CLI comparison or causal token-saving claim"
+    },
+    "receipt": "artifacts/refinement-20261117/ai/prompt-contract-pilot-1/round-1/RECEIPT.json",
+    "receiptSHA256": "68c319daa49dd3746ddc36e66471947583c4e79b3676d6196360cc0da8cbd533",
+    "observedOutcome": "Initial transport failure, no source or response usage recovered, no retry; prompt-contract effect untested",
+    "includedInMatchedStudy": false
+  },
+  "futureTransportCandidate": {
+    "qualifiedScope": "Offline fake HTTP/config/stream controls only; not wired into closed studies or live provider use",
+    "allPassed": true,
+    "controls": 63,
+    "unittestMethods": 14,
+    "sourceSHA256": "ee0607ae3e221e510848cbffd4c69304a530d328e861f5cbefa4b0c83b586743",
+    "testSHA256": "b9b3a14db6d506d96eb923369d7c40a94cec5d56857e6f1e1c7df57a2b1c97fa",
+    "realNetworkCalls": 0,
+    "realCredentialsRead": false,
+    "publicEvidence": "experiments/refinement-20261117/ai/PROVIDER-TRANSPORT-EVIDENCE.json",
+    "historicalTransportFailureCause": "unrecoverable from the retained truncated traceback; not inferred",
+    "payloadBuilderSHA256": "4b1121a4d5b6deb202921c5c000b3e050088aa7a42e8896ca329729438faea20",
+    "recreatedPayloadSHA256": "014d18a700642dab98a1f71da790af16d8eead7ae10d327f143e6c30b88ef442",
+    "outputFailureScope": "Function-level guarded write and explicit flush; interpreter-shutdown pipe behavior remains unproven",
+    "prior61ControlSourceAndReceiptPreserved": true
+  }
+}

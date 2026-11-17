@@ -1,0 +1,8 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/text.flow"
+fn report_json(value)
+ return value
+end
+fn main(argc,argv)
+ return report_json(0)
+end

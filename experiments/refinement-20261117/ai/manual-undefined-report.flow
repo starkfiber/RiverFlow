@@ -1,0 +1,6 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/text.flow"
+fn main(argc,argv)
+ let r=Report(0,0,0)
+ return 0
+end
