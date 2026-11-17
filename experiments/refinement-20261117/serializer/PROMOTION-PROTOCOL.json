@@ -1,0 +1,32 @@
+{
+  "schema": "rf2.serializer.r5.promotion-protocol.v1",
+  "status": "frozen before first comparative measurement",
+  "frozenBenchmarkSHA256": "fae78095254925724ae98e2ce0bb350df32622a4f257b1b22350d1979689d669",
+  "candidateSHA256": "8bb2ab48faceed5934ee2d6f676d14a6a7ffe5769dd2740ac9acceaf84532abe",
+  "comparison": "scalar baseline, accepted opt-in R3, R5 candidate; identical timer, iterations and output oracle",
+  "small": {
+    "sizes": [
+      0,
+      32
+    ],
+    "medianCandidateBaselineAtMost": 1.03,
+    "upper95AtMost": 1.05,
+    "minimumNativeUs": 50000
+  },
+  "denseTargets": {
+    "sizes": [
+      1024,
+      16384,
+      262144
+    ],
+    "density": "escaped",
+    "modes": [
+      "plain",
+      "opt"
+    ],
+    "eachCandidateBaselineUpper95Below": 1.0,
+    "eachCandidateR3Upper95Below": 1.0,
+    "minimumNativeUs": 50000
+  },
+  "allCases": "Report every profile/CI/loss; no dropping failed gates, no automatic retries or winner-selection rerun. Passing these gates alone does not establish universal speed or justify stable replacement."
+}
