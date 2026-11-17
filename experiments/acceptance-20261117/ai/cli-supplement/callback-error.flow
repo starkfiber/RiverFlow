@@ -1,0 +1,9 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/text-report-cli.flow"
+fn text_report_fields(input:TextReportInput,report:Report,out:Writer):IO
+ do report_number(report,out,"Before error",12,1)
+ return err(73)
+end
+fn main(argc,argv)
+ return text_report_entry(argc,argv,"Callback error",14,0)
+end

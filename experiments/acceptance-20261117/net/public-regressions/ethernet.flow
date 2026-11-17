@@ -1,0 +1,33 @@
+profile RF2_SYSTEM_A64_V1
+use "packet.flow"
+fn main(argc,argv)
+ let p=Packet()
+ let n=0
+ let done=0
+ while done==0
+  if n==2048
+   do write(1,"DROP\n",5)
+   return 0
+  end
+  let got=read(0,buffer("chunk",2048),2048-n)
+  if got>>63
+   return 2
+  end
+  if got==0
+   set done=1
+  else
+   let i=0
+   while i<got
+    set p[n+i]=load8(buffer("chunk",2048)+i)
+    set i=i+1
+   end
+   set n=n+got
+  end
+ end
+ if frame(p,n)==1
+  do write(1,"ALLOW\n",6)
+ else
+  do write(1,"DROP\n",5)
+ end
+ return 0
+end

@@ -1,0 +1,110 @@
+module queues
+# Single-owner event-loop component; no thread/DMA or authentication claim.
+fn q_base(slot)
+ return buffer("rf2net_queue_slots", 256) + slot * 64
+end
+fn q_meta()
+ return buffer("rf2net_queue_meta", 32)
+end
+fn q_init()
+ do fill_zero(buffer("rf2net_queue_slots", 256), 256)
+ do fill_zero(q_meta(), 32)
+ do store64(q_meta(), 1)
+ return 0
+end
+fn q_generation()
+ return load64(q_meta())
+end
+fn q_advance()
+ if q_generation() >= 4294967295
+  do store64(q_meta() + 16, 1)
+  do fill_zero(buffer("rf2net_queue_slots", 256), 256)
+  return 0
+ end
+ do store64(q_meta(), q_generation() + 1)
+ return 1
+end
+fn q_bind(slot, peer, channel, mode)
+ if any(slot >= 4, any(peer == 0, any(channel == 0, mode > 1)))
+  return 1
+ end
+ if load64(q_meta() + 16) != 0
+  return 2
+ end
+ let i = 0
+ while i < 4
+  if i != slot
+   let other = q_base(i)
+   if all(load64(other + 48) != 0, all(load64(other) == peer, load64(other + 8) == channel))
+    return 3
+   end
+  end
+  set i = i + 1
+ end
+ if q_advance() == 0
+  return 2
+ end
+ let p = q_base(slot)
+ do fill_zero(p, 64)
+ do store64(p, peer)
+ do store64(p + 8, channel)
+ do store64(p + 32, mode)
+ do store64(p + 48, 1)
+ return 0
+end
+fn q_revoke(slot)
+ if slot >= 4
+  return 1
+ end
+ let advanced = q_advance()
+ do fill_zero(q_base(slot), 64)
+ if advanced == 0
+  return 2
+ end
+ return 0
+end
+fn q_submit(slot, peer, channel, generation, id, value)
+ if slot >= 4
+  return 1
+ end
+ if any(load64(q_meta() + 16) != 0, generation != q_generation())
+  return 2
+ end
+ let p = q_base(slot)
+ if any(load64(p + 48) == 0, any(load64(p) != peer, load64(p + 8) != channel))
+  return 3
+ end
+ if any(id == 0, id <= load64(p + 40))
+  return 4
+ end
+ if all(load64(p + 16) != 0, load64(p + 32) == 0)
+  return 5
+ end
+ # Validation and queue commit cannot yield in this single-owner API.
+ do store64(p + 16, id)
+ do store64(p + 24, value)
+ do store64(p + 40, id)
+ return 0
+end
+fn q_take()
+ if load64(q_meta() + 16) != 0
+  return 0
+ end
+ let i = 0
+ let start = load64(q_meta() + 8)
+ while i < 4
+  let sum = start + i
+  let slot = sum - (sum // 4) * 4
+  let p = q_base(slot)
+  if all(load64(p + 48) != 0, load64(p + 16) != 0)
+   do store64(q_meta() + 24, load64(p + 24))
+   do store64(p + 16, 0)
+   do store64(p + 24, 0)
+   do store64(q_meta() + 8, (slot + 1) - ((slot + 1) // 4) * 4)
+   return slot + 1
+  end
+  set i = i + 1
+ end
+ do store64(q_meta() + 24, 0)
+ return 0
+end

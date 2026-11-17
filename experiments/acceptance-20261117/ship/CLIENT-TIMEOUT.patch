@@ -1,0 +1,12 @@
+--- a/experiments/rf2ship/secure-transport-018/intent_client.py
++++ b/experiments/rf2ship/secure-transport-018/intent_client.py
+@@ -97,8 +97,8 @@
+     if result[2]==2 and safe_reconnect:self.epoch=None;continue
+     return result
+    except TimeoutError:
+-    if attempt==0:continue  # Same epoch, fresh durable nonce; never nonce reuse.
+     if not safe_reconnect:raise UnknownOutcome('application reconciliation required')
++    if attempt==0:continue  # Safe observations/latest semantics only; fresh nonce.
+     self.epoch=None
+    except ConnectionError:
+     if not safe_reconnect:raise UnknownOutcome('boot/session changed; reconcile first')

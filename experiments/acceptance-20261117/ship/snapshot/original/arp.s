@@ -1,0 +1,82 @@
+# Static peer/gateway ARP request/reply profile. No learning, proxy ARP or VLAN.
+Larp_reply:
+ cmpw $0x0200,20(%rdi)
+ je Lneighbor_reply
+ cmpq $60,0x5ac8
+ jne Lnat_bad
+ cmpw $0x0100,14(%rdi)
+ jne Lnat_bad
+ cmpw $8,16(%rdi)
+ jne Lnat_bad
+ cmpw $0x0406,18(%rdi)
+ jne Lnat_bad
+ cmpw $0x0100,20(%rdi)
+ jne Lnat_bad
+ movq 0x5ad0,%rax
+ shll $1,%eax
+ addl $2,%eax
+ shll $8,%eax
+ movl %eax,%r8d
+ leal 256(%rax),%r9d
+ cmpl $0x32465202,6(%rdi)
+ jne Lnat_policy
+ cmpw %r9w,10(%rdi)
+ jne Lnat_policy
+ movl 6(%rdi),%eax
+ cmpl %eax,22(%rdi)
+ jne Lnat_policy
+ movzwl 10(%rdi),%eax
+ cmpw %ax,26(%rdi)
+ jne Lnat_policy
+ cmpl $-1,(%rdi)
+ jne Larp_unicast
+ cmpw $0xffff,4(%rdi)
+ je Larp_destination_ok
+Larp_unicast:
+ cmpl $0x32465202,(%rdi)
+ jne Lnat_policy
+ cmpw %r8w,4(%rdi)
+ jne Lnat_policy
+Larp_destination_ok:
+ movl $0x02004d0a,%r10d
+ movl $0x03004d0a,%r11d
+ cmpq $0,0x5ad0
+ je Larp_addresses
+ movl $0x026433c6,%r10d
+ movl $0x096433c6,%r11d
+Larp_addresses:
+ cmpl %r11d,28(%rdi)
+ jne Lnat_policy
+ cmpl %r10d,38(%rdi)
+ jne Lnat_policy
+ movq 32(%rdi),%rax
+ shlq $16,%rax
+ testq %rax,%rax
+ jz Larp_target_ok
+ cmpl $0x32465202,32(%rdi)
+ jne Lnat_policy
+ cmpw %r8w,36(%rdi)
+ jne Lnat_policy
+Larp_target_ok:
+ movl 6(%rdi),%eax
+ movl %eax,(%rdi)
+ movw %r9w,4(%rdi)
+ movl $0x32465202,6(%rdi)
+ movw %r8w,10(%rdi)
+ movw $0x0200,20(%rdi)
+ movl 22(%rdi),%eax
+ movl %eax,32(%rdi)
+ movw 26(%rdi),%ax
+ movw %ax,36(%rdi)
+ movl %r11d,38(%rdi)
+ movl $0x32465202,22(%rdi)
+ movw %r8w,26(%rdi)
+ movl %r10d,28(%rdi)
+ movq $0,42(%rdi)
+ movq $0,50(%rdi)
+ movw $0,58(%rdi)
+ movq 0x5ad0,%rax
+ movq %rax,0x507e0
+ movq $1,0x507e8
+ xorl %eax,%eax
+ retq

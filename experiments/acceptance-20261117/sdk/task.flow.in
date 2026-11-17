@@ -1,0 +1,85 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/text.flow"
+__CANDIDATE_IMPORT__
+fn emit_document(out:Writer,p,n,mode,html,htmln)
+ do writer_reset(out)
+ if mode
+  do writer_text(out,"{\"schema\":\"rf2-document.v1\",\"bytes\":")
+  do writer_number(out,n)
+  do writer_text(out,",\"text\":")
+ end
+ do __JSON__(out,p,n)
+ if mode
+  do writer_text(out,",\"html\":")
+  do __JSON__(out,html,htmln)
+  do writer_text(out,"}\n")
+ end
+ return out.error==0
+end
+fn run_task(argc,argv):IO
+ let info=TextInfo(0,0,0,0)
+ let out=Writer(buffer("json_task_output",16777217),0,0,0)
+ let status=Writer(buffer("json_task_status",128),128,0,0)
+ if argc!=8
+  return err(22)
+ end
+ let mode=try text_parse_u64(load64(argv+8),io_size(load64(argv+8)),1)
+ let input=buffer("json_task_input",1048577)
+ let n=try io_regular(load64(argv+16),input,1048576)
+ let repeats=try text_parse_u64(load64(argv+24),io_size(load64(argv+24)),100000)
+ let cap=try text_parse_u64(load64(argv+32),io_size(load64(argv+32)),16777216)
+ let initial=try text_parse_u64(load64(argv+40),io_size(load64(argv+40)),16)
+ let error=try text_parse_u64(load64(argv+48),io_size(load64(argv+48)),65536)
+ let raw=try text_parse_u64(load64(argv+56),io_size(load64(argv+56)),1)
+ if repeats==0
+  return err(22)
+ end
+ let html=buffer("json_task_html",6291457)
+ let htmln=0
+ if mode
+  do text_measure(input,n,info)
+  if info.status
+   return err(info.status)
+  end
+  set htmln=try text_html(input,n,html,6291456)
+ end
+ set out.capacity=cap
+ let r=0
+ while r<repeats
+  if raw
+   do writer_reset(out)
+   set out.used=initial
+   set out.error=error
+   let k=0
+   while k<initial
+    do store8(out.data+k,126)
+    set k=k+1
+   end
+   do __JSON__(out,input,n)
+  else
+   do emit_document(out,input,n,mode,html,htmln)
+  end
+  set r=r+1
+ end
+ do writer_number(status,out.used)
+ do writer_text(status,":")
+ do writer_number(status,out.error)
+ do writer_text(status,"\n")
+ do try io_write_no_sigpipe(2,status.data,status.used)
+ if (out.error==0)|raw
+  do try io_write_no_sigpipe(1,out.data,out.used)
+ end
+ if out.error
+  return err(out.error)
+ end
+ return ok(out.used)
+end
+fn main(argc,argv)
+ handle run_task(argc,argv)
+ ok used
+  return 0
+ err code
+  return 2
+ end
+ return 2
+end

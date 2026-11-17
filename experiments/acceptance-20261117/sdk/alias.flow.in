@@ -1,0 +1,76 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/text.flow"
+use "json_spans.flow"
+fn main(argc,argv)
+ let a=Writer(buffer("alias_a",256),0,0,0)
+ let b=Writer(buffer("alias_b",256),0,0,0)
+ let status=Writer(buffer("alias_status",64),64,0,0)
+ let source=0
+ let checks=0
+ while source<16
+  let target=0
+  while target<16
+   let n=0
+   while n<17
+    let cap=0
+    while cap<24
+     let initial=0
+     while initial<4
+      let basea=buffer("alias_a",256)
+      let baseb=buffer("alias_b",256)
+      let k=0
+      while k<256
+       let c=97+(k&15)
+       if (k&7)==0
+        set c=34
+       end
+       if (k&7)==2
+        set c=10
+       end
+       if (k&7)==4
+        set c=92
+       end
+       do store8(basea+k,c)
+       do store8(baseb+k,c)
+       set k=k+1
+      end
+      set a.data=basea+target
+      set b.data=baseb+target
+      set a.capacity=cap
+      set b.capacity=cap
+      set a.used=initial
+      set b.used=initial
+      set a.error=0
+      set b.error=0
+      do writer_json(a,basea+source,n)
+      do writer_json_spans(b,baseb+source,n)
+      if (a.used!=b.used)|(a.error!=b.error)
+       return 2
+      end
+      set k=0
+      while k<256
+       if load8(basea+k)!=load8(baseb+k)
+        return 3
+       end
+       set k=k+1
+      end
+      set checks=checks+1
+      set initial=initial+1
+     end
+     set cap=cap+3
+    end
+    set n=n+2
+   end
+   set target=target+1
+  end
+  set source=source+1
+ end
+ do writer_number(status,checks)
+ handle io_write_no_sigpipe(1,status.data,status.used)
+ ok sent
+  return 0
+ err code
+  return 4
+ end
+ return 4
+end

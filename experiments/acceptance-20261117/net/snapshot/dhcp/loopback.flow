@@ -1,0 +1,111 @@
+profile RF2_SYSTEM_A64_V1
+use "dhcp.flow"
+use "clock.flow"
+# Disposable Darwin loopback adapter. Ephemeral UDP port, never DHCP67 or a LAN NIC.
+# Reports portBE16 on stdout. Exactly32 datagrams maximum; three-second receive timeout.
+fn main(argc,argv)
+ if syscall6(92,1,73,1,0,0,0)!=0
+  return 3
+ end
+ let tb=buffer("dhcp_timebase",8)
+ if clock_timebase(tb)!=0
+  return 5
+ end
+ let ratio=load64(tb)
+ let numer=ratio&4294967295
+ let denom=ratio>>32
+ if any(numer==0,denom==0)
+  return 5
+ end
+ let origin=vm_clock_ticks()
+ let fd=syscall6(97,2,2,17,0,0,0)
+ if fd>>63
+  return 4
+ end
+ let addr=buffer("dhcp_bind",16)
+ do store8(addr,16)
+ do store8(addr+1,2)
+ do store8(addr+4,127)
+ do store8(addr+7,1)
+ if syscall6(104,fd,addr,16,0,0,0)!=0
+  do close(fd)
+  return 4
+ end
+ let tv=buffer("dhcp_timeout",16)
+ do store64(tv,3)
+ if syscall6(105,fd,65535,4102,tv,16,0)!=0
+  do close(fd)
+  return 4
+ end
+ let len=buffer("dhcp_socklen",8)
+ do store64(len,16)
+ if syscall6(32,fd,addr,len,0,0,0)!=0
+  do close(fd)
+  return 4
+ end
+ if write(1,addr+2,2)!=2
+  do close(fd)
+  return 3
+ end
+ let p=DhcpPacket()
+ let m=DhcpMeta()
+ let states=LeaseState()
+ let owners=LeaseOwner()
+ let until=LeaseUntil()
+ let xids=LeaseXid()
+ let clock=LeaseClock()
+ let raw=buffer("dhcp_udp",577)
+ let peer=buffer("dhcp_peer",16)
+ let count=0
+ let i=0
+ while count<32
+  do store64(len,16)
+  let n=syscall6(29,fd,raw,577,0,peer,len)
+  if n>>63
+   do close(fd)
+   return 4
+  end
+  # Even if a platform changes socket delivery, refuse non-loopback peers.
+  if any(load8(peer+1)!=2,any(load8(peer+4)!=127,any(load8(peer+5)!=0,any(load8(peer+6)!=0,load8(peer+7)!=1))))
+   do close(fd)
+   return 4
+  end
+  let answer=10
+  if n<=576
+   set i=0
+   while i<n
+    set p[i]=load8(raw+i)
+    set i=i+1
+   end
+   set answer=dhcp_parse(p,n,m)
+   if answer==0
+    let ticks=vm_clock_ticks()
+    if ticks<origin
+     do close(fd)
+     return 5
+    end
+    let now=dhcp_seconds(ticks-origin,numer,denom)
+    if now==18446744073709551615
+     do close(fd)
+     return 5
+    end
+    set answer=dhcp_lease(m,now,states,owners,until,xids,clock)
+   end
+  end
+  if any(answer==2,any(answer==5,answer==6))
+   let size=dhcp_reply(p,m,answer)
+   set i=0
+   while i<size
+    do store8(raw+i,p[i])
+    set i=i+1
+   end
+   if syscall6(133,fd,raw,size,0,peer,16)!=size
+    do close(fd)
+    return 4
+   end
+  end
+  set count=count+1
+ end
+ do close(fd)
+ return 0
+end

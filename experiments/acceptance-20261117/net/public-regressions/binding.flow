@@ -1,0 +1,34 @@
+module rf2net_explicit_binding
+use "packet.flow"
+# dst MAC[0..5], src MAC[6..11], configured session id[12..13], network byte order.
+array Binding(u8,14)
+fn pinned_frame(p:Packet,n,c:Binding)
+ if n<26
+  return 0
+ end
+ let session=c[12]*256+c[13]
+ if any(session==0,session==65535)
+  return 0
+ end
+ if frame(p,n)!=1
+  return 0
+ end
+ # This adapter intentionally requires VLAN500 + PPPoE, unlike the general parser.
+ if any(p[12]!=129,p[13]!=0)
+  return 0
+ end
+ if any(p[16]!=136,p[17]!=100)
+  return 0
+ end
+ if p[20]*256+p[21]!=session
+  return 0
+ end
+ let i=0
+ while i<12
+  if p[i]!=c[i]
+   return 0
+  end
+  set i=i+1
+ end
+ return 1
+end

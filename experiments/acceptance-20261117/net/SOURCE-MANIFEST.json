@@ -1,0 +1,25 @@
+{
+  "inputSources": {
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/dhcp/dhcp.flow": "a97e44b3b52c6c584e0cf5c256e30fdcf2bfbafbc8bcb38c1d7b089d9e4570cb",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/dhcp/main.flow": "38029128db297bbb4739b9fafbf0c83446bc8319f0f1663dba0acd3018f18938",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/dhcp/loopback.flow": "7b778df8dc46da169f5879c060f2da5e4cb641111362e1ffda2e5f350f2b172e",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/dhcp/clock.flow": "003ddb42d75548603c96086f28bb915aae38b782f23f566db9e25c1ad87920f4",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/dhcp/verify.py": "7816811c08673bdd487932f1ec9c73482caa60be7d1c5c198496d4272b1656ab",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/dhcp/mutation_verify.py": "2ccd7816a31d600bb507bc97376a37738028c4e3b42afd1452e78334e4f7f846",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/dhcp/socket_verify.py": "7e447030769b21de711df743583f3218249a3f3a011303b97e25ea3ea9a7afbf",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/dhcp-durable/dhcp.flow": "0b4e9f166823185b63957d965a2318c7649ff6e7f314cf3c7cbf697dad41982c",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/dhcp-durable/store.flow": "bc6bbf2129e425fc1dbd76f53478ce01afa2790449c3216ccdb36fcff85fe7e6",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/dhcp-durable/main.flow": "7f6d1f55b44e29212885daa8aff6142469c55dfa6ab9c49c6aab5606a4807289",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/dhcp-durable/loopback.flow": "de02cf3416a24f141283e4125dfa6ea95b6b5e44a641b89ae5fd7ff56316b153",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/dhcp-durable/verify.py": "92f6f4d1fc807d7c825d8da66ab9095a9b60c943a2c850b63016c0deccb64220",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/dns/dns.flow": "3c1802903f4d41499ffbcc36f9eeefa7e8bd727fee7997c321e1254127dcc7f2",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/dns/main.flow": "b82036d1535e2129a0ec3bccca4baefa907c5ba3620dfd422b2c2effdd628256",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/dns/loopback.flow": "73f4338a5d8fe8d5fd9d5fce250e62ab3d49759a2e3bddce46e1f1f7bd77817c",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/dns/verify.py": "f92f2def9c06a779a62d925ceadc38902f671236758ef34338fccec1cb9be43f",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/dns/mutation_verify.py": "5a27195df7b5b90e1d89894c3ed752e1615711a6afc848d6f55eb58c7f27d367",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/services/socket_verify.py": "c26a96ccbc1026646d2e5e75b00da44923ce6ff323697d05671edfacf506a9bf",
+    "/Users/ik/Projects/RiverFlow/experiments/rf2net/services/mcp_smoke.py": "17b07ae8aa3392f80741babf0d4f754812aff7e462278c1af3812448ac75aa7e"
+  },
+  "scope": "Reviewed local source-only snapshot; live owner tree read-only",
+  "candidate": "Remove redundant ended redispatch; dedicated padding tail preserves rejection and missing-END metadata semantics"
+}

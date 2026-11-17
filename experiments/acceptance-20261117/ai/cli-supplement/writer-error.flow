@@ -1,0 +1,9 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/text-report-cli.flow"
+fn text_report_fields(input:TextReportInput,report:Report,out:Writer):IO
+ set out.error=75
+ return ok(0)
+end
+fn main(argc,argv)
+ return text_report_entry(argc,argv,"Writer error",12,0)
+end

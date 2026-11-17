@@ -1,0 +1,28 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/text-report-cli.flow"
+fn text_report_fields(input:TextReportInput,report:Report,out:Writer):IO
+ let cursor=TextCursor(0,0,0,0)
+ let span=TextSpan(0,0)
+ let longest=0
+ let more=text_next_line(input.data,input.size,cursor,span)
+ while more
+  if span.length>longest
+   set longest=span.length
+  end
+  set more=text_next_line(input.data,input.size,cursor,span)
+ end
+ if cursor.status
+  return err(cursor.status)
+ end
+ do report_text(report,out,"Path",4,input.path,io_size(input.path))
+ do report_number(report,out,"Lines",5,input.lines)
+ do report_number(report,out,"Words",5,input.words)
+ do report_number(report,out,"Longest bytes",13,longest)
+ if out.error
+  return err(out.error)
+ end
+ return ok(0)
+end
+fn main(argc,argv)
+ return text_report_entry(argc,argv,"Line metrics",12,0)
+end
