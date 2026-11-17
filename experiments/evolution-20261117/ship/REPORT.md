@@ -41,7 +41,7 @@ Guest images SHA-256: baseline `b5cee78c7294eb2f475b064536495260bf6da85224d3d29c
 From the experiment repository root:
 
 ```sh
-experiments/evolution-20261117/ship/run.sh --guest
+sh experiments/evolution-20261117/ship/run.sh --guest
 ```
 
 This needs existing clang, Swift/CryptoKit, xorriso, local `qemu-system-x86_64`, and the pinned external RF2Ship 0.18 snapshot. It creates only local experiment/artifact files; it does not invoke SSH, use host network peers, touch VM102 or deploy. `prepare_guest.py` fails if its original C-source hash changes. Source snapshot hashes, compiler hash and guest manifests are retained in artifacts.
