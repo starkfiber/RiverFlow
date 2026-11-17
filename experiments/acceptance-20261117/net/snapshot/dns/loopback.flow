@@ -1,0 +1,79 @@
+profile RF2_SYSTEM_A64_V1
+use "dns.flow"
+fn main(argc,argv)
+ if syscall6(92,1,73,1,0,0,0)!=0
+  return 3
+ end
+ let fd=syscall6(97,2,2,17,0,0,0)
+ if fd>>63
+  return 4
+ end
+ let addr=buffer("dhcp_bind",16)
+ do store8(addr,16)
+ do store8(addr+1,2)
+ do store8(addr+4,127)
+ do store8(addr+7,1)
+ if syscall6(104,fd,addr,16,0,0,0)!=0
+  do close(fd)
+  return 4
+ end
+ let tv=buffer("dhcp_timeout",16)
+ do store64(tv,3)
+ if syscall6(105,fd,65535,4102,tv,16,0)!=0
+  do close(fd)
+  return 4
+ end
+ let len=buffer("dhcp_socklen",8)
+ do store64(len,16)
+ if syscall6(32,fd,addr,len,0,0,0)!=0
+  do close(fd)
+  return 4
+ end
+ if write(1,addr+2,2)!=2
+  do close(fd)
+  return 3
+ end
+ let p=DnsPacket()
+ let q=DnsName()
+ let m=DnsMeta()
+ let peer=buffer("dns_peer",16)
+ let raw=buffer("dns_udp",513)
+ let count=0
+ while count<32
+  do store64(len,16)
+  let n=syscall6(29,fd,raw,513,0,peer,len)
+  if n>>63
+   do close(fd)
+   return 4
+  end
+  if any(load8(peer+1)!=2,any(load8(peer+4)!=127,any(load8(peer+5)!=0,any(load8(peer+6)!=0,load8(peer+7)!=1))))
+   do close(fd)
+   return 4
+  end
+  let size=0
+  if n<=512
+   let i=0
+   while i<n
+    set p[i]=load8(raw+i)
+    set i=i+1
+   end
+   set size=dns_handle(p,n,q,m)
+   set i=0
+   while i<size
+    do store8(raw+i,p[i])
+    set i=i+1
+   end
+  end
+  if size!=0
+   if syscall6(133,fd,raw,size,0,peer,16)!=size
+    do close(fd)
+    return 4
+   end
+  end
+  set count=count+1
+ end
+ if close(fd)!=0
+  return 4
+ end
+ return 0
+end

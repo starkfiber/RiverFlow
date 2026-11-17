@@ -1,0 +1,307 @@
+module rf2net_dns_lab
+# Bounded local rf2.test zone only. No recursion, upstream, cache or DNSSEC validation.
+array DnsPacket(u8,512)
+array DnsName(u8,256)
+# questionEnd,nameLength,type,class,edns(0/1/2badvers),RD,CD,reserved
+array DnsMeta(u64,8)
+fn dns_u16(p:DnsPacket,at)
+ return p[at]*256+p[at+1]
+end
+fn dns_set16(p:DnsPacket,at,n)
+ set p[at]=(n>>8)&255
+ set p[at+1]=n&255
+ return at+2
+end
+fn dns_set32(p:DnsPacket,at,n)
+ set p[at]=(n>>24)&255
+ set p[at+1]=(n>>16)&255
+ set p[at+2]=(n>>8)&255
+ set p[at+3]=n&255
+ return at+4
+end
+fn dns_equal(q:DnsName,n,text,size)
+ if n!=size
+  return 0
+ end
+ let i=0
+ while i<n
+  if q[i]!=load8(text+i)
+   return 0
+  end
+  set i=i+1
+ end
+ return 1
+end
+fn dns_parse(p:DnsPacket,n,q:DnsName,m:DnsMeta)
+ let i=0
+ while i<8
+  set m[i]=0
+  set i=i+1
+ end
+ if any(n<12,n>512)
+  return 100
+ end
+ set m[7]=p[2]&120
+ set m[5]=p[2]&1
+ set m[6]=p[3]&16
+ if (p[2]&128)!=0
+  return 100
+ end
+ if (p[2]&120)!=0
+  return 4
+ end
+ if any((p[2]&6)!=0,(p[3]&207)!=0)
+  return 1
+ end
+ if any(dns_u16(p,4)!=1,any(dns_u16(p,6)!=0,any(dns_u16(p,8)!=0,dns_u16(p,10)>1)))
+  return 1
+ end
+ let at=12
+ let used=0
+ let done=0
+ while done==0
+  if at>=n
+   return 1
+  end
+  let len=p[at]
+  set at=at+1
+  if len==0
+   set done=1
+  else
+   # Compressed question names and non-hostname label octets are outside this subset.
+   if any(len>63,any(at+len>n,at+len-12>=255))
+    return 1
+   end
+   if used!=0
+    set q[used]=46
+    set used=used+1
+   end
+   if used+len>253
+    return 1
+   end
+   set i=0
+   while i<len
+    let c=p[at+i]
+    if all(c>=65,c<=90)
+     set c=c+32
+    end
+    if all(c!=45,all(c!=95,all(any(c<48,c>57),any(c<97,c>122))))
+     return 1
+    end
+    set q[used]=c
+    set used=used+1
+    set i=i+1
+   end
+   set at=at+len
+  end
+ end
+ if at+4>n
+  return 1
+ end
+ set m[0]=at+4
+ set m[1]=used
+ set m[2]=dns_u16(p,at)
+ set m[3]=dns_u16(p,at+2)
+ set at=at+4
+ if dns_u16(p,10)==0
+  if at!=n
+   return 1
+  end
+  return 0
+ end
+ if at+11>n
+  return 1
+ end
+ if any(p[at]!=0,dns_u16(p,at+1)!=41)
+  return 1
+ end
+ set m[4]=1
+ if p[at+6]!=0
+  set m[4]=2
+ end
+ if p[at+5]!=0
+  return 1
+ end
+ let size=dns_u16(p,at+9)
+ if at+11+size!=n
+  return 1
+ end
+ # Ignore unknown EDNS options only after validating their bounded TLV framing.
+ set at=at+11
+ while at<n
+  if at+4>n
+   return 1
+  end
+  let bytes=dns_u16(p,at+2)
+  set at=at+4
+  if at+bytes>n
+   return 1
+  end
+  set at=at+bytes
+ end
+ return 0
+end
+fn dns_wire_name(p:DnsPacket,at,label,size)
+ let pos=at
+ let i=0
+ if size!=0
+  set p[pos]=size
+  set pos=pos+1
+  while i<size
+   set p[pos]=load8(label+i)
+   set pos=pos+1
+   set i=i+1
+  end
+ end
+ set p[pos]=3
+ set p[pos+1]=114
+ set p[pos+2]=102
+ set p[pos+3]=50
+ set p[pos+4]=4
+ set p[pos+5]=116
+ set p[pos+6]=101
+ set p[pos+7]=115
+ set p[pos+8]=116
+ set p[pos+9]=0
+ return pos+10
+end
+fn dns_soa(p:DnsPacket,at)
+ let pos=dns_wire_name(p,at,"",0)
+ do dns_set16(p,pos,6)
+ do dns_set16(p,pos+2,1)
+ do dns_set32(p,pos+4,30)
+ let length=pos+8
+ set pos=pos+10
+ let start=pos
+ set pos=dns_wire_name(p,pos,"gateway",7)
+ set pos=dns_wire_name(p,pos,"hostmaster",10)
+ set pos=dns_set32(p,pos,1)
+ set pos=dns_set32(p,pos,60)
+ set pos=dns_set32(p,pos,30)
+ set pos=dns_set32(p,pos,300)
+ set pos=dns_set32(p,pos,30)
+ do dns_set16(p,length,pos-start)
+ return pos
+end
+fn dns_opt(p:DnsPacket,at,badvers)
+ set p[at]=0
+ do dns_set16(p,at+1,41)
+ do dns_set16(p,at+3,512)
+ set p[at+5]=badvers
+ set p[at+6]=0
+ set p[at+7]=0
+ set p[at+8]=0
+ do dns_set16(p,at+9,0)
+ return at+11
+end
+fn dns_handle(p:DnsPacket,n,q:DnsName,m:DnsMeta)
+ let error=dns_parse(p,n,q,m)
+ if error==100
+  return 0
+ end
+ let flags=128
+ let rcode=error
+ let answers=0
+ let authority=0
+ let extra=0
+ let size=12
+ let questions=0
+ if m[0]!=0
+  set size=m[0]
+  set questions=1
+ end
+ if error==0
+  if m[4]==2
+   set rcode=0
+  else
+   let zone=0
+   if m[1]>=8
+    let base=m[1]-8
+    let match=1
+    let j=0
+    while j<8
+     if q[base+j]!=load8("rf2.test"+j)
+      set match=0
+     end
+     set j=j+1
+    end
+    if match==1
+     if base==0
+      set zone=1
+     else
+      if q[base-1]==46
+       set zone=1
+      end
+     end
+    end
+   end
+   if any(zone==0,any(m[3]!=1,dns_equal(q,m[1],"blocked.rf2.test",16)==1))
+    set rcode=5
+   else
+    set flags=132
+    let apex=dns_equal(q,m[1],"rf2.test",8)
+    let gateway=dns_equal(q,m[1],"gateway.rf2.test",16)
+    let health=dns_equal(q,m[1],"health.rf2.test",15)
+    if any(apex==1,any(gateway==1,health==1))
+     if all(m[2]==1,apex==0)
+      set p[size]=192
+      set p[size+1]=12
+      do dns_set16(p,size+2,1)
+      do dns_set16(p,size+4,1)
+      do dns_set32(p,size+6,30)
+      do dns_set16(p,size+10,4)
+      set p[size+12]=10
+      set p[size+13]=77
+      set p[size+14]=0
+      set p[size+15]=2
+      set size=size+16
+      set answers=1
+     else
+      if all(m[2]==6,apex==1)
+       set size=dns_soa(p,size)
+       set answers=1
+      else
+       if all(m[2]==2,apex==1)
+        set p[size]=192
+        set p[size+1]=12
+        do dns_set16(p,size+2,2)
+        do dns_set16(p,size+4,1)
+        do dns_set32(p,size+6,30)
+        do dns_set16(p,size+10,18)
+        set size=dns_wire_name(p,size+12,"gateway",7)
+        set answers=1
+       else
+        if any(m[2]==1,any(m[2]==2,any(m[2]==6,m[2]==28)))
+         set size=dns_soa(p,size)
+         set authority=1
+        else
+         set flags=128
+         set rcode=4
+        end
+       end
+      end
+     end
+    else
+     set rcode=3
+     set size=dns_soa(p,size)
+     set authority=1
+    end
+   end
+  end
+ end
+ if m[4]!=0
+  let bad=0
+  if all(error==0,m[4]==2)
+   set bad=1
+  end
+  set size=dns_opt(p,size,bad)
+  set extra=1
+ end
+ set p[2]=flags|m[5]|m[7]
+ set p[3]=rcode|m[6]
+ do dns_set16(p,4,questions)
+ do dns_set16(p,6,answers)
+ do dns_set16(p,8,authority)
+ do dns_set16(p,10,extra)
+ return size
+end

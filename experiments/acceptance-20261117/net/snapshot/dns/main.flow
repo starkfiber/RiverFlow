@@ -1,0 +1,76 @@
+profile RF2_SYSTEM_A64_V1
+use "dns.flow"
+fn read_exact(fd,p,n)
+ let at=0
+ while at<n
+  let got=read(fd,p+at,n-at)
+  if any(got==0,got>>63)
+   return 0
+  end
+  set at=at+got
+ end
+ return 1
+end
+fn write_exact(fd,p,n)
+ let at=0
+ while at<n
+  let wrote=write(fd,p+at,n-at)
+  if any(wrote==0,wrote>>63)
+   return 0
+  end
+  set at=at+wrote
+ end
+ return 1
+end
+# LEu16 length + DNS query. Output LEu16 length + DNS response;0 means drop.
+fn main(argc,argv)
+ if syscall6(92,1,73,1,0,0,0)!=0
+  return 3
+ end
+ let p=DnsPacket()
+ let q=DnsName()
+ let m=DnsMeta()
+ let h=buffer("dns_h",2)
+ let raw=buffer("dns_raw",512)
+ let count=0
+ while 1
+  let got=read(0,h,1)
+  if got==0
+   return 0
+  end
+  if any(got>>63,count==4096)
+   return 2
+  end
+  if read_exact(0,h+1,1)==0
+   return 2
+  end
+  let n=load8(h)+load8(h+1)*256
+  if n>512
+   return 2
+  end
+  if read_exact(0,raw,n)==0
+   return 2
+  end
+  let i=0
+  while i<n
+   set p[i]=load8(raw+i)
+   set i=i+1
+  end
+  let size=dns_handle(p,n,q,m)
+  do store8(h,size&255)
+  do store8(h+1,(size>>8)&255)
+  if write_exact(1,h,2)==0
+   return 3
+  end
+  set i=0
+  while i<size
+   do store8(raw+i,p[i])
+   set i=i+1
+  end
+  if write_exact(1,raw,size)==0
+   return 3
+  end
+  set count=count+1
+ end
+ return 0
+end
