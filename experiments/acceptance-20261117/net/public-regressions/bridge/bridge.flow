@@ -1,0 +1,105 @@
+module rf2net_bridge_lab
+# Bounded two-port, untagged Ethernet-II learning engine. No STP or NIC effects.
+array BridgeFrame(u8,1514)
+array BridgeMeta(u64,2)
+array BridgeMac(u64,8)
+array BridgePort(u64,8)
+array BridgeSeen(u64,8)
+array BridgeClock(u64,2)
+# Return low2 bits=egress port mask; higher bits=reason. Invalid input never mutates state.
+fn bridge_frame(p:BridgeFrame,n,m:BridgeMeta,mac:BridgeMac,ports:BridgePort,seen:BridgeSeen,clock:BridgeClock)
+ if any(n<60,n>1514)
+  return 1280
+ end
+ let ingress=m[0]
+ let now=m[1]
+ if ingress>1
+  return 1536
+ end
+ let kind=p[12]*256+p[13]
+ if any(kind==33024,kind==34984)
+  return 2304
+ end
+ if kind<1536
+  return 2560
+ end
+ let src=0
+ let dst=0
+ let i=0
+ while i<6
+  set dst=dst*256+p[i]
+  set src=src*256+p[i+6]
+  set i=i+1
+ end
+ if any(src==0,(p[6]&1)!=0)
+  return 3072
+ end
+ if dst==0
+  return 2816
+ end
+ # Reserved bridge-control destination range is never forwarded or learned here.
+ if all(p[0]==1,all(p[1]==128,all(p[2]==194,all(p[3]==0,all(p[4]==0,p[5]<16)))))
+  return 2048
+ end
+ if clock[1]==1
+  if now<clock[0]
+   return 1792
+  end
+ end
+ # Commit state only after complete input admission.
+ set clock[0]=now
+ set clock[1]=1
+ let slot=8
+ let empty=8
+ let oldest=0
+ set i=0
+ while i<8
+  if mac[i]!=0
+   if now-seen[i]>=30
+    set mac[i]=0
+    set ports[i]=0
+    set seen[i]=0
+   end
+  end
+  if mac[i]==src
+   set slot=i
+  end
+  if mac[i]==0
+   if empty==8
+    set empty=i
+   end
+  end
+  if seen[i]<seen[oldest]
+   set oldest=i
+  end
+  set i=i+1
+ end
+ if slot==8
+  if empty!=8
+   set slot=empty
+  else
+   set slot=oldest
+  end
+ end
+ set mac[slot]=src
+ set ports[slot]=ingress
+ set seen[slot]=now
+ let egress=2
+ if ingress==1
+  set egress=1
+ end
+ if (p[0]&1)!=0
+  return 768+egress
+ end
+ set i=0
+ while i<8
+  if mac[i]==dst
+   if ports[i]==ingress
+    return 1024
+   end
+   return 256+egress
+  end
+  set i=i+1
+ end
+ return 512+egress
+end
