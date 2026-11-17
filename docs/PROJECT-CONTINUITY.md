@@ -131,3 +131,32 @@ artifacts/intelligence-051/; publication uses verified SFE identity only.
 ## Measured SDK/Net/Ship sprint,17November2026
 
 Three independent agents produced native source candidates; see [executed results](MEASURED-EVOLUTION-20261117.md). JSON serialization1.27–1.42× on tested ordinary/mixed inputs; Net normal/max parser1.20–1.35× with short-packet loss retained; Ship existing envelope5.11× matching-Oz host AEAD, with80guest checks per implementation. These are component results, not whole-network or universal speed. Added bounded typed JSON/HTML reports and native-checked context. Four original DeepSeek apps failed; separate V4-Pro repair passes37checks, no token advantage. Use opt-in combined source package; stable runtime/downloads untouched. Active uncommitted RF2Net/Ship work was read only and source-bound patches prepared. Raw local receipts artifacts/evolution-20261117; no remote Memory/KHC retention. Fixed11/12 ledger unchanged.
+
+
+## Implemented acceptance and useful output, 17 November 2026
+
+Read ACCEPTANCE-USEFUL-OUTPUT-20261117.md and the reviewed source evidence under
+experiments/acceptance-20261117. Ship31/31 stages pass; actual unsafe uncertain
+mutation replay reproduced/fixed on PC/Q35,94 loss controls. Strict expired-ARP
+fixture+seven negatives and actual TCP replay pass; guest code/timeouts unchanged.
+Net original/durable parser, full public service/state/mutation/loopback regression
+passes. Revised timing fixes a benchmark-only584/586-byte framing error,152
+framing controls; all20profiles finish. Padding wins retained; small promotion
+intervals inconclusive. R3 small gates pass, large dense loss retained; R4 leaf
+hypothesis failed four small gates and targeted gate, unpromoted. Monotonic clock
+proof and all failed timing campaigns persist, not silently retried.
+
+New typed CLI-report library owns shared validation/IO, callback owns task logic.
+Actual fresh DeepSeek A/B source passes46/160 complete tasks and16/40 supplements,
+no repairs,14,128reportedtokens. Manual initial+repairs used33,099 and still fail;
+original capped7274 and two unknown transport usages retained. New condition is
+nonrandomized, not a general causal savings result. Combined R3+Report+CLI golden
+and boundary tests pass plain/opt. APFSinvalidUTF8existingfilename is unavailable,
+explicitly excluded. Frozen study hashes unchanged. Published model observations
+are exact synthetic source, not task solutions silently inserted into prompts.
+
+Use explicit reviewed development package builder; default SDK/releases/live
+services unchanged. Broader Ship24gates remain11tested subsets/13pending/0fully
+qualified; fixed delivery ledger11/12 unchanged. Source/Git/unique receipts remain
+project-owned; guarded disposable bank only rebuildable native output. No Memory,
+Chain or shared retained KHC work. Do not disturb the separate active owner tree.
