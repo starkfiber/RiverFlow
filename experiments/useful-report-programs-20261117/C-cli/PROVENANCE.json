@@ -1,0 +1,21 @@
+{
+  "schema": "rf2.ai-completion.engineering-descendant.v1",
+  "task": "C",
+  "condition": "cli",
+  "engineerAssisted": true,
+  "AIAlonePassed": false,
+  "parentSource": "/Users/ik/Downloads/Varuna/RiverFlow-next-20261117/artifacts/ai-completion-20261117/campaign-1/attempt-3-C-cli/round-1/main.flow",
+  "parentSourceSHA256": "148e0e48421172f80c61f3970c0607dbef86e5acfd02bcc6a3d6758cb1b3166c",
+  "sourceSHA256": "a333cd11693c8aba036acf232f44ec6c625b544c04e4a6edf81dc2f411dcb7e9",
+  "diffSHA256": "1660a5bae82feaeccd5c57a08727a85ed410348b587dc9fa3f417f443afe62ab",
+  "changes": [
+    "Rename keyword-like end local",
+    "Distinct leading/token byte locals",
+    "Replace unsupported boolean keywords with documented any/all and text_equal",
+    "Replace breaks with bounded scanning flags",
+    "Replace inline else-if with correctly nested if/end"
+  ],
+  "goldenSourceCopied": false,
+  "providerCalls": 0,
+  "rootReviewPending": true
+}
