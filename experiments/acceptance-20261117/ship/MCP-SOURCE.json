@@ -1,0 +1,6 @@
+{
+  "source": "experiments/rf2ship/secure-transport-018/mcp_smoke.py",
+  "originalSHA256": "4ff7b0487e274ca89f15d93c88527af87a24f05a5a3065197bf6dcd776a3a1e6",
+  "transformation": "Select explicit unchanged native runtime and unique persistent evidence path only",
+  "adaptedSHA256": "3ca3949af719eacbf4fbd67afb579c75a1d644547fca6329b2405db924cb8f9d"
+}

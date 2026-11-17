@@ -1,0 +1,16 @@
+     if actual!=wanted and slot==0 and wanted[12:14]==b'\x08\x00' and actual[12:14]==b'\x08\x06':
+      # One exact, solicited WAN-neighbor refresh is allowed, never arbitrary egress.
+      hop=int.from_bytes(wanted[30:34],'big');assert actual==arp_probe(hop),(label,'wrong-ARP',actual.hex())
+      now=int.from_bytes(memory(0x53f18,8),'little');ttl=int.from_bytes(memory(0x5a68,8),'little')
+      entries=[neighbor_before[i:i+64] for i in range(0,256,64)]
+      old=[x for x in entries if int.from_bytes(x[:8],'little')==2 and x[8:12]==wanted[30:34]]
+      assert len(old)==1,(label,'no-resolved-neighbor-before-refresh',neighbor_before.hex())
+      stamp=int.from_bytes(old[0][24:32],'little');assert now>=stamp and now-stamp>=ttl,(label,'ARP-before-neighbor-expiry',now,stamp,ttl)
+      rec={'label':label,'beforeNeighbor':neighbor_before.hex(),'guestNow':now,'neighborTimestamp':stamp,'lifetime':ttl,'solicitation':actual.hex(),'expectedTCP':wanted.hex(),'controlFrameBudget':1}
+      wire.append({'neighborRevalidation':rec})
+      reply=arp_reply(hop);peers[1].sendall(struct.pack('!I',len(reply))+reply)
+      refresh_mark=len(out);p.stdin.write(b'w');p.stdin.flush();until(b'RF2Ship> ',refresh_mark)
+      match=re.search(rb'Relay result=0x([0-9a-f]+)',out[refresh_mark:]);assert match and int(match[1],16)==42,(label,'neighbor-refresh-refused',out[refresh_mark:])
+      n=struct.unpack('!I',exact(target,4))[0];actual=exact(target,n)
+      rec['releasedTCP']=actual.hex();rec['afterNeighbor']=memory(0x55100,256).hex()
+      (D/('TCP-NEIGHBOR-REFRESH-'+machine+'.json')).write_text(json.dumps([x['neighborRevalidation']for x in wire if 'neighborRevalidation'in x],indent=2)+'\n')

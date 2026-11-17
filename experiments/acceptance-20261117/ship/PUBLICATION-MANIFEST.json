@@ -1,0 +1,45 @@
+{
+  "schema": "rf2ship.reviewed-publication.v1",
+  "scope": "One owner-authored RF2Ship0.18 baseline snapshot, the actual peer policy fix, local guest acceptance/loss controllers and necessary references only",
+  "topLevelFiles": [
+    ".gitignore",
+    "README.md",
+    "CLIENT-TIMEOUT.patch",
+    "intent_client.py",
+    "loss_cases.py.in",
+    "run_acceptance.py",
+    "run_loss.py",
+    "qualify_evidence.py",
+    "mcp_smoke.py",
+    "MCP-SOURCE.json",
+    "PUBLICATION-MANIFEST.json",
+    "tcp_neighbor.py.in",
+    "tcp_fixture_controls.py",
+    "run_tcp_expiry.py"
+  ],
+  "snapshotFiles": [
+    "snapshot/guards.flow",
+    "snapshot/SOURCE-MANIFEST.json"
+  ],
+  "singleSnapshotDirectory": "snapshot/original/",
+  "snapshotAdmission": "Only regular files explicitly listed by snapshot/SOURCE-MANIFEST.json, mapped from the RF2Ship0.18 prefix to this single original directory; guards.flow has its separate listed identity",
+  "excluded": [
+    "snapshot/baseline-normal",
+    "snapshot/baseline-debug",
+    "snapshot/candidate-normal",
+    "snapshot/candidate-debug",
+    "loss-source-*",
+    "__pycache__",
+    "all raw artifacts and provider responses",
+    "all VM/SSH/deployment/provisioning scripts from the active source tree",
+    "all credential files and generated keys",
+    "all native binaries, object files, guest images and caches"
+  ],
+  "productChange": "Client.call checks unsafe-operation TimeoutError before considering even the first retry; unknown mutation outcomes are surfaced rather than silently replayed",
+  "originalHelperSHA256": "086385b6595bc6e821b09bdf965a876ab3c3946e88fbd5b592c15ab19affe2f6",
+  "fixedHelperSHA256": "ba26053fd5453235fa1161094dfa5cefacd5f7f642e632f36523950a729e74a2",
+  "activeOwnerCheckoutModified": false,
+  "productionOrStableChanged": false,
+  "all24FirewallGatesQualified": false,
+  "fixtureCorrection": "Exact one-frame neighbor renewal, admitted only after captured guest clock proves pre-resolved neighbor expired; unrelated or premature ARP is refused; exact TCP/state assertions remain"
+}

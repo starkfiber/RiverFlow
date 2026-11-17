@@ -1,0 +1,8 @@
+# Reviewed external source snapshots and adapted executable fixtures remain local.
+# Their manifest and exact copy/adaptation recipe are retained in receipts.
+snapshot/*
+!snapshot/original/
+!snapshot/guards.flow
+!snapshot/SOURCE-MANIFEST.json
+loss-source-*/
+prepared*/
