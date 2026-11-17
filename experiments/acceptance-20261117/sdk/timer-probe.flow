@@ -1,0 +1,30 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/text.flow"
+fn bench_microseconds():IO
+ let raw=buffer("native_benchmark_clock",16)
+ let rc=syscall6(116,raw,0,0,0,0,0)
+ if rc>>63
+  return err(0-rc)
+ end
+ return ok(load64(raw)*1000000+load32(raw+8))
+end
+fn probe():IO
+ let out=Writer(buffer("clock_probe_output",128),128,0,0)
+ let begin=try bench_microseconds()
+ let end=try bench_microseconds()
+ do writer_number(out,begin)
+ do writer_text(out,":")
+ do writer_number(out,end)
+ do writer_text(out,"\n")
+ do try io_write_no_sigpipe(1,out.data,out.used)
+ return ok(0)
+end
+fn main(argc,argv)
+ handle probe()
+ ok value
+  return 0
+ err cause
+  return 2
+ end
+ return 2
+end
