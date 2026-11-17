@@ -160,3 +160,12 @@ services unchanged. Broader Ship24gates remain11tested subsets/13pending/0fully
 qualified; fixed delivery ledger11/12 unchanged. Source/Git/unique receipts remain
 project-owned; guarded disposable bank only rebuildable native output. No Memory,
 Chain or shared retained KHC work. Do not disturb the separate active owner tree.
+
+
+## Dense JSON and complete-work refinement, 17 November 2026
+
+Separate worktree RiverFlow-next-20261117 starts at verified SFE main 53ec257. Read docs/REFINEMENT-USEFUL-WORK-20261117.md and experiments/refinement-20261117 evidence before continuing. R5 checked direct escape-byte emission passes all six large dense targets against scalar/R3 (1.55–2.00× vs scalar), but is unpromoted: one small case falls below the frozen 50 ms floor. Do not erase that gate or rerun the campaign to select a winner. Net native-region evidence passes 4/4 optimized small profiles; one plain durable early-reject profile stays inconclusive. Source-context compiler hints pass 40 + 169 controls and signed self-generation; the composed experimental source SDK passes 808 application controls. Post-campaign destination guards preserve every measured SDK byte and retain original helper/evidence.
+
+Fresh matched C/D provider study failed 0/4 complete tasks: six calls, 37,690 known tokens and one unknown-usage request. The independent prompt-contract pilot failed before returning source, with unknown usage. No token-saving or corrected-prompt effectiveness claim follows. Frozen inputs, placeholder outputs, completion limits, timeouts and earlier successful studies remain separate. Next: reliable structured transport diagnostics and a separately reviewed output-contract test, plus remaining platform/network gates. Raw receipts/handover stay under artifacts/refinement-20261117, not Kanika Memory/KHC/Chain. The active owner checkout and default/stable packages are untouched; fixed delivery remains 11/12.
+
+New opt-in provider transport passes 63 offline controls with no real calls or credentials. It refuses redirects/reflected credentials and emits safe error categories/status instead of tracebacks; explicit output flush/write failures are separate from network failures. This does not recover historical unknown causes or qualify live connectivity. The tracked pure pilot-payload builder reproduces the reviewed bytes. See experiments/refinement-20261117/ai/PROVIDER-TRANSPORT.md before selecting the new transport in a separately frozen future run.

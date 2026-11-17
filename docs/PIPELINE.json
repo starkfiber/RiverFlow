@@ -64,7 +64,7 @@
     {
       "id": "G7",
       "state": "pending",
-      "acceptance": "Structured concurrency and a qualified RU\u2019OS component",
+      "acceptance": "Structured concurrency and a qualified RU’OS component",
       "evidence": [
         "docs/RF2-EVERYWHERE.md"
       ],
@@ -331,6 +331,6 @@
   },
   "activeWork": {
     "requirement": "G8 / G4",
-    "description": "0.50 source SDK/packages and diagnostics remain the compiler baseline. Verified maintenance guards local imports without blocking on FIFOs; source-bound host development tools are separate from Core authority. Current isolated Net/Ship implemented acceptance passes: uncertain mutation replay is fixed, R3 small-field writer gates pass, and a shared typed CLI-report workflow is qualified. Two fresh DeepSeek programs pass complete task and supplemental controls with 14,128 reported tokens; this is not general causal token-savings proof. R4 is unpromoted, Net small-case timing is inconclusive, and 13 broader firewall gates remain pending. Next: resolve dense-input performance, qualify remaining platform/network contracts and run independently matched useful-development trials. See docs/ACCEPTANCE-USEFUL-OUTPUT-20261117.md and docs/INTELLIGENCE-IMPORT-GUARD.md. Default SDK, stable downloads, active external Net/Ship tree and fixed 11/12 delivery ledger are unchanged; Linguist remains pending/nonblocking."
+    "description": "0.50 remains the compiler baseline. An explicit source-context diagnostic candidate passes40 focused+169 existing controls and signed self-generation. Experimental R5 dense JSON beats scalar/R3 on 6/6 large targets (1.55–2.00× vs scalar), but one of 8 small gates misses the minimum duration, so promotion is rejected. The combined experimental SDK/compiler passes808 complete-app controls; protected output guards pass with identical staged SDK bytes. Unchanged Net optimized small profiles now pass 4/4, while one plain profile remains inconclusive. Fresh matched AI study:0/4 complete programs,37,690known tokens plus one unknown request; separate corrected-output pilot failed in transport with unknown usage. A separate structured provider transport passes 63 offline controls; live connectivity remains unverified. Earlier acceptance successes and failures are retained, not overwritten. See docs/REFINEMENT-USEFUL-WORK-20261117.md and docs/ACCEPTANCE-USEFUL-OUTPUT-20261117.md. Default/stable packages, active owner Net/Ship work and fixed 11/12 delivery remain unchanged;13 broader firewall gates and real Linguist acceptance stay open."
   }
 }
