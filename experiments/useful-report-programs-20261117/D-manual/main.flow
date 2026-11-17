@@ -1,0 +1,137 @@
+profile RF2_SYSTEM_A64_V1
+use "@rf2/v1/text.flow"
+
+fn identifier_seen_before(data,offset,length)
+ let prior_cursor=TextCursor(0,0,0,0)
+ let prior_span=TextSpan(0,0)
+ while text_next_line(data,offset,prior_cursor,prior_span)
+  if prior_span.length==length
+   if text_equal(data+prior_span.start,prior_span.length,data+offset,length)
+    return 1
+   end
+  end
+ end
+ return 0
+end
+
+fn identifier_report(mode,path):IO
+ let data=buffer("identifier_data",4097)
+ let info=TextInfo(0,0,0,0)
+ let n=try io_regular(path,data,4096)
+ do text_measure(data,n,info)
+ if info.status
+  return err(2)
+ end
+ let out=Writer(buffer("identifier_output",32768),32768,0,0)
+ let is_json=0
+ if text_equal(mode,io_size(mode),"json",4)
+  set is_json=1
+ else
+  if text_equal(mode,io_size(mode),"html",4)
+   set is_json=0
+  else
+   return err(2)
+  end
+ end
+ let cursor=TextCursor(0,0,0,0)
+ let span=TextSpan(0,0)
+ let physical_line=0
+ let identifiers=0
+ let distinct=0
+ let duplicates=0
+ let first_duplicate=0
+ while text_next_line(data,n,cursor,span)
+  set physical_line=physical_line+1
+  if span.length
+   if span.length>32
+    return err(2)
+   end
+   let position=0
+   while position<span.length
+    let symbol=load8(data+span.start+position)
+    let valid=0
+    if all(symbol>=65,symbol<=90)
+     set valid=1
+    end
+    if all(symbol>=48,symbol<=57)
+     set valid=1
+    end
+    if symbol==95
+     set valid=1
+    end
+    if symbol==45
+     set valid=1
+    end
+    if valid==0
+     return err(2)
+    end
+    set position=position+1
+   end
+   set identifiers=identifiers+1
+   if identifier_seen_before(data,span.start,span.length)
+    set duplicates=duplicates+1
+    if first_duplicate==0
+     set first_duplicate=physical_line
+    end
+   else
+    set distinct=distinct+1
+   end
+  end
+ end
+ if cursor.status
+  return err(2)
+ end
+ if is_json==1
+  do writer_text(out,"{\"title\":\"Identifier audit\",\"fields\":[{\"name\":\"Path\",\"value\":")
+  do writer_json(out,path,io_size(path))
+  do writer_text(out,"},{\"name\":\"Identifiers\",\"value\":")
+  do writer_number(out,identifiers)
+  do writer_text(out,"},{\"name\":\"Distinct\",\"value\":")
+  do writer_number(out,distinct)
+  do writer_text(out,"},{\"name\":\"Duplicate occurrences\",\"value\":")
+  do writer_number(out,duplicates)
+  do writer_text(out,"},{\"name\":\"First duplicate line\",\"value\":")
+  if first_duplicate
+   do writer_number(out,first_duplicate)
+  else
+   do writer_json(out,"none",4)
+  end
+  do writer_text(out,"}]}\n")
+ else
+  do writer_text(out,"<!doctype html><html lang=\"en\"><meta charset=\"utf-8\"><title>Identifier audit</title><main><h1>Identifier audit</h1><dl><dt>Path</dt><dd>")
+  do writer_html(out,path,io_size(path))
+  do writer_text(out,"</dd><dt>Identifiers</dt><dd>")
+  do writer_number(out,identifiers)
+  do writer_text(out,"</dd><dt>Distinct</dt><dd>")
+  do writer_number(out,distinct)
+  do writer_text(out,"</dd><dt>Duplicate occurrences</dt><dd>")
+  do writer_number(out,duplicates)
+  do writer_text(out,"</dd><dt>First duplicate line</dt><dd>")
+  if first_duplicate
+   do writer_number(out,first_duplicate)
+  else
+   do writer_text(out,"none")
+  end
+  do writer_text(out,"</dd></dl></main></html>\n")
+ end
+ if out.error
+  return err(2)
+ end
+ let w=try io_write_no_sigpipe(1,out.data,out.used)
+ if w!=out.used
+  return err(2)
+ end
+ return ok(0)
+end
+fn main(argc,argv)
+ if argc!=3
+  return 2
+ end
+ handle identifier_report(load64(argv+8),load64(argv+16))
+ ok done_value
+  return 0
+ err failure_code
+  return 2
+ end
+ return 2
+end

@@ -1,0 +1,27 @@
+{
+  "schema": "rf2.ai-completion.engineering-composition.v1",
+  "task": "D",
+  "condition": "manual",
+  "engineerAssisted": true,
+  "AIAlonePassed": false,
+  "modelArmReplacement": false,
+  "basis": "Proactive fallback pending separate provider Dmanual arm; own DCLI algorithm + own engineerfixed Cmanual IO; serialization independently adapted TASK-D fields",
+  "sources": [
+    {
+      "path": "/Users/ik/Downloads/Varuna/RiverFlow-next-20261117/artifacts/ai-completion-20261117/engineering-assist/C-manual-v1/main.flow",
+      "sha256": "ea072f6482aaf550121040bd85ac7df32b6c4013c586cf486ea424cd5d89f1a5"
+    },
+    {
+      "path": "/Users/ik/Downloads/Varuna/RiverFlow-next-20261117/artifacts/ai-completion-20261117/engineering-assist/D-cli-v1/main.flow",
+      "sha256": "332f27ea23224fd6049c986b92e61d06ee6666a1559086517ee8afb9a26811df"
+    }
+  ],
+  "sourceSHA256": "78f07afc3cd6c5f5015e3086fe60673022bf186e88b86f0efdd6ecc277715380",
+  "diffFiles": {
+    "DIFF-from-C-manual.patch": "30c6927470a951afb394a2e07c2ce73e461f33dca3097c26e922359fb6c97221",
+    "DIFF-from-D-cli.patch": "05e33b2f119084381dfc76237f0cbb1166c9dc26303ffe8da85f79e643ca9347"
+  },
+  "goldenSourceCopied": false,
+  "providerCalls": 0,
+  "rootReviewPending": true
+}
