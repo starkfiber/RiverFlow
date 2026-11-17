@@ -1,0 +1,308 @@
+{
+  "schema": "rf2.intelligence-import-evidence.v1",
+  "baseRevision": "34c29bca4b86c91d108290ad0536e785c249ad89",
+  "baselineCompilerSHA256": "4e47ea8be4bfd81ba12eae606f3ea9321f940957a33d67a88559c1f99f65597c",
+  "candidateCompilerSHA256": "e250d3a16f38b4d677a07d86d717c24e51aea794f97e6c3cde65d34acd9264a9",
+  "candidateSourceSHA256": "607cbca37a8965ee9fb0a4a0fb40222ccc9aefc7a8bc90e34f5df29d25af4dbe",
+  "selfGenerationMatched": true,
+  "nativeControls": {
+    "importLiveness": 24,
+    "SDK": 96,
+    "diagnostics": 169,
+    "typedRequests": 354,
+    "structuredStorage": 82,
+    "coreAdmission": 317,
+    "coreExecutions": 1095
+  },
+  "harnessUnitMethods": 21,
+  "observedRuntimeTools": 9,
+  "sourceInventoryFiles": 233,
+  "sourceInventoryKind": "lexical-only",
+  "whatifPythonFiles": 5,
+  "whatifHeuristicLeads": 0,
+  "newProviderCalls": 0,
+  "stablePathsUnchanged": 43,
+  "cacheMeasurements": {
+    "scope": "local Mac ARM64; compilation only, 11 paired trials, identical source/options; no energy or universal runtime claim",
+    "workloads": [
+      {
+        "helpers": 1,
+        "coldCacheMs": 5.193375,
+        "cleanMedianMs": 5.512042000001216,
+        "warmCacheMedianMs": 6.477250000000101,
+        "allBytesEqual": true,
+        "allExecutionsPassed": true,
+        "rows": [
+          {
+            "cache": {
+              "ms": 2.741124999999997,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            },
+            "clean": {
+              "ms": 6.160625000000031,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            }
+          },
+          {
+            "cache": {
+              "ms": 6.728999999999985,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            },
+            "clean": {
+              "ms": 6.700332999999947,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            }
+          },
+          {
+            "cache": {
+              "ms": 6.937709000000014,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            },
+            "clean": {
+              "ms": 5.476832999999903,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            }
+          },
+          {
+            "cache": {
+              "ms": 6.477250000000101,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            },
+            "clean": {
+              "ms": 3.781417000000342,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            }
+          },
+          {
+            "clean": {
+              "ms": 2.613625000000397,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            },
+            "cache": {
+              "ms": 5.1409170000003,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            }
+          },
+          {
+            "cache": {
+              "ms": 6.66200000000039,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            },
+            "clean": {
+              "ms": 2.454499999999804,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            }
+          },
+          {
+            "clean": {
+              "ms": 6.705375000000124,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            },
+            "cache": {
+              "ms": 5.7755000000003776,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            }
+          },
+          {
+            "cache": {
+              "ms": 2.9984160000005033,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            },
+            "clean": {
+              "ms": 6.002375000000448,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            }
+          },
+          {
+            "clean": {
+              "ms": 4.189042000000143,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            },
+            "cache": {
+              "ms": 5.374541999999316,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            }
+          },
+          {
+            "clean": {
+              "ms": 5.512042000001216,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            },
+            "cache": {
+              "ms": 10.19354100000136,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            }
+          },
+          {
+            "clean": {
+              "ms": 7.128832999999446,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            },
+            "cache": {
+              "ms": 7.503333000000723,
+              "sha256": "b6fb71a2a5ee828db193bd094ebc6201e0ddbe05167b0dfb87823da0de568180"
+            }
+          }
+        ]
+      },
+      {
+        "helpers": 80,
+        "coldCacheMs": 9.655665999998675,
+        "cleanMedianMs": 6.1216660000020795,
+        "warmCacheMedianMs": 7.292916999999122,
+        "allBytesEqual": true,
+        "allExecutionsPassed": true,
+        "rows": [
+          {
+            "cache": {
+              "ms": 5.129042000000084,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            },
+            "clean": {
+              "ms": 2.8537919999997996,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            }
+          },
+          {
+            "cache": {
+              "ms": 7.349792000001187,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            },
+            "clean": {
+              "ms": 7.354790999999139,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            }
+          },
+          {
+            "clean": {
+              "ms": 16.156125000000188,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            },
+            "cache": {
+              "ms": 7.218874999999514,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            }
+          },
+          {
+            "clean": {
+              "ms": 7.366332999998448,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            },
+            "cache": {
+              "ms": 8.157582999999136,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            }
+          },
+          {
+            "cache": {
+              "ms": 7.292916999999122,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            },
+            "clean": {
+              "ms": 3.207624999999936,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            }
+          },
+          {
+            "cache": {
+              "ms": 7.597416999999496,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            },
+            "clean": {
+              "ms": 8.906958000000742,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            }
+          },
+          {
+            "clean": {
+              "ms": 3.418665999999959,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            },
+            "cache": {
+              "ms": 6.933749999998184,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            }
+          },
+          {
+            "clean": {
+              "ms": 6.1216660000020795,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            },
+            "cache": {
+              "ms": 7.363166999997617,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            }
+          },
+          {
+            "clean": {
+              "ms": 6.0154170000004115,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            },
+            "cache": {
+              "ms": 6.558749999999947,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            }
+          },
+          {
+            "clean": {
+              "ms": 2.892958000000334,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            },
+            "cache": {
+              "ms": 4.1722919999998,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            }
+          },
+          {
+            "cache": {
+              "ms": 8.085333000000361,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            },
+            "clean": {
+              "ms": 8.547917000001348,
+              "sha256": "1c802d41b7e1af10999398ea86754a0ce8f7db23b15326383cfc14b046898647"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "paperAudit": {
+    "schema": "rf2.paper-audit.v1",
+    "paperSHA256": "9b6e0a06f9904a0e7e796dbbb2e8c127e93aafcd11a724bbe9e1ce89c4a842d3",
+    "pages": 22,
+    "boundEvidenceHashesMatch": true,
+    "all205FullHashesPresent": true,
+    "paperRevision": "28b65ea9053925d98611bcda4b9818726c4239d9",
+    "currentBaseRevision": "34c29bca4b86c91d108290ad0536e785c249ad89",
+    "currentBaseCommits": 371,
+    "scopeCorrection": "205 commits was full for the installed0.36 snapshot, not current GitHub main. Old compiler/cache results are not current0.50 results.",
+    "coverageCorrection": "Native controllers are not a built-in WhatIF native engine. Lexical inventory is not SAST. DeepSeek source critique is not evidence that the model executed tests.",
+    "budgetCorrection": "Old provider cap was a sequential local-file guard, not a concurrency-safe billing cap.",
+    "modelCorrectedClaims": [
+      "SDK imports in0.50 already validate regular files; local imports did not",
+      "Existing plan32-slot and stale-handle checks must not be advertised as new security fixes",
+      "Compiler-profile equivalence must not imply an embedded Core runtime"
+    ]
+  },
+  "retainedFailures": [
+    "first patch refused drift against SDK-composed0.50 source; corrected to retain SDK refusal wording",
+    "first self-build compared different ad-hoc signing basenames; corrected builder layout, not compiler semantics",
+    "first harness unit fixtures attempted to stage a FIFO and remove a staged file incorrectly; corrected fixtures",
+    "typed-request suite first used0.50 as its historical negative baseline; rerun with actual0.48 baseline; no oracle changed"
+  ],
+  "limits": [
+    "Mac ARM64 native tests only",
+    "No physical hardware, external traffic, model inference or retained shared compute",
+    "No new Core/MCP effects or stable release promotion",
+    "Timings are matched local compilation samples, not authoring/runtime/energy savings"
+  ],
+  "sourceSHA256": {
+    "experiments/intelligence/README.md": "9d7512d2a2671ec7e0b00daa1ca324c838424110c48ce9298cb3ddfc01e8a6d1",
+    "experiments/intelligence/build.py": "d5422b74190681278c9cfeda0b708d1a7536de942e9bde2496c7a58c906fe63c",
+    "experiments/intelligence/harness.py": "b291868da2387c500c3558d34e9f89224521322f787357a36cb69f8a75f81429",
+    "experiments/intelligence/import_verify.py": "2372071b37887886c074906bd90d72de704bbc749edbe311c4eae35c1e3d3101",
+    "experiments/intelligence/prepare.py": "b3fd11cdebc98f921bd3534c18e975cb79df561366dd8d2fd357c40bb9da62ca",
+    "experiments/intelligence/test_harness.py": "518e86bb496d2932a7578b5c1e693f0385d1632a3dd9c0e7e28ce9874a6144ec"
+  }
+}

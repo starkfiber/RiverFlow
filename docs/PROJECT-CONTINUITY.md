@@ -104,3 +104,26 @@ Extra post-study descriptor faults: Python1 and4 report exit1/MCP exit0 on absen
 Canonical examples/passage-desk is a COPY of timed attempt3 with one explicit IO import and2checked writer substitutions against B. Parent graded80/80+3/3 both modes; Document Audit shared B passed53/mode. No usage/time credit for later repair. Native original app compile/sign10samples median35.4ms; construction minutes remains next SDK/API problem. Originalsourcearchive contains four deliveries, frozenA, currentB, controller amendment and no provider traces/native images/private documents. Published SDK bytes must match B manifest, frozen A never overwritten.
 
 Next: higher-level typed JSON/HTML/report composition to remove manual writing/transport work; qualified native package promotion and independent user trials remain separate. Linguist R12 pending/nonblocking. Existing public0.46/stable0.17 downloads unchanged; no thesis/PDF/Memory/shared-compute work. Verify actual starkfiber browser identity before upstream writes; retain terminal push lock. Raw local handover under artifacts/sdk-050-pea3vyjl; finalpublicationreceipt must be checked at resume.
+
+
+## 17 November 2026: compiler import maintenance and host evidence tools
+
+The separate intelligence candidate builds from exact0.50 source/compiler and
+extends nonblocking regular-file admission to local imports, preserving the
+SDK-specific refusals. Baseline local FIFO waits and fixed replays,24 import
+controls,96 SDK,169 diagnostics,354 request and82 storage controls pass, with
+exact signed self-generation. The existing stable Core regression also passes.
+Read docs/INTELLIGENCE-IMPORT-GUARD.md/json before reusing these results.
+
+Host-only development controllers now expose actual runtime capability context,
+233-file lexical source context, source-bound proposal acceptance and paired
+build-route advice.21 unittest methods pass. No inference, automatic model
+commands, new MCP effects, retained shared jobs or release replacement occurs.
+The earlier22-page paper reviewed205 commits at28b65ea, not the371-commit0.50
+upstream baseline; its reviewed correction is docs/PAPER-AUDIT-20261117.md.
+
+Maintain the existing typed JSON/HTML/report product priority. Next extend
+grammar-aware mutations and resource-state oracles without relabelling lexical
+coverage as security verification. Fixed11/12 requirements and all published
+release identities remain unchanged. Raw receipts stay project-local under
+artifacts/intelligence-051/; publication uses verified SFE identity only.
