@@ -1,0 +1,182 @@
+{
+  "scope": "Four prospective fully supplied code-only authoring calls on two larger bounded native multi-mode file apps; same contracts and exact per-task reference within each standard/lean pair. No fullproduct, GUI or otherlanguage comparison.",
+  "question": "Does the corrected authoring reference prevent previously observed compile repairs, and what is total observed provider usage after acceptance?",
+  "treatment": "Prominent actual function-wide local names and function-level record constructor rules before otherwise unchanged V4 task contracts; tools disabled in both conditions. Lean additionally omits unused host discovery only.",
+  "tasks": [
+    "document:1..8UTF8 regular files<=1MiB, JSON/count overlapping search",
+    "telemetry:0..4096 canonicalCSVrows,summary/warnings"
+  ],
+  "modelRequested": "gpt-6.1-sol",
+  "reasoningRequested": "low",
+  "modelReturned": "Independent returned identity unavailable; not inferred from requestedlabel.",
+  "rows": [
+    {
+      "task": "document",
+      "condition": "standard",
+      "inputTokens": 22821,
+      "cachedInputTokens": 0,
+      "outputTokens": 1794,
+      "reasoningOutputTokensReported": 516,
+      "totalReportedTokens": 24615,
+      "callSeconds": 39.301057083,
+      "promptSha256": "e53fe82b2a206d9dbb7769d6858354b45a7bf02f0b9b0741f511c74428044828",
+      "sourceSha256": "b695951d1bd6ddcea6898ba5c1ee7eb3effb2447d3aaf143652f33c61261dbb9",
+      "sourceBytes": 3576,
+      "sourceLines": 154,
+      "binarySha256": "977d0a57615f2b74fa75157dc6611126f6f17d4d25445bdb99f26ca6a859257d",
+      "binaryBytes": 2168784,
+      "compiledUnchanged": true,
+      "checks": {
+        "passed": 67,
+        "total": 67
+      },
+      "repairs": 0,
+      "phasesSeconds": {
+        "compile": 0.014034750000000002,
+        "codesign": 0.017411708,
+        "verify-process": 0.6518487079999999
+      }
+    },
+    {
+      "task": "document",
+      "condition": "lean",
+      "inputTokens": 14141,
+      "cachedInputTokens": 0,
+      "outputTokens": 1659,
+      "reasoningOutputTokensReported": 343,
+      "totalReportedTokens": 15800,
+      "callSeconds": 36.763989124999995,
+      "promptSha256": "e53fe82b2a206d9dbb7769d6858354b45a7bf02f0b9b0741f511c74428044828",
+      "sourceSha256": "7b0f3c677e2688b6787d58ee0801e74ea3f3b49e9b16ebcf678da7151b6f5d46",
+      "sourceBytes": 3738,
+      "sourceLines": 152,
+      "binarySha256": "3eb1fd66766444ad1b88e49fa853ecc3b6731518fb8a31fe0d4e2f0e01eab60d",
+      "binaryBytes": 2168768,
+      "compiledUnchanged": true,
+      "checks": {
+        "passed": 67,
+        "total": 67
+      },
+      "repairs": 0,
+      "phasesSeconds": {
+        "compile": 0.004457167000000095,
+        "codesign": 0.013514667000000036,
+        "verify-process": 0.6482209170000001
+      }
+    },
+    {
+      "task": "telemetry",
+      "condition": "lean",
+      "inputTokens": 14173,
+      "cachedInputTokens": 9088,
+      "outputTokens": 2284,
+      "reasoningOutputTokensReported": 428,
+      "totalReportedTokens": 16457,
+      "callSeconds": 49.760842541,
+      "promptSha256": "b3012ca0b8360091db6b03dc021ee6293fd002099426d5914aa1909ae1ebb4e6",
+      "sourceSha256": "50dcb2697d1b3a8f7a649902f6ea7006d04c219694109fe852e422edb96d0af7",
+      "sourceBytes": 5540,
+      "sourceLines": 224,
+      "binarySha256": "f0f93bac9caae66cd1faf2a1fd1a6cf08e8d527883a60838697ad4872a3a9daf",
+      "binaryBytes": 2168768,
+      "compiledUnchanged": true,
+      "checks": {
+        "passed": 67,
+        "total": 67
+      },
+      "repairs": 0,
+      "phasesSeconds": {
+        "compile": 0.0056367090000000175,
+        "codesign": 0.01406695899999999,
+        "verify-process": 0.547100667
+      }
+    },
+    {
+      "task": "telemetry",
+      "condition": "standard",
+      "inputTokens": 16138,
+      "cachedInputTokens": 0,
+      "outputTokens": 1994,
+      "reasoningOutputTokensReported": 158,
+      "totalReportedTokens": 18132,
+      "callSeconds": 43.766781959,
+      "promptSha256": "b3012ca0b8360091db6b03dc021ee6293fd002099426d5914aa1909ae1ebb4e6",
+      "sourceSha256": "0ad0814e473f9e57ffdf3181a9914d9b6fde5219f7fe9dc8d304cd6978b7f9ea",
+      "sourceBytes": 5420,
+      "sourceLines": 233,
+      "binarySha256": "6c6facc8f35a2119f154854ad14ce31eb4e62445554a04569b5a4c8a099c7420",
+      "binaryBytes": 2168784,
+      "compiledUnchanged": true,
+      "checks": {
+        "passed": 67,
+        "total": 67
+      },
+      "repairs": 0,
+      "phasesSeconds": {
+        "compile": 0.004955708000000003,
+        "codesign": 0.014578708000000162,
+        "verify-process": 0.5862072499999997
+      }
+    }
+  ],
+  "totals": {
+    "standard": {
+      "inputTokens": 38959,
+      "cachedInputTokens": 0,
+      "outputTokens": 3788,
+      "totalReportedTokens": 42747,
+      "callSeconds": 83.067839042,
+      "acceptedTasks": 2,
+      "nativeChecks": 134
+    },
+    "lean": {
+      "inputTokens": 28314,
+      "cachedInputTokens": 9088,
+      "outputTokens": 3943,
+      "totalReportedTokens": 32257,
+      "callSeconds": 86.524831666,
+      "acceptedTasks": 2,
+      "nativeChecks": 134
+    }
+  },
+  "observedLeanTotalReductionPercent": 24.53973378248766,
+  "firstPassAccepted": 4,
+  "firstPassTotal": 4,
+  "nativeChecks": 268,
+  "repairCalls": 0,
+  "manualCodeRepairs": 0,
+  "sourceNormalization": false,
+  "sameExactPromptWithinTask": true,
+  "compilerSha256": "e219b75242d4cc9ce1e3a3ceeaf5883eee258515bd60bc8faf11db67b3e049b7",
+  "oracleSha256": "6c70946217f2aba6c89e6febf1092919a7da508bdb50dbe9d66bd555f04cb3ab",
+  "measuredBuildSignVerifySeconds": 2.522033918,
+  "preparationReviewOrchestrationTime": "Not prospectively measured; excluded, not reconstructed.",
+  "comparisonToV4": {
+    "scope": "Descriptive earlier attempt count only, not concurrent/randomized causal reference-treatment experiment.",
+    "v4InitialAccepted": 0,
+    "v4InitialTotal": 4,
+    "v4ModelRepairAccepted": 3,
+    "v4ManualRecoveryRequired": 1,
+    "v5InitialAccepted": 4,
+    "v5InitialTotal": 4,
+    "v5ModelRepairCalls": 0
+  },
+  "limitations": [
+    "Four calls, two paired tasks; no population or billing proof.",
+    "The reference rules changed versus V4, runs are not randomized within one same-time matched instruction-treatment experiment. Repair counts are descriptive comparisons.",
+    "Within V5, per-task prompt/SDK/compiler/contracts fixed across standard/lean conditions; no tests shown.",
+    "SDK development, preparation/review and orchestration excluded from provider token totals; build/test phases separately timed.",
+    "No Python/C#/C++ authoring comparison.",
+    "No universal fullproduct or GUI advantage.",
+    "Source output identity and full refusal/error tests required before task completion.",
+    "All original calls/failures/repairs included; cached input separately reported.",
+    "Actual inference uses configured provider; evidence stays project-owned locally.",
+    "Standard host input varies substantially across calls despite identical execution policy; cause not established.",
+    "Cached input differs (lean9088, standard0); total tokens include cache, no actualbilling claim or causal latency attribution.",
+    "Lean combined authoring call time is higher here; lower tokens does not mean faster development.",
+    "Reasoning output counter is retained separately and not added again to provider output_tokens.",
+    "Acceptance fixtures and AI source review do not prove universal memory safety, portability or human usability.",
+    "Fixed source language semantics remain; this is a reference/workflow correction, not a new compiler/API feature."
+  ],
+  "next": "Integrate accurate scope rules into discoverable native app reference and reduce those restrictions in a separately qualified compiler change. Repeat full discovery/build/test/repair/delivery accounting on additional applications."
+}

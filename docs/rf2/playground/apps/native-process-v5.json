@@ -1,0 +1,1024 @@
+{
+  "rows": [
+    {
+      "family": "mixed",
+      "implementation": "buffered-r3-cpp",
+      "wallMs": 4.335583,
+      "kernelUs": 53.041,
+      "wallMinMs": 3.749291,
+      "wallMaxMs": 14.830875,
+      "n": 15
+    },
+    {
+      "family": "mixed",
+      "implementation": "buffered-r3-csharp",
+      "wallMs": 61.017583,
+      "kernelUs": 53.291,
+      "wallMinMs": 40.426666,
+      "wallMaxMs": 107.570833,
+      "n": 15
+    },
+    {
+      "family": "mixed",
+      "implementation": "buffered-r3-rf2",
+      "wallMs": 5.467667,
+      "kernelUs": 53.291,
+      "wallMinMs": 4.255917,
+      "wallMaxMs": 17.739833,
+      "n": 15
+    },
+    {
+      "family": "mixed",
+      "implementation": "prior-byte-csharp",
+      "wallMs": 63.850417,
+      "kernelUs": 107.5,
+      "wallMinMs": 41.854875,
+      "wallMaxMs": 141.288292,
+      "n": 15
+    },
+    {
+      "family": "mixed",
+      "implementation": "prior-nibble-cpp",
+      "wallMs": 4.549042,
+      "kernelUs": 46.083,
+      "wallMinMs": 3.667459,
+      "wallMaxMs": 34.516375,
+      "n": 15
+    },
+    {
+      "family": "mixed",
+      "implementation": "prior-nibble-csharp",
+      "wallMs": 59.864083,
+      "kernelUs": 46.625,
+      "wallMinMs": 46.604,
+      "wallMaxMs": 131.0335,
+      "n": 15
+    },
+    {
+      "family": "mixed",
+      "implementation": "prior-r3-cpp",
+      "wallMs": 4.95475,
+      "kernelUs": 53.041,
+      "wallMinMs": 3.862209,
+      "wallMaxMs": 12.224958,
+      "n": 15
+    },
+    {
+      "family": "mixed",
+      "implementation": "prior-r3-csharp",
+      "wallMs": 65.193208,
+      "kernelUs": 53.208,
+      "wallMinMs": 45.923417,
+      "wallMaxMs": 105.323833,
+      "n": 15
+    },
+    {
+      "family": "mixed",
+      "implementation": "prior-r3-rf2",
+      "wallMs": 5.449875,
+      "kernelUs": 53.125,
+      "wallMinMs": 4.325959,
+      "wallMaxMs": 8.574625,
+      "n": 15
+    },
+    {
+      "family": "mixed",
+      "implementation": "prior-v4-corrected-rf2",
+      "wallMs": 5.488125,
+      "kernelUs": 52.708,
+      "wallMinMs": 4.334916,
+      "wallMaxMs": 45.869042,
+      "n": 15
+    },
+    {
+      "family": "mixed",
+      "implementation": "prior-word-cpp",
+      "wallMs": 4.875291,
+      "kernelUs": 46.208,
+      "wallMinMs": 3.773667,
+      "wallMaxMs": 17.840583,
+      "n": 15
+    },
+    {
+      "family": "mixed",
+      "implementation": "prior-word-csharp",
+      "wallMs": 57.712167,
+      "kernelUs": 46.708,
+      "wallMinMs": 45.5425,
+      "wallMaxMs": 142.659958,
+      "n": 15
+    },
+    {
+      "family": "mixed",
+      "implementation": "prior-word-rf2",
+      "wallMs": 5.583625,
+      "kernelUs": 53.25,
+      "wallMinMs": 4.322292,
+      "wallMaxMs": 15.590542,
+      "n": 15
+    },
+    {
+      "family": "mixed",
+      "implementation": "raw-byte-packed-cpp",
+      "wallMs": 4.792834,
+      "kernelUs": 48.916,
+      "wallMinMs": 3.868708,
+      "wallMaxMs": 14.267417,
+      "n": 15
+    },
+    {
+      "family": "mixed",
+      "implementation": "raw-byte-packed-csharp",
+      "wallMs": 55.052875,
+      "kernelUs": 52.708,
+      "wallMinMs": 42.516042,
+      "wallMaxMs": 172.76875,
+      "n": 15
+    },
+    {
+      "family": "mixed",
+      "implementation": "raw-byte-packed-rf2",
+      "wallMs": 5.631208,
+      "kernelUs": 72.958,
+      "wallMinMs": 4.173375,
+      "wallMaxMs": 16.080167,
+      "n": 15
+    },
+    {
+      "family": "directions",
+      "implementation": "buffered-r3-cpp",
+      "wallMs": 6.834708,
+      "kernelUs": 106.083,
+      "wallMinMs": 5.106708,
+      "wallMaxMs": 16.68075,
+      "n": 15
+    },
+    {
+      "family": "directions",
+      "implementation": "buffered-r3-csharp",
+      "wallMs": 68.640833,
+      "kernelUs": 92.542,
+      "wallMinMs": 54.592958,
+      "wallMaxMs": 116.545542,
+      "n": 15
+    },
+    {
+      "family": "directions",
+      "implementation": "buffered-r3-rf2",
+      "wallMs": 8.735625,
+      "kernelUs": 107.958,
+      "wallMinMs": 5.815375,
+      "wallMaxMs": 12.793,
+      "n": 15
+    },
+    {
+      "family": "directions",
+      "implementation": "prior-byte-csharp",
+      "wallMs": 85.909,
+      "kernelUs": 217.458,
+      "wallMinMs": 50.346917,
+      "wallMaxMs": 179.68125,
+      "n": 15
+    },
+    {
+      "family": "directions",
+      "implementation": "prior-nibble-cpp",
+      "wallMs": 6.705708,
+      "kernelUs": 105.708,
+      "wallMinMs": 4.2385,
+      "wallMaxMs": 19.852125,
+      "n": 15
+    },
+    {
+      "family": "directions",
+      "implementation": "prior-nibble-csharp",
+      "wallMs": 75.6705,
+      "kernelUs": 105.334,
+      "wallMinMs": 51.685125,
+      "wallMaxMs": 141.524542,
+      "n": 15
+    },
+    {
+      "family": "directions",
+      "implementation": "prior-r3-cpp",
+      "wallMs": 6.729958,
+      "kernelUs": 106.083,
+      "wallMinMs": 5.2385,
+      "wallMaxMs": 23.148625,
+      "n": 15
+    },
+    {
+      "family": "directions",
+      "implementation": "prior-r3-csharp",
+      "wallMs": 82.930292,
+      "kernelUs": 106.375,
+      "wallMinMs": 53.99725,
+      "wallMaxMs": 136.241167,
+      "n": 15
+    },
+    {
+      "family": "directions",
+      "implementation": "prior-r3-rf2",
+      "wallMs": 9.198166,
+      "kernelUs": 121.5,
+      "wallMinMs": 7.178167,
+      "wallMaxMs": 37.329375,
+      "n": 15
+    },
+    {
+      "family": "directions",
+      "implementation": "prior-v4-corrected-rf2",
+      "wallMs": 8.166667,
+      "kernelUs": 115.541,
+      "wallMinMs": 6.792709,
+      "wallMaxMs": 14.87775,
+      "n": 15
+    },
+    {
+      "family": "directions",
+      "implementation": "prior-word-cpp",
+      "wallMs": 6.693833,
+      "kernelUs": 106.208,
+      "wallMinMs": 5.498875,
+      "wallMaxMs": 10.3955,
+      "n": 15
+    },
+    {
+      "family": "directions",
+      "implementation": "prior-word-csharp",
+      "wallMs": 77.850958,
+      "kernelUs": 97.791,
+      "wallMinMs": 50.337583,
+      "wallMaxMs": 111.687209,
+      "n": 15
+    },
+    {
+      "family": "directions",
+      "implementation": "prior-word-rf2",
+      "wallMs": 8.698208,
+      "kernelUs": 106.875,
+      "wallMinMs": 7.136167,
+      "wallMaxMs": 11.595,
+      "n": 15
+    },
+    {
+      "family": "directions",
+      "implementation": "raw-byte-packed-cpp",
+      "wallMs": 6.403334,
+      "kernelUs": 106.541,
+      "wallMinMs": 4.632792,
+      "wallMaxMs": 13.665,
+      "n": 15
+    },
+    {
+      "family": "directions",
+      "implementation": "raw-byte-packed-csharp",
+      "wallMs": 76.321,
+      "kernelUs": 105.417,
+      "wallMinMs": 55.608542,
+      "wallMaxMs": 105.22475,
+      "n": 15
+    },
+    {
+      "family": "directions",
+      "implementation": "raw-byte-packed-rf2",
+      "wallMs": 8.412333,
+      "kernelUs": 167.041,
+      "wallMinMs": 7.166375,
+      "wallMaxMs": 27.904,
+      "n": 15
+    },
+    {
+      "family": "noops",
+      "implementation": "buffered-r3-cpp",
+      "wallMs": 4.484583,
+      "kernelUs": 0.0,
+      "wallMinMs": 3.160791,
+      "wallMaxMs": 10.183917,
+      "n": 15
+    },
+    {
+      "family": "noops",
+      "implementation": "buffered-r3-csharp",
+      "wallMs": 63.277625,
+      "kernelUs": 0.042,
+      "wallMinMs": 42.037834,
+      "wallMaxMs": 143.025208,
+      "n": 15
+    },
+    {
+      "family": "noops",
+      "implementation": "buffered-r3-rf2",
+      "wallMs": 4.714,
+      "kernelUs": 0.041,
+      "wallMinMs": 2.899209,
+      "wallMaxMs": 12.122,
+      "n": 15
+    },
+    {
+      "family": "noops",
+      "implementation": "prior-byte-csharp",
+      "wallMs": 68.628917,
+      "kernelUs": 37.375,
+      "wallMinMs": 45.757292,
+      "wallMaxMs": 131.29625,
+      "n": 15
+    },
+    {
+      "family": "noops",
+      "implementation": "prior-nibble-cpp",
+      "wallMs": 5.566125,
+      "kernelUs": 46.083,
+      "wallMinMs": 3.438459,
+      "wallMaxMs": 20.929875,
+      "n": 15
+    },
+    {
+      "family": "noops",
+      "implementation": "prior-nibble-csharp",
+      "wallMs": 66.312,
+      "kernelUs": 46.5,
+      "wallMinMs": 41.968166,
+      "wallMaxMs": 109.6315,
+      "n": 15
+    },
+    {
+      "family": "noops",
+      "implementation": "prior-r3-cpp",
+      "wallMs": 4.761,
+      "kernelUs": 0.0,
+      "wallMinMs": 3.254083,
+      "wallMaxMs": 17.344334,
+      "n": 15
+    },
+    {
+      "family": "noops",
+      "implementation": "prior-r3-csharp",
+      "wallMs": 61.775459,
+      "kernelUs": 0.042,
+      "wallMinMs": 41.761208,
+      "wallMaxMs": 241.272,
+      "n": 15
+    },
+    {
+      "family": "noops",
+      "implementation": "prior-r3-rf2",
+      "wallMs": 5.313792,
+      "kernelUs": 0.041,
+      "wallMinMs": 3.293833,
+      "wallMaxMs": 6.645084,
+      "n": 15
+    },
+    {
+      "family": "noops",
+      "implementation": "prior-v4-corrected-rf2",
+      "wallMs": 5.147958,
+      "kernelUs": 0.0,
+      "wallMinMs": 2.886292,
+      "wallMaxMs": 18.157583,
+      "n": 15
+    },
+    {
+      "family": "noops",
+      "implementation": "prior-word-cpp",
+      "wallMs": 5.200041,
+      "kernelUs": 46.25,
+      "wallMinMs": 3.570375,
+      "wallMaxMs": 12.617291,
+      "n": 15
+    },
+    {
+      "family": "noops",
+      "implementation": "prior-word-csharp",
+      "wallMs": 66.42625,
+      "kernelUs": 46.292,
+      "wallMinMs": 42.883958,
+      "wallMaxMs": 119.245458,
+      "n": 15
+    },
+    {
+      "family": "noops",
+      "implementation": "prior-word-rf2",
+      "wallMs": 5.900459,
+      "kernelUs": 53.291,
+      "wallMinMs": 4.20875,
+      "wallMaxMs": 9.918416,
+      "n": 15
+    },
+    {
+      "family": "noops",
+      "implementation": "raw-byte-packed-cpp",
+      "wallMs": 5.001625,
+      "kernelUs": 0.0,
+      "wallMinMs": 3.095292,
+      "wallMaxMs": 35.017292,
+      "n": 15
+    },
+    {
+      "family": "noops",
+      "implementation": "raw-byte-packed-csharp",
+      "wallMs": 71.167958,
+      "kernelUs": 0.042,
+      "wallMinMs": 45.520416,
+      "wallMaxMs": 189.764,
+      "n": 15
+    },
+    {
+      "family": "noops",
+      "implementation": "raw-byte-packed-rf2",
+      "wallMs": 4.974833,
+      "kernelUs": 0.041,
+      "wallMinMs": 3.469625,
+      "wallMaxMs": 32.898125,
+      "n": 15
+    },
+    {
+      "family": "walls",
+      "implementation": "buffered-r3-cpp",
+      "wallMs": 4.189167,
+      "kernelUs": 0.0,
+      "wallMinMs": 2.984,
+      "wallMaxMs": 13.084708,
+      "n": 15
+    },
+    {
+      "family": "walls",
+      "implementation": "buffered-r3-csharp",
+      "wallMs": 62.901833,
+      "kernelUs": 0.042,
+      "wallMinMs": 38.703,
+      "wallMaxMs": 139.700166,
+      "n": 15
+    },
+    {
+      "family": "walls",
+      "implementation": "buffered-r3-rf2",
+      "wallMs": 4.811042,
+      "kernelUs": 0.041,
+      "wallMinMs": 3.026459,
+      "wallMaxMs": 7.746167,
+      "n": 15
+    },
+    {
+      "family": "walls",
+      "implementation": "prior-byte-csharp",
+      "wallMs": 63.596208,
+      "kernelUs": 75.0,
+      "wallMinMs": 41.563834,
+      "wallMaxMs": 357.309458,
+      "n": 15
+    },
+    {
+      "family": "walls",
+      "implementation": "prior-nibble-cpp",
+      "wallMs": 5.915583,
+      "kernelUs": 105.75,
+      "wallMinMs": 3.571416,
+      "wallMaxMs": 12.778791,
+      "n": 15
+    },
+    {
+      "family": "walls",
+      "implementation": "prior-nibble-csharp",
+      "wallMs": 66.144917,
+      "kernelUs": 105.375,
+      "wallMinMs": 41.559416,
+      "wallMaxMs": 92.504417,
+      "n": 15
+    },
+    {
+      "family": "walls",
+      "implementation": "prior-r3-cpp",
+      "wallMs": 4.449458,
+      "kernelUs": 0.0,
+      "wallMinMs": 3.010666,
+      "wallMaxMs": 12.846458,
+      "n": 15
+    },
+    {
+      "family": "walls",
+      "implementation": "prior-r3-csharp",
+      "wallMs": 58.8225,
+      "kernelUs": 0.042,
+      "wallMinMs": 39.954,
+      "wallMaxMs": 107.793208,
+      "n": 15
+    },
+    {
+      "family": "walls",
+      "implementation": "prior-r3-rf2",
+      "wallMs": 5.087459,
+      "kernelUs": 0.0,
+      "wallMinMs": 2.961709,
+      "wallMaxMs": 51.453792,
+      "n": 15
+    },
+    {
+      "family": "walls",
+      "implementation": "prior-v4-corrected-rf2",
+      "wallMs": 5.022916,
+      "kernelUs": 0.041,
+      "wallMinMs": 2.9855,
+      "wallMaxMs": 13.529333,
+      "n": 15
+    },
+    {
+      "family": "walls",
+      "implementation": "prior-word-cpp",
+      "wallMs": 5.227625,
+      "kernelUs": 106.666,
+      "wallMinMs": 3.547167,
+      "wallMaxMs": 26.349125,
+      "n": 15
+    },
+    {
+      "family": "walls",
+      "implementation": "prior-word-csharp",
+      "wallMs": 65.481,
+      "kernelUs": 92.667,
+      "wallMinMs": 40.338958,
+      "wallMaxMs": 98.7645,
+      "n": 15
+    },
+    {
+      "family": "walls",
+      "implementation": "prior-word-rf2",
+      "wallMs": 7.075541,
+      "kernelUs": 106.958,
+      "wallMinMs": 4.991542,
+      "wallMaxMs": 13.378792,
+      "n": 15
+    },
+    {
+      "family": "walls",
+      "implementation": "raw-byte-packed-cpp",
+      "wallMs": 4.907584,
+      "kernelUs": 0.0,
+      "wallMinMs": 3.436,
+      "wallMaxMs": 10.947125,
+      "n": 15
+    },
+    {
+      "family": "walls",
+      "implementation": "raw-byte-packed-csharp",
+      "wallMs": 58.470708,
+      "kernelUs": 0.042,
+      "wallMinMs": 42.523,
+      "wallMaxMs": 80.265708,
+      "n": 15
+    },
+    {
+      "family": "walls",
+      "implementation": "raw-byte-packed-rf2",
+      "wallMs": 4.434167,
+      "kernelUs": 0.0,
+      "wallMinMs": 3.181291,
+      "wallMaxMs": 10.280959,
+      "n": 15
+    },
+    {
+      "family": "small-mixed",
+      "implementation": "buffered-r3-cpp",
+      "wallMs": 6.849833,
+      "kernelUs": 0.083,
+      "wallMinMs": 3.681042,
+      "wallMaxMs": 51.455791,
+      "n": 15
+    },
+    {
+      "family": "small-mixed",
+      "implementation": "buffered-r3-csharp",
+      "wallMs": 85.581917,
+      "kernelUs": 0.25,
+      "wallMinMs": 64.701125,
+      "wallMaxMs": 330.082625,
+      "n": 15
+    },
+    {
+      "family": "small-mixed",
+      "implementation": "buffered-r3-rf2",
+      "wallMs": 7.025708,
+      "kernelUs": 0.125,
+      "wallMinMs": 4.183583,
+      "wallMaxMs": 29.081167,
+      "n": 15
+    },
+    {
+      "family": "small-mixed",
+      "implementation": "prior-byte-csharp",
+      "wallMs": 97.504625,
+      "kernelUs": 0.208,
+      "wallMinMs": 69.375459,
+      "wallMaxMs": 617.362584,
+      "n": 15
+    },
+    {
+      "family": "small-mixed",
+      "implementation": "prior-nibble-cpp",
+      "wallMs": 7.121334,
+      "kernelUs": 0.083,
+      "wallMinMs": 3.832542,
+      "wallMaxMs": 18.794459,
+      "n": 15
+    },
+    {
+      "family": "small-mixed",
+      "implementation": "prior-nibble-csharp",
+      "wallMs": 94.648083,
+      "kernelUs": 0.167,
+      "wallMinMs": 59.985209,
+      "wallMaxMs": 302.552459,
+      "n": 15
+    },
+    {
+      "family": "small-mixed",
+      "implementation": "prior-r3-cpp",
+      "wallMs": 6.346834,
+      "kernelUs": 0.083,
+      "wallMinMs": 4.302459,
+      "wallMaxMs": 35.023333,
+      "n": 15
+    },
+    {
+      "family": "small-mixed",
+      "implementation": "prior-r3-csharp",
+      "wallMs": 96.792125,
+      "kernelUs": 0.167,
+      "wallMinMs": 64.445875,
+      "wallMaxMs": 269.704875,
+      "n": 15
+    },
+    {
+      "family": "small-mixed",
+      "implementation": "prior-r3-rf2",
+      "wallMs": 7.297458,
+      "kernelUs": 0.125,
+      "wallMinMs": 4.82875,
+      "wallMaxMs": 45.974667,
+      "n": 15
+    },
+    {
+      "family": "small-mixed",
+      "implementation": "prior-v4-corrected-rf2",
+      "wallMs": 6.870084,
+      "kernelUs": 0.125,
+      "wallMinMs": 4.705208,
+      "wallMaxMs": 53.644833,
+      "n": 15
+    },
+    {
+      "family": "small-mixed",
+      "implementation": "prior-word-cpp",
+      "wallMs": 6.866166,
+      "kernelUs": 0.083,
+      "wallMinMs": 4.2975,
+      "wallMaxMs": 67.782833,
+      "n": 15
+    },
+    {
+      "family": "small-mixed",
+      "implementation": "prior-word-csharp",
+      "wallMs": 93.771167,
+      "kernelUs": 0.166,
+      "wallMinMs": 64.139125,
+      "wallMaxMs": 183.587667,
+      "n": 15
+    },
+    {
+      "family": "small-mixed",
+      "implementation": "prior-word-rf2",
+      "wallMs": 7.377292,
+      "kernelUs": 0.166,
+      "wallMinMs": 4.06675,
+      "wallMaxMs": 74.796208,
+      "n": 15
+    },
+    {
+      "family": "small-mixed",
+      "implementation": "raw-byte-packed-cpp",
+      "wallMs": 7.799625,
+      "kernelUs": 0.083,
+      "wallMinMs": 4.607625,
+      "wallMaxMs": 18.472417,
+      "n": 15
+    },
+    {
+      "family": "small-mixed",
+      "implementation": "raw-byte-packed-csharp",
+      "wallMs": 96.620916,
+      "kernelUs": 0.167,
+      "wallMinMs": 60.9765,
+      "wallMaxMs": 213.286166,
+      "n": 15
+    },
+    {
+      "family": "small-mixed",
+      "implementation": "raw-byte-packed-rf2",
+      "wallMs": 5.602875,
+      "kernelUs": 0.208,
+      "wallMinMs": 4.605,
+      "wallMaxMs": 19.74875,
+      "n": 15
+    },
+    {
+      "family": "small-directions",
+      "implementation": "buffered-r3-cpp",
+      "wallMs": 5.123167,
+      "kernelUs": 0.125,
+      "wallMinMs": 4.240209,
+      "wallMaxMs": 18.567833,
+      "n": 15
+    },
+    {
+      "family": "small-directions",
+      "implementation": "buffered-r3-csharp",
+      "wallMs": 69.865334,
+      "kernelUs": 0.209,
+      "wallMinMs": 61.892125,
+      "wallMaxMs": 132.982792,
+      "n": 15
+    },
+    {
+      "family": "small-directions",
+      "implementation": "buffered-r3-rf2",
+      "wallMs": 5.428583,
+      "kernelUs": 0.208,
+      "wallMinMs": 4.284583,
+      "wallMaxMs": 8.876083,
+      "n": 15
+    },
+    {
+      "family": "small-directions",
+      "implementation": "prior-byte-csharp",
+      "wallMs": 70.033042,
+      "kernelUs": 0.292,
+      "wallMinMs": 57.512208,
+      "wallMaxMs": 110.412166,
+      "n": 15
+    },
+    {
+      "family": "small-directions",
+      "implementation": "prior-nibble-cpp",
+      "wallMs": 5.263459,
+      "kernelUs": 0.125,
+      "wallMinMs": 4.317666,
+      "wallMaxMs": 34.672375,
+      "n": 15
+    },
+    {
+      "family": "small-directions",
+      "implementation": "prior-nibble-csharp",
+      "wallMs": 71.113834,
+      "kernelUs": 0.209,
+      "wallMinMs": 55.712459,
+      "wallMaxMs": 511.161708,
+      "n": 15
+    },
+    {
+      "family": "small-directions",
+      "implementation": "prior-r3-cpp",
+      "wallMs": 5.141125,
+      "kernelUs": 0.125,
+      "wallMinMs": 3.826708,
+      "wallMaxMs": 33.008958,
+      "n": 15
+    },
+    {
+      "family": "small-directions",
+      "implementation": "prior-r3-csharp",
+      "wallMs": 69.864083,
+      "kernelUs": 0.25,
+      "wallMinMs": 56.742958,
+      "wallMaxMs": 132.269584,
+      "n": 15
+    },
+    {
+      "family": "small-directions",
+      "implementation": "prior-r3-rf2",
+      "wallMs": 5.522416,
+      "kernelUs": 0.208,
+      "wallMinMs": 3.68875,
+      "wallMaxMs": 24.63775,
+      "n": 15
+    },
+    {
+      "family": "small-directions",
+      "implementation": "prior-v4-corrected-rf2",
+      "wallMs": 5.190958,
+      "kernelUs": 0.208,
+      "wallMinMs": 4.492833,
+      "wallMaxMs": 23.48825,
+      "n": 15
+    },
+    {
+      "family": "small-directions",
+      "implementation": "prior-word-cpp",
+      "wallMs": 5.066458,
+      "kernelUs": 0.125,
+      "wallMinMs": 4.120625,
+      "wallMaxMs": 17.545542,
+      "n": 15
+    },
+    {
+      "family": "small-directions",
+      "implementation": "prior-word-csharp",
+      "wallMs": 67.996583,
+      "kernelUs": 0.209,
+      "wallMinMs": 54.730125,
+      "wallMaxMs": 196.441958,
+      "n": 15
+    },
+    {
+      "family": "small-directions",
+      "implementation": "prior-word-rf2",
+      "wallMs": 5.147792,
+      "kernelUs": 0.208,
+      "wallMinMs": 3.636667,
+      "wallMaxMs": 35.705875,
+      "n": 15
+    },
+    {
+      "family": "small-directions",
+      "implementation": "raw-byte-packed-cpp",
+      "wallMs": 5.353833,
+      "kernelUs": 0.125,
+      "wallMinMs": 3.881625,
+      "wallMaxMs": 20.855042,
+      "n": 15
+    },
+    {
+      "family": "small-directions",
+      "implementation": "raw-byte-packed-csharp",
+      "wallMs": 68.732917,
+      "kernelUs": 0.25,
+      "wallMinMs": 50.5495,
+      "wallMaxMs": 128.648583,
+      "n": 15
+    },
+    {
+      "family": "small-directions",
+      "implementation": "raw-byte-packed-rf2",
+      "wallMs": 4.8795,
+      "kernelUs": 0.291,
+      "wallMinMs": 4.302834,
+      "wallMaxMs": 10.127042,
+      "n": 15
+    }
+  ],
+  "paired": [
+    {
+      "family": "mixed",
+      "candidate": "buffered-r3-rf2",
+      "baseline": "prior-r3-rf2",
+      "medianPairedWholeSpeedup": 0.9546619889084261,
+      "fasterPairs": 5,
+      "pairs": 15,
+      "minPairedRatio": 0.48335432469967443,
+      "maxPairedRatio": 1.2376498902212465
+    },
+    {
+      "family": "mixed",
+      "candidate": "raw-byte-packed-rf2",
+      "baseline": "prior-r3-rf2",
+      "medianPairedWholeSpeedup": 0.9426513681951381,
+      "fasterPairs": 5,
+      "pairs": 15,
+      "minPairedRatio": 0.5332422853568622,
+      "maxPairedRatio": 1.484572583154761
+    },
+    {
+      "family": "directions",
+      "candidate": "buffered-r3-rf2",
+      "baseline": "prior-r3-rf2",
+      "medianPairedWholeSpeedup": 1.103366033515648,
+      "fasterPairs": 12,
+      "pairs": 15,
+      "minPairedRatio": 0.6224945936240673,
+      "maxPairedRatio": 4.2732345996995065
+    },
+    {
+      "family": "directions",
+      "candidate": "raw-byte-packed-rf2",
+      "baseline": "prior-r3-rf2",
+      "medianPairedWholeSpeedup": 0.9954515331704792,
+      "fasterPairs": 7,
+      "pairs": 15,
+      "minPairedRatio": 0.36635579128440365,
+      "maxPairedRatio": 4.799585348997927
+    },
+    {
+      "family": "noops",
+      "candidate": "buffered-r3-rf2",
+      "baseline": "prior-r3-rf2",
+      "medianPairedWholeSpeedup": 1.116758933064922,
+      "fasterPairs": 8,
+      "pairs": 15,
+      "minPairedRatio": 0.3694350767200132,
+      "maxPairedRatio": 1.548581304890063
+    },
+    {
+      "family": "noops",
+      "candidate": "raw-byte-packed-rf2",
+      "baseline": "prior-r3-rf2",
+      "medianPairedWholeSpeedup": 0.9493340058363656,
+      "fasterPairs": 5,
+      "pairs": 15,
+      "minPairedRatio": 0.15034543761992514,
+      "maxPairedRatio": 1.7858525181277192
+    },
+    {
+      "family": "walls",
+      "candidate": "buffered-r3-rf2",
+      "baseline": "prior-r3-rf2",
+      "medianPairedWholeSpeedup": 0.9831101298764076,
+      "fasterPairs": 7,
+      "pairs": 15,
+      "minPairedRatio": 0.5519053797468354,
+      "maxPairedRatio": 10.693176863541012
+    },
+    {
+      "family": "walls",
+      "candidate": "raw-byte-packed-rf2",
+      "baseline": "prior-r3-rf2",
+      "medianPairedWholeSpeedup": 1.077720580294467,
+      "fasterPairs": 9,
+      "pairs": 15,
+      "minPairedRatio": 0.6368082977473211,
+      "maxPairedRatio": 10.724938218903516
+    },
+    {
+      "family": "small-mixed",
+      "candidate": "buffered-r3-rf2",
+      "baseline": "prior-r3-rf2",
+      "medianPairedWholeSpeedup": 1.1324571001175339,
+      "fasterPairs": 10,
+      "pairs": 15,
+      "minPairedRatio": 0.5115072166672234,
+      "maxPairedRatio": 2.4993801488619924
+    },
+    {
+      "family": "small-mixed",
+      "candidate": "raw-byte-packed-rf2",
+      "baseline": "prior-r3-rf2",
+      "medianPairedWholeSpeedup": 1.148232755706785,
+      "fasterPairs": 11,
+      "pairs": 15,
+      "minPairedRatio": 0.707140468538577,
+      "maxPairedRatio": 2.5211400011384284
+    },
+    {
+      "family": "small-directions",
+      "candidate": "buffered-r3-rf2",
+      "baseline": "prior-r3-rf2",
+      "medianPairedWholeSpeedup": 1.0358366078219676,
+      "fasterPairs": 9,
+      "pairs": 15,
+      "minPairedRatio": 0.5748828621814375,
+      "maxPairedRatio": 4.39446532184461
+    },
+    {
+      "family": "small-directions",
+      "candidate": "raw-byte-packed-rf2",
+      "baseline": "prior-r3-rf2",
+      "medianPairedWholeSpeedup": 1.1585208176392188,
+      "fasterPairs": 10,
+      "pairs": 15,
+      "minPairedRatio": 0.5368793770184818,
+      "maxPairedRatio": 4.720629694476091
+    }
+  ],
+  "correctnessAndRefusal": 324,
+  "tailAndPoison": 222,
+  "recoverableOutputChecks": 12,
+  "descriptorFlagChecks": {
+    "passed": 20,
+    "total": 24,
+    "scope": "RF2 and C++ preserve disabled/enabled borrowed flags. Both C#processes change initial0to1 across lifetime; causeunproven, no helper-only restorationproof."
+  },
+  "qualifiedTimingSamples": 1440,
+  "exploratoryAttempts": 61,
+  "exploratoryRawTimingsAvailable": false,
+  "elapsedSeconds": 52.938532125,
+  "quietWindowConfirmedByParent": true,
+  "promoted": false,
+  "generalCsharpGapClosed": false,
+  "wholeProcessRegressionResolved": false,
+  "binarySizes": {
+    "raw-byte-packed/rf2/rover": 51184,
+    "raw-byte-packed/cpp/rover": 33976,
+    "raw-byte-packed/csharp/Rover.dll": 8192,
+    "buffered-r3/rf2/rover": 51184,
+    "buffered-r3/cpp/rover": 34024,
+    "buffered-r3/csharp/Rover.dll": 8192
+  },
+  "limits": [
+    "One shared Mac, generated fresh workloads; not exclusive CPU/frequency/thermal isolation.",
+    "Matched same-family candidates have the same new recoverable-output contract, historical baselines do not.",
+    "Compare within this replay only; absolute times differ materially frompriorcampaigns.",
+    "Kernel excludes validation/preparation; whole process includes them, exact-pathwarmup, launchandoutput.",
+    "C# DLLsizes exclude runtime.",
+    "No sharedcompiler, installedruntime, MCPpermission, GitHub, infrastructure, thesis orPDFchanges."
+  ],
+  "scope": "Two predeclared report/representation candidate families, fresh generated rover streams on one Apple Silicon Mac. No default or package promotion.",
+  "extraDescriptorAudit": "20/24: four inherited descriptor flag failures in C#process lifetime. Managed cause unproven; RF2/C++preserve initialflags. Exit3 output failure controls pass for all six new candidates."
+}
