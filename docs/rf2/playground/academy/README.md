@@ -28,3 +28,11 @@ Visual principles follow the requested Start UI reference: reusable learning
 surfaces, responsive layouts, restrained transitions and tested interactions.
 No Start UI code, React dependency or third-party artwork is copied or installed.
 Brand remains SFE and the site stays buildless.
+
+When choosing another lesson, the source editor and Save stay disabled until that
+lesson's source arrives. The previous source is cleared immediately, so a slow or
+failed fetch cannot save it under the new lesson's filename. Restore retries a
+failed source fetch. Editing remains available while a loaded program is checked.
+
+The loading/download correction passed 19 practical checks and seven delayed-worker race controls locally. It reproduced and retained the earlier wrong-source download before testing the fix.
+These are automated AI-assisted checks, not a human learning study.

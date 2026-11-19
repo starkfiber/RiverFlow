@@ -1,0 +1,124 @@
+{
+  "scope": "Two larger bounded native CLI tasks using the same SDK; four initial calls and four single repair calls. Not a full product or other-language comparison.",
+  "tasks": [
+    "Document Review: up to eight 1MiB UTF8 files, overlapping search, JSON or count, all-input validation and recoverable output failures",
+    "Telemetry Log: up to4096 canonical CSV rows, summary or warning report, input and output refusal handling"
+  ],
+  "totals": {
+    "standard": {
+      "inputTokens": 66436,
+      "outputTokens": 6483,
+      "totalTokens": 72919,
+      "cachedInputTokens": 0,
+      "callSeconds": 147.10058450000002
+    },
+    "lean": {
+      "inputTokens": 58601,
+      "outputTokens": 6641,
+      "totalTokens": 65242,
+      "cachedInputTokens": 0,
+      "callSeconds": 149.175006834
+    }
+  },
+  "observedTotalTokenReductionPercent": 10.528120243009365,
+  "originalFirstPassAccepted": 0,
+  "modelRepairAccepted": 3,
+  "callsAttempted": 8,
+  "repairsEach": 1,
+  "modelRequested": "gpt-6.1-sol",
+  "reasoningRequested": "low",
+  "modelReturned": "not available; not inferred from requested label",
+  "limitations": [
+    "One attempt then one repair for each task/condition. No population estimate or causal billing claim.",
+    "All initial failed calls and repair calls included in token/time totals.",
+    "Reference preparation, human/agent orchestration, source safety review and build/test work excluded from provider-token totals and call-time totals.",
+    "Only accepted programs establish task completion; missing or failing acceptance remains visible.",
+    "Lean omits unused host discovery only for a fully supplied code-only task; inappropriate when discovery is needed. No global settings or MCP permission changes.",
+    "No Python/C#/C++ authoring comparison was run here. Runtime benchmarks are separate.",
+    "No raw nonUTF8 filenames qualification; validUTF8/quoted/newline paths are tested."
+  ],
+  "comparisonStatus": "Unequal completion: standard1of2,lean2of2 afterone model repair each. Aggregate usage difference is not proof of same-success application savings.",
+  "acceptedTelemetryPair": {
+    "conditions": {
+      "standard": {
+        "inputTokens": 33531,
+        "outputTokens": 3846,
+        "totalTokens": 37377,
+        "cachedInputTokens": 0,
+        "callSeconds": 85.98957379200002
+      },
+      "lean": {
+        "inputTokens": 29628,
+        "outputTokens": 3941,
+        "totalTokens": 33569,
+        "cachedInputTokens": 0,
+        "callSeconds": 86.820367
+      }
+    },
+    "observedTotalTokenReductionPercent": 10.188083580811725,
+    "scope": "One paired task, both67caseaccepted afterone repair; allinitial+repairusageincluded; not general savings or faster delivery."
+  },
+  "programs": [
+    {
+      "task": "document",
+      "condition": "standard",
+      "firstPass": "rejected duplicate local by frozen compiler",
+      "attempts": 2,
+      "inputTokens": 32905,
+      "outputTokens": 2637,
+      "totalTokens": 35542,
+      "cachedInputTokens": 0,
+      "callSeconds": 61.111010707999995,
+      "sameTaskPromptSha256": "329c33a8976aae191d274d616b4b6177400414308fcab6403b388f2cb1518f45",
+      "repairPromptSha256": "82ec0da343d15a264555a96a96e2ca1559dd6d238a91174d9dd6e4730c3c4fab",
+      "sourceBytes": 3354,
+      "modelRepairAcceptance": "compiler refused record declarations inside loop; not executed"
+    },
+    {
+      "task": "document",
+      "condition": "lean",
+      "firstPass": "rejected duplicate local by frozen compiler",
+      "attempts": 2,
+      "inputTokens": 28973,
+      "outputTokens": 2700,
+      "totalTokens": 31673,
+      "cachedInputTokens": 0,
+      "callSeconds": 62.35463983399998,
+      "sameTaskPromptSha256": "329c33a8976aae191d274d616b4b6177400414308fcab6403b388f2cb1518f45",
+      "repairPromptSha256": "fff12f2247b9dd51d50fe4f6c8adbd2c827a1e216604f7dd54908746d01d7f28",
+      "sourceBytes": 3404,
+      "modelRepairAcceptance": "67of67"
+    },
+    {
+      "task": "telemetry",
+      "condition": "lean",
+      "firstPass": "rejected duplicate local by frozen compiler",
+      "attempts": 2,
+      "inputTokens": 29628,
+      "outputTokens": 3941,
+      "totalTokens": 33569,
+      "cachedInputTokens": 0,
+      "callSeconds": 86.820367,
+      "sameTaskPromptSha256": "077ef73437e80a241d58dc6c26b7b05e089b78a1f966cc96c230dcef627b6000",
+      "repairPromptSha256": "2ad02c1f5a9be942026c2b3beb5864418ea218b19c7b1b22907219601546cd09",
+      "sourceBytes": 4974,
+      "modelRepairAcceptance": "67of67"
+    },
+    {
+      "task": "telemetry",
+      "condition": "standard",
+      "firstPass": "rejected duplicate local by frozen compiler",
+      "attempts": 2,
+      "inputTokens": 33531,
+      "outputTokens": 3846,
+      "totalTokens": 37377,
+      "cachedInputTokens": 0,
+      "callSeconds": 85.98957379200002,
+      "sameTaskPromptSha256": "077ef73437e80a241d58dc6c26b7b05e089b78a1f966cc96c230dcef627b6000",
+      "repairPromptSha256": "03c1ee024731ce51b129c7473f6b84a50d6f9f2c151168d6770a149a074186a8",
+      "sourceBytes": 5003,
+      "modelRepairAcceptance": "67of67"
+    }
+  ],
+  "manualPostStudyRecovery": "Separate manual completion of remaining document app, no retroactive model credit; qualification recorded separately locally."
+}
