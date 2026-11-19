@@ -1,0 +1,9 @@
+let count = 0
+let amount = 0
+let action = 0
+repeat 5 times
+ ask number amount "How many points should we add?"
+ set count = count + amount
+ set action = action + 1
+ show count
+end

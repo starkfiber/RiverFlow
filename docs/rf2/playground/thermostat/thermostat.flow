@@ -1,0 +1,31 @@
+let temperature = 0
+let heating = 0
+let reading = 0
+let attempts = 8
+let lower = 18
+let upper = 24
+let accepted = 1
+if lower > upper
+ say "The lower threshold must not exceed the upper threshold."
+else
+ repeat attempts times
+  ask number temperature "Temperature, whole Celsius 0 to 60?"
+  set accepted = temperature <= 60
+  if accepted
+   if temperature < lower
+    set heating = 1
+   end
+   if temperature > upper
+    set heating = 0
+   end
+   if heating == 1
+    say "Heater on."
+   else
+    say "Heater off."
+   end
+  else
+   say "Outside lesson range. Heater state unchanged."
+  end
+  set reading = reading + 1
+ end
+end
