@@ -1,0 +1,1731 @@
+{
+  "date": "2026-11-19",
+  "scope": "Local fresh rover CLI exact fixed-point certificate, pointer/encoding candidates and early-bailout correction; not full platform performance",
+  "correctnessChecks": 894,
+  "primaryTimedSamples": 1764,
+  "supplementTimedSamples": 180,
+  "finalTimedSamples": 1944,
+  "exploratoryProbeSamples": 144,
+  "allTimedRunsIncludingProbes": 2088,
+  "primarySeed": 202611193,
+  "supplementSeed": 920261119,
+  "primary": {
+    "mixed": {
+      "certified-hybrid-r2-cpp": {
+        "kernelNs": {
+          "median": 41250,
+          "minimum": 35791,
+          "maximum": 61083,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5003916,
+          "minimum": 3809125,
+          "maximum": 14419875,
+          "samples": 21
+        }
+      },
+      "certified-hybrid-r2-csharp": {
+        "kernelNs": {
+          "median": 46333,
+          "minimum": 36833,
+          "maximum": 78541,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 60274250,
+          "minimum": 47679084,
+          "maximum": 309345959,
+          "samples": 21
+        }
+      },
+      "certified-hybrid-r2-rf2": {
+        "kernelNs": {
+          "median": 47541,
+          "minimum": 36416,
+          "maximum": 70375,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5855917,
+          "minimum": 4554667,
+          "maximum": 12555292,
+          "samples": 21
+        }
+      },
+      "certified-raw-cpp": {
+        "kernelNs": {
+          "median": 113041,
+          "minimum": 88958,
+          "maximum": 192125,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5615834,
+          "minimum": 4431250,
+          "maximum": 15391917,
+          "samples": 21
+        }
+      },
+      "certified-raw-csharp": {
+        "kernelNs": {
+          "median": 79833,
+          "minimum": 62917,
+          "maximum": 147541,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 56270916,
+          "minimum": 47153834,
+          "maximum": 98154083,
+          "samples": 21
+        }
+      },
+      "certified-raw-rf2": {
+        "kernelNs": {
+          "median": 113291,
+          "minimum": 89125,
+          "maximum": 200708,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5963291,
+          "minimum": 4532084,
+          "maximum": 72840167,
+          "samples": 21
+        }
+      },
+      "pointer-byte-cpp": {
+        "kernelNs": {
+          "median": 82333,
+          "minimum": 64833,
+          "maximum": 139625,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5956500,
+          "minimum": 3914917,
+          "maximum": 51869791,
+          "samples": 21
+        }
+      },
+      "pointer-byte-csharp": {
+        "kernelNs": {
+          "median": 68416,
+          "minimum": 60375,
+          "maximum": 91750,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 52855167,
+          "minimum": 41291708,
+          "maximum": 93115583,
+          "samples": 21
+        }
+      },
+      "pointer-byte-rf2": {
+        "kernelNs": {
+          "median": 113291,
+          "minimum": 97250,
+          "maximum": 260875,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5690083,
+          "minimum": 4278375,
+          "maximum": 21082166,
+          "samples": 21
+        }
+      },
+      "prior-csharp-branch": {
+        "kernelNs": {
+          "median": 121792,
+          "minimum": 87209,
+          "maximum": 313542,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 53998208,
+          "minimum": 44361000,
+          "maximum": 101232458,
+          "samples": 21
+        }
+      },
+      "prior-offset-lut-cpp": {
+        "kernelNs": {
+          "median": 77125,
+          "minimum": 64833,
+          "maximum": 160291,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5842834,
+          "minimum": 4278584,
+          "maximum": 16303250,
+          "samples": 21
+        }
+      },
+      "prior-offset-lut-csharp": {
+        "kernelNs": {
+          "median": 94750,
+          "minimum": 66834,
+          "maximum": 134250,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 58639333,
+          "minimum": 43505750,
+          "maximum": 99700583,
+          "samples": 21
+        }
+      },
+      "prior-offset-lut-leaf-cpp": {
+        "kernelNs": {
+          "median": 73291,
+          "minimum": 64833,
+          "maximum": 108916,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5572584,
+          "minimum": 3613583,
+          "maximum": 12484583,
+          "samples": 21
+        }
+      },
+      "prior-offset-lut-leaf-csharp": {
+        "kernelNs": {
+          "median": 76917,
+          "minimum": 60375,
+          "maximum": 130250,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 56666208,
+          "minimum": 41274083,
+          "maximum": 193162417,
+          "samples": 21
+        }
+      },
+      "prior-rf2-branch": {
+        "kernelNs": {
+          "median": 104750,
+          "minimum": 71833,
+          "maximum": 207916,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 6438083,
+          "minimum": 5192417,
+          "maximum": 8738125,
+          "samples": 21
+        }
+      },
+      "prior-stream-words-cpp": {
+        "kernelNs": {
+          "median": 44875,
+          "minimum": 36333,
+          "maximum": 53125,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5694375,
+          "minimum": 4071292,
+          "maximum": 27745292,
+          "samples": 21
+        }
+      },
+      "prior-stream-words-csharp": {
+        "kernelNs": {
+          "median": 46333,
+          "minimum": 36458,
+          "maximum": 88792,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 54843208,
+          "minimum": 46402458,
+          "maximum": 112003625,
+          "samples": 21
+        }
+      },
+      "prior-stream-words-rf2": {
+        "kernelNs": {
+          "median": 46250,
+          "minimum": 33500,
+          "maximum": 94458,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5274959,
+          "minimum": 3785833,
+          "maximum": 15845500,
+          "samples": 21
+        }
+      },
+      "zero-copy-byte-cpp": {
+        "kernelNs": {
+          "median": 110416,
+          "minimum": 81625,
+          "maximum": 156083,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5678250,
+          "minimum": 3933417,
+          "maximum": 8309750,
+          "samples": 21
+        }
+      },
+      "zero-copy-byte-csharp": {
+        "kernelNs": {
+          "median": 79833,
+          "minimum": 62834,
+          "maximum": 140709,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 54256833,
+          "minimum": 44551083,
+          "maximum": 97893042,
+          "samples": 21
+        }
+      },
+      "zero-copy-byte-rf2": {
+        "kernelNs": {
+          "median": 113166,
+          "minimum": 88958,
+          "maximum": 201666,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5523583,
+          "minimum": 4410917,
+          "maximum": 14677125,
+          "samples": 21
+        }
+      }
+    },
+    "directions": {
+      "certified-hybrid-r2-cpp": {
+        "kernelNs": {
+          "median": 92708,
+          "minimum": 81666,
+          "maximum": 141833,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5428042,
+          "minimum": 4358166,
+          "maximum": 8276333,
+          "samples": 21
+        }
+      },
+      "certified-hybrid-r2-csharp": {
+        "kernelNs": {
+          "median": 92750,
+          "minimum": 81875,
+          "maximum": 130250,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 52959458,
+          "minimum": 46086667,
+          "maximum": 121124625,
+          "samples": 21
+        }
+      },
+      "certified-hybrid-r2-rf2": {
+        "kernelNs": {
+          "median": 92875,
+          "minimum": 81958,
+          "maximum": 130666,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 8005833,
+          "minimum": 5692958,
+          "maximum": 11632750,
+          "samples": 21
+        }
+      },
+      "certified-raw-cpp": {
+        "kernelNs": {
+          "median": 226250,
+          "minimum": 200125,
+          "maximum": 312416,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 6520000,
+          "minimum": 4999584,
+          "maximum": 11051834,
+          "samples": 21
+        }
+      },
+      "certified-raw-csharp": {
+        "kernelNs": {
+          "median": 159917,
+          "minimum": 141166,
+          "maximum": 299791,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 57160000,
+          "minimum": 46821875,
+          "maximum": 92568750,
+          "samples": 21
+        }
+      },
+      "certified-raw-rf2": {
+        "kernelNs": {
+          "median": 226708,
+          "minimum": 200166,
+          "maximum": 312708,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 7612250,
+          "minimum": 5958375,
+          "maximum": 16176000,
+          "samples": 21
+        }
+      },
+      "pointer-byte-cpp": {
+        "kernelNs": {
+          "median": 164791,
+          "minimum": 145833,
+          "maximum": 266458,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 6528417,
+          "minimum": 5288042,
+          "maximum": 11513250,
+          "samples": 21
+        }
+      },
+      "pointer-byte-csharp": {
+        "kernelNs": {
+          "median": 153709,
+          "minimum": 135708,
+          "maximum": 568208,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 56398625,
+          "minimum": 46758125,
+          "maximum": 106209750,
+          "samples": 21
+        }
+      },
+      "pointer-byte-rf2": {
+        "kernelNs": {
+          "median": 227041,
+          "minimum": 200041,
+          "maximum": 315750,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 7556292,
+          "minimum": 5886000,
+          "maximum": 14628125,
+          "samples": 21
+        }
+      },
+      "prior-csharp-branch": {
+        "kernelNs": {
+          "median": 547375,
+          "minimum": 433000,
+          "maximum": 823750,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 57636750,
+          "minimum": 49701666,
+          "maximum": 96438583,
+          "samples": 21
+        }
+      },
+      "prior-offset-lut-cpp": {
+        "kernelNs": {
+          "median": 164958,
+          "minimum": 131750,
+          "maximum": 274958,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 6515042,
+          "minimum": 4378375,
+          "maximum": 14170334,
+          "samples": 21
+        }
+      },
+      "prior-offset-lut-csharp": {
+        "kernelNs": {
+          "median": 189167,
+          "minimum": 165458,
+          "maximum": 345375,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 55073583,
+          "minimum": 46094875,
+          "maximum": 81855583,
+          "samples": 21
+        }
+      },
+      "prior-offset-lut-leaf-cpp": {
+        "kernelNs": {
+          "median": 164875,
+          "minimum": 145791,
+          "maximum": 230708,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 6180625,
+          "minimum": 4711833,
+          "maximum": 20413125,
+          "samples": 21
+        }
+      },
+      "prior-offset-lut-leaf-csharp": {
+        "kernelNs": {
+          "median": 154000,
+          "minimum": 134791,
+          "maximum": 271000,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 56341750,
+          "minimum": 47220708,
+          "maximum": 97480042,
+          "samples": 21
+        }
+      },
+      "prior-rf2-branch": {
+        "kernelNs": {
+          "median": 469291,
+          "minimum": 295541,
+          "maximum": 727625,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 10753000,
+          "minimum": 7788209,
+          "maximum": 18012708,
+          "samples": 21
+        }
+      },
+      "prior-stream-words-cpp": {
+        "kernelNs": {
+          "median": 94166,
+          "minimum": 81750,
+          "maximum": 149875,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5519667,
+          "minimum": 4494458,
+          "maximum": 9645042,
+          "samples": 21
+        }
+      },
+      "prior-stream-words-csharp": {
+        "kernelNs": {
+          "median": 92584,
+          "minimum": 81875,
+          "maximum": 128666,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 58946708,
+          "minimum": 45597334,
+          "maximum": 84950750,
+          "samples": 21
+        }
+      },
+      "prior-stream-words-rf2": {
+        "kernelNs": {
+          "median": 94500,
+          "minimum": 81833,
+          "maximum": 152333,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 7158333,
+          "minimum": 5772458,
+          "maximum": 9733000,
+          "samples": 21
+        }
+      },
+      "zero-copy-byte-cpp": {
+        "kernelNs": {
+          "median": 226375,
+          "minimum": 200208,
+          "maximum": 327208,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 6756583,
+          "minimum": 5345541,
+          "maximum": 13636375,
+          "samples": 21
+        }
+      },
+      "zero-copy-byte-csharp": {
+        "kernelNs": {
+          "median": 160417,
+          "minimum": 141375,
+          "maximum": 220667,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 58247125,
+          "minimum": 47166625,
+          "maximum": 91910416,
+          "samples": 21
+        }
+      },
+      "zero-copy-byte-rf2": {
+        "kernelNs": {
+          "median": 227375,
+          "minimum": 200291,
+          "maximum": 349208,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 7055459,
+          "minimum": 4984125,
+          "maximum": 20849958,
+          "samples": 21
+        }
+      }
+    },
+    "noops": {
+      "certified-hybrid-r2-cpp": {
+        "kernelNs": {
+          "median": 0,
+          "minimum": 0,
+          "maximum": 41,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5000625,
+          "minimum": 2987125,
+          "maximum": 10685209,
+          "samples": 21
+        }
+      },
+      "certified-hybrid-r2-csharp": {
+        "kernelNs": {
+          "median": 42,
+          "minimum": 0,
+          "maximum": 83,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 56697750,
+          "minimum": 46160375,
+          "maximum": 80434958,
+          "samples": 21
+        }
+      },
+      "certified-hybrid-r2-rf2": {
+        "kernelNs": {
+          "median": 0,
+          "minimum": 0,
+          "maximum": 166,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4097334,
+          "minimum": 3199083,
+          "maximum": 7168209,
+          "samples": 21
+        }
+      },
+      "certified-raw-cpp": {
+        "kernelNs": {
+          "median": 0,
+          "minimum": 0,
+          "maximum": 41,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4944917,
+          "minimum": 3105542,
+          "maximum": 11307459,
+          "samples": 21
+        }
+      },
+      "certified-raw-csharp": {
+        "kernelNs": {
+          "median": 42,
+          "minimum": 0,
+          "maximum": 84,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 58023625,
+          "minimum": 44612792,
+          "maximum": 73473708,
+          "samples": 21
+        }
+      },
+      "certified-raw-rf2": {
+        "kernelNs": {
+          "median": 41,
+          "minimum": 0,
+          "maximum": 458,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4544875,
+          "minimum": 3616875,
+          "maximum": 6836292,
+          "samples": 21
+        }
+      },
+      "pointer-byte-cpp": {
+        "kernelNs": {
+          "median": 29958,
+          "minimum": 26416,
+          "maximum": 70583,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4932333,
+          "minimum": 3212208,
+          "maximum": 9879416,
+          "samples": 21
+        }
+      },
+      "pointer-byte-csharp": {
+        "kernelNs": {
+          "median": 30125,
+          "minimum": 26500,
+          "maximum": 71583,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 56299042,
+          "minimum": 44301833,
+          "maximum": 79279500,
+          "samples": 21
+        }
+      },
+      "pointer-byte-rf2": {
+        "kernelNs": {
+          "median": 60708,
+          "minimum": 53708,
+          "maximum": 88500,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5589042,
+          "minimum": 4568542,
+          "maximum": 7162541,
+          "samples": 21
+        }
+      },
+      "prior-csharp-branch": {
+        "kernelNs": {
+          "median": 55250,
+          "minimum": 42334,
+          "maximum": 85708,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 56399084,
+          "minimum": 43478959,
+          "maximum": 74555500,
+          "samples": 21
+        }
+      },
+      "prior-offset-lut-cpp": {
+        "kernelNs": {
+          "median": 29875,
+          "minimum": 26458,
+          "maximum": 75375,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5087291,
+          "minimum": 3377625,
+          "maximum": 9600292,
+          "samples": 21
+        }
+      },
+      "prior-offset-lut-csharp": {
+        "kernelNs": {
+          "median": 32667,
+          "minimum": 26917,
+          "maximum": 109458,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 54632792,
+          "minimum": 43872208,
+          "maximum": 88466500,
+          "samples": 21
+        }
+      },
+      "prior-offset-lut-leaf-cpp": {
+        "kernelNs": {
+          "median": 29916,
+          "minimum": 26416,
+          "maximum": 64916,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4790667,
+          "minimum": 3133375,
+          "maximum": 8055958,
+          "samples": 21
+        }
+      },
+      "prior-offset-lut-leaf-csharp": {
+        "kernelNs": {
+          "median": 30125,
+          "minimum": 26500,
+          "maximum": 50375,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 54207292,
+          "minimum": 44960417,
+          "maximum": 91951916,
+          "samples": 21
+        }
+      },
+      "prior-rf2-branch": {
+        "kernelNs": {
+          "median": 74333,
+          "minimum": 52375,
+          "maximum": 148083,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5605625,
+          "minimum": 3723958,
+          "maximum": 8107250,
+          "samples": 21
+        }
+      },
+      "prior-stream-words-cpp": {
+        "kernelNs": {
+          "median": 46208,
+          "minimum": 39083,
+          "maximum": 72708,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5238583,
+          "minimum": 4024667,
+          "maximum": 6689583,
+          "samples": 21
+        }
+      },
+      "prior-stream-words-csharp": {
+        "kernelNs": {
+          "median": 46375,
+          "minimum": 38958,
+          "maximum": 70667,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 54354791,
+          "minimum": 46360083,
+          "maximum": 72984084,
+          "samples": 21
+        }
+      },
+      "prior-stream-words-rf2": {
+        "kernelNs": {
+          "median": 46375,
+          "minimum": 40958,
+          "maximum": 112875,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5548709,
+          "minimum": 3943166,
+          "maximum": 8061583,
+          "samples": 21
+        }
+      },
+      "zero-copy-byte-cpp": {
+        "kernelNs": {
+          "median": 30250,
+          "minimum": 26750,
+          "maximum": 105750,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5320958,
+          "minimum": 3217666,
+          "maximum": 6909917,
+          "samples": 21
+        }
+      },
+      "zero-copy-byte-csharp": {
+        "kernelNs": {
+          "median": 30417,
+          "minimum": 26708,
+          "maximum": 85208,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 55253333,
+          "minimum": 45574708,
+          "maximum": 113557875,
+          "samples": 21
+        }
+      },
+      "zero-copy-byte-rf2": {
+        "kernelNs": {
+          "median": 62916,
+          "minimum": 54541,
+          "maximum": 139375,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 6110208,
+          "minimum": 4558625,
+          "maximum": 7589500,
+          "samples": 21
+        }
+      }
+    },
+    "walls": {
+      "certified-hybrid-r2-cpp": {
+        "kernelNs": {
+          "median": 0,
+          "minimum": 0,
+          "maximum": 41,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4097459,
+          "minimum": 3198459,
+          "maximum": 7835375,
+          "samples": 21
+        }
+      },
+      "certified-hybrid-r2-csharp": {
+        "kernelNs": {
+          "median": 41,
+          "minimum": 0,
+          "maximum": 292,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 49219791,
+          "minimum": 40658875,
+          "maximum": 88805583,
+          "samples": 21
+        }
+      },
+      "certified-hybrid-r2-rf2": {
+        "kernelNs": {
+          "median": 0,
+          "minimum": 0,
+          "maximum": 41,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4619708,
+          "minimum": 3339125,
+          "maximum": 12107083,
+          "samples": 21
+        }
+      },
+      "certified-raw-cpp": {
+        "kernelNs": {
+          "median": 0,
+          "minimum": 0,
+          "maximum": 41,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4466917,
+          "minimum": 2979459,
+          "maximum": 7666500,
+          "samples": 21
+        }
+      },
+      "certified-raw-csharp": {
+        "kernelNs": {
+          "median": 41,
+          "minimum": 0,
+          "maximum": 83,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 49294791,
+          "minimum": 41152708,
+          "maximum": 76780250,
+          "samples": 21
+        }
+      },
+      "certified-raw-rf2": {
+        "kernelNs": {
+          "median": 41,
+          "minimum": 0,
+          "maximum": 250,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4294458,
+          "minimum": 3315834,
+          "maximum": 7447166,
+          "samples": 21
+        }
+      },
+      "pointer-byte-cpp": {
+        "kernelNs": {
+          "median": 52958,
+          "minimum": 47083,
+          "maximum": 77416,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5030083,
+          "minimum": 3017458,
+          "maximum": 10091459,
+          "samples": 21
+        }
+      },
+      "pointer-byte-csharp": {
+        "kernelNs": {
+          "median": 53166,
+          "minimum": 46958,
+          "maximum": 231875,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 49310709,
+          "minimum": 40797792,
+          "maximum": 86667541,
+          "samples": 21
+        }
+      },
+      "pointer-byte-rf2": {
+        "kernelNs": {
+          "median": 107416,
+          "minimum": 95500,
+          "maximum": 225833,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 6769917,
+          "minimum": 5264583,
+          "maximum": 12384291,
+          "samples": 21
+        }
+      },
+      "prior-csharp-branch": {
+        "kernelNs": {
+          "median": 356041,
+          "minimum": 231708,
+          "maximum": 433333,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 52622500,
+          "minimum": 43090208,
+          "maximum": 72581542,
+          "samples": 21
+        }
+      },
+      "prior-offset-lut-cpp": {
+        "kernelNs": {
+          "median": 53041,
+          "minimum": 47000,
+          "maximum": 143791,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4598250,
+          "minimum": 3536042,
+          "maximum": 8885875,
+          "samples": 21
+        }
+      },
+      "prior-offset-lut-csharp": {
+        "kernelNs": {
+          "median": 58500,
+          "minimum": 47792,
+          "maximum": 86416,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 50812042,
+          "minimum": 43826458,
+          "maximum": 73143625,
+          "samples": 21
+        }
+      },
+      "prior-offset-lut-leaf-cpp": {
+        "kernelNs": {
+          "median": 53000,
+          "minimum": 47083,
+          "maximum": 82583,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5457542,
+          "minimum": 3752792,
+          "maximum": 9510500,
+          "samples": 21
+        }
+      },
+      "prior-offset-lut-leaf-csharp": {
+        "kernelNs": {
+          "median": 53083,
+          "minimum": 47042,
+          "maximum": 146708,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 51952833,
+          "minimum": 41287833,
+          "maximum": 190664000,
+          "samples": 21
+        }
+      },
+      "prior-rf2-branch": {
+        "kernelNs": {
+          "median": 348083,
+          "minimum": 277208,
+          "maximum": 545250,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 8027875,
+          "minimum": 5949625,
+          "maximum": 13871791,
+          "samples": 21
+        }
+      },
+      "prior-stream-words-cpp": {
+        "kernelNs": {
+          "median": 81833,
+          "minimum": 72708,
+          "maximum": 155000,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5803500,
+          "minimum": 4111916,
+          "maximum": 8937000,
+          "samples": 21
+        }
+      },
+      "prior-stream-words-csharp": {
+        "kernelNs": {
+          "median": 82042,
+          "minimum": 72834,
+          "maximum": 144334,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 49826000,
+          "minimum": 42939959,
+          "maximum": 86642000,
+          "samples": 21
+        }
+      },
+      "prior-stream-words-rf2": {
+        "kernelNs": {
+          "median": 81958,
+          "minimum": 72833,
+          "maximum": 128625,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 6252167,
+          "minimum": 4858708,
+          "maximum": 8746833,
+          "samples": 21
+        }
+      },
+      "zero-copy-byte-cpp": {
+        "kernelNs": {
+          "median": 53541,
+          "minimum": 47500,
+          "maximum": 189458,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4861792,
+          "minimum": 3728250,
+          "maximum": 8517875,
+          "samples": 21
+        }
+      },
+      "zero-copy-byte-csharp": {
+        "kernelNs": {
+          "median": 53583,
+          "minimum": 47500,
+          "maximum": 167750,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 53543417,
+          "minimum": 42455958,
+          "maximum": 79896709,
+          "samples": 21
+        }
+      },
+      "zero-copy-byte-rf2": {
+        "kernelNs": {
+          "median": 109333,
+          "minimum": 97041,
+          "maximum": 215708,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 6448791,
+          "minimum": 4526709,
+          "maximum": 10802375,
+          "samples": 21
+        }
+      }
+    }
+  },
+  "supplement": {
+    "mixed": {
+      "certified-hybrid-r2-cpp": {
+        "kernelNs": {
+          "median": 46208,
+          "minimum": 36333,
+          "maximum": 53125,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 4278917,
+          "minimum": 3861750,
+          "maximum": 20438000,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r2-csharp": {
+        "kernelNs": {
+          "median": 46333,
+          "minimum": 36500,
+          "maximum": 275125,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 50672417,
+          "minimum": 41868083,
+          "maximum": 427466583,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r2-rf2": {
+        "kernelNs": {
+          "median": 46250,
+          "minimum": 36541,
+          "maximum": 53166,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 5089042,
+          "minimum": 3624375,
+          "maximum": 16866458,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r3-cpp": {
+        "kernelNs": {
+          "median": 40958,
+          "minimum": 37083,
+          "maximum": 53166,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 4328542,
+          "minimum": 2923833,
+          "maximum": 16511625,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r3-csharp": {
+        "kernelNs": {
+          "median": 41000,
+          "minimum": 36541,
+          "maximum": 53333,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 47122084,
+          "minimum": 40979083,
+          "maximum": 117239875,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r3-rf2": {
+        "kernelNs": {
+          "median": 46416,
+          "minimum": 36583,
+          "maximum": 53250,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 4940958,
+          "minimum": 3749834,
+          "maximum": 10376291,
+          "samples": 5
+        }
+      },
+      "prior-offset-lut-csharp": {
+        "kernelNs": {
+          "median": 84000,
+          "minimum": 74791,
+          "maximum": 94625,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 46472750,
+          "minimum": 42079167,
+          "maximum": 77948875,
+          "samples": 5
+        }
+      },
+      "prior-rf2-branch": {
+        "kernelNs": {
+          "median": 93958,
+          "minimum": 79208,
+          "maximum": 137208,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 5246417,
+          "minimum": 3449334,
+          "maximum": 19331959,
+          "samples": 5
+        }
+      },
+      "prior-stream-words-rf2": {
+        "kernelNs": {
+          "median": 41083,
+          "minimum": 36458,
+          "maximum": 53541,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 4471084,
+          "minimum": 3965875,
+          "maximum": 20567666,
+          "samples": 5
+        }
+      }
+    },
+    "directions": {
+      "certified-hybrid-r2-cpp": {
+        "kernelNs": {
+          "median": 66791,
+          "minimum": 62041,
+          "maximum": 72833,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 3547167,
+          "minimum": 3269625,
+          "maximum": 3789209,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r2-csharp": {
+        "kernelNs": {
+          "median": 66875,
+          "minimum": 62167,
+          "maximum": 67000,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 36535000,
+          "minimum": 31834416,
+          "maximum": 42235917,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r2-rf2": {
+        "kernelNs": {
+          "median": 62333,
+          "minimum": 62208,
+          "maximum": 72916,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 4572083,
+          "minimum": 4453208,
+          "maximum": 5928000,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r3-cpp": {
+        "kernelNs": {
+          "median": 62416,
+          "minimum": 62125,
+          "maximum": 66791,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 3297708,
+          "minimum": 3027708,
+          "maximum": 4093625,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r3-csharp": {
+        "kernelNs": {
+          "median": 62292,
+          "minimum": 62167,
+          "maximum": 66958,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 32773000,
+          "minimum": 32270584,
+          "maximum": 38294458,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r3-rf2": {
+        "kernelNs": {
+          "median": 62416,
+          "minimum": 62166,
+          "maximum": 66875,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 4211208,
+          "minimum": 4105625,
+          "maximum": 4343583,
+          "samples": 5
+        }
+      },
+      "prior-offset-lut-csharp": {
+        "kernelNs": {
+          "median": 135333,
+          "minimum": 125750,
+          "maximum": 141458,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 35230375,
+          "minimum": 31949333,
+          "maximum": 36677209,
+          "samples": 5
+        }
+      },
+      "prior-rf2-branch": {
+        "kernelNs": {
+          "median": 427250,
+          "minimum": 362625,
+          "maximum": 487250,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 6958917,
+          "minimum": 6376625,
+          "maximum": 8106625,
+          "samples": 5
+        }
+      },
+      "prior-stream-words-rf2": {
+        "kernelNs": {
+          "median": 66833,
+          "minimum": 62291,
+          "maximum": 67000,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 4161292,
+          "minimum": 3946875,
+          "maximum": 5210041,
+          "samples": 5
+        }
+      }
+    },
+    "noops": {
+      "certified-hybrid-r2-cpp": {
+        "kernelNs": {
+          "median": 0,
+          "minimum": 0,
+          "maximum": 41,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 2765250,
+          "minimum": 2469958,
+          "maximum": 3275333,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r2-csharp": {
+        "kernelNs": {
+          "median": 41,
+          "minimum": 0,
+          "maximum": 42,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 34974292,
+          "minimum": 33900667,
+          "maximum": 40557250,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r2-rf2": {
+        "kernelNs": {
+          "median": 41,
+          "minimum": 0,
+          "maximum": 125,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 3111416,
+          "minimum": 2938500,
+          "maximum": 3600917,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r3-cpp": {
+        "kernelNs": {
+          "median": 0,
+          "minimum": 0,
+          "maximum": 41,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 3022750,
+          "minimum": 2762958,
+          "maximum": 3143667,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r3-csharp": {
+        "kernelNs": {
+          "median": 41,
+          "minimum": 41,
+          "maximum": 42,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 36018166,
+          "minimum": 35395167,
+          "maximum": 37877791,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r3-rf2": {
+        "kernelNs": {
+          "median": 0,
+          "minimum": 0,
+          "maximum": 125,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 2978959,
+          "minimum": 2513833,
+          "maximum": 3667000,
+          "samples": 5
+        }
+      },
+      "prior-offset-lut-csharp": {
+        "kernelNs": {
+          "median": 25708,
+          "minimum": 23500,
+          "maximum": 28792,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 36210500,
+          "minimum": 33096375,
+          "maximum": 40275541,
+          "samples": 5
+        }
+      },
+      "prior-rf2-branch": {
+        "kernelNs": {
+          "median": 58208,
+          "minimum": 52375,
+          "maximum": 58500,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 3445083,
+          "minimum": 2887250,
+          "maximum": 3827041,
+          "samples": 5
+        }
+      },
+      "prior-stream-words-rf2": {
+        "kernelNs": {
+          "median": 36500,
+          "minimum": 36416,
+          "maximum": 41083,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 3831417,
+          "minimum": 3575875,
+          "maximum": 3985833,
+          "samples": 5
+        }
+      }
+    },
+    "walls": {
+      "certified-hybrid-r2-cpp": {
+        "kernelNs": {
+          "median": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 3384625,
+          "minimum": 3022750,
+          "maximum": 3520375,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r2-csharp": {
+        "kernelNs": {
+          "median": 42,
+          "minimum": 0,
+          "maximum": 42,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 39963334,
+          "minimum": 36825042,
+          "maximum": 45021334,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r2-rf2": {
+        "kernelNs": {
+          "median": 0,
+          "minimum": 0,
+          "maximum": 41,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 3403417,
+          "minimum": 2854042,
+          "maximum": 3868083,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r3-cpp": {
+        "kernelNs": {
+          "median": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 2874875,
+          "minimum": 2799083,
+          "maximum": 3720208,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r3-csharp": {
+        "kernelNs": {
+          "median": 42,
+          "minimum": 0,
+          "maximum": 42,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 39817334,
+          "minimum": 35092458,
+          "maximum": 43067542,
+          "samples": 5
+        }
+      },
+      "certified-hybrid-r3-rf2": {
+        "kernelNs": {
+          "median": 41,
+          "minimum": 0,
+          "maximum": 166,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 3060708,
+          "minimum": 2731000,
+          "maximum": 3747792,
+          "samples": 5
+        }
+      },
+      "prior-offset-lut-csharp": {
+        "kernelNs": {
+          "median": 53792,
+          "minimum": 47625,
+          "maximum": 55959,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 41053708,
+          "minimum": 35655834,
+          "maximum": 45120292,
+          "samples": 5
+        }
+      },
+      "prior-rf2-branch": {
+        "kernelNs": {
+          "median": 353791,
+          "minimum": 330000,
+          "maximum": 385541,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 6878708,
+          "minimum": 6539709,
+          "maximum": 7064958,
+          "samples": 5
+        }
+      },
+      "prior-stream-words-rf2": {
+        "kernelNs": {
+          "median": 81958,
+          "minimum": 72833,
+          "maximum": 82041,
+          "samples": 5
+        },
+        "wallNs": {
+          "median": 5228792,
+          "minimum": 4616042,
+          "maximum": 5445292,
+          "samples": 5
+        }
+      }
+    }
+  },
+  "certificate": {
+    "precondition": "Every operation starts at x=y=0 on a4x4clampedgrid; commands0..9,1east2west3north4southothersno-op. Entireinput mustvalidate.",
+    "admission": "No command1or3 occurs.",
+    "proof": "At(0,0), west/south clamp to0 and all other admitted commands hold state. Induction keeps position0 for allsteps and rounds; exact checksum=rounds*length.",
+    "fallback": "Ifcertificate scan encounters1or3, stopattemptand runfullvalidation/encoding before exactwordscan; invalidsuffixalwaysrefuses.",
+    "notLearning": true,
+    "zeroNsMeaning": "Below observed clockresolution; validation and admission cost remain in process time."
+  },
+  "generalCSharpGapClosed": false,
+  "crossRunAbsoluteComparisonSupported": false,
+  "mechanism": "Threecandidatefamilies: register-budgetedbyteLUT; zero-copyrawLUT; exactoriginstablecertificate(rawthenwordfallbackr2andearly-bailoutr3). SamealgorithmsareavailabletoC++andC#.",
+  "limits": [
+    "One sharedMac, variable timingranges; currentbaseline absolute times differ from prior sprint, no directcrossrun speedratio.",
+    "Primary12streams\u00d721implementations\u00d77trials; supplement4newstreams\u00d79implementations\u00d75trials is exploratory correction replay, not full replication.",
+    "Noncertifiedwordfallbackstill uses8bytes/command; no generalpreparedstorage elimination.",
+    "Actual modeltokenusage,GUI rendering,humanlearners,energy/hardwarewere not measuredhere.",
+    "No sharedcompiler/runtimechanges, installed upgrade, Git/publication, liveinfrastructure, thesis or remoteMemory writes.",
+    "Failedbyte/rawcandidates, doublevalidationr2regressions and initialgenerator/duplicate-localcompile errors retained."
+  ]
+}

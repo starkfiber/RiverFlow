@@ -1,0 +1,157 @@
+{
+  "date": "2026-11-19",
+  "scope": "Two paired authored CLI tasks, fixed algorithms/representations and explicit standalone-vs-imported SDK implementation routes",
+  "modelRequested": "gpt-6.1-sol",
+  "actualReturnedModelIdentity": "Unavailable; do not infer from request",
+  "reasoningRequested": "low",
+  "order": [
+    [
+      "sensor",
+      "standalone"
+    ],
+    [
+      "sensor",
+      "sdk"
+    ],
+    [
+      "stock",
+      "sdk"
+    ],
+    [
+      "stock",
+      "standalone"
+    ]
+  ],
+  "sameCommonReference": true,
+  "programs": [
+    {
+      "task": "sensor",
+      "route": "standalone",
+      "built": true,
+      "sourceUnchanged": true,
+      "passed": 139,
+      "total": 139,
+      "repairs": 0,
+      "generatedSourceBytes": 1268,
+      "generatedSourceLines": 68,
+      "pipeProbe": {
+        "exitCode": -13,
+        "scope": "Exploratory broken pipe, outside specified closed-descriptor requirement; SIGPIPE not recoverable output status."
+      }
+    },
+    {
+      "task": "sensor",
+      "route": "sdk",
+      "built": true,
+      "sourceUnchanged": true,
+      "passed": 139,
+      "total": 139,
+      "repairs": 0,
+      "generatedSourceBytes": 864,
+      "generatedSourceLines": 42,
+      "pipeProbe": {
+        "exitCode": -13,
+        "scope": "Exploratory broken pipe, outside specified closed-descriptor requirement; SIGPIPE not recoverable output status."
+      }
+    },
+    {
+      "task": "stock",
+      "route": "sdk",
+      "built": true,
+      "sourceUnchanged": true,
+      "passed": 139,
+      "total": 139,
+      "repairs": 0,
+      "generatedSourceBytes": 870,
+      "generatedSourceLines": 42,
+      "pipeProbe": {
+        "exitCode": -13,
+        "scope": "Exploratory broken pipe, outside specified closed-descriptor requirement; SIGPIPE not recoverable output status."
+      }
+    },
+    {
+      "task": "stock",
+      "route": "standalone",
+      "built": true,
+      "sourceUnchanged": true,
+      "passed": 139,
+      "total": 139,
+      "repairs": 0,
+      "generatedSourceBytes": 1278,
+      "generatedSourceLines": 68,
+      "pipeProbe": {
+        "exitCode": -13,
+        "scope": "Exploratory broken pipe, outside specified closed-descriptor requirement; SIGPIPE not recoverable output status."
+      }
+    }
+  ],
+  "allFourPassed139Unchanged": true,
+  "tasks": [
+    {
+      "task": "sensor",
+      "standalone": {
+        "input_tokens": 14942,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 556,
+        "reasoning_output_tokens": 38
+      },
+      "sdk": {
+        "input_tokens": 21633,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 339,
+        "reasoning_output_tokens": 0
+      },
+      "outputReductionFraction": 0.3902877697841727
+    },
+    {
+      "task": "stock",
+      "standalone": {
+        "input_tokens": 21658,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 575,
+        "reasoning_output_tokens": 55
+      },
+      "sdk": {
+        "input_tokens": 21634,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 341,
+        "reasoning_output_tokens": 0
+      },
+      "outputReductionFraction": 0.40695652173913044
+    }
+  ],
+  "aggregate": {
+    "standalone": {
+      "input_tokens": 36600,
+      "output_tokens": 1131,
+      "cached_input_tokens": 0,
+      "elapsedSeconds": 42.933361625,
+      "inputPlusOutputTokens": 37731
+    },
+    "sdk": {
+      "input_tokens": 43267,
+      "output_tokens": 680,
+      "cached_input_tokens": 0,
+      "elapsedSeconds": 31.529836708000005,
+      "inputPlusOutputTokens": 43947
+    }
+  },
+  "outputReductionFraction": 0.39876215738284704,
+  "totalReportedTokenBenefit": false,
+  "limitations": [
+    "Two tasks; one attempt per task/route, not a population estimate.",
+    "SDK preparation and dependency maintenance excluded; previous measured source library is frozen.",
+    "Contrasts explicit standalone-plumbing and imported SDK routes, not unrestricted expert alternatives.",
+    "Provider cache and routing cannot be forced equal; report separately; no latency/billing causal inference.",
+    "Source acceptance tests must qualify generated output before counting task completion.",
+    "Actual inference uses configured provider, software/evidence local; no publishing.",
+    "Although common reference and requested config match, actual host input usage differs14942versus21633/21634/21658. Cause not established. Overall input-plus-output usage is higher for SDK in this run.",
+    "All four broken-pipe probes terminated by SIGPIPE; descriptor-closed error3 passed, generic recoverable IO is not qualified."
+  ],
+  "failuresRetained": true,
+  "noCompilerRuntimeChanges": true
+}

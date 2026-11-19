@@ -1,0 +1,137 @@
+{
+  "date": "2026-11-19",
+  "scope": "Two self-contained paired SDK authoring tasks, context treatment only; not a complete tool-enabled app workflow",
+  "calls": 4,
+  "modelRequested": "gpt-6.1-sol",
+  "actualReturnedModelIdentity": "Unavailable",
+  "reasoningRequested": "low",
+  "samePromptWithinTask": true,
+  "sameSDKRouteAlgorithmRepresentation": true,
+  "counterbalance": "sensorstandard\u2192lean;stocklean\u2192standard, not repeat-order reversal within task",
+  "aggregate": {
+    "standard": {
+      "input_tokens": 36556,
+      "output_tokens": 682,
+      "cached_input_tokens": 0,
+      "inputPlusOutputTokens": 37238,
+      "responseSeconds": 23.182964834
+    },
+    "lean": {
+      "input_tokens": 25911,
+      "output_tokens": 680,
+      "cached_input_tokens": 0,
+      "inputPlusOutputTokens": 26591,
+      "responseSeconds": 22.788976249999997
+    }
+  },
+  "observedTotalTokenReductionFraction": 0.2859176110424835,
+  "pairs": [
+    {
+      "task": "sensor",
+      "identicalPromptSha256": "31176de1bd8e50470e081f8e2627d4c3593b0f909e6ed3003664c948c1db3241",
+      "conditions": [
+        {
+          "route": "standard",
+          "usage": {
+            "input_tokens": 14920,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 341,
+            "reasoning_output_tokens": 0
+          },
+          "elapsedSeconds": 11.451341959,
+          "contextFlags": []
+        },
+        {
+          "route": "lean",
+          "usage": {
+            "input_tokens": 12955,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 339,
+            "reasoning_output_tokens": 0
+          },
+          "elapsedSeconds": 10.508745624999998,
+          "contextFlags": [
+            "--disable",
+            "plugins",
+            "--disable",
+            "plugin_discovery_prefetch",
+            "--disable",
+            "skill_search",
+            "--enable",
+            "omit_skill_descriptions",
+            "--enable",
+            "skip_host_skill_discovery"
+          ]
+        }
+      ]
+    },
+    {
+      "task": "stock",
+      "identicalPromptSha256": "7d415159265e4bfc09634121ac87e8c223e532b2a0569337140728f456adb1c2",
+      "conditions": [
+        {
+          "route": "lean",
+          "usage": {
+            "input_tokens": 12956,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 341,
+            "reasoning_output_tokens": 0
+          },
+          "elapsedSeconds": 12.280230625000002,
+          "contextFlags": [
+            "--disable",
+            "plugins",
+            "--disable",
+            "plugin_discovery_prefetch",
+            "--disable",
+            "skill_search",
+            "--enable",
+            "omit_skill_descriptions",
+            "--enable",
+            "skip_host_skill_discovery"
+          ]
+        },
+        {
+          "route": "standard",
+          "usage": {
+            "input_tokens": 21636,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 341,
+            "reasoning_output_tokens": 0
+          },
+          "elapsedSeconds": 11.731622875,
+          "contextFlags": []
+        }
+      ]
+    }
+  ],
+  "allFourProgramsPass139Unchanged": true,
+  "repairs": 0,
+  "cacheAllZero": true,
+  "stderrAllEmpty": true,
+  "contextFlags": [
+    "--disable",
+    "plugins",
+    "--disable",
+    "plugin_discovery_prefetch",
+    "--disable",
+    "skill_search",
+    "--enable",
+    "omit_skill_descriptions",
+    "--enable",
+    "skip_host_skill_discovery"
+  ],
+  "limits": [
+    "Four calls, two tasks; one attempt/condition/task. No variance or universal saving estimate.",
+    "Requested model identity and supported feature names retained; actual returned model identity and prompt internals unavailable.",
+    "Standard input usage still varies14920versus21636; source of variation unproven. No per-flag causal ablation.",
+    "Lean flags omit unused plugin/skill discovery for fully specified code-only work; inappropriate where discovery/tools are required. No global configuration changed.",
+    "Actual input-plus-output usage is not a bill or elapsed full delivery cost. SDK setup, review, compiling and tests excluded.",
+    "All broken-pipe probes exitSIGPIPE; closedstdout error3 acceptance passed.",
+    "Host supplies inference through configured provider; no embedded RF2 model or self-training."
+  ]
+}
