@@ -1,0 +1,21 @@
+fn twice(n)
+ return n * 2
+end
+let round = 1
+let answer = 0
+let points = 0
+say "Double each round number. Ten points for each correct answer."
+repeat 3 times
+ say "Round:"
+ show round
+ ask number answer "What is double this number?"
+ if answer == twice(round)
+  say "Correct!"
+  set points = points + 10
+ else
+  say "Keep practising."
+ end
+ set round = round + 1
+end
+say "Your score:"
+show points

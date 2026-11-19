@@ -1,0 +1,11 @@
+fn batches(jobs,workers)
+ return jobs // workers + (jobs % workers != 0)
+end
+ask number jobs "How many jobs?"
+ask number workers "How many workers?"
+if workers == 0
+ say "Choose at least one worker."
+else
+ say "Rounds needed:"
+ show batches(jobs,workers)
+end

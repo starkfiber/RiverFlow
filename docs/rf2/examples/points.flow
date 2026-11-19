@@ -1,0 +1,3 @@
+let points = 2
+set points = points + 3
+show points

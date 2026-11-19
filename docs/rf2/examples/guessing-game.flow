@@ -1,0 +1,21 @@
+let guess = 0
+let won = 0
+say "Guess the secret whole number. You have three tries."
+repeat 3 times
+ if won == 0
+  ask number guess "Your guess?"
+  if guess == 7
+   say "You found it!"
+   set won = 1
+  else
+   if guess < 7
+    say "Try a larger number."
+   else
+    say "Try a smaller number."
+   end
+  end
+ end
+end
+if won == 0
+ say "The secret was 7. Try again next time."
+end
