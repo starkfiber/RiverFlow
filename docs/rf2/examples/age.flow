@@ -1,0 +1,2 @@
+ask number age "How old are you?"
+show age + 1

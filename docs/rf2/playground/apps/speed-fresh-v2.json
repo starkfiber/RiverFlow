@@ -1,0 +1,1264 @@
+{
+  "date": "2026-11-19",
+  "scope": "Fresh once-scanned rover CLI streams; not universal performance or full application development",
+  "correctnessChecks": 1188,
+  "timedSamples": 1848,
+  "workloads": 12,
+  "trialsEach": 7,
+  "implementations": 22,
+  "families": {
+    "mixed": {
+      "baseline-warm-cpp": {
+        "kernelNs": {
+          "median": 57083,
+          "minimum": 52666,
+          "maximum": 94041,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 2900875,
+          "minimum": 2432958,
+          "maximum": 3726958,
+          "samples": 21
+        }
+      },
+      "baseline-warm-csharp": {
+        "kernelNs": {
+          "median": 52667,
+          "minimum": 46375,
+          "maximum": 60458,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 27037541,
+          "minimum": 24983250,
+          "maximum": 31379417,
+          "samples": 21
+        }
+      },
+      "baseline-warm-rf2": {
+        "kernelNs": {
+          "median": 58958,
+          "minimum": 51708,
+          "maximum": 70375,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 2927500,
+          "minimum": 2554083,
+          "maximum": 3669125,
+          "samples": 21
+        }
+      },
+      "csharp-strong-warm": {
+        "kernelNs": {
+          "median": 67625,
+          "minimum": 59292,
+          "maximum": 100167,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 26792792,
+          "minimum": 24719458,
+          "maximum": 31376916,
+          "samples": 21
+        }
+      },
+      "nibble-map-cpp": {
+        "kernelNs": {
+          "median": 26333,
+          "minimum": 24375,
+          "maximum": 31250,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 2430459,
+          "minimum": 1993542,
+          "maximum": 3102208,
+          "samples": 21
+        }
+      },
+      "nibble-map-csharp": {
+        "kernelNs": {
+          "median": 26250,
+          "minimum": 24375,
+          "maximum": 30834,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 27114708,
+          "minimum": 24463292,
+          "maximum": 31741083,
+          "samples": 21
+        }
+      },
+      "nibble-map-leaf-cpp": {
+        "kernelNs": {
+          "median": 26375,
+          "minimum": 24500,
+          "maximum": 30958,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 2432167,
+          "minimum": 1967458,
+          "maximum": 3344792,
+          "samples": 21
+        }
+      },
+      "nibble-map-leaf-csharp": {
+        "kernelNs": {
+          "median": 26333,
+          "minimum": 24417,
+          "maximum": 31042,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 27017083,
+          "minimum": 24789708,
+          "maximum": 32623958,
+          "samples": 21
+        }
+      },
+      "nibble-map-leaf-rf2": {
+        "kernelNs": {
+          "median": 69791,
+          "minimum": 64666,
+          "maximum": 81875,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 2846458,
+          "minimum": 2563708,
+          "maximum": 3499667,
+          "samples": 21
+        }
+      },
+      "nibble-map-rf2": {
+        "kernelNs": {
+          "median": 70375,
+          "minimum": 65208,
+          "maximum": 82791,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 2893625,
+          "minimum": 2463125,
+          "maximum": 3661500,
+          "samples": 21
+        }
+      },
+      "offset-lut-cpp": {
+        "kernelNs": {
+          "median": 47166,
+          "minimum": 43708,
+          "maximum": 55458,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 2669833,
+          "minimum": 2267083,
+          "maximum": 3283250,
+          "samples": 21
+        }
+      },
+      "offset-lut-csharp": {
+        "kernelNs": {
+          "median": 53625,
+          "minimum": 49458,
+          "maximum": 64083,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 27702459,
+          "minimum": 24246917,
+          "maximum": 31236041,
+          "samples": 21
+        }
+      },
+      "offset-lut-leaf-cpp": {
+        "kernelNs": {
+          "median": 47166,
+          "minimum": 43833,
+          "maximum": 55375,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 2803375,
+          "minimum": 1985833,
+          "maximum": 3157792,
+          "samples": 21
+        }
+      },
+      "offset-lut-leaf-csharp": {
+        "kernelNs": {
+          "median": 43875,
+          "minimum": 40750,
+          "maximum": 52500,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 27106625,
+          "minimum": 24931417,
+          "maximum": 33174417,
+          "samples": 21
+        }
+      },
+      "offset-lut-leaf-rf2": {
+        "kernelNs": {
+          "median": 56083,
+          "minimum": 52041,
+          "maximum": 66291,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 2857500,
+          "minimum": 2375500,
+          "maximum": 3504250,
+          "samples": 21
+        }
+      },
+      "offset-lut-rf2": {
+        "kernelNs": {
+          "median": 68583,
+          "minimum": 64125,
+          "maximum": 80708,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 2932208,
+          "minimum": 2363000,
+          "maximum": 4222583,
+          "samples": 21
+        }
+      },
+      "predecoded-words-cpp": {
+        "kernelNs": {
+          "median": 26458,
+          "minimum": 24500,
+          "maximum": 31375,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 2663541,
+          "minimum": 1996792,
+          "maximum": 3174958,
+          "samples": 21
+        }
+      },
+      "predecoded-words-csharp": {
+        "kernelNs": {
+          "median": 26542,
+          "minimum": 24583,
+          "maximum": 31208,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 26772416,
+          "minimum": 24199042,
+          "maximum": 31383583,
+          "samples": 21
+        }
+      },
+      "predecoded-words-rf2": {
+        "kernelNs": {
+          "median": 52833,
+          "minimum": 49000,
+          "maximum": 62166,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 2958708,
+          "minimum": 2259209,
+          "maximum": 3668250,
+          "samples": 21
+        }
+      },
+      "stream-words-cpp": {
+        "kernelNs": {
+          "median": 26458,
+          "minimum": 24541,
+          "maximum": 31125,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 2599041,
+          "minimum": 2116333,
+          "maximum": 3398958,
+          "samples": 21
+        }
+      },
+      "stream-words-csharp": {
+        "kernelNs": {
+          "median": 26583,
+          "minimum": 24667,
+          "maximum": 31208,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 27488042,
+          "minimum": 24409875,
+          "maximum": 30991000,
+          "samples": 21
+        }
+      },
+      "stream-words-rf2": {
+        "kernelNs": {
+          "median": 26500,
+          "minimum": 24583,
+          "maximum": 31166,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 2732833,
+          "minimum": 2366208,
+          "maximum": 3388667,
+          "samples": 21
+        }
+      }
+    },
+    "directions": {
+      "baseline-warm-cpp": {
+        "kernelNs": {
+          "median": 133458,
+          "minimum": 118333,
+          "maximum": 201875,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3912792,
+          "minimum": 3299708,
+          "maximum": 5866542,
+          "samples": 21
+        }
+      },
+      "baseline-warm-csharp": {
+        "kernelNs": {
+          "median": 245959,
+          "minimum": 202875,
+          "maximum": 310334,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 33228958,
+          "minimum": 30490833,
+          "maximum": 43880958,
+          "samples": 21
+        }
+      },
+      "baseline-warm-rf2": {
+        "kernelNs": {
+          "median": 270500,
+          "minimum": 209666,
+          "maximum": 493166,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 6184958,
+          "minimum": 5294166,
+          "maximum": 8276458,
+          "samples": 21
+        }
+      },
+      "csharp-strong-warm": {
+        "kernelNs": {
+          "median": 346042,
+          "minimum": 288333,
+          "maximum": 478666,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 33001417,
+          "minimum": 30162833,
+          "maximum": 53543917,
+          "samples": 21
+        }
+      },
+      "nibble-map-cpp": {
+        "kernelNs": {
+          "median": 58250,
+          "minimum": 54916,
+          "maximum": 81750,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3164541,
+          "minimum": 2545458,
+          "maximum": 4405750,
+          "samples": 21
+        }
+      },
+      "nibble-map-csharp": {
+        "kernelNs": {
+          "median": 61709,
+          "minimum": 54625,
+          "maximum": 81458,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 30548334,
+          "minimum": 27476791,
+          "maximum": 40828292,
+          "samples": 21
+        }
+      },
+      "nibble-map-leaf-cpp": {
+        "kernelNs": {
+          "median": 58791,
+          "minimum": 55000,
+          "maximum": 92416,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3166833,
+          "minimum": 2688834,
+          "maximum": 4286500,
+          "samples": 21
+        }
+      },
+      "nibble-map-leaf-csharp": {
+        "kernelNs": {
+          "median": 61833,
+          "minimum": 54833,
+          "maximum": 88875,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 32135208,
+          "minimum": 28062541,
+          "maximum": 48914458,
+          "samples": 21
+        }
+      },
+      "nibble-map-leaf-rf2": {
+        "kernelNs": {
+          "median": 154750,
+          "minimum": 145166,
+          "maximum": 218791,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4242500,
+          "minimum": 3671083,
+          "maximum": 5676833,
+          "samples": 21
+        }
+      },
+      "nibble-map-rf2": {
+        "kernelNs": {
+          "median": 165166,
+          "minimum": 146958,
+          "maximum": 222416,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4195292,
+          "minimum": 3685917,
+          "maximum": 5891709,
+          "samples": 21
+        }
+      },
+      "offset-lut-cpp": {
+        "kernelNs": {
+          "median": 108083,
+          "minimum": 98291,
+          "maximum": 165375,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3648750,
+          "minimum": 3126875,
+          "maximum": 5102333,
+          "samples": 21
+        }
+      },
+      "offset-lut-csharp": {
+        "kernelNs": {
+          "median": 125625,
+          "minimum": 111416,
+          "maximum": 171000,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 32056792,
+          "minimum": 29741125,
+          "maximum": 43434292,
+          "samples": 21
+        }
+      },
+      "offset-lut-leaf-cpp": {
+        "kernelNs": {
+          "median": 105583,
+          "minimum": 98375,
+          "maximum": 152250,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3700959,
+          "minimum": 3111416,
+          "maximum": 4803417,
+          "samples": 21
+        }
+      },
+      "offset-lut-leaf-csharp": {
+        "kernelNs": {
+          "median": 103291,
+          "minimum": 91500,
+          "maximum": 140042,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 32112667,
+          "minimum": 29061625,
+          "maximum": 41751333,
+          "samples": 21
+        }
+      },
+      "offset-lut-leaf-rf2": {
+        "kernelNs": {
+          "median": 131708,
+          "minimum": 117333,
+          "maximum": 196250,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4077916,
+          "minimum": 3409750,
+          "maximum": 6418625,
+          "samples": 21
+        }
+      },
+      "offset-lut-rf2": {
+        "kernelNs": {
+          "median": 151833,
+          "minimum": 143666,
+          "maximum": 240708,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4229208,
+          "minimum": 3697959,
+          "maximum": 6208083,
+          "samples": 21
+        }
+      },
+      "predecoded-words-cpp": {
+        "kernelNs": {
+          "median": 62208,
+          "minimum": 55083,
+          "maximum": 92666,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3217583,
+          "minimum": 2598166,
+          "maximum": 4206666,
+          "samples": 21
+        }
+      },
+      "predecoded-words-csharp": {
+        "kernelNs": {
+          "median": 62084,
+          "minimum": 55209,
+          "maximum": 92959,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 31701333,
+          "minimum": 28118417,
+          "maximum": 45603333,
+          "samples": 21
+        }
+      },
+      "predecoded-words-rf2": {
+        "kernelNs": {
+          "median": 117541,
+          "minimum": 110333,
+          "maximum": 184666,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4110375,
+          "minimum": 3605875,
+          "maximum": 5786333,
+          "samples": 21
+        }
+      },
+      "stream-words-cpp": {
+        "kernelNs": {
+          "median": 62166,
+          "minimum": 55125,
+          "maximum": 81833,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3307500,
+          "minimum": 2608834,
+          "maximum": 4283333,
+          "samples": 21
+        }
+      },
+      "stream-words-csharp": {
+        "kernelNs": {
+          "median": 58667,
+          "minimum": 55125,
+          "maximum": 92542,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 31411458,
+          "minimum": 28404041,
+          "maximum": 46617791,
+          "samples": 21
+        }
+      },
+      "stream-words-rf2": {
+        "kernelNs": {
+          "median": 62375,
+          "minimum": 55166,
+          "maximum": 82125,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4208791,
+          "minimum": 3492292,
+          "maximum": 5366750,
+          "samples": 21
+        }
+      }
+    },
+    "noops": {
+      "baseline-warm-cpp": {
+        "kernelNs": {
+          "median": 66541,
+          "minimum": 49291,
+          "maximum": 111583,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3443292,
+          "minimum": 2676000,
+          "maximum": 5620125,
+          "samples": 21
+        }
+      },
+      "baseline-warm-csharp": {
+        "kernelNs": {
+          "median": 46625,
+          "minimum": 29875,
+          "maximum": 73917,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 34419250,
+          "minimum": 29212125,
+          "maximum": 56515500,
+          "samples": 21
+        }
+      },
+      "baseline-warm-rf2": {
+        "kernelNs": {
+          "median": 53416,
+          "minimum": 42708,
+          "maximum": 89916,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3253625,
+          "minimum": 2651792,
+          "maximum": 4674875,
+          "samples": 21
+        }
+      },
+      "csharp-strong-warm": {
+        "kernelNs": {
+          "median": 46666,
+          "minimum": 29792,
+          "maximum": 73875,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 35649417,
+          "minimum": 29122334,
+          "maximum": 55692834,
+          "samples": 21
+        }
+      },
+      "nibble-map-cpp": {
+        "kernelNs": {
+          "median": 36083,
+          "minimum": 29000,
+          "maximum": 52916,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3125042,
+          "minimum": 2620417,
+          "maximum": 5867125,
+          "samples": 21
+        }
+      },
+      "nibble-map-csharp": {
+        "kernelNs": {
+          "median": 36125,
+          "minimum": 29125,
+          "maximum": 68583,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 35778625,
+          "minimum": 28155083,
+          "maximum": 63277875,
+          "samples": 21
+        }
+      },
+      "nibble-map-leaf-cpp": {
+        "kernelNs": {
+          "median": 36208,
+          "minimum": 28958,
+          "maximum": 46416,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3075708,
+          "minimum": 2521292,
+          "maximum": 4257000,
+          "samples": 21
+        }
+      },
+      "nibble-map-leaf-csharp": {
+        "kernelNs": {
+          "median": 33250,
+          "minimum": 29292,
+          "maximum": 46416,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 33570667,
+          "minimum": 29877417,
+          "maximum": 56901750,
+          "samples": 21
+        }
+      },
+      "nibble-map-leaf-rf2": {
+        "kernelNs": {
+          "median": 87958,
+          "minimum": 76833,
+          "maximum": 159250,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3676583,
+          "minimum": 3170500,
+          "maximum": 5877167,
+          "samples": 21
+        }
+      },
+      "nibble-map-rf2": {
+        "kernelNs": {
+          "median": 88916,
+          "minimum": 77541,
+          "maximum": 154958,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3734375,
+          "minimum": 2928000,
+          "maximum": 7373334,
+          "samples": 21
+        }
+      },
+      "offset-lut-cpp": {
+        "kernelNs": {
+          "median": 21625,
+          "minimum": 18791,
+          "maximum": 60125,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3007041,
+          "minimum": 2399583,
+          "maximum": 4386167,
+          "samples": 21
+        }
+      },
+      "offset-lut-csharp": {
+        "kernelNs": {
+          "median": 25625,
+          "minimum": 20375,
+          "maximum": 87083,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 38541250,
+          "minimum": 30125167,
+          "maximum": 56074125,
+          "samples": 21
+        }
+      },
+      "offset-lut-leaf-cpp": {
+        "kernelNs": {
+          "median": 21708,
+          "minimum": 18833,
+          "maximum": 62416,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 2891458,
+          "minimum": 2316458,
+          "maximum": 6645875,
+          "samples": 21
+        }
+      },
+      "offset-lut-leaf-csharp": {
+        "kernelNs": {
+          "median": 21667,
+          "minimum": 18875,
+          "maximum": 62916,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 33908875,
+          "minimum": 29978459,
+          "maximum": 59465917,
+          "samples": 21
+        }
+      },
+      "offset-lut-leaf-rf2": {
+        "kernelNs": {
+          "median": 64875,
+          "minimum": 56541,
+          "maximum": 110625,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3742167,
+          "minimum": 2931750,
+          "maximum": 8581000,
+          "samples": 21
+        }
+      },
+      "offset-lut-rf2": {
+        "kernelNs": {
+          "median": 94333,
+          "minimum": 75083,
+          "maximum": 133041,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3546250,
+          "minimum": 3094125,
+          "maximum": 5267125,
+          "samples": 21
+        }
+      },
+      "predecoded-words-cpp": {
+        "kernelNs": {
+          "median": 33458,
+          "minimum": 29166,
+          "maximum": 119416,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3085541,
+          "minimum": 2254917,
+          "maximum": 5828750,
+          "samples": 21
+        }
+      },
+      "predecoded-words-csharp": {
+        "kernelNs": {
+          "median": 33917,
+          "minimum": 29333,
+          "maximum": 80208,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 35889750,
+          "minimum": 30993625,
+          "maximum": 58573083,
+          "samples": 21
+        }
+      },
+      "predecoded-words-rf2": {
+        "kernelNs": {
+          "median": 67291,
+          "minimum": 58291,
+          "maximum": 106958,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3770125,
+          "minimum": 2907292,
+          "maximum": 5814875,
+          "samples": 21
+        }
+      },
+      "stream-words-cpp": {
+        "kernelNs": {
+          "median": 36375,
+          "minimum": 29208,
+          "maximum": 53166,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3178250,
+          "minimum": 2524667,
+          "maximum": 5304875,
+          "samples": 21
+        }
+      },
+      "stream-words-csharp": {
+        "kernelNs": {
+          "median": 33541,
+          "minimum": 29250,
+          "maximum": 71792,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 33859250,
+          "minimum": 29160667,
+          "maximum": 62252917,
+          "samples": 21
+        }
+      },
+      "stream-words-rf2": {
+        "kernelNs": {
+          "median": 36458,
+          "minimum": 29166,
+          "maximum": 85458,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 3716167,
+          "minimum": 2840958,
+          "maximum": 6921375,
+          "samples": 21
+        }
+      }
+    },
+    "walls": {
+      "baseline-warm-cpp": {
+        "kernelNs": {
+          "median": 179750,
+          "minimum": 133958,
+          "maximum": 230458,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5675500,
+          "minimum": 3987375,
+          "maximum": 7930375,
+          "samples": 21
+        }
+      },
+      "baseline-warm-csharp": {
+        "kernelNs": {
+          "median": 338750,
+          "minimum": 246708,
+          "maximum": 477334,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 56171083,
+          "minimum": 36811958,
+          "maximum": 69728125,
+          "samples": 21
+        }
+      },
+      "baseline-warm-rf2": {
+        "kernelNs": {
+          "median": 440416,
+          "minimum": 276958,
+          "maximum": 686000,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 9211333,
+          "minimum": 6211459,
+          "maximum": 10919958,
+          "samples": 21
+        }
+      },
+      "csharp-strong-warm": {
+        "kernelNs": {
+          "median": 379667,
+          "minimum": 277416,
+          "maximum": 476625,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 57008750,
+          "minimum": 36995000,
+          "maximum": 74884125,
+          "samples": 21
+        }
+      },
+      "nibble-map-cpp": {
+        "kernelNs": {
+          "median": 92000,
+          "minimum": 72500,
+          "maximum": 128833,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5009625,
+          "minimum": 3734917,
+          "maximum": 6016417,
+          "samples": 21
+        }
+      },
+      "nibble-map-csharp": {
+        "kernelNs": {
+          "median": 93792,
+          "minimum": 72209,
+          "maximum": 143042,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 53388625,
+          "minimum": 36107625,
+          "maximum": 72792000,
+          "samples": 21
+        }
+      },
+      "nibble-map-leaf-cpp": {
+        "kernelNs": {
+          "median": 92041,
+          "minimum": 72416,
+          "maximum": 124083,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5086625,
+          "minimum": 3435333,
+          "maximum": 6640208,
+          "samples": 21
+        }
+      },
+      "nibble-map-leaf-csharp": {
+        "kernelNs": {
+          "median": 92292,
+          "minimum": 72417,
+          "maximum": 182375,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 52607084,
+          "minimum": 36653208,
+          "maximum": 64412500,
+          "samples": 21
+        }
+      },
+      "nibble-map-leaf-rf2": {
+        "kernelNs": {
+          "median": 243250,
+          "minimum": 176166,
+          "maximum": 319708,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 7006791,
+          "minimum": 4711291,
+          "maximum": 10029917,
+          "samples": 21
+        }
+      },
+      "nibble-map-rf2": {
+        "kernelNs": {
+          "median": 246000,
+          "minimum": 193250,
+          "maximum": 316500,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 6763750,
+          "minimum": 4679333,
+          "maximum": 9401583,
+          "samples": 21
+        }
+      },
+      "offset-lut-cpp": {
+        "kernelNs": {
+          "median": 59791,
+          "minimum": 43208,
+          "maximum": 127583,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4486666,
+          "minimum": 3019042,
+          "maximum": 8675417,
+          "samples": 21
+        }
+      },
+      "offset-lut-csharp": {
+        "kernelNs": {
+          "median": 65542,
+          "minimum": 47750,
+          "maximum": 122917,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 50691958,
+          "minimum": 35383250,
+          "maximum": 64488958,
+          "samples": 21
+        }
+      },
+      "offset-lut-leaf-cpp": {
+        "kernelNs": {
+          "median": 68666,
+          "minimum": 47041,
+          "maximum": 246208,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 4870584,
+          "minimum": 2930125,
+          "maximum": 8800708,
+          "samples": 21
+        }
+      },
+      "offset-lut-leaf-csharp": {
+        "kernelNs": {
+          "median": 68625,
+          "minimum": 47042,
+          "maximum": 141916,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 53690916,
+          "minimum": 36263625,
+          "maximum": 62381875,
+          "samples": 21
+        }
+      },
+      "offset-lut-leaf-rf2": {
+        "kernelNs": {
+          "median": 183666,
+          "minimum": 141000,
+          "maximum": 245625,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 6608750,
+          "minimum": 4567209,
+          "maximum": 7966584,
+          "samples": 21
+        }
+      },
+      "offset-lut-rf2": {
+        "kernelNs": {
+          "median": 237833,
+          "minimum": 187458,
+          "maximum": 303541,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 6295458,
+          "minimum": 4767250,
+          "maximum": 7678459,
+          "samples": 21
+        }
+      },
+      "predecoded-words-cpp": {
+        "kernelNs": {
+          "median": 92375,
+          "minimum": 66833,
+          "maximum": 169000,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5074042,
+          "minimum": 3703250,
+          "maximum": 6157375,
+          "samples": 21
+        }
+      },
+      "predecoded-words-csharp": {
+        "kernelNs": {
+          "median": 92500,
+          "minimum": 72792,
+          "maximum": 305167,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 54152375,
+          "minimum": 36402250,
+          "maximum": 70205416,
+          "samples": 21
+        }
+      },
+      "predecoded-words-rf2": {
+        "kernelNs": {
+          "median": 184583,
+          "minimum": 133333,
+          "maximum": 246583,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 6292291,
+          "minimum": 4249833,
+          "maximum": 9671917,
+          "samples": 21
+        }
+      },
+      "stream-words-cpp": {
+        "kernelNs": {
+          "median": 92416,
+          "minimum": 66750,
+          "maximum": 137750,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 5119334,
+          "minimum": 3595583,
+          "maximum": 8522792,
+          "samples": 21
+        }
+      },
+      "stream-words-csharp": {
+        "kernelNs": {
+          "median": 92833,
+          "minimum": 72833,
+          "maximum": 118833,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 50651250,
+          "minimum": 36624458,
+          "maximum": 78525500,
+          "samples": 21
+        }
+      },
+      "stream-words-rf2": {
+        "kernelNs": {
+          "median": 106333,
+          "minimum": 72833,
+          "maximum": 156250,
+          "samples": 21
+        },
+        "wallNs": {
+          "median": 6648250,
+          "minimum": 4172125,
+          "maximum": 7493625,
+          "samples": 21
+        }
+      }
+    }
+  },
+  "csharpGapClosed": false,
+  "mechanism": "Predecode validated commands into exact64-bit16-state maps; a three-argument pointer-walk once helper keeps seven leaf locals within current compiler register budget. Comparators receive same representation/algorithm.",
+  "warmupCorrection": "Split C# helper was first JIT-compiled inside old measured call; all final implementations now execute an exact measured-path warmup before the timer. Added work stays in whole-process measurement.",
+  "limits": [
+    "One shared AppleSiliconMac, no exclusive CPU affinity or energy measurement.",
+    "Three deterministic generated fresh streams per family; not observed field applications.",
+    "Near parity in mixed/valid direction kernels has overlapping ranges; stronger C#byte lookup remains ahead on no-op/wall families.",
+    "Predecoded storage consumes8bytes/command vs1; preparation remains outside kernel but inside process time.",
+    "RF2 no-op family whole-process median worsens despite faster kernel.",
+    "C#tiering disabled, real .NET8JIT; whole-process includes startup,JIT,warmup,validation,encoding,output,capture.",
+    "No source length, AI token, GUI or general compiler improvement claim.",
+    "No new language syntax, shared compiler change, stable binary upgrade, Git or remote operation."
+  ]
+}

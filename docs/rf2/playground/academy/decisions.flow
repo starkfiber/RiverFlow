@@ -1,0 +1,11 @@
+let seats = 4
+let guests = 0
+ask number guests "How many guests? Try 5, then restart and try 3."
+let admitted = guests <= seats
+let solved = admitted == 1
+if admitted
+ say "The group fits."
+else
+ say "The group needs more seats."
+end
+show admitted

@@ -1,0 +1,77 @@
+{
+  "schema": "rf2.blender.public-summary.v1",
+  "date": "2026-11-19",
+  "blender": "5.2.1 LTS",
+  "nativeEmitter": "Mac ARM64 RF2 executable",
+  "nativeBinaryBytes": 51104,
+  "geometry": "RF2 computes bounded vertices and triangle indices; Blender creates meshes from that admitted data, supplies materials/camera/light/render/export",
+  "asset": {
+    "meshParts": 12,
+    "sourceVertices": 128,
+    "triangles": 208,
+    "materials": 4,
+    "textures": 0,
+    "rigs": 0,
+    "animations": 0,
+    "dimensionsMeters": [
+      1.440000057220459,
+      2.0399999618530273,
+      1.090000033378601
+    ],
+    "up": "Z in Blender",
+    "forward": "Y",
+    "pivot": "XY centered; ground Z0"
+  },
+  "checks": {
+    "nativeParameterCases": 13,
+    "independentGeometryAssertions": 120,
+    "blenderRefusalControls": 8,
+    "closedGlbRoundtrip": true,
+    "skillAuditPassed": true,
+    "skillAuditWarnings": 0,
+    "renderViews": 4
+  },
+  "glbAttributes": "POSITION, indices and materials only; untextured. Importer derives flat normals. Source .blend retains face UVs.",
+  "notMeasured": [
+    "Rendering speed advantage",
+    "AI token savings",
+    "Physical hardware",
+    "Target game-engine performance",
+    "Native RF2 renderer or Blender replacement"
+  ],
+  "priorVariants": "First attribute-bearing GLB has standard normal/UV seam splits; merge-only attempt failed the strict indexed-topology gate. Both retained. Final untextured variant is explicitly scoped.",
+  "assets": {
+    "beauty.png": {
+      "sha256": "7430d64bb59020ecdbaae95a9f6a6ccfd9ac0b58ee72cc137fe8f9998da52b54",
+      "bytes": 358737
+    },
+    "front.png": {
+      "sha256": "a6fc6e14fa8ba534bc79c6ae0452d463a4eb067864e025761a133cccd7d2d551",
+      "bytes": 349707
+    },
+    "side.png": {
+      "sha256": "823103c6b058ddbde9337fe137a1342d81e53220d2aa8a19d01c2613508ab7b5",
+      "bytes": 347242
+    },
+    "top.png": {
+      "sha256": "7751990e073aaf51697873a9e8b4b2b2309c792b0d1a28c58bce0333dc8517e2",
+      "bytes": 336888
+    },
+    "contact-sheet.png": {
+      "sha256": "97d2bd2ae62aec95ca625c8f2a09e86f22a689fd49aede1c23b403ee4dc95c0d",
+      "bytes": 1391976
+    },
+    "rf2-rover.glb": {
+      "sha256": "fa649d8d10c3de155ee1aa7da1e4a33469a351461adda2464e7738015c8178d1",
+      "bytes": 7644
+    },
+    "rf2-rover-source.blend": {
+      "sha256": "9a96699eef2fd38a47fc823c070a5b958143a1b5981c9e8fd02945c78bf6f1c3",
+      "bytes": 98028
+    },
+    "rf2-rover.blend": {
+      "sha256": "9695bfd3dee29ef59d0297a856afc6b7a933cbf73a66caccf6c2b95787ca3292",
+      "bytes": 101677
+    }
+  }
+}

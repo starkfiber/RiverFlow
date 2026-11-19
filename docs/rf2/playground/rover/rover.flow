@@ -1,0 +1,43 @@
+fn forward(n)
+ return n + (n < 3)
+end
+fn backward(n)
+ return n - (n > 0)
+end
+let x = 0
+let y = 0
+let turn = 0
+let turns = 6
+let command = 0
+let previousx = 0
+let previousy = 0
+let blocked = 0
+let won = 0
+repeat turns times
+ set previousx = x
+ set previousy = y
+ ask number command "Direction: 1 east, 2 west, 3 north, 4 south?"
+ if command == 1
+  set x = forward(x)
+ end
+ if command == 2
+  set x = backward(x)
+ end
+ if command == 3
+  set y = forward(y)
+ end
+ if command == 4
+  set y = backward(y)
+ end
+ set blocked = (x == previousx) * (y == previousy)
+ set turn = turn + 1
+ say "Position:"
+ show x
+ show y
+end
+if x == 3
+ if y == 3
+  set won = 1
+  say "You reached the beacon!"
+ end
+end

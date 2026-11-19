@@ -1,0 +1,85 @@
+{
+  "scope": "Exploratory two-condition native CLI authoring trial, not an isolated SDK effect or GUI productivity comparison",
+  "date": "2026-11-19",
+  "helperChecks": 117,
+  "authoring": [
+    {
+      "condition": "baseline",
+      "elapsedSeconds": 27.842465708,
+      "usage": {
+        "input_tokens": 23012,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1007,
+        "reasoning_output_tokens": 108
+      },
+      "completed": true,
+      "timedOut": false,
+      "exitCode": 0,
+      "promptBytes": 3295,
+      "referenceBytes": 1677,
+      "promptSha256": "1977136c190a1c1fd225d4ffcf69bf077100bf01174d100b3d85c4e2f80959de",
+      "generated": true,
+      "forbiddenTools": [],
+      "repairs": 0,
+      "model": "Configured CLI default; no fixed identifier returned"
+    },
+    {
+      "condition": "sdk",
+      "elapsedSeconds": 19.261135167,
+      "usage": {
+        "input_tokens": 16234,
+        "cached_input_tokens": 10624,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 697,
+        "reasoning_output_tokens": 82
+      },
+      "completed": true,
+      "timedOut": false,
+      "exitCode": 0,
+      "promptBytes": 2896,
+      "referenceBytes": 1278,
+      "promptSha256": "d188f676cb681dcd34899f074d613f65d9d7f3518585335a570b5d16ea0c3ba4",
+      "generated": true,
+      "forbiddenTools": [],
+      "repairs": 0,
+      "model": "Configured CLI default; no fixed identifier returned"
+    }
+  ],
+  "generatedPrograms": [
+    {
+      "condition": "baseline",
+      "built": true,
+      "sourceUnchanged": true,
+      "passed": 43,
+      "total": 43,
+      "repairs": 0,
+      "generatedSourceBytes": 2625,
+      "generatedSourceLines": 112
+    },
+    {
+      "condition": "sdk",
+      "built": true,
+      "sourceUnchanged": true,
+      "passed": 43,
+      "total": 43,
+      "repairs": 0,
+      "generatedSourceBytes": 1517,
+      "generatedSourceLines": 59
+    }
+  ],
+  "outputDifference": {
+    "baseline": 1007,
+    "sdkCondition": 697,
+    "fewer": 310,
+    "fraction": 0.30784508440913605
+  },
+  "limitations": [
+    "One sequential attempt per condition; fixed model identifier unavailable.",
+    "Reference length/operator information and model caching differ.",
+    "SDK program also chose a packed return representation.",
+    "SDK preparation and full delivery costs excluded.",
+    "Trusted pointer/nonalias/nonreentrant helpers; writer statuses must be handled by caller.",
+    "Closed-stdout caller failure and overlap corruption retained; not covered by prior content tests."
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "date": "2026-11-19",
+  "scope": "Exact repeated-batch specialization with ordinary fallback for once-scanned streams; not a general C# gap closure.",
+  "implementations": {
+    "rf2": "adaptive native RF2",
+    "cpp": "same adaptive C++ -O3",
+    "csharp": "same adaptive .NET8 with optimized tiering-off JIT",
+    "csharp-strong": "retained earlier C# branch algorithm, expanded input cap"
+  },
+  "checks": {
+    "correctness": 332,
+    "timedSamples": 140
+  },
+  "results": {
+    "rf2": {
+      "heldout-repeated-64": {
+        "kernelMedianUs": 2.041,
+        "kernelRangeUs": [
+          2.0,
+          2.083
+        ],
+        "wholeProcessMedianMs": 2.179667
+      },
+      "heldout-fresh-32768": {
+        "kernelMedianUs": 56.0,
+        "kernelRangeUs": [
+          48.583,
+          117.166
+        ],
+        "wholeProcessMedianMs": 3.005833
+      },
+      "heldout-fresh-valid-65536": {
+        "kernelMedianUs": 185.0,
+        "kernelRangeUs": [
+          171.708,
+          271.083
+        ],
+        "wholeProcessMedianMs": 5.038333
+      },
+      "wall-drift-65536": {
+        "kernelMedianUs": 53.083,
+        "kernelRangeUs": [
+          53.0,
+          68.125
+        ],
+        "wholeProcessMedianMs": 2.8925
+      },
+      "small-route": {
+        "kernelMedianUs": 0.041,
+        "kernelRangeUs": [
+          0.041,
+          0.125
+        ],
+        "wholeProcessMedianMs": 2.178834
+      }
+    },
+    "cpp": {
+      "heldout-repeated-64": {
+        "kernelMedianUs": 1.583,
+        "kernelRangeUs": [
+          1.541,
+          1.958
+        ],
+        "wholeProcessMedianMs": 1.908917
+      },
+      "heldout-fresh-32768": {
+        "kernelMedianUs": 50.791,
+        "kernelRangeUs": [
+          50.708,
+          51.75
+        ],
+        "wholeProcessMedianMs": 2.3755
+      },
+      "heldout-fresh-valid-65536": {
+        "kernelMedianUs": 104.958,
+        "kernelRangeUs": [
+          101.583,
+          107.833
+        ],
+        "wholeProcessMedianMs": 3.101791
+      },
+      "wall-drift-65536": {
+        "kernelMedianUs": 82.916,
+        "kernelRangeUs": [
+          72.958,
+          101.75
+        ],
+        "wholeProcessMedianMs": 2.842625
+      },
+      "small-route": {
+        "kernelMedianUs": 0.041,
+        "kernelRangeUs": [
+          0.0,
+          0.041
+        ],
+        "wholeProcessMedianMs": 1.941125
+      }
+    },
+    "csharp": {
+      "heldout-repeated-64": {
+        "kernelMedianUs": 1.459,
+        "kernelRangeUs": [
+          1.416,
+          1.5
+        ],
+        "wholeProcessMedianMs": 24.539584
+      },
+      "heldout-fresh-32768": {
+        "kernelMedianUs": 46.041,
+        "kernelRangeUs": [
+          45.167,
+          73.167
+        ],
+        "wholeProcessMedianMs": 24.906459
+      },
+      "heldout-fresh-valid-65536": {
+        "kernelMedianUs": 181.875,
+        "kernelRangeUs": [
+          173.416,
+          203.292
+        ],
+        "wholeProcessMedianMs": 26.525583
+      },
+      "wall-drift-65536": {
+        "kernelMedianUs": 60.541,
+        "kernelRangeUs": [
+          53.0,
+          60.625
+        ],
+        "wholeProcessMedianMs": 26.044958
+      },
+      "small-route": {
+        "kernelMedianUs": 104.25,
+        "kernelRangeUs": [
+          98.792,
+          119.458
+        ],
+        "wholeProcessMedianMs": 24.353
+      }
+    },
+    "csharp-strong": {
+      "heldout-repeated-64": {
+        "kernelMedianUs": 8584.042,
+        "kernelRangeUs": [
+          8520.792,
+          8831.25
+        ],
+        "wholeProcessMedianMs": 33.489125
+      },
+      "heldout-fresh-32768": {
+        "kernelMedianUs": 60.0,
+        "kernelRangeUs": [
+          57.916,
+          62.875
+        ],
+        "wholeProcessMedianMs": 25.007167
+      },
+      "heldout-fresh-valid-65536": {
+        "kernelMedianUs": 253.083,
+        "kernelRangeUs": [
+          242.625,
+          304.041
+        ],
+        "wholeProcessMedianMs": 26.948583
+      },
+      "wall-drift-65536": {
+        "kernelMedianUs": 75.666,
+        "kernelRangeUs": [
+          54.75,
+          79.75
+        ],
+        "wholeProcessMedianMs": 25.97625
+      },
+      "small-route": {
+        "kernelMedianUs": 0.083,
+        "kernelRangeUs": [
+          0.0,
+          0.084
+        ],
+        "wholeProcessMedianMs": 24.605458
+      }
+    }
+  },
+  "limits": [
+    "Repeated-round summary specialization, shared with all native comparators; not general language superiority.",
+    "Fresh streams use ordinary scan fallback; no repetition win is implied there.",
+    "C# optimized tiering-off environment, no GUI or AI-token measurement.",
+    "One shared Mac; exploratory medians/ranges, no energy or exclusive CPU isolation.",
+    "Kernel includes summary construction; wholeprocess includes warmup, startup, validation, output and capture.",
+    "No Python implementation of this new candidate was timed; earlier Python results stay historical.",
+    "The strongest matched C# summary remains faster than RF2 on the repeated kernel.",
+    "No new actual model-token measurement was performed."
+  ]
+}
