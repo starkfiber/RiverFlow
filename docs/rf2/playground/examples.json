@@ -1,0 +1,626 @@
+{
+  "schema": "rf2.playground.examples.v1",
+  "profile": "RF2_SIMPLE_V3",
+  "nativeCheckedOn": "2026-11-19",
+  "nativeEngineSha256": "ae223ec7b0ac693d494ba604c707db6ed9e4e4c750fe16c5e3d2fab1665ab3b3",
+  "verification": "Each supplied source/input/output was executed with the qualified native candidate. This does not imply native execution inside the browser.",
+  "examples": [
+    {
+      "id": "hello",
+      "title": "A first message",
+      "category": "start",
+      "description": "One line says something. Change the words inside the quotes.",
+      "source": "say \"Hello, world!\"\n",
+      "stdin": "",
+      "expectedStdout": "Hello, world!\n",
+      "concepts": [
+        {
+          "term": "say",
+          "meaning": "Display a message and add a new line."
+        },
+        {
+          "term": "quotes",
+          "meaning": "Words inside quotes are text."
+        }
+      ],
+      "challenge": {
+        "prompt": "Make the program welcome you by name.",
+        "hint": "Keep the quotes; change the text between them."
+      },
+      "filename": "hello.flow"
+    },
+    {
+      "id": "points",
+      "title": "Remember and change",
+      "category": "start",
+      "description": "Give a value a name, change it, then show the result.",
+      "source": "let points = 2\nset points = points + 3\nshow points\n",
+      "stdin": "",
+      "expectedStdout": "5\n",
+      "concepts": [
+        {
+          "term": "let",
+          "meaning": "Introduce a name and its first value."
+        },
+        {
+          "term": "set",
+          "meaning": "Change a value you already named."
+        },
+        {
+          "term": "show",
+          "meaning": "Calculate and display a number."
+        }
+      ],
+      "challenge": {
+        "prompt": "Finish with ten points.",
+        "hint": "Change the amount added to the starting two."
+      },
+      "filename": "points.flow"
+    },
+    {
+      "id": "text",
+      "title": "A name can hold text",
+      "category": "start",
+      "description": "Text is a value too. A name without quotes uses the value you remembered.",
+      "source": "let name = \"Jitra\"\nsay \"Hello!\"\nsay name\n",
+      "stdin": "",
+      "expectedStdout": "Hello!\nJitra\n",
+      "concepts": [
+        {
+          "term": "text",
+          "meaning": "Words inside quotes."
+        },
+        {
+          "term": "say name",
+          "meaning": "Display the value stored under name."
+        }
+      ],
+      "challenge": {
+        "prompt": "Make it greet a friend.",
+        "hint": "Change the text assigned to name, not the word name in the last line."
+      },
+      "filename": "text.flow"
+    },
+    {
+      "id": "ask-number",
+      "title": "Ask for a number",
+      "category": "start",
+      "description": "The answer becomes a number your program can calculate with.",
+      "source": "ask number age \"How old are you?\"\nshow age + 1\n",
+      "stdin": "12\n",
+      "expectedStdout": "How old are you?\n13\n",
+      "concepts": [
+        {
+          "term": "ask number",
+          "meaning": "Read one whole-number answer."
+        },
+        {
+          "term": "stdin",
+          "meaning": "Supplied input: one answer per line."
+        }
+      ],
+      "challenge": {
+        "prompt": "Show the age in two years.",
+        "hint": "Change the expression after show. Keep the answer in the input box."
+      },
+      "filename": "ask-number.flow"
+    },
+    {
+      "id": "ask-text",
+      "title": "Ask for a name",
+      "category": "start",
+      "description": "A question can remember text without treating it as code.",
+      "source": "ask name \"What is your name?\"\nsay \"Hello!\"\nsay name\n",
+      "stdin": "தமிழ்\n",
+      "expectedStdout": "What is your name?\nHello!\nதமிழ்\n",
+      "concepts": [
+        {
+          "term": "ask",
+          "meaning": "Read a text answer and remember it."
+        },
+        {
+          "term": "input",
+          "meaning": "Your answer is data, not another source line."
+        }
+      ],
+      "challenge": {
+        "prompt": "Try a name in a language you know.",
+        "hint": "Change the supplied input. Do not put quotes around the answer."
+      },
+      "filename": "ask-text.flow"
+    },
+    {
+      "id": "choose",
+      "title": "Choose a path",
+      "category": "logic",
+      "description": "A condition chooses which message to display.",
+      "source": "let points = 12\nif points >= 10\n say \"Level up!\"\nelse\n say \"Keep practising.\"\nend\n",
+      "stdin": "",
+      "expectedStdout": "Level up!\n",
+      "concepts": [
+        {
+          "term": "if",
+          "meaning": "Follow this block when the condition is true."
+        },
+        {
+          "term": "else",
+          "meaning": "The other path."
+        },
+        {
+          "term": "end",
+          "meaning": "Close the block."
+        }
+      ],
+      "challenge": {
+        "prompt": "Make the program choose the other path.",
+        "hint": "Change points to a number below ten."
+      },
+      "filename": "choose.flow"
+    },
+    {
+      "id": "repeat",
+      "title": "Repeat a step",
+      "category": "logic",
+      "description": "Repeat a small action a known number of times.",
+      "source": "repeat 3 times\n say \"Go!\"\nend\n",
+      "stdin": "",
+      "expectedStdout": "Go!\nGo!\nGo!\n",
+      "concepts": [
+        {
+          "term": "repeat",
+          "meaning": "Evaluate the count once and repeat the block."
+        },
+        {
+          "term": "times",
+          "meaning": "Part of the repeat-count wording."
+        }
+      ],
+      "challenge": {
+        "prompt": "Print Go! five times.",
+        "hint": "Change the repeat count. The execution budget still applies."
+      },
+      "filename": "repeat.flow"
+    },
+    {
+      "id": "countdown",
+      "title": "Keep going while",
+      "category": "logic",
+      "description": "The update makes the countdown stop.",
+      "source": "let remaining = 3\nwhile remaining > 0\n show remaining\n set remaining = remaining - 1\nend\n",
+      "stdin": "",
+      "expectedStdout": "3\n2\n1\n",
+      "concepts": [
+        {
+          "term": "while",
+          "meaning": "Check the condition before each turn."
+        },
+        {
+          "term": "progress",
+          "meaning": "Change a value so the loop can finish."
+        }
+      ],
+      "challenge": {
+        "prompt": "Start the countdown at five.",
+        "hint": "Change the first value; keep the subtraction and stopping condition."
+      },
+      "filename": "countdown.flow"
+    },
+    {
+      "id": "function",
+      "title": "Name a calculation",
+      "category": "logic",
+      "description": "A small numeric function can be reused.",
+      "source": "fn twice(n)\n return n * 2\nend\nshow twice(21)\n",
+      "stdin": "",
+      "expectedStdout": "42\n",
+      "concepts": [
+        {
+          "term": "fn",
+          "meaning": "Name a reusable numeric calculation."
+        },
+        {
+          "term": "return",
+          "meaning": "The function's one numeric result expression."
+        },
+        {
+          "term": "parameter",
+          "meaning": "A name for a value supplied to a function."
+        }
+      ],
+      "challenge": {
+        "prompt": "Make a function that triples a number.",
+        "hint": "Rename the function and multiply its input by three. Functions use their own inputs."
+      },
+      "filename": "function.flow"
+    },
+    {
+      "id": "compare",
+      "title": "Compare two answers",
+      "category": "logic",
+      "description": "Comparisons return zero for false and one for true.",
+      "source": "show 3 < 5\nshow 3 == 5\nshow 3 != 5\n",
+      "stdin": "",
+      "expectedStdout": "1\n0\n1\n",
+      "concepts": [
+        {
+          "term": "comparison",
+          "meaning": "Compare two numeric values."
+        },
+        {
+          "term": "0 and 1",
+          "meaning": "Numeric false and true results."
+        }
+      ],
+      "challenge": {
+        "prompt": "Find two comparisons that give the same answer.",
+        "hint": "Change the numeric values or comparison signs; compare two values at a time."
+      },
+      "filename": "compare.flow"
+    },
+    {
+      "id": "guessing-game",
+      "title": "Guess the number",
+      "category": "apps",
+      "description": "A real three-attempt text game with high/low hints and a fixed secret of seven.",
+      "source": "let guess = 0\nlet won = 0\nsay \"Guess the secret whole number. You have three tries.\"\nrepeat 3 times\n if won == 0\n  ask number guess \"Your guess?\"\n  if guess == 7\n   say \"You found it!\"\n   set won = 1\n  else\n   if guess < 7\n    say \"Try a larger number.\"\n   else\n    say \"Try a smaller number.\"\n   end\n  end\n end\nend\nif won == 0\n say \"The secret was 7. Try again next time.\"\nend\n",
+      "stdin": "3\n9\n7\n",
+      "expectedStdout": "Guess the secret whole number. You have three tries.\nYour guess?\nTry a larger number.\nYour guess?\nTry a smaller number.\nYour guess?\nYou found it!\n",
+      "concepts": [
+        {
+          "term": "repeat",
+          "meaning": "Limit the number of attempts."
+        },
+        {
+          "term": "if",
+          "meaning": "Compare a guess with the fixed secret."
+        },
+        {
+          "term": "set",
+          "meaning": "Remember that the player has won."
+        }
+      ],
+      "challenge": {
+        "prompt": "Win on the first guess.",
+        "hint": "Change the supplied first answer to seven; unused extra answers do not run as source."
+      },
+      "filename": "guessing-game.flow"
+    },
+    {
+      "id": "double-quiz",
+      "title": "Double quiz",
+      "category": "apps",
+      "description": "Three rounds use a function, questions and a score.",
+      "source": "fn twice(n)\n return n * 2\nend\nlet round = 1\nlet answer = 0\nlet points = 0\nsay \"Double each round number. Ten points for each correct answer.\"\nrepeat 3 times\n say \"Round:\"\n show round\n ask number answer \"What is double this number?\"\n if answer == twice(round)\n  say \"Correct!\"\n  set points = points + 10\n else\n  say \"Keep practising.\"\n end\n set round = round + 1\nend\nsay \"Your score:\"\nshow points\n",
+      "stdin": "2\n4\n6\n",
+      "expectedStdout": "Double each round number. Ten points for each correct answer.\nRound:\n1\nWhat is double this number?\nCorrect!\nRound:\n2\nWhat is double this number?\nCorrect!\nRound:\n3\nWhat is double this number?\nCorrect!\nYour score:\n30\n",
+      "concepts": [
+        {
+          "term": "function",
+          "meaning": "Reuse twice rather than writing the calculation again."
+        },
+        {
+          "term": "score",
+          "meaning": "A named value updated after a correct answer."
+        },
+        {
+          "term": "re-ask",
+          "meaning": "A block can ask again into an existing same-kind name."
+        }
+      ],
+      "challenge": {
+        "prompt": "Try a mixture of right and wrong answers.",
+        "hint": "Change one supplied answer to a different whole number; predict the score."
+      },
+      "filename": "double-quiz.flow"
+    },
+    {
+      "id": "work-planner",
+      "title": "Plan the rounds",
+      "category": "apps",
+      "description": "Compute whole-number work rounds, with a clear zero-worker path.",
+      "source": "fn batches(jobs,workers)\n return jobs // workers + (jobs % workers != 0)\nend\nask number jobs \"How many jobs?\"\nask number workers \"How many workers?\"\nif workers == 0\n say \"Choose at least one worker.\"\nelse\n say \"Rounds needed:\"\n show batches(jobs,workers)\nend\n",
+      "stdin": "10\n3\n",
+      "expectedStdout": "How many jobs?\nHow many workers?\nRounds needed:\n4\n",
+      "concepts": [
+        {
+          "term": "guard",
+          "meaning": "Handle zero workers before dividing."
+        },
+        {
+          "term": "function",
+          "meaning": "Name the rounds calculation."
+        },
+        {
+          "term": "remainder",
+          "meaning": "A leftover job needs another round."
+        }
+      ],
+      "challenge": {
+        "prompt": "See the zero-worker message.",
+        "hint": "Supply zero as the second answer. This is a count planner, not a measured scheduler."
+      },
+      "filename": "work-planner.flow"
+    },
+    {
+      "id": "too-big",
+      "title": "A number that is too big",
+      "category": "debug",
+      "description": "A checked calculation refuses an answer outside its whole-number range.",
+      "source": "show 18446744073709551615 + 1\n",
+      "stdin": "",
+      "expectedStdout": "",
+      "concepts": [
+        {
+          "term": "checked arithmetic",
+          "meaning": "Refuse an out-of-range result instead of silently wrapping it."
+        }
+      ],
+      "challenge": {
+        "prompt": "Make the calculation succeed.",
+        "hint": "Try a much smaller starting number."
+      },
+      "filename": "too-big.flow",
+      "expectedError": "Line 1, column 27: The answer is too large. Whole numbers must fit in 64 bits."
+    },
+    {
+      "id": "misspelled-name",
+      "title": "Find the spelling mistake",
+      "category": "debug",
+      "description": "These two names are different. RF2 checks names before running the program.",
+      "source": "let points = 2\nshow pionts\n",
+      "stdin": "",
+      "expectedStdout": "",
+      "concepts": [
+        {
+          "term": "name",
+          "meaning": "Use the same spelling each time."
+        },
+        {
+          "term": "preflight",
+          "meaning": "Check the whole program before asking questions."
+        }
+      ],
+      "challenge": {
+        "prompt": "Fix the typo.",
+        "hint": "Compare the name after let with the name after show."
+      },
+      "filename": "misspelled-name.flow",
+      "expectedError": "Line 2, column 6: That name has not been introduced yet. Use let or ask before using it."
+    },
+    {
+      "id": "missing-end",
+      "title": "Close the block",
+      "category": "debug",
+      "description": "A repeat block needs a matching end before it can run.",
+      "source": "repeat 3 times\n say \"Go!\"\n",
+      "stdin": "",
+      "expectedStdout": "",
+      "concepts": [
+        {
+          "term": "end",
+          "meaning": "Close the block you opened."
+        },
+        {
+          "term": "source error",
+          "meaning": "A source error is different from an answer that causes a runtime error."
+        }
+      ],
+      "challenge": {
+        "prompt": "Complete the program.",
+        "hint": "Add the block-closing word on a new line."
+      },
+      "filename": "missing-end.flow",
+      "expectedError": "Line 3, column 1: Finish every if and loop block with end."
+    },
+    {
+      "id": "thermostat-lab",
+      "title": "Thermostat lab",
+      "category": "apps",
+      "description": "Try three readings and see why a heater should not flicker around one temperature.",
+      "source": "let temperature = 0\nlet heating = 0\nsay \"Thermostat simulation: three whole Celsius readings, 0 to 60.\"\nrepeat 3 times\n ask number temperature \"Temperature?\"\n if temperature > 60\n  say \"Outside this lesson range. State unchanged.\"\n else\n  if temperature < 18\n   set heating = 1\n  end\n  if temperature > 24\n   set heating = 0\n  end\n  if heating == 1\n   say \"Heater on.\"\n  else\n   say \"Heater off.\"\n  end\n end\nend\n",
+      "stdin": "17\n20\n25\n",
+      "concepts": [
+        {
+          "term": "state",
+          "meaning": "A remembered value lets a later decision depend on what happened before."
+        },
+        {
+          "term": "threshold",
+          "meaning": "A boundary that changes a decision."
+        },
+        {
+          "term": "hysteresis",
+          "meaning": "Different on/off boundaries prevent rapid switching near a single boundary."
+        }
+      ],
+      "challenge": {
+        "prompt": "Keep heating on until the reading is above 26.",
+        "hint": "Change only the upper comparison; test 26 and 27."
+      },
+      "filename": "thermostat-lab.flow",
+      "scope": "A console decision simulation, not a sensor reader, hardware controller or safety system.",
+      "instructions": [
+        "Run with 17, 20, 25 on separate lines. The middle reading keeps the previous heater state.",
+        "Clear the answer box to answer each question yourself.",
+        "Try 18, 24, 61. The first two boundaries hold state; 61 is rejected by this lesson without changing it."
+      ],
+      "expectedStdout": "Thermostat simulation: three whole Celsius readings, 0 to 60.\nTemperature?\nHeater on.\nTemperature?\nHeater on.\nTemperature?\nHeater off.\n",
+      "sourceSha256": "d74ecc48dc6798d6da3968b5189f6dc4b445ca7c104066a60dcca6d28988b22b"
+    },
+    {
+      "id": "rover-grid",
+      "title": "Grid rover",
+      "category": "apps",
+      "description": "Steer a little rover without leaving its four-by-four world.",
+      "source": "let x = 0\nlet y = 0\nlet command = 0\nsay \"Grid rover: start 0,0. Edges are 0 to 3. Six turns.\"\nsay \"1 east, 2 west, 3 north, 4 south.\"\nrepeat 6 times\n ask number command \"Direction?\"\n if command == 1\n  if x < 3\n   set x = x + 1\n  else\n   say \"East wall. Stay here.\"\n  end\n end\n if command == 2\n  if x > 0\n   set x = x - 1\n  else\n   say \"West wall. Stay here.\"\n  end\n end\n if command == 3\n  if y < 3\n   set y = y + 1\n  else\n   say \"North wall. Stay here.\"\n  end\n end\n if command == 4\n  if y > 0\n   set y = y - 1\n  else\n   say \"South wall. Stay here.\"\n  end\n end\n if command < 1\n  say \"Choose 1 to 4. Stay here.\"\n end\n if command > 4\n  say \"Choose 1 to 4. Stay here.\"\n end\n say \"x:\"\n show x\n say \"y:\"\n show y\nend\nif x == 3\n if y == 3\n  say \"You reached the beacon!\"\n end\nend\n",
+      "stdin": "1\n1\n1\n3\n3\n3\n",
+      "concepts": [
+        {
+          "term": "coordinates",
+          "meaning": "x measures sideways and y measures upwards."
+        },
+        {
+          "term": "guard",
+          "meaning": "Check a condition before changing a value."
+        },
+        {
+          "term": "repeat",
+          "meaning": "Run the enclosed steps a fixed number of times."
+        }
+      ],
+      "challenge": {
+        "prompt": "Reach the beacon from another starting position.",
+        "hint": "Change the first x and y values, then plan six directions."
+      },
+      "filename": "rover-grid.flow",
+      "scope": "A turn-based console movement game. It does not control a robot, draw graphics or access GPIO.",
+      "instructions": [
+        "Run the six supplied directions to reach 3,3.",
+        "Use 2 at the start to try a wall. The coordinate stays zero; subtraction is never attempted below zero.",
+        "Each turn displays the new x and y. Invalid directions consume a turn and leave the position unchanged."
+      ],
+      "expectedStdout": "Grid rover: start 0,0. Edges are 0 to 3. Six turns.\n1 east, 2 west, 3 north, 4 south.\nDirection?\nx:\n1\ny:\n0\nDirection?\nx:\n2\ny:\n0\nDirection?\nx:\n3\ny:\n0\nDirection?\nx:\n3\ny:\n1\nDirection?\nx:\n3\ny:\n2\nDirection?\nx:\n3\ny:\n3\nYou reached the beacon!\n",
+      "sourceSha256": "33472a5a67775a2e9cd1a42f2b3a8be87bb01fb92d777d0bd86fdecb3c115ef6"
+    },
+    {
+      "id": "vending-lab",
+      "title": "Tiny vending shop",
+      "category": "apps",
+      "description": "Keep credit, refuse an early purchase and return unused coins.",
+      "source": "let action = 0\nlet credit = 0\nlet sold = 0\nsay \"Vending simulation: four turns. A snack costs 100 cents.\"\nsay \"1 add 50 cents, 2 buy, 3 cancel.\"\nrepeat 4 times\n ask number action \"Action?\"\n if action == 1\n  set credit = credit + 50\n  say \"Added 50 cents.\"\n end\n if action == 2\n  if credit >= 100\n   set credit = credit - 100\n   set sold = sold + 1\n   say \"Snack dispensed.\"\n  else\n   say \"Not enough credit. Nothing charged.\"\n  end\n end\n if action == 3\n  say \"Refund in cents:\"\n  show credit\n  set credit = 0\n end\n if action < 1\n  say \"Choose 1, 2 or 3. Credit unchanged.\"\n end\n if action > 3\n  say \"Choose 1, 2 or 3. Credit unchanged.\"\n end\n say \"Credit in cents:\"\n show credit\nend\nsay \"Final refund in cents:\"\nshow credit\nset credit = 0\nsay \"Snacks sold:\"\nshow sold\n",
+      "stdin": "2\n1\n1\n2\n",
+      "concepts": [
+        {
+          "term": "guard",
+          "meaning": "Only subtract the price after confirming enough credit."
+        },
+        {
+          "term": "state machine",
+          "meaning": "A sequence of choices updates remembered state."
+        },
+        {
+          "term": "cents",
+          "meaning": "Whole cents avoid decimal rounding in this small lesson."
+        }
+      ],
+      "challenge": {
+        "prompt": "Try cancelling after adding money.",
+        "hint": "Use answers 1, 3, 2, 0. Confirm that the cancelled money cannot buy a snack."
+      },
+      "filename": "vending-lab.flow",
+      "scope": "A four-turn console simulation. It has no payment gateway, real money, stock database or physical vending device.",
+      "instructions": [
+        "Each action uses one of four turns.",
+        "The supplied answers try to buy too early, add two coins, then buy successfully.",
+        "Unused credit is displayed as a final refund and cleared. No actual money changes hands."
+      ],
+      "expectedStdout": "Vending simulation: four turns. A snack costs 100 cents.\n1 add 50 cents, 2 buy, 3 cancel.\nAction?\nNot enough credit. Nothing charged.\nCredit in cents:\n0\nAction?\nAdded 50 cents.\nCredit in cents:\n50\nAction?\nAdded 50 cents.\nCredit in cents:\n100\nAction?\nSnack dispensed.\nCredit in cents:\n0\nFinal refund in cents:\n0\nSnacks sold:\n1\n",
+      "sourceSha256": "bfd69561ed75aa79db9262e8dc0f99d1479f27cbaad994b3957c41f4dbb40377"
+    },
+    {
+      "id": "escape-lighthouse",
+      "title": "Lighthouse escape",
+      "category": "apps",
+      "description": "Make three choices, keep a key and unlock the lighthouse door.",
+      "source": "let choice = 0\nlet key = 0\nlet escaped = 0\nsay \"Lighthouse escape. You have three turns.\"\nsay \"1 search the desk, 2 try the door, 3 look at the sea.\"\nrepeat 3 times\n if escaped == 0\n  ask number choice \"Your choice?\"\n  if choice == 1\n   if key == 0\n    set key = 1\n    say \"You found a brass key.\"\n   else\n    say \"The desk is empty now.\"\n   end\n  end\n  if choice == 2\n   if key == 1\n    set escaped = 1\n    say \"The door opens. You are free!\"\n   else\n    say \"Locked. Maybe there is a key nearby.\"\n   end\n  end\n  if choice == 3\n   say \"A boat is waiting beyond the locked door.\"\n  end\n  if choice < 1\n   say \"Choose 1, 2 or 3.\"\n  end\n  if choice > 3\n   say \"Choose 1, 2 or 3.\"\n  end\n end\nend\nif escaped == 0\n say \"The tide rose. Reset and try a different plan.\"\nend\n",
+      "stdin": "2\n1\n2\n",
+      "concepts": [
+        {
+          "term": "state",
+          "meaning": "The key and escaped values remember the story so far."
+        },
+        {
+          "term": "nested if",
+          "meaning": "A choice can depend on another condition, such as having the key."
+        },
+        {
+          "term": "bounded turns",
+          "meaning": "The story ends after a limited number of choices."
+        }
+      ],
+      "challenge": {
+        "prompt": "Add a clue to the sea message that helps a new player.",
+        "hint": "Edit the words inside the choice 3 say line."
+      },
+      "filename": "escape-lighthouse.flow",
+      "scope": "An authored branching console story, not an AI-generated story service.",
+      "instructions": [
+        "Choose 1 to find a key and 2 to open the door.",
+        "The supplied journey first tries a locked door, then finds the key and returns.",
+        "A successful escape stops asking questions even if turns remain."
+      ],
+      "expectedStdout": "Lighthouse escape. You have three turns.\n1 search the desk, 2 try the door, 3 look at the sea.\nYour choice?\nLocked. Maybe there is a key nearby.\nYour choice?\nYou found a brass key.\nYour choice?\nThe door opens. You are free!\n",
+      "sourceSha256": "c5d4973b0d2c0abe8872978acbd2264f1e136e4728e88719a8541c6a11f26586"
+    },
+    {
+      "id": "room-conflict",
+      "title": "Can I book this room?",
+      "category": "apps",
+      "description": "Check whether two same-day whole-hour room intervals overlap.",
+      "source": "fn overlap(a,b,c,d)\n return (a < d) * (c < b)\nend\nask number start \"Existing start hour, 0 to 23?\"\nask number finish \"Existing finish hour, 1 to 24?\"\nask number wanted \"Requested start hour, 0 to 23?\"\nask number until \"Requested finish hour, 1 to 24?\"\nlet valid = 1\nif start >= finish\n set valid = 0\nend\nif wanted >= until\n set valid = 0\nend\nif finish > 24\n set valid = 0\nend\nif until > 24\n set valid = 0\nend\nif valid == 0\n say \"Use a start before a finish, within one day ending at 24.\"\nelse\n if overlap(start,finish,wanted,until)\n  say \"Conflict. Choose a different time.\"\n else\n  say \"No overlap. These two intervals can share the room.\"\n end\nend\n",
+      "stdin": "9\n11\n11\n12\n",
+      "concepts": [
+        {
+          "term": "half-open interval",
+          "meaning": "A booking includes its start but not its finish; another may start exactly when it ends."
+        },
+        {
+          "term": "fn",
+          "meaning": "Give a reusable calculation a name."
+        },
+        {
+          "term": "validation",
+          "meaning": "Reject an invalid request before making a decision."
+        }
+      ],
+      "challenge": {
+        "prompt": "Change the requested time so it overlaps the existing booking.",
+        "hint": "Try 10 to 12 against 9 to 11, then try 11 to 12."
+      },
+      "filename": "room-conflict.flow",
+      "scope": "One existing interval and one request, using whole hours on the same day. No actual reservation, persistence, dates, time zones or simultaneous booking protection.",
+      "instructions": [
+        "Enter four answers: existing start, existing finish, requested start, requested finish.",
+        "Hours are nonnegative whole numbers. Start must be before finish; finish cannot exceed 24.",
+        "The supplied journey shows that a booking ending at 11 does not conflict with one starting at 11."
+      ],
+      "expectedStdout": "Existing start hour, 0 to 23?\nExisting finish hour, 1 to 24?\nRequested start hour, 0 to 23?\nRequested finish hour, 1 to 24?\nNo overlap. These two intervals can share the room.\n",
+      "sourceSha256": "8be95a0b9ea9156787a36b91ae12638381cf7c8ef0586a15360fc68cfdf5fc1b"
+    },
+    {
+      "id": "pocket-pet",
+      "title": "Pocket pet",
+      "category": "apps",
+      "description": "Look after a tiny pet whose energy changes with each choice.",
+      "source": "let energy = 4\nlet fun = 0\nlet action = 0\nsay \"Pocket pet: four turns. Energy starts at 4 and stops at 6.\"\nsay \"1 feed, 2 play, 3 rest.\"\nrepeat 4 times\n ask number action \"What shall we do?\"\n if action == 1\n  if energy < 6\n   set energy = energy + 1\n   say \"Yum! Energy increased.\"\n  else\n   say \"Already full.\"\n  end\n end\n if action == 2\n  if energy >= 3\n   set energy = energy - 3\n   set fun = fun + 1\n   say \"That was fun!\"\n  else\n   say \"Too tired to play. Feed or rest first.\"\n  end\n end\n if action == 3\n  set energy = 6\n  say \"Rested. Energy is full.\"\n end\n if action < 1\n  say \"Choose 1, 2 or 3. Nothing changed.\"\n end\n if action > 3\n  say \"Choose 1, 2 or 3. Nothing changed.\"\n end\n say \"Energy:\"\n show energy\nend\nsay \"Happy play times:\"\nshow fun\n",
+      "stdin": "2\n2\n3\n2\n",
+      "concepts": [
+        {
+          "term": "guard",
+          "meaning": "A tired pet cannot spend energy it does not have."
+        },
+        {
+          "term": "state",
+          "meaning": "The energy and fun values change as the game continues."
+        },
+        {
+          "term": "limit",
+          "meaning": "The feed rule keeps energy at or below six."
+        }
+      ],
+      "challenge": {
+        "prompt": "Find a four-turn plan with three happy play times.",
+        "hint": "Try play, rest, play, play. Rest sets energy to six."
+      },
+      "filename": "pocket-pet.flow",
+      "scope": "A deterministic turn-based console game. No animation, clock, AI behaviour or saved pet data is implied.",
+      "instructions": [
+        "Choose 1 to feed, 2 to play or 3 to rest. Each choice uses one turn.",
+        "Playing costs three energy; feeding adds one up to six; resting fills it to six.",
+        "The supplied journey shows a refused play, then recovery through rest."
+      ],
+      "expectedStdout": "Pocket pet: four turns. Energy starts at 4 and stops at 6.\n1 feed, 2 play, 3 rest.\nWhat shall we do?\nThat was fun!\nEnergy:\n1\nWhat shall we do?\nToo tired to play. Feed or rest first.\nEnergy:\n1\nWhat shall we do?\nRested. Energy is full.\nEnergy:\n6\nWhat shall we do?\nThat was fun!\nEnergy:\n3\nHappy play times:\n2\n",
+      "sourceSha256": "7a7faf99c104adc3b301753e5179d7f13f184e3ad126664fd8c3e4a1ba2e80d0"
+    }
+  ]
+}

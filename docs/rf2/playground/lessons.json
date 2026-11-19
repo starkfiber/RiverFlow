@@ -1,0 +1,197 @@
+{
+  "schema": "rf2.playground.lessons.v1",
+  "profile": "RF2_SIMPLE_V3",
+  "nativeCheckedOn": "2026-11-19",
+  "nativeEngineSha256": "ae223ec7b0ac693d494ba604c707db6ed9e4e4c750fe16c5e3d2fab1665ab3b3",
+  "verification": "Each supplied source/input/output was executed with the qualified native candidate. This does not imply native execution inside the browser.",
+  "puzzleRule": "Puzzles check the requested story order, not whether every different order is an invalid RF2 program.",
+  "puzzles": [
+    {
+      "id": "points-order",
+      "title": "Remember, change, display",
+      "instruction": "First remember two points, then add three, then display the total.",
+      "lines": [
+        {
+          "id": "remember",
+          "text": "let points = 2"
+        },
+        {
+          "id": "change",
+          "text": "set points = points + 3"
+        },
+        {
+          "id": "display",
+          "text": "show points"
+        }
+      ],
+      "initialOrder": [
+        "display",
+        "change",
+        "remember"
+      ],
+      "correctOrder": [
+        "remember",
+        "change",
+        "display"
+      ],
+      "explanation": "Introduce the name before changing or displaying it. The result is five.",
+      "expectedStdout": "5\n",
+      "correctSource": "let points = 2\nset points = points + 3\nshow points\n"
+    },
+    {
+      "id": "choose-order",
+      "title": "Choose before you speak",
+      "instruction": "Introduce points, open the condition, put Level up! in the true branch, and finish the other branch.",
+      "lines": [
+        {
+          "id": "value",
+          "text": "let points = 12"
+        },
+        {
+          "id": "if",
+          "text": "if points >= 10"
+        },
+        {
+          "id": "yes",
+          "text": " say \"Level up!\""
+        },
+        {
+          "id": "else",
+          "text": "else"
+        },
+        {
+          "id": "no",
+          "text": " say \"Keep practising.\""
+        },
+        {
+          "id": "end",
+          "text": "end"
+        }
+      ],
+      "initialOrder": [
+        "value",
+        "yes",
+        "if",
+        "no",
+        "else",
+        "end"
+      ],
+      "correctOrder": [
+        "value",
+        "if",
+        "yes",
+        "else",
+        "no",
+        "end"
+      ],
+      "explanation": "The condition chooses a branch. else starts the alternative and end closes the whole condition.",
+      "expectedStdout": "Level up!\n",
+      "correctSource": "let points = 12\nif points >= 10\n say \"Level up!\"\nelse\n say \"Keep practising.\"\nend\n"
+    },
+    {
+      "id": "repeat-order",
+      "title": "Say it three times",
+      "instruction": "Open a three-turn repeat, put the message inside, then close the block.",
+      "lines": [
+        {
+          "id": "repeat",
+          "text": "repeat 3 times"
+        },
+        {
+          "id": "message",
+          "text": " say \"Go!\""
+        },
+        {
+          "id": "end",
+          "text": "end"
+        }
+      ],
+      "initialOrder": [
+        "message",
+        "end",
+        "repeat"
+      ],
+      "correctOrder": [
+        "repeat",
+        "message",
+        "end"
+      ],
+      "explanation": "Only the lines inside repeat/end are repeated. This produces three separate Go! lines.",
+      "expectedStdout": "Go!\nGo!\nGo!\n",
+      "correctSource": "repeat 3 times\n say \"Go!\"\nend\n"
+    },
+    {
+      "id": "function-order",
+      "title": "Define, then use",
+      "instruction": "For this puzzle, write the complete twice definition first, then use it to display twice three.",
+      "lines": [
+        {
+          "id": "fn",
+          "text": "fn twice(n)"
+        },
+        {
+          "id": "return",
+          "text": " return n * 2"
+        },
+        {
+          "id": "end",
+          "text": "end"
+        },
+        {
+          "id": "call",
+          "text": "show twice(3)"
+        }
+      ],
+      "initialOrder": [
+        "return",
+        "fn",
+        "call",
+        "end"
+      ],
+      "correctOrder": [
+        "fn",
+        "return",
+        "end",
+        "call"
+      ],
+      "explanation": "The function has one return expression. This puzzle asks for definition-first order; RF2 also supports forward calls, so a different order is not automatically an invalid language program.",
+      "expectedStdout": "6\n",
+      "correctSource": "fn twice(n)\n return n * 2\nend\nshow twice(3)\n"
+    }
+  ],
+  "whyFast": {
+    "title": "What actually makes a program fast?",
+    "lead": "Doing the needed work with less waste. Short source by itself is not a speed measurement.",
+    "points": [
+      {
+        "title": "Choose the work",
+        "text": "A better algorithm can avoid repeated work. Check that it still gives the required answer."
+      },
+      {
+        "title": "Choose the representation",
+        "text": "Data layout, bounds and instructions affect cost. Measure the complete useful job, including setup and IO."
+      },
+      {
+        "title": "Compile and reuse",
+        "text": "The full native compiler emits ARM64 programs. Dynamic Simple programs currently include a native engine, rather than specialized machine code for every statement."
+      },
+      {
+        "title": "Measure the right engine",
+        "text": "Browser worker timings describe the reference worker. Native build/run numbers require a real local compiler/runtime measurement. A source line count or logical step count is not CPU time."
+      }
+    ],
+    "limits": "No universal speed, energy, actual AI-token or C/assembly superiority claim is established. Earlier launch-time ranges overlap; no win is claimed from them."
+  },
+  "executionModes": [
+    {
+      "id": "browser-reference",
+      "title": "Reference worker",
+      "meaning": "Runs the browser-qualified reference engine with visible source/input/limits. Its trace is not native machine stepping."
+    },
+    {
+      "id": "native-local",
+      "title": "Native local",
+      "meaning": "Requires an explicitly selected loopback native bridge and actual native receipts. Never expose a public native POST endpoint to arbitrary source."
+    }
+  ]
+}
