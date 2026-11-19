@@ -1,0 +1,11 @@
+let score = 3
+let add = 0
+ask number add "How many stars shall we add? Try 2."
+set score = score + add
+let solved = score == 5
+show score
+if solved
+ say "Five stars. You changed a remembered value."
+else
+ say "Try again with a different number."
+end

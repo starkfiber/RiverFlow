@@ -1,0 +1,9 @@
+let stars = 0
+let laps = 0
+repeat 3 times
+ set stars = stars + 2
+ set laps = laps + 1
+ show stars
+end
+let solved = stars == 6
+say "A short loop did the repeated work."
