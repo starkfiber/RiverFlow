@@ -1,0 +1,114 @@
+{
+  "scope": "Matched rover CLI business logic, not whole GUI creation",
+  "date": "2026-11-19",
+  "target": "macOS ARM64, one shared Mac",
+  "workload": {
+    "label": "6.4 million transitions,64-command sequence repeated100000 times",
+    "rounds": 100000,
+    "commandsLength": 64,
+    "warmupRounds": 5000,
+    "runtimeTrialsPerLanguage": 9
+  },
+  "languages": {
+    "rf2": {
+      "variant": "packed-r4",
+      "kernelMedianMs": 12.450916,
+      "kernelRangeMs": [
+        10.939833,
+        13.540416
+      ],
+      "wholeProcessMedianMs": 16.012,
+      "wholeProcessRangeMs": [
+        14.46225,
+        18.008083
+      ],
+      "preparedBuildMedianMs": 23.640333,
+      "actualOnePassAuthoring": {
+        "inputTokens": 23020,
+        "outputTokens": 992,
+        "elapsedSeconds": 26.02289904199999,
+        "referenceContextBytes": 1677
+      }
+    },
+    "python": {
+      "variant": "table-r3",
+      "kernelMedianMs": 344.545,
+      "kernelRangeMs": [
+        313.917875,
+        366.360334
+      ],
+      "wholeProcessMedianMs": 387.265542,
+      "wholeProcessRangeMs": [
+        350.864792,
+        409.007916
+      ],
+      "requiredBuild": false,
+      "optionalFreshProcessBytecodeBuildMedianMs": 27.466709,
+      "actualOnePassAuthoring": {
+        "inputTokens": 22633,
+        "outputTokens": 674,
+        "elapsedSeconds": 20.375529292,
+        "referenceContextBytes": 131
+      }
+    },
+    "cpp": {
+      "variant": "table-r3",
+      "kernelMedianMs": 19.937875,
+      "kernelRangeMs": [
+        18.934125,
+        22.601416
+      ],
+      "wholeProcessMedianMs": 24.192959,
+      "wholeProcessRangeMs": [
+        23.0235,
+        27.58875
+      ],
+      "preparedBuildMedianMs": 303.973709,
+      "actualOnePassAuthoring": {
+        "inputTokens": 22650,
+        "outputTokens": 823,
+        "elapsedSeconds": 21.827969041000003,
+        "referenceContextBytes": 158
+      }
+    },
+    "csharp": {
+      "variant": "baseline-r2",
+      "kernelMedianMs": 7.351959,
+      "kernelRangeMs": [
+        7.1695,
+        8.376875
+      ],
+      "wholeProcessMedianMs": 39.155083,
+      "wholeProcessRangeMs": [
+        37.860416,
+        42.769292
+      ],
+      "preparedBuildMedianMs": 2885.882958,
+      "actualOnePassAuthoring": {
+        "inputTokens": 22664,
+        "outputTokens": 941,
+        "elapsedSeconds": 24.141367957999996,
+        "referenceContextBytes": 253
+      }
+    }
+  },
+  "smallerJob": {
+    "label": "12 commands, whole process including warmup",
+    "wholeProcessMs": {
+      "rf2": 6.098875,
+      "python": 51.293875,
+      "cpp": 5.718042,
+      "csharp": 61.849791
+    }
+  },
+  "limits": [
+    "Selection uses best observed long-batch kernel median across three retained variants; now timed together in a fresh rotated session.",
+    "One shared Mac, no exclusive CPU isolation; intervals/ranges overlap in some cases.",
+    "Each batch repeats its 32 or64 command sequence; these are not nonrepeating input-stream or GUI frame benchmarks.",
+    "Whole process includes5000-round warmup/startup/validation/JSON/pipe; internal kernel excludes it.",
+    "Python requires no build; optional bytecode compilation is not native compilation.",
+    "C# is SDK8.0.424 managed IL/JIT, not NativeAOT.",
+    "No GUI authoring cost, broad language supremacy or actual AI-token saving follows.",
+    "RF2 lost the actual one-pass authoring/token trial; different language reference sizes disclosed."
+  ]
+}
