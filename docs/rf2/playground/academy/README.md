@@ -1,3 +1,30 @@
+# RF2 Academy: learn by making
+
+The first screen is now a little cinema counter. Change a price, number of friends
+or wallet; run the actual RF2 program and see its bill, decision and printed
+tickets. The picture displays returned RF2 values, including the bill above the
+fold. A practice prediction gives specific feedback. Nothing is bought or paid.
+
+Open the rules when ready. Editing locks visual controls so they cannot overwrite
+a draft. Invalid code preserves the last successful picture with a clear pending
+label. Last-working-code recovery keeps the newer draft. Restore explicitly
+returns to the visual example. Source and execution-record downloads remain
+separate: the record binds the source that actually ran, including failures.
+Custom code receives neutral explanations unless it exactly matches the known
+generated rules; the interface does not claim multiplication or a particular
+branch ran merely from the values.
+
+These are bounded browser reference programs. JavaScript draws the scene and
+formats returned values; no native or WebAssembly execution, external AI call,
+real payment or autonomous learning is implied. Prediction is practice, not a
+blind quiz or academic assessment. Human learner testing remains open.
+
+The three foundation lessons remain under “Go deeper”. Their existing source,
+stepping and recovery controls are preserved. The decision picture now reads its
+seat count from the actual program, so editing four seats to six is visible.
+
+Earlier foundation documentation follows.
+
 # RF2 Learning Studio
 
 Three beginner missions use actual Simple V3 source: remembered values, a group-fit
