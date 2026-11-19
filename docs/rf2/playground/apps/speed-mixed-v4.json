@@ -1,0 +1,827 @@
+{
+  "date": "2026-11-19",
+  "scope": "One Apple Silicon Mac; fresh generated command streams; native rover state kernel, not a GUI speed or production-workload claim",
+  "correction": "Split nested shift/mask expressions in a four-command leaf; identical candidate mechanism supplied to C++ and C#",
+  "disassembly": {
+    "beforeInstructions": 84,
+    "afterInstructions": 72,
+    "beforeStackMemoryInstructions": 16,
+    "afterStackMemoryInstructions": 8,
+    "scope": "hot four-command body, verified against compiled binary bytes"
+  },
+  "correctnessChecks": 819,
+  "qualifiedTimingSamples": 1092,
+  "priorCampaign": {
+    "qualified": 1596,
+    "excludedAfterBrowserOverlap": 1596,
+    "exploratory": 68,
+    "correctnessChecks": 819
+  },
+  "results": {
+    "rows": [
+      {
+        "family": "mixed",
+        "implementation": "original-unroll-csharp",
+        "wallMs": 25.374334,
+        "kernelUs": 23.833,
+        "wallMinMs": 23.549459,
+        "wallMaxMs": 27.537167,
+        "n": 21
+      },
+      {
+        "family": "mixed",
+        "implementation": "original-unroll-rf2",
+        "wallMs": 2.82225,
+        "kernelUs": 32.125,
+        "wallMinMs": 2.419875,
+        "wallMaxMs": 10.30975,
+        "n": 21
+      },
+      {
+        "family": "mixed",
+        "implementation": "prior-byte-csharp",
+        "wallMs": 25.230833,
+        "kernelUs": 48.458,
+        "wallMinMs": 23.258042,
+        "wallMaxMs": 27.819541,
+        "n": 21
+      },
+      {
+        "family": "mixed",
+        "implementation": "prior-nibble-csharp",
+        "wallMs": 25.036542,
+        "kernelUs": 23.75,
+        "wallMinMs": 23.581875,
+        "wallMaxMs": 28.447958,
+        "n": 21
+      },
+      {
+        "family": "mixed",
+        "implementation": "prior-r3-cpp",
+        "wallMs": 2.482834,
+        "kernelUs": 23.958,
+        "wallMinMs": 1.956125,
+        "wallMaxMs": 6.042375,
+        "n": 21
+      },
+      {
+        "family": "mixed",
+        "implementation": "prior-r3-csharp",
+        "wallMs": 25.784041,
+        "kernelUs": 24.042,
+        "wallMinMs": 23.100458,
+        "wallMaxMs": 28.348,
+        "n": 21
+      },
+      {
+        "family": "mixed",
+        "implementation": "prior-r3-rf2",
+        "wallMs": 2.689875,
+        "kernelUs": 24.0,
+        "wallMinMs": 2.346041,
+        "wallMaxMs": 5.699833,
+        "n": 21
+      },
+      {
+        "family": "mixed",
+        "implementation": "prior-word-cpp",
+        "wallMs": 2.473542,
+        "kernelUs": 24.0,
+        "wallMinMs": 2.158958,
+        "wallMaxMs": 11.829667,
+        "n": 21
+      },
+      {
+        "family": "mixed",
+        "implementation": "prior-word-csharp",
+        "wallMs": 25.271708,
+        "kernelUs": 23.75,
+        "wallMinMs": 23.177458,
+        "wallMaxMs": 28.513167,
+        "n": 21
+      },
+      {
+        "family": "mixed",
+        "implementation": "prior-word-rf2",
+        "wallMs": 2.763709,
+        "kernelUs": 24.041,
+        "wallMinMs": 2.347666,
+        "wallMaxMs": 7.243083,
+        "n": 21
+      },
+      {
+        "family": "mixed",
+        "implementation": "split-unroll4-cpp",
+        "wallMs": 2.258958,
+        "kernelUs": 23.083,
+        "wallMinMs": 1.940125,
+        "wallMaxMs": 3.427042,
+        "n": 21
+      },
+      {
+        "family": "mixed",
+        "implementation": "split-unroll4-csharp",
+        "wallMs": 25.418625,
+        "kernelUs": 23.959,
+        "wallMinMs": 23.715917,
+        "wallMaxMs": 61.148583,
+        "n": 21
+      },
+      {
+        "family": "mixed",
+        "implementation": "split-unroll4-rf2",
+        "wallMs": 2.68725,
+        "kernelUs": 23.833,
+        "wallMinMs": 2.2955,
+        "wallMaxMs": 3.532417,
+        "n": 21
+      },
+      {
+        "family": "directions",
+        "implementation": "original-unroll-csharp",
+        "wallMs": 25.413667,
+        "kernelUs": 47.917,
+        "wallMinMs": 24.7315,
+        "wallMaxMs": 27.040542,
+        "n": 21
+      },
+      {
+        "family": "directions",
+        "implementation": "original-unroll-rf2",
+        "wallMs": 3.563583,
+        "kernelUs": 64.208,
+        "wallMinMs": 3.111792,
+        "wallMaxMs": 4.134584,
+        "n": 21
+      },
+      {
+        "family": "directions",
+        "implementation": "prior-byte-csharp",
+        "wallMs": 26.124125,
+        "kernelUs": 99.084,
+        "wallMinMs": 24.847666,
+        "wallMaxMs": 28.157125,
+        "n": 21
+      },
+      {
+        "family": "directions",
+        "implementation": "prior-nibble-csharp",
+        "wallMs": 25.861875,
+        "kernelUs": 47.75,
+        "wallMinMs": 24.623875,
+        "wallMaxMs": 27.262875,
+        "n": 21
+      },
+      {
+        "family": "directions",
+        "implementation": "prior-r3-cpp",
+        "wallMs": 2.675541,
+        "kernelUs": 48.083,
+        "wallMinMs": 2.314916,
+        "wallMaxMs": 3.443875,
+        "n": 21
+      },
+      {
+        "family": "directions",
+        "implementation": "prior-r3-csharp",
+        "wallMs": 25.674458,
+        "kernelUs": 48.125,
+        "wallMinMs": 24.810125,
+        "wallMaxMs": 27.420292,
+        "n": 21
+      },
+      {
+        "family": "directions",
+        "implementation": "prior-r3-rf2",
+        "wallMs": 3.416625,
+        "kernelUs": 48.125,
+        "wallMinMs": 2.997083,
+        "wallMaxMs": 3.785667,
+        "n": 21
+      },
+      {
+        "family": "directions",
+        "implementation": "prior-word-cpp",
+        "wallMs": 2.802667,
+        "kernelUs": 48.0,
+        "wallMinMs": 2.356083,
+        "wallMaxMs": 3.168375,
+        "n": 21
+      },
+      {
+        "family": "directions",
+        "implementation": "prior-word-csharp",
+        "wallMs": 25.392042,
+        "kernelUs": 48.125,
+        "wallMinMs": 24.95075,
+        "wallMaxMs": 27.351959,
+        "n": 21
+      },
+      {
+        "family": "directions",
+        "implementation": "prior-word-rf2",
+        "wallMs": 3.45225,
+        "kernelUs": 48.083,
+        "wallMinMs": 3.021,
+        "wallMaxMs": 4.096291,
+        "n": 21
+      },
+      {
+        "family": "directions",
+        "implementation": "split-unroll4-cpp",
+        "wallMs": 2.57275,
+        "kernelUs": 46.625,
+        "wallMinMs": 2.347708,
+        "wallMaxMs": 4.247375,
+        "n": 21
+      },
+      {
+        "family": "directions",
+        "implementation": "split-unroll4-csharp",
+        "wallMs": 25.74475,
+        "kernelUs": 47.875,
+        "wallMinMs": 25.270708,
+        "wallMaxMs": 28.503792,
+        "n": 21
+      },
+      {
+        "family": "directions",
+        "implementation": "split-unroll4-rf2",
+        "wallMs": 3.540542,
+        "kernelUs": 47.666,
+        "wallMinMs": 3.118958,
+        "wallMaxMs": 4.823875,
+        "n": 21
+      },
+      {
+        "family": "noops",
+        "implementation": "original-unroll-csharp",
+        "wallMs": 24.950791,
+        "kernelUs": 0.0,
+        "wallMinMs": 24.22675,
+        "wallMaxMs": 26.337958,
+        "n": 21
+      },
+      {
+        "family": "noops",
+        "implementation": "original-unroll-rf2",
+        "wallMs": 2.190583,
+        "kernelUs": 0.0,
+        "wallMinMs": 1.823708,
+        "wallMaxMs": 2.727375,
+        "n": 21
+      },
+      {
+        "family": "noops",
+        "implementation": "prior-byte-csharp",
+        "wallMs": 25.500875,
+        "kernelUs": 16.75,
+        "wallMinMs": 24.891625,
+        "wallMaxMs": 35.811,
+        "n": 21
+      },
+      {
+        "family": "noops",
+        "implementation": "prior-nibble-csharp",
+        "wallMs": 25.307167,
+        "kernelUs": 23.791,
+        "wallMinMs": 24.304417,
+        "wallMaxMs": 36.272875,
+        "n": 21
+      },
+      {
+        "family": "noops",
+        "implementation": "prior-r3-cpp",
+        "wallMs": 2.116167,
+        "kernelUs": 0.0,
+        "wallMinMs": 1.809584,
+        "wallMaxMs": 2.614708,
+        "n": 21
+      },
+      {
+        "family": "noops",
+        "implementation": "prior-r3-csharp",
+        "wallMs": 25.097459,
+        "kernelUs": 0.041,
+        "wallMinMs": 24.039625,
+        "wallMaxMs": 27.742875,
+        "n": 21
+      },
+      {
+        "family": "noops",
+        "implementation": "prior-r3-rf2",
+        "wallMs": 2.18775,
+        "kernelUs": 0.0,
+        "wallMinMs": 1.756833,
+        "wallMaxMs": 2.982667,
+        "n": 21
+      },
+      {
+        "family": "noops",
+        "implementation": "prior-word-cpp",
+        "wallMs": 2.460584,
+        "kernelUs": 24.041,
+        "wallMinMs": 2.014209,
+        "wallMaxMs": 3.734708,
+        "n": 21
+      },
+      {
+        "family": "noops",
+        "implementation": "prior-word-csharp",
+        "wallMs": 25.053541,
+        "kernelUs": 24.084,
+        "wallMinMs": 24.260292,
+        "wallMaxMs": 27.969291,
+        "n": 21
+      },
+      {
+        "family": "noops",
+        "implementation": "prior-word-rf2",
+        "wallMs": 2.883167,
+        "kernelUs": 24.125,
+        "wallMinMs": 2.423084,
+        "wallMaxMs": 4.25625,
+        "n": 21
+      },
+      {
+        "family": "noops",
+        "implementation": "split-unroll4-cpp",
+        "wallMs": 2.218375,
+        "kernelUs": 0.0,
+        "wallMinMs": 1.720375,
+        "wallMaxMs": 2.757375,
+        "n": 21
+      },
+      {
+        "family": "noops",
+        "implementation": "split-unroll4-csharp",
+        "wallMs": 24.932041,
+        "kernelUs": 0.041,
+        "wallMinMs": 24.387083,
+        "wallMaxMs": 33.930458,
+        "n": 21
+      },
+      {
+        "family": "noops",
+        "implementation": "split-unroll4-rf2",
+        "wallMs": 2.1975,
+        "kernelUs": 0.0,
+        "wallMinMs": 1.838958,
+        "wallMaxMs": 2.53525,
+        "n": 21
+      },
+      {
+        "family": "walls",
+        "implementation": "original-unroll-csharp",
+        "wallMs": 24.964584,
+        "kernelUs": 0.041,
+        "wallMinMs": 24.352708,
+        "wallMaxMs": 29.456791,
+        "n": 21
+      },
+      {
+        "family": "walls",
+        "implementation": "original-unroll-rf2",
+        "wallMs": 2.303208,
+        "kernelUs": 0.0,
+        "wallMinMs": 1.796583,
+        "wallMaxMs": 3.126,
+        "n": 21
+      },
+      {
+        "family": "walls",
+        "implementation": "prior-byte-csharp",
+        "wallMs": 25.335042,
+        "kernelUs": 34.209,
+        "wallMinMs": 24.481583,
+        "wallMaxMs": 28.139792,
+        "n": 21
+      },
+      {
+        "family": "walls",
+        "implementation": "prior-nibble-csharp",
+        "wallMs": 25.53675,
+        "kernelUs": 47.667,
+        "wallMinMs": 24.630208,
+        "wallMaxMs": 28.042083,
+        "n": 21
+      },
+      {
+        "family": "walls",
+        "implementation": "prior-r3-cpp",
+        "wallMs": 2.309583,
+        "kernelUs": 0.0,
+        "wallMinMs": 1.855917,
+        "wallMaxMs": 2.837834,
+        "n": 21
+      },
+      {
+        "family": "walls",
+        "implementation": "prior-r3-csharp",
+        "wallMs": 24.908958,
+        "kernelUs": 0.041,
+        "wallMinMs": 23.743292,
+        "wallMaxMs": 27.2995,
+        "n": 21
+      },
+      {
+        "family": "walls",
+        "implementation": "prior-r3-rf2",
+        "wallMs": 2.341,
+        "kernelUs": 0.0,
+        "wallMinMs": 2.00325,
+        "wallMaxMs": 2.908,
+        "n": 21
+      },
+      {
+        "family": "walls",
+        "implementation": "prior-word-cpp",
+        "wallMs": 2.708708,
+        "kernelUs": 48.083,
+        "wallMinMs": 2.388583,
+        "wallMaxMs": 3.14425,
+        "n": 21
+      },
+      {
+        "family": "walls",
+        "implementation": "prior-word-csharp",
+        "wallMs": 25.787083,
+        "kernelUs": 48.458,
+        "wallMinMs": 24.994125,
+        "wallMaxMs": 27.734625,
+        "n": 21
+      },
+      {
+        "family": "walls",
+        "implementation": "prior-word-rf2",
+        "wallMs": 3.452125,
+        "kernelUs": 48.166,
+        "wallMinMs": 3.123709,
+        "wallMaxMs": 3.805209,
+        "n": 21
+      },
+      {
+        "family": "walls",
+        "implementation": "split-unroll4-cpp",
+        "wallMs": 2.134042,
+        "kernelUs": 0.0,
+        "wallMinMs": 1.784666,
+        "wallMaxMs": 2.5475,
+        "n": 21
+      },
+      {
+        "family": "walls",
+        "implementation": "split-unroll4-csharp",
+        "wallMs": 25.125625,
+        "kernelUs": 0.041,
+        "wallMinMs": 24.460333,
+        "wallMaxMs": 28.635375,
+        "n": 21
+      },
+      {
+        "family": "walls",
+        "implementation": "split-unroll4-rf2",
+        "wallMs": 2.08275,
+        "kernelUs": 0.0,
+        "wallMinMs": 1.919917,
+        "wallMaxMs": 2.579125,
+        "n": 21
+      }
+    ],
+    "paired": [
+      {
+        "family": "mixed",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-r3-rf2",
+        "metric": "wallNs",
+        "medianPairedSpeedup": 1.003374831734241,
+        "fasterPairs": 11,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "mixed",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-r3-rf2",
+        "metric": "kernelNs",
+        "medianPairedSpeedup": 1.0051903832578997,
+        "fasterPairs": 12,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "mixed",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "original-unroll-rf2",
+        "metric": "wallNs",
+        "medianPairedSpeedup": 1.0205881476305065,
+        "fasterPairs": 12,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "mixed",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "original-unroll-rf2",
+        "metric": "kernelNs",
+        "medianPairedSpeedup": 1.3469266386304746,
+        "fasterPairs": 21,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "mixed",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-nibble-csharp",
+        "metric": "wallNs",
+        "medianPairedSpeedup": 9.537624354236367,
+        "fasterPairs": 21,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "mixed",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-nibble-csharp",
+        "metric": "kernelNs",
+        "medianPairedSpeedup": 0.9982127659574468,
+        "fasterPairs": 7,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "mixed",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-word-csharp",
+        "metric": "wallNs",
+        "medianPairedSpeedup": 9.216530281248849,
+        "fasterPairs": 21,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "mixed",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-word-csharp",
+        "metric": "kernelNs",
+        "medianPairedSpeedup": 1.0053004282746045,
+        "fasterPairs": 13,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "directions",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-r3-rf2",
+        "metric": "wallNs",
+        "medianPairedSpeedup": 0.9687634261141079,
+        "fasterPairs": 8,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "directions",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-r3-rf2",
+        "metric": "kernelNs",
+        "medianPairedSpeedup": 1.0096295053077666,
+        "fasterPairs": 15,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "directions",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "original-unroll-rf2",
+        "metric": "wallNs",
+        "medianPairedSpeedup": 1.005812746713678,
+        "fasterPairs": 12,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "directions",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "original-unroll-rf2",
+        "metric": "kernelNs",
+        "medianPairedSpeedup": 1.3461586875340914,
+        "fasterPairs": 21,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "directions",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-nibble-csharp",
+        "metric": "wallNs",
+        "medianPairedSpeedup": 7.422054743095676,
+        "fasterPairs": 21,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "directions",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-nibble-csharp",
+        "metric": "kernelNs",
+        "medianPairedSpeedup": 0.9991398481097638,
+        "fasterPairs": 9,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "directions",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-word-csharp",
+        "metric": "wallNs",
+        "medianPairedSpeedup": 7.298986667384348,
+        "fasterPairs": 21,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "directions",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-word-csharp",
+        "metric": "kernelNs",
+        "medianPairedSpeedup": 1.0096295053077666,
+        "fasterPairs": 13,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "noops",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-r3-rf2",
+        "metric": "wallNs",
+        "medianPairedSpeedup": 0.954811939404608,
+        "fasterPairs": 10,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "noops",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-r3-rf2",
+        "metric": "kernelNs",
+        "medianPairedSpeedup": 1.0,
+        "fasterPairs": 0,
+        "comparablePairs": 2,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "noops",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "original-unroll-rf2",
+        "metric": "wallNs",
+        "medianPairedSpeedup": 1.0139347676316266,
+        "fasterPairs": 12,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "noops",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "original-unroll-rf2",
+        "metric": "kernelNs",
+        "medianPairedSpeedup": 1.0,
+        "fasterPairs": 0,
+        "comparablePairs": 2,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "noops",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-nibble-csharp",
+        "metric": "wallNs",
+        "medianPairedSpeedup": 11.584850511945392,
+        "fasterPairs": 21,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "noops",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-nibble-csharp",
+        "metric": "kernelNs",
+        "medianPairedSpeedup": 580.2682926829268,
+        "fasterPairs": 5,
+        "comparablePairs": 5,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "noops",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-word-csharp",
+        "metric": "wallNs",
+        "medianPairedSpeedup": 11.313777901349829,
+        "fasterPairs": 21,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "noops",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-word-csharp",
+        "metric": "kernelNs",
+        "medianPairedSpeedup": 587.390243902439,
+        "fasterPairs": 5,
+        "comparablePairs": 5,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "walls",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-r3-rf2",
+        "metric": "wallNs",
+        "medianPairedSpeedup": 1.107640363291708,
+        "fasterPairs": 15,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "walls",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-r3-rf2",
+        "metric": "kernelNs",
+        "medianPairedSpeedup": 2.024390243902439,
+        "fasterPairs": 2,
+        "comparablePairs": 2,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "walls",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "original-unroll-rf2",
+        "metric": "wallNs",
+        "medianPairedSpeedup": 1.0619096407540631,
+        "fasterPairs": 15,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "walls",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "original-unroll-rf2",
+        "metric": "kernelNs",
+        "medianPairedSpeedup": 1.0,
+        "fasterPairs": 0,
+        "comparablePairs": 1,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "walls",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-nibble-csharp",
+        "metric": "wallNs",
+        "medianPairedSpeedup": 12.205293795792358,
+        "fasterPairs": 21,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "walls",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-nibble-csharp",
+        "metric": "kernelNs",
+        "medianPairedSpeedup": 1219.5121951219512,
+        "fasterPairs": 7,
+        "comparablePairs": 7,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "walls",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-word-csharp",
+        "metric": "wallNs",
+        "medianPairedSpeedup": 12.440103228904093,
+        "fasterPairs": 21,
+        "comparablePairs": 21,
+        "pairsIncludingClockFloor": 21
+      },
+      {
+        "family": "walls",
+        "candidate": "split-unroll4-rf2",
+        "baseline": "prior-word-csharp",
+        "metric": "kernelNs",
+        "medianPairedSpeedup": 1178.878048780488,
+        "fasterPairs": 7,
+        "comparablePairs": 7,
+        "pairsIncludingClockFloor": 21
+      }
+    ],
+    "controllerElapsedSeconds": 15.088712542,
+    "qualifiedTimings": 1092,
+    "correctnessChecks": 819,
+    "promotion": "No shared compiler or default runtime promotion; retain prior scalar R3 pending broader whole-process qualification"
+  },
+  "promotion": "None: retain prior R3 default. Full-process direction regression and remaining C# losses remain open.",
+  "limits": [
+    "Compare within the correction replay only; macOS thermal/frequency/scheduling conditions uncontrolled.",
+    "Kernel excludes input validation/preparation/startup; whole process includes them, warmups and output.",
+    "Exact origin certificate in all matched languages; timer floor is not free computation.",
+    "No whole language, hardware, energy, physical gate or token advantage follows.",
+    "C# image sizes exclude its required runtime.",
+    "Frozen compiler unchanged; no native release or MCP permission changes."
+  ]
+}
