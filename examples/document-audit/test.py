@@ -3,9 +3,10 @@ from pathlib import Path
 import hashlib,json,os,struct,subprocess,tempfile
 R=Path(__file__).resolve().parent
 EXE=Path(os.environ.get('DOCUMENT_AUDIT_BIN',str(R/'artifacts/document-audit'))).resolve()
-(R/'artifacts').mkdir(parents=True,exist_ok=True)
+OUT=Path(os.environ.get('RF2_TEST_ARTIFACTS', R/'artifacts'))
+OUT.mkdir(parents=True,exist_ok=True)
 if not EXE.is_file():raise SystemExit('Build the native app first and set DOCUMENT_AUDIT_BIN to its executable path.')
-D=Path(tempfile.mkdtemp(prefix='document-audit-',dir=R/'artifacts'))
+D=Path(tempfile.mkdtemp(prefix='document-audit-',dir=OUT))
 checks=[]
 def check(name,ok,detail=None):
  checks.append(dict(name=name,passed=bool(ok),detail=detail))
