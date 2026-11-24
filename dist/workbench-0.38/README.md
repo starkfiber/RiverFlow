@@ -7,3 +7,5 @@ Booking CLI, graphical booking and Core learning IDE, with the unchanged native 
 SHA-256: `146874d9b68b2c4a4be373f967e7ea04b7490da4abc69e8df1717be3acb0c8c7`
 
 Extract the archive, open Terminal in the extracted folder and follow README.md. `booking init` creates a new journal. `booking-web` prints its local URL. `studio` requires an explicitly selected private project directory and absolute bundle paths. The IDE supports bounded Core programs; it is not a full systems IDE.
+
+An optional [managed-update build](../../native/updater/README.md) uses this pinned bundle and separately provisioned publisher trust. The base download remains available.
