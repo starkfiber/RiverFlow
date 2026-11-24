@@ -66,7 +66,8 @@ def cases():
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('binary');parser.add_argument('--label',default='epoch');parser.add_argument('--python-reference',action='store_true');args=parser.parse_args();binary=Path(args.binary).resolve()
     launch=[os.sys.executable,str(binary)]if args.python_reference else[str(binary)]
-    out=Path(tempfile.mkdtemp(prefix='sensor-'+args.label+'-',dir=ROOT/'artifacts'));results=[]
+    parent=Path(os.environ.get('RF2_TEST_ARTIFACTS', ROOT/'artifacts'))
+    out=Path(tempfile.mkdtemp(prefix='sensor-'+args.label+'-',dir=parent));results=[]
     for name,data,bounds in cases():
         path=out/(name+'.csv');path.write_bytes(data);before=hashlib.sha256(data).hexdigest()
         command=[*launch,str(path)]+([str(v)for v in bounds]if bounds else[])
